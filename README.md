@@ -1,72 +1,75 @@
-# WorkTool
+# Workmate
 
-> 한국 실무자를 위한 무료 온라인 도구 모음
+> 한국 실무자가 매일 쓰는 도구·계산기 + 메이커 프로젝트 허브
 
-## 🎯 소개
+[workmate.tools](https://workmate.tools)
 
-WorkTool은 한국의 전기공사기사, 제조업 종사자, 사업자, 개발자 등이 매일 사용하는 계산과 변환 작업을 무료로 제공하는 도구 모음 사이트입니다.
+## 무엇을 하는 사이트인가요?
 
-모든 도구는:
-- ✅ **무료** - 가입 없이 즉시 사용
-- ✅ **정확** - KS 표준 기반 + 출처 명시
-- ✅ **빠름** - 클라이언트 사이드 계산
-- ✅ **한/영 지원** - 한국 표준을 영어로도 제공
+크게 세 부분입니다.
 
-## 🛠️ 도구 목록
+**1. 도구·계산기 (16개 + 47개 SEO 페이지)**
+- **전기**: 전선 굵기 (KEC 232.5) · 차단기 용량 · 전압강하
+- **목조 시공**: 부재 경간 · 단열 R/U값 · 자재 수량 · 계단 · 서까래 · 지붕 경사·면적 · 콘크리트 부피 · 목재 환산
+- **재무**: 4대보험 (2026 요율) · 해외주식 양도세 (22%)
+- **유틸**: JSON ↔ CSV 변환 (한글 BOM)
+- **사업자**: 사업자등록번호 체크섬 검증
 
-### 산업용 전기 계산기 (Phase 1)
-- 전선 굵기 계산 (KS C IEC 60364 기준)
-- 차단기 용량 계산
-- 전압강하 계산
+모든 결과는 **계산 과정을 단계별로** 보여주고, 출처(KS·KEC·내선규정·건축법)를 함께 표기합니다.
 
-### 예정 (Phase 2)
-- 사업자등록번호 진위 확인
-- 한글 → 영문 주소 변환
-- MSDS(물질안전보건자료) 검색
-- 4대보험 계산기
-- 해외주식 양도소득세 계산
-- JSON ↔ CSV 변환 (한국어 인코딩 지원)
+**2. 가이드 블로그 (5편 + 추가 예정)**
+KEC 232.5 현장 가이드, 단열 통과 조합, 4대보험 분해, 부재 경간 함정, 사업자등록번호 검증 — 매일 1편씩 늘려갑니다.
 
-## 🏗️ 기술 스택
+**3. 메이커 프로젝트 허브 (예정)**
+운영자의 다른 프로젝트(K-Poker · Defense · Hakrew · doc-translator 등)를 한 곳에 모아 트래픽을 분배하고 메이커 노트를 공유합니다.
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4 + shadcn/ui
-- **i18n**: next-intl
-- **Deployment**: Vercel
+## 운영 철학
 
-## 🚀 로컬 개발 (Windows PowerShell)
+- **계산은 브라우저에서만** — 서버 전송 없음. 오프라인 동작.
+- **결과는 항상 참고용** — 시공·신고 전 전문가 검토 필수.
+- **AI 콘텐츠 회피** — 가이드는 1인칭 + 구체 사례 + 솔직한 한계 인정으로 작성.
 
-```powershell
-# 의존성 설치
+## 기술 스택
+
+- Next.js 15 (App Router) · TypeScript · Tailwind v4
+- next-intl (한·영 i18n)
+- React Hook Form + Zod
+- Vitest (160 단위 테스트)
+- Vercel 배포
+
+## 로컬 개발
+
+```bash
 npm install
-
-# 개발 서버 실행
-npm run dev
-
-# 브라우저에서 열기
-# http://localhost:3000
+npm run dev      # http://localhost:3000
+npm run test     # 단위 테스트
+npm run build    # 프로덕션 빌드 (94+ 정적 페이지)
 ```
 
-## 📁 프로젝트 구조
+## 환경변수
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://workmate.tools
+```
+
+## 디렉토리
 
 ```
-worktool/
-├── app/[locale]/          # i18n 라우팅
-├── components/            # UI 컴포넌트
+workmate/
+├── app/[locale]/         # i18n 라우팅 + 도구 페이지
+├── components/
+│   ├── tools/            # 도구별 폼 (전기·목조·재무·유틸·사업자)
+│   ├── ui/calc-form.tsx  # 공통 폼 primitives
+│   └── seo/              # JSON-LD 구조화 데이터
 ├── lib/
-│   ├── calculations/      # 계산 로직 (순수 함수)
-│   └── constants/         # KS 표준 상수
-├── messages/              # 번역 파일 (ko, en)
-└── docs/                  # 도구별 설계 문서
+│   ├── calculations/     # 순수 함수 (테스트 포함)
+│   ├── constants/        # KS 표준 상수
+│   ├── hooks/            # URL 동기화 등
+│   └── siteConfig.ts     # 도메인·브랜드 단일 진실원
+├── messages/             # ko.json / en.json
+└── docs/                 # 도구 설계 문서
 ```
 
-자세한 개발 가이드는 [CLAUDE.md](./CLAUDE.md) 참고
-
-## 📜 라이선스
+## 라이선스
 
 MIT
-
-## 🤝 기여
-
-이슈 및 PR 환영합니다.

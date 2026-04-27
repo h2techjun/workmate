@@ -4,12 +4,11 @@ import { ChevronLeft, ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import { calculateInsurance } from "@/lib/calculations/insurance/fourMajorInsurance";
 import { CalculatorJsonLd } from "@/components/seo/StructuredData";
+import { SITE_URL } from "@/lib/siteConfig";
 
 interface PageProps {
   params: Promise<{ locale: string; amount: string }>;
 }
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://worktool.kr";
 
 /**
  * 사전에 빌드 타임에 생성할 월급 (만원). 전 범위가 아니라

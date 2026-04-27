@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://worktool.kr";
+import { SITE_URL } from "@/lib/siteConfig";
 
 const TOOL_PATHS = [
   "",

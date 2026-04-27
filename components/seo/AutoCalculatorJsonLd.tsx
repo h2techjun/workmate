@@ -1,4 +1,5 @@
 import { CalculatorJsonLd } from "./StructuredData";
+import { SITE_URL } from "@/lib/siteConfig";
 
 interface AutoCalculatorJsonLdProps {
   /** 현재 locale ("ko" | "en") */
@@ -20,8 +21,6 @@ interface AutoCalculatorJsonLdProps {
     ReadonlyArray<{ name: string; text: string }>
   >;
 }
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://worktool.kr";
 
 /**
  * 모든 도구 페이지에서 사용하는 Schema.org wrapper.

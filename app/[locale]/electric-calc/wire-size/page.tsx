@@ -4,9 +4,8 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { WireSizeForm } from "@/components/tools/electric-calc/WireSizeForm";
 import { CalculatorJsonLd } from "@/components/seo/StructuredData";
+import { SITE_URL } from "@/lib/siteConfig";
 import type { Locale } from "@/i18n";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://worktool.kr";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
