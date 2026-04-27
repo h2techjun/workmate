@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/i18n";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { AdSenseScript } from "@/components/seo/AdSenseScript";
 import "../globals.css";
 
 interface LocaleLayoutProps {
@@ -73,6 +74,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="dark">
+      <head>
+        <AdSenseScript />
+      </head>
       <body>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <div className="flex min-h-screen flex-col">
