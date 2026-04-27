@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   WorkTool — Premium Dark Design System
+   ========================================================================== */
+
+@theme {
+  --color-bg: #0a0b0e;
+  --color-bg-elevated: #11131a;
+  --color-bg-card: #161922;
+  --color-bg-card-hover: #1c2030;
+  --color-border-subtle: #232838;
+  --color-border-default: #2d3346;
+  --color-border-strong: #404763;
+  --color-text-primary: #f4f5f8;
+  --color-text-secondary: #a4abbf;
+  --color-text-tertiary: #6e7691;
+  --color-text-muted: #4a5168;
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+  --color-accent-bg: #312e81;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+}
+
+/* Base */
+:root {
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Pretendard",
+    "Apple SD Gothic Neo", "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  font-feature-settings: "ss01", "tnum";
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(168, 85, 247, 0.08), transparent),
+    var(--color-bg);
+  background-attachment: fixed;
+  min-height: 100vh;
+  /* iOS 16px 최소 폰트로 줌 방지 */
+}
+
+/* iOS Safari safe area */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Inputs — 16px 미만이면 iOS가 자동 줌 */
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+/* iOS에서 폰트 크기 16px 이상으로 자동 줌 방지 */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Number input의 spin 버튼 정리 (모바일 깔끔) */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Custom select chevron */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a4abbf' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 14px;
+  padding-right: 2.25rem;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
+
+/* Text selection */
+::selection {
+  background: rgba(99, 102, 241, 0.4);
+  color: #ffffff;
+}
+
+/* Reusable utilities */
+@utility surface-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+@utility surface-elevated {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+}
+
+@utility surface-glass {
+  background: rgba(22, 25, 34, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@utility input-base {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-elevated);
+  padding: 0.75rem 0.875rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  transition: border-color 150ms ease, background 150ms ease;
+}
+@utility input-base {
+  &:hover {
+    border-color: var(--color-border-strong);
+  }
+  &:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  }
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  background: linear-gradient(180deg, #6366f1, #4f46e5);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 4px 12px rgba(99, 102, 241, 0.25);
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+  cursor: pointer;
+  min-height: 44px; /* 모바일 터치 타겟 */
+}
+@utility btn-primary {
+  &:hover {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 6px 20px rgba(99, 102, 241, 0.4);
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-default);
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  cursor: pointer;
+  min-height: 44px;
+}
+@utility btn-ghost {
+  &:hover {
+    background: var(--color-bg-card-hover);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-strong);
+  }
+}
+
+/* ==========================================================================
+   Print-friendly layout — for PDF export via browser print dialog
+   ========================================================================== */
+
+@media print {
+  html, body {
+    background: white !important;
+    color: #000 !important;
+  }
+  body {
+    background-image: none !important;
+  }
+  /* Hide chrome (header/footer/nav/buttons) when printing */
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+  /* Result panel takes full width on print */
+  main {
+    padding: 0 !important;
+  }
+  .surface-card,
+  .surface-elevated,
+  .surface-glass {
+    background: white !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    border-radius: 8px !important;
+    page-break-inside: avoid;
+  }
+  /* Force readable colors on print */
+  *, *::before, *::after {
+    color: #000 !important;
+    text-shadow: none !important;
+    background-image: none !important;
+  }
+  a {
+    text-decoration: none !important;
+  }
+  /* Add URL after link text */
+  a[href]:not([href^="#"])::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555 !important;
+  }
+  /* Form input styling for print */
+  input, select, textarea {
+    background: white !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+  /* Stat box fix */
+  dt {
+    color: #666 !important;
+  }
+  dd {
+    color: #000 !important;
+  }
+  /* Page break hints */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    color: #000 !important;
+  }
+  ol, ul, dl {
+    page-break-inside: avoid;
+  }
+}
+
+/* Animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}

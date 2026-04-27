@@ -1,0 +1,1276 @@
+{
+  "layout": {
+    "electric": "Electric",
+    "timber": "Timber",
+    "open": "Open",
+    "share": "Copy share link",
+    "shareCopied": "Copied",
+    "print": "Print / PDF",
+    "nav": {
+      "about": "About",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact"
+    },
+    "footer": {
+      "copyright": "© 2026 WorkTool — Free Tools for Korean Standards",
+      "disclaimer": "These calculators reference KS standards and Korean building code for informational purposes only. Actual design and installation must be reviewed by a licensed professional."
+    }
+  },
+  "homeSearch": {
+    "placeholder": "Search tools — e.g. wire, insulation, payroll, business",
+    "noResults": "No tool matches \"{query}\".",
+    "category": {
+      "electric": "Electric",
+      "timber": "Timber",
+      "finance": "Finance",
+      "util": "Util",
+      "business": "Business"
+    },
+    "tools": {
+      "wireSize": {
+        "title": "Wire Size",
+        "description": "Auto cross-section per KEC 232.5",
+        "keywords": "wire size cable cross-section KEC 232"
+      },
+      "breaker": {
+        "title": "Breaker Capacity",
+        "description": "Auto-select MCB/MCCB rating",
+        "keywords": "breaker MCB MCCB ELB safety factor"
+      },
+      "voltageDrop": {
+        "title": "Voltage Drop",
+        "description": "Auto compliance check",
+        "keywords": "voltage drop Korean Electrical Code 1410-1"
+      },
+      "span": {
+        "title": "Member Span",
+        "description": "Joist/rafter bending + deflection",
+        "keywords": "span joist rafter header bending deflection NDS KDS"
+      },
+      "insulation": {
+        "title": "Insulation R/U",
+        "description": "Korean energy code auto check",
+        "keywords": "insulation R-value U-value energy code PHIKO"
+      },
+      "materialQuantity": {
+        "title": "Material Quantity",
+        "description": "Sheets + nail count",
+        "keywords": "material quantity OSB plywood gypsum siding nails"
+      },
+      "stairs": {
+        "title": "Stairs",
+        "description": "Korean code + Blondel",
+        "keywords": "stairs riser tread Blondel"
+      },
+      "rafter": {
+        "title": "Rafter Length",
+        "description": "Run+rise → cut length",
+        "keywords": "rafter roof eave run rise"
+      },
+      "roofPitch": {
+        "title": "Roof Pitch",
+        "description": "Angle↔slope↔pitch",
+        "keywords": "roof pitch slope angle"
+      },
+      "roofArea": {
+        "title": "Roof Area",
+        "description": "Slope + eave area",
+        "keywords": "roof area slope sec"
+      },
+      "concrete": {
+        "title": "Concrete Volume",
+        "description": "Footing + rebar + remicon",
+        "keywords": "concrete strip footing mat slab rebar remicon"
+      },
+      "lumber": {
+        "title": "Lumber Conversion",
+        "description": "m³·sai·BF",
+        "keywords": "lumber sai 才 board feet BF"
+      },
+      "insurance": {
+        "title": "4-Major Insurance",
+        "description": "2026 rates + net salary",
+        "keywords": "insurance pension health employment payroll Korea"
+      },
+      "foreignStockTax": {
+        "title": "Foreign Stock Tax",
+        "description": "FX + deduction + 22%",
+        "keywords": "foreign stock capital gains tax FX 22%"
+      },
+      "jsonCsv": {
+        "title": "JSON ↔ CSV",
+        "description": "Korean BOM + Excel-friendly",
+        "keywords": "JSON CSV convert BOM Excel UTF-8"
+      },
+      "bizNumber": {
+        "title": "Business Number Validate",
+        "description": "Instant checksum validation",
+        "keywords": "business number validation checksum NTS Korea"
+      }
+    }
+  },
+  "home": {
+    "title": "WorkTool",
+    "tagline": "Free online tools based on Korean standards",
+    "subtitle": "Electric, tax, and document calculators precisely aligned to Korean Standards (KS), in one place.",
+    "toolsHeading": "Available Tools",
+    "comingSoon": "Coming Soon",
+    "openTool": "Open",
+    "tools": {
+      "electricCalc": {
+        "title": "Industrial Electric Calculator",
+        "description": "Wire size, breaker capacity, voltage drop calculators based on KS standards",
+        "tag": "Electric"
+      },
+      "timberCalc": {
+        "title": "Timber Construction Calculator",
+        "description": "Rafter, roof pitch, stairs, and lumber quantity calculators for wood frame construction",
+        "tag": "Timber"
+      },
+      "insurance": {
+        "title": "4-Major Insurance",
+        "description": "Korean payroll insurance (pension, health, employment, accident) calculator with 2026 rates",
+        "tag": "Payroll"
+      },
+      "foreignStockTax": {
+        "title": "Foreign Stock Capital Gains",
+        "description": "Korean residents' foreign stock capital gains tax with FX, KRW 2.5M deduction, 22% rate",
+        "tag": "Tax"
+      },
+      "jsonCsv": {
+        "title": "JSON ↔ CSV",
+        "description": "Korean-encoding-aware (UTF-8 BOM) JSON ↔ CSV converter with Excel compatibility",
+        "tag": "Util"
+      },
+      "bizNumber": {
+        "title": "Business Number Validation",
+        "description": "Offline checksum validation of Korean business registration numbers (NTS standard algorithm)",
+        "tag": "Business"
+      },
+      "biznum": {
+        "title": "Business Registration Status",
+        "description": "Real-time NTS Hometax lookup for business operating status (API integration pending)",
+        "tag": "Business"
+      },
+      "msds": {
+        "title": "MSDS Search",
+        "description": "Search and compare Material Safety Data Sheets",
+        "tag": "Safety"
+      }
+    }
+  },
+  "electricCalc": {
+    "title": "Industrial Electric Calculator",
+    "subtitle": "Free electric design calculations based on Korean KS C IEC 60364 standard.",
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Electric Calculator"
+    },
+    "hub": {
+      "tools": "Available Calculators"
+    },
+    "wireSize": {
+      "title": "Wire Size Calculator",
+      "description": "Calculate proper wire cross-section based on current, distance, and allowable voltage drop.",
+      "available": true
+    },
+    "breaker": {
+      "title": "Breaker Capacity",
+      "description": "Auto-select MCB/MCCB rated current from load current and safety factor (KS standard ratings).",
+      "available": true
+    },
+    "voltageDrop": {
+      "title": "Voltage Drop",
+      "description": "Calculate voltage drop, receiving-end voltage, and code-compliance against the Korean Electrical Code distance limits.",
+      "available": true
+    },
+    "comingSoon": {
+      "title": "Coming Soon",
+      "description": "This calculator is currently under development. Try one of the other available calculators.",
+      "back": "Back to Electric Calculators"
+    }
+  },
+  "breakerTool": {
+    "meta": {
+      "title": "Breaker Capacity Calculator | WorkTool",
+      "description": "Auto-select MCB/MCCB rated current from load current + safety factor with inverter+ELB warning."
+    },
+    "title": "Breaker Capacity Calculator",
+    "subtitle": "Load current × safety factor → smallest KS-standard rating that satisfies the requirement. Includes inverter+ELB nuisance-trip warning.",
+    "breadcrumb": { "parent": "Electric Calculator", "current": "Breaker" },
+    "sections": { "load": "Load Information" },
+    "fields": {
+      "loadCurrent": "Load Current (A)",
+      "loadType": "Load Type",
+      "customSafetyFactor": "Custom Safety Factor (optional)",
+      "useElb": "Using ELB (Earth-Leakage Breaker)"
+    },
+    "hints": {
+      "loadType": "Defaults: General 1.25 / Motor direct 1.5 / Y-Δ 2.0 / Inverter 1.25 / Welder 3.0",
+      "customSafetyFactor": "Leave blank to use the load-type default",
+      "customSafetyFactorPlaceholder": "Use default",
+      "useElb": "If ELB is used — combined with inverter loads, leakage current can cause nuisance trips"
+    },
+    "loadType": {
+      "general": "General lighting/outlets",
+      "motorDirect": "Motor — direct start",
+      "motorYDelta": "Motor — Y-Δ start",
+      "inverter": "Inverter load",
+      "welder": "Welder (intermittent)"
+    },
+    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter load current and type, then click Calculate.",
+      "recommendedRating": "Recommended Breaker",
+      "appliedSafetyFactor": "Applied Safety Factor",
+      "calculatedMinRating": "Minimum Required Rating",
+      "safetyMargin": "Safety Margin",
+      "warnings": "Warnings",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: KS C 8324 (MCCB) + KS C 8453 (ELB)",
+        "line2": "Note: Inverter + 30mA ELB combination is prone to nuisance tripping due to leakage. MCB/MCCB recommended."
+      }
+    },
+    "steps": {
+      "minRating": "Step 1: Min rating — {loadCurrent}A × {safetyFactor} = {result}A",
+      "selectRating": "Step 2: KS standard — smallest {breakerType} rating ≥ {minRating}A = {result}A",
+      "safetyMargin": "Step 3: Safety margin — ({rating} - {loadCurrent}) / {rating} × 100 = {result}%"
+    },
+    "warnings": {
+      "inverterWithElb": "Inverter + ELB combination often causes nuisance tripping due to Y-capacitor leakage. Consider MCB/MCCB instead.",
+      "marginLow": "Safety margin is below {threshold}%. Consider stepping up one size.",
+      "highCurrentMcb": "Reaching MCB max rating (63A). Larger loads will use MCCB."
+    },
+    "validation": {
+      "loadCurrentPositive": "Load current must be greater than 0",
+      "loadCurrentMax": "Load current must be at most 5000A"
+    },
+    "errors": {
+      "noStandardMatch": "Required rating exceeds KS standard range.",
+      "unknown": "An unknown error occurred during calculation."
+    }
+  },
+  "voltageDropTool": {
+    "meta": {
+      "title": "Voltage Drop Calculator | WorkTool",
+      "description": "Compute voltage drop and check against Korean Electrical Code distance-based limits (3-7%)."
+    },
+    "title": "Voltage Drop Calculator",
+    "subtitle": "Korean Electrical Code formula e = (k × L × I) / (1000 × A) with auto distance-based limit comparison (3% / 5% / 6% / 7%).",
+    "breadcrumb": { "parent": "Electric Calculator", "current": "Voltage Drop" },
+    "sections": { "circuit": "Circuit", "cable": "Cable" },
+    "fields": {
+      "voltage": "Source Voltage (V)",
+      "current": "Load Current (A)",
+      "distance": "One-way Distance (m)",
+      "phaseType": "Phase Type",
+      "crossSection": "Cross-section (mm²)",
+      "material": "Conductor Material"
+    },
+    "phase": {
+      "single-2wire": "Single-phase 2-wire (k=35.6)",
+      "single-3wire": "Single-phase 3-wire (k=17.8)",
+      "three-3wire": "Three-phase 3-wire (k=30.8)",
+      "three-4wire": "Three-phase 4-wire (k=17.8)"
+    },
+    "material": { "copper": "Copper", "aluminum": "Aluminum (×1.6)" },
+    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "status": { "pass": "PASS", "fail": "FAIL (NG)" },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter circuit information and click Calculate.",
+      "dropPercent": "Voltage Drop %",
+      "dropV": "Voltage Drop",
+      "receivingVoltage": "Receiving-end Voltage",
+      "limitPercent": "Limit %",
+      "status": "Compliance",
+      "margin": "Margin",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: Korean Electrical Code (Naesun) 1410-1 — voltage-drop formula and distance limits",
+        "line2": "Note: ≤60m → 3% / ≤120m → 5% / ≤200m → 6% / >200m → 7%"
+      }
+    },
+    "steps": {
+      "coefficient": "Step 1: Coefficient — base {base} ({material}) → applied {result}",
+      "drop": "Step 2: Voltage drop — ({coefficient} × {distance} × {current}) / (1000 × {crossSection}) = {result}V",
+      "dropPercent": "Step 3: Drop % — {drop} / {voltage} × 100 = {result}%",
+      "receivingVoltage": "Step 4: Receiving voltage — {voltage} - {drop} = {result}V",
+      "limitCheck": "Step 5: Compliance — limit {limitPercent}% (≤{distance}m) vs actual {actualPercent}% → {status}"
+    },
+    "validation": {
+      "voltagePositive": "Voltage must be greater than 0",
+      "currentPositive": "Current must be greater than 0",
+      "distancePositive": "Distance must be greater than 0",
+      "distanceMax": "Distance must be at most 2000m",
+      "crossSectionPositive": "Cross-section must be greater than 0",
+      "crossSectionStandard": "Not a KS standard cross-section"
+    },
+    "errors": { "unknown": "An unknown error occurred during calculation." }
+  },
+  "insuranceTool": {
+    "meta": {
+      "title": "Korean 4-Major Insurance Calculator (2026) | WorkTool",
+      "description": "Calculate Korean payroll insurance contributions: National Pension, Health, Long-term Care, Employment, Industrial Accident. 2026 rates."
+    },
+    "title": "Korean 4-Major Insurance Calculator",
+    "subtitle": "2026 rates. Computes employee + employer contributions and net salary in one pass. Industrial accident rate is industry-specific (editable).",
+    "breadcrumb": { "home": "Home" },
+    "sections": { "salary": "Salary" },
+    "fields": {
+      "monthlySalary": "Monthly Salary (KRW)",
+      "industrialAccidentRate": "Industrial Accident Rate (decimal, default 0.0086)"
+    },
+    "hints": {
+      "monthlySalary": "Pre-tax monthly salary. Excludes non-taxable allowances.",
+      "industrialAccidentRate": "All-industry average 0.86% (0.0086). Adjust per actual industry."
+    },
+    "lines": {
+      "nationalPension": "National Pension",
+      "healthInsurance": "Health Insurance",
+      "longTermCare": "Long-term Care",
+      "employmentUnemployment": "Employment (Unemployment)",
+      "employmentExtra": "Employment (Stability/Skill Dev.)",
+      "industrialAccident": "Industrial Accident"
+    },
+    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "unit": { "krw": "KRW" },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter monthly salary and click Calculate.",
+      "netSalary": "Net Salary (Take-home)",
+      "totalEmployee": "Total Employee Deduction",
+      "totalEmployer": "Total Employer Burden",
+      "totalCost": "Total Cost to Employer (Salary + Burden)",
+      "breakdown": "Breakdown by Insurance",
+      "warnings": "Warnings",
+      "col": {
+        "item": "Insurance",
+        "employee": "Employee",
+        "employer": "Employer",
+        "total": "Total"
+      },
+      "source": {
+        "line1": "Source: NPS · NHIS · Workers' Comp Service · EI (2026 rates)",
+        "line2": "Long-term care: 12.95% of health insurance / Employment Stability: 0.25% (employer only, < 150 employees)",
+        "line3": "Note: Industrial accident rate varies 0.6–30% by industry. Verify with Workers' Comp Service."
+      }
+    },
+    "warnings": {
+      "pensionCapped": "Salary exceeds the National Pension upper base ({cap} KRW). Capped value used.",
+      "pensionFloored": "Salary below the National Pension lower base ({floor} KRW). Floor value used."
+    },
+    "validation": {
+      "salaryMin": "Monthly salary must be at least 100,000 KRW",
+      "salaryMax": "Monthly salary must be at most 100,000,000 KRW"
+    },
+    "errors": { "unknown": "An unknown error occurred during calculation." }
+  },
+  "foreignStockTaxTool": {
+    "meta": {
+      "title": "Foreign Stock Capital Gains Tax | WorkTool",
+      "description": "Korean residents' foreign stock capital gains tax with FX, KRW 2.5M deduction, 22% rate (income + local)."
+    },
+    "title": "Foreign Stock Capital Gains Tax Calculator",
+    "subtitle": "For Korean residents. Applies separate buy/sell exchange rates, KRW 2.5M annual deduction, and 22% (income 20% + local 2%) tax rate.",
+    "breadcrumb": { "home": "Home" },
+    "sections": { "buy": "Purchase", "sell": "Sale", "options": "Options" },
+    "fields": {
+      "buyPriceForeign": "Buy Price (Foreign Currency)",
+      "buyExchangeRate": "Buy-day Exchange Rate (KRW per FX)",
+      "sellPriceForeign": "Sell Price (Foreign Currency)",
+      "sellExchangeRate": "Sell-day Exchange Rate (KRW per FX)",
+      "transactionCostKrw": "Total Transaction Cost (KRW)",
+      "prevDeductionUsed": "Already-used Deduction This Year (KRW)"
+    },
+    "hints": {
+      "foreignCurrency": "Amount in transaction currency (USD/EUR/JPY etc.)",
+      "exchangeRate": "Bank of Korea reference rate on the trade date",
+      "transactionCost": "Brokerage fees and other costs (excluding tax)",
+      "prevDeduction": "Deduction already used in other trades this year. Subtracted from KRW 2.5M."
+    },
+    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "unit": { "krw": "KRW" },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter purchase and sale information then click Calculate.",
+      "tax": "Tax Payable",
+      "capitalGain": "Capital Gain (KRW)",
+      "netProfit": "Net Profit After Tax",
+      "taxableBase": "Taxable Base",
+      "remainingDeduction": "Remaining Deduction",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: Income Tax Act §118-2 (Foreign stock capital gains) — 22% inclusive of local tax",
+        "line2": "Annual deduction: KRW 2.5M / Trade-date FX applies / Loss netting allowed (this tool: single trade)",
+        "line3": "Note: Filing in May the following year. This tool is for advance simulation."
+      }
+    },
+    "steps": {
+      "buyKrw": "Step 1: Buy KRW — {foreign} × {rate} = {result} KRW",
+      "sellKrw": "Step 2: Sell KRW — {foreign} × {rate} = {result} KRW",
+      "gain": "Step 3: Capital gain — sell {sell} - buy {buy} - cost {cost} = {result} KRW",
+      "deduction": "Step 4: Remaining deduction — annual {annual} - used {used} = {remaining} KRW",
+      "taxableBase": "Step 5: Taxable base — max(0, gain {gain} - deduction {deduction}) = {result} KRW",
+      "tax": "Step 6: Tax — {base} × {rate}% = {result} KRW",
+      "netProfit": "Step 7: Net profit — gain {gain} - tax {tax} = {result} KRW"
+    },
+    "validation": {
+      "buyPricePositive": "Buy price must be non-negative",
+      "sellPricePositive": "Sell price must be non-negative",
+      "exchangeRatePositive": "Exchange rate must be greater than 0",
+      "costNonNegative": "Transaction cost must be non-negative",
+      "deductionNonNegative": "Used deduction must be non-negative"
+    },
+    "errors": { "unknown": "An unknown error occurred during calculation." }
+  },
+  "jsonCsvTool": {
+    "meta": {
+      "title": "JSON ↔ CSV Converter (Korean-aware) | WorkTool",
+      "description": "Bidirectional JSON/CSV with UTF-8 BOM and CRLF for Korean Excel compatibility. Client-side only."
+    },
+    "title": "JSON ↔ CSV Converter",
+    "subtitle": "UTF-8 BOM + CRLF CSV ↔ JSON conversion with no Korean character corruption. Excel-Korean compatible. Client-side processing only (no server upload).",
+    "breadcrumb": { "home": "Home" },
+    "sections": {
+      "direction": "Direction",
+      "input": "Input",
+      "options": "Options"
+    },
+    "options": {
+      "withBom": "Add UTF-8 BOM (Excel Korean compatible)",
+      "useCrlf": "CRLF line breaks (Windows Excel compatible)",
+      "hasHeader": "First row is header",
+      "parseNumbers": "Auto-parse numbers"
+    },
+    "actions": {
+      "convert": "Convert",
+      "reset": "Reset",
+      "copy": "Copy",
+      "copied": "Copied",
+      "download": "Download"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Paste data on the left and click Convert.",
+      "rows": "Rows",
+      "cols": "Columns",
+      "warnings": "Warnings",
+      "note": "Data is processed in your browser only — never sent to a server."
+    },
+    "errors": {
+      "unknown": "Conversion failed. Check your input format."
+    }
+  },
+  "bizNumberTool": {
+    "meta": {
+      "title": "Business Number Validation (Checksum) | WorkTool",
+      "description": "Offline format and checksum validation of Korean business registration numbers per the NTS standard algorithm."
+    },
+    "title": "Business Number Validation",
+    "subtitle": "Validates Korean business registration numbers offline using the National Tax Service standard checksum algorithm. Auto-classifies entity type by middle digits. Operating status requires external API.",
+    "breadcrumb": { "home": "Home" },
+    "sections": { "input": "Business Number Input" },
+    "fields": { "number": "Business Registration Number" },
+    "hints": {
+      "number": "10 digits. Hyphens/spaces auto-stripped. Example: 220-81-62517"
+    },
+    "actions": { "calculate": "Validate", "reset": "Reset" },
+    "status": {
+      "valid": "Valid Format",
+      "invalid": "Invalid",
+      "match": "MATCH",
+      "noMatch": "MISMATCH"
+    },
+    "personType": {
+      "individualGeneral": "Individual — General Taxpayer",
+      "individualNonProfit": "Individual — Non-profit HQ",
+      "individualNontaxable": "Individual — Non-business",
+      "individualPersonal": "Individual — VAT-exempt",
+      "corporationCommercial": "Corporation — For-profit HQ",
+      "corporationBranch": "Corporation — For-profit Branch",
+      "corporationNonProfit": "Corporation — Non-profit HQ/Branch",
+      "corporationStateOwned": "Corporation — State/Local Gov.",
+      "corporationCustom": "Corporation — Foreign HQ/Branch",
+      "unknown": "Unknown"
+    },
+    "result": {
+      "heading": "Validation Result",
+      "empty": "Enter a business registration number and click Validate.",
+      "status": "Final Status",
+      "formatValid": "Format (10 digits)",
+      "checksumValid": "Checksum",
+      "personType": "Entity Type",
+      "warnings": "Warnings",
+      "steps": "Validation Steps",
+      "source": {
+        "line1": "Source: NTS standard validation algorithm (weights 1·3·7·1·3·7·1·3·5)",
+        "line2": "9th digit: tens-place carry from ×5 multiplication is added.",
+        "line3": "Note: Format/checksum is 1st-tier validation. Active/closed status requires Hometax API."
+      }
+    },
+    "steps": {
+      "normalize": "Step 1: Normalize — \"{raw}\" → \"{result}\"",
+      "format": "Step 2: Display format — {result}",
+      "weightedSum": "Step 3: Weighted sum — digits [{digits}] × [{weights}] = {sum}",
+      "extraAdd": "Step 4: 9th-digit carry — tens place of {ninth}×5 → {extra} added → {newSum}",
+      "checksum": "Step 5: Checksum — (10 - {sum}%10)%10 = {computed} vs last digit {actual} → {status}",
+      "personType": "Step 6: Entity type — middle code {middle} → {result}"
+    },
+    "warnings": {
+      "formatInvalid": "Not a 10-digit numeric format.",
+      "checksumFailed": "Checksum mismatch — computed {expected} vs entered {actual}. Likely typo.",
+      "needsExternalApi": "Checksum passed, but actual operating/closed status must be checked via the NTS Hometax API."
+    },
+    "validation": {
+      "empty": "Please enter a business number",
+      "tooLong": "Input is too long"
+    },
+    "errors": { "unknown": "Validation error occurred." }
+  },
+  "wireSizeTool": {
+    "meta": {
+      "title": "Wire Size Calculator | WorkTool",
+      "description": "KS C IEC 60364-5-52 wire size calculator with ambient temperature derating, grouping factor, and PVC/XLPE insulation selection."
+    },
+    "title": "Wire Size Calculator",
+    "subtitle": "Selects the smallest KS-standard cross-section satisfying voltage drop, ampacity, ambient temperature derating (Ct), grouping factor (Cg), and insulation type (PVC/XLPE).",
+    "breadcrumb": {
+      "home": "Home",
+      "parent": "Electric Calculator",
+      "current": "Wire Size"
+    },
+    "sections": {
+      "load": "Load Conditions",
+      "cable": "Cable Specification",
+      "environment": "Installation Environment"
+    },
+    "fields": {
+      "voltage": "Voltage (V)",
+      "current": "Load Current (A)",
+      "distance": "One-way Distance (m)",
+      "phaseType": "Phase Type",
+      "material": "Conductor Material",
+      "insulation": "Insulation Type",
+      "allowedDropPercent": "Allowable Voltage Drop (%)",
+      "ambientTemperature": "Ambient Temperature (°C)",
+      "numberOfCircuits": "Number of Loaded Circuits"
+    },
+    "hints": {
+      "insulation": "PVC = 70°C conductor / XLPE·EPR = 90°C conductor (XLPE allows ~1.25× ampacity over PVC)",
+      "ambientTemperature": "Default 30°C. For boiler rooms or outdoor enclosures, enter measured value. Auto-corrected per KS Table B.52.14.",
+      "numberOfCircuits": "Number of loaded circuits sharing the same conduit/tray (including this one). Auto-corrected per KS Table B.52.17."
+    },
+    "phase": {
+      "single-2wire": "Single-phase 2-wire",
+      "single-3wire": "Single-phase 3-wire",
+      "three-3wire": "Three-phase 3-wire",
+      "three-4wire": "Three-phase 4-wire"
+    },
+    "material": {
+      "copper": "Copper",
+      "aluminum": "Aluminum"
+    },
+    "insulation": {
+      "PVC": "PVC (70°C)",
+      "XLPE": "XLPE·EPR (90°C)"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter the values and click Calculate.",
+      "recommended": "Recommended Cross-section",
+      "baseAmpacity": "Table Ampacity",
+      "effectiveAmpacity": "Effective Ampacity (after derating)",
+      "deratingFactors": "Derating Factors",
+      "actualDrop": "Actual Voltage Drop",
+      "safetyMargin": "Safety Margin",
+      "warnings": "Warnings",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: Naesun Code 1410-1 (Voltage Drop Formula)",
+        "line2": "Source: KS C IEC 60364-5-52 Annex B (Ampacity · Method A1)",
+        "line3": "Source: KS C IEC 60364-5-52 Table B.52.14 (Temperature), Table B.52.17 (Grouping)"
+      }
+    },
+    "steps": {
+      "allowedDrop": "Step 1: Allowable voltage drop — {voltage}V × {percent}% = {drop}V",
+      "minSection": "Step 2: Minimum cross-section by drop — A_min = ({coefficient} × {distance} × {current}) / (1000 × {drop}) = {result}mm²",
+      "derating": "Step 3: Derating factors — {insulation} insulation, ambient {ambient}°C → Ct={ct}, {circuits} circuits → Cg={cg} (total {total})",
+      "requiredAmpacity": "Step 4: Required base ampacity — I_req = {current}A / {total} = {result}A",
+      "selected": "Step 5: KS standard cross-section — both drop (≥{minSection}mm²) and ampacity (base ≥{requiredAmpacity}A) satisfied → {chosen}mm² ({material} {insulation} table {baseAmpacity}A)",
+      "effectiveAmpacity": "Step 6: Effective ampacity — {baseAmpacity}A × {total} = {effective}A (margin {margin}% over {current}A load)",
+      "verify": "Step 7: Actual voltage drop — e = ({coefficient} × {distance} × {current}) / (1000 × {chosen}) = {drop}V ({percent}%)"
+    },
+    "warnings": {
+      "aluminumMinSize": "Aluminum conductors are typically not used below {min}mm² (KEC). Consider switching to copper.",
+      "safetyMarginLow": "Safety margin is below {threshold}%. Consider stepping up one size to allow for future load growth.",
+      "parallelRecommended": "Cross-section {chosen}mm² is impractical as a single cable. Consider parallel circuits (2 or more in parallel)."
+    },
+    "errors": {
+      "noStandardMatch": "No KS standard cross-section satisfies both ampacity and voltage drop. Review your inputs (ambient/circuits/conductor) or consider parallel cabling.",
+      "unknown": "An unknown error occurred during calculation."
+    },
+    "validation": {
+      "voltage": "Voltage must be greater than 0",
+      "current": "Current must be greater than 0",
+      "distance": "Distance must be greater than 0",
+      "allowedDropMin": "Allowable voltage drop must be at least 0.5%",
+      "allowedDropMax": "Allowable voltage drop must be at most 10%",
+      "ambientMin": "Ambient temperature must be at least -10°C",
+      "ambientMax": "Ambient temperature must be at most 80°C",
+      "circuitsInt": "Number of circuits must be an integer",
+      "circuitsMin": "Number of circuits must be at least 1",
+      "circuitsMax": "Number of circuits must be at most 20"
+    }
+  },
+  "timberCalc": {
+    "title": "Timber Construction Calculator",
+    "subtitle": "Span tables, insulation R/U-value, material quantity, plus rafter, stairs, and footings — based on KS standards and Korean building code.",
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Timber Calculator",
+      "back": "Back to Timber Calculators"
+    },
+    "hub": {
+      "tier1": "Structural · Insulation · Quantity (Core)",
+      "tier2": "Roof · Stairs · Foundation"
+    },
+    "span": {
+      "title": "Span Calculator",
+      "description": "Maximum allowable span for joists, rafters, and headers via bending + deflection check."
+    },
+    "insulation": {
+      "title": "Insulation R/U-value",
+      "description": "Multi-layer wall composite R-value and U-value with auto pass/fail per Korean energy code."
+    },
+    "materialQuantity": {
+      "title": "Material Quantity",
+      "description": "Sheets of OSB, plywood, gypsum, siding from area and waste factor + nail/screw estimate."
+    },
+    "roofArea": {
+      "title": "Roof Area",
+      "description": "Plan area + slope angle → actual roof slope area + eave area."
+    },
+    "concrete": {
+      "title": "Concrete Volume",
+      "description": "Strip footing or mat slab concrete volume + rebar weight + remicon truck count."
+    },
+    "rafter": {
+      "title": "Rafter Calculator",
+      "description": "Compute rafter cut length, angle, and slope from run and rise."
+    },
+    "roofPitch": {
+      "title": "Roof Pitch Converter",
+      "description": "Convert between angle, slope (%), and pitch (rise/12) representations."
+    },
+    "stairs": {
+      "title": "Stair Calculator",
+      "description": "Compute number of steps, riser height, and tread depth per Korean building code."
+    },
+    "lumber": {
+      "title": "Lumber Conversion",
+      "description": "Convert lumber dimensions and count into volume, board feet, sai, and weight."
+    }
+  },
+  "rafterTool": {
+    "meta": {
+      "title": "Rafter Calculator | WorkTool",
+      "description": "Compute rafter cut length, angle, slope, and pitch ratio from run, rise, and eave overhang."
+    },
+    "title": "Rafter Calculator",
+    "subtitle": "From horizontal run and vertical rise, instantly compute the rafter cut length, angle, slope (%), and pitch (rise/12).",
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Rafter"
+    },
+    "sections": {
+      "geometry": "Roof Geometry",
+      "eave": "Eave Overhang"
+    },
+    "fields": {
+      "run": "Run (mm) — ridge to wall horizontal",
+      "rise": "Rise (mm) — wall top to ridge vertical",
+      "eaveOverhang": "Eave Overhang (mm)"
+    },
+    "hints": {
+      "run": "Half the gable width. e.g., 8000mm wide house → run 4000",
+      "rise": "Ridge height − wall top height",
+      "eaveOverhang": "0–2000mm. Korean houses typically use ~600mm"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter run and rise, then click Calculate.",
+      "totalLength": "Total Rafter Length",
+      "baseLength": "Base Length (wall to ridge)",
+      "eaveDiagonal": "Eave Diagonal",
+      "angle": "Slope Angle",
+      "slope": "Slope %",
+      "pitch": "Pitch (rise/12)",
+      "secCorrection": "Area Factor (sec θ)",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: Right-triangle Pythagorean theorem"
+      }
+    },
+    "steps": {
+      "baseLength": "Step 1: Base length — √({run}² + {rise}²) = {result}mm",
+      "angle": "Step 2: Angle — atan({rise} / {run}) = {result}°",
+      "slope": "Step 3: Slope — ({rise} / {run}) × 100 = {result}%",
+      "secCorrection": "Step 4: Area factor sec(θ) — 1 / cos({angle}°) = {result}",
+      "eaveDiagonal": "Step 5: Eave diagonal — {eave} × sec({angle}°) = {result}mm",
+      "totalLength": "Step 6: Total length — {base} + {eaveDiagonal} = {result}mm"
+    },
+    "validation": {
+      "runPositive": "Run must be greater than 0",
+      "risePositive": "Rise must be greater than 0",
+      "eaveNonNegative": "Eave overhang must be non-negative",
+      "eaveMax": "Eave overhang must be at most 2000mm"
+    },
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
+  },
+  "roofPitchTool": {
+    "meta": {
+      "title": "Roof Pitch Converter | WorkTool",
+      "description": "Convert between angle, slope %, and pitch (rise/12) with the area correction factor."
+    },
+    "title": "Roof Pitch Converter",
+    "subtitle": "Enter angle (°), slope (%), or pitch (rise/12) — get the other representations and the area correction factor instantly.",
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Roof Pitch"
+    },
+    "fields": {
+      "mode": "Input Mode",
+      "angle": "Angle (°)",
+      "slope": "Slope (%)",
+      "rise": "Rise (rise/12)"
+    },
+    "modes": {
+      "angle": "Angle (°)",
+      "slope": "Slope (%)",
+      "ratio": "Pitch (rise/12)"
+    },
+    "categories": {
+      "flat": "Flat (≤10°) — waterproof finish recommended",
+      "lowSlope": "Low slope (10–30°) — asphalt shingle, metal",
+      "mediumSlope": "Medium slope (30–45°) — clay tile, shingle, metal",
+      "steepSlope": "Steep slope (45–60°) — clay tile, natural stone",
+      "extremeSlope": "Extreme slope (>60°) — decorative finish only"
+    },
+    "actions": {
+      "calculate": "Convert",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Pick an input mode and enter a value.",
+      "angle": "Angle",
+      "slope": "Slope",
+      "pitch": "Pitch",
+      "secCorrection": "Area Factor (sec θ)",
+      "category": "Category",
+      "source": {
+        "line1": "Source: Korean construction practice + AIK Wood Structure Design Code"
+      }
+    },
+    "errors": {
+      "unknown": "An unknown error occurred during conversion."
+    },
+    "validation": {
+      "modeMissingValue": "Enter a value matching the selected input mode"
+    }
+  },
+  "stairsTool": {
+    "meta": {
+      "title": "Stair Calculator | WorkTool",
+      "description": "Compute steps, riser, tread, length, and angle per Korean Building Code Article 48 + Blondel formula."
+    },
+    "title": "Stair Calculator",
+    "subtitle": "From total rise and preferred riser height, automatically size safe stairs per Korean Building Code Enforcement Decree Article 48 and the Blondel formula.",
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Stairs"
+    },
+    "sections": {
+      "geometry": "Geometry",
+      "options": "Options"
+    },
+    "fields": {
+      "totalRise": "Total Rise (mm) — finished floor to finished floor",
+      "totalRun": "Total Run (mm, optional)",
+      "preferredRiser": "Preferred Riser Height (mm)",
+      "useType": "Use Type"
+    },
+    "hints": {
+      "totalRun": "Leave blank to auto-size tread via Blondel formula",
+      "preferredRiser": "Residential: 170–180mm typical / Public: 150–170mm"
+    },
+    "useType": {
+      "residential": "Residential (single dwelling, inside unit)",
+      "public": "Public (apartment common, public buildings)"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter total rise and preferred riser height.",
+      "numSteps": "Number of Risers",
+      "actualRiser": "Actual Riser",
+      "tread": "Tread Depth",
+      "stairLength": "Stair Diagonal Length",
+      "angle": "Stair Angle",
+      "blondel": "Blondel (2R+T)",
+      "warningsTitle": "Warnings",
+      "stepsTitle": "Calculation Steps",
+      "source": {
+        "line1": "Source: Korean Building Code Enforcement Decree Article 48 (Stairs)",
+        "line2": "Source: Evacuation/Fireproof Structure Rules Article 15 (Riser/Tread limits)",
+        "line3": "Source: Blondel formula (2R + T = 600~640mm) — ergonomic stride"
+      }
+    },
+    "steps": {
+      "numSteps": "Step 1: Number of risers — round({totalRise} / {preferred}) = {result}",
+      "actualRiser": "Step 2: Actual riser — {totalRise} / {steps} = {result}mm",
+      "treadFromRun": "Step 3: Tread — {totalRun} / ({stepsMinus1}) = {result}mm",
+      "treadFromBlondel": "Step 3: Tread (Blondel) — {target} − 2 × {riser} = {result}mm",
+      "stairLength": "Step 4: Diagonal length — √({totalRise}² + {runDist}²) = {result}mm",
+      "angle": "Step 5: Angle — atan({riser} / {tread}) = {result}°",
+      "blondel": "Step 6: Blondel check — 2 × {riser} + {tread} = {result}mm (target {min}–{max}mm)"
+    },
+    "warnings": {
+      "riserTooHigh": "Actual riser {actual}mm exceeds the safety limit of {max}mm. Add more steps.",
+      "treadTooSmall": "Tread {actual}mm is below the minimum {min}mm. Increase total run.",
+      "blondelOutOfRange": "Blondel value {value}mm is outside the target {min}–{max}mm range. Walking comfort is reduced.",
+      "preferredRiserExceedsLimit": "Preferred riser {preferred}mm exceeds the safety limit of {max}mm."
+    },
+    "validation": {
+      "totalRiseMin": "Total rise must be at least 100mm",
+      "totalRiseMax": "Total rise must be at most 10000mm",
+      "totalRunNonNegative": "Total run must be non-negative",
+      "totalRunMax": "Total run must be at most 20000mm",
+      "preferredRiserMin": "Preferred riser must be at least 80mm",
+      "preferredRiserMax": "Preferred riser must be at most 250mm"
+    },
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
+  },
+  "spanTool": {
+    "meta": {
+      "title": "Span Calculator | WorkTool",
+      "description": "Maximum span for joists, rafters, and headers via bending + deflection check, per KDS 41 33 02 and NDS 2018."
+    },
+    "title": "Span Calculator",
+    "subtitle": "Section (2x4–2x12) × spacing (400/450/600mm) × species + Korean snow loads → maximum span satisfying both bending and deflection.",
+    "breadcrumb": { "parent": "Timber Calculator", "current": "Span" },
+    "sections": { "member": "Member Information", "snow": "Snow Load (rafters)" },
+    "fields": {
+      "memberType": "Member Type",
+      "lumberSize": "Section Size",
+      "spacingMM": "Spacing (mm)",
+      "grade": "Species & Grade",
+      "snowRegion": "Snow Region"
+    },
+    "hints": {
+      "spacing": "Standard: 400 / 450 / 600mm. Other values trigger warning.",
+      "snowRegion": "Per KDS 41 10 15 Annex B. Yeongdong & Ulleung are 3.0 kN/m² (very high)."
+    },
+    "memberType": {
+      "floorJoist": "Floor Joist",
+      "ceilingJoist": "Ceiling Joist",
+      "rafter": "Rafter",
+      "header": "Header / Beam"
+    },
+    "grade": { "larch2": "Larch #2 (Domestic)" },
+    "snowRegion": {
+      "seoulMetro": "Seoul·Gyeonggi·Incheon (0.5 kN/m²)",
+      "gangwonYeongdong": "Gangwon Yeongdong (3.0 kN/m²)",
+      "gangwonYeongseo": "Gangwon Yeongseo (0.5 kN/m²)",
+      "chungcheong": "Chungcheong (0.5 kN/m²)",
+      "jeolla": "Jeolla (0.5 kN/m²)",
+      "gyeongsang": "Gyeongsang (0.5 kN/m²)",
+      "jeju": "Jeju (0.5 kN/m²)",
+      "ulleung": "Ulleung (3.0 kN/m²)"
+    },
+    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter member info and click Calculate.",
+      "maxSpan": "Maximum Allowable Span",
+      "bendingSpan": "Bending Limit Span",
+      "deflectionSpan": "Deflection Limit Span",
+      "governing": "Governing Check",
+      "totalLoad": "Total Load",
+      "lineLoad": "Line Load",
+      "section": "Section Properties",
+      "warnings": "Warnings",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: KDS 41 33 02 (Wood Structure Design Code)",
+        "line2": "Source: KDS 41 10 15 (Design Loads) + NDS 2018",
+        "line3": "Note: Residential planning tool. Structural engineer review required before construction."
+      }
+    },
+    "governing": { "bending": "Bending", "deflection": "Deflection" },
+    "steps": {
+      "loads": "Step 1: Loads — Live {live} + Dead {dead} + Snow {snow} = {total} kN/m²",
+      "lineLoad": "Step 2: Line load — {total} kN/m² × {spacing}mm = {result} N/mm",
+      "section": "Step 3: Section — {b}×{d}mm → I = {I} mm⁴, S = {S} mm³",
+      "fbAdjusted": "Step 4: Allowable Fb — {base} MPa × Cr {cr} = {result} MPa",
+      "bendingSpan": "Step 5: Bending limit — L = √(8 × {fb} × {S} / {w}) = {result} mm",
+      "deflectionSpan": "Step 6: Deflection limit — L = ∛(384 × {E} × {I} / (5 × {w} × {k})) = {result} mm",
+      "governing": "Step 7: Governing — bending {bending}mm vs deflection {deflection}mm → {result}mm ({check} governs)"
+    },
+    "warnings": {
+      "spacingUnusual": "Spacing {actual}mm is non-standard (400/450/600). Verify applicability.",
+      "rafterNeedsSnow": "For rafters, regional snow load is critical. Confirm correct region selected.",
+      "lumberNotFound": "No data for section {size}."
+    },
+    "validation": {
+      "spacingMin": "Spacing must be at least 150mm",
+      "spacingMax": "Spacing must be at most 1200mm"
+    },
+    "errors": {
+      "noLumberData": "Cannot find data for the selected lumber size.",
+      "unknown": "An unknown error occurred during calculation."
+    }
+  },
+  "insulationTool": {
+    "meta": {
+      "title": "Insulation R/U-value Calculator | WorkTool",
+      "description": "Multi-layer wall composite R-value and U-value with automatic pass/fail per Korean Energy Saving Design Code Annex 1."
+    },
+    "title": "Insulation R/U-value Calculator",
+    "subtitle": "Region (Central1·Central2·South·Jeju) × element (wall/roof/floor) × layered build-up → composite R and U value with auto code compliance check.",
+    "breadcrumb": { "parent": "Timber Calculator", "current": "Insulation" },
+    "sections": { "environment": "Region & Element", "layers": "Wall Build-up (interior → exterior)" },
+    "fields": { "region": "Climate Region", "element": "Building Element" },
+    "region": {
+      "central1": "Central 1 (Gangwon·N. Gyeonggi)",
+      "central2": "Central 2 (Seoul·Incheon·most of Gyeonggi)",
+      "south": "South (Daejeon·Busan·Jeolla·Gyeongsang)",
+      "jeju": "Jeju"
+    },
+    "element": {
+      "exteriorWallDirect": "Exterior wall — direct, habitable",
+      "exteriorWallIndirect": "Exterior wall — indirect, non-habitable",
+      "roof": "Roof",
+      "floorDirect": "Lowest floor — direct exterior",
+      "floorIndirect": "Lowest floor — indirect exterior"
+    },
+    "materials": {
+      "glasswool24": "Glass wool 24K (λ=0.038)",
+      "glasswool48": "Glass wool 48K (λ=0.034)",
+      "mineralwool": "Mineral wool (λ=0.040)",
+      "eps1": "EPS Type 1 (λ=0.040)",
+      "eps2": "EPS Type 2 (λ=0.034)",
+      "xps": "XPS Extruded (λ=0.029)",
+      "pirFoam": "PIR Foam (λ=0.022)",
+      "puFoam": "PU Spray Foam (λ=0.024)",
+      "cellulose": "Cellulose (λ=0.040)",
+      "phenolic": "Phenolic Foam (λ=0.020)",
+      "osb11": "OSB Board (λ=0.13)",
+      "osb18": "OSB Structural (λ=0.13)",
+      "plywood12": "Plywood (λ=0.13)",
+      "gypsum9": "Gypsum 9.5mm (λ=0.18)",
+      "gypsum12": "Gypsum 12.5mm (λ=0.18)",
+      "fiberCement": "Fiber Cement Siding (λ=0.30)",
+      "brick": "Brick (λ=0.81)",
+      "concrete": "Concrete (λ=1.6)",
+      "airSpace": "Air Space (R=0.18 fixed)"
+    },
+    "actions": { "calculate": "Calculate", "reset": "Reset", "addLayer": "Add Layer" },
+    "status": { "pass": "PASS", "fail": "FAIL" },
+    "result": {
+      "heading": "Result",
+      "empty": "Set region, element, and layers then click Calculate.",
+      "uValue": "U-value",
+      "totalR": "Total R-value",
+      "uLimit": "Code U-limit",
+      "status": "Compliance",
+      "surplusOrDeficit": "R Surplus / Deficit",
+      "layerBreakdown": "R per Layer",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: Building Energy Saving Design Code Annex 1 (regional U-limits)",
+        "line2": "Source: KS L 9016 (insulation conductivity) / PHIKO references",
+        "line3": "Note: Thermal bridging not modeled. Actual performance depends on installation quality."
+      }
+    },
+    "steps": {
+      "layerSum": "Step 1: Sum of layer R — {count} layers totaling {sum} m²·K/W",
+      "surfaceR": "Step 2: Surface resistance — interior {interior} + exterior {exterior} = {total} m²·K/W",
+      "totalR": "Step 3: Total R — layers {layers} + surface {surface} = {result} m²·K/W",
+      "uValue": "Step 4: U-value — 1 / {totalR} = {result} W/m²·K",
+      "compare": "Step 5: Code comparison — U {uValue} ≤ limit {limit} → {status}"
+    },
+    "validation": {
+      "thicknessMin": "Thickness must be at least 1mm",
+      "thicknessMax": "Thickness must be at most 1000mm",
+      "layersMin": "At least 1 layer required",
+      "layersMax": "Maximum 15 layers"
+    },
+    "errors": { "unknown": "An unknown error occurred during calculation." }
+  },
+  "materialQuantityTool": {
+    "meta": {
+      "title": "Material Quantity Calculator | WorkTool",
+      "description": "From installation area and waste factor, compute sheets of OSB, plywood, gypsum, siding plus nail/screw estimate."
+    },
+    "title": "Material Quantity Calculator",
+    "subtitle": "Wall/roof/floor area × (1 + waste factor) ÷ sheet area → sheet count + nail/screw estimate.",
+    "breadcrumb": { "parent": "Timber Calculator", "current": "Material Quantity" },
+    "sections": { "material": "Material & Area" },
+    "fields": {
+      "material": "Material",
+      "areaM2": "Installation Area (m²)",
+      "wasteFactorPercent": "Waste Factor (%)",
+      "estimateFasteners": "Estimate Fasteners"
+    },
+    "hints": {
+      "area": "Net installation area for wall/roof/floor",
+      "waste": "Typically 5–15%. Complex jobs higher.",
+      "estimateFasteners": "Estimate edge + field nails/screws for sheet products"
+    },
+    "materials": {
+      "osb11": "OSB 11mm (1220×2440mm)",
+      "osb18": "OSB 18mm Structural (1220×2440mm)",
+      "plywood12": "Plywood 12mm (1220×2440mm)",
+      "plywood18": "Plywood 18mm (1220×2440mm)",
+      "gypsum9": "Gypsum 9.5mm (900×1800mm)",
+      "gypsum12": "Gypsum 12.5mm (900×1800mm)",
+      "cementBoard": "Cement Board (900×1800mm)",
+      "fiberCementSiding": "Fiber Cement Siding (200×3600mm)",
+      "vinylSiding": "Vinyl Siding (250×3700mm)",
+      "asphaltShingle": "Asphalt Shingle (1 bundle ≈ 3.1m²)",
+      "battInsulationR19": "Glass Wool R-19 batt (600×2400mm)"
+    },
+    "unit": { "sheet": "sheets", "bundle": "bundles", "batt": "batts" },
+    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter material and area.",
+      "sheetsRequired": "Sheets Required",
+      "adjustedArea": "Adjusted Area",
+      "sheetArea": "Per-sheet Area",
+      "totalWeight": "Total Weight",
+      "nails": "Nails (est.)",
+      "screws": "Screws (est.)",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: Korean market standard sizes + IRC R602.3 nailing schedule",
+        "line2": "Note: Fastener counts are estimates assuming 150mm edge / 300mm field spacing."
+      }
+    },
+    "steps": {
+      "wasteAdjusted": "Step 1: Waste adjusted — {area}m² × (1 + {waste}%) = {result}m²",
+      "sheetCount": "Step 2: Sheets — {adjustedArea}m² ÷ {sheetArea}m² (ceiling) = {result} sheets",
+      "totalWeight": "Step 3: Weight — {sheets} × {perSheet}kg = {result}kg",
+      "fasteners": "Step 4: Fasteners — {sheets} × {perSheet}/sheet = {result}"
+    },
+    "validation": {
+      "areaMin": "Area must be at least 0.1m²",
+      "areaMax": "Area must be at most 10000m²",
+      "wasteMin": "Waste factor must be at least 0%",
+      "wasteMax": "Waste factor must be at most 30%"
+    },
+    "errors": { "unknown": "An unknown error occurred during calculation." }
+  },
+  "roofAreaTool": {
+    "meta": {
+      "title": "Roof Area Calculator | WorkTool",
+      "description": "From plan area and slope angle, compute the actual sloped roof area plus eave area."
+    },
+    "title": "Roof Area Calculator",
+    "subtitle": "Plan area × sec(slope) → actual roof area. Add eave perimeter and overhang to include eave area.",
+    "breadcrumb": { "parent": "Timber Calculator", "current": "Roof Area" },
+    "sections": { "geometry": "Roof Geometry", "eave": "Eave (optional)" },
+    "fields": {
+      "planAreaM2": "Plan Area (m²)",
+      "angleDegrees": "Slope Angle (°)",
+      "perimeterM": "Eave Perimeter (m)",
+      "eaveOverhangMM": "Eave Overhang (mm)"
+    },
+    "hints": {
+      "planArea": "One-story footprint area covered by the roof",
+      "perimeter": "Length of eave perimeter. 0 = skip eave area."
+    },
+    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter plan area and slope angle.",
+      "totalArea": "Total Roof Area",
+      "slopeArea": "Slope Area",
+      "eaveArea": "Eave Area",
+      "secCorrection": "Area Factor (sec θ)",
+      "steps": "Calculation Steps",
+      "source": { "line1": "Source: sec(θ) right-triangle correction (plan → slope area)" }
+    },
+    "steps": {
+      "secCorrection": "Step 1: sec(θ) — 1 / cos({angle}°) = {result}",
+      "slopeArea": "Step 2: Slope area — {planArea}m² × sec(θ) {sec} = {result}m²",
+      "eaveArea": "Step 3: Eave area — perimeter {perimeter}m × overhang {eaveOverhang}mm × sec(θ) {sec} = {result}m²",
+      "totalArea": "Step 4: Total area — {slope}m² + {eave}m² = {result}m²"
+    },
+    "validation": {
+      "planAreaMin": "Plan area must be at least 1m²",
+      "planAreaMax": "Plan area must be at most 10000m²",
+      "perimeterMin": "Perimeter must be non-negative",
+      "perimeterMax": "Perimeter must be at most 1000m",
+      "angleMin": "Angle must be non-negative",
+      "angleMax": "Angle must be less than 90°",
+      "eaveMin": "Eave overhang must be non-negative",
+      "eaveMax": "Eave overhang must be at most 2000mm"
+    },
+    "errors": { "unknown": "An unknown error occurred during calculation." }
+  },
+  "concreteTool": {
+    "meta": {
+      "title": "Concrete Volume Calculator | WorkTool",
+      "description": "Strip footing or mat slab concrete volume + rebar weight + remicon truck count."
+    },
+    "title": "Concrete Volume Calculator",
+    "subtitle": "Foundation type × dimensions + waste factor → concrete volume + rebar weight + remicon truck count.",
+    "breadcrumb": { "parent": "Timber Calculator", "current": "Concrete" },
+    "sections": { "foundation": "Foundation Dimensions", "options": "Adjustments" },
+    "fields": {
+      "type": "Foundation Type",
+      "widthM": "Width (m)",
+      "depth": "Depth (m)",
+      "thickness": "Thickness (m)",
+      "lengthM": "Length (m)",
+      "rebarDensity": "Rebar Density (kg/m³)",
+      "wasteFactorPercent": "Waste Factor (%)"
+    },
+    "hints": {
+      "rebar": "Residential strip footing 80–100 kg/m³, mat 60–80 kg/m³"
+    },
+    "type": { "stripFooting": "Strip Footing", "matSlab": "Mat Slab" },
+    "unit": { "trucks": "trucks" },
+    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter foundation dimensions.",
+      "adjustedVolume": "Required Concrete Volume",
+      "rawVolume": "Raw Volume (before waste)",
+      "rebar": "Rebar Weight (est.)",
+      "remicon": "Remicon Trucks (6m³ each)",
+      "steps": "Calculation Steps",
+      "source": {
+        "line1": "Source: KDS 14 20 (Concrete Structure Design Code) + Korean remicon standard (6m³/truck)",
+        "line2": "Note: Rebar estimate is residential average. Actual quantity should be derived from structural drawings."
+      }
+    },
+    "steps": {
+      "rawVolume": "Step 1: Raw volume — {width}m × {depth}m × {length}m = {result}m³",
+      "wasteAdjusted": "Step 2: Waste — {raw}m³ × (1 + {waste}%) = {result}m³",
+      "rebar": "Step 3: Rebar — {volume}m³ × {density}kg/m³ = {result}kg",
+      "remicon": "Step 4: Remicon trucks — {volume}m³ ÷ 6m³ = {result}"
+    },
+    "validation": {
+      "widthMin": "Width must be at least 0.1m",
+      "widthMax": "Width must be at most 50m",
+      "depthMin": "Depth/thickness must be at least 0.05m",
+      "depthMax": "Depth/thickness must be at most 5m",
+      "lengthMin": "Length must be at least 0.1m",
+      "lengthMax": "Length must be at most 500m",
+      "rebarMin": "Rebar density must be non-negative",
+      "rebarMax": "Rebar density must be at most 300 kg/m³",
+      "wasteMin": "Waste factor must be non-negative",
+      "wasteMax": "Waste factor must be at most 30%"
+    },
+    "errors": { "unknown": "An unknown error occurred during calculation." }
+  },
+  "lumberTool": {
+    "meta": {
+      "title": "Lumber Conversion | WorkTool",
+      "description": "Convert lumber dimensions and quantity into volume (m³), board feet (BF), sai (才), and estimated weight."
+    },
+    "title": "Lumber Conversion",
+    "subtitle": "Cross-section (W×T) × length × quantity × species → volume in m³, sai (才), board feet (BF), and estimated weight all at once.",
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Lumber Quantity"
+    },
+    "sections": {
+      "dimension": "Member Dimensions",
+      "type": "Wood Species"
+    },
+    "fields": {
+      "widthMM": "Width (mm)",
+      "thicknessMM": "Thickness (mm)",
+      "lengthMM": "Length (mm)",
+      "quantity": "Quantity",
+      "species": "Species"
+    },
+    "hints": {
+      "widthMM": "e.g., 2x4 SPF width is 89mm",
+      "thicknessMM": "e.g., 2x4 SPF thickness is 38mm",
+      "lengthMM": "Korean standard lengths: 3600 / 4200mm"
+    },
+    "species": {
+      "pine": "Pine (500 kg/m³)",
+      "larch": "Larch (540 kg/m³)",
+      "cedar": "Cedar (380 kg/m³)",
+      "spf": "SPF (460 kg/m³)",
+      "douglasFir": "Douglas Fir (530 kg/m³)",
+      "oak": "Oak (750 kg/m³)"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter member dimensions and quantity.",
+      "totalVolume": "Total Volume",
+      "perPiece": "Per-Piece Volume",
+      "boardFeet": "Board Feet (BF)",
+      "sai": "Sai (才)",
+      "weight": "Estimated Weight",
+      "density": "Density",
+      "stepsTitle": "Calculation Steps",
+      "source": {
+        "line1": "Source: KS F 3020 (Lumber dimensions)",
+        "line2": "Source: 1 sai = 1 chi × 1 chi × 12 ja ≈ 0.003342 m³",
+        "line3": "Densities are 12% moisture-content averages (actual may vary)"
+      }
+    },
+    "steps": {
+      "perPieceVolume": "Step 1: Per-piece volume — ({width} × {thickness} × {length}) / 10⁹ = {result} m³",
+      "totalVolume": "Step 2: Total volume — {perPiece} × {quantity} = {result} m³",
+      "boardFeet": "Step 3: Board feet — {volumeM3} m³ ÷ 0.002360 = {result} BF",
+      "sai": "Step 4: Sai (才) — {volumeM3} m³ ÷ 0.003342 = {result} sai",
+      "weight": "Step 5: Weight — {volumeM3} m³ × {density}({species}) = {result} kg"
+    },
+    "validation": {
+      "widthMin": "Width must be at least 10mm",
+      "widthMax": "Width must be at most 1000mm",
+      "thicknessMin": "Thickness must be at least 10mm",
+      "thicknessMax": "Thickness must be at most 1000mm",
+      "lengthMin": "Length must be at least 100mm",
+      "lengthMax": "Length must be at most 20000mm",
+      "quantityInt": "Quantity must be an integer",
+      "quantityMin": "Quantity must be at least 1",
+      "quantityMax": "Quantity must be at most 10000"
+    },
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
+  }
+}

@@ -1,0 +1,1281 @@
+{
+  "layout": {
+    "electric": "전기",
+    "timber": "목조",
+    "open": "사용하기",
+    "share": "공유 링크 복사",
+    "shareCopied": "복사됨",
+    "print": "인쇄/PDF",
+    "nav": {
+      "about": "소개",
+      "privacy": "개인정보처리방침",
+      "terms": "이용약관",
+      "contact": "연락처"
+    },
+    "footer": {
+      "copyright": "© 2026 WorkTool — 한국 실무자를 위한 무료 도구",
+      "disclaimer": "본 계산기는 KS 표준 및 건축법을 참조한 참고용 자료이며, 실제 시공·설계는 전문 자격자의 검토를 거쳐야 합니다."
+    }
+  },
+  "homeSearch": {
+    "placeholder": "도구 검색 — 예: 전선, 단열, 4대보험, 사업자",
+    "noResults": "\"{query}\"에 해당하는 도구를 찾을 수 없습니다.",
+    "category": {
+      "electric": "전기",
+      "timber": "목조",
+      "finance": "재무",
+      "util": "유틸",
+      "business": "사업자"
+    },
+    "tools": {
+      "wireSize": {
+        "title": "전선 굵기 계산",
+        "description": "KEC 기반 단면적 자동 산정",
+        "keywords": "wire size cable cross-section 전선 케이블 단면적 KEC 232.5"
+      },
+      "breaker": {
+        "title": "차단기 용량",
+        "description": "MCB/MCCB 정격 자동 선정",
+        "keywords": "breaker MCB MCCB 차단기 ELB 누전 용량 안전율"
+      },
+      "voltageDrop": {
+        "title": "전압강하",
+        "description": "내선규정 통과 자동 판정",
+        "keywords": "voltage drop 전압강하 내선규정 1410-1"
+      },
+      "span": {
+        "title": "부재 경간",
+        "description": "장선·서까래·헤더 휨+처짐 검토",
+        "keywords": "span joist rafter header 장선 서까래 보 헤더 경간 휨 처짐 NDS KDS"
+      },
+      "insulation": {
+        "title": "단열 R/U값",
+        "description": "에너지절약 설계기준 자동 판정",
+        "keywords": "insulation R-value U-value 단열 열관류율 에너지절약 별표1 PHIKO"
+      },
+      "materialQuantity": {
+        "title": "자재 수량",
+        "description": "OSB·합판·석고·사이딩 매수 + 못 추정",
+        "keywords": "material quantity OSB plywood gypsum 자재 수량 견적 못 스크류"
+      },
+      "stairs": {
+        "title": "계단",
+        "description": "건축법 + Blondel 안전 검증",
+        "keywords": "stairs riser tread 계단 단높이 단너비 Blondel 건축법"
+      },
+      "rafter": {
+        "title": "서까래 길이",
+        "description": "런·라이즈로 절단 길이 산출",
+        "keywords": "rafter 서까래 지붕 처마 run rise"
+      },
+      "roofPitch": {
+        "title": "지붕 경사 변환",
+        "description": "각도↔구배↔피치 양방향",
+        "keywords": "roof pitch slope 지붕 경사 구배"
+      },
+      "roofArea": {
+        "title": "지붕 면적",
+        "description": "경사면 면적 + 처마 면적",
+        "keywords": "roof area 지붕 면적 sec"
+      },
+      "concrete": {
+        "title": "콘크리트 부피",
+        "description": "기초 + 철근 + 레미콘 트럭",
+        "keywords": "concrete 콘크리트 줄기초 매트기초 레미콘 철근"
+      },
+      "lumber": {
+        "title": "목재 환산",
+        "description": "m³·재(才)·BF 환산",
+        "keywords": "lumber 목재 才 재 board feet BF"
+      },
+      "insurance": {
+        "title": "4대보험",
+        "description": "2026 요율 + 실수령액",
+        "keywords": "insurance pension health employment 4대보험 국민연금 건강 고용 산재 급여"
+      },
+      "foreignStockTax": {
+        "title": "해외주식 양도세",
+        "description": "환율·공제·22% 세금",
+        "keywords": "foreign stock tax 해외주식 양도세 22% 250만원 공제"
+      },
+      "jsonCsv": {
+        "title": "JSON ↔ CSV",
+        "description": "한글 BOM + Excel 호환",
+        "keywords": "JSON CSV 변환 한글 BOM Excel UTF-8"
+      },
+      "bizNumber": {
+        "title": "사업자등록번호 검증",
+        "description": "체크섬 알고리즘 즉시 검증",
+        "keywords": "biz business number 사업자등록 사업자번호 체크섬 검증"
+      }
+    }
+  },
+  "home": {
+    "title": "WorkTool",
+    "tagline": "한국 실무자를 위한 무료 온라인 도구 모음",
+    "subtitle": "KS 표준에 정확히 맞춘 전기·세무·문서 계산기를 한 곳에서.",
+    "toolsHeading": "도구 목록",
+    "comingSoon": "준비 중",
+    "openTool": "사용하기",
+    "tools": {
+      "electricCalc": {
+        "title": "산업용 전기 계산기",
+        "description": "전선 굵기, 차단기 용량, 전압강하 등 KS 표준 기반 계산기",
+        "tag": "전기"
+      },
+      "timberCalc": {
+        "title": "목조 주택 계산기",
+        "description": "서까래·지붕 경사·계단·목재 수량 등 목조 시공 필수 계산기",
+        "tag": "목조"
+      },
+      "insurance": {
+        "title": "4대보험 계산기",
+        "description": "월 급여로부터 국민연금·건강보험·고용보험·산재보험 부담액을 자동 산정 (2026 요율)",
+        "tag": "급여"
+      },
+      "foreignStockTax": {
+        "title": "해외주식 양도세",
+        "description": "환율과 매수·매도가로부터 양도차익 + 250만원 공제 + 22% 세금 산출",
+        "tag": "세금"
+      },
+      "jsonCsv": {
+        "title": "JSON ↔ CSV 변환",
+        "description": "한글 인코딩(UTF-8 BOM) + Excel 호환 CSV 양방향 변환",
+        "tag": "유틸"
+      },
+      "bizNumber": {
+        "title": "사업자등록번호 검증",
+        "description": "체크섬 알고리즘으로 사업자등록번호 형식·유효성을 즉시 검증 (오프라인)",
+        "tag": "사업자"
+      },
+      "biznum": {
+        "title": "사업자등록 휴폐업 조회",
+        "description": "홈택스 API로 휴·폐업 상태를 실시간 조회합니다 (API 연동 예정)",
+        "tag": "사업자"
+      },
+      "msds": {
+        "title": "MSDS 검색",
+        "description": "물질안전보건자료(MSDS)를 빠르게 검색하고 비교합니다",
+        "tag": "안전"
+      }
+    }
+  },
+  "electricCalc": {
+    "title": "산업용 전기 계산기",
+    "subtitle": "KS C IEC 60364 표준 기반의 정확한 전기 설계 계산을 무료로 제공합니다.",
+    "breadcrumb": {
+      "home": "홈",
+      "current": "산업용 전기 계산기"
+    },
+    "hub": {
+      "tools": "사용 가능한 도구"
+    },
+    "wireSize": {
+      "title": "전선 굵기 계산",
+      "description": "전류, 거리, 허용 전압강하를 입력하면 적정 전선 단면적을 산정합니다.",
+      "available": true
+    },
+    "breaker": {
+      "title": "차단기 용량 계산",
+      "description": "부하 전류와 안전율을 고려한 MCB/MCCB 정격 전류를 자동 선정합니다.",
+      "available": true
+    },
+    "voltageDrop": {
+      "title": "전압강하 계산",
+      "description": "전선 거리와 단면적에 따른 전압강하율과 수전단 전압, 내선규정 통과 여부를 판정합니다.",
+      "available": true
+    },
+    "comingSoon": {
+      "title": "곧 제공됩니다",
+      "description": "이 도구는 현재 개발 중입니다. 다른 계산기를 먼저 사용해 보세요.",
+      "back": "전기 계산기 목록으로"
+    }
+  },
+  "breakerTool": {
+    "meta": {
+      "title": "차단기 용량 계산기 | WorkTool",
+      "description": "부하 전류와 안전율을 고려한 MCB/MCCB 정격 전류 자동 선정 + 인버터+ELB 경고."
+    },
+    "title": "차단기 용량 계산기",
+    "subtitle": "부하 전류 × 안전율 → KS 표준 정격 중 최소 안전 정격 자동 선정. 인버터 회로의 ELB 사용 위험까지 경고.",
+    "breadcrumb": { "parent": "산업용 전기 계산기", "current": "차단기" },
+    "sections": { "load": "부하 정보" },
+    "fields": {
+      "loadCurrent": "부하 전류 (A)",
+      "loadType": "부하 종류",
+      "customSafetyFactor": "사용자 지정 안전율 (선택)",
+      "useElb": "ELB 사용 여부"
+    },
+    "hints": {
+      "loadType": "기본 안전율: 일반 1.25 / 모터 직입 1.5 / Y-Δ 2.0 / 인버터 1.25 / 용접기 3.0",
+      "customSafetyFactor": "비워두면 부하 종류별 기본값 적용",
+      "customSafetyFactorPlaceholder": "기본값 사용",
+      "useElb": "ELB(누전차단기) 적용 시 — 인버터 부하와 함께 사용하면 누설전류로 트립 위험"
+    },
+    "loadType": {
+      "general": "일반 조명·콘센트",
+      "motorDirect": "모터 직입기동",
+      "motorYDelta": "모터 Y-Δ 기동",
+      "inverter": "인버터 부하",
+      "welder": "용접기 (단속 부하)"
+    },
+    "actions": { "calculate": "계산하기", "reset": "초기화" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "부하 전류와 종류를 입력하고 계산하기를 눌러주세요.",
+      "recommendedRating": "권장 차단기",
+      "appliedSafetyFactor": "적용 안전율",
+      "calculatedMinRating": "최소 요구 정격",
+      "safetyMargin": "안전 여유율",
+      "warnings": "주의 사항",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: KS C 8324 (배선용 차단기) + KS C 8453 (누전차단기)",
+        "line2": "주: 인버터 + 30mA ELB는 누설전류로 트립 빈번. MCB/MCCB 사용 권장."
+      }
+    },
+    "steps": {
+      "minRating": "1단계: 최소 정격 — {loadCurrent}A × {safetyFactor} = {result}A",
+      "selectRating": "2단계: KS 표준 선정 — ≥{minRating}A 만족하는 최소 {breakerType} 정격 = {result}A",
+      "safetyMargin": "3단계: 안전 여유율 — ({rating} - {loadCurrent}) / {rating} × 100 = {result}%"
+    },
+    "warnings": {
+      "inverterWithElb": "인버터 부하 + ELB 조합은 Y-캐패시터 누설전류로 30mA ELB 트립이 빈번합니다. MCB/MCCB 사용을 권장합니다.",
+      "marginLow": "안전 여유율이 {threshold}% 미만입니다. 한 단계 큰 정격을 검토하세요.",
+      "highCurrentMcb": "MCB 최대 정격(63A)에 근접했습니다. 부하가 더 크면 MCCB로 전환됩니다."
+    },
+    "validation": {
+      "loadCurrentPositive": "부하 전류는 0보다 커야 합니다",
+      "loadCurrentMax": "부하 전류는 5000A 이하여야 합니다"
+    },
+    "errors": {
+      "noStandardMatch": "필요 정격이 KS 표준 범위를 초과합니다.",
+      "unknown": "계산 중 알 수 없는 오류가 발생했습니다."
+    }
+  },
+  "voltageDropTool": {
+    "meta": {
+      "title": "전압강하 계산기 | WorkTool",
+      "description": "전선 단면적·거리·전류로부터 전압강하 + 내선규정 허용치 통과 여부 자동 판정."
+    },
+    "title": "전압강하 계산기",
+    "subtitle": "내선규정 1410-1 공식 e = (계수 × L × I) / (1000 × A) 로 강하 산출 + 거리별 허용 강하율(3~7%) 자동 비교.",
+    "breadcrumb": { "parent": "산업용 전기 계산기", "current": "전압강하" },
+    "sections": { "circuit": "회로 정보", "cable": "케이블" },
+    "fields": {
+      "voltage": "송전단 전압 (V)",
+      "current": "부하 전류 (A)",
+      "distance": "편도 거리 (m)",
+      "phaseType": "상 종류",
+      "crossSection": "전선 단면적 (mm²)",
+      "material": "도체 재질"
+    },
+    "phase": {
+      "single-2wire": "단상 2선식 (계수 35.6)",
+      "single-3wire": "단상 3선식 (계수 17.8)",
+      "three-3wire": "3상 3선식 (계수 30.8)",
+      "three-4wire": "3상 4선식 (계수 17.8)"
+    },
+    "material": { "copper": "동(Copper)", "aluminum": "알루미늄(×1.6)" },
+    "actions": { "calculate": "계산하기", "reset": "초기화" },
+    "status": { "pass": "통과", "fail": "초과 (NG)" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "회로 정보를 입력하고 계산하기를 눌러주세요.",
+      "dropPercent": "전압강하율",
+      "dropV": "전압강하",
+      "receivingVoltage": "수전단 전압",
+      "limitPercent": "허용 한계",
+      "status": "판정",
+      "margin": "여유",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: 내선규정 1410-1 (전압강하 공식·거리별 허용치)",
+        "line2": "주: 60m 이하 3% / 120m 이하 5% / 200m 이하 6% / 200m 초과 7%"
+      }
+    },
+    "steps": {
+      "coefficient": "1단계: 계수 결정 — 기본 {base} ({material}) → 적용 계수 {result}",
+      "drop": "2단계: 전압강하 — ({coefficient} × {distance} × {current}) / (1000 × {crossSection}) = {result}V",
+      "dropPercent": "3단계: 전압강하율 — {drop} / {voltage} × 100 = {result}%",
+      "receivingVoltage": "4단계: 수전단 전압 — {voltage} - {drop} = {result}V",
+      "limitCheck": "5단계: 허용치 비교 — {distance}m 거리 한계 {limitPercent}% vs 실제 {actualPercent}% → {status}"
+    },
+    "validation": {
+      "voltagePositive": "전압은 0보다 커야 합니다",
+      "currentPositive": "전류는 0보다 커야 합니다",
+      "distancePositive": "거리는 0보다 커야 합니다",
+      "distanceMax": "거리는 2000m 이하여야 합니다",
+      "crossSectionPositive": "단면적은 0보다 커야 합니다",
+      "crossSectionStandard": "KS 표준 단면적이 아닙니다 (1.5/2.5/4/6/10/16/25/35/50/70/95/120/150/185/240/300/400/500/630)"
+    },
+    "errors": { "unknown": "계산 중 알 수 없는 오류가 발생했습니다." }
+  },
+  "insuranceTool": {
+    "meta": {
+      "title": "4대보험 계산기 (2026) | WorkTool",
+      "description": "월 급여로부터 국민연금·건강보험·장기요양·고용보험·산재보험 부담액 자동 산출. 2026년 요율."
+    },
+    "title": "4대보험 계산기",
+    "subtitle": "2026년 요율 기준. 근로자 부담 + 사용자 부담 + 실수령액을 한 번에 산출. 산재보험 요율은 업종별로 변경 가능.",
+    "breadcrumb": { "home": "홈" },
+    "sections": { "salary": "급여 정보" },
+    "fields": {
+      "monthlySalary": "월 급여 (보수월액, 원)",
+      "industrialAccidentRate": "산재보험 요율 (소수, 기본 0.0086)"
+    },
+    "hints": {
+      "monthlySalary": "세전 월급여(보수월액). 비과세 식대·차량유지비 등은 제외.",
+      "industrialAccidentRate": "전체 산업 평균 0.86% (0.0086). 업종에 따라 변경 가능."
+    },
+    "lines": {
+      "nationalPension": "국민연금",
+      "healthInsurance": "건강보험",
+      "longTermCare": "장기요양보험",
+      "employmentUnemployment": "고용보험 (실업급여)",
+      "employmentExtra": "고용보험 (안정·능력개발)",
+      "industrialAccident": "산재보험"
+    },
+    "actions": { "calculate": "계산하기", "reset": "초기화" },
+    "unit": { "krw": "원" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "월 급여를 입력하고 계산하기를 눌러주세요.",
+      "netSalary": "근로자 실수령액",
+      "totalEmployee": "근로자 부담 합계",
+      "totalEmployer": "사용자 부담 합계",
+      "totalCost": "사용자 총 인건비 (월급+사용자부담)",
+      "breakdown": "보험별 상세",
+      "warnings": "주의 사항",
+      "col": {
+        "item": "보험",
+        "employee": "근로자",
+        "employer": "사용자",
+        "total": "합계"
+      },
+      "source": {
+        "line1": "출처: 국민연금공단·국민건강보험공단·근로복지공단·고용보험 (2026년 요율)",
+        "line2": "장기요양: 건강보험료 × 12.95% / 고용안정·능력개발: 사용자만 0.25% (150인 미만 기준)",
+        "line3": "주: 산재보험 요율은 업종별로 0.6~30% 차등. 정확한 요율은 근로복지공단 확인."
+      }
+    },
+    "warnings": {
+      "pensionCapped": "월 급여가 국민연금 기준소득월액 상한({cap}원)을 초과합니다. 상한 기준으로 산정됩니다.",
+      "pensionFloored": "월 급여가 국민연금 기준소득월액 하한({floor}원) 미만입니다. 하한 기준으로 산정됩니다."
+    },
+    "validation": {
+      "salaryMin": "월 급여는 100,000원 이상이어야 합니다",
+      "salaryMax": "월 급여는 1억원 이하여야 합니다"
+    },
+    "errors": { "unknown": "계산 중 알 수 없는 오류가 발생했습니다." }
+  },
+  "foreignStockTaxTool": {
+    "meta": {
+      "title": "해외주식 양도세 계산기 | WorkTool",
+      "description": "환율 + 매수·매도가로부터 양도차익 + 250만원 기본공제 + 22% 양도세 자동 산출."
+    },
+    "title": "해외주식 양도세 계산기",
+    "subtitle": "한국 거주자가 해외주식 매도 시 발생하는 양도세를 정확히 산출. 매수·매도 환율 따로 적용 + 연간 250만원 공제 + 22% 세율.",
+    "breadcrumb": { "home": "홈" },
+    "sections": { "buy": "매수 정보", "sell": "매도 정보", "options": "옵션" },
+    "fields": {
+      "buyPriceForeign": "매수가 (외화)",
+      "buyExchangeRate": "매수일 환율 (KRW/외화)",
+      "sellPriceForeign": "매도가 (외화)",
+      "sellExchangeRate": "매도일 환율 (KRW/외화)",
+      "transactionCostKrw": "거래비용 합계 (원, 수수료 등)",
+      "prevDeductionUsed": "올해 이미 사용한 공제액 (원)"
+    },
+    "hints": {
+      "foreignCurrency": "거래된 외화 금액 (USD/EUR/JPY 등)",
+      "exchangeRate": "한국은행 고시 기준환율 (해당 거래일)",
+      "transactionCost": "매매수수료 + 양도세 외 부대비용",
+      "prevDeduction": "동일 연도에 이미 다른 거래에서 사용한 기본공제액. 250만원에서 차감됩니다."
+    },
+    "actions": { "calculate": "계산하기", "reset": "초기화" },
+    "unit": { "krw": "원" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "매수·매도 정보를 입력하고 계산하기를 눌러주세요.",
+      "tax": "납부 양도세",
+      "capitalGain": "양도차익 (원화 환산)",
+      "netProfit": "세후 순이익",
+      "taxableBase": "과세표준",
+      "remainingDeduction": "잔여 기본공제",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: 소득세법 제118조의2 (해외주식 양도소득세) — 22% (지방소득세 포함)",
+        "line2": "기본공제: 연간 250만원 / 양도시점 환율 적용 / 손익통산 가능 (본 도구는 단일 거래)",
+        "line3": "주: 실제 신고는 다음해 5월 종합소득세 신고 시 진행. 본 도구는 사전 시뮬레이션용."
+      }
+    },
+    "steps": {
+      "buyKrw": "1단계: 매수 원화 환산 — {foreign} × {rate} = {result}원",
+      "sellKrw": "2단계: 매도 원화 환산 — {foreign} × {rate} = {result}원",
+      "gain": "3단계: 양도차익 — 매도 {sell} - 매수 {buy} - 거래비용 {cost} = {result}원",
+      "deduction": "4단계: 잔여 공제 — 연 {annual} - 사용 {used} = {remaining}원",
+      "taxableBase": "5단계: 과세표준 — max(0, 양도차익 {gain} - 공제 {deduction}) = {result}원",
+      "tax": "6단계: 양도세 — {base} × {rate}% = {result}원",
+      "netProfit": "7단계: 세후 순이익 — 양도차익 {gain} - 세금 {tax} = {result}원"
+    },
+    "validation": {
+      "buyPricePositive": "매수가는 0 이상이어야 합니다",
+      "sellPricePositive": "매도가는 0 이상이어야 합니다",
+      "exchangeRatePositive": "환율은 0보다 커야 합니다",
+      "costNonNegative": "거래비용은 0 이상이어야 합니다",
+      "deductionNonNegative": "기존 공제 사용액은 0 이상이어야 합니다"
+    },
+    "errors": { "unknown": "계산 중 알 수 없는 오류가 발생했습니다." }
+  },
+  "jsonCsvTool": {
+    "meta": {
+      "title": "JSON ↔ CSV 변환기 (한글 호환) | WorkTool",
+      "description": "한글 깨짐 없는 UTF-8 BOM CSV ↔ JSON 양방향 변환. Excel 호환 CRLF 옵션."
+    },
+    "title": "JSON ↔ CSV 변환기",
+    "subtitle": "한글 환경에서 깨지지 않는 UTF-8 BOM + CRLF CSV 양방향 변환. Excel 한국어판 자동 호환. 클라이언트 사이드 처리(서버 미전송).",
+    "breadcrumb": { "home": "홈" },
+    "sections": {
+      "direction": "변환 방향",
+      "input": "입력",
+      "options": "옵션"
+    },
+    "options": {
+      "withBom": "UTF-8 BOM 추가 (Excel 한글 호환)",
+      "useCrlf": "CRLF 줄바꿈 (Windows Excel 호환)",
+      "hasHeader": "첫 행을 헤더로 사용",
+      "parseNumbers": "숫자 자동 변환"
+    },
+    "actions": {
+      "convert": "변환하기",
+      "reset": "초기화",
+      "copy": "복사",
+      "copied": "복사됨",
+      "download": "다운로드"
+    },
+    "result": {
+      "heading": "변환 결과",
+      "empty": "왼쪽에 데이터를 붙여넣고 변환하기를 눌러주세요.",
+      "rows": "행 수",
+      "cols": "열 수",
+      "warnings": "경고",
+      "note": "데이터는 브라우저에서만 처리되며 서버로 전송되지 않습니다."
+    },
+    "errors": {
+      "unknown": "변환 중 오류가 발생했습니다. 입력 형식을 확인하세요."
+    }
+  },
+  "bizNumberTool": {
+    "meta": {
+      "title": "사업자등록번호 검증 (체크섬) | WorkTool",
+      "description": "국세청 표준 체크섬 알고리즘으로 사업자등록번호 형식·유효성을 오프라인 즉시 검증."
+    },
+    "title": "사업자등록번호 검증",
+    "subtitle": "국세청 표준 체크섬 알고리즘으로 형식·유효성을 즉시 검증. 가운데 2자리로 사업자 종류(개인/법인 등) 자동 분류. 휴·폐업 상태는 별도 API 필요.",
+    "breadcrumb": { "home": "홈" },
+    "sections": { "input": "사업자등록번호 입력" },
+    "fields": { "number": "사업자등록번호" },
+    "hints": {
+      "number": "10자리 숫자. 하이픈(-)·공백 자동 제거. 예: 220-81-62517"
+    },
+    "actions": { "calculate": "검증하기", "reset": "초기화" },
+    "status": {
+      "valid": "유효한 형식",
+      "invalid": "유효하지 않음",
+      "match": "일치",
+      "noMatch": "불일치"
+    },
+    "personType": {
+      "individualGeneral": "개인사업자 — 일반과세자",
+      "individualNonProfit": "개인사업자 — 비영리법인 본점",
+      "individualNontaxable": "개인사업자 — 비사업자",
+      "individualPersonal": "개인사업자 — 부가가치세 면세",
+      "corporationCommercial": "법인 — 영리법인 본점",
+      "corporationBranch": "법인 — 영리법인 지점",
+      "corporationNonProfit": "법인 — 비영리법인 본·지점",
+      "corporationStateOwned": "법인 — 국가·지방자치단체",
+      "corporationCustom": "법인 — 외국법인 본·지점·연락사무소",
+      "unknown": "알 수 없음"
+    },
+    "result": {
+      "heading": "검증 결과",
+      "empty": "사업자등록번호를 입력하고 검증하기를 눌러주세요.",
+      "status": "최종 판정",
+      "formatValid": "형식 검증 (10자리)",
+      "checksumValid": "체크섬 검증",
+      "personType": "사업자 종류",
+      "warnings": "주의 사항",
+      "steps": "검증 과정",
+      "source": {
+        "line1": "출처: 국세청 사업자등록번호 검증 알고리즘 (가중치 1·3·7·1·3·7·1·3·5)",
+        "line2": "9번째 자리는 × 5 결과의 십의 자리를 추가로 합산.",
+        "line3": "주: 형식·체크섬은 1차 검증. 실제 사업자 활성/휴폐업은 홈택스 API 별도 조회 필요."
+      }
+    },
+    "steps": {
+      "normalize": "1단계: 정규화 — 입력 \"{raw}\" → \"{result}\"",
+      "format": "2단계: 표시 형식 — {result}",
+      "weightedSum": "3단계: 가중치 합산 — 자릿수 [{digits}] × [{weights}] = {sum}",
+      "extraAdd": "4단계: 9번째 자리 보정 — {ninth}×5 의 십의 자리 {extra} 추가 = {newSum}",
+      "checksum": "5단계: 체크섬 비교 — (10 - {sum}%10)%10 = {computed} vs 마지막 자리 {actual} → {status}",
+      "personType": "6단계: 사업자 종류 — 가운데 코드 {middle} → {result}"
+    },
+    "warnings": {
+      "formatInvalid": "10자리 숫자 형식이 아닙니다.",
+      "checksumFailed": "체크섬 불일치 — 계산값 {expected} vs 입력 {actual}. 입력 오타 가능성.",
+      "needsExternalApi": "체크섬은 통과했으나, 실제 사업자 활성·휴폐업 상태는 국세청 홈택스 API로 별도 조회해야 정확합니다."
+    },
+    "validation": {
+      "empty": "사업자등록번호를 입력해주세요",
+      "tooLong": "입력이 너무 깁니다"
+    },
+    "errors": { "unknown": "검증 중 오류가 발생했습니다." }
+  },
+  "wireSizeTool": {
+    "meta": {
+      "title": "전선 굵기 계산기 | WorkTool",
+      "description": "KS C IEC 60364-5-52 기반 전선 단면적 계산기. 전압·전류·거리·허용 전압강하·주위 온도·회로 묶음·절연 종류까지 반영하여 최적 KS 표준 단면적을 자동 산정합니다."
+    },
+    "title": "전선 굵기 계산기",
+    "subtitle": "전압강하 + 허용전류 + 주위온도 보정(Ct) + 회로 묶음 보정(Cg) + 절연 종류(PVC/XLPE)까지 반영한 KS 표준 전선 단면적 자동 산정.",
+    "breadcrumb": {
+      "home": "홈",
+      "parent": "산업용 전기 계산기",
+      "current": "전선 굵기"
+    },
+    "sections": {
+      "load": "부하 조건",
+      "cable": "케이블 사양",
+      "environment": "설치 환경"
+    },
+    "fields": {
+      "voltage": "전압 (V)",
+      "current": "부하 전류 (A)",
+      "distance": "편도 거리 (m)",
+      "phaseType": "상 종류",
+      "material": "도체 재질",
+      "insulation": "절연 종류",
+      "allowedDropPercent": "허용 전압강하율 (%)",
+      "ambientTemperature": "주위 온도 (°C)",
+      "numberOfCircuits": "동시 사용 회로 수"
+    },
+    "hints": {
+      "insulation": "PVC = 도체 70°C / XLPE·EPR = 도체 90°C (XLPE는 PVC 대비 약 1.25배 허용전류)",
+      "ambientTemperature": "기본 30°C. 보일러실·옥외함 등 고온 환경은 실측값 입력. KS 표 B.52.14 기준 자동 보정.",
+      "numberOfCircuits": "같은 전선관·트레이에 함께 시공되는 부하 회로 수 (자기 회로 포함). KS 표 B.52.17 자동 보정."
+    },
+    "phase": {
+      "single-2wire": "단상 2선식",
+      "single-3wire": "단상 3선식",
+      "three-3wire": "3상 3선식",
+      "three-4wire": "3상 4선식"
+    },
+    "material": {
+      "copper": "동(Copper)",
+      "aluminum": "알루미늄(Aluminum)"
+    },
+    "insulation": {
+      "PVC": "PVC (70°C)",
+      "XLPE": "XLPE·EPR (90°C)"
+    },
+    "actions": {
+      "calculate": "계산하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "입력값을 채우고 계산하기를 눌러주세요.",
+      "recommended": "권장 단면적",
+      "baseAmpacity": "표 기준 허용전류",
+      "effectiveAmpacity": "유효 허용전류 (보정 후)",
+      "deratingFactors": "보정 계수",
+      "actualDrop": "실제 전압강하",
+      "safetyMargin": "안전 여유율",
+      "warnings": "주의 사항",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: 내선규정 1410-1 (전압강하 공식)",
+        "line2": "출처: KS C IEC 60364-5-52 부속서 B (허용전류 · A1 방식)",
+        "line3": "출처: KS C IEC 60364-5-52 표 B.52.14 (주위온도 보정), 표 B.52.17 (회로 묶음 보정)"
+      }
+    },
+    "steps": {
+      "allowedDrop": "1단계: 허용 전압강하 — {voltage}V × {percent}% = {drop}V",
+      "minSection": "2단계: 전압강하 기준 최소 단면적 — A_min = ({coefficient} × {distance} × {current}) / (1000 × {drop}) = {result}mm²",
+      "derating": "3단계: 보정 계수 산정 — 절연 {insulation}, 주위온도 {ambient}°C → Ct={ct}, 회로 {circuits}개 → Cg={cg} (총 보정 {total})",
+      "requiredAmpacity": "4단계: 보정 후 요구 기준 허용전류 — I_req = {current}A / {total} = {result}A",
+      "selected": "5단계: KS 표준 단면적 선정 — 전압강하 조건(≥{minSection}mm²) + 허용전류 조건(기준 ≥{requiredAmpacity}A) 동시 만족 → {chosen}mm² ({material} {insulation} 기준 {baseAmpacity}A)",
+      "effectiveAmpacity": "6단계: 유효 허용전류 — {baseAmpacity}A × {total} = {effective}A (부하 {current}A 대비 여유 {margin}%)",
+      "verify": "7단계: 실제 전압강하 검증 — e = ({coefficient} × {distance} × {current}) / (1000 × {chosen}) = {drop}V ({percent}%)"
+    },
+    "warnings": {
+      "aluminumMinSize": "알루미늄 도체는 일반적으로 {min}mm² 미만 사용을 권장하지 않습니다 (KEC). 동선으로 변경 검토.",
+      "safetyMarginLow": "안전 여유율이 {threshold}% 미만입니다. 부하 증설 여지를 고려해 한 단계 큰 단면적을 검토하세요.",
+      "parallelRecommended": "단면적 {chosen}mm²는 단일 케이블로 시공이 어렵습니다. 병렬 회로(2병렬 이상) 구성을 검토하세요."
+    },
+    "errors": {
+      "noStandardMatch": "허용 전류 또는 전압강하 조건을 만족하는 KS 표준 단면적이 없습니다. 입력값(주위온도/회로수/도체)을 점검하거나 병렬 회로를 검토하세요.",
+      "unknown": "계산 중 알 수 없는 오류가 발생했습니다."
+    },
+    "validation": {
+      "voltage": "전압은 0보다 커야 합니다",
+      "current": "전류는 0보다 커야 합니다",
+      "distance": "거리는 0보다 커야 합니다",
+      "allowedDropMin": "허용 전압강하율은 0.5% 이상이어야 합니다",
+      "allowedDropMax": "허용 전압강하율은 10% 이하여야 합니다",
+      "ambientMin": "주위 온도는 -10°C 이상이어야 합니다",
+      "ambientMax": "주위 온도는 80°C 이하여야 합니다",
+      "circuitsInt": "회로 수는 정수여야 합니다",
+      "circuitsMin": "회로 수는 1 이상이어야 합니다",
+      "circuitsMax": "회로 수는 20 이하여야 합니다"
+    }
+  },
+  "timberCalc": {
+    "title": "목조 주택 계산기",
+    "subtitle": "부재 경간·단열 R/U값·자재 수량부터 서까래·계단·기초까지 KS 표준과 건축법에 준거한 목조 시공 계산.",
+    "breadcrumb": {
+      "home": "홈",
+      "current": "목조 주택 계산기",
+      "back": "목조 계산기 목록으로"
+    },
+    "hub": {
+      "tier1": "구조·단열·수량 (핵심)",
+      "tier2": "지붕·계단·기초"
+    },
+    "span": {
+      "title": "부재 경간 계산",
+      "description": "장선·서까래·헤더의 휨응력+처짐 검토로 최대 허용 경간을 산출합니다."
+    },
+    "insulation": {
+      "title": "단열 R/U값 계산",
+      "description": "다층 벽체 합성 R값과 U값을 계산해 한국 에너지절약 설계기준 통과 여부를 자동 판정합니다."
+    },
+    "materialQuantity": {
+      "title": "자재 수량 계산",
+      "description": "면적과 손실률로부터 OSB·합판·석고·사이딩 매수와 못/스크류 개수를 추정합니다."
+    },
+    "roofArea": {
+      "title": "지붕 면적 계산",
+      "description": "평면적과 경사 각도로부터 실제 지붕 면적과 처마 면적을 산출합니다."
+    },
+    "concrete": {
+      "title": "콘크리트 부피",
+      "description": "줄기초·매트기초의 콘크리트 부피, 철근 무게, 레미콘 트럭 수량을 계산합니다."
+    },
+    "rafter": {
+      "title": "서까래 계산",
+      "description": "런·라이즈로부터 서까래 절단 길이·각도·구배율을 산출합니다."
+    },
+    "roofPitch": {
+      "title": "지붕 경사 변환",
+      "description": "각도·구배율(%)·피치(rise/12) 표현 사이를 양방향 변환합니다."
+    },
+    "stairs": {
+      "title": "계단 계산",
+      "description": "총 높이로부터 단수·단높이·단너비를 건축법 기준으로 산정합니다."
+    },
+    "lumber": {
+      "title": "목재 단순 환산",
+      "description": "부재 치수와 수량으로부터 부피·재(才)·보드피트·무게를 환산합니다."
+    }
+  },
+  "rafterTool": {
+    "meta": {
+      "title": "서까래 계산기 | WorkTool",
+      "description": "런·라이즈·처마 길이로부터 서까래 절단 길이, 각도, 구배율, 피치 비율을 자동 산출합니다."
+    },
+    "title": "서까래 계산기",
+    "subtitle": "지붕의 수평 거리(런)와 수직 높이(라이즈)로부터 절단해야 할 서까래 길이·각도·구배율을 동시에 산출.",
+    "breadcrumb": {
+      "parent": "목조 주택 계산기",
+      "current": "서까래"
+    },
+    "sections": {
+      "geometry": "지붕 기하",
+      "eave": "처마"
+    },
+    "fields": {
+      "run": "런 (Run, mm) — 마룻대~외벽 수평거리",
+      "rise": "라이즈 (Rise, mm) — 외벽~마룻대 수직높이",
+      "eaveOverhang": "처마 길이 (mm)"
+    },
+    "hints": {
+      "run": "박공의 1/2 폭. 예: 8000mm 폭 주택 → run 4000",
+      "rise": "용마루 높이 - 외벽 상단 높이",
+      "eaveOverhang": "0~2000mm 권장. 한국 단독주택은 보통 600mm 전후"
+    },
+    "actions": {
+      "calculate": "계산하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "런·라이즈 값을 입력하고 계산하기를 눌러주세요.",
+      "totalLength": "총 서까래 길이",
+      "baseLength": "기본 길이 (외벽~마룻대)",
+      "eaveDiagonal": "처마 빗변 길이",
+      "angle": "경사 각도",
+      "slope": "구배율",
+      "pitch": "피치 (rise/12)",
+      "secCorrection": "면적 보정 (sec θ)",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: 직각삼각형 피타고라스 정리"
+      }
+    },
+    "steps": {
+      "baseLength": "1단계: 기본 길이 — √({run}² + {rise}²) = {result}mm",
+      "angle": "2단계: 각도 — atan({rise} / {run}) = {result}°",
+      "slope": "3단계: 구배율 — ({rise} / {run}) × 100 = {result}%",
+      "secCorrection": "4단계: 면적 보정 sec(θ) — 1 / cos({angle}°) = {result}",
+      "eaveDiagonal": "5단계: 처마 빗변 — {eave} × sec({angle}°) = {result}mm",
+      "totalLength": "6단계: 총 길이 — {base} + {eaveDiagonal} = {result}mm"
+    },
+    "validation": {
+      "runPositive": "런은 0보다 커야 합니다",
+      "risePositive": "라이즈는 0보다 커야 합니다",
+      "eaveNonNegative": "처마 길이는 0 이상이어야 합니다",
+      "eaveMax": "처마 길이는 2000mm 이하여야 합니다"
+    },
+    "errors": {
+      "unknown": "계산 중 알 수 없는 오류가 발생했습니다."
+    }
+  },
+  "roofPitchTool": {
+    "meta": {
+      "title": "지붕 경사 변환기 | WorkTool",
+      "description": "각도·구배율(%)·피치(rise/12) 세 가지 표현 사이를 양방향 변환하고 면적 보정 계수를 산출합니다."
+    },
+    "title": "지붕 경사 변환기",
+    "subtitle": "각도(°)·구배율(%)·피치(rise/12) 중 하나를 입력하면 나머지 표현과 면적 보정 계수를 즉시 환산.",
+    "breadcrumb": {
+      "parent": "목조 주택 계산기",
+      "current": "지붕 경사"
+    },
+    "fields": {
+      "mode": "입력 방식",
+      "angle": "각도 (°)",
+      "slope": "구배율 (%)",
+      "rise": "라이즈 (rise/12)"
+    },
+    "modes": {
+      "angle": "각도 (°)",
+      "slope": "구배율 (%)",
+      "ratio": "피치 (rise/12)"
+    },
+    "categories": {
+      "flat": "평지붕 (≤10°) — 방수 마감 권장",
+      "lowSlope": "저경사 (10~30°) — 아스팔트 슁글, 금속",
+      "mediumSlope": "중경사 (30~45°) — 점토기와, 슁글, 금속",
+      "steepSlope": "급경사 (45~60°) — 점토기와, 천연석재",
+      "extremeSlope": "초급경사 (>60°) — 장식·특수 마감"
+    },
+    "actions": {
+      "calculate": "변환하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "변환 결과",
+      "empty": "입력 방식을 선택하고 값을 입력해주세요.",
+      "angle": "각도",
+      "slope": "구배율",
+      "pitch": "피치",
+      "secCorrection": "면적 보정 (sec θ)",
+      "category": "분류",
+      "source": {
+        "line1": "출처: 한국 건축 관행 + AIK 목구조 설계기준"
+      }
+    },
+    "errors": {
+      "unknown": "변환 중 알 수 없는 오류가 발생했습니다."
+    },
+    "validation": {
+      "modeMissingValue": "선택한 입력 방식에 맞는 값을 입력해주세요"
+    }
+  },
+  "stairsTool": {
+    "meta": {
+      "title": "계단 계산기 | WorkTool",
+      "description": "총 높이와 권장 단높이로부터 단수·단높이·단너비·계단 길이·각도를 건축법 기준으로 자동 산출합니다."
+    },
+    "title": "계단 계산기",
+    "subtitle": "총 높이와 권장 단높이를 입력하면 건축법 시행령 + Blondel 공식 기준으로 안전한 계단 단수·치수를 자동 산정.",
+    "breadcrumb": {
+      "parent": "목조 주택 계산기",
+      "current": "계단"
+    },
+    "sections": {
+      "geometry": "기하 입력",
+      "options": "옵션"
+    },
+    "fields": {
+      "totalRise": "총 높이 (mm) — 1층 마감면~2층 마감면",
+      "totalRun": "총 진행 거리 (mm, 선택)",
+      "preferredRiser": "권장 단높이 (mm)",
+      "useType": "용도"
+    },
+    "hints": {
+      "totalRun": "비워두면 Blondel 공식으로 단너비 자동 추천",
+      "preferredRiser": "주거용 보통 170~180mm, 공용 150~170mm"
+    },
+    "useType": {
+      "residential": "주거용 (단독·세대 내부)",
+      "public": "공용 (공동주택 공용부·공공)"
+    },
+    "actions": {
+      "calculate": "계산하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "총 높이와 권장 단높이를 입력해주세요.",
+      "numSteps": "단 개수",
+      "actualRiser": "실제 단높이",
+      "tread": "단너비",
+      "stairLength": "계단 빗변 길이",
+      "angle": "계단 각도",
+      "blondel": "Blondel (2R+T)",
+      "warningsTitle": "주의 사항",
+      "stepsTitle": "계산 과정",
+      "source": {
+        "line1": "출처: 건축법 시행령 제48조 (계단 설치 기준)",
+        "line2": "출처: 피난·방화구조 규칙 제15조 (단높이·단너비 한계)",
+        "line3": "출처: Blondel 공식 (2R + T = 600~640mm) — 인간공학적 보폭"
+      }
+    },
+    "steps": {
+      "numSteps": "1단계: 단 개수 — round({totalRise} / {preferred}) = {result}단",
+      "actualRiser": "2단계: 실제 단높이 — {totalRise} / {steps} = {result}mm",
+      "treadFromRun": "3단계: 단너비 — {totalRun} / ({stepsMinus1}) = {result}mm",
+      "treadFromBlondel": "3단계: 단너비 (Blondel 추천) — {target} - 2 × {riser} = {result}mm",
+      "stairLength": "4단계: 빗변 길이 — √({totalRise}² + {runDist}²) = {result}mm",
+      "angle": "5단계: 각도 — atan({riser} / {tread}) = {result}°",
+      "blondel": "6단계: Blondel 검증 — 2 × {riser} + {tread} = {result}mm (권장 {min}~{max}mm)"
+    },
+    "warnings": {
+      "riserTooHigh": "실제 단높이 {actual}mm가 안전 기준 최대 {max}mm를 초과합니다. 단수를 늘리세요.",
+      "treadTooSmall": "단너비 {actual}mm가 최소 {min}mm 미만입니다. 진행거리를 늘리세요.",
+      "blondelOutOfRange": "Blondel 값 {value}mm가 권장 범위 {min}~{max}mm를 벗어납니다. 보행 불편 우려.",
+      "preferredRiserExceedsLimit": "입력한 권장 단높이 {preferred}mm가 안전 기준 최대 {max}mm를 초과합니다."
+    },
+    "validation": {
+      "totalRiseMin": "총 높이는 100mm 이상이어야 합니다",
+      "totalRiseMax": "총 높이는 10000mm 이하여야 합니다",
+      "totalRunNonNegative": "총 진행 거리는 0 이상이어야 합니다",
+      "totalRunMax": "총 진행 거리는 20000mm 이하여야 합니다",
+      "preferredRiserMin": "권장 단높이는 80mm 이상이어야 합니다",
+      "preferredRiserMax": "권장 단높이는 250mm 이하여야 합니다"
+    },
+    "errors": {
+      "unknown": "계산 중 알 수 없는 오류가 발생했습니다."
+    }
+  },
+  "spanTool": {
+    "meta": {
+      "title": "부재 경간 계산기 | WorkTool",
+      "description": "장선·서까래·헤더의 휨응력 + 처짐 검토로 최대 허용 경간을 산출합니다. KDS 41 33 02 + Canada Wood 기반."
+    },
+    "title": "부재 경간 계산기",
+    "subtitle": "단면(2x4~2x12) × 간격(400/450/600mm) × 수종 + 한국 적설하중을 반영해 휨·처짐 양 조건을 만족하는 최대 경간을 산출.",
+    "breadcrumb": { "parent": "목조 주택 계산기", "current": "부재 경간" },
+    "sections": { "member": "부재 정보", "snow": "적설하중 (서까래)" },
+    "fields": {
+      "memberType": "부재 종류",
+      "lumberSize": "단면 규격",
+      "spacingMM": "부재 간격 (mm)",
+      "grade": "수종·등급",
+      "snowRegion": "적설하중 지역"
+    },
+    "hints": {
+      "spacing": "표준: 400 / 450 / 600mm. 다른 값은 경고 표시.",
+      "snowRegion": "KDS 41 10 15 부록 B 기준. 강원 영동·울릉도는 3.0 kN/m²로 매우 큼."
+    },
+    "memberType": {
+      "floorJoist": "바닥 장선 (Floor Joist)",
+      "ceilingJoist": "천장 장선 (Ceiling Joist)",
+      "rafter": "서까래 (Rafter)",
+      "header": "헤더·인방 (Header)"
+    },
+    "grade": {
+      "larch2": "낙엽송 #2 (국내산)"
+    },
+    "snowRegion": {
+      "seoulMetro": "서울·경기·인천 (0.5 kN/m²)",
+      "gangwonYeongdong": "강원 영동 (3.0 kN/m²)",
+      "gangwonYeongseo": "강원 영서 (0.5 kN/m²)",
+      "chungcheong": "충청 (0.5 kN/m²)",
+      "jeolla": "전라 (0.5 kN/m²)",
+      "gyeongsang": "경상 (0.5 kN/m²)",
+      "jeju": "제주 (0.5 kN/m²)",
+      "ulleung": "울릉도 (3.0 kN/m²)"
+    },
+    "actions": { "calculate": "계산하기", "reset": "초기화" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "부재 정보를 입력하고 계산하기를 눌러주세요.",
+      "maxSpan": "최대 허용 경간",
+      "bendingSpan": "휨 한계 경간",
+      "deflectionSpan": "처짐 한계 경간",
+      "governing": "지배 검토",
+      "totalLoad": "총 하중",
+      "lineLoad": "선 하중",
+      "section": "단면 특성",
+      "warnings": "주의 사항",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: KDS 41 33 02 (목구조 설계기준)",
+        "line2": "출처: KDS 41 10 15 (설계하중) + NDS 2018",
+        "line3": "주: 본 도구는 주거용 계획 검토용. 실제 시공 전 구조사 검토 필수."
+      }
+    },
+    "governing": { "bending": "휨 (Bending)", "deflection": "처짐 (Deflection)" },
+    "steps": {
+      "loads": "1단계: 하중 산정 — 활하중 {live} + 자중 {dead} + 적설 {snow} = {total} kN/m²",
+      "lineLoad": "2단계: 선 하중 — {total} kN/m² × {spacing}mm = {result} N/mm",
+      "section": "3단계: 단면 특성 — {b}×{d}mm → I = {I} mm⁴, S = {S} mm³",
+      "fbAdjusted": "4단계: 허용휨응력 — Fb {base} MPa × Cr {cr} = {result} MPa",
+      "bendingSpan": "5단계: 휨 한계 — L = √(8 × {fb} × {S} / {w}) = {result} mm",
+      "deflectionSpan": "6단계: 처짐 한계 — L = ∛(384 × {E} × {I} / (5 × {w} × {k})) = {result} mm",
+      "governing": "7단계: 지배 — 휨 {bending}mm vs 처짐 {deflection}mm → {result}mm ({check} 지배)"
+    },
+    "warnings": {
+      "spacingUnusual": "간격 {actual}mm는 표준(400/450/600)이 아닙니다. 적용 가능 여부 별도 확인 필요.",
+      "rafterNeedsSnow": "서까래의 경우 지역 적설하중이 결정적입니다. 정확한 지역을 선택했는지 확인하세요.",
+      "lumberNotFound": "{size} 단면 데이터가 없습니다."
+    },
+    "validation": {
+      "spacingMin": "부재 간격은 150mm 이상이어야 합니다",
+      "spacingMax": "부재 간격은 1200mm 이하여야 합니다"
+    },
+    "errors": {
+      "noLumberData": "선택한 단면 규격의 데이터를 찾을 수 없습니다.",
+      "unknown": "계산 중 알 수 없는 오류가 발생했습니다."
+    }
+  },
+  "insulationTool": {
+    "meta": {
+      "title": "단열 R/U값 계산기 | WorkTool",
+      "description": "다층 벽체의 합성 R값과 U값을 계산해 한국 에너지절약 설계기준(별표1) 통과 여부를 자동 판정합니다."
+    },
+    "title": "단열 R/U값 계산기",
+    "subtitle": "지역(중부1·중부2·남부·제주) × 부위(외벽/지붕/바닥) × 다층 자재 구성으로부터 합성 R값과 U값을 산출 → 법규 통과 자동 판정.",
+    "breadcrumb": { "parent": "목조 주택 계산기", "current": "단열" },
+    "sections": { "environment": "지역·부위", "layers": "벽체 구성 (실내 → 실외 순서)" },
+    "fields": { "region": "기후 지역", "element": "부위" },
+    "region": {
+      "central1": "중부1 (강원·경기 북부)",
+      "central2": "중부2 (서울·인천·경기 대부분)",
+      "south": "남부 (대전·부산·전라·경상 등)",
+      "jeju": "제주"
+    },
+    "element": {
+      "exteriorWallDirect": "외벽 — 직접외기·거실",
+      "exteriorWallIndirect": "외벽 — 간접외기·비거실",
+      "roof": "지붕",
+      "floorDirect": "최하층 바닥 — 직접외기",
+      "floorIndirect": "최하층 바닥 — 간접외기"
+    },
+    "materials": {
+      "glasswool24": "글라스울 24K (λ=0.038)",
+      "glasswool48": "글라스울 48K (λ=0.034)",
+      "mineralwool": "미네랄울 (λ=0.040)",
+      "eps1": "EPS 비드법 1종 (λ=0.040)",
+      "eps2": "EPS 비드법 2종 (λ=0.034)",
+      "xps": "XPS 압출법 (λ=0.029)",
+      "pirFoam": "PIR 폼 (λ=0.022)",
+      "puFoam": "PU 스프레이 폼 (λ=0.024)",
+      "cellulose": "셀룰로오스 (λ=0.040)",
+      "phenolic": "페놀폼 (λ=0.020)",
+      "osb11": "OSB 보드 (λ=0.13)",
+      "osb18": "OSB 구조용 (λ=0.13)",
+      "plywood12": "합판 (λ=0.13)",
+      "gypsum9": "석고보드 9.5mm (λ=0.18)",
+      "gypsum12": "석고보드 12.5mm (λ=0.18)",
+      "fiberCement": "섬유시멘트 사이딩 (λ=0.30)",
+      "brick": "적벽돌 (λ=0.81)",
+      "concrete": "콘크리트 (λ=1.6)",
+      "airSpace": "공기층 (R=0.18 고정)"
+    },
+    "actions": { "calculate": "계산하기", "reset": "초기화", "addLayer": "레이어 추가" },
+    "status": { "pass": "통과", "fail": "기준 미달" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "지역·부위·구성을 입력하고 계산하기를 눌러주세요.",
+      "uValue": "U값",
+      "totalR": "총 R값",
+      "uLimit": "법규 한계 U값",
+      "status": "법규 판정",
+      "surplusOrDeficit": "여유/부족 R값",
+      "layerBreakdown": "레이어별 R값",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: 건축물의 에너지절약 설계기준 별표1 (지역별 U값 한계)",
+        "line2": "출처: KS L 9016 (단열재 열전도율) / 한국패시브건축협회",
+        "line3": "주: 열교 미반영. 실제 시공의 효과는 시공 품질에 따라 달라질 수 있음."
+      }
+    },
+    "steps": {
+      "layerSum": "1단계: 레이어 R 합 — {count}개 레이어 합산 = {sum} m²·K/W",
+      "surfaceR": "2단계: 표면 열저항 — 실내 {interior} + 실외 {exterior} = {total} m²·K/W",
+      "totalR": "3단계: 총 R값 — 레이어 {layers} + 표면 {surface} = {result} m²·K/W",
+      "uValue": "4단계: U값 — 1 / {totalR} = {result} W/m²·K",
+      "compare": "5단계: 법규 비교 — U {uValue} ≤ 한계 {limit} → {status}"
+    },
+    "validation": {
+      "thicknessMin": "두께는 1mm 이상이어야 합니다",
+      "thicknessMax": "두께는 1000mm 이하여야 합니다",
+      "layersMin": "최소 1개 이상의 레이어가 필요합니다",
+      "layersMax": "레이어는 최대 15개까지 가능합니다"
+    },
+    "errors": { "unknown": "계산 중 알 수 없는 오류가 발생했습니다." }
+  },
+  "materialQuantityTool": {
+    "meta": {
+      "title": "자재 수량 계산기 | WorkTool",
+      "description": "시공 면적과 손실률로부터 OSB·합판·석고보드·사이딩 매수와 못/스크류 개수를 자동 산출합니다."
+    },
+    "title": "자재 수량 계산기",
+    "subtitle": "벽·지붕·바닥 시공 면적 × (1 + 손실률) ÷ 매당 면적 → 자재 매수 + 못/스크류 추정.",
+    "breadcrumb": { "parent": "목조 주택 계산기", "current": "자재 수량" },
+    "sections": { "material": "자재·면적" },
+    "fields": {
+      "material": "자재 종류",
+      "areaM2": "시공 면적 (m²)",
+      "wasteFactorPercent": "손실률 (%)",
+      "estimateFasteners": "못/스크류 추정"
+    },
+    "hints": {
+      "area": "벽·지붕·바닥 등의 순수 시공 면적",
+      "waste": "보통 5~15%. 복잡한 시공은 더 크게.",
+      "estimateFasteners": "시트형 자재의 가장자리 + 가운데 못 개수 추정"
+    },
+    "materials": {
+      "osb11": "OSB 11mm (1220×2440mm)",
+      "osb18": "OSB 18mm 구조용 (1220×2440mm)",
+      "plywood12": "합판 12mm (1220×2440mm)",
+      "plywood18": "합판 18mm (1220×2440mm)",
+      "gypsum9": "석고보드 9.5mm (900×1800mm)",
+      "gypsum12": "석고보드 12.5mm (900×1800mm)",
+      "cementBoard": "시멘트보드 (900×1800mm)",
+      "fiberCementSiding": "섬유시멘트 사이딩 (200×3600mm)",
+      "vinylSiding": "비닐 사이딩 (250×3700mm)",
+      "asphaltShingle": "아스팔트 슁글 (1번들 ≈ 3.1m²)",
+      "battInsulationR19": "글라스울 R-19 batt (600×2400mm)"
+    },
+    "unit": { "sheet": "매", "bundle": "번들", "batt": "롤" },
+    "actions": { "calculate": "계산하기", "reset": "초기화" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "자재와 면적을 입력해주세요.",
+      "sheetsRequired": "필요 매수",
+      "adjustedArea": "보정 후 면적",
+      "sheetArea": "매당 면적",
+      "totalWeight": "총 무게",
+      "nails": "못 개수 (추정)",
+      "screws": "스크류 개수 (추정)",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: 한국 유통 표준 규격 + IRC R602.3 못 박기 기준",
+        "line2": "주: 못/스크류는 표준 간격(가장자리 150mm, 가운데 300mm) 가정한 추정값."
+      }
+    },
+    "steps": {
+      "wasteAdjusted": "1단계: 손실률 보정 — {area}m² × (1 + {waste}%) = {result}m²",
+      "sheetCount": "2단계: 매수 산정 — {adjustedArea}m² ÷ {sheetArea}m² (올림) = {result}매",
+      "totalWeight": "3단계: 총 무게 — {sheets}매 × {perSheet}kg = {result}kg",
+      "fasteners": "4단계: 못/스크류 추정 — {sheets}매 × {perSheet}개/매 = {result}개"
+    },
+    "validation": {
+      "areaMin": "면적은 0.1m² 이상이어야 합니다",
+      "areaMax": "면적은 10000m² 이하여야 합니다",
+      "wasteMin": "손실률은 0% 이상이어야 합니다",
+      "wasteMax": "손실률은 30% 이하여야 합니다"
+    },
+    "errors": { "unknown": "계산 중 알 수 없는 오류가 발생했습니다." }
+  },
+  "roofAreaTool": {
+    "meta": {
+      "title": "지붕 면적 계산기 | WorkTool",
+      "description": "평면적과 경사 각도로부터 실제 지붕 면적과 처마 면적을 산출합니다."
+    },
+    "title": "지붕 면적 계산기",
+    "subtitle": "건물 평면적 × sec(경사각) → 실제 지붕면적. 처마 둘레와 길이를 추가하면 처마 면적까지 합산.",
+    "breadcrumb": { "parent": "목조 주택 계산기", "current": "지붕 면적" },
+    "sections": { "geometry": "지붕 기하", "eave": "처마 (선택)" },
+    "fields": {
+      "planAreaM2": "평면적 (m²)",
+      "angleDegrees": "지붕 경사 각도 (°)",
+      "perimeterM": "처마 둘레 (m)",
+      "eaveOverhangMM": "처마 길이 (mm)"
+    },
+    "hints": {
+      "planArea": "건물 외곽선 기준 1개 층 평면적 (지붕이 덮는 영역)",
+      "perimeter": "처마가 시공되는 외곽선 길이. 0이면 처마 면적 미산출."
+    },
+    "actions": { "calculate": "계산하기", "reset": "초기화" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "평면적과 경사 각도를 입력해주세요.",
+      "totalArea": "총 지붕 면적",
+      "slopeArea": "경사면 면적",
+      "eaveArea": "처마 면적",
+      "secCorrection": "면적 보정 계수 (sec θ)",
+      "steps": "계산 과정",
+      "source": { "line1": "출처: 직각삼각형 sec(θ) 보정 (평면적 → 경사면적)" }
+    },
+    "steps": {
+      "secCorrection": "1단계: sec(θ) — 1 / cos({angle}°) = {result}",
+      "slopeArea": "2단계: 경사면 면적 — {planArea}m² × sec(θ) {sec} = {result}m²",
+      "eaveArea": "3단계: 처마 면적 — 둘레 {perimeter}m × 처마 {eaveOverhang}mm × sec(θ) {sec} = {result}m²",
+      "totalArea": "4단계: 총 면적 — {slope}m² + {eave}m² = {result}m²"
+    },
+    "validation": {
+      "planAreaMin": "평면적은 1m² 이상이어야 합니다",
+      "planAreaMax": "평면적은 10000m² 이하여야 합니다",
+      "perimeterMin": "둘레는 0 이상이어야 합니다",
+      "perimeterMax": "둘레는 1000m 이하여야 합니다",
+      "angleMin": "각도는 0 이상이어야 합니다",
+      "angleMax": "각도는 90° 미만이어야 합니다",
+      "eaveMin": "처마 길이는 0 이상이어야 합니다",
+      "eaveMax": "처마 길이는 2000mm 이하여야 합니다"
+    },
+    "errors": { "unknown": "계산 중 알 수 없는 오류가 발생했습니다." }
+  },
+  "concreteTool": {
+    "meta": {
+      "title": "콘크리트 부피 계산기 | WorkTool",
+      "description": "줄기초·매트기초의 콘크리트 부피, 철근 무게, 레미콘 트럭 수량을 자동 산출합니다."
+    },
+    "title": "콘크리트 부피 계산기",
+    "subtitle": "기초 형식 × 치수 + 손실률 → 콘크리트 부피 + 철근 무게 + 레미콘 트럭 수량 산정.",
+    "breadcrumb": { "parent": "목조 주택 계산기", "current": "콘크리트" },
+    "sections": { "foundation": "기초 치수", "options": "보정 옵션" },
+    "fields": {
+      "type": "기초 형식",
+      "widthM": "폭 (m)",
+      "depth": "깊이 (m)",
+      "thickness": "두께 (m)",
+      "lengthM": "길이 (m)",
+      "rebarDensity": "철근 밀도 (kg/m³)",
+      "wasteFactorPercent": "손실률 (%)"
+    },
+    "hints": {
+      "rebar": "주거용 줄기초 평균 80~100 kg/m³, 매트는 60~80 kg/m³"
+    },
+    "type": {
+      "stripFooting": "줄기초 (Strip Footing)",
+      "matSlab": "매트기초 (Mat Slab)"
+    },
+    "unit": { "trucks": "대" },
+    "actions": { "calculate": "계산하기", "reset": "초기화" },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "기초 치수를 입력해주세요.",
+      "adjustedVolume": "필요 콘크리트 부피",
+      "rawVolume": "기본 부피 (보정 전)",
+      "rebar": "철근 무게 (추정)",
+      "remicon": "레미콘 트럭 수량 (6m³ 기준)",
+      "steps": "계산 과정",
+      "source": {
+        "line1": "출처: KDS 14 20 (콘크리트구조 설계기준) + 한국 레미콘 표준 (6m³/대)",
+        "line2": "주: 철근 추정치는 일반 주거용 평균. 정확한 수량은 구조 도면 기반 산출 필요."
+      }
+    },
+    "steps": {
+      "rawVolume": "1단계: 기본 부피 — {width}m × {depth}m × {length}m = {result}m³",
+      "wasteAdjusted": "2단계: 손실률 보정 — {raw}m³ × (1 + {waste}%) = {result}m³",
+      "rebar": "3단계: 철근 무게 — {volume}m³ × {density}kg/m³ = {result}kg",
+      "remicon": "4단계: 레미콘 트럭 — {volume}m³ ÷ 6m³ = {result}대"
+    },
+    "validation": {
+      "widthMin": "폭은 0.1m 이상이어야 합니다",
+      "widthMax": "폭은 50m 이하여야 합니다",
+      "depthMin": "깊이/두께는 0.05m 이상이어야 합니다",
+      "depthMax": "깊이/두께는 5m 이하여야 합니다",
+      "lengthMin": "길이는 0.1m 이상이어야 합니다",
+      "lengthMax": "길이는 500m 이하여야 합니다",
+      "rebarMin": "철근 밀도는 0 이상이어야 합니다",
+      "rebarMax": "철근 밀도는 300 kg/m³ 이하여야 합니다",
+      "wasteMin": "손실률은 0% 이상이어야 합니다",
+      "wasteMax": "손실률은 30% 이하여야 합니다"
+    },
+    "errors": { "unknown": "계산 중 알 수 없는 오류가 발생했습니다." }
+  },
+  "lumberTool": {
+    "meta": {
+      "title": "목재 단순 환산 | WorkTool",
+      "description": "부재 치수와 수량으로부터 부피(m³)·보드피트(BF)·재(才)·추정 무게를 자동 환산합니다."
+    },
+    "title": "목재 단순 환산",
+    "subtitle": "부재 단면(폭×두께) × 길이 × 수량 × 수종으로부터 m³·재(才)·보드피트(BF)·추정 무게를 한 번에 산출.",
+    "breadcrumb": {
+      "parent": "목조 주택 계산기",
+      "current": "목재 수량"
+    },
+    "sections": {
+      "dimension": "부재 치수",
+      "type": "수종"
+    },
+    "fields": {
+      "widthMM": "폭 (mm)",
+      "thicknessMM": "두께 (mm)",
+      "lengthMM": "길이 (mm)",
+      "quantity": "수량 (개)",
+      "species": "수종"
+    },
+    "hints": {
+      "widthMM": "예: 2x4 SPF는 폭 89mm",
+      "thicknessMM": "예: 2x4 SPF는 두께 38mm",
+      "lengthMM": "한국 표준 길이: 3600 / 4200mm 등"
+    },
+    "species": {
+      "pine": "소나무 (500 kg/m³)",
+      "larch": "낙엽송 (540 kg/m³)",
+      "cedar": "삼나무 (380 kg/m³)",
+      "spf": "SPF (460 kg/m³)",
+      "douglasFir": "더글러스 퍼 (530 kg/m³)",
+      "oak": "참나무 (750 kg/m³)"
+    },
+    "actions": {
+      "calculate": "계산하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "부재 치수와 수량을 입력해주세요.",
+      "totalVolume": "총 부피",
+      "perPiece": "1개당 부피",
+      "boardFeet": "보드피트 (BF)",
+      "sai": "재 (才)",
+      "weight": "추정 무게",
+      "density": "비중",
+      "stepsTitle": "계산 과정",
+      "source": {
+        "line1": "출처: KS F 3020 (목재 단면 치수)",
+        "line2": "출처: 1才 = 1치 × 1치 × 12자 ≈ 0.003342 m³",
+        "line3": "비중은 함수율 12% 기건 상태 평균값 (실측값과 차이 가능)"
+      }
+    },
+    "steps": {
+      "perPieceVolume": "1단계: 1개당 부피 — ({width} × {thickness} × {length}) / 10⁹ = {result} m³",
+      "totalVolume": "2단계: 총 부피 — {perPiece} × {quantity}개 = {result} m³",
+      "boardFeet": "3단계: 보드피트 — {volumeM3} m³ ÷ 0.002360 = {result} BF",
+      "sai": "4단계: 재(才) — {volumeM3} m³ ÷ 0.003342 = {result} 才",
+      "weight": "5단계: 무게 — {volumeM3} m³ × {density}({species}) = {result} kg"
+    },
+    "validation": {
+      "widthMin": "폭은 10mm 이상이어야 합니다",
+      "widthMax": "폭은 1000mm 이하여야 합니다",
+      "thicknessMin": "두께는 10mm 이상이어야 합니다",
+      "thicknessMax": "두께는 1000mm 이하여야 합니다",
+      "lengthMin": "길이는 100mm 이상이어야 합니다",
+      "lengthMax": "길이는 20000mm 이하여야 합니다",
+      "quantityInt": "수량은 정수여야 합니다",
+      "quantityMin": "수량은 1 이상이어야 합니다",
+      "quantityMax": "수량은 10000 이하여야 합니다"
+    },
+    "errors": {
+      "unknown": "계산 중 알 수 없는 오류가 발생했습니다."
+    }
+  }
+}
