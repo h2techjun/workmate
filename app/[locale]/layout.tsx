@@ -7,6 +7,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AdSenseScript } from "@/components/seo/AdSenseScript";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
+import { SiteStructuredData } from "@/components/seo/StructuredData";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
 import "../globals.css";
 
@@ -149,6 +150,10 @@ export default async function LocaleLayout({
         <GoogleAnalytics />
       </head>
       <body>
+        <SiteStructuredData
+          siteUrl={SITE_URL}
+          locale={locale === "en" ? "en" : "ko"}
+        />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <div className="flex min-h-screen flex-col">
             <Header locale={locale as Locale} />
