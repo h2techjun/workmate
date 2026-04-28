@@ -37,8 +37,8 @@ export async function generateMetadata({
   };
 
   const descriptions: Record<Locale, string> = {
-    ko: "전기 계산(KEC/KS), 사업자등록 검증, 4대보험·연봉 실수령액, 목조 구조 계산 등 한국 실무자가 매일 쓰는 도구를 무료로 제공합니다. 광고 없는 빠른 계산기.",
-    en: "Free online calculators based on Korean standards (KEC, KS, NDS). Electric wire size, breaker, voltage drop, payroll insurance, timber span — built for Korean professionals.",
+    ko: "한국 실무자를 위한 무료 계산기 모음. 전기 KEC, 4대보험 2026, 사업자번호 검증, 목조 NDS, 연봉 실수령액.",
+    en: "Korean calculators: wire (KEC), 4 insurances, biz number, timber NDS, salary.",
   };
 
   const localeKey = (locales.includes(locale as Locale) ? locale : "ko") as Locale;
