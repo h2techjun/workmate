@@ -24,8 +24,8 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const titles: Record<Locale, string> = {
-    ko: "목조 주택 계산기 | WorkTool",
-    en: "Timber Construction Calculator | WorkTool",
+    ko: "목조 주택 계산기 | Workmate",
+    en: "Timber Construction Calculator | Workmate",
   };
   const descriptions: Record<Locale, string> = {
     ko: "부재 경간·단열 R/U값·자재 수량 등 KS 표준과 건축법에 준거한 목조 시공 계산기 모음.",

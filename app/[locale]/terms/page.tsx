@@ -11,11 +11,11 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === "en" ? "Terms of Use — WorkTool" : "이용약관 — WorkTool",
+    title: locale === "en" ? "Terms of Use — Workmate" : "이용약관 — Workmate",
     description:
       locale === "en"
-        ? "Use WorkTool freely. Results are reference-only. Verify with a licensed professional before construction or filing."
-        : "WorkTool 이용 약관 — 무료로 자유롭게 사용 가능. 결과는 참고용이며 시공·신고 전에는 반드시 전문가 검토가 필요합니다.",
+        ? "Use Workmate freely. Results are reference-only. Verify with a licensed professional before construction or filing."
+        : "Workmate 이용 약관 — 무료로 자유롭게 사용 가능. 결과는 참고용이며 시공·신고 전에는 반드시 전문가 검토가 필요합니다.",
   };
 }
 
@@ -59,7 +59,7 @@ function TermsKo(): React.ReactElement {
           1. 서비스 성격
         </h2>
         <p>
-          WorkTool은 한국 표준(KS·KEC·건축법·세법 등)에 기반한 계산
+          Workmate은 한국 표준(KS·KEC·건축법·세법 등)에 기반한 계산
           참고 도구를 무료로 제공합니다. 회원가입은 없으며 누구나 자유롭게
           이용할 수 있습니다.
         </p>
@@ -169,7 +169,7 @@ function TermsEn(): React.ReactElement {
           1. Service nature
         </h2>
         <p>
-          WorkTool provides calculators based on Korean Standards (KS, KEC,
+          Workmate provides calculators based on Korean Standards (KS, KEC,
           Korean building code, tax law) free of charge. No sign-up
           required.
         </p>

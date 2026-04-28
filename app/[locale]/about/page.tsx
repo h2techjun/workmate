@@ -13,11 +13,11 @@ export async function generateMetadata({
   return {
     title:
       locale === "en"
-        ? "About — WorkTool"
-        : "WorkTool은 어떤 도구인가요? — 만든 이유와 운영 원칙",
+        ? "About — Workmate"
+        : "Workmate은 어떤 도구인가요? — 만든 이유와 운영 원칙",
     description:
       locale === "en"
-        ? "Why WorkTool exists, who we serve, and the principles behind every calculator."
+        ? "Why Workmate exists, who we serve, and the principles behind every calculator."
         : "현장 실무자가 매일 쓰는 계산을 위해 만들었습니다. 운영 철학과 작동 원리를 솔직하게 정리했습니다.",
   };
 }
@@ -52,7 +52,7 @@ function AboutKo(): React.ReactElement {
     <article className="prose-content space-y-6 text-[color:var(--color-text-secondary)]">
       <header>
         <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
-          WorkTool은 어떤 도구인가요?
+          Workmate은 어떤 도구인가요?
         </h1>
         <p className="mt-3 text-sm text-[color:var(--color-text-tertiary)]">
           최초 작성 2026-04-27 · 운영자: 한국 실무자 한 명
@@ -73,7 +73,7 @@ function AboutKo(): React.ReactElement {
           너무 많거나, 결과만 보여주고 어떻게 나왔는지 설명하지 않더군요.
         </p>
         <p>
-          WorkTool의 모든 계산기는 <strong>계산 과정을 단계별로 보여줍니다</strong>.
+          Workmate의 모든 계산기는 <strong>계산 과정을 단계별로 보여줍니다</strong>.
           왜냐하면 결재용 자료에 첨부할 때 근거가 필요하고, 후배한테
           가르칠 때도 공식 보여주는 게 빠르고, 무엇보다 제 자신이
           맞는지 검증할 수 있어야 하니까요.
@@ -166,7 +166,7 @@ function AboutEn(): React.ReactElement {
     <article className="space-y-6 text-[color:var(--color-text-secondary)]">
       <header>
         <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
-          About WorkTool
+          About Workmate
         </h1>
         <p className="mt-3 text-sm text-[color:var(--color-text-tertiary)]">
           First written 2026-04-27 · Operated by a Korean construction professional
@@ -189,7 +189,7 @@ function AboutEn(): React.ReactElement {
           the answer without explaining how they got there.
         </p>
         <p>
-          Every calculator on WorkTool{" "}
+          Every calculator on Workmate{" "}
           <strong>shows the calculation steps</strong>. Because you need to
           attach the rationale to approval documents. Because explaining the
           formula is faster than handwaving when teaching someone. Because

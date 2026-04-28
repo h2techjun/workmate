@@ -13,8 +13,8 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const titles: Record<Locale, string> = {
-    ko: "산업용 전기 계산기 | WorkTool",
-    en: "Industrial Electric Calculator | WorkTool",
+    ko: "산업용 전기 계산기 | Workmate",
+    en: "Industrial Electric Calculator | Workmate",
   };
   const descriptions: Record<Locale, string> = {
     ko: "KS C IEC 60364 기반 전선 굵기, 차단기 용량, 전압강하 계산기. 전기공사 실무에 바로 사용 가능.",

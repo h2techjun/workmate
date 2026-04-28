@@ -11,11 +11,11 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === "en" ? "Contact — WorkTool" : "연락처 — WorkTool",
+    title: locale === "en" ? "Contact — Workmate" : "연락처 — Workmate",
     description:
       locale === "en"
         ? "How to reach the operator — bug reports, tool requests, partnerships."
-        : "WorkTool 운영자 연락처 — 버그 제보, 도구 요청, 제휴 문의.",
+        : "Workmate 운영자 연락처 — 버그 제보, 도구 요청, 제휴 문의.",
   };
 }
 
@@ -53,7 +53,7 @@ export default async function ContactPage({
 
             <section className="space-y-3">
               <a
-                href={`mailto:${email}?subject=WorkTool 문의`}
+                href={`mailto:${email}?subject=Workmate 문의`}
                 className="surface-card group inline-flex items-center gap-3 p-4 transition-colors hover:bg-[color:var(--color-bg-card-hover)]"
               >
                 <Mail className="h-5 w-5 text-indigo-300" />
@@ -118,7 +118,7 @@ export default async function ContactPage({
             </header>
 
             <a
-              href={`mailto:${email}?subject=WorkTool inquiry`}
+              href={`mailto:${email}?subject=Workmate inquiry`}
               className="surface-card group inline-flex items-center gap-3 p-4 transition-colors hover:bg-[color:var(--color-bg-card-hover)]"
             >
               <Mail className="h-5 w-5 text-indigo-300" />

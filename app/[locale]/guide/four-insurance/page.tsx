@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (locale === "en") {
     return {
-      title: "Korean 4-major insurance demystified (2026 rates) | WorkTool",
+      title: "Korean 4-major insurance demystified (2026 rates) | Workmate",
       description:
         "Why your take-home is 9.4%, not the headline 7.09% number. Korean payroll insurance breakdown for 2026.",
     };

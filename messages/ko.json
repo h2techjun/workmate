@@ -13,7 +13,7 @@
       "contact": "연락처"
     },
     "footer": {
-      "copyright": "© 2026 WorkTool — 한국 실무자를 위한 무료 도구",
+      "copyright": "© 2026 Workmate — 한국 실무자를 위한 무료 도구",
       "disclaimer": "본 계산기는 KS 표준 및 건축법을 참조한 참고용 자료이며, 실제 시공·설계는 전문 자격자의 검토를 거쳐야 합니다."
     }
   },
@@ -111,7 +111,7 @@
     }
   },
   "home": {
-    "title": "WorkTool",
+    "title": "Workmate",
     "tagline": "한국 실무자를 위한 무료 온라인 도구 모음",
     "subtitle": "KS 표준에 정확히 맞춘 전기·세무·문서 계산기를 한 곳에서.",
     "toolsHeading": "도구 목록",
@@ -193,7 +193,7 @@
   },
   "breakerTool": {
     "meta": {
-      "title": "차단기 용량 계산기 | WorkTool",
+      "title": "차단기 용량 계산기 | Workmate",
       "description": "부하 전류와 안전율을 고려한 MCB/MCCB 정격 전류 자동 선정 + 인버터+ELB 경고."
     },
     "title": "차단기 용량 계산기",
@@ -255,7 +255,7 @@
   },
   "voltageDropTool": {
     "meta": {
-      "title": "전압강하 계산기 | WorkTool",
+      "title": "전압강하 계산기 | Workmate",
       "description": "전선 단면적·거리·전류로부터 전압강하 + 내선규정 허용치 통과 여부 자동 판정."
     },
     "title": "전압강하 계산기",
@@ -313,7 +313,7 @@
   },
   "insuranceTool": {
     "meta": {
-      "title": "4대보험 계산기 (2026) | WorkTool",
+      "title": "4대보험 계산기 (2026) | Workmate",
       "description": "월 급여로부터 국민연금·건강보험·장기요양·고용보험·산재보험 부담액 자동 산출. 2026년 요율."
     },
     "title": "4대보험 계산기",
@@ -371,7 +371,7 @@
   },
   "foreignStockTaxTool": {
     "meta": {
-      "title": "해외주식 양도세 계산기 | WorkTool",
+      "title": "해외주식 양도세 계산기 | Workmate",
       "description": "환율 + 매수·매도가로부터 양도차익 + 250만원 기본공제 + 22% 양도세 자동 산출."
     },
     "title": "해외주식 양도세 계산기",
@@ -429,7 +429,7 @@
   },
   "jsonCsvTool": {
     "meta": {
-      "title": "JSON ↔ CSV 변환기 (한글 호환) | WorkTool",
+      "title": "JSON ↔ CSV 변환기 (한글 호환) | Workmate",
       "description": "한글 깨짐 없는 UTF-8 BOM CSV ↔ JSON 양방향 변환. Excel 호환 CRLF 옵션."
     },
     "title": "JSON ↔ CSV 변환기",
@@ -467,7 +467,7 @@
   },
   "bizNumberTool": {
     "meta": {
-      "title": "사업자등록번호 검증 (체크섬) | WorkTool",
+      "title": "사업자등록번호 검증 (체크섬) | Workmate",
       "description": "국세청 표준 체크섬 알고리즘으로 사업자등록번호 형식·유효성을 오프라인 즉시 검증."
     },
     "title": "사업자등록번호 검증",
@@ -533,7 +533,7 @@
   },
   "wireSizeTool": {
     "meta": {
-      "title": "전선 굵기 계산기 | WorkTool",
+      "title": "전선 굵기 계산기 | Workmate",
       "description": "KS C IEC 60364-5-52 기반 전선 단면적 계산기. 전압·전류·거리·허용 전압강하·주위 온도·회로 묶음·절연 종류까지 반영하여 최적 KS 표준 단면적을 자동 산정합니다."
     },
     "title": "전선 굵기 계산기",
@@ -681,7 +681,7 @@
   },
   "rafterTool": {
     "meta": {
-      "title": "서까래 계산기 | WorkTool",
+      "title": "서까래 계산기 | Workmate",
       "description": "런·라이즈·처마 길이로부터 서까래 절단 길이, 각도, 구배율, 피치 비율을 자동 산출합니다."
     },
     "title": "서까래 계산기",
@@ -743,7 +743,7 @@
   },
   "roofPitchTool": {
     "meta": {
-      "title": "지붕 경사 변환기 | WorkTool",
+      "title": "지붕 경사 변환기 | Workmate",
       "description": "각도·구배율(%)·피치(rise/12) 세 가지 표현 사이를 양방향 변환하고 면적 보정 계수를 산출합니다."
     },
     "title": "지붕 경사 변환기",
@@ -795,7 +795,7 @@
   },
   "stairsTool": {
     "meta": {
-      "title": "계단 계산기 | WorkTool",
+      "title": "계단 계산기 | Workmate",
       "description": "총 높이와 권장 단높이로부터 단수·단높이·단너비·계단 길이·각도를 건축법 기준으로 자동 산출합니다."
     },
     "title": "계단 계산기",
@@ -872,7 +872,7 @@
   },
   "spanTool": {
     "meta": {
-      "title": "부재 경간 계산기 | WorkTool",
+      "title": "부재 경간 계산기 | Workmate",
       "description": "장선·서까래·헤더의 휨응력 + 처짐 검토로 최대 허용 경간을 산출합니다. KDS 41 33 02 + Canada Wood 기반."
     },
     "title": "부재 경간 계산기",
@@ -954,7 +954,7 @@
   },
   "insulationTool": {
     "meta": {
-      "title": "단열 R/U값 계산기 | WorkTool",
+      "title": "단열 R/U값 계산기 | Workmate",
       "description": "다층 벽체의 합성 R값과 U값을 계산해 한국 에너지절약 설계기준(별표1) 통과 여부를 자동 판정합니다."
     },
     "title": "단열 R/U값 계산기",
@@ -1031,7 +1031,7 @@
   },
   "materialQuantityTool": {
     "meta": {
-      "title": "자재 수량 계산기 | WorkTool",
+      "title": "자재 수량 계산기 | Workmate",
       "description": "시공 면적과 손실률로부터 OSB·합판·석고보드·사이딩 매수와 못/스크류 개수를 자동 산출합니다."
     },
     "title": "자재 수량 계산기",
@@ -1095,7 +1095,7 @@
   },
   "roofAreaTool": {
     "meta": {
-      "title": "지붕 면적 계산기 | WorkTool",
+      "title": "지붕 면적 계산기 | Workmate",
       "description": "평면적과 경사 각도로부터 실제 지붕 면적과 처마 면적을 산출합니다."
     },
     "title": "지붕 면적 계산기",
@@ -1143,7 +1143,7 @@
   },
   "concreteTool": {
     "meta": {
-      "title": "콘크리트 부피 계산기 | WorkTool",
+      "title": "콘크리트 부피 계산기 | Workmate",
       "description": "줄기초·매트기초의 콘크리트 부피, 철근 무게, 레미콘 트럭 수량을 자동 산출합니다."
     },
     "title": "콘크리트 부피 계산기",
@@ -1203,7 +1203,7 @@
   },
   "lumberTool": {
     "meta": {
-      "title": "목재 단순 환산 | WorkTool",
+      "title": "목재 단순 환산 | Workmate",
       "description": "부재 치수와 수량으로부터 부피(m³)·보드피트(BF)·재(才)·추정 무게를 자동 환산합니다."
     },
     "title": "목재 단순 환산",

@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (locale === "en") {
     return {
-      title: "2x10 SPF can span how far? Korean joist sizing | WorkTool",
+      title: "2x10 SPF can span how far? Korean joist sizing | Workmate",
       description:
         "What 2x6, 2x8, 2x10 SPF #2 actually carry in Korean residential construction. Bending vs deflection, why deflection usually governs, and the snow-load surprise in Yeongdong.",
     };

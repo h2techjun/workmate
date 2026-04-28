@@ -20,7 +20,7 @@ export async function Header({ locale }: HeaderProps): Promise<React.ReactElemen
           <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-xs font-bold text-white shadow-lg shadow-indigo-500/30">
             W
           </span>
-          <span className="text-base md:text-lg">WorkTool</span>
+          <span className="text-base md:text-lg">Workmate</span>
         </Link>
 
         <nav className="flex items-center gap-1 md:gap-2">

@@ -13,7 +13,7 @@
       "contact": "Contact"
     },
     "footer": {
-      "copyright": "© 2026 WorkTool — Free Tools for Korean Standards",
+      "copyright": "© 2026 Workmate — Free Tools for Korean Standards",
       "disclaimer": "These calculators reference KS standards and Korean building code for informational purposes only. Actual design and installation must be reviewed by a licensed professional."
     }
   },
@@ -111,7 +111,7 @@
     }
   },
   "home": {
-    "title": "WorkTool",
+    "title": "Workmate",
     "tagline": "Free online tools based on Korean standards",
     "subtitle": "Electric, tax, and document calculators precisely aligned to Korean Standards (KS), in one place.",
     "toolsHeading": "Available Tools",
@@ -193,7 +193,7 @@
   },
   "breakerTool": {
     "meta": {
-      "title": "Breaker Capacity Calculator | WorkTool",
+      "title": "Breaker Capacity Calculator | Workmate",
       "description": "Auto-select MCB/MCCB rated current from load current + safety factor with inverter+ELB warning."
     },
     "title": "Breaker Capacity Calculator",
@@ -255,7 +255,7 @@
   },
   "voltageDropTool": {
     "meta": {
-      "title": "Voltage Drop Calculator | WorkTool",
+      "title": "Voltage Drop Calculator | Workmate",
       "description": "Compute voltage drop and check against Korean Electrical Code distance-based limits (3-7%)."
     },
     "title": "Voltage Drop Calculator",
@@ -313,7 +313,7 @@
   },
   "insuranceTool": {
     "meta": {
-      "title": "Korean 4-Major Insurance Calculator (2026) | WorkTool",
+      "title": "Korean 4-Major Insurance Calculator (2026) | Workmate",
       "description": "Calculate Korean payroll insurance contributions: National Pension, Health, Long-term Care, Employment, Industrial Accident. 2026 rates."
     },
     "title": "Korean 4-Major Insurance Calculator",
@@ -371,7 +371,7 @@
   },
   "foreignStockTaxTool": {
     "meta": {
-      "title": "Foreign Stock Capital Gains Tax | WorkTool",
+      "title": "Foreign Stock Capital Gains Tax | Workmate",
       "description": "Korean residents' foreign stock capital gains tax with FX, KRW 2.5M deduction, 22% rate (income + local)."
     },
     "title": "Foreign Stock Capital Gains Tax Calculator",
@@ -429,7 +429,7 @@
   },
   "jsonCsvTool": {
     "meta": {
-      "title": "JSON ↔ CSV Converter (Korean-aware) | WorkTool",
+      "title": "JSON ↔ CSV Converter (Korean-aware) | Workmate",
       "description": "Bidirectional JSON/CSV with UTF-8 BOM and CRLF for Korean Excel compatibility. Client-side only."
     },
     "title": "JSON ↔ CSV Converter",
@@ -467,7 +467,7 @@
   },
   "bizNumberTool": {
     "meta": {
-      "title": "Business Number Validation (Checksum) | WorkTool",
+      "title": "Business Number Validation (Checksum) | Workmate",
       "description": "Offline format and checksum validation of Korean business registration numbers per the NTS standard algorithm."
     },
     "title": "Business Number Validation",
@@ -533,7 +533,7 @@
   },
   "wireSizeTool": {
     "meta": {
-      "title": "Wire Size Calculator | WorkTool",
+      "title": "Wire Size Calculator | Workmate",
       "description": "KS C IEC 60364-5-52 wire size calculator with ambient temperature derating, grouping factor, and PVC/XLPE insulation selection."
     },
     "title": "Wire Size Calculator",
@@ -681,7 +681,7 @@
   },
   "rafterTool": {
     "meta": {
-      "title": "Rafter Calculator | WorkTool",
+      "title": "Rafter Calculator | Workmate",
       "description": "Compute rafter cut length, angle, slope, and pitch ratio from run, rise, and eave overhang."
     },
     "title": "Rafter Calculator",
@@ -743,7 +743,7 @@
   },
   "roofPitchTool": {
     "meta": {
-      "title": "Roof Pitch Converter | WorkTool",
+      "title": "Roof Pitch Converter | Workmate",
       "description": "Convert between angle, slope %, and pitch (rise/12) with the area correction factor."
     },
     "title": "Roof Pitch Converter",
@@ -795,7 +795,7 @@
   },
   "stairsTool": {
     "meta": {
-      "title": "Stair Calculator | WorkTool",
+      "title": "Stair Calculator | Workmate",
       "description": "Compute steps, riser, tread, length, and angle per Korean Building Code Article 48 + Blondel formula."
     },
     "title": "Stair Calculator",
@@ -872,7 +872,7 @@
   },
   "spanTool": {
     "meta": {
-      "title": "Span Calculator | WorkTool",
+      "title": "Span Calculator | Workmate",
       "description": "Maximum span for joists, rafters, and headers via bending + deflection check, per KDS 41 33 02 and NDS 2018."
     },
     "title": "Span Calculator",
@@ -952,7 +952,7 @@
   },
   "insulationTool": {
     "meta": {
-      "title": "Insulation R/U-value Calculator | WorkTool",
+      "title": "Insulation R/U-value Calculator | Workmate",
       "description": "Multi-layer wall composite R-value and U-value with automatic pass/fail per Korean Energy Saving Design Code Annex 1."
     },
     "title": "Insulation R/U-value Calculator",
@@ -1029,7 +1029,7 @@
   },
   "materialQuantityTool": {
     "meta": {
-      "title": "Material Quantity Calculator | WorkTool",
+      "title": "Material Quantity Calculator | Workmate",
       "description": "From installation area and waste factor, compute sheets of OSB, plywood, gypsum, siding plus nail/screw estimate."
     },
     "title": "Material Quantity Calculator",
@@ -1093,7 +1093,7 @@
   },
   "roofAreaTool": {
     "meta": {
-      "title": "Roof Area Calculator | WorkTool",
+      "title": "Roof Area Calculator | Workmate",
       "description": "From plan area and slope angle, compute the actual sloped roof area plus eave area."
     },
     "title": "Roof Area Calculator",
@@ -1141,7 +1141,7 @@
   },
   "concreteTool": {
     "meta": {
-      "title": "Concrete Volume Calculator | WorkTool",
+      "title": "Concrete Volume Calculator | Workmate",
       "description": "Strip footing or mat slab concrete volume + rebar weight + remicon truck count."
     },
     "title": "Concrete Volume Calculator",
@@ -1198,7 +1198,7 @@
   },
   "lumberTool": {
     "meta": {
-      "title": "Lumber Conversion | WorkTool",
+      "title": "Lumber Conversion | Workmate",
       "description": "Convert lumber dimensions and quantity into volume (m³), board feet (BF), sai (才), and estimated weight."
     },
     "title": "Lumber Conversion",

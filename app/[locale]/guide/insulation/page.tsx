@@ -12,13 +12,13 @@ export async function generateMetadata({
   const { locale } = await params;
   if (locale === "en") {
     return {
-      title: "Korean insulation code in plain English | WorkTool",
+      title: "Korean insulation code in plain English | Workmate",
       description:
         "Korea's energy code by region — Central1, Central2, South, Jeju — and what wall buildup actually passes.",
     };
   }
   return {
-    title: "단열, 중부2 외벽 0.17 통과시키는 현실적 조합 | WorkTool",
+    title: "단열, 중부2 외벽 0.17 통과시키는 현실적 조합 | Workmate",
     description:
       "에너지절약 설계기준 별표1을 매주 들여다보는 사람의 정리. 글라스울 140mm로는 중부2 못 통과합니다. 그럼 어떻게 하는지.",
   };

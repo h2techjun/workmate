@@ -13,12 +13,12 @@ export async function generateMetadata({
   return {
     title:
       locale === "en"
-        ? "Privacy Policy — WorkTool"
-        : "개인정보처리방침 — WorkTool",
+        ? "Privacy Policy — Workmate"
+        : "개인정보처리방침 — Workmate",
     description:
       locale === "en"
-        ? "How WorkTool handles your data — short answer: it doesn't leave your browser."
-        : "WorkTool의 개인정보 처리 방식. 입력값은 브라우저를 떠나지 않습니다.",
+        ? "How Workmate handles your data — short answer: it doesn't leave your browser."
+        : "Workmate의 개인정보 처리 방식. 입력값은 브라우저를 떠나지 않습니다.",
   };
 }
 
@@ -55,7 +55,7 @@ function PrivacyKo(): React.ReactElement {
           개인정보처리방침
         </h1>
         <p className="mt-3 text-sm text-[color:var(--color-text-tertiary)]">
-          시행일 2026-04-27 · 본 방침은 WorkTool 사이트(이하 &ldquo;본
+          시행일 2026-04-27 · 본 방침은 Workmate 사이트(이하 &ldquo;본
           사이트&rdquo;)에 적용됩니다.
         </p>
       </header>
@@ -198,7 +198,7 @@ function PrivacyEn(): React.ReactElement {
           Privacy Policy
         </h1>
         <p className="mt-3 text-sm text-[color:var(--color-text-tertiary)]">
-          Effective 2026-04-27 · Applies to the WorkTool website
+          Effective 2026-04-27 · Applies to the Workmate website
         </p>
       </header>
 

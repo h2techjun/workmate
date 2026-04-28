@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (locale === "en") {
     return {
-      title: "Sizing wires under KEC 232.5 — a field guide | WorkTool",
+      title: "Sizing wires under KEC 232.5 — a field guide | Workmate",
       description:
         "How to actually pick wire size under Korea's KEC 232.5. Real cases, the temperature factor traps people miss, and when to ignore the calculator.",
     };

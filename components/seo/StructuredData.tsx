@@ -27,7 +27,7 @@ export function CalculatorJsonLd({
   name,
   description,
   url,
-  authorName = "WorkTool",
+  authorName = "Workmate",
   applicationCategory = "BusinessApplication",
   howToSteps,
 }: CalculatorJsonLdProps): React.ReactElement {
@@ -121,7 +121,7 @@ export function OrganizationJsonLd({
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "WorkTool",
+    name: "Workmate",
     url,
     description:
       "한국 표준(KS·KEC·건축법)에 기반한 무료 실무 계산 도구 모음.",
