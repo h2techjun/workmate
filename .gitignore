@@ -49,3 +49,16 @@ next-env.d.ts
 
 # OS
 Thumbs.db
+
+# 통합된 Flutter SPA 의 worktree 포인터·메타 — 빌드 산출물만 commit 하고 git 메타는 제외
+public/play/*/.git
+public/play/*/.github
+public/play/*/.claude
+public/play/*/.workmate-integrated.json
+public/app/*/.git
+public/app/*/.github
+public/app/*/.claude
+public/app/*/.workmate-integrated.json
+
+# 통합 작업 도중 worktree pointer 가 박혀서 격리한 stale 폴더 — 디스크에만 존재.
+public/play/_stale_*/

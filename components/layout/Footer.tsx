@@ -22,6 +22,12 @@ export async function Footer({
             {t("nav.about")}
           </Link>
           <Link
+            href={`/${locale}/projects`}
+            className="transition-colors hover:text-[color:var(--color-text-primary)]"
+          >
+            {t("projects")}
+          </Link>
+          <Link
             href={`/${locale}/privacy`}
             className="transition-colors hover:text-[color:var(--color-text-primary)]"
           >
