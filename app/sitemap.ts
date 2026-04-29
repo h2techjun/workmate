@@ -22,6 +22,7 @@ const TOOL_PATHS = [
   "/foreign-stock-tax",
   "/json-csv",
   "/biznum-check",
+  "/projects",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

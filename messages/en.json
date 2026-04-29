@@ -2,6 +2,7 @@
   "layout": {
     "electric": "Electric",
     "timber": "Timber",
+    "projects": "Maker",
     "open": "Open",
     "share": "Copy share link",
     "shareCopied": "Copied",
@@ -109,6 +110,24 @@
         "keywords": "business number validation checksum NTS Korea"
       }
     }
+  },
+  "projects": {
+    "eyebrow": "Maker projects",
+    "heading": "Ten projects built by one person",
+    "intro": "Games, SaaS, and experiments built alongside Workmate. Solo full-stack — idea → design → code → deploy → operate, all in one cycle.",
+    "featuredHeading": "Featured work",
+    "otherHeading": "Other projects",
+    "philosophyHeading": "Why so many",
+    "philo1Title": "Build the tools missing in practice",
+    "philo1Body": "Electric calculators, academy SaaS, document translation — all born from hitting limits in existing tools. Practitioners build different details.",
+    "philo2Title": "Korean-standard first",
+    "philo2Body": "KEC, KS, NDS, building code, 4 major insurances — global tools miss the details. Translating foreign sites doesn't work for Korean compliance.",
+    "philo3Title": "Solo full-stack in the AI era",
+    "philo3Body": "Flutter, Next.js, Supabase, Gemini, LangGraph — running modern stacks in small units, validating and iterating faster than larger teams can.",
+    "cardOpen": "Open",
+    "cardCurrent": "Current site",
+    "cardExternal": "External link",
+    "cardComingSoon": "Coming soon"
   },
   "home": {
     "title": "Workmate",

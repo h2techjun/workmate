@@ -2,6 +2,7 @@
   "layout": {
     "electric": "전기",
     "timber": "목조",
+    "projects": "메이커",
     "open": "사용하기",
     "share": "공유 링크 복사",
     "shareCopied": "복사됨",
@@ -109,6 +110,24 @@
         "keywords": "biz business number 사업자등록 사업자번호 체크섬 검증"
       }
     }
+  },
+  "projects": {
+    "eyebrow": "메이커 작업물",
+    "heading": "한 명이 만든 10개의 프로젝트",
+    "intro": "Workmate를 운영하면서 동시에 만들고 있는 게임, SaaS, 실험적 도구들. 풀스택 직접 개발 — 아이디어 → 디자인 → 코드 → 배포 → 운영까지 1인 사이클.",
+    "featuredHeading": "주요 작업",
+    "otherHeading": "그 외 프로젝트",
+    "philosophyHeading": "왜 이렇게 많이 만드나",
+    "philo1Title": "현장에서 부족한 도구를 직접 만든다",
+    "philo1Body": "전기 계산기·학원 SaaS·문서 번역 — 모두 시중 도구의 한계를 직접 겪고 만든 결과물. 현장 실무자가 만드니 디테일이 다르다.",
+    "philo2Title": "한국 표준·한국 시장 우선",
+    "philo2Body": "KEC, KS, NDS, 건축법, 4대보험 — 글로벌 도구가 놓치는 한국 표준의 디테일을 정확히 반영. 외국 사이트 번역으로는 절대 안 된다.",
+    "philo3Title": "AI 시대의 1인 풀스택",
+    "philo3Body": "Flutter, Next.js, Supabase, Gemini, LangGraph — 최신 스택을 작은 단위로 운영하면서 빠르게 검증·반복. 큰 팀이 못하는 속도로.",
+    "cardOpen": "열기",
+    "cardCurrent": "현재 사이트",
+    "cardExternal": "외부 링크",
+    "cardComingSoon": "준비 중"
   },
   "home": {
     "title": "Workmate",

@@ -36,6 +36,12 @@ export async function Header({ locale }: HeaderProps): Promise<React.ReactElemen
           >
             {t("timber")}
           </Link>
+          <Link
+            href={`/${locale}/projects`}
+            className="rounded-lg px-3 py-1.5 text-sm font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card)] hover:text-[color:var(--color-text-primary)]"
+          >
+            {t("projects")}
+          </Link>
           <LanguageSwitcher currentLocale={locale} />
         </nav>
       </div>
