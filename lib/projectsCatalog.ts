@@ -114,8 +114,10 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
   {
     id: "defense",
     category: "game",
-    hostType: "internal-static",
-    subpath: "/play/defense",
+    // 542MB(이미지·오디오 다수) 빌드라 직접 호스팅 비효율 → 기존 GH Pages 외부 링크 유지.
+    // 추후 에셋 최적화 후 internal-static 전환 가능.
+    hostType: "external",
+    externalUrl: "https://h2techjun.github.io/defense/",
     githubUrl: "https://github.com/h2techjun/defense",
     status: "beta",
     featured: true,
@@ -140,8 +142,9 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
   {
     id: "hakrew",
     category: "platform",
-    hostType: "internal-static",
-    subpath: "/app/hakrew",
+    // SaaS 활성 사용자 + Supabase auth redirect URL 호환성 때문에 base-href 변경 위험.
+    // 추후 별도 서브도메인(hakrew.workmate.tools) 으로 분리 권장.
+    hostType: "external",
     externalUrl: "https://hakrew21.github.io/hakrew-web/",
     githubUrl: "https://github.com/h2techjun/hakrew",
     status: "live",
