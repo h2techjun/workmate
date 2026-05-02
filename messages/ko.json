@@ -535,7 +535,7 @@
     },
     "steps": {
       "heading": "계산 과정",
-      "tenure": "입사일로부터 {years}년 ({months}개월) 근속",
+      "tenure": "입사일로부터 {years}년 ({totalMonths}개월) 근속",
       "monthlyAccrual": "1년 미만 — 매월 1일 누적: {totalMonths}개월 → {daysAccrued}일 (상한 {cap}일)",
       "annualBase": "{years}년차 1년 이상 → 기본 {base}일",
       "annualIncrement": "{years}년차 가산 — {interval}년마다 +1일, {increments}회 적용 → 합계 {total}일",

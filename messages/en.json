@@ -535,7 +535,7 @@
     },
     "steps": {
       "heading": "Steps",
-      "tenure": "Tenure: {years} years ({months} months)",
+      "tenure": "Tenure: {years} years ({totalMonths} months)",
       "monthlyAccrual": "Sub-1-year — 1 day per month worked: {totalMonths} months → {daysAccrued} days (cap {cap})",
       "annualBase": "{years}-year tenure → base {base} days",
       "annualIncrement": "Increment — +1 day every {interval} years, {increments} applied → {total} days total",
