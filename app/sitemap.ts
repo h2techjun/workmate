@@ -24,6 +24,8 @@ const TOOL_PATHS = [
   "/biznum-check",
   "/labor-calc",
   "/labor-calc/annual-leave",
+  "/labor-calc/min-wage-monthly",
+  "/vat-calc",
   "/projects",
 ] as const;
 

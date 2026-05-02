@@ -138,6 +138,181 @@
       }
     }
   },
+  "minWageTool": {
+    "meta": {
+      "title": "최저시급 → 월급 환산기 (2025/2026 + 주휴 포함)",
+      "description": "시급을 입력하면 주 40시간·주휴 포함 209시간 기준 월급·연봉 자동 환산. 단시간 근로자 비례 시간·주휴 분리 표시까지."
+    },
+    "eyebrow": "최저시급 환산",
+    "heading": "시급 → 월급 / 연봉",
+    "intro": "주 40시간·주휴 포함 209시간 기준으로 시급을 월급·연봉으로 환산. 단시간 근로(주 15·20·30시간)도 비례 자동 계산.",
+    "breadcrumb": {
+      "home": "홈",
+      "labor": "근로기준법 계산기"
+    },
+    "sections": {
+      "wage": "시급",
+      "hours": "근로시간"
+    },
+    "fields": {
+      "year": "기준 연도",
+      "hourlyWage": "시급",
+      "weeklyHours": "주 소정근로시간",
+      "includeWeeklyRest": "주휴수당 포함"
+    },
+    "hints": {
+      "year": "최저시급 fallback 기준",
+      "tbd": "미고시 시 2025년 기준",
+      "hourlyWage": "0 입력 시 해당 연도 최저시급 사용",
+      "weeklyHours": "주 5일 8시간 = 40시간. 단시간 근로 시 변경.",
+      "includeWeeklyRest": "주 15시간 이상 근로자는 주휴수당 발생 — 월급에 포함이 일반적"
+    },
+    "actions": {
+      "calculate": "환산하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "환산 결과",
+      "empty": "시급·근로시간을 입력하고 환산해 주세요.",
+      "monthlyLabel": "월급",
+      "annualLabel": "연봉",
+      "monthlyHoursLabel": "월 통상근로시간",
+      "weeklyRestLabel": "주휴수당 (월)",
+      "hourlyLabel": "적용 시급",
+      "wonSuffix": "원",
+      "hoursSuffix": "시간"
+    },
+    "steps": {
+      "heading": "계산 과정",
+      "input": "시급 {hourlyWage}원, 주 {weeklyHours}시간, {year}년 기준",
+      "monthlyHoursWithRest": "주 {weeklyHours}시간 + 주휴 시간 합산 후 월 평균 4.345주 환산 = 월 {monthlyHours}시간",
+      "monthlyHoursNoRest": "주 {weeklyHours}시간 × 월 평균 4.345주 = 월 {monthlyHours}시간 (주휴 미포함)",
+      "monthlySalary": "시급 {hourlyWage}원 × 월 {monthlyHours}시간 = 월급 {monthlySalary}원",
+      "annualSalary": "월급 {monthlySalary}원 × 12개월 = 연봉 {annualSalary}원"
+    },
+    "errors": {
+      "unknown": "환산 중 오류가 발생했습니다."
+    },
+    "source": "근로기준법 제55조 (주휴일), 행정해석상 월 통상근로시간 209시간 기준. 회사 임금 규정·연봉 협상에 따라 다를 수 있다.",
+    "ctx": {
+      "formula": {
+        "title": "월 209시간이 어디서 나왔나",
+        "body": "주 40시간 근로 + 주휴 8시간 = 주 48시간. 1년 52주 ÷ 12개월 ≈ 4.345주. 48 × 4.345 ≈ 208.56시간 → 행정해석상 209시간으로 통일."
+      },
+      "partTime": {
+        "title": "단시간 근로자 비례",
+        "body": "주 15시간 미만은 주휴수당 발생 안 함. 15~40시간은 (주 근로시간 / 5)일분의 주휴수당 발생 — 8시간 상한."
+      },
+      "minWage": {
+        "title": "최저임금 결정",
+        "body": "매년 8월 5일까지 다음해 최저임금 고시. 2025년 = 10,030원. 2026년은 미고시 시점에는 동일 가정 후 표시 (확정 시 갱신)."
+      }
+    }
+  },
+  "vatTool": {
+    "meta": {
+      "title": "부가세 계산기 — 공급가액·세액 즉시 분리",
+      "description": "공급대가에서 공급가액·부가세 자동 분리, 별도 부과 가산, 일반과세자 신고세액 + 간이과세자 업종별 부가가치율 계산까지 한 번에."
+    },
+    "eyebrow": "부가가치세법 제30조",
+    "heading": "부가세 계산기",
+    "intro": "부가세 포함 가격에서 공급가액·세액 즉시 분리. 매출·매입 입력하면 일반과세자 납부세액. 간이과세자는 업종별 부가가치율 자동 적용.",
+    "breadcrumb": {
+      "home": "홈"
+    },
+    "sections": {
+      "mode": "계산 방식",
+      "amount": "금액 입력"
+    },
+    "fields": {
+      "mode": "방식",
+      "amount": {
+        "extract": "공급대가 (부가세 포함)",
+        "add": "공급가액 (부가세 별도)",
+        "general": "매출 공급대가",
+        "simple": "매출 공급대가"
+      },
+      "purchaseAmount": "매입 공급가액",
+      "industry": "업종"
+    },
+    "hints": {
+      "mode": "분리·합산·일반과세·간이과세 중 선택",
+      "amount": {
+        "extract": "총 받은 금액 (110,000원 등)",
+        "add": "부가세를 더할 순수 공급가액",
+        "general": "분기 매출 합계 (부가세 포함)",
+        "simple": "연간 매출액 (부가세 포함)"
+      },
+      "purchaseAmount": "세금계산서 받은 매입의 공급가액 (부가세 제외)",
+      "industry": "간이과세자 업종별 부가가치율 적용"
+    },
+    "mode": {
+      "extract": "포함 → 분리",
+      "add": "별도 → 합산",
+      "general": "일반과세자 신고",
+      "simple": "간이과세자 신고"
+    },
+    "industry": {
+      "retail": "소매업·음식점업 (15%)",
+      "manufacturing": "제조업·농임어업 (20%)",
+      "lodging": "숙박업 (25%)",
+      "construction": "건설·운수창고·정보통신 (30%)",
+      "finance": "금융보험·부동산임대·기타 서비스 (40%)"
+    },
+    "actions": {
+      "calculate": "계산하기",
+      "reset": "초기화"
+    },
+    "lines": {
+      "supply": "공급가액",
+      "vat": "부가세",
+      "total": "공급대가 (합계)",
+      "purchase-vat": "매입세액",
+      "payable": "납부세액",
+      "added-value": "부가가치 (간이)"
+    },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "금액을 입력하고 계산해 주세요.",
+      "vatLabel": "부가세",
+      "totalLabel": "공급대가 (합계)",
+      "payableLabel": "납부세액",
+      "wonSuffix": "원"
+    },
+    "steps": {
+      "heading": "계산 과정",
+      "extract": "공급대가 {total}원 × 10/11 = 공급가액 {supply}원, 부가세 {vat}원",
+      "add": "공급가액 {supply}원 × 10% = 부가세 {vat}원, 합계 {total}원",
+      "generalSales": "매출 공급대가 {total}원 → 공급가액 {supply}원 + 매출세액 {vat}원",
+      "generalPurchase": "매입 공급가액 {purchase}원 × 10% = 매입세액 {purchaseVat}원",
+      "generalPayable": "납부세액 = 매출세액 {salesVat} - 매입세액 {purchaseVat} = {payable}원",
+      "simple": "{industry} 부가가치율 {rate}% — {total}원 × {rate}% × 10% = {payable}원"
+    },
+    "errors": {
+      "invalid": "입력값을 확인해 주세요.",
+      "unknown": "계산 중 오류가 발생했습니다."
+    },
+    "source": "출처: 부가가치세법 제30조 (세율 10%), 제63조 (간이과세 부가가치율). 본 결과는 참고용으로 실제 신고 시 매입 공제 가능 항목·면세 매출 분리 등 추가 검토 필요.",
+    "ctx": {
+      "law": {
+        "title": "부가가치세법 제30조",
+        "body": "재화·용역의 공급에 10% 부과. 공급가액 = 공급대가 ÷ 1.1. 사업자는 매출세액에서 매입세액을 차감해 신고·납부."
+      },
+      "simple": {
+        "title": "간이과세자",
+        "body": "직전 연도 매출 1억 4백만원 미만 사업자. 업종별 부가가치율 (15~40%)을 매출에 곱하고 거기에 10% 부과. 세금계산서 발급 의무 없음."
+      },
+      "deadline": {
+        "title": "신고·납부 기한",
+        "body": "일반과세자: 1기(1~6월) 7월 25일, 2기(7~12월) 다음해 1월 25일. 간이과세자: 다음해 1월 25일까지 연 1회. 예정신고는 분기별 25일."
+      }
+    },
+    "validation": {
+      "amountPositive": "0보다 큰 금액을 입력해 주세요.",
+      "purchaseNegative": "매입 공급가액은 0 이상이어야 합니다.",
+      "industryRequired": "업종을 선택해 주세요."
+    }
+  },
   "annualLeaveTool": {
     "meta": {
       "title": "연차 계산기 — 발생일수 + 미사용 수당",
@@ -279,6 +454,11 @@
         "title": "4대보험 계산기",
         "description": "월 급여로부터 국민연금·건강보험·고용보험·산재보험 부담액을 자동 산정 (2026 요율)",
         "tag": "급여"
+      },
+      "vatCalc": {
+        "title": "부가세 계산기",
+        "description": "공급가액·부가세 즉시 분리 + 일반/간이과세자 신고세액 자동 산출",
+        "tag": "세금"
       },
       "foreignStockTax": {
         "title": "해외주식 양도세",

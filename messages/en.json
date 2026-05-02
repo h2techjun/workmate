@@ -138,6 +138,181 @@
       }
     }
   },
+  "minWageTool": {
+    "meta": {
+      "title": "Hourly → Monthly Salary Converter (Korea, with weekly rest)",
+      "description": "Convert hourly wage to monthly salary and annual income using Korea's standard 209-hour basis (40-hour week + weekly rest pay). Part-time prorated."
+    },
+    "eyebrow": "Min wage → monthly",
+    "heading": "Hourly → Monthly / Annual",
+    "intro": "Convert hourly wage to monthly salary using Korea's 209-hour standard (40h/week + weekly rest pay). Part-time hours auto-prorated.",
+    "breadcrumb": {
+      "home": "Home",
+      "labor": "Labor calculators"
+    },
+    "sections": {
+      "wage": "Hourly wage",
+      "hours": "Working hours"
+    },
+    "fields": {
+      "year": "Reference year",
+      "hourlyWage": "Hourly wage",
+      "weeklyHours": "Weekly hours",
+      "includeWeeklyRest": "Include weekly rest pay"
+    },
+    "hints": {
+      "year": "Used as min-wage fallback",
+      "tbd": "TBD — defaults to 2025",
+      "hourlyWage": "0 = use min wage for selected year",
+      "weeklyHours": "5 days × 8 hours = 40. Adjust for part-time.",
+      "includeWeeklyRest": "Workers with 15+ weekly hours qualify for weekly rest pay"
+    },
+    "actions": {
+      "calculate": "Convert",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter hourly wage and weekly hours, then convert.",
+      "monthlyLabel": "Monthly salary",
+      "annualLabel": "Annual",
+      "monthlyHoursLabel": "Monthly hours",
+      "weeklyRestLabel": "Weekly-rest pay (monthly)",
+      "hourlyLabel": "Hourly used",
+      "wonSuffix": " KRW",
+      "hoursSuffix": " hrs"
+    },
+    "steps": {
+      "heading": "Steps",
+      "input": "Hourly {hourlyWage}, weekly {weeklyHours}h, year {year}",
+      "monthlyHoursWithRest": "Weekly {weeklyHours}h + weekly-rest hours × 4.345 weeks = {monthlyHours} hrs/month",
+      "monthlyHoursNoRest": "Weekly {weeklyHours}h × 4.345 weeks = {monthlyHours} hrs/month (no weekly rest)",
+      "monthlySalary": "Hourly {hourlyWage} × {monthlyHours} hrs = monthly {monthlySalary}",
+      "annualSalary": "Monthly {monthlySalary} × 12 = annual {annualSalary}"
+    },
+    "errors": {
+      "unknown": "An error occurred during conversion."
+    },
+    "source": "Labor Standards Act §55 (weekly rest day). 209 hours is the administrative standard for monthly working hours. Actual pay may differ per company rules.",
+    "ctx": {
+      "formula": {
+        "title": "Where does 209 hours come from?",
+        "body": "40 weekly work hours + 8 weekly-rest hours = 48 weekly. 52 weeks ÷ 12 ≈ 4.345 weeks/month. 48 × 4.345 ≈ 208.56 → administratively rounded to 209."
+      },
+      "partTime": {
+        "title": "Part-time proration",
+        "body": "Under 15 weekly hours → no weekly rest pay. 15-40 hours → weekly rest pay = (weekly hours / 5) hours per week, capped at 8."
+      },
+      "minWage": {
+        "title": "Minimum wage decision",
+        "body": "Announced yearly by Aug 5 for the following year. 2025 = 10,030 KRW. 2026 TBD — defaults to 2025 value until announced."
+      }
+    }
+  },
+  "vatTool": {
+    "meta": {
+      "title": "Korean VAT Calculator — Extract & Compute",
+      "description": "Split tax-inclusive prices into supply + VAT, add VAT to ex-tax amounts, compute filing tax for general taxpayers, and apply industry-specific value-added rates for simplified taxpayers."
+    },
+    "eyebrow": "VAT Act §30",
+    "heading": "VAT Calculator",
+    "intro": "Extract supply value and VAT from a tax-inclusive price, or compute filing tax for general / simplified Korean taxpayers — including industry value-added rates.",
+    "breadcrumb": {
+      "home": "Home"
+    },
+    "sections": {
+      "mode": "Mode",
+      "amount": "Amount"
+    },
+    "fields": {
+      "mode": "Mode",
+      "amount": {
+        "extract": "Total received (VAT-inclusive)",
+        "add": "Supply value (ex-VAT)",
+        "general": "Sales (VAT-inclusive)",
+        "simple": "Annual sales (VAT-inclusive)"
+      },
+      "purchaseAmount": "Purchase supply value",
+      "industry": "Industry"
+    },
+    "hints": {
+      "mode": "Choose extract / add / general / simplified",
+      "amount": {
+        "extract": "Total amount received (e.g. 110,000)",
+        "add": "Pre-VAT supply value to add VAT to",
+        "general": "Quarterly sales total (VAT inclusive)",
+        "simple": "Annual sales (VAT inclusive)"
+      },
+      "purchaseAmount": "Supply value of purchases (ex-VAT)",
+      "industry": "Industry-specific value-added rate"
+    },
+    "mode": {
+      "extract": "Inclusive → Split",
+      "add": "Exclusive → Add",
+      "general": "General taxpayer",
+      "simple": "Simplified taxpayer"
+    },
+    "industry": {
+      "retail": "Retail / F&B (15%)",
+      "manufacturing": "Manufacturing / Agriculture (20%)",
+      "lodging": "Lodging (25%)",
+      "construction": "Construction / Logistics / IT (30%)",
+      "finance": "Finance / Real estate / Services (40%)"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "lines": {
+      "supply": "Supply value",
+      "vat": "VAT",
+      "total": "Total (incl. VAT)",
+      "purchase-vat": "Input tax",
+      "payable": "Payable",
+      "added-value": "Value added"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter an amount and click Calculate.",
+      "vatLabel": "VAT",
+      "totalLabel": "Total",
+      "payableLabel": "Payable",
+      "wonSuffix": " KRW"
+    },
+    "steps": {
+      "heading": "Steps",
+      "extract": "Total {total} × 10/11 = supply {supply}, VAT {vat}",
+      "add": "Supply {supply} × 10% = VAT {vat}, total {total}",
+      "generalSales": "Sales {total} → supply {supply} + sales VAT {vat}",
+      "generalPurchase": "Purchase {purchase} × 10% = input tax {purchaseVat}",
+      "generalPayable": "Payable = sales VAT {salesVat} - input {purchaseVat} = {payable}",
+      "simple": "{industry} rate {rate}% — {total} × {rate}% × 10% = {payable}"
+    },
+    "errors": {
+      "invalid": "Please check your inputs.",
+      "unknown": "An error occurred during calculation."
+    },
+    "source": "Source: VAT Act §30 (10% rate), §63 (simplified taxpayer rates). For reference only — actual filing requires deductible input verification and exempt-sales segregation.",
+    "ctx": {
+      "law": {
+        "title": "VAT Act §30",
+        "body": "10% on supply of goods and services. Supply value = total ÷ 1.1. Businesses file by netting sales tax against input tax."
+      },
+      "simple": {
+        "title": "Simplified taxpayer",
+        "body": "Prior-year sales under KRW 104M. Industry value-added rate (15-40%) is applied, then 10% VAT. No mandatory tax invoice issuance."
+      },
+      "deadline": {
+        "title": "Filing deadlines",
+        "body": "General: H1 (Jan-Jun) by Jul 25, H2 (Jul-Dec) by Jan 25 next year. Simplified: once a year by Jan 25. Provisional filings due quarterly on the 25th."
+      }
+    },
+    "validation": {
+      "amountPositive": "Amount must be greater than 0.",
+      "purchaseNegative": "Purchase amount cannot be negative.",
+      "industryRequired": "Please select an industry."
+    }
+  },
   "annualLeaveTool": {
     "meta": {
       "title": "Annual Leave Calculator — Korea (LSA §60)",
@@ -279,6 +454,11 @@
         "title": "4-Major Insurance",
         "description": "Korean payroll insurance (pension, health, employment, accident) calculator with 2026 rates",
         "tag": "Payroll"
+      },
+      "vatCalc": {
+        "title": "Korean VAT Calculator",
+        "description": "Split inclusive price into supply + VAT, plus general / simplified taxpayer filing",
+        "tag": "Tax"
       },
       "foreignStockTax": {
         "title": "Foreign Stock Capital Gains",

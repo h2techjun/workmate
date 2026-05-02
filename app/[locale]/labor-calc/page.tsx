@@ -16,9 +16,9 @@ interface SubTool {
 
 const SUB_TOOLS: ReadonlyArray<SubTool> = [
   { slug: "annual-leave", available: true },
+  { slug: "min-wage-monthly", available: true },
   { slug: "weekly-rest-pay", available: false },
   { slug: "severance", available: false },
-  { slug: "min-wage-monthly", available: false },
 ];
 
 export async function generateMetadata({
