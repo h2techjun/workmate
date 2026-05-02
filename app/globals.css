@@ -142,9 +142,10 @@ select {
 }
 
 @utility surface-glass {
-  background: rgba(22, 25, 34, 0.7);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  /* 스티키 헤더용: 스크롤 시 뒤 콘텐츠 비침 최소화 — 0.7 → 0.92 + 강한 blur */
+  background: rgba(15, 18, 26, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 

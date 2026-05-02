@@ -72,38 +72,6 @@ export default async function ProjectsPage({
       </header>
 
       <ProjectsTabs localeKey={localeKey} labels={cardLabels} />
-
-      <section className="mt-20 surface-card border-t border-[color:var(--color-border-subtle)] pt-10">
-        <h2 className="text-xl font-semibold tracking-tight text-[color:var(--color-text-primary)]">
-          {t("philosophyHeading")}
-        </h2>
-        <div className="mt-4 grid gap-4 text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:grid-cols-3">
-          <PhilosophyBlock title={t("philo1Title")} body={t("philo1Body")} />
-          <PhilosophyBlock title={t("philo2Title")} body={t("philo2Body")} />
-          <PhilosophyBlock title={t("philo3Title")} body={t("philo3Body")} />
-        </div>
-      </section>
     </main>
-  );
-}
-
-interface PhilosophyBlockProps {
-  title: string;
-  body: string;
-}
-
-function PhilosophyBlock({
-  title,
-  body,
-}: PhilosophyBlockProps): React.ReactElement {
-  return (
-    <div>
-      <h3 className="text-sm font-semibold text-[color:var(--color-text-primary)]">
-        {title}
-      </h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-[color:var(--color-text-tertiary)]">
-        {body}
-      </p>
-    </div>
   );
 }
