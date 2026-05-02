@@ -1,15 +1,34 @@
-# WorkTool 프로젝트 가이드 (Claude Code 전용)
+# Workmate 프로젝트 가이드 (Claude Code 전용)
 
 > 이 문서는 Claude Code가 프로젝트 전체 컨텍스트를 빠르게 파악하기 위한 핵심 문서입니다.
 > 모든 작업 시작 전에 반드시 이 문서를 먼저 읽으세요.
 
 ## 🎯 프로젝트 정체성
 
-**WorkTool**은 한국 실무자(전기공사, 제조업, 사업자, 개발자 등)를 위한 무료 온라인 도구 모음입니다.
+**Workmate** (workmate.tools) 는 두 가지 역할을 동시에 수행:
+
+1. **한국 실무 도구 허브** — 전기공사·제조업·사업자·개발자용 무료 계산기 23개 (도구 본업)
+2. **메이커 포트폴리오 허브** — 운영자가 만든 다른 프로젝트 5개를 `/projects` 페이지에서 카드로 노출
 
 - **타겟**: 한국 실무자 (1순위) + 한국 표준이 필요한 외국인 (2순위)
 - **수익 모델**: SEO 트래픽 → 광고(애드센스) + 추후 프리미엄 기능
 - **차별화**: 현장 실무 경험 기반의 정확한 계산 + KS 표준 출처 명시
+
+### 🌐 메이커 허브 — 다른 프로젝트의 카탈로그 단일 진실원
+
+`lib/projectsCatalog.ts` 가 모든 프로젝트의 노출 상태를 결정. `/projects` 페이지·sitemap 모두 이 파일을 참조.
+
+| 프로젝트 폴더 | 탭 | 외부 URL |
+|---|---|---|
+| `D:/02_PROJECT/01_Hakrew/` | 서비스 | hakrew21.github.io/hakrew-web/ |
+| `D:/02_PROJECT/03_6Hours/` | 체험 | github.com/h2techjun/6hours |
+| `D:/02_PROJECT/04_office-hunter/` | 체험 | github.com/h2techjun/office-hunter |
+| `D:/02_PROJECT/08_k-poker/` | 게임 | h2techjun.github.io/k-poker/ |
+| `D:/02_PROJECT/defense/` | 게임 | h2techjun.github.io/defense/ |
+
+**제외된 프로젝트** (사용자 결정): doc-translator, 09_jeonju-sangkwon, 02_Trade, 06_strix.
+
+새 프로젝트 추가/제외 변경은 `lib/projectsCatalog.ts` 만 수정 → 나머지(/projects 페이지·sitemap·구조화 데이터) 자동 반영.
 
 ## 🏗️ 기술 스택 (절대 변경 금지)
 
