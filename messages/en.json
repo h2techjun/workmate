@@ -138,6 +138,173 @@
       }
     }
   },
+  "severanceTool": {
+    "meta": {
+      "title": "Korean Severance Pay Calculator (Avg vs Ordinary Wage)",
+      "description": "Hire date, resign date, last 3 months' salary → average daily wage + ordinary wage comparison → severance auto. Optional bonus + unused-leave additions."
+    },
+    "eyebrow": "Worker Retirement Benefits Act §8",
+    "heading": "Severance Pay Calculator",
+    "intro": "Average daily wage × 30 × (service days ÷ 365). Higher of average or ordinary daily wage applies. Optional 3/12 portion of annual bonus and unused-leave pay.",
+    "breadcrumb": {
+      "home": "Home",
+      "labor": "Labor calculators"
+    },
+    "sections": {
+      "tenure": "Tenure",
+      "wage": "Wage"
+    },
+    "fields": {
+      "hireDate": "Hire date",
+      "resignDate": "Resign date",
+      "recentThreeMonthsSalary": "Last 3 months total wage",
+      "annualBonus": "Annual regular bonus (optional)",
+      "annualLeavePay": "Last year's unused-leave pay (optional)",
+      "monthlyOrdinaryWage": "Monthly ordinary wage (optional)"
+    },
+    "hints": {
+      "hireDate": "Employment start date",
+      "resignDate": "Day after last working day",
+      "recentThreeMonthsSalary": "Base + fixed allowances summed over 3 months",
+      "annualBonus": "Regular and definite bonuses only (3/12 added)",
+      "annualLeavePay": "Last 1 year's unused leave pay (3/12 added)",
+      "monthlyOrdinaryWage": "Used if ordinary daily wage > average"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter dates and wages.",
+      "severanceLabel": "Severance",
+      "tenureLabel": "Tenure",
+      "tenureValue": "{years}y {months}m",
+      "totalDaysLabel": "Total days",
+      "appliedDailyLabel": "Applied daily wage",
+      "averageDailyLabel": "Average daily wage",
+      "wonSuffix": " KRW",
+      "notQualifiedTitle": "Not qualified",
+      "notQualifiedBody": "Tenure {days} days — under 365 days = no severance (Worker Retirement Benefits Act §4)."
+    },
+    "steps": {
+      "heading": "Steps",
+      "tenure": "Tenure {years}y {months}m {days}d = {totalDays} days total",
+      "notQualified": "{totalDays} days — under 365 days, no severance",
+      "averageWage": "Average = (3-month wage {threeMonthSalary} + bonus 3/12 {bonusPortion} + leave 3/12 {leavePayPortion}) ÷ 90 days = daily {averageDailyWage}",
+      "ordinaryWage": "Ordinary daily — monthly {monthlyOrdinary} ÷ 209 × 8 = daily {ordinaryDailyWage}",
+      "ordinaryApplied": "Ordinary {ordinaryDailyWage} > average {averageDailyWage} → use ordinary",
+      "severance": "Daily {appliedDailyWage} × 30 × ({serviceDays} ÷ 365) = severance {severance}"
+    },
+    "errors": {
+      "invalid": "Please check your inputs.",
+      "unknown": "An error occurred during calculation."
+    },
+    "source": "Worker Retirement Benefits Act §8 (severance system). Average wage calculation can vary by company and industry. Some companies pay severance for under-1-year service.",
+    "ctx": {
+      "law": {
+        "title": "Eligibility",
+        "body": "1+ year continuous service AND average 15+ hours per week (4-week avg). Triggered regardless of voluntary or involuntary termination. Applies to workplaces under 5 too (since 2010-12-01)."
+      },
+      "average": {
+        "title": "Average wage",
+        "body": "Last 3 months' total wage ÷ days in that period (typically 90). Regular bonus = 1/4 of annual; unused-leave pay = 1/4 of last year's, both added in."
+      },
+      "dc": {
+        "title": "DC vs DB",
+        "body": "DC (defined contribution): 1/12 monthly wage accumulated each year. This calculator assumes DB (defined benefit). DC final amount depends on investment returns."
+      }
+    },
+    "validation": {
+      "hireDateRequired": "Please enter the hire date.",
+      "resignDateRequired": "Please enter the resign date.",
+      "salaryPositive": "Please enter the last 3 months' wage.",
+      "hireBeforeResign": "Hire date must be before resign date."
+    }
+  },
+  "weeklyRestPayTool": {
+    "meta": {
+      "title": "Weekly Rest Pay Calculator (Korea, LSA §55)",
+      "description": "Enter hourly or monthly wage → weekly, monthly, annual rest pay. Part-time prorated (15+ hours/week) automatically per Labor Standards Act §55."
+    },
+    "eyebrow": "Labor Standards Act §55",
+    "heading": "Weekly Rest Pay Calculator",
+    "intro": "Paid weekly rest day pay for workers attending all scheduled days. Under 15 hours/week = no rest pay; 15-40 hours = prorated. Hourly or monthly input.",
+    "breadcrumb": {
+      "home": "Home",
+      "labor": "Labor calculators"
+    },
+    "sections": {
+      "wage": "Wage",
+      "hours": "Working hours"
+    },
+    "fields": {
+      "wageMode": "Input mode",
+      "hourlyWage": "Hourly",
+      "monthlySalary": "Monthly ordinary wage",
+      "weeklyHours": "Weekly hours"
+    },
+    "hints": {
+      "wageMode": "Choose hourly or monthly",
+      "hourlyWage": "Ordinary-wage hourly",
+      "monthlySalary": "Auto-converted to hourly (209-hour basis)",
+      "weeklyHours": "5 days × 8h = 40. Enter actual for part-time."
+    },
+    "wageMode": {
+      "hourly": "By hourly",
+      "monthly": "By monthly"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter wage and weekly hours.",
+      "weeklyLabel": "Weekly rest pay",
+      "monthlyLabel": "Monthly (×4.345 weeks)",
+      "annualLabel": "Annual",
+      "restHoursLabel": "Rest hours",
+      "hourlyLabel": "Hourly used",
+      "wonSuffix": " KRW",
+      "hoursSuffix": " hrs",
+      "notQualifiedTitle": "Not qualified",
+      "notQualifiedBody": "Weekly {hours}h — under 15h/week is not eligible for weekly rest pay (LSA Enforcement Decree §30)."
+    },
+    "steps": {
+      "heading": "Steps",
+      "deriveHourly": "Monthly {monthlySalary} ÷ 209 hours = hourly {hourlyWage}",
+      "notQualified": "Weekly {weeklyHours}h — under 15 → no rest pay",
+      "fullTime": "Weekly {weeklyHours}h (full-time) → rest {restHours}h",
+      "partTime": "Weekly {weeklyHours}h → ({weeklyHours}/40) × 8 = rest {restHours}h (cap 8)",
+      "weeklyAmount": "Rest {restHours}h × hourly {hourlyWage} = weekly {weeklyAmount}",
+      "monthlyAmount": "Weekly {weeklyAmount} × 4.345 weeks = monthly {monthlyAmount}",
+      "annualAmount": "Monthly {monthlyAmount} × 12 = annual {annualAmount}"
+    },
+    "errors": {
+      "invalid": "Please check your inputs.",
+      "unknown": "An error occurred during calculation."
+    },
+    "source": "Labor Standards Act §55, Enforcement Decree §30. Company rules and collective agreements may differ.",
+    "ctx": {
+      "law": {
+        "title": "LSA §55",
+        "body": "Workers attending all scheduled work days in a week receive 1 paid rest day. 'Full attendance' = no absences. Holidays don't count as absences."
+      },
+      "formula": {
+        "title": "Part-time proration",
+        "body": "Part-time rest pay = (weekly hours ÷ 40) × 8 hours × hourly wage. Capped at 8 hours. 30h/week = 6h pay, 20h/week = 4h pay."
+      },
+      "exception": {
+        "title": "Not eligible",
+        "body": "Under 15 hours/week, weeks without full attendance, daily-hire workers (in principle). Applies to workplaces with under 5 employees too. Employer-caused absences may count as attendance."
+      }
+    },
+    "validation": {
+      "wageRequired": "Please enter hourly or monthly wage.",
+      "weeklyHoursPositive": "Weekly hours must be greater than 0."
+    }
+  },
   "minWageTool": {
     "meta": {
       "title": "Hourly → Monthly Salary Converter (Korea, with weekly rest)",

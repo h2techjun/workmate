@@ -138,6 +138,173 @@
       }
     }
   },
+  "severanceTool": {
+    "meta": {
+      "title": "퇴직금 계산기 — 평균임금·통상임금 비교 자동",
+      "description": "입사·퇴사일과 직전 3개월 임금 입력 → 평균임금 자동 산정 + 통상임금 비교 → 퇴직금 자동. 연간 상여금·연차수당 가산까지."
+    },
+    "eyebrow": "근로자퇴직급여 보장법 제8조",
+    "heading": "퇴직금 계산기",
+    "intro": "직전 3개월 평균임금 × 30 × (근속일수 / 365). 통상임금이 평균임금보다 높으면 자동으로 통상임금 적용. 연간 상여금·연차수당 3/12 가산 옵션.",
+    "breadcrumb": {
+      "home": "홈",
+      "labor": "근로기준법 계산기"
+    },
+    "sections": {
+      "tenure": "근속 기간",
+      "wage": "임금 정보"
+    },
+    "fields": {
+      "hireDate": "입사일",
+      "resignDate": "퇴사일",
+      "recentThreeMonthsSalary": "직전 3개월 임금 합계",
+      "annualBonus": "연간 정기 상여금 (선택)",
+      "annualLeavePay": "직전 1년 연차수당 (선택)",
+      "monthlyOrdinaryWage": "월 통상임금 (선택)"
+    },
+    "hints": {
+      "hireDate": "근로계약 시작일",
+      "resignDate": "퇴직 결정 마지막 근무일 다음 날",
+      "recentThreeMonthsSalary": "기본급 + 고정수당의 직전 3개월 합계",
+      "annualBonus": "정기적·확정적 상여금만 (3/12 가산)",
+      "annualLeavePay": "직전 1년 미사용 연차수당 (3/12 가산)",
+      "monthlyOrdinaryWage": "통상임금이 평균임금보다 높을 때 자동 적용"
+    },
+    "actions": {
+      "calculate": "계산하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "입사일·퇴사일·임금을 입력하세요.",
+      "severanceLabel": "퇴직금",
+      "tenureLabel": "근속 기간",
+      "tenureValue": "{years}년 {months}개월",
+      "totalDaysLabel": "총 근속일수",
+      "appliedDailyLabel": "적용 1일 임금",
+      "averageDailyLabel": "평균임금 (1일)",
+      "wonSuffix": "원",
+      "notQualifiedTitle": "퇴직금 미발생",
+      "notQualifiedBody": "근속 {days}일 — 1년(365일) 미만은 퇴직금이 발생하지 않습니다 (근로자퇴직급여보장법 제4조)."
+    },
+    "steps": {
+      "heading": "계산 과정",
+      "tenure": "근속 {years}년 {months}개월 {days}일 = 총 {totalDays}일",
+      "notQualified": "근속 {totalDays}일 — 365일 미만은 퇴직금 미발생",
+      "averageWage": "평균임금 = (3개월 임금 {threeMonthSalary} + 상여 3/12 {bonusPortion} + 연차수당 3/12 {leavePayPortion}) ÷ 90일 = 1일 {averageDailyWage}원",
+      "ordinaryWage": "통상임금 환산 — 월 {monthlyOrdinary} ÷ 209 × 8 = 1일 {ordinaryDailyWage}원",
+      "ordinaryApplied": "통상임금 {ordinaryDailyWage}원 > 평균임금 {averageDailyWage}원 → 통상임금 적용",
+      "severance": "1일 임금 {appliedDailyWage}원 × 30 × ({serviceDays} ÷ 365) = 퇴직금 {severance}원"
+    },
+    "errors": {
+      "invalid": "입력값을 확인해 주세요.",
+      "unknown": "계산 중 오류가 발생했습니다."
+    },
+    "source": "근로자퇴직급여 보장법 제8조 (퇴직금 제도). 평균임금 산정에는 회사·업종별 차이가 있을 수 있고, 1년 미만 근로자라도 단체협약·취업규칙에 따라 지급될 수 있다.",
+    "ctx": {
+      "law": {
+        "title": "퇴직금 발생 요건",
+        "body": "계속근로기간 1년 이상 + 4주 평균 1주 15시간 이상 근로. 자발적 퇴사·해고 무관, 1년 이상 근로하면 발생. 5인 미만 사업장도 적용 (2010-12-01 이후 근로분부터)."
+      },
+      "average": {
+        "title": "평균임금 산정",
+        "body": "퇴직 직전 3개월 임금 총액 ÷ 그 기간의 일수 (보통 90일). 정기 상여금은 1년치 × 3/12, 연차수당은 직전 1년 발생분 × 3/12 가산."
+      },
+      "dc": {
+        "title": "DC형 vs DB형",
+        "body": "DC형(확정기여): 매년 1/12 (1개월분 임금) 적립 — 본 계산기는 DB형(확정급여) 기준. DC형은 운용수익에 따라 실수령 다름."
+      }
+    },
+    "validation": {
+      "hireDateRequired": "입사일을 입력해 주세요.",
+      "resignDateRequired": "퇴사일을 입력해 주세요.",
+      "salaryPositive": "직전 3개월 임금을 입력해 주세요.",
+      "hireBeforeResign": "입사일이 퇴사일보다 이전이어야 합니다."
+    }
+  },
+  "weeklyRestPayTool": {
+    "meta": {
+      "title": "주휴수당 계산기 — 1주·월·연 자동",
+      "description": "시급 또는 월급 입력 → 1주 주휴수당, 월 환산, 연간 합계 자동. 단시간 근로자 비례 (주 15·20·30시간) 자동 적용."
+    },
+    "eyebrow": "근로기준법 제55조",
+    "heading": "주휴수당 계산기",
+    "intro": "1주 소정근로일 만근 시 발생하는 주휴수당. 주 15시간 미만은 미발생, 단시간은 비례 산정. 시급/월급 둘 다 입력 가능.",
+    "breadcrumb": {
+      "home": "홈",
+      "labor": "근로기준법 계산기"
+    },
+    "sections": {
+      "wage": "임금",
+      "hours": "근로시간"
+    },
+    "fields": {
+      "wageMode": "입력 방식",
+      "hourlyWage": "시급",
+      "monthlySalary": "월 통상임금",
+      "weeklyHours": "주 소정근로시간"
+    },
+    "hints": {
+      "wageMode": "시급 또는 월급 중 하나 선택",
+      "hourlyWage": "통상임금 기준 시급",
+      "monthlySalary": "월급제는 209시간 기준 시급으로 환산됨",
+      "weeklyHours": "주 5일 8시간 = 40시간. 단시간은 실제 시간 입력."
+    },
+    "wageMode": {
+      "hourly": "시급으로",
+      "monthly": "월급으로"
+    },
+    "actions": {
+      "calculate": "계산하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "임금과 근로시간을 입력하세요.",
+      "weeklyLabel": "1주 주휴수당",
+      "monthlyLabel": "월 주휴수당 (4.345주)",
+      "annualLabel": "연 주휴수당",
+      "restHoursLabel": "주휴 시간",
+      "hourlyLabel": "적용 시급",
+      "wonSuffix": "원",
+      "hoursSuffix": "시간",
+      "notQualifiedTitle": "주휴수당 미발생",
+      "notQualifiedBody": "주 {hours}시간 — 주 15시간 미만은 주휴수당이 발생하지 않습니다 (근로기준법 시행령 제30조)."
+    },
+    "steps": {
+      "heading": "계산 과정",
+      "deriveHourly": "월 통상임금 {monthlySalary}원 ÷ 209시간 = 시급 {hourlyWage}원",
+      "notQualified": "주 {weeklyHours}시간 — 주 15시간 미만 → 주휴수당 미발생",
+      "fullTime": "주 {weeklyHours}시간 (정규 근로) → 주휴 {restHours}시간",
+      "partTime": "주 {weeklyHours}시간 → ({weeklyHours}/40) × 8 = 주휴 {restHours}시간 (8시간 상한)",
+      "weeklyAmount": "주휴 {restHours}시간 × 시급 {hourlyWage}원 = 1주 {weeklyAmount}원",
+      "monthlyAmount": "1주 {weeklyAmount}원 × 월 평균 4.345주 = 월 {monthlyAmount}원",
+      "annualAmount": "월 {monthlyAmount}원 × 12개월 = 연 {annualAmount}원"
+    },
+    "errors": {
+      "invalid": "입력값을 확인해 주세요.",
+      "unknown": "계산 중 오류가 발생했습니다."
+    },
+    "source": "근로기준법 제55조 (주휴일), 시행령 제30조. 회사 규정·단체협약에 따라 다를 수 있다.",
+    "ctx": {
+      "law": {
+        "title": "근로기준법 제55조",
+        "body": "1주 동안 소정근로일을 개근한 근로자에게 1일의 유급휴일 부여. 만근 = 결근 없이 출근한 상태. 휴일·공휴일은 결근에 포함하지 않음."
+      },
+      "formula": {
+        "title": "단시간 비례 산정",
+        "body": "단시간 근로자의 주휴수당 = (소정근로시간 ÷ 40) × 8시간 × 시급. 단, 8시간 상한. 주 30시간 = 6시간분, 주 20시간 = 4시간분."
+      },
+      "exception": {
+        "title": "발생 안 하는 경우",
+        "body": "주 15시간 미만 단시간 근로자, 만근 안 한 주, 일용직(원칙적으로). 5인 미만 사업장은 적용. 사용자 귀책 결근은 만근으로 인정될 수 있다."
+      }
+    },
+    "validation": {
+      "wageRequired": "시급 또는 월급을 입력해 주세요.",
+      "weeklyHoursPositive": "주 근로시간은 0보다 커야 합니다."
+    }
+  },
   "minWageTool": {
     "meta": {
       "title": "최저시급 → 월급 환산기 (2025/2026 + 주휴 포함)",
