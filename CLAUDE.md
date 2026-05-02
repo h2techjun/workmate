@@ -23,7 +23,7 @@
 | `D:/02_PROJECT/01_Hakrew/` | 서비스 | hakrew21.github.io/hakrew-web/ |
 | `D:/02_PROJECT/03_6Hours/` | 체험 | github.com/h2techjun/6hours |
 | `D:/02_PROJECT/04_office-hunter/` | 체험 | github.com/h2techjun/office-hunter |
-| `D:/02_PROJECT/08_k-poker/` | 게임 | h2techjun.github.io/k-poker/ |
+| `D:/02_PROJECT/08_k-poker/` | 게임 | junhuimine.github.io/k-poker/ |
 | `D:/02_PROJECT/defense/` | 게임 | h2techjun.github.io/defense/ |
 
 **제외된 프로젝트** (사용자 결정): doc-translator, 09_jeonju-sangkwon, 02_Trade, 06_strix.
