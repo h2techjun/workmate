@@ -62,3 +62,9 @@ public/app/*/.workmate-integrated.json
 
 # 통합 작업 도중 worktree pointer 가 박혀서 격리한 stale 폴더 — 디스크에만 존재.
 public/play/_stale_*/
+
+# 게임 빌드 산출물은 git 에 커밋하지 않음 — 단가 보호 + 레포 비대화 방지.
+# 호스팅이 필요하면 별도 서브도메인(play.workmate.tools) 또는 외부(GitHub Pages, itch.io) 사용.
+public/play/k-poker/
+public/play/defense/
+public/app/hakrew/

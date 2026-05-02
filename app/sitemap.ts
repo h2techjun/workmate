@@ -22,6 +22,8 @@ const TOOL_PATHS = [
   "/foreign-stock-tax",
   "/json-csv",
   "/biznum-check",
+  "/labor-calc",
+  "/labor-calc/annual-leave",
   "/projects",
 ] as const;
 

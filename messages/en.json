@@ -111,6 +111,131 @@
       }
     }
   },
+  "laborCalcHub": {
+    "meta": {
+      "title": "Korean Labor Standards Calculators — Workmate",
+      "description": "Annual leave, weekly rest pay, severance, minimum wage — calculators based on Korea's Labor Standards Act with step-by-step explanations and legal citations."
+    },
+    "eyebrow": "Labor Standards calculators",
+    "heading": "Tenure, leave, and pay in one place",
+    "intro": "Built on Korea's Labor Standards Act §55 and §60 plus the Severance Act. Each tool shows the inputs and the legal calculation step by step.",
+    "tools": {
+      "annual-leave": {
+        "title": "Annual Leave Calculator",
+        "description": "Enter your hire date — get accrued leave days plus unused-leave compensation. Handles sub-1-year monthly accrual and 1-year-plus increments."
+      },
+      "weekly-rest-pay": {
+        "title": "Weekly Rest Pay",
+        "description": "For employees working 15+ hours per week. Pro-rated short-time worker calculation coming soon."
+      },
+      "severance": {
+        "title": "Severance Pay",
+        "description": "After 1+ year tenure: 30 days of average wage × years served. Auto 3-month average calculation coming soon."
+      },
+      "min-wage-monthly": {
+        "title": "Min Wage → Monthly",
+        "description": "2026 minimum wage at 209 hours plus annual salary and net pay comparison. With/without weekly rest pay split coming soon."
+      }
+    }
+  },
+  "annualLeaveTool": {
+    "meta": {
+      "title": "Annual Leave Calculator — Korea (LSA §60)",
+      "description": "Enter your hire date and salary — get accrued annual leave days and unused-leave compensation per Korea's Labor Standards Act §60. Handles sub-1-year accrual and 25-day cap."
+    },
+    "eyebrow": "Labor Standards Act §60",
+    "heading": "Annual Leave Calculator",
+    "intro": "Hire date, salary, unused days — get accrued leave and unused-leave compensation in one go. Sub-1-year monthly accrual and 2-year increments are auto-handled.",
+    "breadcrumb": {
+      "home": "Home",
+      "labor": "Labor calculators"
+    },
+    "sections": {
+      "tenure": "Tenure",
+      "compensation": "Wage · unused-leave pay"
+    },
+    "fields": {
+      "hireDate": "Hire date",
+      "referenceDate": "Reference date (optional)",
+      "attendanceOver80": "Attendance ≥ 80%",
+      "wageMode": "Ordinary-wage input mode",
+      "monthlySalary": "Monthly ordinary wage",
+      "dailyOrdinaryWage": "Daily ordinary wage",
+      "unusedDays": "Unused leave days"
+    },
+    "hints": {
+      "hireDate": "Used for tenure calculation",
+      "referenceDate": "Defaults to today. Use for forward simulation.",
+      "attendanceOver80": "≥ 80% attendance over the year (default ON)",
+      "wageMode": "Monthly wage auto-converts: monthly ÷ 209 × 8",
+      "monthlySalary": "Base + fixed allowances",
+      "dailyOrdinaryWage": "If you've already calculated daily wage",
+      "unusedDays": "Days to convert into compensation (0 = accrual only)"
+    },
+    "wageMode": {
+      "monthly": "By monthly",
+      "daily": "By daily"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "result": {
+      "heading": "Result",
+      "empty": "Enter your hire date and click Calculate.",
+      "daysLabel": "Annual leave this year",
+      "daysSuffix": " days",
+      "daysHint": "Tenure: {years} years ({months} months)",
+      "nextLabel": "Next anniversary",
+      "compensationLabel": "Unused-leave pay",
+      "compensationEmpty": "—",
+      "wonSuffix": " KRW"
+    },
+    "steps": {
+      "heading": "Steps",
+      "tenure": "Tenure: {years} years ({months} months)",
+      "monthlyAccrual": "Sub-1-year — 1 day per month worked: {totalMonths} months → {daysAccrued} days (cap {cap})",
+      "annualBase": "{years}-year tenure → base {base} days",
+      "annualIncrement": "Increment — +1 day every {interval} years, {increments} applied → {total} days total",
+      "capApplied": "Statutory cap {cap} days applied",
+      "wageDerive": "Monthly wage {monthly} KRW ÷ 209 × 8 = daily wage {daily} KRW",
+      "compensation": "Unused {unused} days × daily {daily} KRW = {total} KRW",
+      "lowAttendance": "Attendance < 80% — only 1 day per fully-attended month (LSA §60 ②)"
+    },
+    "warnings": {
+      "heading": "Notes",
+      "futureHireDate": "Hire date is in the future. Treat the result as a simulation.",
+      "lowAttendance": "Attendance < 80% accrues only 1 day per fully-attended month. Confirm with HR for precise numbers.",
+      "missingWage": "Enter monthly or daily wage for compensation calculation.",
+      "negativeUnused": "Unused days must be 0 or greater."
+    },
+    "errors": {
+      "invalid": "Please check your inputs.",
+      "unknown": "An error occurred during calculation."
+    },
+    "source": "Source: Labor Standards Act §60 (Annual Paid Leave). Daily ordinary wage = monthly ÷ 209 × 8 per administrative interpretation. For reference only — collective agreements and work rules at your workplace take precedence.",
+    "ctx": {
+      "law": {
+        "title": "LSA §60",
+        "body": "15 days of paid leave per year for ≥ 80% attendance. Sub-1-year or < 80% gets 1 day per fully-attended month. From year 3, +1 day every 2 years; cap 25 days."
+      },
+      "compensation": {
+        "title": "Unused-leave pay",
+        "body": "Unused days are paid as daily ordinary wage × unused count. Daily wage = monthly ÷ 209 × 8 (base + fixed allowances)."
+      },
+      "exception": {
+        "title": "Workplaces under 5",
+        "body": "Workplaces with fewer than 5 regular employees are exempt from annual leave provisions (LSA §11). Collective agreements may override."
+      }
+    },
+    "validation": {
+      "hireDateRequired": "Please enter the hire date.",
+      "hireDateInvalid": "Hire date format is invalid.",
+      "referenceDateInvalid": "Reference date format is invalid.",
+      "hireAfterReference": "Hire date cannot be later than reference date.",
+      "unusedDaysNegative": "Unused days must be 0 or greater."
+    }
+  },
   "projects": {
     "eyebrow": "Maker projects",
     "heading": "Games · Experiences · Services",
@@ -144,6 +269,11 @@
         "title": "Timber Construction Calculator",
         "description": "Rafter, roof pitch, stairs, and lumber quantity calculators for wood frame construction",
         "tag": "Timber"
+      },
+      "laborCalc": {
+        "title": "Labor Standards Calculators",
+        "description": "Annual leave, weekly rest pay, severance, minimum wage. Korean Labor Standards Act with cited law and step-by-step output.",
+        "tag": "Labor"
       },
       "insurance": {
         "title": "4-Major Insurance",

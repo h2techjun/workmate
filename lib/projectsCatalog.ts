@@ -63,8 +63,10 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
   {
     id: "k-poker",
     tab: "games",
-    hostType: "internal-static",
-    subpath: "/play/k-poker",
+    // 게임 페이지는 AdSense CPM 단가를 끌어내려 도구 페이지 수익에 마이너스.
+    // 별도 서브도메인 분리 시점까지 외부 호스팅 유지.
+    hostType: "external",
+    externalUrl: "https://h2techjun.github.io/k-poker/",
     githubUrl: "https://github.com/h2techjun/k-poker",
     status: "live",
     order: 1,

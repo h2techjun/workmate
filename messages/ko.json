@@ -111,6 +111,131 @@
       }
     }
   },
+  "laborCalcHub": {
+    "meta": {
+      "title": "근로기준법 계산기 — Workmate",
+      "description": "연차·주휴수당·퇴직금·최저시급 등 한국 근로기준법 기반 계산기 모음. 정확한 법령 출처와 함께 실수령액·발생일수까지 단계별로 보여준다."
+    },
+    "eyebrow": "근로기준법 계산기",
+    "heading": "근속·연차·수당 한 곳에서",
+    "intro": "근로기준법 제55조·제60조·퇴직급여보장법 기준으로 연차 발생, 주휴수당, 퇴직금, 최저시급 환산을 단계별로 계산한다. 입력값과 계산 과정을 모두 표시.",
+    "tools": {
+      "annual-leave": {
+        "title": "연차 계산기",
+        "description": "근속년수 입력 → 발생 연차 일수 + 미사용 연차 수당 자동. 1년 미만 매월 누적·1년 이상 가산까지 단계별 표시."
+      },
+      "weekly-rest-pay": {
+        "title": "주휴수당 계산기",
+        "description": "주 15시간 이상 근로자에게 발생하는 주휴수당. 단시간 근로자 비례 산정도 지원 예정."
+      },
+      "severance": {
+        "title": "퇴직금 계산기",
+        "description": "근속 1년 이상 시 평균임금 30일분 × 근속년수. 평균임금 산정 기간(3개월) 자동 계산 예정."
+      },
+      "min-wage-monthly": {
+        "title": "최저시급 → 월급 환산",
+        "description": "2026년 최저시급 기준 209시간 환산 + 연봉·실수령액 비교. 주휴수당 포함·미포함 구분 표시 예정."
+      }
+    }
+  },
+  "annualLeaveTool": {
+    "meta": {
+      "title": "연차 계산기 — 발생일수 + 미사용 수당",
+      "description": "입사일과 월급만 입력하면 근로기준법 제60조 기준 연차 발생 일수와 미사용 연차 수당을 자동 계산. 1년 미만 매월 1일 누적부터 25일 상한까지 단계별 표시."
+    },
+    "eyebrow": "근로기준법 제60조",
+    "heading": "연차 계산기",
+    "intro": "입사일·월급·미사용 일수만 넣으면 발생 연차와 미사용 수당이 한 번에. 1년 미만은 매월 1일 누적, 3년차부터는 2년마다 +1일 가산까지 자동 반영한다.",
+    "breadcrumb": {
+      "home": "홈",
+      "labor": "근로기준법 계산기"
+    },
+    "sections": {
+      "tenure": "근속 정보",
+      "compensation": "임금 · 미사용 수당"
+    },
+    "fields": {
+      "hireDate": "입사일",
+      "referenceDate": "기준일 (선택)",
+      "attendanceOver80": "출근율 80% 이상",
+      "wageMode": "통상임금 입력 방식",
+      "monthlySalary": "월 통상임금 (월급)",
+      "dailyOrdinaryWage": "1일 통상임금",
+      "unusedDays": "미사용 연차 일수"
+    },
+    "hints": {
+      "hireDate": "근속년수 산정 기준",
+      "referenceDate": "기본값 = 오늘. 미래 시점 시뮬레이션 가능.",
+      "attendanceOver80": "1년간 80% 이상 출근 (기본값 ON)",
+      "wageMode": "월급 입력 시 자동 일급 환산 (월급 ÷ 209 × 8)",
+      "monthlySalary": "통상임금 기준 월급 (기본급 + 고정수당)",
+      "dailyOrdinaryWage": "직접 산정한 1일 통상임금",
+      "unusedDays": "수당으로 환산할 일수 (0이면 발생일수만 계산)"
+    },
+    "wageMode": {
+      "monthly": "월급으로",
+      "daily": "일급으로"
+    },
+    "actions": {
+      "calculate": "계산하기",
+      "reset": "초기화"
+    },
+    "result": {
+      "heading": "계산 결과",
+      "empty": "입사일을 입력하고 계산해 주세요.",
+      "daysLabel": "올해 발생 연차",
+      "daysSuffix": "일",
+      "daysHint": "근속 {years}년 ({months}개월)",
+      "nextLabel": "다음 연차 (1년 후)",
+      "compensationLabel": "미사용 연차 수당",
+      "compensationEmpty": "—",
+      "wonSuffix": "원"
+    },
+    "steps": {
+      "heading": "계산 과정",
+      "tenure": "입사일로부터 {years}년 ({months}개월) 근속",
+      "monthlyAccrual": "1년 미만 — 매월 1일 누적: {totalMonths}개월 → {daysAccrued}일 (상한 {cap}일)",
+      "annualBase": "{years}년차 1년 이상 → 기본 {base}일",
+      "annualIncrement": "{years}년차 가산 — {interval}년마다 +1일, {increments}회 적용 → 합계 {total}일",
+      "capApplied": "법정 상한 {cap}일 적용",
+      "wageDerive": "월 통상임금 {monthly}원 ÷ 209 × 8 = 1일 통상임금 {daily}원",
+      "compensation": "미사용 {unused}일 × 1일 {daily}원 = {total}원",
+      "lowAttendance": "출근율 80% 미만 — 만근월 1일씩만 발생 (제60조 제2항)"
+    },
+    "warnings": {
+      "heading": "참고 사항",
+      "futureHireDate": "입사일이 미래 시점입니다. 결과는 시뮬레이션으로 봐주세요.",
+      "lowAttendance": "출근율 80% 미만은 만근월 1일씩만 발생. 정확한 일수는 사업장 인사담당자에게 확인 필요.",
+      "missingWage": "수당 계산을 위해 월급 또는 일급을 입력해 주세요.",
+      "negativeUnused": "미사용 일수는 0 이상이어야 합니다."
+    },
+    "errors": {
+      "invalid": "입력값을 확인해 주세요.",
+      "unknown": "계산 중 오류가 발생했습니다."
+    },
+    "source": "출처: 근로기준법 제60조 (연차 유급휴가). 통상임금은 행정해석상 월 209시간 기준 일급 = 월급 ÷ 209 × 8. 본 결과는 참고용으로, 사업장별 단체협약·취업규칙 우선.",
+    "ctx": {
+      "law": {
+        "title": "근로기준법 제60조",
+        "body": "1년간 80% 이상 출근한 근로자에게 15일의 유급휴가. 1년 미만 또는 80% 미만은 1개월 만근에 1일. 3년 이상부터 매 2년마다 1일 가산, 상한 25일."
+      },
+      "compensation": {
+        "title": "미사용 연차 수당",
+        "body": "연차 미사용 시 1일 통상임금 × 미사용 일수만큼 수당 지급. 통상임금은 기본급 + 고정수당으로, 월급제는 월급 ÷ 209 × 8로 환산."
+      },
+      "exception": {
+        "title": "5인 미만 사업장",
+        "body": "상시 5명 미만 사업장은 연차 규정 적용 제외 (근로기준법 제11조). 다만 단체협약·취업규칙에 명시 시 그에 따름."
+      }
+    },
+    "validation": {
+      "hireDateRequired": "입사일을 입력해 주세요.",
+      "hireDateInvalid": "입사일 형식이 올바르지 않습니다.",
+      "referenceDateInvalid": "기준일 형식이 올바르지 않습니다.",
+      "hireAfterReference": "입사일이 기준일보다 늦을 수 없습니다.",
+      "unusedDaysNegative": "미사용 일수는 0 이상이어야 합니다."
+    }
+  },
   "projects": {
     "eyebrow": "메이커 작업물",
     "heading": "게임 · 체험 · 서비스",
@@ -144,6 +269,11 @@
         "title": "목조 주택 계산기",
         "description": "서까래·지붕 경사·계단·목재 수량 등 목조 시공 필수 계산기",
         "tag": "목조"
+      },
+      "laborCalc": {
+        "title": "근로기준법 계산기",
+        "description": "연차·주휴수당·퇴직금·최저시급 등 근로기준법 기반 계산기. 법령 출처와 단계별 표시.",
+        "tag": "근로"
       },
       "insurance": {
         "title": "4대보험 계산기",

@@ -4,6 +4,13 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { Printer, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
+import { AdSlot } from "@/components/seo/AdSlot";
+
+const RESULT_AD_SLOT =
+  (process.env.NEXT_PUBLIC_ADSENSE_RESULT_SLOT?.trim() ?? "") || "0000000001";
+const PAGE_BOTTOM_AD_SLOT =
+  (process.env.NEXT_PUBLIC_ADSENSE_PAGE_BOTTOM_SLOT?.trim() ?? "") ||
+  "0000000002";
 
 export function FieldGroup({
   title,
@@ -150,40 +157,46 @@ export function ResultShell({
   };
 
   return (
-    <section
-      aria-live="polite"
-      className="surface-card overflow-hidden p-5 md:p-7"
-    >
-      <div className="mb-5 flex items-center justify-between gap-2">
-        <h2 className="flex items-center gap-2 text-lg font-semibold text-[color:var(--color-text-primary)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" />
-          {heading}
-        </h2>
-        {showActions && (
-          <div className="no-print flex gap-1.5">
-            <button
-              type="button"
-              onClick={onShare}
-              className="inline-flex items-center gap-1.5 rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
-              aria-label={shareLabel}
-            >
-              <Share2 className="h-3 w-3" />
-              {copied ? shareCopiedLabel : shareLabel}
-            </button>
-            <button
-              type="button"
-              onClick={onPrint}
-              className="inline-flex items-center gap-1.5 rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
-              aria-label={printLabel}
-            >
-              <Printer className="h-3 w-3" />
-              {printLabel}
-            </button>
-          </div>
-        )}
+    <>
+      <section
+        aria-live="polite"
+        className="surface-card overflow-hidden p-5 md:p-7"
+      >
+        <div className="mb-5 flex items-center justify-between gap-2">
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-[color:var(--color-text-primary)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" />
+            {heading}
+          </h2>
+          {showActions && (
+            <div className="no-print flex gap-1.5">
+              <button
+                type="button"
+                onClick={onShare}
+                className="inline-flex items-center gap-1.5 rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
+                aria-label={shareLabel}
+              >
+                <Share2 className="h-3 w-3" />
+                {copied ? shareCopiedLabel : shareLabel}
+              </button>
+              <button
+                type="button"
+                onClick={onPrint}
+                className="inline-flex items-center gap-1.5 rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
+                aria-label={printLabel}
+              >
+                <Printer className="h-3 w-3" />
+                {printLabel}
+              </button>
+            </div>
+          )}
+        </div>
+        {children}
+      </section>
+      {/* 결과 직후 광고 — 사용자가 가치를 막 받은 시점 = 가장 단가 높은 위치 */}
+      <div className="no-print">
+        <AdSlot slot={RESULT_AD_SLOT} position="result-bottom" format="auto" />
       </div>
-      {children}
-    </section>
+    </>
   );
 }
 
@@ -210,7 +223,21 @@ export function CalcLayout({
 }: {
   children: ReactNode;
 }): React.ReactElement {
-  return <div className="grid gap-6 lg:grid-cols-[1fr,1.1fr] lg:gap-8">{children}</div>;
+  return (
+    <>
+      <div className="grid gap-6 lg:grid-cols-[1fr,1.1fr] lg:gap-8">
+        {children}
+      </div>
+      {/* 페이지 하단 광고 — 출처 박스 아래 자리, 스크롤 끝까지 본 사용자 타깃 */}
+      <div className="no-print mt-8">
+        <AdSlot
+          slot={PAGE_BOTTOM_AD_SLOT}
+          position="page-bottom"
+          format="auto"
+        />
+      </div>
+    </>
+  );
 }
 
 export function ActionRow({

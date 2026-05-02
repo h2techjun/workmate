@@ -41,6 +41,14 @@ export default async function HomePage({
       description: t("tools.timberCalc.description"),
     },
     {
+      id: "labor-calc",
+      href: `/${locale}/labor-calc`,
+      available: true,
+      tag: t("tools.laborCalc.tag"),
+      title: t("tools.laborCalc.title"),
+      description: t("tools.laborCalc.description"),
+    },
+    {
       id: "insurance-calc",
       href: `/${locale}/insurance-calc`,
       available: true,
