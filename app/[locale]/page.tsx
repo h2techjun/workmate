@@ -65,6 +65,14 @@ export default async function HomePage({
       description: t("tools.vatCalc.description"),
     },
     {
+      id: "compound-calc",
+      href: `/${locale}/compound-calc`,
+      available: true,
+      tag: t("tools.compoundCalc.tag"),
+      title: t("tools.compoundCalc.title"),
+      description: t("tools.compoundCalc.description"),
+    },
+    {
       id: "foreign-stock-tax",
       href: `/${locale}/foreign-stock-tax`,
       available: true,

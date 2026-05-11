@@ -620,6 +620,11 @@
         "description": "공급가액·부가세 즉시 분리 + 일반/간이과세자 신고세액 자동 산출",
         "tag": "세금"
       },
+      "compoundCalc": {
+        "title": "복리 계산기",
+        "description": "원금·이율·기간 × 정기 적립 → 만기 금액, 실효이율(EAR), CAGR, 연도별 잔액표",
+        "tag": "재무"
+      },
       "foreignStockTax": {
         "title": "해외주식 양도세",
         "description": "환율과 매수·매도가로부터 양도차익 + 250만원 공제 + 22% 세금 산출",

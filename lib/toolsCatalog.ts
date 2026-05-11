@@ -69,15 +69,16 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     emoji: "💰",
     i18n: {
       ko: {
-        title: "세금",
-        tagline: "부가세·해외주식 양도세 — 일반/간이과세 자동 분기",
+        title: "재무 · 세금",
+        tagline: "복리 계산기·부가세·해외주식 양도세 — 재무 시뮬레이션 + 한국 세무",
       },
       en: {
-        title: "Tax",
-        tagline: "VAT, foreign stock capital gains, simplified taxation auto-routing",
+        title: "Finance · Tax",
+        tagline: "Compound interest, VAT, foreign stock capital gains",
       },
     },
     tools: [
+      { labelKo: "복리 계산기", labelEn: "Compound Interest", href: "/compound-calc", keywordsKo: "복리 예금 적금 CAGR 실효이율 EAR" },
       { labelKo: "부가세 계산기", labelEn: "VAT", href: "/vat-calc", keywordsKo: "부가세 공급가액 일반과세 간이과세" },
       { labelKo: "해외주식 양도세", labelEn: "Foreign Stock Tax", href: "/foreign-stock-tax", keywordsKo: "해외주식 양도세 22% 250만원 공제" },
     ],

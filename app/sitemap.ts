@@ -35,6 +35,7 @@ const TOOL_PATHS = [
   "/labor-calc/severance",
   "/labor-calc/min-wage-monthly",
   "/vat-calc",
+  "/compound-calc",
   "/tools",
   "/games",
   "/tests",

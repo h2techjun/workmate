@@ -615,6 +615,11 @@
         "description": "Korean payroll insurance (pension, health, employment, accident) calculator with 2026 rates",
         "tag": "Payroll"
       },
+      "compoundCalc": {
+        "title": "Compound Interest",
+        "description": "Principal × rate × period + periodic contribution → future value, EAR, CAGR, yearly balance",
+        "tag": "Finance"
+      },
       "vatCalc": {
         "title": "Korean VAT Calculator",
         "description": "Split inclusive price into supply + VAT, plus general / simplified taxpayer filing",

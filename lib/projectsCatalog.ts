@@ -149,7 +149,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     hostType: "external",
     externalUrl: "https://6hours.vercel.app",
     githubUrl: "https://github.com/h2techjun/03_6Hours",
-    status: "wip",
+    status: "live",
     order: 2,
     accent: "from-violet-500 to-indigo-600",
     techStack: ["Next.js", "Supabase", "Interactive Fiction"],
