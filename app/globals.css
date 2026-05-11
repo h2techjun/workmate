@@ -226,72 +226,7 @@ select {
   }
 }
 
-/* ==========================================================================
-   Print-friendly layout — for PDF export via browser print dialog
-   ========================================================================== */
-
-@media print {
-  html, body {
-    background: white !important;
-    color: #000 !important;
-  }
-  body {
-    background-image: none !important;
-  }
-  /* Hide chrome (header/footer/nav/buttons) when printing */
-  header, footer, nav, button, .no-print {
-    display: none !important;
-  }
-  /* Result panel takes full width on print */
-  main {
-    padding: 0 !important;
-  }
-  .surface-card,
-  .surface-elevated,
-  .surface-glass {
-    background: white !important;
-    border: 1px solid #cbd5e1 !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    border-radius: 8px !important;
-    page-break-inside: avoid;
-  }
-  /* Force readable colors on print */
-  *, *::before, *::after {
-    color: #000 !important;
-    text-shadow: none !important;
-    background-image: none !important;
-  }
-  a {
-    text-decoration: none !important;
-  }
-  /* Add URL after link text */
-  a[href]:not([href^="#"])::after {
-    content: " (" attr(href) ")";
-    font-size: 0.85em;
-    color: #555 !important;
-  }
-  /* Form input styling for print */
-  input, select, textarea {
-    background: white !important;
-    border: 1px solid #cbd5e1 !important;
-  }
-  /* Stat box fix */
-  dt {
-    color: #666 !important;
-  }
-  dd {
-    color: #000 !important;
-  }
-  /* Page break hints */
-  h1, h2, h3 {
-    page-break-after: avoid;
-    color: #000 !important;
-  }
-  ol, ul, dl {
-    page-break-inside: avoid;
-  }
-}
+/* PDF/인쇄용 스타일은 제거됨 — 사용자 결정: 계산 결과만 표시, PDF export 미지원. */
 
 /* Animation */
 @keyframes fade-up {

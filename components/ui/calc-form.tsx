@@ -1,8 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useState } from "react";
-import { Printer, Share2 } from "lucide-react";
+// PDF/인쇄·공유 버튼은 사용자 요청으로 제거됨 (계산 결과만 표시).
 import { cn } from "@/lib/utils/cn";
 import { AdSlot } from "@/components/seo/AdSlot";
 
@@ -125,75 +124,32 @@ export function HeroResult({
 export function ResultShell({
   heading,
   children,
-  showActions = false,
-  shareLabel = "공유",
-  shareCopiedLabel = "복사됨",
-  printLabel = "인쇄/PDF",
 }: {
   heading: string;
   children: ReactNode;
-  /** 인쇄/공유 버튼 표시 여부 (결과가 있을 때만 호출 측에서 true 전달) */
+  /** @deprecated PDF/인쇄·공유 버튼 제거됨 — prop 호환만 유지 */
   showActions?: boolean;
+  /** @deprecated */
   shareLabel?: string;
+  /** @deprecated */
   shareCopiedLabel?: string;
+  /** @deprecated */
   printLabel?: string;
 }): React.ReactElement {
-  const [copied, setCopied] = useState(false);
-
-  const onShare = async (): Promise<void> => {
-    const url = typeof window !== "undefined" ? window.location.href : "";
-    if (!url) return;
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch {
-      // clipboard 권한 거부 — 무시
-    }
-  };
-
-  const onPrint = (): void => {
-    if (typeof window !== "undefined") window.print();
-  };
-
   return (
     <>
       <section
         aria-live="polite"
         className="surface-card overflow-hidden p-5 md:p-7"
       >
-        <div className="mb-5 flex items-center justify-between gap-2">
-          <h2 className="flex items-center gap-2 text-lg font-semibold text-[color:var(--color-text-primary)]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" />
-            {heading}
-          </h2>
-          {showActions && (
-            <div className="no-print flex gap-1.5">
-              <button
-                type="button"
-                onClick={onShare}
-                className="inline-flex items-center gap-1.5 rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
-                aria-label={shareLabel}
-              >
-                <Share2 className="h-3 w-3" />
-                {copied ? shareCopiedLabel : shareLabel}
-              </button>
-              <button
-                type="button"
-                onClick={onPrint}
-                className="inline-flex items-center gap-1.5 rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
-                aria-label={printLabel}
-              >
-                <Printer className="h-3 w-3" />
-                {printLabel}
-              </button>
-            </div>
-          )}
-        </div>
+        <h2 className="mb-5 flex items-center gap-2 text-lg font-semibold text-[color:var(--color-text-primary)]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" />
+          {heading}
+        </h2>
         {children}
       </section>
       {/* 결과 직후 광고 — 사용자가 가치를 막 받은 시점 = 가장 단가 높은 위치 */}
-      <div className="no-print">
+      <div>
         <AdSlot slot={RESULT_AD_SLOT} position="result-bottom" format="auto" />
       </div>
     </>
