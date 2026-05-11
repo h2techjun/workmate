@@ -78,6 +78,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       },
     },
     tools: [
+      { labelKo: "대출 이자 계산", labelEn: "Loan Calculator", href: "/loan-calc", keywordsKo: "대출 이자 원리금균등 원금균등 만기일시 주담대" },
       { labelKo: "복리 계산기", labelEn: "Compound Interest", href: "/compound-calc", keywordsKo: "복리 예금 적금 CAGR 실효이율 EAR" },
       { labelKo: "부가세 계산기", labelEn: "VAT", href: "/vat-calc", keywordsKo: "부가세 공급가액 일반과세 간이과세" },
       { labelKo: "해외주식 양도세", labelEn: "Foreign Stock Tax", href: "/foreign-stock-tax", keywordsKo: "해외주식 양도세 22% 250만원 공제" },
@@ -162,15 +163,17 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     emoji: "🔄",
     i18n: {
       ko: {
-        title: "변환",
-        tagline: "JSON ↔ CSV — 한글 인코딩(UTF-8 BOM) + Excel 호환",
+        title: "변환 · 일상 계산",
+        tagline: "평수 ↔ ㎡ · 퍼센트 · JSON↔CSV — 매일 쓰는 단순 도구",
       },
       en: {
-        title: "Convert",
-        tagline: "JSON ↔ CSV with Korean encoding (UTF-8 BOM) + Excel compatible",
+        title: "Convert · Daily",
+        tagline: "Pyeong ↔ m² · percent · JSON ↔ CSV — everyday quick tools",
       },
     },
     tools: [
+      { labelKo: "평수 ↔ ㎡ ↔ 자²", labelEn: "Pyeong ↔ m²", href: "/area-convert", keywordsKo: "평수 계산 평 제곱미터 환산 부동산 면적" },
+      { labelKo: "퍼센트 계산", labelEn: "Percent", href: "/percent-calc", keywordsKo: "퍼센트 할인 인상 변화율 마진" },
       { labelKo: "JSON ↔ CSV", labelEn: "JSON ↔ CSV", href: "/json-csv", keywordsKo: "JSON CSV 변환 한글 BOM Excel" },
     ],
   },
