@@ -15,15 +15,46 @@ export async function generateMetadata({
   const isKo = locale !== "en";
 
   const title = isKo
-    ? `메이커 작업물 — ${SITE_BRAND}`
-    : `Maker projects — ${SITE_BRAND}`;
+    ? `무료 게임·인터랙티브 스토리·심리테스트 모음 — ${SITE_BRAND}`
+    : `Free Games · Interactive Stories · Personality Tests — ${SITE_BRAND}`;
   const description = isKo
-    ? "Workmate 운영자가 만든 게임·체험·서비스 모음. K-Poker, 해원문 타워디펜스, Office Hunter, 6 Hours, 하크루 학원 SaaS."
-    : "Indie maker portfolio behind Workmate — games, experiences, services. K-Poker, Defense, Office Hunter, 6 Hours, Hakrew academy SaaS.";
+    ? "브라우저에서 바로 즐기는 무료 게임(화투 로그라이크 K-Poker, 한국형 타워디펜스), 6시간 정치 텍스트 어드벤처, 직장 문화 심리테스트. 회원가입·결제 없이 즉시 플레이."
+    : "Free browser games (hwatu roguelike, Korean tower defense), 6-hour political text adventure, workplace culture personality test. Play instantly — no signup.";
+  const keywords = isKo
+    ? [
+        "무료 게임",
+        "웹게임",
+        "한국 인디 게임",
+        "화투 게임",
+        "화투 로그라이크",
+        "타워디펜스",
+        "텍스트 어드벤처",
+        "인터랙티브 픽션",
+        "정치 스릴러",
+        "심리테스트",
+        "MBTI",
+        "직장 문화 진단",
+        "자가진단",
+        "AI 심리분석",
+      ]
+    : [
+        "free browser games",
+        "Korean indie games",
+        "hwatu game",
+        "tower defense",
+        "text adventure",
+        "interactive fiction",
+        "personality test",
+        "MBTI",
+        "workplace culture test",
+        "self assessment",
+        "AI personality analysis",
+      ];
 
   return {
     title,
     description,
+    keywords,
     alternates: {
       canonical: `/${locale}/projects`,
       languages: Object.fromEntries(

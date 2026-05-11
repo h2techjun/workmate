@@ -579,9 +579,9 @@
     }
   },
   "projects": {
-    "eyebrow": "Maker projects",
-    "heading": "Games · Experiences · Services",
-    "intro": "Side projects running alongside Workmate. A card game, political text adventure, workplace culture audit, academy SaaS — five works built solo, full-stack.",
+    "eyebrow": "Free Games · Stories · Tests",
+    "heading": "Games · Stories · Personality Tests",
+    "intro": "Free browser content — no signup, no payment, no app install. Korean hwatu roguelike, martial-arts tower defense, 6-hour political text adventure, AI workplace culture test. One click and you're in.",
     "cardOpen": "Open",
     "cardCurrent": "Current site",
     "cardExternal": "External link",

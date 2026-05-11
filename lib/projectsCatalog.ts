@@ -8,15 +8,20 @@
  *                         예: /play/k-poker
  *   - "external"         → 외부 도메인 그대로 링크
  *
- * 탭 구분(`tab`):
- *   - "games"       — 게임 (K-Poker, Defense)
- *   - "experiences" — 체험형 인터랙티브 (Office Hunter, 6 Hours)
- *   - "services"    — 본격 SaaS / 플랫폼 (Hakrew)
+ * 탭 구분(`tab`) — 검색량·트렌드 기반:
+ *   - "games"   — 캐주얼 게임 (K-Poker, Defense)
+ *                 흡수: 무료게임, 웹게임, 화투게임, 타워디펜스
+ *   - "stories" — 인터랙티브 스토리 (6 Hours)
+ *                 흡수: 텍스트 어드벤처, 인터랙티브 픽션, 인디 게임
+ *   - "tests"   — 심리·진단 테스트 (Office Hunter)
+ *                 흡수: 심리테스트, MBTI, 직장 진단, 자가진단 (최대 검색량)
+ *
+ * SaaS(Hakrew 등)는 카탈로그에서 제외 — 바이브 코딩 변동성·SaaS 책임 분리.
  */
 
 import type { Locale } from "@/i18n";
 
-export type ProjectTab = "games" | "experiences" | "services";
+export type ProjectTab = "games" | "stories" | "tests";
 export type ProjectHostType = "internal-static" | "external";
 export type ProjectStatus = "live" | "beta" | "wip" | "archived";
 
@@ -116,7 +121,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
   // ─────────────────── 체험형 ───────────────────
   {
     id: "office-hunter",
-    tab: "experiences",
+    tab: "tests",
     hostType: "external",
     externalUrl: "https://officehunter.vercel.app",
     githubUrl: "https://github.com/h2techjun/officehunter",
@@ -141,7 +146,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
   },
   {
     id: "6hours",
-    tab: "experiences",
+    tab: "stories",
     hostType: "external",
     externalUrl: "https://6hours.vercel.app",
     githubUrl: "https://github.com/h2techjun/03_6Hours",
@@ -165,34 +170,8 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     },
   },
 
-  // ─────────────────── 서비스 ───────────────────
-  {
-    id: "hakrew",
-    tab: "services",
-    // 활성 사용자가 있는 SaaS — Supabase auth redirect URL 호환성 때문에 base-href 변경 위험.
-    // 추후 별도 서브도메인(hakrew.workmate.tools) 으로 분리 권장.
-    hostType: "external",
-    externalUrl: "https://hakrew21.github.io/hakrew-web/",
-    githubUrl: "https://github.com/h2techjun/hakrew",
-    status: "live",
-    order: 1,
-    accent: "from-sky-500 to-cyan-400",
-    techStack: ["Flutter", "Supabase", "Gemini AI", "Hive"],
-    i18n: {
-      ko: {
-        title: "하크루 (Hakrew)",
-        tagline: "1인 학원장을 위한 SaaS — 출결·결제·상담·AI 케어",
-        description:
-          "RBAC 4역할(원장/매니저/직원/강사) + 학생·강사 출결, 결제 수금, 상담 일지, 4대보험 자동 계산, Gemini AI 결재 코멘트까지 통합. Hive offline-first + Supabase 동기화.",
-      },
-      en: {
-        title: "Hakrew",
-        tagline: "Korean academy SaaS — attendance, billing, AI care notes",
-        description:
-          "All-in-one for solo academy owners. RBAC × students × teachers × payments × Gemini-powered counselor notes. Offline-first Hive + Supabase sync.",
-      },
-    },
-  },
+  // ※ Hakrew(서비스 탭)는 카탈로그에서 제외 — 활성 SaaS 의 책임 분리 + 바이브 코딩 변동성.
+  //   필요 시 외부에서 직접 운영 (hakrew21.github.io/hakrew-web).
 ];
 
 /**
@@ -200,35 +179,36 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
  */
 export const TAB_LABEL: Record<ProjectTab, Record<Locale, string>> = {
   games: { ko: "게임", en: "Games" },
-  experiences: { ko: "체험", en: "Experiences" },
-  services: { ko: "서비스", en: "Services" },
+  stories: { ko: "스토리", en: "Stories" },
+  tests: { ko: "심리테스트", en: "Tests" },
 };
 
 /**
- * 탭 짧은 설명 (탭 클릭 시 sub-heading).
+ * 탭 짧은 설명 (탭 클릭 시 sub-heading) — SEO 키워드 포함.
  */
 export const TAB_TAGLINE: Record<ProjectTab, Record<Locale, string>> = {
   games: {
-    ko: "브라우저에서 바로 즐기는 모바일 게임",
-    en: "Mobile games playable directly in your browser",
+    ko: "브라우저에서 바로 플레이하는 무료 캐주얼 게임",
+    en: "Free casual games playable directly in your browser",
   },
-  experiences: {
-    ko: "사용자 참여형 인터랙티브 콘텐츠",
-    en: "Interactive content built for participation",
+  stories: {
+    ko: "선택이 결과를 바꾸는 인터랙티브 스토리·텍스트 어드벤처",
+    en: "Interactive stories where every choice changes the ending",
   },
-  services: {
-    ko: "현장 실무를 풀어내는 본격 SaaS",
-    en: "Production SaaS solving real operational pain",
+  tests: {
+    ko: "직장 문화·자기 진단 — 익명 심리테스트 + AI 분석",
+    en: "Workplace culture and self-discovery tests with AI scoring",
   },
 };
 
 /**
- * 탭 표시 순서.
+ * 탭 표시 순서 — 검색량 큰 순 (tests 가 가장 높은 트래픽 예상이지만,
+ * 기존 사용자 인지 흐름 유지를 위해 games → stories → tests 순서).
  */
 export const TAB_ORDER: ReadonlyArray<ProjectTab> = [
   "games",
-  "experiences",
-  "services",
+  "stories",
+  "tests",
 ];
 
 export const STATUS_LABEL: Record<ProjectStatus, Record<Locale, string>> = {
