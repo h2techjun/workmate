@@ -119,6 +119,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       },
     },
     tools: [
+      { labelKo: "타일 매수", labelEn: "Tile", href: "/timber-calc/tile", keywordsKo: "타일 매수 300x300 600x600 줄눈 본드" },
       { labelKo: "스터드(각목) 본수", labelEn: "Studs", href: "/timber-calc/studs", keywordsKo: "스터드 각목 본수 2x4 SPF 16인치 골조" },
       { labelKo: "석고보드 매수", labelEn: "Drywall", href: "/timber-calc/drywall", keywordsKo: "석고보드 매수 드라이월 12.5mm" },
       { labelKo: "합판 매수", labelEn: "Plywood", href: "/timber-calc/plywood", keywordsKo: "합판 매수 4x8 18mm" },

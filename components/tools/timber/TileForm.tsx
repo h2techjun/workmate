@@ -1,0 +1,274 @@
+"use client";
+
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  calculateTile,
+  tileInputSchema,
+  TILE_PRESETS,
+  type TileInputResolved,
+  type TileResult,
+  type TileStep,
+} from "@/lib/calculations/timber/tile";
+import {
+  ActionRow,
+  CalcLayout,
+  EmptyResult,
+  ErrorBox,
+  Field,
+  FieldGroup,
+  FormShell,
+  HeroResult,
+  ResultShell,
+  SourceBox,
+  Stat,
+  StepsBox,
+} from "@/components/ui/calc-form";
+
+interface TileFormProps {
+  locale: "ko" | "en";
+}
+
+const fmt = (n: number, d = 2): string => n.toFixed(d);
+
+const TEXT = {
+  ko: {
+    sectionArea: "시공 면적",
+    sectionTile: "타일·줄눈",
+    fieldArea: "면적 (m²)",
+    fieldAreaHint: "벽·바닥 시공 면적 (개구부 공제 후)",
+    fieldPreset: "표준 크기 선택",
+    fieldTileWidth: "타일 가로 (mm)",
+    fieldTileHeight: "타일 세로 (mm)",
+    fieldGrout: "줄눈 너비 (mm)",
+    fieldGroutHint: "자기질 보통 2mm, 도기질·대형 3~5mm",
+    fieldWaste: "손실률 (%)",
+    fieldWasteHint: "절단·파손 여유, 기본 10%",
+    calculate: "계산하기",
+    reset: "초기화",
+    resultHeading: "계산 결과",
+    resultEmpty: "면적과 타일 크기를 입력하고 계산하세요.",
+    error: "계산 중 오류가 발생했습니다.",
+    tileCount: "타일 매수",
+    tileCountUnit: "매",
+    footprint: "1매 점유 면적 (줄눈 포함)",
+    adjusted: "손실률 적용 면적",
+    adhesive: "타일 접착제 추정",
+    grout: "줄눈 충전재 추정",
+    sourceTitle: "출처 · 가정",
+    sourceLines: [
+      "KS L 1001 (도자기질 타일) · KS F 4904 (시멘트). 1매 점유 = (가로+줄눈) × (세로+줄눈).",
+      "접착제: 4 kg/㎡ 기준 (일반 시멘트계 본드 표준 사용량).",
+      "줄눈 충전재: 작은 타일·넓은 줄눈일수록 ↑. 0.1~0.6 kg/㎡ 범위.",
+      "결과는 자재 견적용 참고치 — 실제 시공은 패턴·줄눈 처리에 따라 ±15% 차이.",
+    ],
+  },
+  en: {
+    sectionArea: "Area",
+    sectionTile: "Tile & grout",
+    fieldArea: "Area (m²)",
+    fieldAreaHint: "Wall/floor area after subtracting openings",
+    fieldPreset: "Standard size",
+    fieldTileWidth: "Tile width (mm)",
+    fieldTileHeight: "Tile height (mm)",
+    fieldGrout: "Grout width (mm)",
+    fieldGroutHint: "Porcelain 2mm typical, ceramic/large 3~5mm",
+    fieldWaste: "Waste factor (%)",
+    fieldWasteHint: "Cut/break buffer, default 10%",
+    calculate: "Calculate",
+    reset: "Reset",
+    resultHeading: "Result",
+    resultEmpty: "Enter area and tile size to calculate.",
+    error: "Calculation failed.",
+    tileCount: "Tile count",
+    tileCountUnit: "pcs",
+    footprint: "1-tile footprint (with grout)",
+    adjusted: "Adjusted area (waste applied)",
+    adhesive: "Adhesive estimate",
+    grout: "Grout estimate",
+    sourceTitle: "Sources · assumptions",
+    sourceLines: [
+      "KS L 1001 (ceramic tile) · KS F 4904 (cement). Footprint = (w+grout) × (h+grout).",
+      "Adhesive: 4 kg/m² (standard cement-based bond).",
+      "Grout: smaller tiles + wider joints = more usage. Range 0.1~0.6 kg/m².",
+      "Results are material estimates — actual ±15% depending on pattern and joint detailing.",
+    ],
+  },
+} as const;
+
+export function TileForm({ locale }: TileFormProps): React.ReactElement {
+  const T = TEXT[locale];
+  const [result, setResult] = useState<TileResult | null>(null);
+  const [calcError, setCalcError] = useState<string | null>(null);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { isSubmitting },
+  } = useForm<TileInputResolved>({
+    resolver: zodResolver(tileInputSchema),
+    defaultValues: {
+      areaM2: 10,
+      tileWidthMm: 300,
+      tileHeightMm: 300,
+      groutMm: 2,
+      wasteFactorPercent: 10,
+    },
+  });
+
+  const onSubmit = (values: TileInputResolved): void => {
+    setCalcError(null);
+    try {
+      setResult(calculateTile(values));
+    } catch {
+      setResult(null);
+      setCalcError(T.error);
+    }
+  };
+  const onReset = (): void => {
+    reset();
+    setResult(null);
+    setCalcError(null);
+  };
+  const applyPreset = (size: number) => {
+    setValue("tileWidthMm", size);
+    setValue("tileHeightMm", size);
+  };
+
+  const renderStep = (s: TileStep): string => {
+    switch (s.key) {
+      case "footprint":
+        return locale === "ko"
+          ? `타일 ${s.w}×${s.h}mm + 줄눈 ${s.grout}mm × 2 = 1매 점유 ${fmt(s.result, 4)} m²`
+          : `Tile ${s.w}×${s.h}mm + grout ${s.grout}mm × 2 = footprint ${fmt(s.result, 4)} m²`;
+      case "wasteArea":
+        return locale === "ko"
+          ? `면적 ${s.area}m² × (1 + ${s.waste}% 손실) = ${fmt(s.result, 1)} m²`
+          : `Area ${s.area}m² × (1 + ${s.waste}% waste) = ${fmt(s.result, 1)} m²`;
+      case "count":
+        return locale === "ko"
+          ? `손실 적용 면적 ${fmt(s.wasteArea, 1)}m² ÷ 1매 ${fmt(s.footprint, 4)}m² = ${s.result}매`
+          : `Adjusted ${fmt(s.wasteArea, 1)}m² ÷ ${fmt(s.footprint, 4)}m²/tile = ${s.result} tiles`;
+      case "adhesive":
+        return locale === "ko"
+          ? `면적 ${s.area}m² × ${s.rate}kg/㎡ = 접착제 ${fmt(s.result, 1)}kg`
+          : `Area ${s.area}m² × ${s.rate}kg/m² = ${fmt(s.result, 1)}kg adhesive`;
+      case "grout":
+        return locale === "ko"
+          ? `면적 ${s.area}m² × ${fmt(s.rate, 2)}kg/㎡ (타일/줄눈 비례) = 줄눈재 ${fmt(s.result, 2)}kg`
+          : `Area ${s.area}m² × ${fmt(s.rate, 2)}kg/m² (size-dependent) = ${fmt(s.result, 2)}kg grout`;
+    }
+  };
+
+  return (
+    <CalcLayout>
+      <FormShell onSubmit={handleSubmit(onSubmit)}>
+        <FieldGroup title={T.sectionArea}>
+          <Field label={T.fieldArea} hint={T.fieldAreaHint}>
+            <input
+              type="number"
+              step="0.1"
+              inputMode="decimal"
+              className="input-base"
+              {...register("areaM2", { valueAsNumber: true })}
+            />
+          </Field>
+        </FieldGroup>
+
+        <FieldGroup title={T.sectionTile}>
+          <Field label={T.fieldPreset}>
+            <div className="flex flex-wrap gap-1.5">
+              {TILE_PRESETS.map((p) => (
+                <button
+                  key={p.sizeMm}
+                  type="button"
+                  onClick={() => applyPreset(p.sizeMm)}
+                  className="rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-500 hover:text-[color:var(--color-text-primary)]"
+                >
+                  {p.label}
+                </button>
+              ))}
+            </div>
+          </Field>
+          <Field label={T.fieldTileWidth}>
+            <input
+              type="number"
+              step="10"
+              inputMode="numeric"
+              className="input-base"
+              {...register("tileWidthMm", { valueAsNumber: true })}
+            />
+          </Field>
+          <Field label={T.fieldTileHeight}>
+            <input
+              type="number"
+              step="10"
+              inputMode="numeric"
+              className="input-base"
+              {...register("tileHeightMm", { valueAsNumber: true })}
+            />
+          </Field>
+          <Field label={T.fieldGrout} hint={T.fieldGroutHint}>
+            <input
+              type="number"
+              step="0.5"
+              inputMode="decimal"
+              className="input-base"
+              {...register("groutMm", { valueAsNumber: true })}
+            />
+          </Field>
+          <Field label={T.fieldWaste} hint={T.fieldWasteHint}>
+            <input
+              type="number"
+              step="1"
+              inputMode="numeric"
+              className="input-base"
+              {...register("wasteFactorPercent", { valueAsNumber: true })}
+            />
+          </Field>
+        </FieldGroup>
+
+        <ActionRow
+          primary={
+            <button type="submit" disabled={isSubmitting} className="btn-primary flex-1">
+              {T.calculate}
+            </button>
+          }
+          secondary={
+            <button type="button" onClick={onReset} className="btn-ghost sm:w-auto">
+              {T.reset}
+            </button>
+          }
+        />
+      </FormShell>
+
+      <ResultShell heading={T.resultHeading}>
+        {calcError && <ErrorBox message={calcError} />}
+        {!calcError && !result && <EmptyResult message={T.resultEmpty} />}
+        {result && (
+          <div className="animate-fade-up space-y-5">
+            <HeroResult
+              label={T.tileCount}
+              value={result.tileCount.toString()}
+              unit={T.tileCountUnit}
+            />
+            <dl className="grid grid-cols-2 gap-3">
+              <Stat label={T.footprint} value={`${fmt(result.tileFootprintM2, 4)} m²`} />
+              <Stat label={T.adjusted} value={`${fmt(result.adjustedAreaM2, 1)} m²`} />
+              <Stat label={T.adhesive} value={`${fmt(result.adhesiveKg, 1)} kg`} />
+              <Stat label={T.grout} value={`${fmt(result.groutKg, 2)} kg`} />
+            </dl>
+            <StepsBox
+              title={locale === "ko" ? "계산 과정" : "Steps"}
+              items={result.steps.map((s) => renderStep(s))}
+            />
+            <SourceBox lines={[T.sourceTitle, ...T.sourceLines]} />
+          </div>
+        )}
+      </ResultShell>
+    </CalcLayout>
+  );
+}

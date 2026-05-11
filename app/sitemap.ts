@@ -24,6 +24,7 @@ const TOOL_PATHS = [
   "/timber-calc/siding",
   "/timber-calc/insulation-batt",
   "/timber-calc/studs",
+  "/timber-calc/tile",
   "/insurance-calc",
   "/foreign-stock-tax",
   "/json-csv",
