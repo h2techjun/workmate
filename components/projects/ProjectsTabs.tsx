@@ -23,30 +23,40 @@ interface ProjectsTabsProps {
     external: string;
     comingSoon: string;
   };
+  /**
+   * 보여줄 탭 목록. 미지정 시 모든 탭(TAB_ORDER 순) 노출.
+   * 단일 탭만 지정 시 탭 nav 는 숨기고 카드 그리드만 표시.
+   */
+  visibleTabs?: ReadonlyArray<ProjectTab>;
 }
 
 /**
- * /projects 의 탭 인터랙션 — 게임 / 체험 / 서비스 중 하나만 표시.
+ * /projects · /games · /tests 등에서 공유하는 탭 인터랙션.
  *
- * 첫 진입 시 가장 앞 탭(games) 활성. 탭은 페이지 새로고침 없이 즉시 전환.
+ * 첫 진입 시 visibleTabs[0] (또는 "games") 활성. 탭은 페이지 새로고침 없이 즉시 전환.
+ * visibleTabs 가 단일 항목이면 탭 nav 숨김 (카드만 표시).
  */
 export function ProjectsTabs({
   localeKey,
   labels,
+  visibleTabs,
 }: ProjectsTabsProps): React.ReactElement {
-  const [activeTab, setActiveTab] = useState<ProjectTab>("games");
+  const tabs = visibleTabs ?? TAB_ORDER;
+  const [activeTab, setActiveTab] = useState<ProjectTab>(tabs[0] ?? "games");
   const projects = PROJECTS_CATALOG.filter((p) => p.tab === activeTab).sort(
     (a, b) => a.order - b.order,
   );
+  const showTabNav = tabs.length > 1;
 
   return (
     <>
+      {showTabNav ? (
       <nav
         role="tablist"
         aria-label="Project categories"
         className="mb-2 flex flex-wrap gap-2"
       >
-        {TAB_ORDER.map((tab) => {
+        {tabs.map((tab) => {
           const isActive = tab === activeTab;
           const count = PROJECTS_CATALOG.filter((p) => p.tab === tab).length;
           return (
@@ -76,6 +86,7 @@ export function ProjectsTabs({
           );
         })}
       </nav>
+      ) : null}
 
       <p className="mb-8 text-sm text-[color:var(--color-text-tertiary)]">
         {TAB_TAGLINE[activeTab][localeKey]}

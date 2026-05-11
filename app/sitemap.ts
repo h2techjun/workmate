@@ -28,7 +28,9 @@ const TOOL_PATHS = [
   "/labor-calc/severance",
   "/labor-calc/min-wage-monthly",
   "/vat-calc",
-  "/projects",
+  "/tools",
+  "/games",
+  "/tests",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

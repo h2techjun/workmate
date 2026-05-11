@@ -16,16 +16,28 @@ export async function Footer({
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-center text-xs md:px-6">
         <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[color:var(--color-text-secondary)]">
           <Link
+            href={`/${locale}/tools`}
+            className="transition-colors hover:text-[color:var(--color-text-primary)]"
+          >
+            {t("tools")}
+          </Link>
+          <Link
+            href={`/${locale}/games`}
+            className="transition-colors hover:text-[color:var(--color-text-primary)]"
+          >
+            {t("games")}
+          </Link>
+          <Link
+            href={`/${locale}/tests`}
+            className="transition-colors hover:text-[color:var(--color-text-primary)]"
+          >
+            {t("tests")}
+          </Link>
+          <Link
             href={`/${locale}/about`}
             className="transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             {t("nav.about")}
-          </Link>
-          <Link
-            href={`/${locale}/projects`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("projects")}
           </Link>
           <Link
             href={`/${locale}/privacy`}

@@ -58,6 +58,19 @@ const nextConfig: NextConfig = {
       fallback: [],
     };
   },
+  /**
+   * 구 /projects URL → /games 308 리다이렉트.
+   * 카탈로그·sitemap 이전 시점의 백링크/검색 색인 호환.
+   */
+  async redirects() {
+    return [
+      {
+        source: "/:locale(ko|en)/projects",
+        destination: "/:locale/games",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

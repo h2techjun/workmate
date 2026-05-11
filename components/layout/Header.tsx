@@ -10,6 +10,12 @@ interface HeaderProps {
 export async function Header({ locale }: HeaderProps): Promise<React.ReactElement> {
   const t = await getTranslations({ locale, namespace: "layout" });
 
+  const navItems = [
+    { href: `/${locale}/tools`, label: t("tools") },
+    { href: `/${locale}/games`, label: t("games") },
+    { href: `/${locale}/tests`, label: t("tests") },
+  ];
+
   return (
     <header className="sticky top-0 z-40 surface-glass border-b border-[color:var(--color-border-subtle)]">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:h-16 md:px-6">
@@ -24,24 +30,15 @@ export async function Header({ locale }: HeaderProps): Promise<React.ReactElemen
         </Link>
 
         <nav className="flex items-center gap-1 md:gap-2">
-          <Link
-            href={`/${locale}/electric-calc`}
-            className="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card)] hover:text-[color:var(--color-text-primary)] sm:inline-block"
-          >
-            {t("electric")}
-          </Link>
-          <Link
-            href={`/${locale}/timber-calc`}
-            className="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card)] hover:text-[color:var(--color-text-primary)] sm:inline-block"
-          >
-            {t("timber")}
-          </Link>
-          <Link
-            href={`/${locale}/projects`}
-            className="rounded-lg px-3 py-1.5 text-sm font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card)] hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("projects")}
-          </Link>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-lg px-2.5 py-1.5 text-sm font-medium text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card)] hover:text-[color:var(--color-text-primary)] md:px-3"
+            >
+              {item.label}
+            </Link>
+          ))}
           <LanguageSwitcher currentLocale={locale} />
         </nav>
       </div>
