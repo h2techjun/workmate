@@ -43,7 +43,19 @@ const MATERIAL_KEYS = [
   "battInsulationR19",
 ] as const;
 
-export function MaterialQuantityForm(): React.ReactElement {
+type MaterialKey = (typeof MATERIAL_KEYS)[number];
+
+interface MaterialQuantityFormProps {
+  /**
+   * 자재 종류를 미리 고정 — 지정 시 자재 선택 UI 숨김.
+   * 자재별 dedicated 페이지(/timber-calc/drywall, /timber-calc/plywood 등) 에서 사용.
+   */
+  lockedMaterial?: MaterialKey;
+}
+
+export function MaterialQuantityForm({
+  lockedMaterial,
+}: MaterialQuantityFormProps = {}): React.ReactElement {
   const t = useTranslations("materialQuantityTool");
   const [result, setResult] = useState<MaterialQuantityResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
@@ -56,7 +68,7 @@ export function MaterialQuantityForm(): React.ReactElement {
   } = useForm<MaterialQuantityInputResolved>({
     resolver: zodResolver(materialQuantityInputSchema),
     defaultValues: {
-      material: "osb11",
+      material: lockedMaterial ?? "osb11",
       areaM2: 100,
       wasteFactorPercent: 10,
       estimateFasteners: true,
@@ -112,15 +124,19 @@ export function MaterialQuantityForm(): React.ReactElement {
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={t("sections.material")}>
-          <Field label={t("fields.material")}>
-            <select className="input-base" {...register("material")}>
-              {MATERIAL_KEYS.map((m) => (
-                <option key={m} value={m}>
-                  {t(`materials.${m}`)}
-                </option>
-              ))}
-            </select>
-          </Field>
+          {lockedMaterial ? (
+            <input type="hidden" {...register("material")} value={lockedMaterial} />
+          ) : (
+            <Field label={t("fields.material")}>
+              <select className="input-base" {...register("material")}>
+                {MATERIAL_KEYS.map((m) => (
+                  <option key={m} value={m}>
+                    {t(`materials.${m}`)}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          )}
           <Field
             label={t("fields.areaM2")}
             hint={t("hints.area")}

@@ -119,6 +119,11 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       },
     },
     tools: [
+      { labelKo: "석고보드 매수", labelEn: "Drywall", href: "/timber-calc/drywall", keywordsKo: "석고보드 매수 드라이월 12.5mm" },
+      { labelKo: "합판 매수", labelEn: "Plywood", href: "/timber-calc/plywood", keywordsKo: "합판 매수 4x8 18mm" },
+      { labelKo: "OSB 매수", labelEn: "OSB", href: "/timber-calc/osb", keywordsKo: "OSB 외벽 지붕 사싱" },
+      { labelKo: "사이딩 매수", labelEn: "Siding", href: "/timber-calc/siding", keywordsKo: "사이딩 시멘트 외벽" },
+      { labelKo: "단열재 두루마리", labelEn: "Insulation Batts", href: "/timber-calc/insulation-batt", keywordsKo: "단열재 그라스울 R19" },
       { labelKo: "부재 경간", labelEn: "Span", href: "/timber-calc/span", keywordsKo: "장선 서까래 헤더 경간 휨 처짐" },
       { labelKo: "단열 R/U값", labelEn: "Insulation R/U", href: "/timber-calc/insulation", keywordsKo: "단열 열관류율 에너지절약 별표1" },
       { labelKo: "자재 수량 (종합)", labelEn: "Material Quantity", href: "/timber-calc/material-quantity", keywordsKo: "OSB 합판 석고 자재 수량" },
