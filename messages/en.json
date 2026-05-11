@@ -634,16 +634,6 @@
         "title": "Business Number Validation",
         "description": "Offline checksum validation of Korean business registration numbers (NTS standard algorithm)",
         "tag": "Business"
-      },
-      "biznum": {
-        "title": "Business Registration Status",
-        "description": "Real-time NTS Hometax lookup for business operating status (API integration pending)",
-        "tag": "Business"
-      },
-      "msds": {
-        "title": "MSDS Search",
-        "description": "Search and compare Material Safety Data Sheets",
-        "tag": "Safety"
       }
     }
   },

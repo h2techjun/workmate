@@ -88,22 +88,6 @@ export default async function HomePage({
       title: t("tools.bizNumber.title"),
       description: t("tools.bizNumber.description"),
     },
-    {
-      id: "biznum",
-      href: null,
-      available: false,
-      tag: t("tools.biznum.tag"),
-      title: t("tools.biznum.title"),
-      description: t("tools.biznum.description"),
-    },
-    {
-      id: "msds",
-      href: null,
-      available: false,
-      tag: t("tools.msds.tag"),
-      title: t("tools.msds.title"),
-      description: t("tools.msds.description"),
-    },
   ];
 
   return (
