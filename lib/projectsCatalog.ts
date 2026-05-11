@@ -124,7 +124,6 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     tab: "tests",
     hostType: "external",
     externalUrl: "https://officehunter.vercel.app",
-    githubUrl: "https://github.com/h2techjun/officehunter",
     status: "wip",
     order: 1,
     accent: "from-fuchsia-500 to-pink-500",

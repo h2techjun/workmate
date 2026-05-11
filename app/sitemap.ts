@@ -23,6 +23,7 @@ const TOOL_PATHS = [
   "/timber-calc/osb",
   "/timber-calc/siding",
   "/timber-calc/insulation-batt",
+  "/timber-calc/studs",
   "/insurance-calc",
   "/foreign-stock-tax",
   "/json-csv",
