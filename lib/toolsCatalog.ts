@@ -12,6 +12,7 @@ export type ToolGroupId =
   | "timber"
   | "labor"
   | "tax"
+  | "realestate"
   | "business"
   | "convert";
 
@@ -78,6 +79,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       },
     },
     tools: [
+      { labelKo: "종합소득세 계산", labelEn: "Income Tax", href: "/income-tax", keywordsKo: "종합소득세 누진세 8구간 세율표 누진공제 프리랜서" },
       { labelKo: "대출 이자 계산", labelEn: "Loan Calculator", href: "/loan-calc", keywordsKo: "대출 이자 원리금균등 원금균등 만기일시 주담대" },
       { labelKo: "복리 계산기", labelEn: "Compound Interest", href: "/compound-calc", keywordsKo: "복리 예금 적금 CAGR 실효이율 EAR" },
       { labelKo: "부가세 계산기", labelEn: "VAT", href: "/vat-calc", keywordsKo: "부가세 공급가액 일반과세 간이과세" },
@@ -140,6 +142,29 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     ],
   },
   {
+    id: "realestate",
+    accent: "from-violet-500 to-fuchsia-500",
+    emoji: "🏘️",
+    i18n: {
+      ko: {
+        title: "부동산 · 임대",
+        tagline: "임대료 5% 인상한도·환산보증금 — 주택임대차보호법 기반",
+      },
+      en: {
+        title: "Real Estate · Rental",
+        tagline: "Korean rent cap (5% renewal limit) verification",
+      },
+    },
+    tools: [
+      {
+        labelKo: "임대료 5% 인상한도",
+        labelEn: "Rent Cap (5%)",
+        href: "/rent-cap",
+        keywordsKo: "임대료 5% 전월세 인상한도 보증금 갱신요구권 주임법",
+      },
+    ],
+  },
+  {
     id: "business",
     accent: "from-sky-500 to-cyan-500",
     emoji: "🏢",
@@ -185,6 +210,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
 export const TOOL_GROUP_ORDER: ReadonlyArray<ToolGroupId> = [
   "labor",
   "tax",
+  "realestate",
   "electric",
   "timber",
   "business",

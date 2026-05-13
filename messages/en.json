@@ -620,6 +620,21 @@
         "description": "Principal × rate × period + periodic contribution → future value, EAR, CAGR, yearly balance",
         "tag": "Finance"
       },
+      "loanCalc": {
+        "title": "Loan Calculator",
+        "description": "Equal payment / equal principal / balloon — Korean mortgage & credit loan amortization",
+        "tag": "Loan"
+      },
+      "areaConvert": {
+        "title": "Pyeong ↔ m²",
+        "description": "Korean pyeong / square meters / ja² conversion + real-estate area presets (59㎡, 84㎡)",
+        "tag": "Convert"
+      },
+      "percentCalc": {
+        "title": "Percent Calculator",
+        "description": "Discount, markup, change rate, reverse — VAT, sale price, percent change in one place",
+        "tag": "Convert"
+      },
       "vatCalc": {
         "title": "Korean VAT Calculator",
         "description": "Split inclusive price into supply + VAT, plus general / simplified taxpayer filing",

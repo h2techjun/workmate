@@ -39,6 +39,8 @@ const TOOL_PATHS = [
   "/area-convert",
   "/percent-calc",
   "/loan-calc",
+  "/rent-cap",
+  "/income-tax",
   "/tools",
   "/games",
   "/tests",
