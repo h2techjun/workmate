@@ -16,9 +16,11 @@ export default createMiddleware({
  *   - /play/*, /app/*, /lab/*: 메이커 프로젝트 통합 경로 — 정적 SPA / 외부 rewrite.
  *   - /icon, /apple-icon, /opengraph-image, /twitter-image, /favicon: Next.js
  *     특수 메타데이터 라우트. 확장자가 없어서 위 정규식으로는 못 잡힘.
+ *   - /ads.txt, /indexnow-key: AdSense·IndexNow 검증용 루트 텍스트 응답.
+ *     locale prefix 가 붙으면 검색엔진/AdSense 가 못 찾음.
  */
 export const config = {
   matcher: [
-    "/((?!api|_next|_vercel|play|app|lab|icon|apple-icon|opengraph-image|twitter-image|favicon|.*\\..*).*)",
+    "/((?!api|_next|_vercel|play|app|lab|icon|apple-icon|opengraph-image|twitter-image|favicon|ads\\.txt|indexnow-key|.*\\..*).*)",
   ],
 };
