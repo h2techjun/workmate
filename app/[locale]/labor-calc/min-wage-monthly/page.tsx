@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { MinWageMonthlyForm } from "@/components/tools/labor/MinWageMonthlyForm";
 import {
@@ -25,9 +26,7 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/labor-calc/min-wage-monthly`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/labor-calc/min-wage-monthly`]),
-      ),
+      languages: buildLanguagesAlt("/labor-calc/min-wage-monthly"),
     },
     openGraph: {
       title: t("title"),

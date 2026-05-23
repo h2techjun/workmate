@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { MaterialQuantityForm } from "@/components/tools/timber/MaterialQuantityForm";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 
 interface PageProps {
@@ -41,9 +42,7 @@ export async function generateMetadata({
     keywords,
     alternates: {
       canonical: `/${locale}/timber-calc/plywood`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/timber-calc/plywood`]),
-      ),
+      languages: buildLanguagesAlt("/timber-calc/plywood"),
     },
     openGraph: {
       title,

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { WeeklyRestPayForm } from "@/components/tools/labor/WeeklyRestPayForm";
 import {
@@ -25,9 +26,7 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/labor-calc/weekly-rest-pay`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/labor-calc/weekly-rest-pay`]),
-      ),
+      languages: buildLanguagesAlt("/labor-calc/weekly-rest-pay"),
     },
     openGraph: {
       title: t("title"),

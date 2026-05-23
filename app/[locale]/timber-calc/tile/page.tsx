@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { TileForm } from "@/components/tools/timber/TileForm";
 import { locales } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 
 interface PageProps {
@@ -53,9 +54,7 @@ export async function generateMetadata({
     keywords,
     alternates: {
       canonical: `/${locale}/timber-calc/tile`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/timber-calc/tile`]),
-      ),
+      languages: buildLanguagesAlt("/timber-calc/tile"),
     },
     openGraph: {
       title,

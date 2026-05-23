@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { SeveranceForm } from "@/components/tools/labor/SeveranceForm";
 import {
@@ -25,9 +26,7 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/labor-calc/severance`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/labor-calc/severance`]),
-      ),
+      languages: buildLanguagesAlt("/labor-calc/severance"),
     },
     openGraph: {
       title: t("title"),

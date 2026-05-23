@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { StudsForm } from "@/components/tools/timber/StudsForm";
 import { locales } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 
 interface PageProps {
@@ -52,9 +53,7 @@ export async function generateMetadata({
     keywords,
     alternates: {
       canonical: `/${locale}/timber-calc/studs`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/timber-calc/studs`]),
-      ),
+      languages: buildLanguagesAlt("/timber-calc/studs"),
     },
     openGraph: {
       title,

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
 import { TOOL_GROUPS, TOOL_GROUP_ORDER } from "@/lib/toolsCatalog";
 
@@ -52,9 +53,7 @@ export async function generateMetadata({
     keywords,
     alternates: {
       canonical: `/${locale}/tools`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/tools`]),
-      ),
+      languages: buildLanguagesAlt("/tools"),
     },
     openGraph: {
       title,

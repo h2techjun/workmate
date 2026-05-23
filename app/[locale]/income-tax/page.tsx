@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { IncomeTaxForm } from "@/components/tools/tax/IncomeTaxForm";
 import { locales } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 
 interface PageProps {
@@ -48,9 +49,7 @@ export async function generateMetadata({
     keywords,
     alternates: {
       canonical: `/${locale}/income-tax`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/income-tax`]),
-      ),
+      languages: buildLanguagesAlt("/income-tax"),
     },
     openGraph: {
       title,

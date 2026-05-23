@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
 import { ProjectsTabs } from "@/components/projects/ProjectsTabs";
 
@@ -57,9 +58,7 @@ export async function generateMetadata({
     keywords,
     alternates: {
       canonical: `/${locale}/projects`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/projects`]),
-      ),
+      languages: buildLanguagesAlt("/projects"),
     },
     openGraph: {
       title,

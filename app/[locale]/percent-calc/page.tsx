@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { PercentCalc } from "@/components/tools/unit/PercentCalc";
 import { locales } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 
 interface PageProps {
@@ -48,9 +49,7 @@ export async function generateMetadata({
     keywords,
     alternates: {
       canonical: `/${locale}/percent-calc`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/percent-calc`]),
-      ),
+      languages: buildLanguagesAlt("/percent-calc"),
     },
     openGraph: {
       title,

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { VatForm } from "@/components/tools/tax/VatForm";
 import {
@@ -25,9 +26,7 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/vat-calc`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/vat-calc`]),
-      ),
+      languages: buildLanguagesAlt("/vat-calc"),
     },
     openGraph: {
       title: t("title"),

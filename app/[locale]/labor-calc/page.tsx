@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 
 interface PageProps {
@@ -34,9 +35,7 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/labor-calc`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/labor-calc`]),
-      ),
+      languages: buildLanguagesAlt("/labor-calc"),
     },
     openGraph: {
       title: t("title"),

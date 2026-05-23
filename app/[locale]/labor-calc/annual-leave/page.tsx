@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { AnnualLeaveForm } from "@/components/tools/labor/AnnualLeaveForm";
 import {
@@ -25,9 +26,7 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/labor-calc/annual-leave`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}/labor-calc/annual-leave`]),
-      ),
+      languages: buildLanguagesAlt("/labor-calc/annual-leave"),
     },
     openGraph: {
       title: t("title"),
