@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n";
 import { SITE_URL } from "@/lib/siteConfig";
+import { BLOG_POSTS } from "@/lib/blogPosts";
 
 const TOOL_PATHS = [
   "",
@@ -44,6 +45,7 @@ const TOOL_PATHS = [
   "/tools",
   "/games",
   "/tests",
+  "/blog",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -56,6 +58,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: now,
         changeFrequency: "weekly",
         priority: path === "" ? 1.0 : 0.8,
+        alternates: {
+          languages: Object.fromEntries(
+            locales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
+          ),
+        },
+      });
+    }
+  }
+  // 블로그 글 — publishedAt 을 lastModified 로 사용 (정확한 색인 시그널)
+  for (const post of BLOG_POSTS) {
+    const path = `/blog/${post.slug}`;
+    for (const locale of locales) {
+      entries.push({
+        url: `${SITE_URL}/${locale}${path}`,
+        lastModified: new Date(post.publishedAt),
+        changeFrequency: "monthly",
+        priority: 0.7,
         alternates: {
           languages: Object.fromEntries(
             locales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
