@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { IncomeTaxForm } from "@/components/tools/tax/IncomeTaxForm";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
@@ -95,6 +96,7 @@ export default async function IncomeTaxPage({
           </p>
         </header>
         <IncomeTaxForm locale={localeKey} />
+        <ToolGuide toolKey="income-tax" locale={localeKey} />
       </div>
     </main>
   );

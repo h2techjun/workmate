@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { AreaConverter } from "@/components/tools/unit/AreaConverter";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
@@ -96,6 +97,7 @@ export default async function AreaConvertPage({
           </p>
         </header>
         <AreaConverter locale={localeKey} />
+        <ToolGuide toolKey="area-convert" locale={localeKey} />
       </div>
     </main>
   );

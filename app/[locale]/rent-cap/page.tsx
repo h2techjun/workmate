@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { RentCapForm } from "@/components/tools/realestate/RentCapForm";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
@@ -94,6 +95,7 @@ export default async function RentCapPage({
           </p>
         </header>
         <RentCapForm locale={localeKey} />
+        <ToolGuide toolKey="rent-cap" locale={localeKey} />
       </div>
     </main>
   );

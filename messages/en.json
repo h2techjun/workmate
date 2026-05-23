@@ -1769,5 +1769,424 @@
     "errors": {
       "unknown": "An unknown error occurred during calculation."
     }
+  },
+  "toolGuides": {
+    "_labels": {
+      "overview": "What this tool does",
+      "useCases": "Who uses this",
+      "faq": "Frequently asked questions",
+      "cautions": "Cautions",
+      "related": "Related tools",
+      "lastReviewedPrefix": "Last reviewed:"
+    },
+    "income-tax": {
+      "overview": "The Korean income tax calculator applies the 8-bracket progressive rate (6% / 15% / 24% / 35% / 38% / 40% / 42% / 45%) as of 2026 to compute calculated tax, final tax, and local income tax from a given taxable base. It supports the wage earner credit (Income Tax Act §59) and shows the effective rate alongside the current bracket. All inputs stay in the browser — nothing is sent to a server.",
+      "useCases": [
+        "Freelancers and sole proprietors: simulate the May income tax filing",
+        "Employees: estimate refund or additional payment after year-end settlement",
+        "Landlords: see when adding rental income pushes you into a higher bracket",
+        "Investors: compare separate vs comprehensive taxation on dividends and interest",
+        "Year-end planning: estimate tax reduction from pension or IRP contributions"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter your taxable base — gross income minus deductions (personal, pension, special). Employees can read this directly from the year-end settlement document.",
+          "If you are an employee, check 'Apply wage earner credit'. The calculator applies the Income Tax Act §59 credit (up to KRW 740,000) automatically.",
+          "Click Calculate. You will see the marginal rate, progressive deduction, calculated tax, wage earner credit, final tax, 10% local income tax, and the effective rate.",
+          "The 8-bracket table highlights your current bracket. Adjust the taxable base to see how close you are to the next bracket boundary."
+        ]
+      },
+      "formula": {
+        "title": "Formula (Korean Income Tax Act §55)",
+        "body": "Calculated tax = Taxable base × Marginal rate − Progressive deduction\n\n2026 brackets:\n  up to KRW 14M       : 6%   (deduction 0)\n  up to KRW 50M       : 15%  (deduction 1,260,000)\n  up to KRW 88M       : 24%  (deduction 5,760,000)\n  up to KRW 150M      : 35%  (deduction 15,440,000)\n  up to KRW 300M      : 38%  (deduction 19,940,000)\n  up to KRW 500M      : 40%  (deduction 25,940,000)\n  up to KRW 1B        : 42%  (deduction 35,940,000)\n  over KRW 1B         : 45%  (deduction 65,940,000)\n\nFinal tax = Calculated tax − tax credits (wage earner, child, etc.)\nLocal income tax = Final tax × 10%\nTotal tax = Final + Local"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Employee, gross KRW 50M (taxable ~KRW 30M)",
+            "body": "Bracket: 15%. Calculated = 30M × 0.15 − 1.26M = KRW 3.24M. After wage earner credit (~KRW 1.78M) and local tax (~KRW 146K), total roughly KRW 1.6M."
+          },
+          {
+            "title": "Example 2: Freelancer, taxable KRW 80M",
+            "body": "Bracket: 24%. Calculated = 80M × 0.24 − 5.76M = KRW 13.44M. No wage earner credit. Plus local 10% = KRW 14.78M total."
+          },
+          {
+            "title": "Example 3: Crossing into 35% bracket at KRW 90M",
+            "body": "At KRW 88M you are still at 24%. Adding KRW 2M of income jumps you to 35%: 90M × 0.35 − 15.44M = KRW 16.06M, a jump of about KRW 2.5M for the extra KRW 2M earned. Plan year-end deductions to avoid crossing."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "When is the Korean income tax filing period?",
+          "answer": "May 1 to May 31 each year. Sincere-filing-confirmation taxpayers get an extension to June 30. Payment is due in the same window, with optional installment to 2 months later."
+        },
+        {
+          "question": "Do employees need to file?",
+          "answer": "If you only have wage income, the year-end settlement handles it. If you have side income, freelance income, rental income, or financial income above KRW 20M, you must file in May."
+        },
+        {
+          "question": "What is the progressive deduction?",
+          "answer": "A shortcut for the staircase tax formula. Instead of computing tax bracket by bracket, you multiply the entire base by the top marginal rate and subtract the progressive deduction for that bracket — the result is identical."
+        },
+        {
+          "question": "Where do I file local income tax?",
+          "answer": "Local income tax is 10% of the final tax and is filed alongside income tax via Hometax. A separate payment notice is issued and paid to your city or district office."
+        },
+        {
+          "question": "What is the wage earner credit cap?",
+          "answer": "Up to KRW 740K for gross income below KRW 33M; the cap decreases for higher incomes (KRW 660K / 500K / 200K floor at high incomes). 55% credit on calculated tax up to KRW 1.3M, then 30%, capped."
+        },
+        {
+          "question": "Does this calculator handle child or pension credits?",
+          "answer": "Currently only the wage earner credit is applied. Child credit (KRW 150K per child), pension savings credit (up to 16.5%), and medical/donation credits must be subtracted manually from the final tax."
+        },
+        {
+          "question": "Who are sincere-filing-confirmation taxpayers?",
+          "answer": "Business owners exceeding a revenue threshold (e.g., KRW 1.5B for wholesale/retail, KRW 750M for restaurants) must attach a tax accountant's confirmation and file by June 30. Missing this triggers a penalty."
+        }
+      ],
+      "cautions": [
+        "This is a simplified simulation focused on the main calculation. Real filings include detailed credits for children, donations, medical expenses, etc.",
+        "Separate-taxation items (financial income under KRW 20M, daily-wage income, etc.) are excluded from the taxable base.",
+        "Sincere-filing-confirmation taxpayers have a June 30 deadline.",
+        "Results are for reference. Verify with Hometax's 'Tax Filing Assistant' or a tax accountant.",
+        "Rates and caps may change with future law revisions. Current as of January 2026."
+      ],
+      "related": [
+        { "label": "VAT Calculator", "href": "/vat-calc" },
+        { "label": "4 Insurances + Net Pay", "href": "/insurance-calc" },
+        { "label": "Compound Interest", "href": "/compound-calc" },
+        { "label": "Foreign Stock Tax", "href": "/foreign-stock-tax" }
+      ],
+      "lastReviewed": "2026-05-23"
+    },
+    "loan-calc": {
+      "overview": "The Korean loan calculator compares the three most common Korean repayment types — equal payment (same monthly amount), equal principal (high to low), and balloon (interest only with principal at maturity) — in one screen, with a monthly amortization schedule. The same standard formulas apply to mortgages, credit loans, jeonse-deposit loans, and auto installments. Prepayment fees, stamp duty, and DSR limits are not included.",
+      "useCases": [
+        "Mortgage planning: compare total interest of equal payment vs equal principal",
+        "Credit loan: see monthly burden differences for balloon vs amortized",
+        "Jeonse deposit loan: confirm the interest-only monthly + balloon at maturity",
+        "Refinancing: enter remaining balance and new rate to see new payment",
+        "Long-term planning: track balance at 1, 5, 10 years into a 30-year mortgage"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter the loan principal in won. KRW 400M mortgage = 400000000; KRW 50M credit loan = 50000000.",
+          "Enter the loan term in years. Korean mortgages are usually 30 years, credit loans 1-5 years, jeonse loans 2 years.",
+          "Enter the annual rate (%). 4.5% = enter 4.5. For variable rates, use the current rate; simulate upward scenarios separately.",
+          "Select one of the three repayment types and click Calculate. You'll see first/last payment, total interest, total payment, and the amortization schedule (sampled every 6 months for terms over 60 months)."
+        ]
+      },
+      "formula": {
+        "title": "Formulas (3 repayment types)",
+        "body": "Equal payment: M = P × r(1+r)^n / ((1+r)^n − 1)\n  P = principal, r = monthly rate (annual / 12), n = total months\n  Monthly amount M is constant. Early payments lean interest-heavy, later lean principal-heavy.\n\nEqual principal: monthly principal = P/n, monthly interest = balance × r\n  First payment = P/n + P×r (largest)\n  Last payment = P/n + (P/n)×r (smallest)\n  Total interest is ~4-5% less than equal payment.\n\nBalloon: monthly = P × r (interest only)\n  Last payment = P × r + P (full principal at maturity)\n  Highest total interest but lightest monthly burden. Common for Korean credit and jeonse loans."
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: KRW 400M / 30 years / 4.5% / equal payment",
+            "body": "Monthly rate 0.375%, 360 payments. Monthly amount ~KRW 2,026,920. Total payment ~KRW 729.7M, total interest ~KRW 329.7M — nearly equal to the principal over 30 years."
+          },
+          {
+            "title": "Example 2: Same terms, equal principal comparison",
+            "body": "First payment KRW 2,611,111 (principal 1.11M + interest 1.5M), last payment KRW 1,115,278. Total interest ~KRW 270.7M — about KRW 59M less than equal payment. But the first 5 years cost ~KRW 500K more per month."
+          },
+          {
+            "title": "Example 3: KRW 50M / 3 years / 6% / balloon",
+            "body": "Monthly interest = 50M × 6%/12 = KRW 250,000. 36 months of interest only, then KRW 50M + final KRW 250K at maturity. Total interest KRW 9M. Light monthly but the maturity lump sum needs a clear repayment source."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Equal payment vs equal principal — which is better?",
+          "answer": "By total interest, equal principal saves about 4-5%. But the first 5-10 years carry a much heavier monthly burden. If early cash flow is tight, choose equal payment; if you have early room and want long-term savings, choose equal principal."
+        },
+        {
+          "question": "Why is balloon repayment common in Korea?",
+          "answer": "Credit loans and jeonse-deposit loans run short (1-3 years) for a specific large need. Minimizing monthly principal payments and repaying at maturity from another source (deposit refund, sale proceeds) fits this pattern."
+        },
+        {
+          "question": "How are prepayment fees handled?",
+          "answer": "This calculator does not include them. Korean prepayment fees are typically 0.5-1.5% of the outstanding balance and apply within the first 3 years. When refinancing, subtract fees from interest savings to see the real benefit."
+        },
+        {
+          "question": "Where do I check the DSR (debt service ratio) limit?",
+          "answer": "DSR is annual principal+interest divided by annual income, capped at 40% for banks and 50% for secondary lenders. Multiply this calculator's monthly payment by 12 and divide by your annual income, summing across all debts."
+        },
+        {
+          "question": "How do I handle variable-rate loans?",
+          "answer": "Variable rates reset every 6 or 12 months. This calculator assumes a single rate, so simulate upward scenarios (e.g., +1% in 1 year) conservatively by re-running with the adjusted rate."
+        },
+        {
+          "question": "Why do first and last payments differ?",
+          "answer": "Equal payment is constant; equal principal's last payment is ~30-40% smaller as the balance shrinks; balloon's monthly is the same but the last payment adds the full principal."
+        },
+        {
+          "question": "How much does early repayment save?",
+          "answer": "Paying off a 30-year mortgage at year 10 eliminates years 11-30 of interest entirely. Prepayment fees typically apply within 5 years (0.5-1.5%), then disappear. Early repayment is a powerful saving tool."
+        }
+      ],
+      "cautions": [
+        "Prepayment fees, stamp duty, and mortgage registration fees are not included.",
+        "The DSR limit (40% for banks) must be checked separately.",
+        "Variable rates assume a single rate — simulate upward scenarios separately.",
+        "Monthly rate r = annual rate / 12 (Korean standard simple-rate division).",
+        "Results are for planning. Actual terms are confirmed by the lender."
+      ],
+      "related": [
+        { "label": "Compound Interest", "href": "/compound-calc" },
+        { "label": "Rent Cap (5%)", "href": "/rent-cap" },
+        { "label": "VAT Calculator", "href": "/vat-calc" },
+        { "label": "Income Tax Calculator", "href": "/income-tax" }
+      ],
+      "lastReviewed": "2026-05-23"
+    },
+    "rent-cap": {
+      "overview": "The Korean rent cap calculator verifies whether a proposed rent increase at lease renewal complies with Article 8 of the Housing Lease Act Enforcement Decree, which caps annual increases at 5%. For mixed deposit + monthly rent leases, the calculator uses the conversion rate (Article 9, BoK base rate + 2%) to compute an equivalent deposit before applying the 5% cap. Tenants can verify whether a landlord's proposal exceeds the legal limit; landlords can simulate maximum deposit-only or rent-only increases within the cap.",
+      "useCases": [
+        "Tenant: instantly verify whether the landlord's renewal proposal exceeds 5%",
+        "Landlord: simulate which side to increase (deposit or rent) within the cap",
+        "Real estate agent: provide objective limits during renewal negotiations",
+        "Deposit ↔ rent conversion: compare options on an equivalent-deposit basis",
+        "Dispute prevention: establish a legal reference when contesting an over-cap notice"
+      ],
+      "howTo": {
+        "title": "How to use (5 steps)",
+        "steps": [
+          "Enter the current deposit and current monthly rent in won. Pure jeonse: rent = 0. Pure monthly: deposit = 0.",
+          "Enter the landlord's proposed deposit and proposed monthly rent. Either or both can be changed.",
+          "Confirm the conversion rate. As of 2026-05 it's about 5.0% (BoK base 3.0% + 2%). Update if the base rate changes.",
+          "The cap defaults to 5%. Some local ordinances may set a lower cap (e.g., 4% in certain districts) — adjust if applicable.",
+          "Click Verify. You'll see the increase rate, pass/fail status, excess or remaining amount, and the maximum deposit-only or rent-only increase that would stay within the cap."
+        ]
+      },
+      "formula": {
+        "title": "Equivalent deposit formula (Article 9)",
+        "body": "Equivalent deposit = deposit + (monthly rent × 12 / conversion rate)\n  Example: deposit KRW 50M + monthly KRW 500K at 5% conversion\n     = 50M + (500K × 12 / 0.05) = 50M + 120M = KRW 170M\n\n5% cap = current equivalent deposit × 1.05\n  Example: 170M × 1.05 = KRW 178.5M\n\nIf the proposed equivalent deposit ≤ cap → within limit\nIf above cap → tenant may exercise renewal rights and reject the excess"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: KRW 500M jeonse → landlord proposes KRW 530M (+6%)",
+            "body": "Equivalent deposit = KRW 500M (no rent). Cap = KRW 525M. Proposal = KRW 530M → KRW 5M over. Tenant exercising renewal rights accepts up to KRW 525M. If refused, the dispute mediation committee can be petitioned."
+          },
+          {
+            "title": "Example 2: KRW 100M + KRW 800K monthly → landlord wants KRW 120M + KRW 800K",
+            "body": "Current equivalent = 100M + (800K × 12 / 0.05) = 100M + 192M = KRW 292M. Cap = KRW 306.6M. Proposed equivalent = 120M + 192M = KRW 312M → KRW 5.4M over. Within cap, deposit could go up to KRW 114.6M (rent unchanged)."
+          },
+          {
+            "title": "Example 3: Rent KRW 500K → KRW 530K (+6%)",
+            "body": "Deposit KRW 50M + rent KRW 500K. Equivalent KRW 170M. Cap KRW 178.5M. New equivalent (rent KRW 530K) = 50M + (530K × 12 / 0.05) = 50M + 127.2M = KRW 177.2M < KRW 178.5M → within cap. A 6% rent increase translates to only ~4.2% on the equivalent basis."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Does the 5% cap apply to all leases?",
+          "answer": "Only when the tenant exercises the renewal right (6 to 1 months before lease end). It does not apply to new contracts, implied renewals, or when the landlord has a legitimate refusal reason (such as personal occupancy)."
+        },
+        {
+          "question": "Can the landlord refuse renewal claiming personal occupancy?",
+          "answer": "Yes, if the landlord or their direct family will actually live there. However, if they falsely refuse and lease to someone else within 2 years, the tenant can claim damages."
+        },
+        {
+          "question": "How many times can renewal rights be exercised?",
+          "answer": "Once after the initial contract, granting an additional 2 years. So 2 years initial + 2 years renewal = 4 years total guaranteed by law."
+        },
+        {
+          "question": "How is the conversion rate set?",
+          "answer": "Article 9 sets it at 'BoK base rate + 2%'. If the base rate is 3.0%, the conversion rate is 5.0%. Check the Bank of Korea's website for the current base rate and update the calculator."
+        },
+        {
+          "question": "Can I raise only the deposit and keep rent the same?",
+          "answer": "Yes. The calculator shows the maximum deposit when rent is unchanged. A deposit increase of 6-7% can still comply if the equivalent-basis change stays under 5%."
+        },
+        {
+          "question": "I already received an over-cap notice — what now?",
+          "answer": "1) Send a formal renewal-rights notice in writing (certified mail). 2) State your acceptance of the within-cap amount. 3) If the landlord refuses, petition the housing dispute mediation committee."
+        },
+        {
+          "question": "Can local ordinances set a lower cap?",
+          "answer": "Yes — Article 8 defines '5% or less', allowing local ordinances to lower it. Some districts apply 4% or less. Check your local government's ordinance."
+        }
+      ],
+      "cautions": [
+        "This tool verifies the renewal-time cap. New contracts are not subject to the 5% rule.",
+        "The conversion rate varies with the BoK base rate — enter the latest value.",
+        "Local ordinances may set a stricter cap. Check your district's rules.",
+        "The landlord's legitimate refusal reasons (personal occupancy, demolition, tenant breach) override renewal rights.",
+        "Results are for reference. Legal force comes from the dispute committee or court decision."
+      ],
+      "related": [
+        { "label": "Loan Calculator", "href": "/loan-calc" },
+        { "label": "Pyeong ↔ m²", "href": "/area-convert" },
+        { "label": "Percent Calculator", "href": "/percent-calc" },
+        { "label": "VAT Calculator", "href": "/vat-calc" }
+      ],
+      "lastReviewed": "2026-05-23"
+    },
+    "area-convert": {
+      "overview": "The Korean area converter handles the three units most used in Korean real estate, interior, and construction work: pyeong (평), square meters (㎡), and Japanese-style ja² (尺²). Using the exact ratio 1 pyeong = 3,600/1,089 ≈ 3.30579 ㎡, it converts all three units instantly and offers presets for common Korean real estate sizes (59㎡, 84㎡, 114㎡) and pyeong values (30평, 50평).",
+      "useCases": [
+        "Comparing Korean apartments: how many pyeong is an 84㎡ unit (= 25.41 pyeong)",
+        "Interior estimates: convert pyeong-based prices to per-㎡ unit prices",
+        "Architectural drawings: convert Japanese/old-Korean ja² units",
+        "Lease contracts: convert the ㎡ in official registration to pyeong",
+        "Vacancy allocation: convert pyeong-based rent to ㎡-based ratio"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter the area into any one of the three unit boxes (pyeong, ㎡, ja²). The other two units update automatically.",
+          "Preset buttons (59㎡, 84㎡, 114㎡, 30평, 50평) apply common Korean real estate sizes with one click.",
+          "Results show pyeong to two decimals, ㎡ and ja² to two decimals, plus a '0.5-pyeong rounded' value matching real estate listing conventions."
+        ]
+      },
+      "formula": {
+        "title": "Conversion formulas (Korean standard)",
+        "body": "1 pyeong = 6 ja × 6 ja = 36 ja² = 3,600/1,089 ㎡ ≈ 3.30579 ㎡\n1 ja = 10/33 m ≈ 0.30303 m\n\npyeong → ㎡  : pyeong × 3.30579\n㎡ → pyeong  : ㎡ / 3.30579 ≈ ㎡ × 0.3025\npyeong → ja² : pyeong × 36\nja² → ㎡     : ja² × (10/33)² ≈ ja² × 0.0918\n\nKorean real estate sizes:\n  59㎡  ≈ 17.84 pyeong (the '18-pyeong' type, exclusive area)\n  84㎡  ≈ 25.41 pyeong (the '25-pyeong' type)\n  114㎡ ≈ 34.49 pyeong (the '34-pyeong' type)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Exact pyeong of an 84㎡ apartment",
+            "body": "84 / 3.30579 = 25.408 pyeong. Rounded to 0.5 pyeong = 25.5 pyeong. Real estate listings of '25 pyeong' or '26 pyeong' usually refer to supply area (exclusive + common) or rounded conventions."
+          },
+          {
+            "title": "Example 2: 30 pyeong construction in ㎡",
+            "body": "30 × 3.30579 = 99.17 ㎡. An interior estimate of 'KRW 1M per pyeong' for 30 pyeong is KRW 30M, which is KRW ~302,500 per ㎡."
+          },
+          {
+            "title": "Example 3: Japanese ja² drawing",
+            "body": "A '108 ja²' label on a drawing → 108 × 0.0918 ≈ 9.91 ㎡ ≈ 3 pyeong. Useful when reading Japanese or old-Korean drawings."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Exactly how many ㎡ is 1 pyeong?",
+          "answer": "1 pyeong = 3,600 / 1,089 = exactly 3.30578512... ㎡. The 3.3 ㎡ rough estimate is common but accumulates errors at larger sizes. This calculator uses the exact ratio."
+        },
+        {
+          "question": "What is the difference between exclusive, supply, and contract area?",
+          "answer": "Exclusive = livable space (rooms, living, bath). Supply = exclusive + shared residential (corridors, stairs). Contract = supply + other shared (parking, management). '84 ㎡' usually refers to exclusive area, while '25 pyeong type' refers to supply area roughly 80-90 ㎡."
+        },
+        {
+          "question": "Why is pyeong still in use?",
+          "answer": "Korea has required metric units since 1961, but real estate and interior conventions remain pyeong-based. Official deeds and contracts use ㎡, while listings and casual use prefer pyeong."
+        },
+        {
+          "question": "Where is ja² (尺²) used?",
+          "answer": "Old-Korean drawings, Japanese architecture, traditional medicine, and traditional furniture sizing. 1 pyeong = 36 ja², so conversion is straightforward."
+        },
+        {
+          "question": "Why show a '0.5-pyeong rounded' value separately?",
+          "answer": "Real estate listings typically round to 0.5 pyeong (e.g., 25.4 → 25.5). The calculator shows both the exact value and the listing-style rounded value."
+        },
+        {
+          "question": "Can I use this for building/floor area ratios?",
+          "answer": "No — this tool only handles unit conversion. Korean building coverage ratio (building area / lot area) and floor area ratio (gross floor area / lot area) follow zoning-specific limits and require building code calculations."
+        }
+      ],
+      "cautions": [
+        "1 pyeong = 3.30579 ㎡ exactly. The 3.3 ㎡ shortcut accumulates errors at large areas.",
+        "Real estate listings mix exclusive and supply area. Always verify the ㎡ on the official registration.",
+        "Ja² is an old-Korean/Japanese unit. Confirm the drawing's origin when mixing units.",
+        "Only ㎡ has legal force in official contracts and deeds. Pyeong is for everyday convenience."
+      ],
+      "related": [
+        { "label": "Tile Calculator", "href": "/timber-calc/tile" },
+        { "label": "Rent Cap (5%)", "href": "/rent-cap" },
+        { "label": "Concrete Volume", "href": "/timber-calc/concrete" },
+        { "label": "Percent Calculator", "href": "/percent-calc" }
+      ],
+      "lastReviewed": "2026-05-23"
+    },
+    "percent-calc": {
+      "overview": "The percent calculator handles the five most common percent operations on one screen — B% of A (discount/portion), A increased by B%, A decreased by B%, change rate from A to B, and reverse calculation when the result of a B% increase equals A. Use it for shopping discounts, VAT separation, salary raises, profit margins, and investment returns.",
+      "useCases": [
+        "Shopping: actual paid amount after a 20% discount",
+        "Salary: change rate from last year's KRW 50M to this year's KRW 55M (10%)",
+        "VAT split: separate KRW 110K (VAT-inclusive) into KRW 100K supply + KRW 10K VAT",
+        "Margin: cost KRW 10K → sale KRW 15K (50% markup, 33.3% margin)",
+        "Investment: KRW 100M invested → KRW 120M returned = 20% gain"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Pick one of the five modes: B% of A, A increased by B%, A decreased by B%, change rate from A to B, or reverse (find original from increased value).",
+          "Enter the two values required by the chosen mode. The result updates instantly — no Calculate button needed.",
+          "Preset buttons for VAT (10%) and common discounts (10/20/30/50%) speed up common cases."
+        ]
+      },
+      "formula": {
+        "title": "Five mode formulas",
+        "body": "1) B% of A          : A × B/100\n   Example: 20% of 50,000 = 10,000\n\n2) A increased by B%: A × (1 + B/100)\n   Example: 30,000 + 10% = 33,000\n\n3) A decreased by B%: A × (1 − B/100)\n   Example: 30,000 − 10% = 27,000\n\n4) A → B change rate: (B − A) / A × 100\n   Example: 100 → 130 = +30%\n\n5) Reverse from B% increase: A / (1 + B/100)\n   Example: VAT-inclusive 11,000 → 11,000 / 1.10 = 10,000 (supply price)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: 30% off KRW 89,000",
+            "body": "Decreased mode → A=89,000, B=30. Result = 89,000 × 0.70 = 62,300. Discount amount = 26,700."
+          },
+          {
+            "title": "Example 2: Salary KRW 50M → KRW 54M raise rate",
+            "body": "Change rate mode → A=50,000,000, B=54,000,000. Rate = (54M − 50M) / 50M × 100 = 8%. Net pay differs after taxes and insurance — check separately."
+          },
+          {
+            "title": "Example 3: VAT-inclusive estimate KRW 2.2M → split",
+            "body": "Reverse mode → A=2,200,000, B=10. Supply = 2,200,000 / 1.10 = 2,000,000. VAT = 200,000."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Does +10% then −10% return to the original?",
+          "answer": "No. 100 → +10% = 110 → −10% = 99. A 1% loss occurs because the percentages apply to different base values (100 vs 110)."
+        },
+        {
+          "question": "How do I split VAT (10%)?",
+          "answer": "Inclusive ÷ 1.1 gives the supply price; the difference is VAT. Example: 11,000 inclusive → 10,000 supply + 1,000 VAT. Multiplying inclusive by 10% is the wrong calculation."
+        },
+        {
+          "question": "Are margin and markup the same?",
+          "answer": "No. Cost 10K → sale 15K means 50% markup (against cost) but 33.3% margin (against sale price). Markup measures cost-to-price; margin measures profit-to-price."
+        },
+        {
+          "question": "Is the percent calculation the same as compound vs simple interest?",
+          "answer": "Simple is straight addition each period; compound applies the rate to the new balance each period. Single-rate increases here are simple. For multi-period returns, use the compound interest calculator."
+        },
+        {
+          "question": "I see rounding differences in discount calculations",
+          "answer": "The calculator shows two decimals. Real charges round to the nearest won (by card-network policy), so 1-2 won differences can appear. Verify against the actual receipt for large amounts."
+        },
+        {
+          "question": "Can the change rate be negative?",
+          "answer": "Yes. 100 → 80 = (80−100)/100 = −20%. The calculator shows signed change rates automatically."
+        }
+      ],
+      "cautions": [
+        "+B% then −B% does not return to the original (100 → 110 → 99).",
+        "Split VAT via 'inclusive ÷ 1.1', not 'inclusive × 10%'.",
+        "Markup (vs cost) and margin (vs sale price) are different ratios.",
+        "Card-network and tax-office rounding rules may differ — verify on actual receipts for large amounts."
+      ],
+      "related": [
+        { "label": "VAT Calculator", "href": "/vat-calc" },
+        { "label": "Compound Interest", "href": "/compound-calc" },
+        { "label": "Pyeong ↔ m²", "href": "/area-convert" },
+        { "label": "Loan Calculator", "href": "/loan-calc" }
+      ],
+      "lastReviewed": "2026-05-23"
+    }
   }
 }

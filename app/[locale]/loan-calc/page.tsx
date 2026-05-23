@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { LoanForm } from "@/components/tools/finance/LoanForm";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
@@ -97,6 +98,7 @@ export default async function LoanCalcPage({
           </p>
         </header>
         <LoanForm locale={localeKey} />
+        <ToolGuide toolKey="loan-calc" locale={localeKey} />
       </div>
     </main>
   );
