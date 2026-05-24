@@ -3,11 +3,20 @@
 > 이 문서는 Claude Code가 프로젝트 전체 컨텍스트를 빠르게 파악하기 위한 핵심 문서입니다.
 > 모든 작업 시작 전에 반드시 이 문서를 먼저 읽으세요.
 
+## 📌 매 세션 시작 시 필수 — 단일 진실원 3개
+
+1. **[`PROJECT_STATUS.md`](./PROJECT_STATUS.md)** — 현재 단계 · 도구 인벤토리 · AdSense 진행 · 마스터/Claude 액션
+2. **[`TASKS.md`](./TASKS.md)** — 진행 중·다음 주·대기·완료 작업 체크리스트
+3. **본 CLAUDE.md** — 기술 스택 · 코딩 규칙 · 도메인 컨텍스트
+
+코드 작성·기능 추가·이슈 진단 등 모든 작업은 위 3개 파일을 먼저 읽고 시작.
+세션 종료 시 **PROJECT_STATUS.md 변경 이력 + TASKS.md 체크 갱신** 필수.
+
 ## 🎯 프로젝트 정체성
 
 **Workmate** (workmate.tools) 는 두 가지 역할을 동시에 수행:
 
-1. **한국 실무 도구 허브** — 전기공사·제조업·사업자·개발자용 무료 계산기 23개 (도구 본업)
+1. **한국 실무 도구 허브** — 무료 계산기 33개 (도구 본업) + 블로그 long-form 3편
 2. **메이커 포트폴리오 허브** — 운영자가 만든 다른 프로젝트 5개를 `/projects` 페이지에서 카드로 노출
 
 - **타겟**: 한국 실무자 (1순위) + 한국 표준이 필요한 외국인 (2순위)
@@ -147,9 +156,24 @@ npm run lint
 # 타입 체크
 npm run type-check
 
-# 모든 검증 한번에
+# 모든 검증 한번에 (type-check + lint + vitest)
 npm run check
+
+# 시스템 정합성 audit (CLAUDE.md / env / 시크릿 / 카탈로그 / SEO)
+node scripts/audit.mjs
 ```
+
+## 🔍 자동 검증 도구 (`scripts/`)
+| 도구 | 역할 |
+|---|---|
+| `scripts/audit.mjs` | CLAUDE.md/env/시크릿 누출/projectsCatalog/i18n/SEO 정합성 |
+| `npm run check` | type-check + lint + vitest 통합 |
+
+## 📚 사고 학습 (재발 방지)
+- **메이커 허브 카탈로그**: `lib/projectsCatalog.ts` 가 단일 진실원. 외부 URL 변경 시 즉시 동기화 (안 하면 카드 링크 깨짐)
+- **계산 함수 순수성**: `lib/calculations/` 안에 `process.env` 또는 `fetch` 호출 시 SSR 깨짐. 순수 함수 강제
+- **i18n 키 누락**: `ko.json` / `en.json` 키 개수 다르면 빌드 통과해도 런타임 NPE
+- **SEO metadata 누락**: `generateMetadata` 없으면 검색엔진 노출 0
 
 ## 📋 작업 시작 전 체크리스트
 
@@ -161,22 +185,16 @@ Claude Code는 작업 시작 전 반드시 확인:
 - [ ] 기존 코드 스타일을 파악했는가?
 - [ ] PowerShell 명령어를 사용하는가? (Bash 금지)
 
-## 📌 도구 로드맵
+## 📌 도구 로드맵 (요약)
 
-### Phase 1 (현재)
-- [x] 프로젝트 초기 설정
-- [ ] **#15 산업용 전기 계산기** ← 현재 작업
-  - [ ] 전선 굵기 계산
-  - [ ] 차단기 용량 계산
-  - [ ] 전압강하 계산
+| Phase | 상태 | 비고 |
+|---|---|---|
+| Phase 1: 산업용 전기 계산기 MVP | ✅ 완료 | wire-size · breaker · voltage-drop |
+| Phase 2: 도구 23개 확장 | ✅ 완료 | 33개 도구 (목표 초과) + 블로그 3편 |
+| **Phase 3: 트래픽 + 수익화 (현재)** | 🔄 진행 중 | AdSense 1차 거절 → 보강 → 2차 재신청 대기 |
+| Phase 4: 1k DAU 도달 | ⏳ 미시작 | AdSense 통과 후 |
 
-### Phase 2 (다음)
-- [ ] #1 사업자등록번호 진위 확인
-- [ ] #3 한글→영문 주소 변환
-- [ ] #13 MSDS 검색
-- [ ] #4 4대보험 계산기
-- [ ] #6 해외주식 양도세 계산기
-- [ ] #7 JSON↔CSV 변환 (한국 인코딩)
+**상세 진행 상황·다음 액션은 [`PROJECT_STATUS.md`](./PROJECT_STATUS.md) · [`TASKS.md`](./TASKS.md) 참조.**
 
 ## 🎨 디자인 원칙
 
