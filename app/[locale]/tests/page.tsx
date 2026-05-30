@@ -79,7 +79,8 @@ export default async function TestsHubPage({
   };
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+    <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
+      <div className="mx-auto max-w-6xl">
       <header className="mb-10 max-w-3xl animate-fade-up">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-fuchsia-400">
           {isKo ? "심리테스트 · 자가진단" : "Tests · Self-Discovery"}
@@ -99,6 +100,7 @@ export default async function TestsHubPage({
         labels={labels}
         visibleTabs={["tests"]}
       />
+      </div>
     </main>
   );
 }

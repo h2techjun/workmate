@@ -88,7 +88,8 @@ export default async function ProjectsPage({
   };
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+    <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
+      <div className="mx-auto max-w-6xl">
       <header className="mb-10 max-w-3xl animate-fade-up">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
           {t("eyebrow")}
@@ -102,6 +103,7 @@ export default async function ProjectsPage({
       </header>
 
       <ProjectsTabs localeKey={localeKey} labels={cardLabels} />
+      </div>
     </main>
   );
 }

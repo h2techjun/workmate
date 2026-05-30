@@ -80,7 +80,8 @@ export default async function ToolsHubPage({
   ).filter((g): g is NonNullable<typeof g> => Boolean(g));
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+    <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
+      <div className="mx-auto max-w-6xl">
       <header className="mb-10 max-w-3xl animate-fade-up">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
           {isKo ? "무료 계산기 모음" : "Free Calculator Library"}
@@ -153,6 +154,7 @@ export default async function ToolsHubPage({
             </article>
           );
         })}
+      </div>
       </div>
     </main>
   );

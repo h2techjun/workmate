@@ -82,7 +82,8 @@ export default async function MinWageMonthlyPage({
         ]}
       />
 
-      <main className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+      <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
+      <div className="mx-auto max-w-6xl">
         <header className="mb-8 max-w-3xl animate-fade-up">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
             {t("eyebrow")}
@@ -111,6 +112,7 @@ export default async function MinWageMonthlyPage({
             body={t("ctx.minWage.body")}
           />
         </section>
+        </div>
       </main>
     </>
   );

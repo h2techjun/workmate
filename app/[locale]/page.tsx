@@ -123,7 +123,7 @@ export default async function HomePage({
   ];
 
   return (
-    <main className="px-4 pb-16 pt-8 md:px-6 md:pt-16">
+    <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
         {/* Hero */}
         <section className="mb-12 text-center md:mb-20 md:pt-8">

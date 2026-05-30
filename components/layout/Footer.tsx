@@ -6,67 +6,90 @@ interface FooterProps {
   locale?: Locale;
 }
 
+interface FooterLink {
+  href: string;
+  label: string;
+}
+
 export async function Footer({
   locale = "ko",
 }: FooterProps): Promise<React.ReactElement> {
   const t = await getTranslations({ locale, namespace: "layout" });
 
+  const groups: Array<{ heading: string; links: FooterLink[] }> = [
+    {
+      heading: t("footer.groupCatalog"),
+      links: [
+        { href: `/${locale}/tools`, label: t("tools") },
+        { href: `/${locale}/games`, label: t("games") },
+        { href: `/${locale}/tests`, label: t("tests") },
+        { href: `/${locale}/blog`, label: t("nav.blog") },
+      ],
+    },
+    {
+      heading: t("footer.groupCompany"),
+      links: [
+        { href: `/${locale}/about`, label: t("nav.about") },
+        { href: `/${locale}/contact`, label: t("nav.contact") },
+        { href: `/${locale}/projects`, label: t("footer.makerHub") },
+      ],
+    },
+    {
+      heading: t("footer.groupLegal"),
+      links: [
+        { href: `/${locale}/privacy`, label: t("nav.privacy") },
+        { href: `/${locale}/terms`, label: t("nav.terms") },
+      ],
+    },
+  ];
+
   return (
-    <footer className="mt-16 border-t border-[color:var(--color-border-subtle)] py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-center text-xs md:px-6">
-        <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[color:var(--color-text-secondary)]">
-          <Link
-            href={`/${locale}/tools`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("tools")}
-          </Link>
-          <Link
-            href={`/${locale}/games`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("games")}
-          </Link>
-          <Link
-            href={`/${locale}/tests`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("tests")}
-          </Link>
-          <Link
-            href={`/${locale}/blog`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("nav.blog")}
-          </Link>
-          <Link
-            href={`/${locale}/about`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("nav.about")}
-          </Link>
-          <Link
-            href={`/${locale}/privacy`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("nav.privacy")}
-          </Link>
-          <Link
-            href={`/${locale}/terms`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("nav.terms")}
-          </Link>
-          <Link
-            href={`/${locale}/contact`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("nav.contact")}
-          </Link>
-        </nav>
-        <div className="text-[color:var(--color-text-tertiary)]">
-          <p>{t("footer.copyright")}</p>
-          <p className="mt-1 text-[color:var(--color-text-muted)]">
+    <footer className="mt-20 border-t border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)]">
+      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-12">
+        <div className="grid gap-8 md:grid-cols-4 md:gap-10">
+          {/* 좌측 브랜드 영역 */}
+          <div className="md:col-span-1">
+            <Link
+              href={`/${locale}`}
+              className="inline-flex items-center gap-2 font-semibold tracking-tight text-[color:var(--color-text-primary)] transition-opacity hover:opacity-80"
+            >
+              <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-xs font-bold text-white shadow-lg shadow-indigo-500/30">
+                W
+              </span>
+              <span className="text-base">Workmate</span>
+            </Link>
+            <p className="mt-3 text-xs leading-relaxed text-[color:var(--color-text-tertiary)]">
+              {t("footer.tagline")}
+            </p>
+          </div>
+
+          {/* 그룹별 링크 */}
+          {groups.map((group) => (
+            <nav key={group.heading} className="md:col-span-1">
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                {group.heading}
+              </h3>
+              <ul className="space-y-2 text-sm">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-[color:var(--color-text-secondary)] transition-colors hover:text-[color:var(--color-text-primary)]"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+
+        <div className="mt-10 border-t border-[color:var(--color-border-subtle)] pt-6 text-center text-xs md:text-left">
+          <p className="text-[color:var(--color-text-tertiary)]">
+            {t("footer.copyright")}
+          </p>
+          <p className="mt-1.5 text-[color:var(--color-text-muted)]">
             {t("footer.disclaimer")}
           </p>
         </div>
