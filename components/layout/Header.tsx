@@ -17,6 +17,7 @@ export async function Header({
     { href: `/${locale}/tools`, label: t("tools"), pathMatch: "/tools" },
     { href: `/${locale}/games`, label: t("games"), pathMatch: "/games" },
     { href: `/${locale}/tests`, label: t("tests"), pathMatch: "/tests" },
+    { href: `/${locale}/learn`, label: t("learn"), pathMatch: "/learn" },
     { href: `/${locale}/blog`, label: t("nav.blog"), pathMatch: "/blog" },
   ];
 

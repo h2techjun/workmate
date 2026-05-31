@@ -21,7 +21,7 @@
 
 import type { Locale } from "@/i18n";
 
-export type ProjectTab = "games" | "stories" | "tests";
+export type ProjectTab = "games" | "stories" | "tests" | "learn";
 export type ProjectHostType = "internal-static" | "external";
 export type ProjectStatus = "live" | "beta" | "wip" | "archived";
 
@@ -169,6 +169,33 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     },
   },
 
+  // ─────────────────── 학습 ───────────────────
+  {
+    id: "vibe-english",
+    tab: "learn",
+    hostType: "external",
+    externalUrl: "https://h2techjun.github.io/vibe-english/",
+    githubUrl: "https://github.com/h2techjun/vibe-english",
+    status: "live",
+    order: 1,
+    accent: "from-blue-500 to-cyan-500",
+    techStack: ["Next.js", "FSRS", "IndexedDB", "PWA"],
+    i18n: {
+      ko: {
+        title: "Vibe English",
+        tagline: "기억력 곡선 기반 생활 영어 SRS",
+        description:
+          "에빙하우스 망각곡선(FSRS)에 맞춰 잊을 만할 때 복습하는 생활 영어. A1~C2 3,400+ 카드, 발음기호+한국어 발음 병기, 플래시카드+빈칸 퀴즈. 가입 없이 완전 로컬로 동작.",
+      },
+      en: {
+        title: "Vibe English",
+        tagline: "Everyday English SRS timed to your memory curve",
+        description:
+          "Spaced-repetition (FSRS) everyday English timed to the forgetting curve. 3,400+ cards A1–C2, IPA + Korean phonetics, flashcards + cloze quiz. Fully local, no signup.",
+      },
+    },
+  },
+
   // ※ Hakrew(서비스 탭)는 카탈로그에서 제외 — 활성 SaaS 의 책임 분리 + 바이브 코딩 변동성.
   //   필요 시 외부에서 직접 운영 (hakrew21.github.io/hakrew-web).
 ];
@@ -180,6 +207,7 @@ export const TAB_LABEL: Record<ProjectTab, Record<Locale, string>> = {
   games: { ko: "게임", en: "Games" },
   stories: { ko: "스토리", en: "Stories" },
   tests: { ko: "심리테스트", en: "Tests" },
+  learn: { ko: "학습", en: "Learn" },
 };
 
 /**
@@ -198,6 +226,10 @@ export const TAB_TAGLINE: Record<ProjectTab, Record<Locale, string>> = {
     ko: "직장 문화·자기 진단 — 익명 심리테스트 + AI 분석",
     en: "Workplace culture and self-discovery tests with AI scoring",
   },
+  learn: {
+    ko: "기억력 곡선에 맞춘 간격 반복 학습 — 매일 꾸준히",
+    en: "Spaced-repetition learning timed to your memory curve",
+  },
 };
 
 /**
@@ -208,6 +240,7 @@ export const TAB_ORDER: ReadonlyArray<ProjectTab> = [
   "games",
   "stories",
   "tests",
+  "learn",
 ];
 
 export const STATUS_LABEL: Record<ProjectStatus, Record<Locale, string>> = {
