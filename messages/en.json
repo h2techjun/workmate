@@ -2195,6 +2195,394 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "electric-bill": {
+      "overview": "The Korean electricity bill calculator estimates your residential bill from monthly kWh usage. It applies KEPCO's 3-tier progressive tariff (low/high voltage), summer relaxation, climate-environment charge, fuel adjustment, 10% VAT, and 3.7% power fund — giving a figure close to the actual bill. See in advance how much the bill jumps when summer air conditioning pushes you into a higher tier.",
+      "useCases": [
+        "Estimate the bill before heavy summer AC use",
+        "See when crossing a tier boundary (200/400 kWh) spikes the cost",
+        "Compare low-voltage (house/villa) vs high-voltage (large apt) rates",
+        "Simulate savings from dropping one tier through conservation",
+        "Verify the electricity portion of apartment maintenance fees"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter monthly usage (kWh) from your bill or the KEPCO app.",
+          "Choose supply type. Houses/villas are usually low voltage; large apartment complexes use high voltage (bulk contract).",
+          "Check summer relaxation for July-August. Tier 1 expands to 300 kWh and tier 2 to 450 kWh."
+        ]
+      },
+      "formula": {
+        "title": "Bill formula (KEPCO residential 2024)",
+        "body": "Energy charge = usage per tier × tier rate (progressive)\n  Low-voltage tier 1 (0-200kWh) 120.0, tier 2 (-400) 214.6, tier 3 307.3 KRW\n  Base fee = base of the highest tier reached (910 / 1,600 / 7,300 KRW)\n\nClimate-environment charge = usage × 9.0 KRW\nFuel adjustment = usage × 5.0 KRW (varies quarterly)\nSubtotal = base + energy + climate + fuel\nVAT = subtotal × 10%\nPower fund = subtotal × 3.7%\nTotal = sum (rounded down to 10 KRW)\n\nSummer (Jul 1-Aug 31): tier 1 = 300 kWh, tier 2 = 450 kWh"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Low voltage 200 kWh (tier 1)",
+            "body": "Base 910 + energy 24,000 (200×120) + climate 1,800 + fuel 1,000 = 27,710. VAT 2,771 + fund 1,020 = total ~31,500 KRW. ~158 KRW/kWh average."
+          },
+          {
+            "title": "Example 2: Low voltage 350 kWh (into tier 2)",
+            "body": "Base 1,600 + energy 56,190 (200×120 + 150×214.6) + climate + fuel. Tier 2 rate is 1.8× tier 1, so the extra 150 kWh raises the bill sharply."
+          },
+          {
+            "title": "Example 3: Summer 300 kWh savings",
+            "body": "Normally 300 kWh hits tier 2, but summer relaxation keeps it in tier 1. Base 1,600→910 plus 100 kWh at 120 instead of 214.6 saves about KRW 10,000."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What exactly is the progressive tariff?",
+          "answer": "A system charging higher rates as usage rises. Residential has 3 tiers: 120 KRW up to 200 kWh, 214.6 up to 400, 307.3 above. It encourages conservation. Industrial and general rates have no progressive structure."
+        },
+        {
+          "question": "Is my home low or high voltage?",
+          "answer": "Houses, villas, and multi-family units are mostly low voltage (per-unit metering). Large apartment complexes use a high-voltage bulk contract distributed by management. High-voltage rates are ~12% cheaper. It's shown on the bill."
+        },
+        {
+          "question": "Why are summer/winter bills higher?",
+          "answer": "AC and heating raise usage, pushing you into higher tiers. The same 100 kWh costs 2.5× more in tier 3 (307) than tier 1 (120). Summer (Jul-Aug) and parts of winter get relaxed tiers, but bills still run higher than mild months."
+        },
+        {
+          "question": "What are the climate and fuel charges?",
+          "answer": "The climate-environment charge (9 KRW/kWh) covers renewables and emissions; the fuel adjustment (±5) reflects quarterly generation fuel costs (coal, LNG). Both scale with usage."
+        },
+        {
+          "question": "Is there VAT on electricity?",
+          "answer": "Yes. 10% VAT and a 3.7% power fund are added on top of the subtotal, making the final bill about 14% higher than the electricity subtotal."
+        },
+        {
+          "question": "Are welfare or essential-usage discounts included?",
+          "answer": "No. The essential-usage guarantee (up to 4,000 KRW off under 200 kWh), multi-child/large-family discounts, and welfare discounts are separate. Check your KEPCO bill for the exact amount."
+        }
+      ],
+      "cautions": [
+        "KEPCO residential 2024 rates. Tariffs change quarterly/yearly.",
+        "Fuel adjustment (±5 KRW) changes quarterly — actual may differ.",
+        "Essential-usage, welfare, and multi-child discounts not included.",
+        "High-voltage apartment bills depend on the complex's distribution method.",
+        "The definitive bill is from KEPCO (paper or Cyber Branch)."
+      ],
+      "related": [
+        { "label": "Percent Calculator", "href": "/percent-calc" },
+        { "label": "VAT Calculator", "href": "/vat-calc" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "name-romanize": {
+      "overview": "The Korean name romanizer converts Hangul names to roman letters using the official Revised Romanization of Korean (2000). Names are romanized syllable-by-syllable without reflecting sound changes (Section 3, Article 4), and surnames also show the conventional passport spellings (Kim, Lee, Park). Get the standard spelling instantly for passports, business cards, papers, and overseas documents.",
+      "useCases": [
+        "Confirm the English spelling for a passport",
+        "Write your romanized name on business cards and email signatures",
+        "Author name on papers and overseas submissions",
+        "Tell a foreign friend how to write your name",
+        "English name on remittances and contracts"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter a Korean name (e.g., 홍길동). It converts instantly.",
+          "Surname and given name split automatically; compound surnames (남궁, 황보) are detected.",
+          "You get three forms: official, conventional surname spelling, and hyphenated. Passports usually recommend the conventional surname spelling."
+        ]
+      },
+      "formula": {
+        "title": "Romanization principles (NIKL)",
+        "body": "Decompose each syllable into initial/medial/final, then romanize:\n  Initials ㄱg ㄴn ㄷd ㄹr ㅁm ㅂb ㅅs ㅇ(silent) ㅈj ㅊch ㅋk ㅌt ㅍp ㅎh ...\n  Medials ㅏa ㅓeo ㅗo ㅜu ㅡeu ㅣi ㅐae ㅔe ...\n  Finals ㄱk ㄴn ㄹl ㅁm ㅂp ㅇng ...\n\nName rule: do not reflect sound changes (Sec 3, Art 4)\n  홍길동 = Hong + Gil + dong → Hong Gildong\n\nConventional surname spelling: the most common passport form\n  Kim, Lee, Park, Choi, Jung ..."
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: 홍길동 → Hong Gildong",
+            "body": "홍=Hong, 길동=Gildong. The official spelling equals the conventional one here. Syllable-by-syllable, no sound change."
+          },
+          {
+            "title": "Example 2: 김민수 → official Gim Minsu / conventional Kim Minsu",
+            "body": "Officially ㄱ becomes g (Gim), but passports overwhelmingly use Kim. The tool shows both."
+          },
+          {
+            "title": "Example 3: Compound surname 남궁민 → Namgung Min",
+            "body": "남궁 is auto-detected as a two-syllable surname. Surname Namgung, given name Min. Compound surnames are written together."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Official or conventional spelling for a passport?",
+          "answer": "Once set on a passport, it's hard to change, so decide carefully. Match your family's existing spelling (Kim, Lee) if any; for a new one, the conventional spelling is safe. The ministry recommends the standard but allows conventional spellings."
+        },
+        {
+          "question": "Do I hyphenate between given-name syllables?",
+          "answer": "Passports allow either joined (Gildong) or hyphenated (Gil-dong). Be consistent once chosen. Joined spelling avoids being misread as two separate words abroad."
+        },
+        {
+          "question": "Why don't names reflect sound changes?",
+          "answer": "The rule deliberately ignores phonetic changes in names to prevent confusion and identity mismatch. Each syllable is spelled consistently letter-by-letter."
+        },
+        {
+          "question": "How were the conventional surname spellings established?",
+          "answer": "They're the majority spellings entrenched through decades of passport and overseas use. 90%+ of Kims use 'Kim'; 'Lee' dominates for the I surname. They take precedence over the official forms (Gim, I)."
+        },
+        {
+          "question": "Are compound surnames recognized?",
+          "answer": "Yes. Major compound surnames (남궁, 황보, 제갈, 선우, 독고, 사공, 서문, 동방) are auto-detected as two-syllable surnames. Others use the first syllable as the surname."
+        },
+        {
+          "question": "Same spelling for the alien registration card or visa?",
+          "answer": "This tool is for romanizing Korean nationals' names. Foreigners use the English name on their home-country passport; transliterating into Hangul is a separate process."
+        }
+      ],
+      "cautions": [
+        "Based on the Revised Romanization of Korean (2000); names don't reflect sound changes.",
+        "Passport spelling is hard to change once set — align with family spellings.",
+        "Conventional surname spellings (Kim, Lee) differ from the standard but are widely accepted.",
+        "Special pronunciations may follow the person's preference."
+      ],
+      "related": [
+        { "label": "Korean Age", "href": "/korean-age" },
+        { "label": "Size Converter", "href": "/size-convert" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "size-convert": {
+      "overview": "The Korean size converter maps Korean clothing and shoe sizes to US, EU, UK, and Japanese sizes at a glance. Shoes use mm (foot length); clothing uses chest-cm-based Korean labels (men 90/95/100, women 44/55/66) compared to international sizes. Reduce sizing mistakes when shopping K-fashion overseas or on Korean shopping sites.",
+      "useCases": [
+        "Find your size for K-fashion overseas shopping",
+        "Foreigners selecting sizes on Korean shopping sites",
+        "Convert sizes for gift clothing and shoes",
+        "Buy clothes or shoes while traveling in Korea",
+        "Cross-check US/EU sizes before ordering online"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Select a category (men's/women's shoes, men's/women's clothing).",
+          "Find your Korean size row in the table to see US, EU, UK, and JP sizes.",
+          "Note that shoes use mm (foot length) and clothing uses chest cm. Expect ±1 variation by brand."
+        ]
+      },
+      "formula": {
+        "title": "Size basis",
+        "body": "Shoes (mondopoint): Korea and Japan use foot length in mm.\n  260 = 26.0 cm. US ≈ (mm−180)/5; EU ≈ mm × 1.5 + 2 (approx).\n  Men's 260 ≈ US 8 / EU 41 / UK 7.5\n  Women's 240 ≈ US 7 / EU 37.5 / UK 4.5\n\nClothing (chest cm based):\n  Men's 90(S)=90cm chest, 95(M)=95cm, 100(L)=100cm\n  Women's 44(XS), 55(S), 66(M), 77(L), 88(XL) traditional labels\n  → mapped to US/EU standard labels"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Men's shoe 270 → US 9",
+            "body": "Korean 270mm = 27.0cm = US 9 / EU 42.5 / UK 8.5 / JP 27.0. Pick US 9 when buying Nike or Adidas."
+          },
+          {
+            "title": "Example 2: Women's clothing 55 → US 4",
+            "body": "Korean women's 55 = S = 85cm chest ≈ US 4 / EU 36 / UK 8. Choose S or US 4 on Zara or H&M."
+          },
+          {
+            "title": "Example 3: Men's clothing 100 → L",
+            "body": "Korean men's 100 = 100cm chest = US L / EU 50 / UK 40. American brand L or EU 50."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why are Korean shoe sizes numbers like 250, 260?",
+          "answer": "They are foot length in mm (mondopoint). 250 = 25.0 cm foot length. Japan uses the same (in cm). It's the most intuitive measure of the foot, used across Korea and Japan."
+        },
+        {
+          "question": "What do women's 44/55/66 mean?",
+          "answer": "Traditional labels from 1980s standard body measurements. 55 is the standard (S), 44 is smaller (XS), and 66/77/88 are larger. The numbers themselves don't carry literal meaning — they're entrenched labels."
+        },
+        {
+          "question": "Brands differ — is this chart accurate?",
+          "answer": "This chart uses KS standards + international references as general values. Actual fit varies ±1 size by brand and cut (slim/oversized). Cross-check the brand's cm measurements when possible."
+        },
+        {
+          "question": "Are US shoe sizes different for men and women?",
+          "answer": "Yes. For the same foot length, US labels differ by gender (women ~1.5 larger). This chart separates men and women, so use the right category. EU is unisex."
+        },
+        {
+          "question": "Are children's sizes included?",
+          "answer": "No, this chart is for adults. Children's sizing uses a separate system (foot mm is the same, but clothing is height/age-based)."
+        },
+        {
+          "question": "Any tips for sizing up/down when importing?",
+          "answer": "Shoes are usually true to size, but US brands sometimes run large — size down 0.5 for narrow feet. Clothing from US/EU runs larger than Asian fit, so consider sizing down. Reviews and cm measurements are safest."
+        }
+      ],
+      "cautions": [
+        "General values from KS standards + international charts. ±1 size variation by brand/fit.",
+        "Shoes use mm (foot length); clothing uses chest cm.",
+        "US shoe labels differ by gender — pick the right category.",
+        "For exact fit, cross-check the brand's cm measurements.",
+        "Children's sizes not included (adults only)."
+      ],
+      "related": [
+        { "label": "Korean Age", "href": "/korean-age" },
+        { "label": "Name Romanizer", "href": "/name-romanize" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "capital-gains-tax": {
+      "overview": "The Korean real estate capital gains tax calculator estimates tax from sale price, purchase price, and holding period. From the capital gain it subtracts the long-term holding deduction (up to 30% general, up to 80% for a single-house household) and the KRW 2.5M basic deduction, applies the 8-bracket progressive rate, adds 10% local tax, and shows total tax and after-tax gain. Short-term penalty rates (under 2 years) are included.",
+      "useCases": [
+        "Simulate tax before selling property",
+        "Compare long-term deduction by holding period",
+        "Check savings from the single-house benefit",
+        "See short-term (under 2 years) penalty rates",
+        "Estimate after-tax net proceeds"
+      ],
+      "howTo": {
+        "title": "How to use (5 steps)",
+        "steps": [
+          "Enter sale price and purchase price.",
+          "Enter expenses (acquisition tax, brokerage, capital improvements). They reduce the gain.",
+          "Enter holding period (years). The long-term deduction applies from 3 years.",
+          "Choose asset type (house/land) and single-house status. For a single house, residing period also affects the deduction.",
+          "Results show gain, long-term deduction, tax base, calculated tax, local tax, and after-tax gain."
+        ]
+      },
+      "formula": {
+        "title": "Capital gains tax formula (Income Tax Act)",
+        "body": "Gain = sale price − purchase price − expenses\nLong-term deduction = gain × rate\n  General: 6% at 3 years, +2%/year, capped 30% at 15 years\n  Single house: 4%/year holding + 4%/year residing, max 80%\nTaxable income = gain − long-term deduction\nTax base = taxable income − KRW 2.5M basic deduction\nCalculated tax = base × progressive rate − deduction (same 8 brackets as income tax)\nLocal income tax = calculated tax × 10%\n\nShort-term (penalty): house under 1yr 70%, under 2yr 60%\n  Land/building under 1yr 50%, under 2yr 40%"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Sale 500M, buy 300M, 5 years (general house)",
+            "body": "Gain 180M (after 20M expenses). Long-term 10% (6%+2×2%) = 18M. Base 155M. 35% bracket → ~39M calculated + 3.9M local = ~42.9M KRW."
+          },
+          {
+            "title": "Example 2: Single house, 10 years held & resided",
+            "body": "Even a 1B gain gets 80% deduction = 800M off. Tax base drops to ~190M. Note: if sale is under KRW 1.2B it's fully exempt (this tool covers the taxable case)."
+          },
+          {
+            "title": "Example 3: Short-term, under 1 year",
+            "body": "Gain 100M, held 6 months. No long-term deduction (under 3 years). Base 97.5M × 70% = 68.25M + local. Short-term flips carry very high tax."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is a single house always tax-exempt?",
+          "answer": "Exempt if sale price is under KRW 1.2B and held 2+ years (2 years residing in regulated areas). The portion above 1.2B is taxed, where the up-to-80% long-term deduction gives big relief. This calculator covers the taxable case."
+        },
+        {
+          "question": "Why is the long-term deduction so large?",
+          "answer": "It accounts for inflation and policy support for long holdings. General is up to 30%, but a single house (holding + residing, up to 40% each) reaches 80%, sharply lowering tax for 10+ year owner-occupants."
+        },
+        {
+          "question": "Why are short-term rates so high?",
+          "answer": "To curb speculative flipping. A house held under 1 year is taxed at 70% — higher than the top progressive bracket (45%). Hold 2+ years for the normal progressive rate."
+        },
+        {
+          "question": "What counts as deductible expenses?",
+          "answer": "Acquisition/registration tax, legal and brokerage fees, and capital improvements (windows, balcony expansion, boiler replacement that add value). Maintenance expenses (wallpaper, flooring) are excluded. Keep receipts."
+        },
+        {
+          "question": "Are multi-house penalties included?",
+          "answer": "No, this uses the base progressive rate. Regulated-area surcharges (+20%p for 2 houses, +30%p for 3) change often with policy and are excluded. Multi-house owners should consult a tax accountant."
+        },
+        {
+          "question": "What is the KRW 2.5M basic deduction?",
+          "answer": "An annual deduction applied once to capital gains. Multiple sales in the same year share a single 2.5M deduction. This calculator applies it per single sale."
+        }
+      ],
+      "cautions": [
+        "Simplified 2024 Income Tax Act calc. Single-house exemption and multi-house penalties not included.",
+        "Regulated-area surcharges and reductions change often — verify separately.",
+        "Only capital improvements are deductible (not maintenance); keep receipts.",
+        "Long-term deduction counts holding and residing in whole years.",
+        "For accurate filing, consult Hometax or a tax accountant."
+      ],
+      "related": [
+        { "label": "Income Tax Calculator", "href": "/income-tax" },
+        { "label": "Rent Cap (5%)", "href": "/rent-cap" },
+        { "label": "Pyeong ↔ m²", "href": "/area-convert" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "paint-calc": {
+      "overview": "The paint calculator estimates the liters of paint needed from wall area and number of coats. It auto-deducts doors and windows, applies the spread rate (m²/L) and a waste allowance, and tells you how many 4L and 1L cans to buy. Avoid buying too little or too much for DIY painting or quote checks.",
+      "useCases": [
+        "Estimate paint to buy before DIY wall painting",
+        "Cans needed per room or living area",
+        "Total for a 2-coat (primer + finish) job",
+        "Verify a painting quote",
+        "Estimate material for exterior walls or ceilings"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter total wall area (m²). Compute as perimeter × height or use a direct measurement.",
+          "Enter the number of doors and windows; standard areas (door 2 m², window 1.5 m²) are deducted automatically.",
+          "Adjust coats (usually 2), spread rate (interior water-based ~10 m²/L), and waste (10%) to get liters and cans."
+        ]
+      },
+      "formula": {
+        "title": "Paint quantity formula",
+        "body": "Net paint area = wall area − (doors × 2 m² + windows × 1.5 m²)\nTotal coat area = net area × number of coats\nPaint (L) = total coat area ÷ spread rate (m²/L)\nWith waste = paint × (1 + waste rate)\n\nSpread rate (per coat):\n  interior water-based ~10 m²/L, exterior ~8, rough surface ~6\n4L cans = ceil(with-waste ÷ 4)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Room walls 50 m², 1 door + 2 windows, 2 coats",
+            "body": "Openings = 2 + 3 = 5 m². Net 45 m². Total coat 90 m². At spread 10 → 9 L; +10% waste → 9.9 L. Buy three 4L cans."
+          },
+          {
+            "title": "Example 2: Living room 100 m², 2 coats (no openings)",
+            "body": "Total coat 200 m² ÷ 10 = 20 L. +10% = 22 L. Six 4L cans. Buy at once to avoid color batch variation."
+          },
+          {
+            "title": "Example 3: Rough exterior surface",
+            "body": "Lower spread rate to 6 m²/L. The same area needs ~1.7× more paint than interior — rougher surfaces absorb more."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How many coats should I apply?",
+          "answer": "Two coats (primer + finish) is standard. Use three when covering a dark color with light, or for heavy stains. A same-color refresh can be one coat. A single coat often shows streaks and bleed-through."
+        },
+        {
+          "question": "How do I choose the spread rate?",
+          "answer": "It's printed on the product label as m²/L. Interior water-based paint is ~8-12 m²/L per coat; exterior and rough surfaces are 6-8. Rougher, more absorbent surfaces have a lower spread rate (need more paint)."
+        },
+        {
+          "question": "Why deduct doors and windows?",
+          "answer": "They aren't painted wall, so they're excluded from net area. The calculator deducts standard sizes (door 0.9×2.1≈2 m², window 1.2×1.2≈1.5 m²); adjust the area directly if yours differ greatly."
+        },
+        {
+          "question": "Why a waste allowance?",
+          "answer": "Paint absorbed by rollers/brushes, drips, touch-ups, and can residue typically warrant a 10% allowance. For complex shapes or beginners, 15-20% is recommended."
+        },
+        {
+          "question": "How do I find wall area?",
+          "answer": "Perimeter (width+depth)×2 × ceiling height. E.g., a 3m×4m room at 2.4m → 14m × 2.4 = 33.6 m². Add the ceiling (width×depth = 12 m²) if painting it too."
+        },
+        {
+          "question": "Is primer calculated separately?",
+          "answer": "New drywall or painting over a dark color needs primer. Calculate primer with the same area and spread rate separately, or include it as an extra coat in this tool."
+        }
+      ],
+      "cautions": [
+        "Standard deduction: door 2 m², window 1.5 m². Adjust wall area if your sizes differ.",
+        "Spread rate varies by product/surface (interior ~10, exterior ~8, rough ~6 m²/L).",
+        "10% waste is the default; complex shapes or beginners 15-20%.",
+        "Primer must be calculated separately.",
+        "Re-verify final quantity against the product label's spread rate."
+      ],
+      "related": [
+        { "label": "Tile Calculator", "href": "/timber-calc/tile" },
+        { "label": "Pyeong ↔ m²", "href": "/area-convert" },
+        { "label": "Drywall Calculator", "href": "/timber-calc/drywall" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
     "korean-age": {
       "overview": "The Korean age calculator computes all three Korean age systems from your birth date: international age, Korean counting age, and year age. Since June 28, 2023, Korea officially uses international age for legal and administrative purposes, but counting age is still common in daily conversation — which confuses both foreigners and Koreans. This tool shows the difference clearly, plus the days until your next birthday.",
       "useCases": [

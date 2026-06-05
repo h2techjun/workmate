@@ -13,6 +13,8 @@ export type ToolGroupId =
   | "labor"
   | "tax"
   | "realestate"
+  | "korea"
+  | "utility"
   | "business"
   | "convert";
 
@@ -80,6 +82,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     },
     tools: [
       { labelKo: "종합소득세 계산", labelEn: "Income Tax", href: "/income-tax", keywordsKo: "종합소득세 누진세 8구간 세율표 누진공제 프리랜서" },
+      { labelKo: "부동산 양도소득세", labelEn: "Capital Gains Tax", href: "/capital-gains-tax", keywordsKo: "양도소득세 부동산 양도세 장기보유특별공제 1세대1주택" },
       { labelKo: "대출 이자 계산", labelEn: "Loan Calculator", href: "/loan-calc", keywordsKo: "대출 이자 원리금균등 원금균등 만기일시 주담대" },
       { labelKo: "복리 계산기", labelEn: "Compound Interest", href: "/compound-calc", keywordsKo: "복리 예금 적금 CAGR 실효이율 EAR" },
       { labelKo: "부가세 계산기", labelEn: "VAT", href: "/vat-calc", keywordsKo: "부가세 공급가액 일반과세 간이과세" },
@@ -138,6 +141,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "지붕 경사", labelEn: "Roof Pitch", href: "/timber-calc/roof-pitch", keywordsKo: "지붕 경사 구배 변환" },
       { labelKo: "지붕 면적", labelEn: "Roof Area", href: "/timber-calc/roof-area", keywordsKo: "지붕 면적 처마 면적" },
       { labelKo: "콘크리트 부피", labelEn: "Concrete", href: "/timber-calc/concrete", keywordsKo: "콘크리트 줄기초 매트기초 레미콘 철근" },
+      { labelKo: "페인트 양", labelEn: "Paint", href: "/paint-calc", keywordsKo: "페인트 양 소요량 도장 면적 벽 페인트" },
       { labelKo: "목재 환산", labelEn: "Lumber Conversion", href: "/timber-calc/lumber", keywordsKo: "목재 才 재 board feet BF" },
     ],
   },
@@ -162,6 +166,44 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         href: "/rent-cap",
         keywordsKo: "임대료 5% 전월세 인상한도 보증금 갱신요구권 주임법",
       },
+    ],
+  },
+  {
+    id: "korea",
+    accent: "from-blue-500 to-cyan-500",
+    emoji: "🇰🇷",
+    i18n: {
+      ko: {
+        title: "한국 생활 · 외국인",
+        tagline: "한국식 나이·이름 로마자·사이즈 변환 — 외국인·실생활 필수",
+      },
+      en: {
+        title: "Korea Living · Foreigners",
+        tagline: "Korean age, name romanizer, size converter — everyday essentials",
+      },
+    },
+    tools: [
+      { labelKo: "한국식 나이 계산", labelEn: "Korean Age", href: "/korean-age", keywordsKo: "한국 나이 만나이 세는나이 연나이" },
+      { labelKo: "한글 이름 로마자", labelEn: "Name Romanizer", href: "/name-romanize", keywordsKo: "한글 이름 로마자 여권 영문 이름 변환" },
+      { labelKo: "옷·신발 사이즈 변환", labelEn: "Size Converter", href: "/size-convert", keywordsKo: "한국 사이즈 신발 옷 US EU 변환" },
+    ],
+  },
+  {
+    id: "utility",
+    accent: "from-amber-500 to-yellow-500",
+    emoji: "💡",
+    i18n: {
+      ko: {
+        title: "공과금 · 생활요금",
+        tagline: "전기요금 누진제 — 한전 주택용 기준",
+      },
+      en: {
+        title: "Utility Bills",
+        tagline: "Korean electricity bill (KEPCO progressive tariff)",
+      },
+    },
+    tools: [
+      { labelKo: "전기요금 계산", labelEn: "Electricity Bill", href: "/electric-bill", keywordsKo: "전기요금 전기세 누진제 한전 여름 전기요금" },
     ],
   },
   {
@@ -197,7 +239,6 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       },
     },
     tools: [
-      { labelKo: "한국식 나이 계산", labelEn: "Korean Age", href: "/korean-age", keywordsKo: "한국 나이 만나이 세는나이 연나이 계산기" },
       { labelKo: "평수 ↔ ㎡ ↔ 자²", labelEn: "Pyeong ↔ m²", href: "/area-convert", keywordsKo: "평수 계산 평 제곱미터 환산 부동산 면적" },
       { labelKo: "퍼센트 계산", labelEn: "Percent", href: "/percent-calc", keywordsKo: "퍼센트 할인 인상 변화율 마진" },
       { labelKo: "JSON ↔ CSV", labelEn: "JSON ↔ CSV", href: "/json-csv", keywordsKo: "JSON CSV 변환 한글 BOM Excel" },
@@ -212,6 +253,8 @@ export const TOOL_GROUP_ORDER: ReadonlyArray<ToolGroupId> = [
   "labor",
   "tax",
   "realestate",
+  "korea",
+  "utility",
   "electric",
   "timber",
   "business",
