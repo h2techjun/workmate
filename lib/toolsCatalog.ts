@@ -59,6 +59,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       },
     },
     tools: [
+      { labelKo: "연봉 실수령액", labelEn: "Salary Take-Home", href: "/net-salary", keywordsKo: "연봉 실수령액 월급 세후 4대보험 공제 계산기" },
       { labelKo: "연차 계산기", labelEn: "Annual Leave", href: "/labor-calc/annual-leave", keywordsKo: "연차 발생 일수 미사용 수당" },
       { labelKo: "주휴수당 계산기", labelEn: "Weekly Rest Pay", href: "/labor-calc/weekly-rest-pay", keywordsKo: "주휴수당 단시간 근로자" },
       { labelKo: "퇴직금 계산기", labelEn: "Severance", href: "/labor-calc/severance", keywordsKo: "퇴직금 평균임금 통상임금" },
@@ -86,6 +87,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "대출 이자 계산", labelEn: "Loan Calculator", href: "/loan-calc", keywordsKo: "대출 이자 원리금균등 원금균등 만기일시 주담대" },
       { labelKo: "복리 계산기", labelEn: "Compound Interest", href: "/compound-calc", keywordsKo: "복리 예금 적금 CAGR 실효이율 EAR" },
       { labelKo: "부가세 계산기", labelEn: "VAT", href: "/vat-calc", keywordsKo: "부가세 공급가액 일반과세 간이과세" },
+      { labelKo: "프리랜서 3.3%", labelEn: "Freelancer 3.3%", href: "/freelancer-tax", keywordsKo: "프리랜서 3.3 원천징수 사업소득 세금" },
       { labelKo: "해외주식 양도세", labelEn: "Foreign Stock Tax", href: "/foreign-stock-tax", keywordsKo: "해외주식 양도세 22% 250만원 공제" },
     ],
   },
@@ -184,6 +186,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     },
     tools: [
       { labelKo: "한국식 나이 계산", labelEn: "Korean Age", href: "/korean-age", keywordsKo: "한국 나이 만나이 세는나이 연나이" },
+      { labelKo: "체류일수 (90일 비자)", labelEn: "Stay Days Tracker", href: "/visa-days", keywordsKo: "한국 체류일수 90일 무비자 만료일 비자" },
       { labelKo: "한글 이름 로마자", labelEn: "Name Romanizer", href: "/name-romanize", keywordsKo: "한글 이름 로마자 여권 영문 이름 변환" },
       { labelKo: "옷·신발 사이즈 변환", labelEn: "Size Converter", href: "/size-convert", keywordsKo: "한국 사이즈 신발 옷 US EU 변환" },
     ],

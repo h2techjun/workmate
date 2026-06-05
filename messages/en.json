@@ -2195,6 +2195,239 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "net-salary": {
+      "overview": "The Korean salary take-home calculator computes your actual monthly pay after the 4 insurances and income tax are deducted from your annual salary. It reflects national pension, health, long-term care, and employment insurance, plus income and local tax, and accounts for dependents, children, and the non-taxable allowance. See gross-to-net at a glance before a job change or salary negotiation.",
+      "useCases": [
+        "Compare take-home before a job change or negotiation",
+        "See the real monthly increase from a raise",
+        "Understand tax differences by dependents and children",
+        "Accurate pay reflecting the non-taxable meal allowance",
+        "Grasp the gap between gross salary and net pay"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter your annual salary (gross, KRW). Base salary excluding bonuses is typical.",
+          "Enter dependents (incl. self) and children under 20 for personal and child deductions.",
+          "Enter the monthly non-taxable amount (meal allowance, default KRW 200,000), excluded from both insurance and tax."
+        ]
+      },
+      "formula": {
+        "title": "Deduction items (2026)",
+        "body": "Monthly gross = annual / 12\nTaxable = monthly gross − non-taxable\n\n4 insurances (employee):\n  National pension 4.5% (income cap KRW 6.17M)\n  Health 3.545%\n  Long-term care = health × 12.95%\n  Employment 0.9%\n\nIncome tax: earned-income deduction → personal/pension deductions → progressive rate\n  − wage earner credit − child credit → /12\nLocal income tax = income tax × 10%\n\nTake-home = gross − insurances − income tax − local tax"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: KRW 36M (monthly 3M)",
+            "body": "Insurances ~270K plus small income tax. Take-home around 2.7M. Low salaries have lower deduction rates, so a higher net ratio."
+          },
+          {
+            "title": "Example 2: KRW 50M (monthly ~4.17M)",
+            "body": "Insurances ~380K plus rising income tax. Deduction rate ~13-15%. Take-home around 3.5M. More dependents lower the tax."
+          },
+          {
+            "title": "Example 3: KRW 100M (monthly 8.33M)",
+            "body": "Pension hits its cap (~278K/month), income tax rises sharply, deduction rate ~18-22%. Higher salaries carry a larger tax share."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why isn't salary ÷ 12 the take-home?",
+          "answer": "The 4 insurances (~9%) and income/local tax are deducted from gross. KRW 50M is 4.17M monthly gross, but ~3.5M lands in your account after deductions."
+        },
+        {
+          "question": "What is the non-taxable allowance and why does it matter?",
+          "answer": "Meal allowance (200K/month) and similar are excluded from tax and insurance. A larger non-taxable portion lowers the taxable base and raises take-home. Same salary, different net depending on structure."
+        },
+        {
+          "question": "How much do dependents save?",
+          "answer": "150K personal deduction per dependent plus child credits (1 child 150K, 2 children 350K). A family of 4 with 2 children saves tens of thousands of won per year, raising monthly net."
+        },
+        {
+          "question": "Why does this differ from my actual pay?",
+          "answer": "Real withholding follows the NTS simplified table; this estimates via progressive rates. ±5% variance is normal, reconciled each February at year-end settlement."
+        },
+        {
+          "question": "Are bonuses included?",
+          "answer": "This assumes even monthly distribution. Bonuses are withheld separately at payment with possibly different rates. Enter base salary for an accurate average monthly net."
+        },
+        {
+          "question": "Is there a pension cap?",
+          "answer": "Yes. The income base cap (KRW 6.17M as of Jul 2024) fixes pension at ~278K/month for earners above it. Health insurance has a much higher cap."
+        }
+      ],
+      "cautions": [
+        "2026 insurance rates + estimated income tax. Actual withholding ±5% via the NTS table.",
+        "Assumes 200K non-taxable meal allowance; company structures vary.",
+        "Bonuses are withheld separately and differ from this estimate.",
+        "Exact tax is reconciled at year-end settlement.",
+        "Insurance rates change annually."
+      ],
+      "related": [
+        { "label": "4 Insurances Calculator", "href": "/insurance-calc" },
+        { "label": "Income Tax Calculator", "href": "/income-tax" },
+        { "label": "Freelancer 3.3%", "href": "/freelancer-tax" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "visa-days": {
+      "overview": "The Korea stay days calculator computes days stayed, expiry date, and days remaining from your entry date and allowed stay. It tracks 90-day visa-free entry and 30/60/180-day visas, warning you before you overstay. It follows the immigration practice of counting the entry day as day 1 to give an accurate expiry date.",
+      "useCases": [
+        "Track the 90-day visa-free expiry",
+        "Check days remaining when planning departure",
+        "Prevent illegal overstay in advance",
+        "Identify when to apply for an extension",
+        "Review cumulative stay after re-entry"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter your entry date (year/month/day) — the passport entry stamp date.",
+          "Enter the allowed days or pick a preset (30/60/90/180). Visa-free is usually 90 days.",
+          "See days stayed, expiry date, and days remaining. A red warning appears if you've overstayed."
+        ]
+      },
+      "formula": {
+        "title": "Calculation method",
+        "body": "Days stayed = (today − entry) + 1 (entry day included)\nExpiry = entry + (allowed days − 1)\n  e.g. enter Jun 1, 90 days → Jun 1 is day 1, Aug 29 is day 90 (expiry)\nDays remaining = expiry − today\n\nNote: counting the entry day as day 1 is Korean immigration practice.\n  Status changes may use a different basis."
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Enter Jun 1, 90-day visa-free",
+            "body": "Expiry Aug 29 (Jun 1 is day 1). On Jun 30 you've stayed 30 days, 60 remaining. Departing by Aug 29 is fine."
+          },
+          {
+            "title": "Example 2: Departing on the expiry day",
+            "body": "Departing on Aug 29 (day 90) is valid. From Aug 30 it's an overstay. Departure must be within the expiry date."
+          },
+          {
+            "title": "Example 3: Overstay detection",
+            "body": "Sep 1 is 3 days past expiry (Aug 29). A red warning shows. Overstay leads to fines and entry bans — depart and report immediately."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is the entry day counted as day 1?",
+          "answer": "Yes. In Korean immigration practice the entry day is day 1. Enter Jun 1 and that's day 1; 90-day visa-free expires on Aug 29 (day 90). This differs from interpretations that count the entry day as day 0."
+        },
+        {
+          "question": "How are the 90 days counted — is departure day included?",
+          "answer": "Departing by the expiry day (day 90) is valid. If expiry is Aug 29, departing Aug 29 is OK; Aug 30 is a 1-day overstay. Departing the day before expiry is the safe choice."
+        },
+        {
+          "question": "Can I re-enter immediately after 90 days?",
+          "answer": "Re-entry itself is possible, but repeated short in-and-out trips (border runs) can lead to entry denial. For long stays, get the proper visa (D/E/F)."
+        },
+        {
+          "question": "What happens if I overstay?",
+          "answer": "Fines apply (by days/duration), and you may face entry bans or deportation. Voluntary reporting can reduce penalties — contact immigration before overstaying."
+        },
+        {
+          "question": "When do I apply for an extension?",
+          "answer": "Usually from 4 months before expiry, online via HiKorea or at an immigration office before expiry. Last-minute applications risk rejection or delay."
+        },
+        {
+          "question": "Can I use this as official proof?",
+          "answer": "For reference only. Your ARC, HiKorea stay information, and the immigration office are the official sources for exact expiry and status. Use this tool for self-checks."
+        }
+      ],
+      "cautions": [
+        "Entry day counted as day 1 (immigration practice).",
+        "Basis may differ for visa types or status changes.",
+        "Border runs (repeated short trips) can cause entry denial.",
+        "Verify exact expiry via HiKorea, ARC, or immigration office.",
+        "Overstay leads to fines and entry bans."
+      ],
+      "related": [
+        { "label": "Korean Age", "href": "/korean-age" },
+        { "label": "Name Romanizer", "href": "/name-romanize" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "freelancer-tax": {
+      "overview": "The Korean freelancer 3.3% calculator computes the withholding on freelance/personal-service business income — 3.3% (3% income + 0.3% local). It converts gross to net and net to gross, with annual figures. It's a prepayment reconciled via the May income tax filing, where deducting expenses can yield a refund.",
+      "useCases": [
+        "Check net pay on freelance fees",
+        "Negotiate gross vs net amounts in contracts",
+        "Back-calculate the gross to invoice for a target net",
+        "See annualized income and total withholding",
+        "Review withholding totals before the May filing"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter the amount (KRW).",
+          "Choose the basis. 'Gross' computes net; 'Net' back-calculates gross.",
+          "See the 3% income, 0.3% local, 3.3% total, net pay, and annualized figures."
+        ]
+      },
+      "formula": {
+        "title": "Withholding formula",
+        "body": "Income tax = amount × 3%\nLocal tax = amount × 0.3%\nTotal withholding = amount × 3.3%\nNet = amount − withholding\n\nReverse (net → gross):\n  gross = net / (1 − 0.033)\n  e.g. net 967,000 → gross 1,000,000"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Gross 1M → net 967,000",
+            "body": "Income tax 30,000 + local 3,000 = withholding 33,000. Net 967,000 KRW."
+          },
+          {
+            "title": "Example 2: Target net 3M → back-calculate gross",
+            "body": "Gross = 3M / 0.967 ≈ 3,102,000 KRW. Invoice this to receive 3M net."
+          },
+          {
+            "title": "Example 3: 2M/month freelancer annualized",
+            "body": "2M gross × 12 = 24M annual. ~792K annual withholding. Reconciled in May with expenses/deductions (refund possible)."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is 3.3% the final tax?",
+          "answer": "No. Withholding is a prepayment. The May income tax filing computes the real tax — refund if you have many expenses/deductions, or extra payment if income is high. 3.3% is paid in advance."
+        },
+        {
+          "question": "Why different from an employee's insurances?",
+          "answer": "Freelancers are business-income earners, not employees, so there's no insurance withholding — only the 3.3% business income withholding. Health and pension are paid separately as a regional subscriber."
+        },
+        {
+          "question": "How much refund from deducting expenses?",
+          "answer": "Declaring business expenses (equipment, transport, communication) lowers the tax base. Via simplified/standard expense rates or bookkeeping; with low income and high expenses, most of the withholding can be refunded."
+        },
+        {
+          "question": "Must I file income tax?",
+          "answer": "Yes. Withholding alone isn't the end. Not filing in May incurs a penalty and forfeits any refund. Even with low income, filing is worthwhile for the refund."
+        },
+        {
+          "question": "Multiple payers withheld 3.3% — do I combine them?",
+          "answer": "Yes. Combine all business income from every payer and file in May. Use the withholding receipts (or Hometax payment statements) to total it."
+        },
+        {
+          "question": "3.3% vs 8.8% (other income)?",
+          "answer": "Continuous/repeated services are business income at 3.3%; one-off lectures/manuscripts are other income at 8.8% (after 60% deemed expenses). This tool uses the 3.3% business-income basis."
+        }
+      ],
+      "cautions": [
+        "3.3% is a prepayment, not the final tax — reconciled in the May filing.",
+        "Refund or extra payment depends on expenses and income size.",
+        "Health and pension are paid separately as a regional subscriber.",
+        "One-off income (lectures, manuscripts) is other income at 8.8%.",
+        "Combine income from multiple payers when filing."
+      ],
+      "related": [
+        { "label": "Income Tax Calculator", "href": "/income-tax" },
+        { "label": "Salary Take-Home", "href": "/net-salary" },
+        { "label": "VAT Calculator", "href": "/vat-calc" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
     "electric-bill": {
       "overview": "The Korean electricity bill calculator estimates your residential bill from monthly kWh usage. It applies KEPCO's 3-tier progressive tariff (low/high voltage), summer relaxation, climate-environment charge, fuel adjustment, 10% VAT, and 3.7% power fund — giving a figure close to the actual bill. See in advance how much the bill jumps when summer air conditioning pushes you into a higher tier.",
       "useCases": [
