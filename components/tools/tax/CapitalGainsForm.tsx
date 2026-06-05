@@ -164,7 +164,7 @@ export function CapitalGainsForm({
           <dt className="text-xs font-medium text-[color:var(--color-text-tertiary)]">
             {t.totalTax}
           </dt>
-          <dd className="mt-1 text-4xl font-bold tabular-nums text-white">
+          <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">
             {won(result.totalTax)}
             <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
               {t.unit}

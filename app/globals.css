@@ -5,17 +5,18 @@
    ========================================================================== */
 
 @theme {
-  --color-bg: #0a0b0e;
-  --color-bg-elevated: #11131a;
-  --color-bg-card: #161922;
-  --color-bg-card-hover: #1c2030;
-  --color-border-subtle: #232838;
-  --color-border-default: #2d3346;
-  --color-border-strong: #404763;
-  --color-text-primary: #f4f5f8;
-  --color-text-secondary: #a4abbf;
-  --color-text-tertiary: #6e7691;
-  --color-text-muted: #4a5168;
+  --color-bg: #07080b;
+  --color-bg-elevated: #0e1015;
+  --color-bg-card: #12141b;
+  --color-bg-card-hover: #181b25;
+  --color-border-subtle: #1e2230;
+  --color-border-default: #282d3c;
+  --color-border-strong: #393f57;
+  /* 순백(#f4f5f8) 대신 살짝 가라앉힌 회백색 — 눈부심 완화 + 가독성 유지 */
+  --color-text-primary: #dfe2ea;
+  --color-text-secondary: #99a0b3;
+  --color-text-tertiary: #676e88;
+  --color-text-muted: #454c62;
   --color-accent: #6366f1;
   --color-accent-hover: #818cf8;
   --color-accent-bg: #312e81;
@@ -43,9 +44,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* 상단 글로우를 0.15 → 0.05 로 대폭 낮춤 — 눈부심의 주원인 제거 */
   background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
-    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(168, 85, 247, 0.08), transparent),
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.05), transparent),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(168, 85, 247, 0.03), transparent),
     var(--color-bg);
   background-attachment: fixed;
   min-height: 100vh;

@@ -91,7 +91,7 @@ export function BtuForm({ locale }: BtuFormProps): React.ReactElement {
         <h2 className="text-lg font-semibold text-[color:var(--color-text-primary)]">{t.result}</h2>
         <div className="rounded-xl bg-gradient-to-br from-amber-500/15 to-yellow-500/10 p-4 ring-1 ring-amber-500/20">
           <dt className="text-xs text-[color:var(--color-text-tertiary)]">{t.btu}</dt>
-          <dd className="mt-1 text-4xl font-bold tabular-nums text-white">{num(r.recommendedBtu)}<span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">BTU</span></dd>
+          <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">{num(r.recommendedBtu)}<span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">BTU</span></dd>
           <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">{t.pyeong} {r.koreanPyeongType}{t.pyeongUnit} · {t.kw} {r.kw} kW</p>
         </div>
         <dl className="space-y-1.5 text-sm">

@@ -131,7 +131,7 @@ export default async function HomePage({
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             {t("tagline")}
           </div>
-          <h1 className="mt-5 bg-gradient-to-br from-white via-white to-[color:var(--color-text-secondary)] bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl">
+          <h1 className="mt-5 bg-gradient-to-br from-[color:var(--color-text-primary)] via-[color:var(--color-text-primary)] to-[color:var(--color-text-secondary)] bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl">
             {t("title")}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--color-text-secondary)] md:text-lg">

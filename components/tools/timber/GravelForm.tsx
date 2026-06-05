@@ -89,11 +89,11 @@ export function GravelForm({ locale }: GravelFormProps): React.ReactElement {
         <div className="grid grid-cols-2 gap-3">
           <div className="rounded-xl bg-gradient-to-br from-amber-500/15 to-orange-500/10 p-4 ring-1 ring-amber-500/20">
             <dt className="text-xs text-[color:var(--color-text-tertiary)]">{t.volume}</dt>
-            <dd className="mt-1 text-3xl font-bold tabular-nums text-white">{fmt(r.volumeWithCompaction)}<span className="ml-1 text-sm font-medium text-[color:var(--color-text-secondary)]">{t.volumeUnit}</span></dd>
+            <dd className="mt-1 text-3xl font-bold tabular-nums text-[#eef0f5]">{fmt(r.volumeWithCompaction)}<span className="ml-1 text-sm font-medium text-[color:var(--color-text-secondary)]">{t.volumeUnit}</span></dd>
           </div>
           <div className="rounded-xl bg-gradient-to-br from-amber-500/15 to-orange-500/10 p-4 ring-1 ring-amber-500/20">
             <dt className="text-xs text-[color:var(--color-text-tertiary)]">{t.weight}</dt>
-            <dd className="mt-1 text-3xl font-bold tabular-nums text-white">{fmt(r.weightTon)}<span className="ml-1 text-sm font-medium text-[color:var(--color-text-secondary)]">{t.weightUnit}</span></dd>
+            <dd className="mt-1 text-3xl font-bold tabular-nums text-[#eef0f5]">{fmt(r.weightTon)}<span className="ml-1 text-sm font-medium text-[color:var(--color-text-secondary)]">{t.weightUnit}</span></dd>
           </div>
         </div>
         <dl className="space-y-1.5 text-sm">

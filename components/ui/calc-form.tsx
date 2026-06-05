@@ -108,7 +108,7 @@ export function HeroResult({
         {label}
       </p>
       <p className="mt-1 flex items-baseline gap-1.5">
-        <span className="text-4xl font-bold tracking-tight text-white tabular-nums md:text-5xl">
+        <span className="text-4xl font-bold tracking-tight text-[#eef0f5] tabular-nums md:text-5xl">
           {value}
         </span>
         {unit && (
