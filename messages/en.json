@@ -2195,6 +2195,89 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "electric-breaker": {
+      "overview": "The Korean breaker sizing calculator computes MCB / MCCB rated current from load current, applying KEC 212.6 (Korean Electric Code breaker selection rules) and the standard 1.25 safety factor. It handles ordinary loads, motors, and inverter/VVVF loads with their respective adjustments. Use it for residential and commercial panel design, motor starter selection, and KEC certification exam preparation.",
+      "useCases": [
+        "Residential / commercial panel design: select breaker for each branch circuit",
+        "Motor load: choose breaker rating that survives starting current 6-8× nominal",
+        "Inverter / VVVF: select B-type ELB to avoid nuisance tripping from HF leakage",
+        "Quote preparation: determine exact breaker rating before pricing",
+        "KEC certification exam: practice with standard breaker selection rules"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Choose load type: general (lighting/outlet), motor, or inverter/VVVF. Each applies different safety factors and additional considerations.",
+          "Enter load current (A) or load capacity (kW/kVA). The tool auto-converts capacity to current using voltage, power factor, and phase count.",
+          "Pick voltage (single-phase 220V / 3-phase 380V) and phase. Defaults are Korean standard LV.",
+          "Click Calculate. You'll see the recommended breaker rating, type (MCB/MCCB/ELB), and the KEC citation."
+        ]
+      },
+      "formula": {
+        "title": "Breaker rating formula (KEC 212.6)",
+        "body": "General load: breaker rating ≥ load current × 1.25 (safety factor)\n  Example: 12A load → 12 × 1.25 = 15A → select next standard 20A\n\nMotor load: consider starting current 6-8×; apply 1.25 to full-load current,\n  then use ELCB (overcurrent-capable) instead of ELB\n\n3-phase current conversion:\n  I = P / (√3 × V × pf)\n  Example: 7.5kW 380V pf 0.85 → 7,500 / (1.732 × 380 × 0.85) = 13.4A\n\nStandard ratings (KEC):\n  MCB: 6, 10, 15, 16, 20, 25, 30, 32, 40, 50, 63A\n  MCCB: 50, 60, 75, 100, 125, 150, 175, 200, 225, 250, 300, 400, 500, 600, 800A"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Residential panel — living room lights + outlets (12A general)",
+            "body": "12A × 1.25 = 15A. Next standard 20A MCB. KEC 212.6.2 recommends 16A or 20A for outlet circuits, so typically a 16A or 20A MCB."
+          },
+          {
+            "title": "Example 2: 3-phase 380V 7.5kW motor",
+            "body": "Current = 7,500 / (√3 × 380 × 0.85) = 13.4A. 13.4 × 1.25 = 16.75A. Select 20A MCCB with thermal overload relay. Use D-curve to ride out the ~80A start."
+          },
+          {
+            "title": "Example 3: Inverter load — avoiding ELB nuisance trip",
+            "body": "Inverters generate high-frequency leakage that trips standard ELBs. Use ELCB (overcurrent-rated) or inverter-compatible B-type ELB. Rating calculation is the same (current × 1.25)."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What's the difference between MCB, MCCB, and ELB?",
+          "answer": "MCB (Miniature Circuit Breaker) = small breaker, residential 6-63A. MCCB (Molded Case) = industrial 50-800A. ELB (Earth Leakage Breaker) = protects against shock. Standard branch circuits use MCB + ELB combination."
+        },
+        {
+          "question": "Why a 1.25 safety factor?",
+          "answer": "KEC 212.6.4 mandates 'breaker rating ≥ load current × 1.25'. The 1.25 ratio ensures the breaker trips before the wire overheats — a safety margin between wire ampacity and breaker rating."
+        },
+        {
+          "question": "Why are motor loads calculated differently?",
+          "answer": "Motor starting current is 6-8× full-load current. A 1.25 factor alone would trip on start. Size the breaker by full-load current with 1.25, but use a D-curve or motor protection circuit breaker that can ride out the start current."
+        },
+        {
+          "question": "What does ELB sensitivity mean?",
+          "answer": "ELB has separate ratings for overcurrent trip and ground-fault sensitivity. For shock protection use 30mA / 0.03s. For fire prevention use 100-300mA. Branch circuits: 30mA; main: 200mA."
+        },
+        {
+          "question": "Can I pick a non-standard rating?",
+          "answer": "No. KEC 212.6.5 requires KS C 8321 standard ratings only. Round up to the next standard rating."
+        },
+        {
+          "question": "How do I match breaker rating with wire size?",
+          "answer": "Wire ampacity ≥ breaker rating. Example: 20A breaker → wire ampacity ≥ 25A (e.g., 2.5sq IV or 4sq THHN). Check KEC 232.5 wire size table, or use this site's wire size calculator."
+        },
+        {
+          "question": "ELBs keep tripping on inverter loads — why?",
+          "answer": "Inverter PWM output creates kHz-range leakage that confuses AC-only ELBs (50/60Hz detection). Fix: use a B-type ELB (inverter-compatible) or an inverter-specific breaker; alternatively, install an isolation transformer."
+        }
+      ],
+      "cautions": [
+        "This calculator follows KEC 212.6 for general load breaker sizing. Special loads (welders, UPS, SMPS) need separate review.",
+        "The 1.25 factor is a floor — for variable or future-growth loads, use 1.5 to 2.0.",
+        "Always round up to the next standard rating, never down (which causes nuisance trips).",
+        "ELB sensitivity (30mA, etc.) is decided separately by load type. This tool sizes overcurrent only.",
+        "Final breaker selection requires KEC review by a certified electrical engineer."
+      ],
+      "related": [
+        { "label": "Wire Size Calculator", "href": "/electric-calc/wire-size" },
+        { "label": "Voltage Drop", "href": "/electric-calc/voltage-drop" },
+        { "label": "Electric Hub", "href": "/electric-calc" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
     "biznum-check": {
       "overview": "The Korean business registration number validator instantly verifies the checksum of a 10-digit business number to catch typos and fabricated numbers. Verification uses the National Tax Service's published 1-3-7-1-3-7-1-3-5 weight algorithm and runs entirely in your browser — no server call, no data leaves your device. Use it as a safety check before transactions, contracts, or wire transfers.",
       "useCases": [

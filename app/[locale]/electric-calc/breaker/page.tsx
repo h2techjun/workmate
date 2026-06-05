@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
 import { BreakerForm } from "@/components/tools/electric-calc/BreakerForm";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import type { Locale } from "@/i18n";
 
 interface PageProps {
@@ -62,6 +63,7 @@ export default async function BreakerPage({
           </p>
         </header>
         <BreakerForm />
+        <ToolGuide toolKey="electric-breaker" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

@@ -158,12 +158,38 @@
 
 ---
 
-## 📅 변경 이력 (최근 5개)
+## 📊 GSC 실데이터 (3개월 기준, 2026-05-30 캡쳐)
+
+| 지표 | 값 |
+|---|---|
+| 총 노출 | **483회** (6주만에 5→45/일로 9배) |
+| 총 클릭 | **3회** (5/29 부터 시작) |
+| 평균 게재순위 | 16위 (2페이지 — 1페이지 진입 필요) |
+| 한국 vs 외국 노출 | 264 : 152 (외국 35% — 영문 SEO 블루오션) |
+| 데스크톱 비중 | 72% (B2B/실무자 패턴) |
+
+### 페이지별 노출 TOP 10
+| URL | 노출 | ToolGuide | 강화 시점 |
+|---|---|---|---|
+| /en/area-convert | 97 🥇 | ✅ | 2026-05-23 |
+| /en/biznum-check | 84 🥈 | ✅ | 2026-05-30 |
+| /electric-calc/breaker | 43 | ✅ | 2026-05-30 |
+| /percent-calc | 36 | ✅ | 2026-05-23 |
+| /timber-calc/roof-area | 17 | ❌ | 다음 |
+| /ko/area-convert | 16 | ✅ | 2026-05-23 |
+| /loan-calc | 14 | ✅ | 2026-05-23 |
+| /biznum-check | 3 (클릭 1) | ✅ | 2026-05-30 |
+| /en/timber-calc | 9 (클릭 1) | — | — |
+| /en/timber-calc/span | 5 (클릭 1) | — | — |
+
+## 📅 변경 이력 (최근 7개)
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-05-30 | breaker ToolGuide + 영문 글 "Korean Pyeong Explained" | (HEAD) |
+| 2026-05-30 | biznum-check ToolGuide + 영문 글 "Business Number Checksum" + /guide 인덱스 | `41248f8` |
+| 2026-05-23 | 레이아웃 일관성 (PageShell + Header active + Footer 그룹) | `4d53f88` |
+| 2026-05-23 | PROJECT_STATUS + TASKS 단일 진실원 체계 | `127283a` |
 | 2026-05-23 | 블로그 3편 + /blog 인덱스 신규 | `223ba6f` |
 | 2026-05-23 | 인기 5개 도구 ToolGuide (thin-content 보강) | `f9b8e78` |
 | 2026-05-23 | hreflang x-default 누락 보강 (23 페이지) | `e1adc9e` |
-| 2026-05-23 | middleware /ads.txt /indexnow-key 예외 | `da4fce8` |
-| 2026-05-23 | AdSense + IndexNow 인프라 (env 조건부) | `a7f794b` |

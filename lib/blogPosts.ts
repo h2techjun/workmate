@@ -47,6 +47,18 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     readingMinutes: 7,
   },
   {
+    slug: "korean-pyeong-explained-for-foreigners",
+    publishedAt: "2026-05-30",
+    titleKo: "외국인을 위한 평수 가이드 — 84㎡가 왜 25평일까",
+    titleEn: "Korean Pyeong, Explained — Why 84㎡ is Called 25-Pyeong",
+    summaryKo:
+      "한국 부동산 매물 표기의 평수가 어떻게 ㎡와 매핑되는지, 전용·공급·계약 면적의 차이까지.",
+    summaryEn:
+      "Why Korean real estate uses pyeong alongside m², how 84㎡ maps to 25-pyeong, and what exclusive vs supply vs contract area really mean.",
+    category: "realestate",
+    readingMinutes: 7,
+  },
+  {
     slug: "korean-business-number-checksum",
     publishedAt: "2026-05-30",
     titleKo: "사업자등록번호 체크섬 — 거래 전 1초 검증법",
