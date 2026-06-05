@@ -5,6 +5,22 @@
 
 ---
 
+## 📊 도구 인벤토리: 50개 (11개 카테고리) — 2026-05-30 전부 완성
+
+로드맵(docs/roadmap.md) Tier 1~3 전부 구현 완료. 음력↔양력만 보류(KASI 데이터 검증 필요).
+- **재무·세금**: income-tax · capital-gains-tax · loan-calc · compound-calc · vat-calc · freelancer-tax · foreign-stock-tax
+- **근로**: net-salary · annual-leave · weekly-rest-pay · severance · min-wage-monthly · insurance-calc
+- **부동산**: rent-cap
+- **자동차** 🚗: car-acquisition-tax · car-tax
+- **한국 생활·외국인** 🇰🇷: korean-age · visa-days · name-romanize · size-convert · gift-money · due-date
+- **공과금** 💡: electric-bill · btu-calc
+- **전기**: wire-size · breaker · voltage-drop
+- **목조·자재**: 18개 (tile·studs·drywall·plywood·osb·siding·insulation-batt·span·insulation·material-quantity·stairs·rafter·roof-pitch·roof-area·concrete·paint-calc·gravel-calc·deck-calc·lumber)
+- **사업자**: biznum-check
+- **변환**: area-convert·percent-calc·json-csv
+
+검증: i18n 2595=2595 · 357 테스트 · 252 페이지 · sitemap 128 URL · ToolGuide 26개
+
 ## 🎯 현재 단계: Phase 3 — 트래픽 + 수익화
 
 | Phase | 상태 | 비고 |
