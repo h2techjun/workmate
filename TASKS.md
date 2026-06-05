@@ -15,13 +15,18 @@
 
 ## 🟡 다음 주 (planned, D+1~7)
 
-- [ ] **양도소득세 (부동산) 계산기** (담당: Claude) — 검색량 폭발
-- [ ] **퇴직금 중간정산 vs 일시지급 비교 도구** (담당: Claude)
-- [ ] **블로그 글 1편 추가** (담당: Claude) — 후보:
-  - "전세 vs 월세, 실제 손익 계산해보면"
-  - "프리랜서 첫 5월 신고 — 사업자 등록 안 하고 가도 되나"
-  - "주임법 외 알아두면 좋은 임차인 권리 5가지"
-- [ ] **외부 백링크 1개** (담당: 마스터) — 네이버 카페·티스토리·관련 커뮤니티
+- [ ] **GSC 색인 요청** (담당: 마스터) — 신규 강화 페이지 우선:
+  - /ko·/en/timber-calc/roof-area, /electric-calc/wire-size, /timber-calc/insulation
+  - /ko·/en/blog/korean-pyeong-explained-for-foreigners
+- [ ] **남은 인기 도구 2개 ToolGuide** (담당: Claude) — 데이터 기반:
+  - /vat-calc (2 노출, 한국 "공급가액")
+  - /timber-calc/plywood (2 노출, 영문 "plywood calculator")
+- [ ] **외부 백링크 1개** (담당: 마스터) — GitHub README 4개 또는 네이버/티스토리
+- [ ] **양도소득세 (부동산) 계산기** (담당: Claude) — 검색량 폭발 (신규 도구)
+
+### ✅ ToolGuide 통합 완료 (노출 TOP10 중 8개)
+income-tax · loan-calc · rent-cap · area-convert · percent-calc ·
+biznum-check(14) · electric-breaker(43) · roof-area(17) · wire-size(10) · insulation(8)
 
 ## 🟢 대기 (backlog, AdSense 2차 거절 시 발동)
 
