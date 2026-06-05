@@ -38,6 +38,7 @@ const TOOL_PATHS = [
   "/vat-calc",
   "/compound-calc",
   "/area-convert",
+  "/korean-age",
   "/percent-calc",
   "/loan-calc",
   "/rent-cap",

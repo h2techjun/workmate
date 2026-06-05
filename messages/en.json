@@ -2195,6 +2195,82 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "korean-age": {
+      "overview": "The Korean age calculator computes all three Korean age systems from your birth date: international age, Korean counting age, and year age. Since June 28, 2023, Korea officially uses international age for legal and administrative purposes, but counting age is still common in daily conversation — which confuses both foreigners and Koreans. This tool shows the difference clearly, plus the days until your next birthday.",
+      "useCases": [
+        "Foreigners in Korea: answer 'how old are you?' correctly",
+        "K-pop / K-drama fans: compare an idol's international vs counting age",
+        "Understand why a Korean friend says you're 1-2 years older",
+        "Check year age for alcohol/tobacco purchase rules",
+        "See exactly when your age changes around your birthday"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter your birth date (year, month, day). It calculates instantly.",
+          "The reference date defaults to today (Korea Standard Time, KST).",
+          "You'll see all three ages — international (official), counting (traditional), year age (legal) — plus whether this year's birthday has passed and days until the next."
+        ]
+      },
+      "formula": {
+        "title": "The three age formulas",
+        "body": "International age (global standard, official since 2023):\n  If birthday has passed = current year − birth year\n  If not yet = current year − birth year − 1\n\nKorean counting age (traditional):\n  = current year − birth year + 1\n  (Age 1 at birth, everyone +1 on January 1)\n\nYear age (military & youth laws):\n  = current year − birth year\n  (Ignores birthday, only year difference)\n\nExample: born Dec 25, 1990, reference June 6, 2026:\n  International = 35 (birthday not passed), counting = 37, year = 36"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Born 1990-03-15 (birthday passed)",
+            "body": "As of 2026-06-06. International 36 (March birthday passed), counting 37, year 36. International and year ages match; only counting is +1."
+          },
+          {
+            "title": "Example 2: Born 1990-12-25 (birthday not yet)",
+            "body": "As of 2026-06-06. International 35 (December birthday pending), counting 37, year 36. All three differ — counting is 2 years above international."
+          },
+          {
+            "title": "Example 3: The December-31 newborn trap",
+            "body": "Born 2025-12-31, as of 2026-01-01: international age 0 (one day old) but counting age is already 2. Year-end births lose the most under the counting system."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is counting age obsolete after the 2023 unification?",
+          "answer": "Legal, administrative, contractual, and medical contexts all use international age now. But daily conversation still uses counting age, so even Koreans ask each other 'how old in international age?' Alcohol/tobacco purchase uses year age."
+        },
+        {
+          "question": "Why is counting age 1-2 years higher than international?",
+          "answer": "Counting age starts at 1 at birth (international starts at 0) and everyone gains a year on January 1 regardless of birthday. If your birthday hasn't passed yet, the gap is 2 years (+1 at birth, +1 at New Year)."
+        },
+        {
+          "question": "What is year age used for?",
+          "answer": "Year age (= current year − birth year) is used in military conscription, youth protection law (alcohol/tobacco), and school grade grouping. It treats everyone born in the same year as the same age, simplifying administration."
+        },
+        {
+          "question": "Is alcohol/tobacco based on international or year age?",
+          "answer": "Year age, per the Youth Protection Act. In 2026, anyone born in 2007 or earlier can buy (2026−2007=19), even if their birthday hasn't passed yet."
+        },
+        {
+          "question": "How do I explain Korean age to a foreigner?",
+          "answer": "International age matches the global standard. Explain that 'Korean age starts at 1 at birth and everyone ages up on January 1.' Add that officially only international age is used now."
+        },
+        {
+          "question": "What happens on the birthday itself?",
+          "answer": "International age increments on the birthday (inclusive). This calculator treats the reference date equal to the birthday as 'passed' and counts the age up."
+        }
+      ],
+      "cautions": [
+        "Since 2023-06-28, official legal/administrative age is international age.",
+        "Alcohol/tobacco purchase uses 'year age' (current year − birth year), which may differ from international age.",
+        "Counting age has no legal force but is common in conversation.",
+        "Reference date is Korea Standard Time (KST). Living abroad may shift the date by one day."
+      ],
+      "related": [
+        { "label": "Pyeong ↔ m²", "href": "/area-convert" },
+        { "label": "Percent Calculator", "href": "/percent-calc" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
     "timber-roof-area": {
       "overview": "The roof area calculator computes actual roof surface area from the floor footprint and roof pitch. Because a roof slopes, its real area is always larger than the top-down projection — this is the basis for estimating tiles, shingles, metal panels, and waterproofing. The tool accounts for eave overhang to give the true installation area.",
       "useCases": [

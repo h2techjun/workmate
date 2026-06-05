@@ -197,6 +197,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       },
     },
     tools: [
+      { labelKo: "한국식 나이 계산", labelEn: "Korean Age", href: "/korean-age", keywordsKo: "한국 나이 만나이 세는나이 연나이 계산기" },
       { labelKo: "평수 ↔ ㎡ ↔ 자²", labelEn: "Pyeong ↔ m²", href: "/area-convert", keywordsKo: "평수 계산 평 제곱미터 환산 부동산 면적" },
       { labelKo: "퍼센트 계산", labelEn: "Percent", href: "/percent-calc", keywordsKo: "퍼센트 할인 인상 변화율 마진" },
       { labelKo: "JSON ↔ CSV", labelEn: "JSON ↔ CSV", href: "/json-csv", keywordsKo: "JSON CSV 변환 한글 BOM Excel" },
