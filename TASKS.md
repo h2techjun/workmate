@@ -15,18 +15,21 @@
 
 ## 🟡 다음 주 (planned, D+1~7)
 
-- [ ] **GSC 색인 요청** (담당: 마스터) — 신규 강화 페이지 우선:
-  - /ko·/en/timber-calc/roof-area, /electric-calc/wire-size, /timber-calc/insulation
-  - /ko·/en/blog/korean-pyeong-explained-for-foreigners
-- [ ] **남은 인기 도구 2개 ToolGuide** (담당: Claude) — 데이터 기반:
-  - /vat-calc (2 노출, 한국 "공급가액")
-  - /timber-calc/plywood (2 노출, 영문 "plywood calculator")
+- [ ] **GSC 색인 요청** (담당: 마스터) — 신규 6개 도구 우선:
+  - /ko·/en/korean-age, /electric-bill, /name-romanize, /size-convert,
+    /capital-gains-tax, /paint-calc
 - [ ] **외부 백링크 1개** (담당: 마스터) — GitHub README 4개 또는 네이버/티스토리
-- [ ] **양도소득세 (부동산) 계산기** (담당: Claude) — 검색량 폭발 (신규 도구)
+- [ ] **음력↔양력 변환기** (담당: Claude) — KASI 데이터 테이블 확보 필요 (보류)
 
-### ✅ ToolGuide 통합 완료 (노출 TOP10 중 8개)
+### ✅ 신규 도구 6종 완료 (2026-05-30, 전부 단계적으로)
+korean-age(영어권 블루오션) · electric-bill(한국 고검색) · name-romanize(외국인) ·
+size-convert(외국인) · capital-gains-tax(한국 고검색) · paint-calc(범용 영어)
+→ 총 도구 40개. 신규 그룹: korea(🇰🇷) · utility(💡)
+
+### ✅ ToolGuide 통합 완료 (노출 TOP10 중 8개 + 신규 6개)
 income-tax · loan-calc · rent-cap · area-convert · percent-calc ·
-biznum-check(14) · electric-breaker(43) · roof-area(17) · wire-size(10) · insulation(8)
+biznum-check · electric-breaker · roof-area · wire-size · insulation ·
+korean-age · electric-bill · name-romanize · size-convert · capital-gains-tax · paint-calc
 
 ## 🟢 대기 (backlog, AdSense 2차 거절 시 발동)
 
