@@ -17,7 +17,7 @@ interface LocaleLayoutProps {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0a0b0e",
+  themeColor: "#07080b",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
