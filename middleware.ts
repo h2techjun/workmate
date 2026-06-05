@@ -5,6 +5,18 @@ export default createMiddleware({
   locales,
   defaultLocale,
   localePrefix: "always",
+  /**
+   * 브라우저/OS 언어 자동 감지 (명시).
+   *
+   * 루트(/) 또는 locale 없는 경로 진입 시 우선순위:
+   *   1. NEXT_LOCALE 쿠키 (사용자가 LanguageSwitcher 로 직접 선택한 값 — 영속)
+   *   2. Accept-Language 헤더 (브라우저/OS 설정 언어)
+   *   3. defaultLocale (ko) — 매칭 실패 시
+   *
+   * 결과: 영어 브라우저 → /en, 한국어 브라우저 → /ko, 제3국 → /ko.
+   * 사용자가 한 번 언어를 바꾸면 쿠키로 그 선택이 우선됨.
+   */
+  localeDetection: true,
 });
 
 /**

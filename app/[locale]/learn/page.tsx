@@ -15,12 +15,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale !== "en";
 
+  // ko 방문자 → 영어 학습 / en 방문자 → 한국어 학습 (각 사용자에게 '외국어'를 학습 대상으로 제시)
   const title = isKo
     ? `영어 학습 · 생활 영어 SRS — ${SITE_BRAND}`
-    : `English Learning · Everyday English SRS — ${SITE_BRAND}`;
+    : `Learn Korean · Spaced-Repetition Korean SRS — ${SITE_BRAND}`;
   const description = isKo
     ? "기억력 곡선(FSRS)에 맞춘 생활 영어 간격 반복 학습. A1~C2 3,400+ 카드, 발음기호+한국어 발음, 플래시카드+빈칸 퀴즈. 가입 없이 브라우저에서 바로."
-    : "Spaced-repetition everyday English on the FSRS memory curve. 3,400+ cards A1–C2, IPA + Korean phonetics, flashcards + cloze quiz. No signup, runs in browser.";
+    : "Learn Korean with spaced repetition on the FSRS memory curve. 3,400+ everyday Korean cards A1–C2, Hangul + romanization, flashcards + cloze quiz. No signup, runs in your browser.";
   const keywords = isKo
     ? [
         "영어 학습",
@@ -34,13 +35,15 @@ export async function generateMetadata({
         "무료 영어 공부",
       ]
     : [
-        "english learning",
-        "everyday english",
-        "spaced repetition",
-        "SRS",
-        "flashcards",
-        "vocabulary",
-        "free english study",
+        "learn korean",
+        "korean for beginners",
+        "korean vocabulary",
+        "everyday korean",
+        "spaced repetition korean",
+        "hangul",
+        "korean flashcards",
+        "study korean free",
+        "korean SRS",
       ];
 
   return {
@@ -83,15 +86,15 @@ export default async function LearnHubPage({
       <div className="mx-auto max-w-6xl">
         <header className="mb-10 max-w-3xl animate-fade-up">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-400">
-            {isKo ? "영어 학습 · 간격 반복" : "Learn · Spaced Repetition"}
+            {isKo ? "영어 학습 · 간격 반복" : "Learn Korean · Spaced Repetition"}
           </p>
           <h1 className="text-4xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-5xl">
-            {isKo ? "기억에 남는 영어 학습" : "English That Sticks"}
+            {isKo ? "기억에 남는 영어 학습" : "Korean That Sticks"}
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[color:var(--color-text-secondary)]">
             {isKo
               ? "잊을 만할 때 다시 만나는 생활 영어. 망각곡선(FSRS)이 복습 타이밍을 자동 계산하고, 발음기호와 한국어 발음까지 함께 익힌다."
-              : "Everyday English that comes back right before you forget. FSRS schedules your reviews automatically, with IPA and phonetic hints."}
+              : "Everyday Korean that comes back right before you forget. FSRS schedules your reviews automatically, with Hangul and romanization hints."}
           </p>
         </header>
 
