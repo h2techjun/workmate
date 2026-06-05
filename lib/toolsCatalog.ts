@@ -145,6 +145,8 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "지붕 면적", labelEn: "Roof Area", href: "/timber-calc/roof-area", keywordsKo: "지붕 면적 처마 면적" },
       { labelKo: "콘크리트 부피", labelEn: "Concrete", href: "/timber-calc/concrete", keywordsKo: "콘크리트 줄기초 매트기초 레미콘 철근" },
       { labelKo: "페인트 양", labelEn: "Paint", href: "/paint-calc", keywordsKo: "페인트 양 소요량 도장 면적 벽 페인트" },
+      { labelKo: "자갈·골재", labelEn: "Gravel", href: "/gravel-calc", keywordsKo: "자갈 골재 부피 무게 모래 쇄석 수량" },
+      { labelKo: "데크·울타리", labelEn: "Deck & Fence", href: "/deck-calc", keywordsKo: "데크 보드 울타리 장선 기둥 자재 수량" },
       { labelKo: "목재 환산", labelEn: "Lumber Conversion", href: "/timber-calc/lumber", keywordsKo: "목재 才 재 board feet BF" },
     ],
   },
@@ -229,6 +231,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     },
     tools: [
       { labelKo: "전기요금 계산", labelEn: "Electricity Bill", href: "/electric-bill", keywordsKo: "전기요금 전기세 누진제 한전 여름 전기요금" },
+      { labelKo: "에어컨 용량 (BTU)", labelEn: "BTU / AC Sizing", href: "/btu-calc", keywordsKo: "에어컨 용량 BTU 평형 냉방 계산기" },
     ],
   },
   {

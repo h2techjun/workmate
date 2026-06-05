@@ -2195,6 +2195,156 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "gravel-calc": {
+      "overview": "The gravel calculator computes the volume (m³) and weight (tons) of gravel, sand, or crushed stone from area and depth. It applies per-material unit weights, includes a compaction allowance, and tells you the number of 25kg bags and 1-ton bulk bags to order. Use it for driveways, parking, drainage layers, and landscaping.",
+      "useCases": [
+        "Estimate gravel for yard/driveway paving",
+        "Aggregate for drainage and base layers",
+        "Landscaping gravel/decomposed-granite order",
+        "Crushed-stone base before concrete",
+        "Garden sand/gravel purchase amount"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter the area (m²) to cover, computed as length × width.",
+          "Enter depth (cm). Gravel paving 5-10cm, compacted base 10-20cm is typical.",
+          "Select material and compaction allowance (usually 20%) to see volume, weight, and bag counts."
+        ]
+      },
+      "formula": {
+        "title": "Volume & weight formula",
+        "body": "Volume (m³) = area (m²) × depth (m)\nOrder volume = volume × (1 + compaction)\nWeight (tons) = order volume × unit weight\n\nUnit weight (t/m³, loose):\n  gravel 1.5, sand 1.6, crushed 1.5, soil 1.4, mixed 1.55\n\n25kg bags = weight(kg) / 25\n1-ton bulk bags = ceil(weight in tons)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          { "title": "Example 1: Yard 20m² × 10cm gravel", "body": "Volume 2m³, +20% compaction → 2.4m³. Weight 2.4 × 1.5 = 3.6 tons. 144 25kg bags or 4 bulk bags." },
+          { "title": "Example 2: Driveway drainage 30m² × 15cm crushed", "body": "Volume 4.5m³ × 1.2 = 5.4m³. Crushed 1.5 → 8.1 tons. Compacted bases need to be laid thicker." },
+          { "title": "Example 3: Garden sand 10m² × 5cm", "body": "Volume 0.5m³ × 1.2 = 0.6m³. Sand 1.6 → 0.96 tons. About 39 bags." }
+        ]
+      },
+      "faq": [
+        { "question": "Why a compaction allowance?", "answer": "Gravel/aggregate loses ~20-30% volume when compacted. To reach the target depth after compaction, you must order extra, so a compaction allowance (default 20%) is added." },
+        { "question": "How is unit weight determined?", "answer": "It varies by material and moisture. This tool uses general loose-dry values (gravel 1.5, sand 1.6 t/m³). Wet sand is heavier and may differ from the estimate." },
+        { "question": "Bags or bulk bags?", "answer": "Small amounts (under 1 ton) are easy in 25kg bags; large amounts are cheaper per unit in 1-ton bulk bags. The tool shows both — choose based on transport and storage." },
+        { "question": "What depth is right for gravel?", "answer": "Decorative finish 3-5cm, walkways 5-8cm, vehicle driveways 8-10cm, compacted base 10-20cm. Heavier loads need thicker layers." },
+        { "question": "Rubble vs crushed stone?", "answer": "Rubble is broken natural stone (uneven sizes); crushed stone is aggregate crushed to a set size. Bases mix rubble + crushed; finishes use uniform crushed/gravel." },
+        { "question": "Is geotextile separate?", "answer": "Yes. Weed-barrier/separation geotextile under gravel is calculated by area (m²) separately. This tool computes aggregate only." }
+      ],
+      "cautions": [
+        "Unit weights are loose-dry general values — vary with moisture.",
+        "20% compaction is the default; adjust for compaction strength.",
+        "Wet sand/aggregate is heavier.",
+        "Geotextile and edging are separate.",
+        "Verify unit weight with the supplier for accurate ordering."
+      ],
+      "related": [
+        { "label": "Concrete Volume", "href": "/timber-calc/concrete" },
+        { "label": "Tile Calculator", "href": "/timber-calc/tile" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "deck-calc": {
+      "overview": "The deck and fence calculator computes deck board count and joists from area, and fence posts, rails, and pickets from length. It reflects construction variables like board gap and joist spacing and includes a waste allowance, ready for woodworking and landscaping DIY orders.",
+      "useCases": [
+        "Estimate deck boards for a build",
+        "Calculate joist count",
+        "Garden fence posts and pickets",
+        "Fence material quote",
+        "Woodworking DIY ordering"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Choose the calculation type (deck/fence).",
+          "For deck: area, board width/length, gap. For fence: length, post spacing, picket spacing.",
+          "See the boards/posts needed and joists/rails/pickets. Includes 10% waste."
+        ]
+      },
+      "formula": {
+        "title": "Material quantity formula",
+        "body": "[Deck]\nEffective board width = width + gap\nBoards = area / (effective width × length) × (1 + waste)\nJoists = deck side length / joist spacing + 1\n\n[Fence]\nPosts = ceil(length / post spacing) + 1\nRails = sections × 2 (top/bottom)\nPickets = length / picket spacing"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          { "title": "Example 1: 20m² deck, 140mm board 3.6m", "body": "Effective width 145mm, 0.522m² per board. 20/0.522 = 38.3 × 1.1 = 43 boards. Joists: 5m side at 400mm = 14." },
+          { "title": "Example 2: 20m fence, 2m post spacing", "body": "10 sections + 1 = 11 posts. 20 rails (2 per section). At 100mm picket spacing, 200 pickets." },
+          { "title": "Example 3: Narrow boards (90mm)", "body": "Narrower effective width needs more boards for the same area — denser look and higher cost." }
+        ]
+      },
+      "faq": [
+        { "question": "Why a board gap?", "answer": "Wood expands/contracts with moisture and needs drainage/ventilation, so leave a 3-6mm gap between boards. The gap adds to effective width, affecting board count." },
+        { "question": "What joist spacing is right?", "answer": "Standard deck boards use 400mm (16in) joist spacing; heavy loads or thin boards use 300mm. Tighter spacing is stronger but needs more joists." },
+        { "question": "Is 10% waste enough?", "answer": "Enough for simple rectangular decks; diagonals, stairs, and complex shapes warrant 15-20%. It covers cutting loss and defective boards." },
+        { "question": "Why posts = sections + 1?", "answer": "Each gap between posts is a section, and you need posts at both ends, so one more than the section count. A 10-section fence needs 11 posts. Corners and gates may need extra posts." },
+        { "question": "Pressure-treated vs composite (WPC)?", "answer": "Pressure-treated is cheaper but needs periodic oiling; composite (WPC) is pricier with less maintenance. The count is the same but board dimensions may differ." },
+        { "question": "Are deck footings calculated?", "answer": "This tool computes boards, joists, and fence materials only. Deck footings (concrete piers, posts) require separate design based on area and load." }
+      ],
+      "cautions": [
+        "10% waste default — complex shapes 15-20%.",
+        "Standard joist spacing 400mm; thin boards 300mm.",
+        "Board gap affects the count.",
+        "Deck footings (piers, posts) require separate design.",
+        "Check pressure-treated vs composite board dimensions."
+      ],
+      "related": [
+        { "label": "Lumber Conversion", "href": "/timber-calc/lumber" },
+        { "label": "Studs Calculator", "href": "/timber-calc/studs" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "btu-calc": {
+      "overview": "The BTU / AC sizing calculator computes the cooling capacity (BTU) and Korean AC 'pyeong type' from room area. It adjusts for ceiling height, sun exposure, occupants, and kitchen, and converts to kW — helping you avoid choosing an AC that's too small or too large.",
+      "useCases": [
+        "Confirm AC capacity before buying",
+        "Pick the right 'pyeong type' by room area",
+        "Compare living room, bedroom, kitchen capacity",
+        "Adjust for sunny or crowded spaces",
+        "Convert BTU ↔ pyeong type"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter room area (m²) and ceiling height.",
+          "Select sun exposure (low/normal/high) and occupants. More sun/people means more capacity.",
+          "Check kitchen if applicable (cooking heat). See recommended BTU, Korean pyeong type, and kW."
+        ]
+      },
+      "formula": {
+        "title": "BTU sizing formula",
+        "body": "Base cooling = area (m²) × 600 BTU/m²\n\nAdjustments:\n  Ceiling over 2.7m scales proportionally\n  Sun high ×1.1, low ×0.9\n  Occupants over 2: +600 BTU each\n  Kitchen +4,000 BTU\n\nKorean pyeong type: BTU / 1,440 (1 pyeong ≈ 1,440 BTU)\nkW: BTU × 0.000293"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          { "title": "Example 1: 20m² bedroom (normal)", "body": "20 × 600 = 12,000 BTU ≈ 8.3 pyeong type. Suitable for a standard bedroom wall/stand AC." },
+          { "title": "Example 2: 30m² living room, high sun, 4 people", "body": "30 × 600 × 1.1 + occupant adjustment = ~21,000 BTU ≈ 14.6 pyeong type. Large rooms scale up with sun and people." },
+          { "title": "Example 3: Space with kitchen", "body": "Cooking heat adds +4,000 BTU. Same area, but kitchens need more capacity." }
+        ]
+      },
+      "faq": [
+        { "question": "What is BTU?", "answer": "British Thermal Unit, a heating/cooling capacity unit — the heat removable (cooling) or supplied (heating) per hour. Higher means more powerful; Korea also labels it as 'pyeong type'." },
+        { "question": "Is bigger always better?", "answer": "No. An oversized unit reaches the set temperature quickly and cycles on/off frequently, removes less humidity, wastes electricity, and risks failure. Right-sizing to the area is most efficient." },
+        { "question": "How do I convert to pyeong type?", "answer": "One Korean AC pyeong type is about 1,440 BTU (~363 kcal/h). E.g., 12,000 BTU ÷ 1,440 ≈ 8.3 pyeong type. Manufacturer ratings often build in a margin over actual area." },
+        { "question": "Why does sun exposure matter?", "answer": "South/west-facing rooms with strong sun gain radiant heat, raising the cooling load. High sun adds +10%, shaded rooms −10%. Large windows and high floors also increase the load." },
+        { "question": "Why size up for kitchens?", "answer": "Stoves and ovens generate a lot of heat. Kitchens and adjacent spaces need about +4,000 BTU for adequate cooling." },
+        { "question": "What if insulation is poor?", "answer": "Poor insulation/windows raise the cooling load, so add ~20% over this estimate to be safe. Conversely, new high-insulation builds have margin." }
+      ],
+      "cautions": [
+        "Based on area × 600 BTU/m² plus adjustments. ±20% by insulation and windows.",
+        "Manufacturer pyeong ratings tend to build in margin.",
+        "Oversizing causes short cycling, poor dehumidification, wasted power.",
+        "Kitchens, high floors, large windows need more capacity.",
+        "For exact sizing, get an installer's on-site assessment."
+      ],
+      "related": [
+        { "label": "Electricity Bill", "href": "/electric-bill" },
+        { "label": "Insulation R/U-value", "href": "/timber-calc/insulation" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
     "car-acquisition-tax": {
       "overview": "The Korean car acquisition tax calculator computes the tax from a vehicle's purchase price. It applies 7% for passenger cars, 4% for light cars, and 5% for vans/cargo, with up to KRW 1.4M eco-car discount and exemption for light cars under KRW 500K. Check the actual tax before registering a new or used vehicle.",
       "useCases": [
