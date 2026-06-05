@@ -46,6 +46,7 @@ const TOOL_PATHS = [
   "/games",
   "/tests",
   "/blog",
+  "/guide",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

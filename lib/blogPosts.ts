@@ -47,6 +47,17 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     readingMinutes: 7,
   },
   {
+    slug: "korean-business-number-checksum",
+    publishedAt: "2026-05-30",
+    titleKo: "사업자등록번호 체크섬 — 거래 전 1초 검증법",
+    titleEn: "Korean Business Registration Number — What the Checksum Tells You",
+    summaryKo: "10자리 사업자번호의 1-3-7 가중치 검산법. 가짜 번호·오타를 거래 전에 잡는 방법.",
+    summaryEn:
+      "The 1-3-7 weighted checksum that catches fake or mistyped Korean business numbers before you sign or wire money.",
+    category: "tax",
+    readingMinutes: 6,
+  },
+  {
     slug: "rent-cap-tenant-checklist",
     publishedAt: "2026-05-23",
     titleKo: "임대료 5% 인상 통보를 받았을 때 즉시 해야 할 7가지",

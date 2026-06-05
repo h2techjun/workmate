@@ -2194,6 +2194,83 @@
         { "label": "Loan Calculator", "href": "/loan-calc" }
       ],
       "lastReviewed": "2026-05-23"
+    },
+    "biznum-check": {
+      "overview": "The Korean business registration number validator instantly verifies the checksum of a 10-digit business number to catch typos and fabricated numbers. Verification uses the National Tax Service's published 1-3-7-1-3-7-1-3-5 weight algorithm and runs entirely in your browser — no server call, no data leaves your device. Use it as a safety check before transactions, contracts, or wire transfers.",
+      "useCases": [
+        "Vendor onboarding: validate format before issuing tax invoices",
+        "Wire transfer safety: verify the recipient's business number format in one second",
+        "Accounting systems: catch input errors and fabricated numbers in ERP",
+        "Foreign accountants and counsel: quick validation when you don't know Korean format rules",
+        "E-tax invoice manual entry: digit count and checksum verification before issuance"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter the 10-digit business registration number — digits only or with hyphens (e.g., 123-45-67890). Format normalizes automatically.",
+          "Checksum verification runs instantly. Result displays as Pass (green) or Format Error (red).",
+          "A Pass does not guarantee an active business. For real-time registration status, check Hometax's 'Business Status Inquiry' separately."
+        ]
+      },
+      "formula": {
+        "title": "Checksum algorithm (Korean NTS standard)",
+        "body": "Let the 10 digits be d1·d2·...·d10:\n\n1) Multiply the first 9 digits by weights 1-3-7-1-3-7-1-3-5 and sum\n   sum = d1×1 + d2×3 + d3×7 + d4×1 + d5×3 + d6×7 + d7×1 + d8×3 + d9×5\n\n2) Add the tens digit of (d9 × 5)\n   sum += floor(d9 × 5 / 10)\n\n3) Check digit = (10 − sum % 10) % 10\n\n4) If the check digit equals d10, the number passes\n\nThe middle two digits (d4·d5) indicate business type (individual 01~79, corporation 81/86/87, non-profit 82, etc.) — informational, not part of validation."
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: 123-45-67890 — catching a fake number",
+            "body": "Checksum: (1×1 + 2×3 + 3×7 + 4×1 + 5×3 + 6×7 + 7×1 + 8×3 + 9×5) + floor(9×5/10) = 169. (10 − 169%10) % 10 = 1. Digit 10 is 0, not 1 → Format error. Fake."
+          },
+          {
+            "title": "Example 2: NTS standard test number — passes",
+            "body": "Sample numbers in the National Tax Service manual pass the checksum. The tool shows 'Valid' immediately. Active registration still needs separate confirmation."
+          },
+          {
+            "title": "Example 3: Identifying business type from middle digits",
+            "body": "XXX-81-XXXXX = for-profit corporation. XXX-82-XXXXX = non-profit. XXX-01~79-XXXXX = individual sole proprietor. You can identify the counterparty's legal form at a glance."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Does passing the checksum mean an active business?",
+          "answer": "No. The checksum only verifies format. For actual registration and operating status, check Hometax's 'Business Registration Status Inquiry' (no certificate required). Use this tool as the first-pass format filter."
+        },
+        {
+          "question": "Why the 1-3-7 weights?",
+          "answer": "It's a variant of ISO 7064 adopted by the Korean National Tax Service in 1976. The 1·3·5·7 weight combination catches nearly all single-digit typos and adjacent-digit transpositions."
+        },
+        {
+          "question": "What do the middle two digits mean?",
+          "answer": "Business type code: 01~79 = individual sole proprietor, 80 = MLM individual, 81·86·87 = for-profit corporation, 82 = non-profit, 83 = government, 84 = foreign corporation, 89 = HQ, 90~99 = branch offices."
+        },
+        {
+          "question": "Can foreign counterparties validate Korean business numbers?",
+          "answer": "Yes. This tool runs entirely in the browser without internet or server calls, so it works the same way from outside Korea. Use it for format validation before signing with a Korean company."
+        },
+        {
+          "question": "Do Korean resident registration numbers have a similar checksum?",
+          "answer": "Yes, the 13-digit resident registration number has its own checksum. This tool is business-number-only; resident number validation requires a separate tool."
+        },
+        {
+          "question": "Can I validate corporate registration numbers (법인등록번호)?",
+          "answer": "Business registration number (10-digit) and corporate registration number (13-digit) are different. The corporate number uses a different checksum issued by the court registry. This tool only supports business registration numbers."
+        }
+      ],
+      "cautions": [
+        "Checksum pass = format valid. Actual registration/operating status requires separate Hometax check.",
+        "Middle digits identify individual/corporation, but cannot tell you suspension or closure status.",
+        "This tool runs entirely in the browser — no input is sent externally.",
+        "E-tax invoice issuance requires both format validation and active registration confirmation."
+      ],
+      "related": [
+        { "label": "4 Insurances + Net Pay", "href": "/insurance-calc" },
+        { "label": "VAT Calculator", "href": "/vat-calc" },
+        { "label": "Income Tax Calculator", "href": "/income-tax" }
+      ],
+      "lastReviewed": "2026-05-23"
     }
   }
 }

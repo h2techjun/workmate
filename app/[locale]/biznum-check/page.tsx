@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
 import { BizNumberForm } from "@/components/tools/business/BizNumberForm";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import type { Locale } from "@/i18n";
 
 interface PageProps {
@@ -62,6 +63,7 @@ export default async function BizNumberPage({
           </p>
         </header>
         <BizNumberForm />
+        <ToolGuide toolKey="biznum-check" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );
