@@ -13,6 +13,7 @@ export type ToolGroupId =
   | "labor"
   | "tax"
   | "realestate"
+  | "car"
   | "korea"
   | "utility"
   | "business"
@@ -189,6 +190,27 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "체류일수 (90일 비자)", labelEn: "Stay Days Tracker", href: "/visa-days", keywordsKo: "한국 체류일수 90일 무비자 만료일 비자" },
       { labelKo: "한글 이름 로마자", labelEn: "Name Romanizer", href: "/name-romanize", keywordsKo: "한글 이름 로마자 여권 영문 이름 변환" },
       { labelKo: "옷·신발 사이즈 변환", labelEn: "Size Converter", href: "/size-convert", keywordsKo: "한국 사이즈 신발 옷 US EU 변환" },
+      { labelKo: "축의금·부의금", labelEn: "Gift Money", href: "/gift-money", keywordsKo: "축의금 부의금 결혼식 경조사비 금액" },
+      { labelKo: "출산예정일", labelEn: "Due Date", href: "/due-date", keywordsKo: "출산예정일 임신 주수 분만예정일 계산기" },
+    ],
+  },
+  {
+    id: "car",
+    accent: "from-slate-500 to-zinc-600",
+    emoji: "🚗",
+    i18n: {
+      ko: {
+        title: "자동차 · 세금",
+        tagline: "취득세·자동차세 — 차량 구매·보유 비용",
+      },
+      en: {
+        title: "Car · Tax",
+        tagline: "Acquisition & annual car tax — ownership costs",
+      },
+    },
+    tools: [
+      { labelKo: "자동차 취득세", labelEn: "Acquisition Tax", href: "/car-acquisition-tax", keywordsKo: "자동차 취득세 취등록세 차량 구매 세금" },
+      { labelKo: "자동차세 (연간)", labelEn: "Annual Car Tax", href: "/car-tax", keywordsKo: "자동차세 배기량 차령 연간 자동차세" },
     ],
   },
   {
@@ -256,6 +278,7 @@ export const TOOL_GROUP_ORDER: ReadonlyArray<ToolGroupId> = [
   "labor",
   "tax",
   "realestate",
+  "car",
   "korea",
   "utility",
   "electric",

@@ -2195,6 +2195,206 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "car-acquisition-tax": {
+      "overview": "The Korean car acquisition tax calculator computes the tax from a vehicle's purchase price. It applies 7% for passenger cars, 4% for light cars, and 5% for vans/cargo, with up to KRW 1.4M eco-car discount and exemption for light cars under KRW 500K. Check the actual tax before registering a new or used vehicle.",
+      "useCases": [
+        "Estimate acquisition tax before buying a new car",
+        "Calculate tax on a used-car purchase",
+        "Check EV/hydrogen-car discounts",
+        "Determine light-car exemption",
+        "Plan total vehicle purchase cost"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter the acquisition price (taxable base, excl. VAT). New cars use ex-factory price; used cars the higher of actual price/assessed value.",
+          "Select vehicle type (passenger/light/eco/van-cargo) to apply the rate and discount.",
+          "See the tax after the eco discount. Bond purchase costs are separate."
+        ]
+      },
+      "formula": {
+        "title": "Acquisition tax formula (Local Tax Act)",
+        "body": "Tax = price × rate\n  Passenger: 7%\n  Light (≤1000cc): 4% (exempt if ≤ KRW 500K)\n  Van/cargo: 5%\n\nEco (EV/hydrogen): up to KRW 1.4M discount\n\ne.g. passenger 30M × 7% = 2.1M KRW\n  eco 50M × 7% = 3.5M − 1.4M = 2.1M KRW"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          { "title": "Example 1: Passenger car KRW 30M", "body": "30M × 7% = 2.1M KRW. Bond purchase (by region/price) and stamp fees are added separately." },
+          { "title": "Example 2: Light car KRW 10M", "body": "10M × 4% = 400K, but under 500K so exempt. Tax 0. A light-car benefit." },
+          { "title": "Example 3: EV KRW 50M", "body": "50M × 7% = 3.5M − 1.4M eco discount = 2.1M KRW. KRW 1.4M cheaper than the equivalent gas car." }
+        ]
+      },
+      "faq": [
+        { "question": "Are acquisition and registration tax different?", "answer": "Registration tax was merged into acquisition tax in 2011, so only 'acquisition tax' is levied now. People say '취등록세' but the actual item is acquisition tax." },
+        { "question": "Why are bond costs separate?", "answer": "Vehicle registration requires buying regional development bonds — that's a bond purchase, not a tax. Selling them immediately at a discount means you bear only part of the cost. It varies by region and price." },
+        { "question": "What's the basis for used cars?", "answer": "The higher of the actual transaction price and the local-tax assessed value (by model year). Declaring too low triggers assessment-based taxation." },
+        { "question": "Is there a multi-child discount?", "answer": "From 2025, households with 2+ children under 18 get a full exemption (3 children) or 50% (2 children) on 6-seat-or-fewer passenger cars. This calculator doesn't include it — verify separately." },
+        { "question": "Until when is the eco discount valid?", "answer": "The EV/hydrogen acquisition tax discount (up to KRW 1.4M) is extended/reduced by policy. Check the current cap at purchase." },
+        { "question": "When do I pay acquisition tax?", "answer": "File and pay within 60 days of acquisition (registration). Usually handled together with vehicle registration; late payment incurs penalties." }
+      ],
+      "cautions": [
+        "Local Tax Act basis. Bond purchase and stamp fees are separate.",
+        "Used cars use the higher of actual price/assessed value.",
+        "2025 multi-child discount not included — verify separately.",
+        "Eco-discount cap changes with policy.",
+        "File/pay within 60 days of acquisition."
+      ],
+      "related": [
+        { "label": "Annual Car Tax", "href": "/car-tax" },
+        { "label": "Loan Calculator", "href": "/loan-calc" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "car-tax": {
+      "overview": "The Korean annual car tax calculator computes the yearly tax from engine displacement and vehicle age. It applies per-cc rates (≤1000cc 80, ≤1600cc 140, >1600cc 200 KRW) plus 30% education tax, age reduction (5%/year from year 3, up to 50%), and a flat EV rate (KRW 130K). It also shows the half-year payments due in June and December.",
+      "useCases": [
+        "Check annual car tax on your vehicle",
+        "Compare ownership cost before buying",
+        "See age-based tax reduction",
+        "Check EV car tax",
+        "See base tax before the annual prepayment discount"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter displacement (cc), shown on the vehicle registration.",
+          "Enter vehicle age (years); reduction applies from year 3.",
+          "Check the EV box for the flat KRW 130K rate. See the annual total and half-year payments."
+        ]
+      },
+      "formula": {
+        "title": "Car tax formula (non-commercial passenger)",
+        "body": "Car tax = displacement × per-cc rate\n  ≤1000cc: 80, ≤1600cc: 140, >1600cc: 200 KRW\n\nEducation tax = car tax × 30%\nAnnual total = car tax + education tax\n\nAge reduction: 5%/year from year 3, max 50% (year 12+)\nEV: flat KRW 130K (non-commercial passenger)\n\ne.g. 1600cc = 1600 × 140 = 224,000 + edu 67,200 = 291,200 KRW"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          { "title": "Example 1: 1600cc new car", "body": "1600 × 140 = 224,000 + 30% edu 67,200 = 291,200 KRW/year. ~145,600 each in June and December." },
+          { "title": "Example 2: 2000cc, 5 years old", "body": "2000 × 200 = 400K base. 15% age reduction at year 5 → ~340K + edu. Older = less tax." },
+          { "title": "Example 3: EV", "body": "Flat KRW 130K regardless of displacement + 39,000 edu = 169K/year. Far cheaper than a large gas car." }
+        ]
+      },
+      "faq": [
+        { "question": "Why is car tax based on displacement?", "answer": "Current car tax uses displacement (cc) as the base. Larger displacement = higher per-cc rate = more tax. Since it's not price-based, an expensive small car can pay less than a large one." },
+        { "question": "How does age reduction work?", "answer": "From year 3 after registration, 5% reduction per year, reaching up to 50% at year 12. Older cars carry a lighter tax." },
+        { "question": "Is there a prepayment discount?", "answer": "Yes. Paying the full year in January gives ~7% off (2024 basis, shrinking yearly). This calculator shows the base before discount." },
+        { "question": "Why is EV tax flat?", "answer": "EVs have no displacement, so a flat KRW 130K applies (non-commercial passenger). Far below a large gas car (2000cc 400K+) — one of the EV ownership perks." },
+        { "question": "What is the education tax?", "answer": "A surtax on car tax — 30% goes to regional education funding. It's combined on the car tax bill." },
+        { "question": "When do I pay car tax?", "answer": "Twice a year — June (Jan-Jun) and December (Jul-Dec) in halves. With annual prepayment in January you pay the discounted full year at once." }
+      ],
+      "cautions": [
+        "Non-commercial passenger basis. Commercial/van/cargo use a different system.",
+        "Prepayment discount (~7%) not included — base tax shown.",
+        "EV flat rate is KRW 130K for non-commercial passenger.",
+        "Age reduction starts from year 3 after registration.",
+        "30% education tax is added to car tax."
+      ],
+      "related": [
+        { "label": "Car Acquisition Tax", "href": "/car-acquisition-tax" },
+        { "label": "Electricity Bill", "href": "/electric-bill" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "gift-money": {
+      "overview": "The Korean gift money calculator recommends appropriate amounts for wedding (축의금) and funeral (부의금) cash gifts based on relationship and attendance. There's no fixed rule, but customary ranges exist by closeness — acquaintance, colleague, friend, close friend, relative — plus the custom of giving one tier higher when attending (to cover the meal) and the preference for odd numbers.",
+      "useCases": [
+        "When unsure how much wedding gift money to give",
+        "Check appropriate funeral money",
+        "Set a baseline for a colleague's event",
+        "See the difference between attending and not",
+        "Guide for foreigners new to Korean ceremony customs"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Choose the occasion (wedding/funeral).",
+          "Pick your relationship (acquaintance/colleague/friend/close friend/relative).",
+          "For weddings, check attendance — the recommendation adjusts to cover the meal."
+        ]
+      },
+      "formula": {
+        "title": "Recommended amounts (custom)",
+        "body": "Wedding (10,000 KRW units):\n  acquaintance 5 / colleague 5-10 / friend 5-10 / close friend 10-20 / relative 10-30\nFuneral:\n  acquaintance 3-5 / colleague 5-10 / friend 5-10 / close friend 10-20 / relative 10-30\n\nGive one tier higher when attending (meal cost).\nOdd amounts preferred (30/50/70/100K) — even numbers imply 'division' (100K is the exception)."
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          { "title": "Example 1: Colleague's wedding, attending", "body": "Colleague base 50K, but attending (meal ~50K) suggests 100K. Custom is to give more than the meal cost." },
+          { "title": "Example 2: Close friend's wedding", "body": "Close friend range 100-200K. Decide based on the friendship and future reciprocity at your own wedding." },
+          { "title": "Example 3: Boss's parent's funeral", "body": "Colleague/boss funeral money 50-100K. Sometimes the team contributes together. Attendance matters more than the amount." }
+        ]
+      },
+      "faq": [
+        { "question": "Should the amount be an odd number?", "answer": "Korea prefers odd amounts (30/50/70K). Even numbers imply 'division (separation)' and are avoided, but 100K is an exception ('completeness'). It's not an absolute rule." },
+        { "question": "Can I give less if I don't attend?", "answer": "Attending incurs a meal cost (~50K), so when not attending, the amount minus the meal (e.g., colleague 50K) is fine. When attending, custom is to exceed the meal cost." },
+        { "question": "I'm a foreigner invited to a Korean wedding", "answer": "50-100K is safe depending on relationship. Write your name on the envelope and hand it at the reception desk; use crisp new bills in a white envelope. Funerals use white envelopes; weddings white/plain too." },
+        { "question": "Do wedding and funeral amounts differ?", "answer": "Similar, but funeral money tends to be slightly lower. For funerals, attendance to share grief matters more than the amount." },
+        { "question": "If the company contributes, do I still give?", "answer": "When a team/department jointly gives a wreath or condolence money, individual extra is optional by closeness. Close ones may add a little separately." },
+        { "question": "What do I write on the envelope?", "answer": "For weddings, 祝結婚/祝華婚 on the front; for funerals, 賻儀/謹弔, with your name and affiliation on the back. Korean ('축 결혼' / 'condolences') is also fine." }
+      ],
+      "cautions": [
+        "No fixed rule — a reference varying by relationship, region, prices.",
+        "Give one tier higher when attending (meal cost).",
+        "Odd numbers preferred, but 100K is the exception.",
+        "For funerals, attendance matters more than the amount.",
+        "Use new bills in a white/plain envelope."
+      ],
+      "related": [
+        { "label": "Percent Calculator", "href": "/percent-calc" },
+        { "label": "Korean Age", "href": "/korean-age" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "due-date": {
+      "overview": "The due date calculator estimates your delivery date from the last menstrual period (LMP). Based on Naegele's rule (LMP + 280 days), it shows the current pregnancy week, trimester, progress, and days to go, and auto-adjusts for cycles other than 28 days.",
+      "useCases": [
+        "Calculate the due date after confirming pregnancy",
+        "Check current pregnancy week and trimester",
+        "Plan prenatal checkups and maternity leave",
+        "Adjusted due date for irregular cycles",
+        "Track pregnancy progress and D-day"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter the first day of your last menstrual period (LMP).",
+          "Enter your average cycle length. Default is 28 days; otherwise ovulation timing is adjusted.",
+          "See the due date, current week/trimester, progress, and days remaining."
+        ]
+      },
+      "formula": {
+        "title": "Naegele's rule",
+        "body": "EDD = LMP + 280 days (40 weeks)\n  = LMP + 1 year − 3 months + 7 days\n\nPregnancy weeks = (today − LMP) / 7\nTrimester: 1st 0-13 wks, 2nd 14-27, 3rd 28+\n\nCycle adjustment: shift EDD by (cycle − 28) days\n  e.g. 35-day cycle → EDD 7 days later"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          { "title": "Example 1: LMP Jan 1 (28-day cycle)", "body": "Jan 1 + 280 days = Oct 8 due date. Based on the 40-week full term." },
+          { "title": "Example 2: 20 weeks pregnant", "body": "140 days after LMP = 20 weeks = 2nd trimester. Anatomy scan and sex determination period. 50% progress." },
+          { "title": "Example 3: 35-day cycle", "body": "Later ovulation shifts the due date 7 days past the 28-day estimate. Cycle adjustment gives a more accurate date." }
+        ]
+      },
+      "faq": [
+        { "question": "Will I deliver exactly on the due date?", "answer": "It's an estimate. Full term spans 37-42 weeks, and only ~5% deliver on the exact due date. Most deliver within ±2 weeks." },
+        { "question": "Is it accurate with irregular cycles?", "answer": "Naegele's rule assumes a regular 28-day cycle. Irregular cycles increase error, so an ultrasound (fetal-size) due date is more accurate. This tool supports cycle adjustment but is for reference." },
+        { "question": "When does pregnancy week counting start?", "answer": "The first day of LMP is week 0 day 0. Actual conception is ~2 weeks later, but since exact ovulation is unknown, LMP is the standard. So 'week 4' is around the expected period date." },
+        { "question": "How are trimesters divided?", "answer": "1st 0-13 weeks (organ formation, nausea), 2nd 14-27 (stable, movement), 3rd 28+ (rapid growth, term prep). Each has different tests and precautions." },
+        { "question": "It differs from the ultrasound date — which is right?", "answer": "The early ultrasound (7-12 weeks) date is most accurate. If it differs from LMP by 1+ weeks, the ultrasound date is usually adopted. This tool estimates from LMP, so prioritize your OB-GYN's confirmed date." },
+        { "question": "Same due date for twins?", "answer": "Twins/multiples tend to be born earlier (usually before 37 weeks). This calculator assumes a singleton, so follow medical guidance for multiples." }
+      ],
+      "cautions": [
+        "Naegele's rule (LMP+280) estimate — ultrasound date is more accurate.",
+        "Full term spans 37-42 weeks; ~5% deliver on the due date.",
+        "Irregular cycles increase error.",
+        "Twins/multiples tend to be earlier (separate).",
+        "Confirm the exact date via OB-GYN ultrasound."
+      ],
+      "related": [
+        { "label": "Korean Age", "href": "/korean-age" },
+        { "label": "Gift Money", "href": "/gift-money" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
     "net-salary": {
       "overview": "The Korean salary take-home calculator computes your actual monthly pay after the 4 insurances and income tax are deducted from your annual salary. It reflects national pension, health, long-term care, and employment insurance, plus income and local tax, and accounts for dependents, children, and the non-taxable allowance. See gross-to-net at a glance before a job change or salary negotiation.",
       "useCases": [
