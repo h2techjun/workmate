@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
 import { RoofAreaForm } from "@/components/tools/timber/RoofAreaForm";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import type { Locale } from "@/i18n";
 
 interface PageProps {
@@ -63,6 +64,7 @@ export default async function RoofAreaPage({
           </p>
         </header>
         <RoofAreaForm />
+        <ToolGuide toolKey="timber-roof-area" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

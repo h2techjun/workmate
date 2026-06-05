@@ -2195,6 +2195,242 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "timber-roof-area": {
+      "overview": "The roof area calculator computes actual roof surface area from the floor footprint and roof pitch. Because a roof slopes, its real area is always larger than the top-down projection — this is the basis for estimating tiles, shingles, metal panels, and waterproofing. The tool accounts for eave overhang to give the true installation area.",
+      "useCases": [
+        "Roofing quotes: tile, asphalt shingle, metal panel quantity estimation",
+        "Waterproofing: sloped or flat roof area plus waste factor",
+        "Solar panels: pre-check installable roof area",
+        "Renovation quotes: existing roof replacement area",
+        "Building design: roof load and insulation area baseline"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter the building's floor width and depth in meters — the basis for the projected area the roof covers.",
+          "Enter the roof pitch. Korea uses 'x/10' notation (e.g., 4-chi = 4/10 = 21.8°); US uses 'x/12'. You can also enter degrees directly.",
+          "Enter the eave overhang length, typically 30-60cm. Longer eaves mean a larger actual roof area.",
+          "Click Calculate. You'll get the pitch-corrected actual roof area plus the area including material waste (typically 10%)."
+        ]
+      },
+      "formula": {
+        "title": "Roof area formula",
+        "body": "Pitch correction factor = √(1 + (rise/run)²)\n  Example: 4/10 pitch → √(1 + 0.16) = 1.077\n\nActual roof area = projected area × correction factor\n  (Projection with eaves = (width + 2×eave) × (depth + 2×eave))\n\nPitch notation:\n  Korea 'x-chi' = x/10 → angle = atan(x/10)\n  US 'x/12' = x/12 → angle = atan(x/12)\n  e.g. 4-chi = 21.8°, 5/12 = 22.6°, 6/12 = 26.6°\n\nMaterial quantity = actual area × (1 + waste factor)\n  Waste: tile 10%, shingle 10-15%, metal 5-10%"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: 10m × 8m building, 4/10 pitch, 0.5m eaves",
+            "body": "Projection with eaves = (10+1) × (8+1) = 99㎡. Correction = 1.077. Actual roof = 106.6㎡. With 15% shingle waste → order 122.6㎡."
+          },
+          {
+            "title": "Example 2: Steep 6/12 pitch",
+            "body": "6/12 = 26.6°. Factor = √(1+0.25) = 1.118. Same 99㎡ projection becomes 110.7㎡ actual. Steeper pitch increases area, material, and cost."
+          },
+          {
+            "title": "Example 3: Flat roof waterproofing",
+            "body": "Near-zero pitch → factor ≈ 1.0. Projected = actual. But parapet vertical waterproofing area is added separately. Waterproofing adds 10% waste plus overlap zones."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why is roof area larger than floor area?",
+          "answer": "A sloped roof's hypotenuse is longer than its base. A 4/10 (21.8°) pitch adds ~7.7%; a 6/12 (26.6°) adds ~11.8%. It looks the same from above, but the actual installation area is always larger."
+        },
+        {
+          "question": "How do Korean 'chi' and US 'x/12' notations differ?",
+          "answer": "Both express slope but with different denominators. Korea: rise per 10 horizontal (x/10). US: rise per 12 (x/12). E.g., Korea 4-chi = 21.8°, US 5/12 = 22.6°. The calculator supports both."
+        },
+        {
+          "question": "Why include eaves in the area?",
+          "answer": "Eaves (roof overhang beyond the wall) must also be covered with material, so they count as installation area. A 0.5m eave adds 1m to each dimension, growing a 10×8 building to an 11×9 projection."
+        },
+        {
+          "question": "Why is a waste factor needed?",
+          "answer": "Cutting loss, overlap (shingles overlap top-to-bottom), trimming waste, and breakage allowance. Tile 10%, asphalt shingle 10-15%, metal 5-10%; complex roofs (polygonal, dormers) need more."
+        },
+        {
+          "question": "How do I calculate hip or complex roofs?",
+          "answer": "This calculator handles simple sloped roofs (gable, shed). For hip or complex roofs, calculate each plane separately and sum. Valleys and ridges need extra waste allowance."
+        },
+        {
+          "question": "Can I use this for solar panel area?",
+          "answer": "Get the actual roof area here, but installable panel area must subtract shading, vents, and setback distances. Typically 60-70% of actual roof area is usable for panels."
+        }
+      ],
+      "cautions": [
+        "Handles simple sloped roofs (gable, shed). Hip/complex roofs need plane-by-plane summation.",
+        "Ridges, hips, and valleys need extra material and waste.",
+        "Waterproofing adds parapet vertical area separately.",
+        "Waste factor adjusts by roof shape/complexity. A flat 10% is the floor.",
+        "Structural and snow load review requires separate structural calculation."
+      ],
+      "related": [
+        { "label": "Roof Pitch Conversion", "href": "/timber-calc/roof-pitch" },
+        { "label": "Rafter Length", "href": "/timber-calc/rafter" },
+        { "label": "OSB Calculator", "href": "/timber-calc/osb" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "electric-wire-size": {
+      "overview": "The wire size calculator determines the proper cross-section (sq) from load current, run length, and allowable voltage drop. Based on KEC 232.5 (wire sizing) and KS C IEC 60364 ampacity tables, it presents the minimum size satisfying both overheating (ampacity) and voltage drop. Use it for electrical design, quotes, and KEC certification exam prep.",
+      "useCases": [
+        "Branch circuit design: proper wire size per load",
+        "Long runs: upsizing for voltage drop",
+        "Motor circuits: cable selection considering starting current",
+        "Solar / EV charger: high-current circuit sizing plus voltage drop",
+        "KEC certification: practice wire sizing rules"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter load current (A). If you only know capacity (kW), convert via voltage and power factor first (I = P/(V×pf), √3 for 3-phase).",
+          "Enter one-way run length (m). Voltage drop is computed for the round trip, so enter one-way only.",
+          "Choose allowable voltage drop (%). KEC interior code: 3% for feeders, total 5% including branch circuits.",
+          "Click Calculate. You'll see ① ampacity-based minimum, ② voltage-drop-based minimum, ③ the larger (final selection)."
+        ]
+      },
+      "formula": {
+        "title": "Wire sizing formula (KEC 232.5)",
+        "body": "Select the minimum cross-section satisfying both:\n\n① Ampacity: wire ampacity ≥ load current × safety factor\n   Match from KS C IEC 60364 table (e.g., 2.5sq IV ≈ 27A)\n\n② Voltage drop:\n   Single-phase: e = 35.6 × L × I / (1000 × A)\n   3-phase: e = 30.8 × L × I / (1000 × A)\n   (e=drop V, L=one-way m, I=current A, A=area sq)\n   → A ≥ 35.6 × L × I / (1000 × allowable drop V)\n\nFinal = max(① result, ② result)\n\nStandard sizes (sq): 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Single-phase 220V, 16A, 20m, 3% drop",
+            "body": "① Ampacity: 16A → 2.5sq (27A) ample. ② Drop: allowable 6.6V, A ≥ 35.6×20×16/(1000×6.6) = 1.73sq → 2.5sq ample. Final 2.5sq."
+          },
+          {
+            "title": "Example 2: Same load, 80m (long run)",
+            "body": "① Ampacity: 2.5sq still ample. ② Drop: A ≥ 35.6×80×16/(1000×6.6) = 6.9sq → need 10sq. Distance makes voltage drop govern. Final 10sq."
+          },
+          {
+            "title": "Example 3: 3-phase 380V 30A, 50m, 3% drop",
+            "body": "① Ampacity: 30A → 4sq (36A) or 6sq. ② Drop: allowable 11.4V, A ≥ 30.8×50×30/(1000×11.4) = 4.05sq → 6sq. Final 6sq."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why check both ampacity and voltage drop?",
+          "answer": "Ampacity alone prevents overheating (fire), but long runs drop voltage so equipment underperforms. Short runs are governed by ampacity, long runs by voltage drop. Always select the larger for safety."
+        },
+        {
+          "question": "Where do the 3% / 5% drop limits come from?",
+          "answer": "Korean interior code: feeder ≤3%, feeder+branch ≤5% (runs ≤60m). Beyond 60m, relaxed rules apply. Excessive drop dims lighting, reduces motor torque, and increases heating."
+        },
+        {
+          "question": "Do IV, HIV, CV wires have different ampacity?",
+          "answer": "Yes — insulation temperature differs. IV (60°C) < HIV (75°C) < CV/XLPE (90°C). CV carries more current at the same size. This calculator uses standard IV/HIV; CV needs a separate table."
+        },
+        {
+          "question": "How do I match wire size with breaker rating?",
+          "answer": "Wire ampacity ≥ breaker rating. E.g., 20A breaker → ampacity ≥ 25A (2.5-4sq). The breaker must trip before the wire overheats. Use this site's breaker calculator together."
+        },
+        {
+          "question": "Do I need correction for multiple wires in conduit?",
+          "answer": "Yes. Multiple circuits in one conduit reduce heat dissipation, lowering ampacity. Apply factors like 0.7 for ≤3 circuits, 0.6 for 4-6. This calculator assumes a single circuit, so upsize for bundled runs."
+        },
+        {
+          "question": "Copper vs aluminum?",
+          "answer": "Aluminum's conductivity is ~61% of copper, needing ~1.6× the cross-section for the same current. This calculator uses copper (Cu). For aluminum, size up at least one step."
+        }
+      ],
+      "cautions": [
+        "Uses copper, single circuit, IV/HIV insulation. Aluminum, bundled runs, CV need separate correction.",
+        "Multiple circuits in conduit require ampacity derating factors.",
+        "Ambient over 30°C requires additional derating.",
+        "Must match breaker rating (ampacity ≥ breaker rating).",
+        "Final design requires KEC review by a certified electrical engineer."
+      ],
+      "related": [
+        { "label": "Breaker Capacity", "href": "/electric-calc/breaker" },
+        { "label": "Voltage Drop", "href": "/electric-calc/voltage-drop" },
+        { "label": "Electric Hub", "href": "/electric-calc" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "timber-insulation": {
+      "overview": "The insulation R-value/U-value calculator computes thermal resistance (R) and thermal transmittance (U) from a wall assembly and judges pass/fail against Korean Building Energy Conservation Code (Appendix 1) zonal and component limits. Use it for new-build insulation thickness, passive house design, and energy efficiency grading.",
+      "useCases": [
+        "New-build design: thickness to pass Appendix 1 U-value limits",
+        "Renovation: R-value improvement when adding insulation to existing walls",
+        "Passive house: back-calculate ultra-low target U-value",
+        "Condensation check: surface temperature and risk for under-insulated areas",
+        "Energy grading: baseline data for building energy efficiency certification"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter insulation type and thickness. Material thermal conductivity (λ) for glasswool, XPS, EPS, urethane, etc. is applied automatically.",
+          "Add the wall assembly (drywall, plywood, cladding) layer by layer. R-values sum across each layer's thickness and conductivity.",
+          "Select zone (Central-1/Central-2/Southern/Jeju) and component (wall/roof/floor) to compare against Appendix 1 limits and see pass/fail."
+        ]
+      },
+      "formula": {
+        "title": "R-value / U-value formula (Energy code)",
+        "body": "Layer resistance R = thickness(m) / conductivity λ(W/m·K)\n  Example: glasswool 100mm, λ=0.037 → R = 0.1/0.037 = 2.70 ㎡·K/W\n\nTotal resistance R_total = R_inside + ΣR_layers + R_outside\n  (Inside surface 0.11, outside 0.043 ㎡·K/W standard)\n\nThermal transmittance U = 1 / R_total (W/㎡·K)\n  → lower U = better insulation\n\nAppendix 1 wall U-value limits (2026):\n  Central-1: 0.150 / Central-2: 0.170 / Southern: 0.220 / Jeju: 0.290 W/㎡·K\n  (Roof is stricter, floor varies by location)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Central-2 wall — glasswool 100mm",
+            "body": "R = inside 0.11 + glasswool (0.1/0.037=2.70) + drywall (0.0125/0.18=0.07) + outside 0.043 = 2.92. U = 1/2.92 = 0.342. Central-2 limit 0.170 → FAIL! Need thicker."
+          },
+          {
+            "title": "Example 2: Same wall — glasswool upgraded to 220mm",
+            "body": "R = 0.11 + (0.22/0.037=5.95) + 0.07 + 0.043 = 6.17. U = 1/6.17 = 0.162. Central-2 limit 0.170 PASS ✓. About 220mm insulation needed."
+          },
+          {
+            "title": "Example 3: Passive house target U=0.10",
+            "body": "U=0.10 → R_total=10 needed. Glasswool alone ~360mm, or high-performance urethane (λ=0.023) 230mm. Combine exterior+interior insulation to minimize thermal bridging."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "R-value or U-value — which higher is better?",
+          "answer": "Higher R (resistance) is better; lower U (transmittance) is better. They're reciprocals (U=1/R). Korea regulates by U-value limit; the US often labels by R-value."
+        },
+        {
+          "question": "How are Appendix 1 zones determined?",
+          "answer": "Central-1 (parts of Gangwon, northern Gyeonggi), Central-2 (Seoul, most Gyeonggi, Chungcheong), Southern (Jeolla, Gyeongsang, Busan), Jeju. Colder zones have stricter (lower) U-value limits. Check the city/county table for exact zones."
+        },
+        {
+          "question": "Are thermal bridges accounted for?",
+          "answer": "No — this calculator uses 1D R-value summation and ignores thermal bridges through framing (studs, concrete beams). Actual U-value can be 10-30% worse, so precise design needs thermal bridge analysis (e.g., THERM)."
+        },
+        {
+          "question": "Why add surface resistances?",
+          "answer": "Air boundary layers at wall surfaces add insulation. Inside 0.11, outside 0.043 ㎡·K/W are standard. Small but must be included for an accurate U-value."
+        },
+        {
+          "question": "Do insulation materials differ much?",
+          "answer": "Yes. Lower λ means the same performance in less thickness. Glasswool 0.037, EPS 0.034, XPS 0.028, urethane 0.023, phenolic foam 0.020 W/m·K. Urethane achieves the same as glasswool at ~60% thickness."
+        },
+        {
+          "question": "How do I judge condensation?",
+          "answer": "Insufficient insulation drops the interior surface below dew point, causing condensation. Surface temp = indoor temp − (indoor-outdoor diff × inside resistance / R_total). It must stay above dew point. Passing Appendix 1 usually prevents condensation too."
+        }
+      ],
+      "cautions": [
+        "Uses 1D R-value summation. Thermal bridges (studs, beams) ignored — actual U-value may be worse.",
+        "Appendix 1 limits vary by zone, component, and year. Current as of 2026.",
+        "Surface and cavity resistances use standard values; precise design uses measured values.",
+        "Condensation judgment is simplified. Precise review needs steady-state heat/moisture analysis.",
+        "Final design requires review by an architect or energy assessor."
+      ],
+      "related": [
+        { "label": "Insulation Batts", "href": "/timber-calc/insulation-batt" },
+        { "label": "Drywall Calculator", "href": "/timber-calc/drywall" },
+        { "label": "Timber Hub", "href": "/timber-calc" }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
     "electric-breaker": {
       "overview": "The Korean breaker sizing calculator computes MCB / MCCB rated current from load current, applying KEC 212.6 (Korean Electric Code breaker selection rules) and the standard 1.25 safety factor. It handles ordinary loads, motors, and inverter/VVVF loads with their respective adjustments. Use it for residential and commercial panel design, motor starter selection, and KEC certification exam preparation.",
       "useCases": [

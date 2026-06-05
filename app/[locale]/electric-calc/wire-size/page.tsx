@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { WireSizeForm } from "@/components/tools/electric-calc/WireSizeForm";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import { CalculatorJsonLd } from "@/components/seo/StructuredData";
 import { SITE_URL } from "@/lib/siteConfig";
 import type { Locale } from "@/i18n";
@@ -104,6 +105,7 @@ export default async function WireSizePage({
         </header>
 
         <WireSizeForm />
+        <ToolGuide toolKey="electric-wire-size" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );
