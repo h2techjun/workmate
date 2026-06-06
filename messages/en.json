@@ -702,8 +702,13 @@
     },
     "title": "Breaker Capacity Calculator",
     "subtitle": "Load current × safety factor → smallest KS-standard rating that satisfies the requirement. Includes inverter+ELB nuisance-trip warning.",
-    "breadcrumb": { "parent": "Electric Calculator", "current": "Breaker" },
-    "sections": { "load": "Load Information" },
+    "breadcrumb": {
+      "parent": "Electric Calculator",
+      "current": "Breaker"
+    },
+    "sections": {
+      "load": "Load Information"
+    },
     "fields": {
       "loadCurrent": "Load Current (A)",
       "loadType": "Load Type",
@@ -723,7 +728,10 @@
       "inverter": "Inverter load",
       "welder": "Welder (intermittent)"
     },
-    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
     "result": {
       "heading": "Result",
       "empty": "Enter load current and type, then click Calculate.",
@@ -764,8 +772,14 @@
     },
     "title": "Voltage Drop Calculator",
     "subtitle": "Korean Electrical Code formula e = (k × L × I) / (1000 × A) with auto distance-based limit comparison (3% / 5% / 6% / 7%).",
-    "breadcrumb": { "parent": "Electric Calculator", "current": "Voltage Drop" },
-    "sections": { "circuit": "Circuit", "cable": "Cable" },
+    "breadcrumb": {
+      "parent": "Electric Calculator",
+      "current": "Voltage Drop"
+    },
+    "sections": {
+      "circuit": "Circuit",
+      "cable": "Cable"
+    },
     "fields": {
       "voltage": "Source Voltage (V)",
       "current": "Load Current (A)",
@@ -780,9 +794,18 @@
       "three-3wire": "Three-phase 3-wire (k=30.8)",
       "three-4wire": "Three-phase 4-wire (k=17.8)"
     },
-    "material": { "copper": "Copper", "aluminum": "Aluminum (×1.6)" },
-    "actions": { "calculate": "Calculate", "reset": "Reset" },
-    "status": { "pass": "PASS", "fail": "FAIL (NG)" },
+    "material": {
+      "copper": "Copper",
+      "aluminum": "Aluminum (×1.6)"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "status": {
+      "pass": "PASS",
+      "fail": "FAIL (NG)"
+    },
     "result": {
       "heading": "Result",
       "empty": "Enter circuit information and click Calculate.",
@@ -813,7 +836,9 @@
       "crossSectionPositive": "Cross-section must be greater than 0",
       "crossSectionStandard": "Not a KS standard cross-section"
     },
-    "errors": { "unknown": "An unknown error occurred during calculation." }
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
   },
   "insuranceTool": {
     "meta": {
@@ -822,8 +847,12 @@
     },
     "title": "Korean 4-Major Insurance Calculator",
     "subtitle": "2026 rates. Computes employee + employer contributions and net salary in one pass. Industrial accident rate is industry-specific (editable).",
-    "breadcrumb": { "home": "Home" },
-    "sections": { "salary": "Salary" },
+    "breadcrumb": {
+      "home": "Home"
+    },
+    "sections": {
+      "salary": "Salary"
+    },
     "fields": {
       "monthlySalary": "Monthly Salary (KRW)",
       "industrialAccidentRate": "Industrial Accident Rate (decimal, default 0.0086)"
@@ -840,8 +869,13 @@
       "employmentExtra": "Employment (Stability/Skill Dev.)",
       "industrialAccident": "Industrial Accident"
     },
-    "actions": { "calculate": "Calculate", "reset": "Reset" },
-    "unit": { "krw": "KRW" },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "unit": {
+      "krw": "KRW"
+    },
     "result": {
       "heading": "Result",
       "empty": "Enter monthly salary and click Calculate.",
@@ -871,7 +905,9 @@
       "salaryMin": "Monthly salary must be at least 100,000 KRW",
       "salaryMax": "Monthly salary must be at most 100,000,000 KRW"
     },
-    "errors": { "unknown": "An unknown error occurred during calculation." }
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
   },
   "foreignStockTaxTool": {
     "meta": {
@@ -880,8 +916,14 @@
     },
     "title": "Foreign Stock Capital Gains Tax Calculator",
     "subtitle": "For Korean residents. Applies separate buy/sell exchange rates, KRW 2.5M annual deduction, and 22% (income 20% + local 2%) tax rate.",
-    "breadcrumb": { "home": "Home" },
-    "sections": { "buy": "Purchase", "sell": "Sale", "options": "Options" },
+    "breadcrumb": {
+      "home": "Home"
+    },
+    "sections": {
+      "buy": "Purchase",
+      "sell": "Sale",
+      "options": "Options"
+    },
     "fields": {
       "buyPriceForeign": "Buy Price (Foreign Currency)",
       "buyExchangeRate": "Buy-day Exchange Rate (KRW per FX)",
@@ -896,8 +938,13 @@
       "transactionCost": "Brokerage fees and other costs (excluding tax)",
       "prevDeduction": "Deduction already used in other trades this year. Subtracted from KRW 2.5M."
     },
-    "actions": { "calculate": "Calculate", "reset": "Reset" },
-    "unit": { "krw": "KRW" },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
+    "unit": {
+      "krw": "KRW"
+    },
     "result": {
       "heading": "Result",
       "empty": "Enter purchase and sale information then click Calculate.",
@@ -929,7 +976,9 @@
       "costNonNegative": "Transaction cost must be non-negative",
       "deductionNonNegative": "Used deduction must be non-negative"
     },
-    "errors": { "unknown": "An unknown error occurred during calculation." }
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
   },
   "jsonCsvTool": {
     "meta": {
@@ -938,7 +987,9 @@
     },
     "title": "JSON ↔ CSV Converter",
     "subtitle": "UTF-8 BOM + CRLF CSV ↔ JSON conversion with no Korean character corruption. Excel-Korean compatible. Client-side processing only (no server upload).",
-    "breadcrumb": { "home": "Home" },
+    "breadcrumb": {
+      "home": "Home"
+    },
     "sections": {
       "direction": "Direction",
       "input": "Input",
@@ -976,13 +1027,22 @@
     },
     "title": "Business Number Validation",
     "subtitle": "Validates Korean business registration numbers offline using the National Tax Service standard checksum algorithm. Auto-classifies entity type by middle digits. Operating status requires external API.",
-    "breadcrumb": { "home": "Home" },
-    "sections": { "input": "Business Number Input" },
-    "fields": { "number": "Business Registration Number" },
+    "breadcrumb": {
+      "home": "Home"
+    },
+    "sections": {
+      "input": "Business Number Input"
+    },
+    "fields": {
+      "number": "Business Registration Number"
+    },
     "hints": {
       "number": "10 digits. Hyphens/spaces auto-stripped. Example: 220-81-62517"
     },
-    "actions": { "calculate": "Validate", "reset": "Reset" },
+    "actions": {
+      "calculate": "Validate",
+      "reset": "Reset"
+    },
     "status": {
       "valid": "Valid Format",
       "invalid": "Invalid",
@@ -1033,7 +1093,9 @@
       "empty": "Please enter a business number",
       "tooLong": "Input is too long"
     },
-    "errors": { "unknown": "Validation error occurred." }
+    "errors": {
+      "unknown": "Validation error occurred."
+    }
   },
   "wireSizeTool": {
     "meta": {
@@ -1381,8 +1443,14 @@
     },
     "title": "Span Calculator",
     "subtitle": "Section (2x4–2x12) × spacing (400/450/600mm) × species + Korean snow loads → maximum span satisfying both bending and deflection.",
-    "breadcrumb": { "parent": "Timber Calculator", "current": "Span" },
-    "sections": { "member": "Member Information", "snow": "Snow Load (rafters)" },
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Span"
+    },
+    "sections": {
+      "member": "Member Information",
+      "snow": "Snow Load (rafters)"
+    },
     "fields": {
       "memberType": "Member Type",
       "lumberSize": "Section Size",
@@ -1400,7 +1468,9 @@
       "rafter": "Rafter",
       "header": "Header / Beam"
     },
-    "grade": { "larch2": "Larch #2 (Domestic)" },
+    "grade": {
+      "larch2": "Larch #2 (Domestic)"
+    },
     "snowRegion": {
       "seoulMetro": "Seoul·Gyeonggi·Incheon (0.5 kN/m²)",
       "gangwonYeongdong": "Gangwon Yeongdong (3.0 kN/m²)",
@@ -1411,7 +1481,10 @@
       "jeju": "Jeju (0.5 kN/m²)",
       "ulleung": "Ulleung (3.0 kN/m²)"
     },
-    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
     "result": {
       "heading": "Result",
       "empty": "Enter member info and click Calculate.",
@@ -1430,7 +1503,10 @@
         "line3": "Note: Residential planning tool. Structural engineer review required before construction."
       }
     },
-    "governing": { "bending": "Bending", "deflection": "Deflection" },
+    "governing": {
+      "bending": "Bending",
+      "deflection": "Deflection"
+    },
     "steps": {
       "loads": "Step 1: Loads — Live {live} + Dead {dead} + Snow {snow} = {total} kN/m²",
       "lineLoad": "Step 2: Line load — {total} kN/m² × {spacing}mm = {result} N/mm",
@@ -1461,9 +1537,18 @@
     },
     "title": "Insulation R/U-value Calculator",
     "subtitle": "Region (Central1·Central2·South·Jeju) × element (wall/roof/floor) × layered build-up → composite R and U value with auto code compliance check.",
-    "breadcrumb": { "parent": "Timber Calculator", "current": "Insulation" },
-    "sections": { "environment": "Region & Element", "layers": "Wall Build-up (interior → exterior)" },
-    "fields": { "region": "Climate Region", "element": "Building Element" },
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Insulation"
+    },
+    "sections": {
+      "environment": "Region & Element",
+      "layers": "Wall Build-up (interior → exterior)"
+    },
+    "fields": {
+      "region": "Climate Region",
+      "element": "Building Element"
+    },
     "region": {
       "central1": "Central 1 (Gangwon·N. Gyeonggi)",
       "central2": "Central 2 (Seoul·Incheon·most of Gyeonggi)",
@@ -1498,8 +1583,15 @@
       "concrete": "Concrete (λ=1.6)",
       "airSpace": "Air Space (R=0.18 fixed)"
     },
-    "actions": { "calculate": "Calculate", "reset": "Reset", "addLayer": "Add Layer" },
-    "status": { "pass": "PASS", "fail": "FAIL" },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset",
+      "addLayer": "Add Layer"
+    },
+    "status": {
+      "pass": "PASS",
+      "fail": "FAIL"
+    },
     "result": {
       "heading": "Result",
       "empty": "Set region, element, and layers then click Calculate.",
@@ -1529,7 +1621,9 @@
       "layersMin": "At least 1 layer required",
       "layersMax": "Maximum 15 layers"
     },
-    "errors": { "unknown": "An unknown error occurred during calculation." }
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
   },
   "materialQuantityTool": {
     "meta": {
@@ -1538,8 +1632,13 @@
     },
     "title": "Material Quantity Calculator",
     "subtitle": "Wall/roof/floor area × (1 + waste factor) ÷ sheet area → sheet count + nail/screw estimate.",
-    "breadcrumb": { "parent": "Timber Calculator", "current": "Material Quantity" },
-    "sections": { "material": "Material & Area" },
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Material Quantity"
+    },
+    "sections": {
+      "material": "Material & Area"
+    },
     "fields": {
       "material": "Material",
       "areaM2": "Installation Area (m²)",
@@ -1564,8 +1663,15 @@
       "asphaltShingle": "Asphalt Shingle (1 bundle ≈ 3.1m²)",
       "battInsulationR19": "Glass Wool R-19 batt (600×2400mm)"
     },
-    "unit": { "sheet": "sheets", "bundle": "bundles", "batt": "batts" },
-    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "unit": {
+      "sheet": "sheets",
+      "bundle": "bundles",
+      "batt": "batts"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
     "result": {
       "heading": "Result",
       "empty": "Enter material and area.",
@@ -1593,7 +1699,9 @@
       "wasteMin": "Waste factor must be at least 0%",
       "wasteMax": "Waste factor must be at most 30%"
     },
-    "errors": { "unknown": "An unknown error occurred during calculation." }
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
   },
   "roofAreaTool": {
     "meta": {
@@ -1602,8 +1710,14 @@
     },
     "title": "Roof Area Calculator",
     "subtitle": "Plan area × sec(slope) → actual roof area. Add eave perimeter and overhang to include eave area.",
-    "breadcrumb": { "parent": "Timber Calculator", "current": "Roof Area" },
-    "sections": { "geometry": "Roof Geometry", "eave": "Eave (optional)" },
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Roof Area"
+    },
+    "sections": {
+      "geometry": "Roof Geometry",
+      "eave": "Eave (optional)"
+    },
     "fields": {
       "planAreaM2": "Plan Area (m²)",
       "angleDegrees": "Slope Angle (°)",
@@ -1614,7 +1728,10 @@
       "planArea": "One-story footprint area covered by the roof",
       "perimeter": "Length of eave perimeter. 0 = skip eave area."
     },
-    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
     "result": {
       "heading": "Result",
       "empty": "Enter plan area and slope angle.",
@@ -1623,7 +1740,9 @@
       "eaveArea": "Eave Area",
       "secCorrection": "Area Factor (sec θ)",
       "steps": "Calculation Steps",
-      "source": { "line1": "Source: sec(θ) right-triangle correction (plan → slope area)" }
+      "source": {
+        "line1": "Source: sec(θ) right-triangle correction (plan → slope area)"
+      }
     },
     "steps": {
       "secCorrection": "Step 1: sec(θ) — 1 / cos({angle}°) = {result}",
@@ -1641,7 +1760,9 @@
       "eaveMin": "Eave overhang must be non-negative",
       "eaveMax": "Eave overhang must be at most 2000mm"
     },
-    "errors": { "unknown": "An unknown error occurred during calculation." }
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
   },
   "concreteTool": {
     "meta": {
@@ -1650,8 +1771,14 @@
     },
     "title": "Concrete Volume Calculator",
     "subtitle": "Foundation type × dimensions + waste factor → concrete volume + rebar weight + remicon truck count.",
-    "breadcrumb": { "parent": "Timber Calculator", "current": "Concrete" },
-    "sections": { "foundation": "Foundation Dimensions", "options": "Adjustments" },
+    "breadcrumb": {
+      "parent": "Timber Calculator",
+      "current": "Concrete"
+    },
+    "sections": {
+      "foundation": "Foundation Dimensions",
+      "options": "Adjustments"
+    },
     "fields": {
       "type": "Foundation Type",
       "widthM": "Width (m)",
@@ -1664,9 +1791,17 @@
     "hints": {
       "rebar": "Residential strip footing 80–100 kg/m³, mat 60–80 kg/m³"
     },
-    "type": { "stripFooting": "Strip Footing", "matSlab": "Mat Slab" },
-    "unit": { "trucks": "trucks" },
-    "actions": { "calculate": "Calculate", "reset": "Reset" },
+    "type": {
+      "stripFooting": "Strip Footing",
+      "matSlab": "Mat Slab"
+    },
+    "unit": {
+      "trucks": "trucks"
+    },
+    "actions": {
+      "calculate": "Calculate",
+      "reset": "Reset"
+    },
     "result": {
       "heading": "Result",
       "empty": "Enter foundation dimensions.",
@@ -1698,7 +1833,9 @@
       "wasteMin": "Waste factor must be non-negative",
       "wasteMax": "Waste factor must be at most 30%"
     },
-    "errors": { "unknown": "An unknown error occurred during calculation." }
+    "errors": {
+      "unknown": "An unknown error occurred during calculation."
+    }
   },
   "lumberTool": {
     "meta": {
@@ -1863,10 +2000,22 @@
         "Rates and caps may change with future law revisions. Current as of January 2026."
       ],
       "related": [
-        { "label": "VAT Calculator", "href": "/vat-calc" },
-        { "label": "4 Insurances + Net Pay", "href": "/insurance-calc" },
-        { "label": "Compound Interest", "href": "/compound-calc" },
-        { "label": "Foreign Stock Tax", "href": "/foreign-stock-tax" }
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "4 Insurances + Net Pay",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Compound Interest",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Foreign Stock Tax",
+          "href": "/foreign-stock-tax"
+        }
       ],
       "lastReviewed": "2026-05-23"
     },
@@ -1947,10 +2096,22 @@
         "Results are for planning. Actual terms are confirmed by the lender."
       ],
       "related": [
-        { "label": "Compound Interest", "href": "/compound-calc" },
-        { "label": "Rent Cap (5%)", "href": "/rent-cap" },
-        { "label": "VAT Calculator", "href": "/vat-calc" },
-        { "label": "Income Tax Calculator", "href": "/income-tax" }
+        {
+          "label": "Compound Interest",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Rent Cap (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        }
       ],
       "lastReviewed": "2026-05-23"
     },
@@ -2032,10 +2193,22 @@
         "Results are for reference. Legal force comes from the dispute committee or court decision."
       ],
       "related": [
-        { "label": "Loan Calculator", "href": "/loan-calc" },
-        { "label": "Pyeong ↔ m²", "href": "/area-convert" },
-        { "label": "Percent Calculator", "href": "/percent-calc" },
-        { "label": "VAT Calculator", "href": "/vat-calc" }
+        {
+          "label": "Loan Calculator",
+          "href": "/loan-calc"
+        },
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Percent Calculator",
+          "href": "/percent-calc"
+        },
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        }
       ],
       "lastReviewed": "2026-05-23"
     },
@@ -2110,10 +2283,22 @@
         "Only ㎡ has legal force in official contracts and deeds. Pyeong is for everyday convenience."
       ],
       "related": [
-        { "label": "Tile Calculator", "href": "/timber-calc/tile" },
-        { "label": "Rent Cap (5%)", "href": "/rent-cap" },
-        { "label": "Concrete Volume", "href": "/timber-calc/concrete" },
-        { "label": "Percent Calculator", "href": "/percent-calc" }
+        {
+          "label": "Tile Calculator",
+          "href": "/timber-calc/tile"
+        },
+        {
+          "label": "Rent Cap (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "Concrete Volume",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Percent Calculator",
+          "href": "/percent-calc"
+        }
       ],
       "lastReviewed": "2026-05-23"
     },
@@ -2188,10 +2373,22 @@
         "Card-network and tax-office rounding rules may differ — verify on actual receipts for large amounts."
       ],
       "related": [
-        { "label": "VAT Calculator", "href": "/vat-calc" },
-        { "label": "Compound Interest", "href": "/compound-calc" },
-        { "label": "Pyeong ↔ m²", "href": "/area-convert" },
-        { "label": "Loan Calculator", "href": "/loan-calc" }
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "Compound Interest",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Loan Calculator",
+          "href": "/loan-calc"
+        }
       ],
       "lastReviewed": "2026-05-23"
     },
@@ -2219,18 +2416,45 @@
       "examples": {
         "title": "Real examples",
         "items": [
-          { "title": "Example 1: Yard 20m² × 10cm gravel", "body": "Volume 2m³, +20% compaction → 2.4m³. Weight 2.4 × 1.5 = 3.6 tons. 144 25kg bags or 4 bulk bags." },
-          { "title": "Example 2: Driveway drainage 30m² × 15cm crushed", "body": "Volume 4.5m³ × 1.2 = 5.4m³. Crushed 1.5 → 8.1 tons. Compacted bases need to be laid thicker." },
-          { "title": "Example 3: Garden sand 10m² × 5cm", "body": "Volume 0.5m³ × 1.2 = 0.6m³. Sand 1.6 → 0.96 tons. About 39 bags." }
+          {
+            "title": "Example 1: Yard 20m² × 10cm gravel",
+            "body": "Volume 2m³, +20% compaction → 2.4m³. Weight 2.4 × 1.5 = 3.6 tons. 144 25kg bags or 4 bulk bags."
+          },
+          {
+            "title": "Example 2: Driveway drainage 30m² × 15cm crushed",
+            "body": "Volume 4.5m³ × 1.2 = 5.4m³. Crushed 1.5 → 8.1 tons. Compacted bases need to be laid thicker."
+          },
+          {
+            "title": "Example 3: Garden sand 10m² × 5cm",
+            "body": "Volume 0.5m³ × 1.2 = 0.6m³. Sand 1.6 → 0.96 tons. About 39 bags."
+          }
         ]
       },
       "faq": [
-        { "question": "Why a compaction allowance?", "answer": "Gravel/aggregate loses ~20-30% volume when compacted. To reach the target depth after compaction, you must order extra, so a compaction allowance (default 20%) is added." },
-        { "question": "How is unit weight determined?", "answer": "It varies by material and moisture. This tool uses general loose-dry values (gravel 1.5, sand 1.6 t/m³). Wet sand is heavier and may differ from the estimate." },
-        { "question": "Bags or bulk bags?", "answer": "Small amounts (under 1 ton) are easy in 25kg bags; large amounts are cheaper per unit in 1-ton bulk bags. The tool shows both — choose based on transport and storage." },
-        { "question": "What depth is right for gravel?", "answer": "Decorative finish 3-5cm, walkways 5-8cm, vehicle driveways 8-10cm, compacted base 10-20cm. Heavier loads need thicker layers." },
-        { "question": "Rubble vs crushed stone?", "answer": "Rubble is broken natural stone (uneven sizes); crushed stone is aggregate crushed to a set size. Bases mix rubble + crushed; finishes use uniform crushed/gravel." },
-        { "question": "Is geotextile separate?", "answer": "Yes. Weed-barrier/separation geotextile under gravel is calculated by area (m²) separately. This tool computes aggregate only." }
+        {
+          "question": "Why a compaction allowance?",
+          "answer": "Gravel/aggregate loses ~20-30% volume when compacted. To reach the target depth after compaction, you must order extra, so a compaction allowance (default 20%) is added."
+        },
+        {
+          "question": "How is unit weight determined?",
+          "answer": "It varies by material and moisture. This tool uses general loose-dry values (gravel 1.5, sand 1.6 t/m³). Wet sand is heavier and may differ from the estimate."
+        },
+        {
+          "question": "Bags or bulk bags?",
+          "answer": "Small amounts (under 1 ton) are easy in 25kg bags; large amounts are cheaper per unit in 1-ton bulk bags. The tool shows both — choose based on transport and storage."
+        },
+        {
+          "question": "What depth is right for gravel?",
+          "answer": "Decorative finish 3-5cm, walkways 5-8cm, vehicle driveways 8-10cm, compacted base 10-20cm. Heavier loads need thicker layers."
+        },
+        {
+          "question": "Rubble vs crushed stone?",
+          "answer": "Rubble is broken natural stone (uneven sizes); crushed stone is aggregate crushed to a set size. Bases mix rubble + crushed; finishes use uniform crushed/gravel."
+        },
+        {
+          "question": "Is geotextile separate?",
+          "answer": "Yes. Weed-barrier/separation geotextile under gravel is calculated by area (m²) separately. This tool computes aggregate only."
+        }
       ],
       "cautions": [
         "Unit weights are loose-dry general values — vary with moisture.",
@@ -2240,8 +2464,14 @@
         "Verify unit weight with the supplier for accurate ordering."
       ],
       "related": [
-        { "label": "Concrete Volume", "href": "/timber-calc/concrete" },
-        { "label": "Tile Calculator", "href": "/timber-calc/tile" }
+        {
+          "label": "Concrete Volume",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Tile Calculator",
+          "href": "/timber-calc/tile"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2269,18 +2499,45 @@
       "examples": {
         "title": "Real examples",
         "items": [
-          { "title": "Example 1: 20m² deck, 140mm board 3.6m", "body": "Effective width 145mm, 0.522m² per board. 20/0.522 = 38.3 × 1.1 = 43 boards. Joists: 5m side at 400mm = 14." },
-          { "title": "Example 2: 20m fence, 2m post spacing", "body": "10 sections + 1 = 11 posts. 20 rails (2 per section). At 100mm picket spacing, 200 pickets." },
-          { "title": "Example 3: Narrow boards (90mm)", "body": "Narrower effective width needs more boards for the same area — denser look and higher cost." }
+          {
+            "title": "Example 1: 20m² deck, 140mm board 3.6m",
+            "body": "Effective width 145mm, 0.522m² per board. 20/0.522 = 38.3 × 1.1 = 43 boards. Joists: 5m side at 400mm = 14."
+          },
+          {
+            "title": "Example 2: 20m fence, 2m post spacing",
+            "body": "10 sections + 1 = 11 posts. 20 rails (2 per section). At 100mm picket spacing, 200 pickets."
+          },
+          {
+            "title": "Example 3: Narrow boards (90mm)",
+            "body": "Narrower effective width needs more boards for the same area — denser look and higher cost."
+          }
         ]
       },
       "faq": [
-        { "question": "Why a board gap?", "answer": "Wood expands/contracts with moisture and needs drainage/ventilation, so leave a 3-6mm gap between boards. The gap adds to effective width, affecting board count." },
-        { "question": "What joist spacing is right?", "answer": "Standard deck boards use 400mm (16in) joist spacing; heavy loads or thin boards use 300mm. Tighter spacing is stronger but needs more joists." },
-        { "question": "Is 10% waste enough?", "answer": "Enough for simple rectangular decks; diagonals, stairs, and complex shapes warrant 15-20%. It covers cutting loss and defective boards." },
-        { "question": "Why posts = sections + 1?", "answer": "Each gap between posts is a section, and you need posts at both ends, so one more than the section count. A 10-section fence needs 11 posts. Corners and gates may need extra posts." },
-        { "question": "Pressure-treated vs composite (WPC)?", "answer": "Pressure-treated is cheaper but needs periodic oiling; composite (WPC) is pricier with less maintenance. The count is the same but board dimensions may differ." },
-        { "question": "Are deck footings calculated?", "answer": "This tool computes boards, joists, and fence materials only. Deck footings (concrete piers, posts) require separate design based on area and load." }
+        {
+          "question": "Why a board gap?",
+          "answer": "Wood expands/contracts with moisture and needs drainage/ventilation, so leave a 3-6mm gap between boards. The gap adds to effective width, affecting board count."
+        },
+        {
+          "question": "What joist spacing is right?",
+          "answer": "Standard deck boards use 400mm (16in) joist spacing; heavy loads or thin boards use 300mm. Tighter spacing is stronger but needs more joists."
+        },
+        {
+          "question": "Is 10% waste enough?",
+          "answer": "Enough for simple rectangular decks; diagonals, stairs, and complex shapes warrant 15-20%. It covers cutting loss and defective boards."
+        },
+        {
+          "question": "Why posts = sections + 1?",
+          "answer": "Each gap between posts is a section, and you need posts at both ends, so one more than the section count. A 10-section fence needs 11 posts. Corners and gates may need extra posts."
+        },
+        {
+          "question": "Pressure-treated vs composite (WPC)?",
+          "answer": "Pressure-treated is cheaper but needs periodic oiling; composite (WPC) is pricier with less maintenance. The count is the same but board dimensions may differ."
+        },
+        {
+          "question": "Are deck footings calculated?",
+          "answer": "This tool computes boards, joists, and fence materials only. Deck footings (concrete piers, posts) require separate design based on area and load."
+        }
       ],
       "cautions": [
         "10% waste default — complex shapes 15-20%.",
@@ -2290,8 +2547,14 @@
         "Check pressure-treated vs composite board dimensions."
       ],
       "related": [
-        { "label": "Lumber Conversion", "href": "/timber-calc/lumber" },
-        { "label": "Studs Calculator", "href": "/timber-calc/studs" }
+        {
+          "label": "Lumber Conversion",
+          "href": "/timber-calc/lumber"
+        },
+        {
+          "label": "Studs Calculator",
+          "href": "/timber-calc/studs"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2319,18 +2582,45 @@
       "examples": {
         "title": "Real examples",
         "items": [
-          { "title": "Example 1: 20m² bedroom (normal)", "body": "20 × 600 = 12,000 BTU ≈ 8.3 pyeong type. Suitable for a standard bedroom wall/stand AC." },
-          { "title": "Example 2: 30m² living room, high sun, 4 people", "body": "30 × 600 × 1.1 + occupant adjustment = ~21,000 BTU ≈ 14.6 pyeong type. Large rooms scale up with sun and people." },
-          { "title": "Example 3: Space with kitchen", "body": "Cooking heat adds +4,000 BTU. Same area, but kitchens need more capacity." }
+          {
+            "title": "Example 1: 20m² bedroom (normal)",
+            "body": "20 × 600 = 12,000 BTU ≈ 8.3 pyeong type. Suitable for a standard bedroom wall/stand AC."
+          },
+          {
+            "title": "Example 2: 30m² living room, high sun, 4 people",
+            "body": "30 × 600 × 1.1 + occupant adjustment = ~21,000 BTU ≈ 14.6 pyeong type. Large rooms scale up with sun and people."
+          },
+          {
+            "title": "Example 3: Space with kitchen",
+            "body": "Cooking heat adds +4,000 BTU. Same area, but kitchens need more capacity."
+          }
         ]
       },
       "faq": [
-        { "question": "What is BTU?", "answer": "British Thermal Unit, a heating/cooling capacity unit — the heat removable (cooling) or supplied (heating) per hour. Higher means more powerful; Korea also labels it as 'pyeong type'." },
-        { "question": "Is bigger always better?", "answer": "No. An oversized unit reaches the set temperature quickly and cycles on/off frequently, removes less humidity, wastes electricity, and risks failure. Right-sizing to the area is most efficient." },
-        { "question": "How do I convert to pyeong type?", "answer": "One Korean AC pyeong type is about 1,440 BTU (~363 kcal/h). E.g., 12,000 BTU ÷ 1,440 ≈ 8.3 pyeong type. Manufacturer ratings often build in a margin over actual area." },
-        { "question": "Why does sun exposure matter?", "answer": "South/west-facing rooms with strong sun gain radiant heat, raising the cooling load. High sun adds +10%, shaded rooms −10%. Large windows and high floors also increase the load." },
-        { "question": "Why size up for kitchens?", "answer": "Stoves and ovens generate a lot of heat. Kitchens and adjacent spaces need about +4,000 BTU for adequate cooling." },
-        { "question": "What if insulation is poor?", "answer": "Poor insulation/windows raise the cooling load, so add ~20% over this estimate to be safe. Conversely, new high-insulation builds have margin." }
+        {
+          "question": "What is BTU?",
+          "answer": "British Thermal Unit, a heating/cooling capacity unit — the heat removable (cooling) or supplied (heating) per hour. Higher means more powerful; Korea also labels it as 'pyeong type'."
+        },
+        {
+          "question": "Is bigger always better?",
+          "answer": "No. An oversized unit reaches the set temperature quickly and cycles on/off frequently, removes less humidity, wastes electricity, and risks failure. Right-sizing to the area is most efficient."
+        },
+        {
+          "question": "How do I convert to pyeong type?",
+          "answer": "One Korean AC pyeong type is about 1,440 BTU (~363 kcal/h). E.g., 12,000 BTU ÷ 1,440 ≈ 8.3 pyeong type. Manufacturer ratings often build in a margin over actual area."
+        },
+        {
+          "question": "Why does sun exposure matter?",
+          "answer": "South/west-facing rooms with strong sun gain radiant heat, raising the cooling load. High sun adds +10%, shaded rooms −10%. Large windows and high floors also increase the load."
+        },
+        {
+          "question": "Why size up for kitchens?",
+          "answer": "Stoves and ovens generate a lot of heat. Kitchens and adjacent spaces need about +4,000 BTU for adequate cooling."
+        },
+        {
+          "question": "What if insulation is poor?",
+          "answer": "Poor insulation/windows raise the cooling load, so add ~20% over this estimate to be safe. Conversely, new high-insulation builds have margin."
+        }
       ],
       "cautions": [
         "Based on area × 600 BTU/m² plus adjustments. ±20% by insulation and windows.",
@@ -2340,8 +2630,14 @@
         "For exact sizing, get an installer's on-site assessment."
       ],
       "related": [
-        { "label": "Electricity Bill", "href": "/electric-bill" },
-        { "label": "Insulation R/U-value", "href": "/timber-calc/insulation" }
+        {
+          "label": "Electricity Bill",
+          "href": "/electric-bill"
+        },
+        {
+          "label": "Insulation R/U-value",
+          "href": "/timber-calc/insulation"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2369,18 +2665,45 @@
       "examples": {
         "title": "Real examples",
         "items": [
-          { "title": "Example 1: Passenger car KRW 30M", "body": "30M × 7% = 2.1M KRW. Bond purchase (by region/price) and stamp fees are added separately." },
-          { "title": "Example 2: Light car KRW 10M", "body": "10M × 4% = 400K, but under 500K so exempt. Tax 0. A light-car benefit." },
-          { "title": "Example 3: EV KRW 50M", "body": "50M × 7% = 3.5M − 1.4M eco discount = 2.1M KRW. KRW 1.4M cheaper than the equivalent gas car." }
+          {
+            "title": "Example 1: Passenger car KRW 30M",
+            "body": "30M × 7% = 2.1M KRW. Bond purchase (by region/price) and stamp fees are added separately."
+          },
+          {
+            "title": "Example 2: Light car KRW 10M",
+            "body": "10M × 4% = 400K, but under 500K so exempt. Tax 0. A light-car benefit."
+          },
+          {
+            "title": "Example 3: EV KRW 50M",
+            "body": "50M × 7% = 3.5M − 1.4M eco discount = 2.1M KRW. KRW 1.4M cheaper than the equivalent gas car."
+          }
         ]
       },
       "faq": [
-        { "question": "Are acquisition and registration tax different?", "answer": "Registration tax was merged into acquisition tax in 2011, so only 'acquisition tax' is levied now. People say '취등록세' but the actual item is acquisition tax." },
-        { "question": "Why are bond costs separate?", "answer": "Vehicle registration requires buying regional development bonds — that's a bond purchase, not a tax. Selling them immediately at a discount means you bear only part of the cost. It varies by region and price." },
-        { "question": "What's the basis for used cars?", "answer": "The higher of the actual transaction price and the local-tax assessed value (by model year). Declaring too low triggers assessment-based taxation." },
-        { "question": "Is there a multi-child discount?", "answer": "From 2025, households with 2+ children under 18 get a full exemption (3 children) or 50% (2 children) on 6-seat-or-fewer passenger cars. This calculator doesn't include it — verify separately." },
-        { "question": "Until when is the eco discount valid?", "answer": "The EV/hydrogen acquisition tax discount (up to KRW 1.4M) is extended/reduced by policy. Check the current cap at purchase." },
-        { "question": "When do I pay acquisition tax?", "answer": "File and pay within 60 days of acquisition (registration). Usually handled together with vehicle registration; late payment incurs penalties." }
+        {
+          "question": "Are acquisition and registration tax different?",
+          "answer": "Registration tax was merged into acquisition tax in 2011, so only 'acquisition tax' is levied now. People say '취등록세' but the actual item is acquisition tax."
+        },
+        {
+          "question": "Why are bond costs separate?",
+          "answer": "Vehicle registration requires buying regional development bonds — that's a bond purchase, not a tax. Selling them immediately at a discount means you bear only part of the cost. It varies by region and price."
+        },
+        {
+          "question": "What's the basis for used cars?",
+          "answer": "The higher of the actual transaction price and the local-tax assessed value (by model year). Declaring too low triggers assessment-based taxation."
+        },
+        {
+          "question": "Is there a multi-child discount?",
+          "answer": "From 2025, households with 2+ children under 18 get a full exemption (3 children) or 50% (2 children) on 6-seat-or-fewer passenger cars. This calculator doesn't include it — verify separately."
+        },
+        {
+          "question": "Until when is the eco discount valid?",
+          "answer": "The EV/hydrogen acquisition tax discount (up to KRW 1.4M) is extended/reduced by policy. Check the current cap at purchase."
+        },
+        {
+          "question": "When do I pay acquisition tax?",
+          "answer": "File and pay within 60 days of acquisition (registration). Usually handled together with vehicle registration; late payment incurs penalties."
+        }
       ],
       "cautions": [
         "Local Tax Act basis. Bond purchase and stamp fees are separate.",
@@ -2390,8 +2713,14 @@
         "File/pay within 60 days of acquisition."
       ],
       "related": [
-        { "label": "Annual Car Tax", "href": "/car-tax" },
-        { "label": "Loan Calculator", "href": "/loan-calc" }
+        {
+          "label": "Annual Car Tax",
+          "href": "/car-tax"
+        },
+        {
+          "label": "Loan Calculator",
+          "href": "/loan-calc"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2419,18 +2748,45 @@
       "examples": {
         "title": "Real examples",
         "items": [
-          { "title": "Example 1: 1600cc new car", "body": "1600 × 140 = 224,000 + 30% edu 67,200 = 291,200 KRW/year. ~145,600 each in June and December." },
-          { "title": "Example 2: 2000cc, 5 years old", "body": "2000 × 200 = 400K base. 15% age reduction at year 5 → ~340K + edu. Older = less tax." },
-          { "title": "Example 3: EV", "body": "Flat KRW 130K regardless of displacement + 39,000 edu = 169K/year. Far cheaper than a large gas car." }
+          {
+            "title": "Example 1: 1600cc new car",
+            "body": "1600 × 140 = 224,000 + 30% edu 67,200 = 291,200 KRW/year. ~145,600 each in June and December."
+          },
+          {
+            "title": "Example 2: 2000cc, 5 years old",
+            "body": "2000 × 200 = 400K base. 15% age reduction at year 5 → ~340K + edu. Older = less tax."
+          },
+          {
+            "title": "Example 3: EV",
+            "body": "Flat KRW 130K regardless of displacement + 39,000 edu = 169K/year. Far cheaper than a large gas car."
+          }
         ]
       },
       "faq": [
-        { "question": "Why is car tax based on displacement?", "answer": "Current car tax uses displacement (cc) as the base. Larger displacement = higher per-cc rate = more tax. Since it's not price-based, an expensive small car can pay less than a large one." },
-        { "question": "How does age reduction work?", "answer": "From year 3 after registration, 5% reduction per year, reaching up to 50% at year 12. Older cars carry a lighter tax." },
-        { "question": "Is there a prepayment discount?", "answer": "Yes. Paying the full year in January gives ~7% off (2024 basis, shrinking yearly). This calculator shows the base before discount." },
-        { "question": "Why is EV tax flat?", "answer": "EVs have no displacement, so a flat KRW 130K applies (non-commercial passenger). Far below a large gas car (2000cc 400K+) — one of the EV ownership perks." },
-        { "question": "What is the education tax?", "answer": "A surtax on car tax — 30% goes to regional education funding. It's combined on the car tax bill." },
-        { "question": "When do I pay car tax?", "answer": "Twice a year — June (Jan-Jun) and December (Jul-Dec) in halves. With annual prepayment in January you pay the discounted full year at once." }
+        {
+          "question": "Why is car tax based on displacement?",
+          "answer": "Current car tax uses displacement (cc) as the base. Larger displacement = higher per-cc rate = more tax. Since it's not price-based, an expensive small car can pay less than a large one."
+        },
+        {
+          "question": "How does age reduction work?",
+          "answer": "From year 3 after registration, 5% reduction per year, reaching up to 50% at year 12. Older cars carry a lighter tax."
+        },
+        {
+          "question": "Is there a prepayment discount?",
+          "answer": "Yes. Paying the full year in January gives ~7% off (2024 basis, shrinking yearly). This calculator shows the base before discount."
+        },
+        {
+          "question": "Why is EV tax flat?",
+          "answer": "EVs have no displacement, so a flat KRW 130K applies (non-commercial passenger). Far below a large gas car (2000cc 400K+) — one of the EV ownership perks."
+        },
+        {
+          "question": "What is the education tax?",
+          "answer": "A surtax on car tax — 30% goes to regional education funding. It's combined on the car tax bill."
+        },
+        {
+          "question": "When do I pay car tax?",
+          "answer": "Twice a year — June (Jan-Jun) and December (Jul-Dec) in halves. With annual prepayment in January you pay the discounted full year at once."
+        }
       ],
       "cautions": [
         "Non-commercial passenger basis. Commercial/van/cargo use a different system.",
@@ -2440,8 +2796,14 @@
         "30% education tax is added to car tax."
       ],
       "related": [
-        { "label": "Car Acquisition Tax", "href": "/car-acquisition-tax" },
-        { "label": "Electricity Bill", "href": "/electric-bill" }
+        {
+          "label": "Car Acquisition Tax",
+          "href": "/car-acquisition-tax"
+        },
+        {
+          "label": "Electricity Bill",
+          "href": "/electric-bill"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2469,18 +2831,45 @@
       "examples": {
         "title": "Real examples",
         "items": [
-          { "title": "Example 1: Colleague's wedding, attending", "body": "Colleague base 50K, but attending (meal ~50K) suggests 100K. Custom is to give more than the meal cost." },
-          { "title": "Example 2: Close friend's wedding", "body": "Close friend range 100-200K. Decide based on the friendship and future reciprocity at your own wedding." },
-          { "title": "Example 3: Boss's parent's funeral", "body": "Colleague/boss funeral money 50-100K. Sometimes the team contributes together. Attendance matters more than the amount." }
+          {
+            "title": "Example 1: Colleague's wedding, attending",
+            "body": "Colleague base 50K, but attending (meal ~50K) suggests 100K. Custom is to give more than the meal cost."
+          },
+          {
+            "title": "Example 2: Close friend's wedding",
+            "body": "Close friend range 100-200K. Decide based on the friendship and future reciprocity at your own wedding."
+          },
+          {
+            "title": "Example 3: Boss's parent's funeral",
+            "body": "Colleague/boss funeral money 50-100K. Sometimes the team contributes together. Attendance matters more than the amount."
+          }
         ]
       },
       "faq": [
-        { "question": "Should the amount be an odd number?", "answer": "Korea prefers odd amounts (30/50/70K). Even numbers imply 'division (separation)' and are avoided, but 100K is an exception ('completeness'). It's not an absolute rule." },
-        { "question": "Can I give less if I don't attend?", "answer": "Attending incurs a meal cost (~50K), so when not attending, the amount minus the meal (e.g., colleague 50K) is fine. When attending, custom is to exceed the meal cost." },
-        { "question": "I'm a foreigner invited to a Korean wedding", "answer": "50-100K is safe depending on relationship. Write your name on the envelope and hand it at the reception desk; use crisp new bills in a white envelope. Funerals use white envelopes; weddings white/plain too." },
-        { "question": "Do wedding and funeral amounts differ?", "answer": "Similar, but funeral money tends to be slightly lower. For funerals, attendance to share grief matters more than the amount." },
-        { "question": "If the company contributes, do I still give?", "answer": "When a team/department jointly gives a wreath or condolence money, individual extra is optional by closeness. Close ones may add a little separately." },
-        { "question": "What do I write on the envelope?", "answer": "For weddings, 祝結婚/祝華婚 on the front; for funerals, 賻儀/謹弔, with your name and affiliation on the back. Korean ('축 결혼' / 'condolences') is also fine." }
+        {
+          "question": "Should the amount be an odd number?",
+          "answer": "Korea prefers odd amounts (30/50/70K). Even numbers imply 'division (separation)' and are avoided, but 100K is an exception ('completeness'). It's not an absolute rule."
+        },
+        {
+          "question": "Can I give less if I don't attend?",
+          "answer": "Attending incurs a meal cost (~50K), so when not attending, the amount minus the meal (e.g., colleague 50K) is fine. When attending, custom is to exceed the meal cost."
+        },
+        {
+          "question": "I'm a foreigner invited to a Korean wedding",
+          "answer": "50-100K is safe depending on relationship. Write your name on the envelope and hand it at the reception desk; use crisp new bills in a white envelope. Funerals use white envelopes; weddings white/plain too."
+        },
+        {
+          "question": "Do wedding and funeral amounts differ?",
+          "answer": "Similar, but funeral money tends to be slightly lower. For funerals, attendance to share grief matters more than the amount."
+        },
+        {
+          "question": "If the company contributes, do I still give?",
+          "answer": "When a team/department jointly gives a wreath or condolence money, individual extra is optional by closeness. Close ones may add a little separately."
+        },
+        {
+          "question": "What do I write on the envelope?",
+          "answer": "For weddings, 祝結婚/祝華婚 on the front; for funerals, 賻儀/謹弔, with your name and affiliation on the back. Korean ('축 결혼' / 'condolences') is also fine."
+        }
       ],
       "cautions": [
         "No fixed rule — a reference varying by relationship, region, prices.",
@@ -2490,8 +2879,14 @@
         "Use new bills in a white/plain envelope."
       ],
       "related": [
-        { "label": "Percent Calculator", "href": "/percent-calc" },
-        { "label": "Korean Age", "href": "/korean-age" }
+        {
+          "label": "Percent Calculator",
+          "href": "/percent-calc"
+        },
+        {
+          "label": "Korean Age",
+          "href": "/korean-age"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2519,18 +2914,45 @@
       "examples": {
         "title": "Real examples",
         "items": [
-          { "title": "Example 1: LMP Jan 1 (28-day cycle)", "body": "Jan 1 + 280 days = Oct 8 due date. Based on the 40-week full term." },
-          { "title": "Example 2: 20 weeks pregnant", "body": "140 days after LMP = 20 weeks = 2nd trimester. Anatomy scan and sex determination period. 50% progress." },
-          { "title": "Example 3: 35-day cycle", "body": "Later ovulation shifts the due date 7 days past the 28-day estimate. Cycle adjustment gives a more accurate date." }
+          {
+            "title": "Example 1: LMP Jan 1 (28-day cycle)",
+            "body": "Jan 1 + 280 days = Oct 8 due date. Based on the 40-week full term."
+          },
+          {
+            "title": "Example 2: 20 weeks pregnant",
+            "body": "140 days after LMP = 20 weeks = 2nd trimester. Anatomy scan and sex determination period. 50% progress."
+          },
+          {
+            "title": "Example 3: 35-day cycle",
+            "body": "Later ovulation shifts the due date 7 days past the 28-day estimate. Cycle adjustment gives a more accurate date."
+          }
         ]
       },
       "faq": [
-        { "question": "Will I deliver exactly on the due date?", "answer": "It's an estimate. Full term spans 37-42 weeks, and only ~5% deliver on the exact due date. Most deliver within ±2 weeks." },
-        { "question": "Is it accurate with irregular cycles?", "answer": "Naegele's rule assumes a regular 28-day cycle. Irregular cycles increase error, so an ultrasound (fetal-size) due date is more accurate. This tool supports cycle adjustment but is for reference." },
-        { "question": "When does pregnancy week counting start?", "answer": "The first day of LMP is week 0 day 0. Actual conception is ~2 weeks later, but since exact ovulation is unknown, LMP is the standard. So 'week 4' is around the expected period date." },
-        { "question": "How are trimesters divided?", "answer": "1st 0-13 weeks (organ formation, nausea), 2nd 14-27 (stable, movement), 3rd 28+ (rapid growth, term prep). Each has different tests and precautions." },
-        { "question": "It differs from the ultrasound date — which is right?", "answer": "The early ultrasound (7-12 weeks) date is most accurate. If it differs from LMP by 1+ weeks, the ultrasound date is usually adopted. This tool estimates from LMP, so prioritize your OB-GYN's confirmed date." },
-        { "question": "Same due date for twins?", "answer": "Twins/multiples tend to be born earlier (usually before 37 weeks). This calculator assumes a singleton, so follow medical guidance for multiples." }
+        {
+          "question": "Will I deliver exactly on the due date?",
+          "answer": "It's an estimate. Full term spans 37-42 weeks, and only ~5% deliver on the exact due date. Most deliver within ±2 weeks."
+        },
+        {
+          "question": "Is it accurate with irregular cycles?",
+          "answer": "Naegele's rule assumes a regular 28-day cycle. Irregular cycles increase error, so an ultrasound (fetal-size) due date is more accurate. This tool supports cycle adjustment but is for reference."
+        },
+        {
+          "question": "When does pregnancy week counting start?",
+          "answer": "The first day of LMP is week 0 day 0. Actual conception is ~2 weeks later, but since exact ovulation is unknown, LMP is the standard. So 'week 4' is around the expected period date."
+        },
+        {
+          "question": "How are trimesters divided?",
+          "answer": "1st 0-13 weeks (organ formation, nausea), 2nd 14-27 (stable, movement), 3rd 28+ (rapid growth, term prep). Each has different tests and precautions."
+        },
+        {
+          "question": "It differs from the ultrasound date — which is right?",
+          "answer": "The early ultrasound (7-12 weeks) date is most accurate. If it differs from LMP by 1+ weeks, the ultrasound date is usually adopted. This tool estimates from LMP, so prioritize your OB-GYN's confirmed date."
+        },
+        {
+          "question": "Same due date for twins?",
+          "answer": "Twins/multiples tend to be born earlier (usually before 37 weeks). This calculator assumes a singleton, so follow medical guidance for multiples."
+        }
       ],
       "cautions": [
         "Naegele's rule (LMP+280) estimate — ultrasound date is more accurate.",
@@ -2540,8 +2962,14 @@
         "Confirm the exact date via OB-GYN ultrasound."
       ],
       "related": [
-        { "label": "Korean Age", "href": "/korean-age" },
-        { "label": "Gift Money", "href": "/gift-money" }
+        {
+          "label": "Korean Age",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Gift Money",
+          "href": "/gift-money"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2617,9 +3045,18 @@
         "Insurance rates change annually."
       ],
       "related": [
-        { "label": "4 Insurances Calculator", "href": "/insurance-calc" },
-        { "label": "Income Tax Calculator", "href": "/income-tax" },
-        { "label": "Freelancer 3.3%", "href": "/freelancer-tax" }
+        {
+          "label": "4 Insurances Calculator",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Freelancer 3.3%",
+          "href": "/freelancer-tax"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2695,8 +3132,14 @@
         "Overstay leads to fines and entry bans."
       ],
       "related": [
-        { "label": "Korean Age", "href": "/korean-age" },
-        { "label": "Name Romanizer", "href": "/name-romanize" }
+        {
+          "label": "Korean Age",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Name Romanizer",
+          "href": "/name-romanize"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2772,9 +3215,18 @@
         "Combine income from multiple payers when filing."
       ],
       "related": [
-        { "label": "Income Tax Calculator", "href": "/income-tax" },
-        { "label": "Salary Take-Home", "href": "/net-salary" },
-        { "label": "VAT Calculator", "href": "/vat-calc" }
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Salary Take-Home",
+          "href": "/net-salary"
+        },
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2850,8 +3302,14 @@
         "The definitive bill is from KEPCO (paper or Cyber Branch)."
       ],
       "related": [
-        { "label": "Percent Calculator", "href": "/percent-calc" },
-        { "label": "VAT Calculator", "href": "/vat-calc" }
+        {
+          "label": "Percent Calculator",
+          "href": "/percent-calc"
+        },
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -2926,8 +3384,14 @@
         "Special pronunciations may follow the person's preference."
       ],
       "related": [
-        { "label": "Korean Age", "href": "/korean-age" },
-        { "label": "Size Converter", "href": "/size-convert" }
+        {
+          "label": "Korean Age",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Size Converter",
+          "href": "/size-convert"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3003,8 +3467,14 @@
         "Children's sizes not included (adults only)."
       ],
       "related": [
-        { "label": "Korean Age", "href": "/korean-age" },
-        { "label": "Name Romanizer", "href": "/name-romanize" }
+        {
+          "label": "Korean Age",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Name Romanizer",
+          "href": "/name-romanize"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3082,9 +3552,18 @@
         "For accurate filing, consult Hometax or a tax accountant."
       ],
       "related": [
-        { "label": "Income Tax Calculator", "href": "/income-tax" },
-        { "label": "Rent Cap (5%)", "href": "/rent-cap" },
-        { "label": "Pyeong ↔ m²", "href": "/area-convert" }
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Rent Cap (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3160,9 +3639,18 @@
         "Re-verify final quantity against the product label's spread rate."
       ],
       "related": [
-        { "label": "Tile Calculator", "href": "/timber-calc/tile" },
-        { "label": "Pyeong ↔ m²", "href": "/area-convert" },
-        { "label": "Drywall Calculator", "href": "/timber-calc/drywall" }
+        {
+          "label": "Tile Calculator",
+          "href": "/timber-calc/tile"
+        },
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Drywall Calculator",
+          "href": "/timber-calc/drywall"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3237,8 +3725,14 @@
         "Reference date is Korea Standard Time (KST). Living abroad may shift the date by one day."
       ],
       "related": [
-        { "label": "Pyeong ↔ m²", "href": "/area-convert" },
-        { "label": "Percent Calculator", "href": "/percent-calc" }
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Percent Calculator",
+          "href": "/percent-calc"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3315,9 +3809,18 @@
         "Structural and snow load review requires separate structural calculation."
       ],
       "related": [
-        { "label": "Roof Pitch Conversion", "href": "/timber-calc/roof-pitch" },
-        { "label": "Rafter Length", "href": "/timber-calc/rafter" },
-        { "label": "OSB Calculator", "href": "/timber-calc/osb" }
+        {
+          "label": "Roof Pitch Conversion",
+          "href": "/timber-calc/roof-pitch"
+        },
+        {
+          "label": "Rafter Length",
+          "href": "/timber-calc/rafter"
+        },
+        {
+          "label": "OSB Calculator",
+          "href": "/timber-calc/osb"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3394,9 +3897,18 @@
         "Final design requires KEC review by a certified electrical engineer."
       ],
       "related": [
-        { "label": "Breaker Capacity", "href": "/electric-calc/breaker" },
-        { "label": "Voltage Drop", "href": "/electric-calc/voltage-drop" },
-        { "label": "Electric Hub", "href": "/electric-calc" }
+        {
+          "label": "Breaker Capacity",
+          "href": "/electric-calc/breaker"
+        },
+        {
+          "label": "Voltage Drop",
+          "href": "/electric-calc/voltage-drop"
+        },
+        {
+          "label": "Electric Hub",
+          "href": "/electric-calc"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3472,9 +3984,18 @@
         "Final design requires review by an architect or energy assessor."
       ],
       "related": [
-        { "label": "Insulation Batts", "href": "/timber-calc/insulation-batt" },
-        { "label": "Drywall Calculator", "href": "/timber-calc/drywall" },
-        { "label": "Timber Hub", "href": "/timber-calc" }
+        {
+          "label": "Insulation Batts",
+          "href": "/timber-calc/insulation-batt"
+        },
+        {
+          "label": "Drywall Calculator",
+          "href": "/timber-calc/drywall"
+        },
+        {
+          "label": "Timber Hub",
+          "href": "/timber-calc"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3555,9 +4076,18 @@
         "Final breaker selection requires KEC review by a certified electrical engineer."
       ],
       "related": [
-        { "label": "Wire Size Calculator", "href": "/electric-calc/wire-size" },
-        { "label": "Voltage Drop", "href": "/electric-calc/voltage-drop" },
-        { "label": "Electric Hub", "href": "/electric-calc" }
+        {
+          "label": "Wire Size Calculator",
+          "href": "/electric-calc/wire-size"
+        },
+        {
+          "label": "Voltage Drop",
+          "href": "/electric-calc/voltage-drop"
+        },
+        {
+          "label": "Electric Hub",
+          "href": "/electric-calc"
+        }
       ],
       "lastReviewed": "2026-05-30"
     },
@@ -3632,11 +4162,333 @@
         "E-tax invoice issuance requires both format validation and active registration confirmation."
       ],
       "related": [
-        { "label": "4 Insurances + Net Pay", "href": "/insurance-calc" },
-        { "label": "VAT Calculator", "href": "/vat-calc" },
-        { "label": "Income Tax Calculator", "href": "/income-tax" }
+        {
+          "label": "4 Insurances + Net Pay",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        }
       ],
       "lastReviewed": "2026-05-23"
+    },
+    "distance-convert": {
+      "overview": "This distance converter translates between metric (m, km), imperial/US units (mile, yard, ft, inch), and traditional Korean units (ja, ri, bo) at once. 1 ja (尺) = 10/33 m (about 30.3 cm), 1 ri (里) = 1296 ja ≈ 392.7 m, and 1 bo (步) = 6 ja. It is handy for running distances (mile↔km), imported furniture sizes (inch→cm), and reading the 'ri' found in old Korean texts.",
+      "useCases": [
+        "Convert running/marathon distances between miles and kilometers",
+        "Turn imported furniture inch/ft into cm/m",
+        "Interpret the 'ri' (里) in old Korean documents and place names",
+        "Convert traditional Hanok blueprint 'ja' (尺) units to meters",
+        "Convert golf/sports yards to meters"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Choose the base unit you want to enter (e.g. meter, mile, ja).",
+          "Type a number and all 9 units (ri, ja, bo, m, km, mile, yard, ft, inch) convert instantly.",
+          "Korean, metric, and imperial units are grouped together, so find the one you need at a glance."
+        ]
+      },
+      "formula": {
+        "title": "Conversion basis",
+        "body": "Korean traditional units (weights-and-measures law):\n  1 ja (尺) = 10/33 m ≈ 0.30303 m\n  1 bo (步) = 6 ja ≈ 1.818 m\n  1 ri (里) = 1296 ja ≈ 392.727 m\n\nImperial/US units (international):\n  1 mile = 1609.344 m\n  1 yard = 0.9144 m\n  1 ft = 0.3048 m\n  1 inch = 0.0254 m\n\nAll conversions use the meter (m) as the base value."
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: 5 mile → km",
+            "body": "5 mile × 1609.344 = 8046.72 m ≈ 8.05 km. Useful when comparing a 5-mile run to a 5K."
+          },
+          {
+            "title": "Example 2: How far is 10 ri?",
+            "body": "10 ri × 392.727 m = 3927.27 m ≈ 3.93 km. Confirms the Korean saying 'sip-ri' (ten ri) is roughly 4 km."
+          },
+          {
+            "title": "Example 3: A 6-ja pillar → m",
+            "body": "6 ja × 0.30303 = 1.818 m. For converting Hanok pillar and door-frame dimensions to meters."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Exactly how many cm is 1 ja (尺)?",
+          "answer": "Under Korean weights-and-measures law, 1 ja = 10/33 m ≈ 30.303 cm. It matches the Japanese carpenter's shaku and is often rounded to 30.3 cm."
+        },
+        {
+          "question": "Why does 1 ri (里) differ between sources?",
+          "answer": "The 'ri' was defined differently across eras and countries. The current Korean standard is 1296 ja (≈392.7 m), but the Joseon era used about 420 m and the Japanese ri is about 3927 m — roughly 10× larger. This tool uses the Korean standard of 1296 ja."
+        },
+        {
+          "question": "Which 'mile' does this use?",
+          "answer": "The international mile = 1609.344 m. It differs from the nautical mile (1852 m) used at sea."
+        },
+        {
+          "question": "What is 'bo' (步) used for?",
+          "answer": "A bo is 6 ja (about 1.82 m) and was traditionally the base length for land area (pyeong, danbo). It helps interpret old distance expressions and land-survey records."
+        },
+        {
+          "question": "How accurate is it?",
+          "answer": "Metric and imperial units use exact international definitions, and the Korean units apply the legal definition (10/33 m) directly. Note that ri and bo in old texts may have meant different real distances by era, so treat those as references."
+        }
+      ],
+      "cautions": [
+        "Korean units (ja, ri, bo) follow the legal definition; old texts may vary by era.",
+        "'Mile' here is the international mile (1609.344 m), not the nautical mile (1852 m).",
+        "Ri uses the Korean 1296-ja basis — 10× smaller than the Japanese ri (~3.9 km).",
+        "For legal/survey drawings, re-verify with official units (m)."
+      ],
+      "related": [
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Temperature Converter",
+          "href": "/temp-convert"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "temp-convert": {
+      "overview": "This temperature converter instantly translates Celsius (°C), Fahrenheit (°F), and Kelvin (K). Korea and Europe use Celsius, the US uses Fahrenheit, and science/engineering uses absolute Kelvin. Built on F = C × 9/5 + 32 and K = C + 273.15, it adds body-temperature and boiling presets plus a feel guide (cold / mild / hot). Handy for foreign weather apps, oven recipes, and AC set points.",
+      "useCases": [
+        "Read US weather in Fahrenheit as Korean-style Celsius",
+        "Convert overseas recipe oven temps (e.g. 350°F)",
+        "Check fever thresholds (°F ↔ °C)",
+        "Compute absolute temperature (Kelvin) for science/engineering",
+        "Interpret AC and boiler set temperatures"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Pick the base unit to convert from (°C / °F / K).",
+          "Enter a temperature and the other two units convert immediately.",
+          "Tap a body/boiling preset to load common temperatures, and use the feel guide for a quick sense of it."
+        ]
+      },
+      "formula": {
+        "title": "Conversion formulas",
+        "body": "Celsius → Fahrenheit:  °F = °C × 9/5 + 32\nFahrenheit → Celsius:  °C = (°F − 32) × 5/9\nCelsius → Kelvin:  K = °C + 273.15\nKelvin → Celsius:  °C = K − 273.15\n\nReference points:\n  Water freezes = 0°C = 32°F = 273.15K\n  Water boils = 100°C = 212°F = 373.15K\n  Body temp = 36.5°C ≈ 97.7°F\n  −40°C = −40°F (where Celsius and Fahrenheit meet)"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: 100°F → Celsius",
+            "body": "(100 − 32) × 5/9 = 37.8°C. A US forecast of 100°F is a 37.8°C heat wave in Korean terms."
+          },
+          {
+            "title": "Example 2: Recipe 350°F → Celsius",
+            "body": "(350 − 32) × 5/9 ≈ 177°C. Set the oven to roughly 175–180°C for a US recipe's 350°F."
+          },
+          {
+            "title": "Example 3: What is 25°C in Fahrenheit?",
+            "body": "25 × 9/5 + 32 = 77°F. A pleasant spring/autumn 25°C equals 77°F."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is there a quick way to estimate Fahrenheit to Celsius?",
+          "answer": "Roughly, '(°F − 30) ÷ 2'. Example: 70°F → (70−30)/2 = 20°C (actual 21.1°C). It is close enough for everyday weather sense."
+        },
+        {
+          "question": "Why does Kelvin have no degree (°) symbol?",
+          "answer": "Kelvin is an absolute-temperature SI base unit. Because it is an absolute scale starting at 0K (absolute zero), it is written simply as K, without 'degrees'."
+        },
+        {
+          "question": "Is there a temperature where Celsius equals Fahrenheit?",
+          "answer": "Yes — exactly at −40°C = −40°F. Due to the different slopes of the two scales, they match only at this single point."
+        },
+        {
+          "question": "What is normal body temperature in Fahrenheit?",
+          "answer": "Korea uses 36.5°C ≈ 97.7°F; the commonly cited US 98.6°F equals 37°C. A fever is usually 38°C (100.4°F) or above."
+        },
+        {
+          "question": "Why does my oven differ from the recipe?",
+          "answer": "Beyond the unit difference (°F↔°C), ovens vary by ±10–20°C in real temperature. Use the converted value as a baseline and calibrate with an oven thermometer."
+        }
+      ],
+      "cautions": [
+        "Formulas are exact; displayed digits may be rounded.",
+        "Real oven/appliance temps can vary ±10–20°C — the conversion is a baseline.",
+        "For fever/medical decisions, rely on a medical thermometer, not the conversion.",
+        "Kelvin starts at absolute zero (−273.15°C) — negative Kelvin does not exist."
+      ],
+      "related": [
+        {
+          "label": "Distance Converter",
+          "href": "/distance-convert"
+        },
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "text-romanize": {
+      "overview": "This Korean romanizer transliterates Hangul sentences and words using the Revised Romanization of Korean. When you want to read signs, menus, place names, or words in roman letters, it converts syllable by syllable while preserving spaces and punctuation. Great for Korean learners and for adding roman spellings to Korean content. (For a passport name, use the dedicated 'Korean Name Romanizer' instead.)",
+      "useCases": [
+        "Help foreigners read Korean signs, menus, and place names",
+        "Practice pronunciation and spelling for Korean learners",
+        "Add roman spellings beside Korean words in posts",
+        "Draft roman spellings of Korean place and business names",
+        "Check the transliteration of Korean lyrics or sentences"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Type the Korean sentence or word into the input box.",
+          "The romanized transliteration appears instantly as you type.",
+          "Spaces and punctuation are preserved and each word is capitalized. The syllable count is shown too."
+        ]
+      },
+      "formula": {
+        "title": "Spelling basis",
+        "body": "Based on the Revised Romanization of Korean (2000), each syllable is decomposed into initial, medial, and final jamo and transliterated.\n  Vowels: ㅏ=a, ㅓ=eo, ㅗ=o, ㅜ=u, ㅡ=eu, ㅣ=i, ㅐ=ae, ㅔ=e ...\n  Consonants: ㄱ=g/k, ㄷ=d/t, ㅂ=b/p, ㅈ=j, ㅊ=ch, ㄹ=r/l ...\n\nNote: this is syllable-by-syllable transliteration that does NOT apply sound changes (assimilation).\n  e.g. 신라 → Sinra (not the spoken Silla)\n  e.g. 종로 → Jongro (not the spoken Jongno)\nOfficial spellings reflect pronunciation changes, so treat results as a reference."
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: 안녕하세요 → Annyeonghaseyo",
+            "body": "Syllables 안=an, 녕=nyeong, 하=ha, 세=se, 요=yo → Annyeonghaseyo. The most basic greeting, romanized."
+          },
+          {
+            "title": "Example 2: 서울 시청 → Seoul Sicheong",
+            "body": "The space is preserved into two words, each capitalized. Ideal for reading place and institution names."
+          },
+          {
+            "title": "Example 3: 김밥 → Gimbap",
+            "body": "Romanizes the menu item gimbap as Gimbap — for explaining a menu to foreign guests."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Does it apply sound changes (assimilation)?",
+          "answer": "No. This is syllable-by-syllable transliteration, so phonological changes like consonant assimilation are not reflected — e.g. 신라 → Sinra (actually pronounced Silla). For accurate pronunciation spelling, check the official romanization."
+        },
+        {
+          "question": "Can I use this for my passport name?",
+          "answer": "Not recommended. Passport names should follow the official guidance and existing family spelling conventions, so use the dedicated 'Korean Name Romanizer' or the official guidance instead."
+        },
+        {
+          "question": "Why does ㅓ become 'eo' and ㅡ become 'eu'?",
+          "answer": "The Revised Romanization defines ㅓ=eo and ㅡ=eu. These two-letter combinations represent Korean vowels that have no single English-letter equivalent."
+        },
+        {
+          "question": "Are final consonants (batchim) converted?",
+          "answer": "Yes, final consonants are romanized as the syllable's final jamo. However, the real pronunciation where a batchim links or assimilates with the next syllable is not reflected (syllable-level processing)."
+        },
+        {
+          "question": "What about mixed English and numbers?",
+          "answer": "Non-Hangul characters (English, numbers, symbols, spaces) are preserved as-is. Only Hangul syllables are transliterated into roman letters."
+        }
+      ],
+      "cautions": [
+        "Syllable-level transliteration — sound changes (assimilation) are not applied.",
+        "e.g. 신라→Sinra, 종로→Jongro (may differ from spoken pronunciation).",
+        "For passport names, use the dedicated 'Korean Name Romanizer'.",
+        "May differ from official place-name/signage spellings — use as a reference."
+      ],
+      "related": [
+        {
+          "label": "Korean Name Romanizer",
+          "href": "/name-romanize"
+        },
+        {
+          "label": "Voltage & Plug Guide",
+          "href": "/voltage-guide"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "voltage-guide": {
+      "overview": "This Korea voltage and plug guide tells you whether you need a transformer and a plug adapter ('dwaeji-ko') when traveling to or moving to Korea. Korea uses 220V/60Hz with plug types C/F. Pick your device voltage (the INPUT label) and your home plug type, and it instantly tells you whether a step-down transformer and an adapter are needed. Most laptop and phone chargers are dual-voltage, so only an adapter is required.",
+      "useCases": [
+        "Check transformer/adapter needs before a Korea trip",
+        "See if a US/Japan 110V device works on Korea's 220V",
+        "Verify heat devices (hair dryer, flat iron) compatibility",
+        "Decide whether a resident's home appliances work in Korea",
+        "Understand whether a laptop/charger is dual-voltage"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Read your device's INPUT label and choose the voltage preset (dual / 120V / 100V / 220V).",
+          "Select your country's plug type (A/B/C/F/G/I, etc.).",
+          "It instantly shows whether you need a transformer and whether you need a plug adapter (dwaeji-ko)."
+        ]
+      },
+      "formula": {
+        "title": "Decision basis",
+        "body": "Korea standard: 220V · 60Hz · plug type C / F\n\nTransformer needed?\n  Device covers 220V (dual 100–240V or 220–240V) → no transformer\n  Device is 110–120V only (US) or 100V only (Japan) → step-down/step-up transformer needed\n\nPlug adapter (dwaeji-ko) needed?\n  Plug is C or F → fits Korean outlets directly (no adapter)\n  Otherwise (A/B/G/I, etc.) → plug adapter needed\n\nTransformer = changes voltage / Adapter = changes plug shape (different things)."
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: US hair dryer (120V, plug A)",
+            "body": "120V-only needs a step-down transformer + plug A needs an adapter. Heat devices draw high power, so buying a local 220V unit in Korea is safer."
+          },
+          {
+            "title": "Example 2: Laptop charger (100–240V, plug C)",
+            "body": "Dual voltage means no transformer + plug C fits Korea directly. Nothing is needed. This covers most laptop and phone chargers."
+          },
+          {
+            "title": "Example 3: Japanese appliance (100V, plug A)",
+            "body": "100V-only needs a step-up transformer + plug A needs an adapter. Be careful using Japanese devices in Korea."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is a 'dwaeji-ko'?",
+          "answer": "It is the Korean nickname for a plug-shape adapter. Named because it looks like a pig's nose ('dwaeji-ko'), it changes only the plug shape to fit Korean outlets (C/F) — it does not change voltage."
+        },
+        {
+          "question": "How is a transformer different from an adapter?",
+          "answer": "A transformer changes voltage (e.g. 220V→110V). An adapter only changes plug shape. To use a US 110V device in Korea you may need both. A dual-voltage device needs only the adapter."
+        },
+        {
+          "question": "How do I know if my device is dual-voltage?",
+          "answer": "Read the INPUT label on the device/charger. A range like '100-240V' means dual-voltage (no transformer needed). A single value like '120V' or '100V' means single-voltage and may need a transformer."
+        },
+        {
+          "question": "What is the difference between Korean plug types C and F?",
+          "answer": "Both are round 2-pin and Korean outlets accept either. Type F has grounding (metal clips on the sides) while type C does not. They are compatible with most of Europe."
+        },
+        {
+          "question": "Must I run a hair dryer through a transformer?",
+          "answer": "Not recommended. Hair dryers and flat irons draw high power, which travel transformers often cannot handle safely. Buying a local 220V product in Korea is safer and cheaper."
+        }
+      ],
+      "cautions": [
+        "Based on Korea's standard 220V/60Hz, plug C/F.",
+        "Always check the device INPUT label yourself — results are based on your input.",
+        "High-power heat devices (hair dryer, flat iron) are unsuitable for travel transformers; buy locally.",
+        "The 60Hz↔50Hz difference can affect some motor/clock devices' speed.",
+        "For safety/certification (KC), check the manufacturer and official guidance."
+      ],
+      "related": [
+        {
+          "label": "Korean Romanizer",
+          "href": "/text-romanize"
+        },
+        {
+          "label": "Korean Age Calculator",
+          "href": "/korean-age"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
     }
   }
 }

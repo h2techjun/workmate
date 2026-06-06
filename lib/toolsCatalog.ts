@@ -192,6 +192,8 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "체류일수 (90일 비자)", labelEn: "Stay Days Tracker", href: "/visa-days", keywordsKo: "한국 체류일수 90일 무비자 만료일 비자" },
       { labelKo: "한글 이름 로마자", labelEn: "Name Romanizer", href: "/name-romanize", keywordsKo: "한글 이름 로마자 여권 영문 이름 변환" },
       { labelKo: "옷·신발 사이즈 변환", labelEn: "Size Converter", href: "/size-convert", keywordsKo: "한국 사이즈 신발 옷 US EU 변환" },
+      { labelKo: "한글 문장 로마자", labelEn: "Korean Romanizer", href: "/text-romanize", keywordsKo: "한글 로마자 변환 문장 간판 메뉴 음역 한국어 영문" },
+      { labelKo: "한국 전압·플러그", labelEn: "Voltage & Plug", href: "/voltage-guide", keywordsKo: "한국 전압 220V 플러그 돼지코 변압기 여행 어댑터" },
       { labelKo: "축의금·부의금", labelEn: "Gift Money", href: "/gift-money", keywordsKo: "축의금 부의금 결혼식 경조사비 금액" },
       { labelKo: "출산예정일", labelEn: "Due Date", href: "/due-date", keywordsKo: "출산예정일 임신 주수 분만예정일 계산기" },
     ],
@@ -268,6 +270,8 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     },
     tools: [
       { labelKo: "평수 ↔ ㎡ ↔ 자²", labelEn: "Pyeong ↔ m²", href: "/area-convert", keywordsKo: "평수 계산 평 제곱미터 환산 부동산 면적" },
+      { labelKo: "거리·길이 변환", labelEn: "Distance Converter", href: "/distance-convert", keywordsKo: "거리 길이 변환 미터 마일 자 리 보 km" },
+      { labelKo: "온도 변환 (°C↔°F)", labelEn: "Temperature", href: "/temp-convert", keywordsKo: "온도 변환 섭씨 화씨 켈빈 °C °F" },
       { labelKo: "퍼센트 계산", labelEn: "Percent", href: "/percent-calc", keywordsKo: "퍼센트 할인 인상 변화율 마진" },
       { labelKo: "JSON ↔ CSV", labelEn: "JSON ↔ CSV", href: "/json-csv", keywordsKo: "JSON CSV 변환 한글 BOM Excel" },
     ],
