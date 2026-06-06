@@ -182,16 +182,16 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     techStack: ["Next.js", "FSRS", "IndexedDB", "PWA"],
     i18n: {
       ko: {
-        title: "Vibe English",
+        title: "Loopla English",
         tagline: "기억력 곡선 기반 생활 영어 SRS",
         description:
           "에빙하우스 망각곡선(FSRS)에 맞춰 잊을 만할 때 복습하는 생활 영어. A1~C2 3,400+ 카드, 발음기호+한국어 발음 병기, 플래시카드+빈칸 퀴즈. 가입 없이 완전 로컬로 동작.",
       },
       en: {
-        title: "Vibe Korean",
+        title: "Loopla Korean",
         tagline: "Everyday Korean SRS timed to your memory curve",
         description:
-          "Learn Korean with spaced repetition (FSRS) timed to the forgetting curve. 3,400+ everyday cards A1–C2, Hangul + romanization, flashcards + cloze quiz. Fully local, no signup.",
+          "Learn everyday Korean with spaced repetition (FSRS) timed to the forgetting curve. 3,400+ cards A1–C2, Hangul + romanization, flashcards + cloze quiz. Fully local, no signup.",
       },
     },
   },
@@ -228,7 +228,7 @@ export const TAB_TAGLINE: Record<ProjectTab, Record<Locale, string>> = {
   },
   learn: {
     ko: "기억력 곡선에 맞춘 간격 반복 학습 — 매일 꾸준히",
-    en: "Spaced-repetition Korean timed to your memory curve — daily progress",
+    en: "Spaced-repetition everyday Korean timed to your memory curve",
   },
 };
 

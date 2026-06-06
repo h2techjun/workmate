@@ -15,13 +15,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale !== "en";
 
-  // ko 방문자 → 영어 학습 / en 방문자 → 한국어 학습 (각 사용자에게 '외국어'를 학습 대상으로 제시)
+  // Loopla — ko 방문자: Loopla English(영어 학습) / en 방문자: Loopla Korean(한국어 학습)
   const title = isKo
-    ? `영어 학습 · 생활 영어 SRS — ${SITE_BRAND}`
-    : `Learn Korean · Spaced-Repetition Korean SRS — ${SITE_BRAND}`;
+    ? `영어 학습 · Loopla English SRS — ${SITE_BRAND}`
+    : `Learn Korean · Loopla Korean SRS — ${SITE_BRAND}`;
   const description = isKo
     ? "기억력 곡선(FSRS)에 맞춘 생활 영어 간격 반복 학습. A1~C2 3,400+ 카드, 발음기호+한국어 발음, 플래시카드+빈칸 퀴즈. 가입 없이 브라우저에서 바로."
-    : "Learn Korean with spaced repetition on the FSRS memory curve. 3,400+ everyday Korean cards A1–C2, Hangul + romanization, flashcards + cloze quiz. No signup, runs in your browser.";
+    : "Loopla Korean — learn everyday Korean with spaced repetition on the FSRS memory curve. 3,400+ cards A1–C2, Hangul + romanization, flashcards + cloze quiz. No signup, runs in your browser.";
   const keywords = isKo
     ? [
         "영어 학습",
@@ -94,7 +94,7 @@ export default async function LearnHubPage({
           <p className="mt-4 text-lg leading-relaxed text-[color:var(--color-text-secondary)]">
             {isKo
               ? "잊을 만할 때 다시 만나는 생활 영어. 망각곡선(FSRS)이 복습 타이밍을 자동 계산하고, 발음기호와 한국어 발음까지 함께 익힌다."
-              : "Everyday Korean that comes back right before you forget. FSRS schedules your reviews automatically, with Hangul and romanization hints."}
+              : "Everyday Korean that comes back right before you forget. Loopla Korean's FSRS engine schedules your reviews automatically, with Hangul and romanization hints."}
           </p>
         </header>
 
