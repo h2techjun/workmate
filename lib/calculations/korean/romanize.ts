@@ -7,27 +7,11 @@
  * 성(姓)은 관습 표기(Kim, Lee, Park, Choi…)가 여권 등에서 널리 쓰이므로
  * 정식 표기와 함께 관습 표기도 제시한다.
  *
- * 한글 음절 분해: 유니카드 AC00~D7A3 영역을 (초성×21 + 중성)×28 + 종성 으로 역산.
+ * 음절 분해·로마자 음가는 공용 모듈 `hangul.ts` 단일 진실원을 사용한다
+ * (text-romanize·hangul-decompose 와 동일 표 — 중복 정의 금지).
  */
 
-const HANGUL_BASE = 0xac00;
-const HANGUL_END = 0xd7a3;
-
-// 초성 19
-const CHO = [
-  "g", "kk", "n", "d", "tt", "r", "m", "b", "pp", "s", "ss", "", "j", "jj",
-  "ch", "k", "t", "p", "h",
-];
-// 중성 21
-const JUNG = [
-  "a", "ae", "ya", "yae", "eo", "e", "yeo", "ye", "o", "wa", "wae", "oe",
-  "yo", "u", "wo", "we", "wi", "yu", "eu", "ui", "i",
-];
-// 종성 28 (0 = 없음). 받침 로마자
-const JONG = [
-  "", "k", "k", "k", "n", "n", "n", "t", "l", "k", "m", "l", "l", "l", "p",
-  "l", "m", "p", "p", "t", "t", "ng", "t", "t", "k", "t", "p", "t",
-];
+import { isHangulSyllable, romanizeSyllable } from "./hangul";
 
 /** 흔한 성씨의 관습 로마자 (여권 통계 다수) */
 const SURNAME_CONVENTIONAL: Record<string, string> = {
@@ -45,21 +29,6 @@ const SURNAME_CONVENTIONAL: Record<string, string> = {
 const COMPOUND_SURNAMES = new Set([
   "남궁", "황보", "제갈", "사공", "선우", "서문", "독고", "동방", "망절",
 ]);
-
-function isHangulSyllable(ch: string): boolean {
-  const code = ch.codePointAt(0) ?? 0;
-  return code >= HANGUL_BASE && code <= HANGUL_END;
-}
-
-/** 한 음절을 로마자로 (음운 변화 미반영) */
-function romanizeSyllable(ch: string): string {
-  const code = (ch.codePointAt(0) ?? 0) - HANGUL_BASE;
-  if (code < 0 || code > HANGUL_END - HANGUL_BASE) return ch;
-  const cho = Math.floor(code / (21 * 28));
-  const jung = Math.floor((code % (21 * 28)) / 28);
-  const jong = code % 28;
-  return CHO[cho]! + JUNG[jung]! + JONG[jong]!;
-}
 
 /** 음절 묶음을 로마자로 (첫 글자 대문자) */
 function romanizeBlock(block: string): string {
