@@ -1,25 +1,32 @@
 # Workmate 프로젝트 상태판
 
 > **단일 진실원** — 매 세션 시작 시 이 파일을 먼저 읽으세요.
-> 마지막 갱신: 2026-05-23 (블로그 3편 + AdSense 1차 거절 보강 완료)
+> 마지막 갱신: 2026-06-06 (WaveA+WaveB 7개 도구 신규 — 외국인 필수 + 한국어 학습/생활)
 
 ---
 
-## 📊 도구 인벤토리: 50개 (11개 카테고리) — 2026-05-30 전부 완성
+## 📊 도구 인벤토리: 57개 (11개 카테고리) — 2026-06-06 갱신
 
-로드맵(docs/roadmap.md) Tier 1~3 전부 구현 완료. 음력↔양력만 보류(KASI 데이터 검증 필요).
+로드맵(docs/roadmap.md) Tier 1~3 + Tier A/B 전부 구현 완료.
+보류: 음력↔양력 + 한국 공휴일 (둘 다 음력 명절 양력 변환 = KASI 데이터 검증 필요, 동일 원칙).
 - **재무·세금**: income-tax · capital-gains-tax · loan-calc · compound-calc · vat-calc · freelancer-tax · foreign-stock-tax
 - **근로**: net-salary · annual-leave · weekly-rest-pay · severance · min-wage-monthly · insurance-calc
 - **부동산**: rent-cap
 - **자동차** 🚗: car-acquisition-tax · car-tax
-- **한국 생활·외국인** 🇰🇷: korean-age · visa-days · name-romanize · size-convert · gift-money · due-date
+- **한국 생활·외국인** 🇰🇷: korean-age · visa-days · name-romanize · size-convert · gift-money · due-date · **text-romanize** · **korean-number** · **hangul-decompose** · **school-grade** · **voltage-guide**
 - **공과금** 💡: electric-bill · btu-calc
 - **전기**: wire-size · breaker · voltage-drop
 - **목조·자재**: 18개 (tile·studs·drywall·plywood·osb·siding·insulation-batt·span·insulation·material-quantity·stairs·rafter·roof-pitch·roof-area·concrete·paint-calc·gravel-calc·deck-calc·lumber)
 - **사업자**: biznum-check
-- **변환**: area-convert·percent-calc·json-csv
+- **변환**: area-convert·percent-calc·json-csv · **distance-convert** · **temp-convert**
 
-검증: i18n 2595=2595 · 357 테스트 · 252 페이지 · sitemap 128 URL · ToolGuide 26개
+검증: i18n 2466=2466 · 407 테스트 · sitemap 신규 7경로(×2 로케일) · ToolGuide 33개
+
+### 🆕 2026-06-06 WaveA+WaveB (외국인 필수 + 한국어 학습/생활)
+- **WaveA** (`8c94cba`): distance-convert(거리 자·리·보↔m/mile) · temp-convert(°C↔°F↔K) · text-romanize(한글 문장 로마자) · voltage-guide(220V·돼지코 판정)
+- **WaveB** (`7cf860f`): hangul-decompose(초성·중성·종성 분해) · korean-number(한자어·고유어 수사) · school-grade(출생연도→학년)
+- 각 도구 = calc+test(WaveA 25 + WaveB 25) · form · page · catalog · sitemap · ToolGuide ko/en
+- **보류**: korea-holidays — 설날·추석·부처님오신날 양력 변환 정확도 미검증 → korean-number로 대체
 
 ## 🎯 현재 단계: Phase 3 — 트래픽 + 수익화
 
@@ -202,7 +209,9 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
-| 2026-05-30 | breaker ToolGuide + 영문 글 "Korean Pyeong Explained" | (HEAD) |
+| 2026-06-06 | WaveB: hangul-decompose + korean-number + school-grade (공휴일 보류) | `7cf860f` |
+| 2026-06-06 | WaveA: distance-convert + temp-convert + text-romanize + voltage-guide | `8c94cba` |
+| 2026-05-30 | breaker ToolGuide + 영문 글 "Korean Pyeong Explained" | (이전) |
 | 2026-05-30 | biznum-check ToolGuide + 영문 글 "Business Number Checksum" + /guide 인덱스 | `41248f8` |
 | 2026-05-23 | 레이아웃 일관성 (PageShell + Header active + Footer 그룹) | `4d53f88` |
 | 2026-05-23 | PROJECT_STATUS + TASKS 단일 진실원 체계 | `127283a` |

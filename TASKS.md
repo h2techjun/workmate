@@ -46,6 +46,10 @@ korean-age · electric-bill · name-romanize · size-convert · capital-gains-ta
 
 ## ✅ 최근 완료 (history)
 
+- [x] 2026-06-06: WaveB — hangul-decompose · korean-number · school-grade (`7cf860f`)
+- [x] 2026-06-06: WaveA — distance-convert · temp-convert · text-romanize · voltage-guide (`8c94cba`)
+  - 보류: korea-holidays (음력 명절 양력 변환 정확도 미검증 → korean-number로 대체)
+  - 마스터 액션: 신규 7개 도구 ×2 로케일 GSC 색인 요청 + sitemap 재제출
 - [x] 2026-05-23: 블로그 3편 + /blog 인덱스 (`223ba6f`)
 - [x] 2026-05-23: 인기 5개 도구 ToolGuide (`f9b8e78`)
 - [x] 2026-05-23: hreflang x-default 보강 23 페이지 (`e1adc9e`)

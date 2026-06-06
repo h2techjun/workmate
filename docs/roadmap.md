@@ -105,20 +105,21 @@ AdSense 대시보드 → 사이트 → workmate.tools → "검토 요청".
 
 KoniKorean·Korean learning tools·K-pop 팬 도구 조사 결과. 모두 계산 전용·API 불필요·정확 구현 가능.
 
-### 🥇 Tier A — 외국인 블루오션 (다음 우선)
-| 도구 | 검색 근거 | 비고 |
+### 🥇 Tier A — 외국인 블루오션 ✅ 완료 (2026-06-06 WaveA)
+| 도구 | 검색 근거 | 상태 |
 |---|---|---|
-| **거리 단위 변환 (리·자 ↔ km/m)** | KoniKorean "Korea Tools" 핵심에 ri 변환 포함 | area-convert 성공 연장, 한국 전통 단위 |
-| **한글 ↔ 로마자 일반 텍스트 변환** | Korean keyboard·romanization 도구 다수 = 큰 수요 | name-romanize(이름) → 일반 문장 확장 |
-| **전압·플러그 가이드 (220V·돼지코)** | "korea voltage converter" 여행자 필수 검색 | 기기 입력전압 입력 → 변압기 필요 여부 판정 |
-| **온도 변환 °C ↔ °F** | 전 세계 초고검색, 외국인 한국 날씨 | 범용이나 진입 쉬움 |
+| **거리 단위 변환 (리·자 ↔ km/m)** | KoniKorean "Korea Tools" 핵심에 ri 변환 포함 | ✅ `/distance-convert` |
+| **한글 ↔ 로마자 일반 텍스트 변환** | Korean keyboard·romanization 도구 다수 = 큰 수요 | ✅ `/text-romanize` |
+| **전압·플러그 가이드 (220V·돼지코)** | "korea voltage converter" 여행자 필수 검색 | ✅ `/voltage-guide` |
+| **온도 변환 °C ↔ °F** | 전 세계 초고검색, 외국인 한국 날씨 | ✅ `/temp-convert` |
 
-### 🥈 Tier B — 한국어 학습/생활
-| 도구 | 검색 근거 | 비고 |
+### 🥈 Tier B — 한국어 학습/생활 ✅ 완료 (2026-06-06 WaveB)
+| 도구 | 검색 근거 | 상태 |
 |---|---|---|
-| **한글 음절 분해기 (초성·중성·종성)** | Korean learning 핵심 학습 도구 | 한글 구조 이해, 학습자 |
-| **한국 학년·입학 나이 매칭** | "what grade in Korea" 외국인 학부모 | korean-age 연계 |
-| **한국 공휴일·대체공휴일 (연도별)** | "korea public holidays 2026" 고검색 | 음력 명절은 별도(데이터 필요) |
+| **한글 음절 분해기 (초성·중성·종성)** | Korean learning 핵심 학습 도구 | ✅ `/hangul-decompose` |
+| **한국 학년·입학 나이 매칭** | "what grade in Korea" 외국인 학부모 | ✅ `/school-grade` |
+| **한글 숫자 읽기 (한자어·고유어)** | "how to count in korean" 학습자 필수 | ✅ `/korean-number` (공휴일 대체) |
+| **한국 공휴일·대체공휴일 (연도별)** | "korea public holidays 2026" 고검색 | ⏸️ 보류 — 설날·추석·부처님오신날 양력 변환 정확도 미검증(음력↔양력과 동일 원칙). 양력 고정 공휴일만으로는 설/추석 누락되어 불완전 → KASI 데이터 확보 후 진행 |
 
 ### 🥉 Tier C — K-culture 엔게이지먼트 (바이럴 트래픽)
 | 도구 | 검색 근거 | 비고 |
