@@ -28,6 +28,7 @@ const T = {
       adult: "성인 (졸업 이후)",
     } as Record<SchoolLevel, string>,
     gradeUnit: "학년",
+    gradeYear: "학년",
     milestones: "주요 입학·졸업 (3월 입학 / 2월 졸업)",
     elem: "초등 입학",
     mid: "중학 입학",
@@ -50,7 +51,8 @@ const T = {
       university: "University",
       adult: "Adult (after graduation)",
     } as Record<SchoolLevel, string>,
-    gradeUnit: "grade",
+    gradeUnit: "Grade",
+    gradeYear: "Year",
     milestones: "Entry & graduation (enters March / graduates Feb)",
     elem: "Elementary entry",
     mid: "Middle entry",
@@ -123,8 +125,7 @@ export function SchoolGradeForm({
                 {t.levels[result.level]}
                 {isStudent ? (
                   <span className="ml-2 tabular-nums">
-                    {result.grade}
-                    {t.gradeUnit}
+                    {gradePhrase(t, locale, result.level, result.grade)}
                   </span>
                 ) : null}
               </p>
@@ -157,6 +158,17 @@ export function SchoolGradeForm({
       </section>
     </div>
   );
+}
+
+/** 로케일별 학년 표기: ko "2학년" / en "Grade 2" (대학은 "Year 2") */
+function gradePhrase(
+  t: (typeof T)["ko" | "en"],
+  locale: "ko" | "en",
+  level: SchoolLevel,
+  grade: number,
+): string {
+  const word = level === "university" ? t.gradeYear : t.gradeUnit;
+  return locale === "ko" ? `${grade}${word}` : `${word} ${grade}`;
 }
 
 function Milestone({
