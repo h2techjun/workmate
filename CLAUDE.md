@@ -17,7 +17,7 @@
 **Workmate** (workmate.tools) 는 두 가지 역할을 동시에 수행:
 
 1. **한국 실무 도구 허브** — 무료 계산기 33개 (도구 본업) + 블로그 long-form 3편
-2. **메이커 포트폴리오 허브** — 운영자가 만든 다른 프로젝트 5개를 `/projects` 페이지에서 카드로 노출
+2. **메이커 포트폴리오 허브** — 운영자가 만든 다른 프로젝트 5개를 `/games`·`/tests` 페이지에서 카드로 노출 (구 `/projects`는 `/games`로 308 리다이렉트 — next.config.ts)
 
 - **타겟**: 한국 실무자 (1순위) + 한국 표준이 필요한 외국인 (2순위)
 - **수익 모델**: SEO 트래픽 → 광고(애드센스) + 추후 프리미엄 기능
@@ -25,7 +25,7 @@
 
 ### 🌐 메이커 허브 — 다른 프로젝트의 카탈로그 단일 진실원
 
-`lib/projectsCatalog.ts` 가 모든 프로젝트의 노출 상태를 결정. `/projects` 페이지·sitemap 모두 이 파일을 참조.
+`lib/projectsCatalog.ts` 가 모든 프로젝트의 노출 상태를 결정. `/games`·`/tests` 허브 페이지·sitemap 모두 이 파일을 참조.
 
 | 프로젝트 폴더 | 탭 | 외부 URL |
 |---|---|---|
@@ -37,7 +37,7 @@
 
 **제외된 프로젝트** (사용자 결정): doc-translator, 09_jeonju-sangkwon, 02_Trade, 06_strix.
 
-새 프로젝트 추가/제외 변경은 `lib/projectsCatalog.ts` 만 수정 → 나머지(/projects 페이지·sitemap·구조화 데이터) 자동 반영.
+새 프로젝트 추가/제외 변경은 `lib/projectsCatalog.ts` 만 수정 → 나머지(/games·/tests 페이지·sitemap·구조화 데이터) 자동 반영.
 
 ## 🏗️ 기술 스택 (절대 변경 금지)
 

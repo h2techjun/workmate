@@ -595,74 +595,56 @@
     "cardComingSoon": "준비 중"
   },
   "home": {
-    "title": "Workmate",
-    "tagline": "한국 실무자를 위한 무료 온라인 도구 모음",
-    "subtitle": "KS 표준에 정확히 맞춘 전기·세무·문서 계산기를 한 곳에서.",
-    "toolsHeading": "도구 목록",
-    "comingSoon": "준비 중",
+    "badge": "{tools}개 도구 · 전부 무료 · 설치 없음",
+    "heroLine1": "복잡한 한국식 계산,",
+    "heroRoll1": "연봉 실수령액",
+    "heroRoll2": "평수 ↔ 제곱미터",
+    "heroRoll3": "전기요금 누진제",
+    "heroRoll4": "퇴직금",
+    "heroRoll5": "부가세",
+    "heroLine2End": "— 3초면 끝.",
+    "heroSubtitle": "근로기준법·KS 표준·세법 출처를 명시한 무료 계산기 {tools}종. 회원가입 없이 검색하고 바로 답을 얻으세요.",
+    "popularChipsLabel": "인기",
+    "floatAreaLabel": "평수 변환",
+    "floatAreaExpr": "84㎡는 몇 평?",
+    "floatAreaResult": "= 25.4평",
+    "floatVatLabel": "부가세 분리",
+    "floatVatExpr": "11,000원 (VAT 포함)",
+    "floatVatResult": "= 10,000 + 1,000",
+    "floatSalaryLabel": "연봉 실수령액",
+    "floatSalaryExpr": "연봉 5,000만원이면",
+    "floatSalaryQuestion": "월에 얼마 받지?",
+    "floatSalaryCta": "지금 계산하기",
+    "marqueeLabel": "전체 도구 {tools}개 — 눌러서 바로 사용",
+    "popularHeading": "지금 가장 많이 쓰는 도구",
+    "popularSub": "검색 유입 상위",
+    "popular": {
+      "netSalary": "연봉에서 4대보험·소득세를 빼고 통장에 실제로 찍히는 돈",
+      "areaConvert": "84㎡가 몇 평인지 1초 만에 — 부동산 표시면적 프리셋 포함",
+      "percentCalc": "할인율·인상률·역산 — 헷갈리는 퍼센트 계산 전부 한 화면에서",
+      "biznumCheck": "거래 전 사업자등록번호가 진짜인지 체크섬으로 즉시 검증",
+      "electricBill": "우리 집 누진 구간이 어디인지 — 한전 주택용 요금 계산",
+      "koreanAge": "만 나이·세는 나이·연 나이 — 헷갈리는 한국식 나이 한 번에 정리"
+    },
     "openTool": "사용하기",
-    "tools": {
-      "electricCalc": {
-        "title": "산업용 전기 계산기",
-        "description": "전선 굵기, 차단기 용량, 전압강하 등 KS 표준 기반 계산기",
-        "tag": "전기"
-      },
-      "timberCalc": {
-        "title": "목조 주택 계산기",
-        "description": "서까래·지붕 경사·계단·목재 수량 등 목조 시공 필수 계산기",
-        "tag": "목조"
-      },
-      "laborCalc": {
-        "title": "근로기준법 계산기",
-        "description": "연차·주휴수당·퇴직금·최저시급 등 근로기준법 기반 계산기. 법령 출처와 단계별 표시.",
-        "tag": "근로"
-      },
-      "insurance": {
-        "title": "4대보험 계산기",
-        "description": "월 급여로부터 국민연금·건강보험·고용보험·산재보험 부담액을 자동 산정 (2026 요율)",
-        "tag": "급여"
-      },
-      "vatCalc": {
-        "title": "부가세 계산기",
-        "description": "공급가액·부가세 즉시 분리 + 일반/간이과세자 신고세액 자동 산출",
-        "tag": "세금"
-      },
-      "compoundCalc": {
-        "title": "복리 계산기",
-        "description": "원금·이율·기간 × 정기 적립 → 만기 금액, 실효이율(EAR), CAGR, 연도별 잔액표",
-        "tag": "재무"
-      },
-      "loanCalc": {
-        "title": "대출 이자 계산기",
-        "description": "원리금균등·원금균등·만기일시 3가지 상환 방식 + 회차별 원금·이자·잔금 상환표",
-        "tag": "대출"
-      },
-      "areaConvert": {
-        "title": "평수 ↔ ㎡ 변환",
-        "description": "평·제곱미터·자² 즉시 환산 + 부동산 표시면적(59㎡·84㎡·114㎡) 프리셋",
-        "tag": "변환"
-      },
-      "percentCalc": {
-        "title": "퍼센트 계산기",
-        "description": "할인·인상·증감률·역산 한 화면에서 — 부가세·세일가·변화율 한 번에",
-        "tag": "변환"
-      },
-      "foreignStockTax": {
-        "title": "해외주식 양도세",
-        "description": "환율과 매수·매도가로부터 양도차익 + 250만원 공제 + 22% 세금 산출",
-        "tag": "세금"
-      },
-      "jsonCsv": {
-        "title": "JSON ↔ CSV 변환",
-        "description": "한글 인코딩(UTF-8 BOM) + Excel 호환 CSV 양방향 변환",
-        "tag": "유틸"
-      },
-      "bizNumber": {
-        "title": "사업자등록번호 검증",
-        "description": "체크섬 알고리즘으로 사업자등록번호 형식·유효성을 즉시 검증 (오프라인)",
-        "tag": "사업자"
-      }
-    }
+    "categoriesHeading": "필요한 계산, 전부 있습니다",
+    "categoriesSub": "{groups}개 카테고리 · {tools}개 도구 — 모든 계산에 법령·표준 출처를 명시합니다",
+    "moreTools": "+{count}",
+    "statsTools": "무료 도구",
+    "statsCategories": "카테고리",
+    "statsLanguages": "지원 언어",
+    "statsSources": "출처 명시",
+    "notesHeading": "현장 노트",
+    "notesSub": "계산기 뒤의 실무 이야기",
+    "notesAll": "전체 보기",
+    "readMinutes": "{minutes}분 읽기",
+    "readPost": "읽어보기",
+    "makerEyebrow": "MAKER LAB",
+    "makerTitle": "이 사이트를 만든 메이커의 다른 실험들",
+    "makerDesc": "게임 · 심리테스트 · 서비스 — 혼자 만들고 운영하는 프로젝트들을 모아뒀습니다.",
+    "makerCta": "메이커 허브 구경하기",
+    "ctaTitle": "찾는 계산기가 없나요?",
+    "ctaButton": "도구 제안하기"
   },
   "electricCalc": {
     "title": "산업용 전기 계산기",

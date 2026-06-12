@@ -46,6 +46,7 @@ korean-age · electric-bill · name-romanize · size-convert · capital-gains-ta
 
 ## ✅ 최근 완료 (history)
 
+- [x] 2026-06-12: 랜딩 페이지 키네틱 재디자인 — 롤링 헤드라인·플로팅 계산 카드·도구 57개 마퀴·인기 TOP6·카테고리 그리드(toolsCatalog 단일 진실원)·스탯 카운트업·블로그/메이커 크로스 프로모. minerva-web-qa 전수검사 통과.
 - [x] 2026-06-06: WaveB — hangul-decompose · korean-number · school-grade (`7cf860f`)
 - [x] 2026-06-06: WaveA — distance-convert · temp-convert · text-romanize · voltage-guide (`8c94cba`)
   - 보류: korea-holidays (음력 명절 양력 변환 정확도 미검증 → korean-number로 대체)

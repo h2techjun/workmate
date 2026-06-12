@@ -1,7 +1,7 @@
 # Workmate 프로젝트 상태판
 
 > **단일 진실원** — 매 세션 시작 시 이 파일을 먼저 읽으세요.
-> 마지막 갱신: 2026-06-06 (WaveA+WaveB 7개 도구 신규 — 외국인 필수 + 한국어 학습/생활)
+> 마지막 갱신: 2026-06-12 (랜딩 페이지 키네틱 재디자인 — toolsCatalog 57개 전체 노출)
 
 ---
 
@@ -107,7 +107,7 @@
 | IndexNow | ✅ /indexnow-key + tool/submit_indexnow.mjs |
 | Google Verification | ✅ google978ab54addb768c4 |
 | Naver Verification | ✅ naver327b3085... |
-| 메이커 hub | ✅ /projects (k-poker · defense · 6hours · office-hunter) |
+| 메이커 hub | ✅ /games (구 /projects는 308 리다이렉트, k-poker · defense · 6hours · office-hunter) |
 
 ---
 
@@ -209,6 +209,7 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-06-12 | 랜딩 페이지 키네틱 재디자인 (롤링 헤드라인·마퀴·카테고리 그리드·카운트업) + 메이커 링크 /games 통일 | (현재) |
 | 2026-06-06 | WaveB: hangul-decompose + korean-number + school-grade (공휴일 보류) | `7cf860f` |
 | 2026-06-06 | WaveA: distance-convert + temp-convert + text-romanize + voltage-guide | `8c94cba` |
 | 2026-05-30 | breaker ToolGuide + 영문 글 "Korean Pyeong Explained" | (이전) |

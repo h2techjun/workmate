@@ -31,7 +31,7 @@ export async function Footer({
       links: [
         { href: `/${locale}/about`, label: t("nav.about") },
         { href: `/${locale}/contact`, label: t("nav.contact") },
-        { href: `/${locale}/projects`, label: t("footer.makerHub") },
+        { href: `/${locale}/games`, label: t("footer.makerHub") },
       ],
     },
     {

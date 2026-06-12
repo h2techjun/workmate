@@ -595,74 +595,56 @@
     "cardComingSoon": "Coming soon"
   },
   "home": {
-    "title": "Workmate",
-    "tagline": "Free online tools based on Korean standards",
-    "subtitle": "Electric, tax, and document calculators precisely aligned to Korean Standards (KS), in one place.",
-    "toolsHeading": "Available Tools",
-    "comingSoon": "Coming Soon",
+    "badge": "{tools} tools · all free · nothing to install",
+    "heroLine1": "Tricky Korean numbers,",
+    "heroRoll1": "Take-home salary",
+    "heroRoll2": "Pyeong ↔ m²",
+    "heroRoll3": "Electric bill tiers",
+    "heroRoll4": "Severance pay",
+    "heroRoll5": "Korean VAT",
+    "heroLine2End": "— solved in 3 seconds.",
+    "heroSubtitle": "{tools} free calculators citing Korean law and KS standards. No signup — search, type, get the answer.",
+    "popularChipsLabel": "Popular",
+    "floatAreaLabel": "Pyeong converter",
+    "floatAreaExpr": "How big is 84㎡?",
+    "floatAreaResult": "= 25.4 pyeong",
+    "floatVatLabel": "VAT split",
+    "floatVatExpr": "₩11,000 (VAT incl.)",
+    "floatVatResult": "= 10,000 + 1,000",
+    "floatSalaryLabel": "Take-home salary",
+    "floatSalaryExpr": "On a ₩50M salary,",
+    "floatSalaryQuestion": "what hits your bank?",
+    "floatSalaryCta": "Calculate now",
+    "marqueeLabel": "All {tools} tools — tap any to open",
+    "popularHeading": "Most used right now",
+    "popularSub": "Top search arrivals",
+    "popular": {
+      "netSalary": "What actually lands in your bank after Korean insurance and income tax",
+      "areaConvert": "How many pyeong is 84㎡ — with Korean real-estate area presets",
+      "percentCalc": "Discount, markup, reverse percent — every confusing % case in one screen",
+      "biznumCheck": "Verify a Korean business registration number by checksum before you pay",
+      "electricBill": "Which progressive tier you are in — KEPCO residential billing",
+      "koreanAge": "Korean age vs international age vs year age — sorted out at once"
+    },
     "openTool": "Open",
-    "tools": {
-      "electricCalc": {
-        "title": "Industrial Electric Calculator",
-        "description": "Wire size, breaker capacity, voltage drop calculators based on KS standards",
-        "tag": "Electric"
-      },
-      "timberCalc": {
-        "title": "Timber Construction Calculator",
-        "description": "Rafter, roof pitch, stairs, and lumber quantity calculators for wood frame construction",
-        "tag": "Timber"
-      },
-      "laborCalc": {
-        "title": "Labor Standards Calculators",
-        "description": "Annual leave, weekly rest pay, severance, minimum wage. Korean Labor Standards Act with cited law and step-by-step output.",
-        "tag": "Labor"
-      },
-      "insurance": {
-        "title": "4-Major Insurance",
-        "description": "Korean payroll insurance (pension, health, employment, accident) calculator with 2026 rates",
-        "tag": "Payroll"
-      },
-      "compoundCalc": {
-        "title": "Compound Interest",
-        "description": "Principal × rate × period + periodic contribution → future value, EAR, CAGR, yearly balance",
-        "tag": "Finance"
-      },
-      "loanCalc": {
-        "title": "Loan Calculator",
-        "description": "Equal payment / equal principal / balloon — Korean mortgage & credit loan amortization",
-        "tag": "Loan"
-      },
-      "areaConvert": {
-        "title": "Pyeong ↔ m²",
-        "description": "Korean pyeong / square meters / ja² conversion + real-estate area presets (59㎡, 84㎡)",
-        "tag": "Convert"
-      },
-      "percentCalc": {
-        "title": "Percent Calculator",
-        "description": "Discount, markup, change rate, reverse — VAT, sale price, percent change in one place",
-        "tag": "Convert"
-      },
-      "vatCalc": {
-        "title": "Korean VAT Calculator",
-        "description": "Split inclusive price into supply + VAT, plus general / simplified taxpayer filing",
-        "tag": "Tax"
-      },
-      "foreignStockTax": {
-        "title": "Foreign Stock Capital Gains",
-        "description": "Korean residents' foreign stock capital gains tax with FX, KRW 2.5M deduction, 22% rate",
-        "tag": "Tax"
-      },
-      "jsonCsv": {
-        "title": "JSON ↔ CSV",
-        "description": "Korean-encoding-aware (UTF-8 BOM) JSON ↔ CSV converter with Excel compatibility",
-        "tag": "Util"
-      },
-      "bizNumber": {
-        "title": "Business Number Validation",
-        "description": "Offline checksum validation of Korean business registration numbers (NTS standard algorithm)",
-        "tag": "Business"
-      }
-    }
+    "categoriesHeading": "Every calculation, covered",
+    "categoriesSub": "{groups} categories · {tools} tools — every calculator cites its legal or KS source",
+    "moreTools": "+{count}",
+    "statsTools": "Free tools",
+    "statsCategories": "Categories",
+    "statsLanguages": "Languages",
+    "statsSources": "Sources cited",
+    "notesHeading": "Field Notes",
+    "notesSub": "Stories behind the calculators",
+    "notesAll": "View all",
+    "readMinutes": "{minutes} min read",
+    "readPost": "Read post",
+    "makerEyebrow": "MAKER LAB",
+    "makerTitle": "More experiments from the maker of Workmate",
+    "makerDesc": "Games · quizzes · services — indie projects built and run by one maker.",
+    "makerCta": "Visit the maker hub",
+    "ctaTitle": "Missing a calculator you need?",
+    "ctaButton": "Suggest a tool"
   },
   "electricCalc": {
     "title": "Industrial Electric Calculator",
