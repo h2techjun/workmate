@@ -17,12 +17,11 @@
     },
     "footer": {
       "copyright": "© 2026 Workmate — Free Tools for Korean Standards",
-      "disclaimer": "These calculators reference KS standards and Korean building code for informational purposes only. Actual design and installation must be reviewed by a licensed professional.",
+      "disclaimer": "The calculators on this site reference applicable laws and standards for informational purposes only. For actual filings, contracts, or design in areas such as tax, labor, and construction, please verify with the relevant authority or a qualified professional.",
       "tagline": "Precise Korean-standard calculators + field notes from the trenches.",
       "groupCatalog": "Explore",
       "groupCompany": "Company",
-      "groupLegal": "Legal",
-      "makerHub": "Maker Projects"
+      "groupLegal": "Legal"
     }
   },
   "homeSearch": {
