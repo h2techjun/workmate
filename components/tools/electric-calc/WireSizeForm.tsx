@@ -44,7 +44,6 @@ const fmt = (n: number, digits: number = 2): string =>
 
 export function WireSizeForm(): React.ReactElement {
   const t = useTranslations("wireSizeTool");
-  const tLayout = useTranslations("layout");
   const [result, setResult] = useState<WireSizeResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
 
@@ -293,13 +292,7 @@ export function WireSizeForm(): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell
-        heading={t("result.heading")}
-        showActions={result !== null}
-        shareLabel={tLayout("share")}
-        shareCopiedLabel={tLayout("shareCopied")}
-        printLabel={tLayout("print")}
-      >
+      <ResultShell heading={t("result.heading")}>
         {calcError && <ErrorBox message={calcError} />}
 
         {!calcError && !result && <EmptyResult message={t("result.empty")} />}

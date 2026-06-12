@@ -127,14 +127,6 @@ export function ResultShell({
 }: {
   heading: string;
   children: ReactNode;
-  /** @deprecated PDF/인쇄·공유 버튼 제거됨 — prop 호환만 유지 */
-  showActions?: boolean;
-  /** @deprecated */
-  shareLabel?: string;
-  /** @deprecated */
-  shareCopiedLabel?: string;
-  /** @deprecated */
-  printLabel?: string;
 }): React.ReactElement {
   return (
     <>

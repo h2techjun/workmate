@@ -279,7 +279,7 @@ export function AnnualLeaveForm(): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell heading={t("result.heading")} showActions={result?.ok}>
+      <ResultShell heading={t("result.heading")}>
         {calcError ? <ErrorBox message={calcError} /> : null}
 
         {!result || !result.ok ? (

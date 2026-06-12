@@ -174,7 +174,7 @@ export function MinWageMonthlyForm(): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell heading={t("result.heading")} showActions={!!result}>
+      <ResultShell heading={t("result.heading")}>
         {calcError ? <ErrorBox message={calcError} /> : null}
 
         {!result ? (
