@@ -23,6 +23,7 @@ export async function Footer({
         { href: `/${locale}/tools`, label: t("tools") },
         { href: `/${locale}/games`, label: t("games") },
         { href: `/${locale}/tests`, label: t("tests") },
+        { href: `/${locale}/learn`, label: t("learn") },
         { href: `/${locale}/blog`, label: t("nav.blog") },
       ],
     },
