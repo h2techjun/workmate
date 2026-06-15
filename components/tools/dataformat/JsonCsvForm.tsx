@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { ArrowLeftRight, Copy, Download } from "lucide-react";
 import { csvToJson, jsonToCsv } from "@/lib/calculations/dataformat/jsonCsv";
 import { cn } from "@/lib/utils/cn";
+import { formatNumber } from "@/lib/utils/format";
 import {
   ActionRow,
   EmptyResult,
@@ -237,10 +238,10 @@ export function JsonCsvForm(): React.ReactElement {
         {result && (
           <div className="animate-fade-up space-y-4">
             <dl className="grid grid-cols-2 gap-3">
-              <Stat label={t("result.rows")} value={result.rowCount.toString()} />
+              <Stat label={t("result.rows")} value={formatNumber(result.rowCount)} />
               <Stat
                 label={t("result.cols")}
-                value={result.columnCount.toString()}
+                value={formatNumber(result.columnCount)}
               />
             </dl>
 

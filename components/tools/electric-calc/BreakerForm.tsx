@@ -28,9 +28,9 @@ import {
   StepsBox,
   WarningsBox,
 } from "@/components/ui/calc-form";
+import { formatNumber } from "@/lib/utils/format";
 
-const fmt = (n: number, d: number = 2): string =>
-  Number.isInteger(n) && Math.abs(n) < 1e6 ? n.toString() : n.toFixed(d);
+const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
 
 export function BreakerForm(): React.ReactElement {
   const t = useTranslations("breakerTool");
@@ -188,7 +188,7 @@ export function BreakerForm(): React.ReactElement {
           <div className="animate-fade-up space-y-5">
             <HeroResult
               label={t("result.recommendedRating")}
-              value={`${result.recommendedRating}A ${result.breakerType}`}
+              value={`${fmt(result.recommendedRating)}A ${result.breakerType}`}
             />
             <dl className="grid grid-cols-2 gap-3">
               <Stat

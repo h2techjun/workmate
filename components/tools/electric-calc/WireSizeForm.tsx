@@ -39,8 +39,9 @@ const PHASE_OPTIONS: ReadonlyArray<FormValues["phaseType"]> = [
   "three-4wire",
 ];
 
-const fmt = (n: number, digits: number = 2): string =>
-  Number.isInteger(n) ? n.toString() : n.toFixed(digits);
+import { formatNumber } from "@/lib/utils/format";
+
+const fmt = (n: number, digits: number = 2): string => formatNumber(n, digits);
 
 export function WireSizeForm(): React.ReactElement {
   const t = useTranslations("wireSizeTool");

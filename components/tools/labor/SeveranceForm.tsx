@@ -23,6 +23,7 @@ import {
   StepsBox,
   WarningsBox,
 } from "@/components/ui/calc-form";
+import { formatNumber } from "@/lib/utils/format";
 
 interface FormValues {
   hireDate: string;
@@ -257,7 +258,7 @@ export function SeveranceForm(): React.ReactElement {
               />
               <Stat
                 label={t("result.totalDaysLabel")}
-                value={`${result.serviceDays}일`}
+                value={`${formatNumber(result.serviceDays)}일`}
               />
               <Stat
                 label={t("result.appliedDailyLabel")}

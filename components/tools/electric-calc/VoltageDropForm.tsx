@@ -25,9 +25,9 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { formatNumber } from "@/lib/utils/format";
 
-const fmt = (n: number, d: number = 2): string =>
-  Number.isInteger(n) && Math.abs(n) < 1e6 ? n.toString() : n.toFixed(d);
+const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
 
 const KS_SECTIONS = [
   1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300, 400, 500,

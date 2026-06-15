@@ -5,6 +5,7 @@ import {
   calculateDeck,
   calculateFence,
 } from "@/lib/calculations/timber/deckFence";
+import { formatNumber } from "@/lib/utils/format";
 
 interface DeckFormProps {
   locale: "ko" | "en";
@@ -136,11 +137,11 @@ export function DeckForm({ locale }: DeckFormProps): React.ReactElement {
             <>
               <div className="rounded-xl bg-gradient-to-br from-amber-500/15 to-orange-500/10 p-4 ring-1 ring-amber-500/20">
                 <dt className="text-xs text-[color:var(--color-text-tertiary)]">{t.boardCount}</dt>
-                <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">{deck.boardCount}<span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">{t.boardUnit}</span></dd>
+                <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">{formatNumber(deck.boardCount)}<span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">{t.boardUnit}</span></dd>
               </div>
               <dl className="space-y-1.5 text-sm">
-                <div className="flex justify-between"><dt className="text-[color:var(--color-text-tertiary)]">{t.totalLength}</dt><dd className="tabular-nums text-[color:var(--color-text-secondary)]">{deck.totalBoardLength} m</dd></div>
-                <div className="flex justify-between"><dt className="text-[color:var(--color-text-tertiary)]">{t.joistCount}</dt><dd className="tabular-nums text-[color:var(--color-text-secondary)]">{deck.joistCount} {t.count}</dd></div>
+                <div className="flex justify-between"><dt className="text-[color:var(--color-text-tertiary)]">{t.totalLength}</dt><dd className="tabular-nums text-[color:var(--color-text-secondary)]">{formatNumber(deck.totalBoardLength)} m</dd></div>
+                <div className="flex justify-between"><dt className="text-[color:var(--color-text-tertiary)]">{t.joistCount}</dt><dd className="tabular-nums text-[color:var(--color-text-secondary)]">{formatNumber(deck.joistCount)} {t.count}</dd></div>
               </dl>
               <p className="text-[11px] leading-relaxed text-[color:var(--color-text-muted)]">{t.deckNote}</p>
             </>
@@ -148,11 +149,11 @@ export function DeckForm({ locale }: DeckFormProps): React.ReactElement {
             <>
               <div className="rounded-xl bg-gradient-to-br from-amber-500/15 to-orange-500/10 p-4 ring-1 ring-amber-500/20">
                 <dt className="text-xs text-[color:var(--color-text-tertiary)]">{t.postCount}</dt>
-                <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">{fence.postCount}<span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">{t.count}</span></dd>
+                <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">{formatNumber(fence.postCount)}<span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">{t.count}</span></dd>
               </div>
               <dl className="space-y-1.5 text-sm">
-                <div className="flex justify-between"><dt className="text-[color:var(--color-text-tertiary)]">{t.railCount}</dt><dd className="tabular-nums text-[color:var(--color-text-secondary)]">{fence.railCount} {t.count}</dd></div>
-                <div className="flex justify-between"><dt className="text-[color:var(--color-text-tertiary)]">{t.picketCount}</dt><dd className="tabular-nums text-[color:var(--color-text-secondary)]">{fence.picketCount} {t.count}</dd></div>
+                <div className="flex justify-between"><dt className="text-[color:var(--color-text-tertiary)]">{t.railCount}</dt><dd className="tabular-nums text-[color:var(--color-text-secondary)]">{formatNumber(fence.railCount)} {t.count}</dd></div>
+                <div className="flex justify-between"><dt className="text-[color:var(--color-text-tertiary)]">{t.picketCount}</dt><dd className="tabular-nums text-[color:var(--color-text-secondary)]">{formatNumber(fence.picketCount)} {t.count}</dd></div>
               </dl>
               <p className="text-[11px] leading-relaxed text-[color:var(--color-text-muted)]">{t.fenceNote}</p>
             </>

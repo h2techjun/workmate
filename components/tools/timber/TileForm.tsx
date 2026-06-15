@@ -30,7 +30,9 @@ interface TileFormProps {
   locale: "ko" | "en";
 }
 
-const fmt = (n: number, d = 2): string => n.toFixed(d);
+import { formatNumber } from "@/lib/utils/format";
+
+const fmt = (n: number, d = 2): string => formatNumber(n, d);
 
 const TEXT = {
   ko: {
@@ -142,24 +144,24 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
     switch (s.key) {
       case "footprint":
         return locale === "ko"
-          ? `타일 ${s.w}×${s.h}mm + 줄눈 ${s.grout}mm × 2 = 1매 점유 ${fmt(s.result, 4)} m²`
-          : `Tile ${s.w}×${s.h}mm + grout ${s.grout}mm × 2 = footprint ${fmt(s.result, 4)} m²`;
+          ? `타일 ${fmt(s.w)}×${fmt(s.h)}mm + 줄눈 ${s.grout}mm × 2 = 1매 점유 ${fmt(s.result, 4)} m²`
+          : `Tile ${fmt(s.w)}×${fmt(s.h)}mm + grout ${s.grout}mm × 2 = footprint ${fmt(s.result, 4)} m²`;
       case "wasteArea":
         return locale === "ko"
-          ? `면적 ${s.area}m² × (1 + ${s.waste}% 손실) = ${fmt(s.result, 1)} m²`
-          : `Area ${s.area}m² × (1 + ${s.waste}% waste) = ${fmt(s.result, 1)} m²`;
+          ? `면적 ${fmt(s.area)}m² × (1 + ${s.waste}% 손실) = ${fmt(s.result, 1)} m²`
+          : `Area ${fmt(s.area)}m² × (1 + ${s.waste}% waste) = ${fmt(s.result, 1)} m²`;
       case "count":
         return locale === "ko"
-          ? `손실 적용 면적 ${fmt(s.wasteArea, 1)}m² ÷ 1매 ${fmt(s.footprint, 4)}m² = ${s.result}매`
-          : `Adjusted ${fmt(s.wasteArea, 1)}m² ÷ ${fmt(s.footprint, 4)}m²/tile = ${s.result} tiles`;
+          ? `손실 적용 면적 ${fmt(s.wasteArea, 1)}m² ÷ 1매 ${fmt(s.footprint, 4)}m² = ${fmt(s.result, 0)}매`
+          : `Adjusted ${fmt(s.wasteArea, 1)}m² ÷ ${fmt(s.footprint, 4)}m²/tile = ${fmt(s.result, 0)} tiles`;
       case "adhesive":
         return locale === "ko"
-          ? `면적 ${s.area}m² × ${s.rate}kg/㎡ = 접착제 ${fmt(s.result, 1)}kg`
-          : `Area ${s.area}m² × ${s.rate}kg/m² = ${fmt(s.result, 1)}kg adhesive`;
+          ? `면적 ${fmt(s.area)}m² × ${s.rate}kg/㎡ = 접착제 ${fmt(s.result, 1)}kg`
+          : `Area ${fmt(s.area)}m² × ${s.rate}kg/m² = ${fmt(s.result, 1)}kg adhesive`;
       case "grout":
         return locale === "ko"
-          ? `면적 ${s.area}m² × ${fmt(s.rate, 2)}kg/㎡ (타일/줄눈 비례) = 줄눈재 ${fmt(s.result, 2)}kg`
-          : `Area ${s.area}m² × ${fmt(s.rate, 2)}kg/m² (size-dependent) = ${fmt(s.result, 2)}kg grout`;
+          ? `면적 ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/㎡ (타일/줄눈 비례) = 줄눈재 ${fmt(s.result, 2)}kg`
+          : `Area ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/m² (size-dependent) = ${fmt(s.result, 2)}kg grout`;
     }
   };
 
@@ -252,7 +254,7 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
           <div className="animate-fade-up space-y-5">
             <HeroResult
               label={T.tileCount}
-              value={result.tileCount.toString()}
+              value={fmt(result.tileCount, 0)}
               unit={T.tileCountUnit}
             />
             <dl className="grid grid-cols-2 gap-3">

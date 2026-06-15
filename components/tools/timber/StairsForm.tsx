@@ -27,9 +27,9 @@ import {
   StepsBox,
   WarningsBox,
 } from "@/components/ui/calc-form";
+import { formatNumber } from "@/lib/utils/format";
 
-const fmt = (n: number, d: number = 1): string =>
-  Number.isInteger(n) ? n.toString() : n.toFixed(d);
+const fmt = (n: number, d: number = 1): string => formatNumber(n, d);
 
 export function StairsForm(): React.ReactElement {
   const t = useTranslations("stairsTool");

@@ -25,9 +25,9 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { formatNumber } from "@/lib/utils/format";
 
-const fmt = (n: number, d: number = 2): string =>
-  Number.isInteger(n) && Math.abs(n) < 1e6 ? n.toString() : n.toFixed(d);
+const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
 
 const MATERIAL_KEYS = [
   "osb11",
@@ -204,7 +204,7 @@ export function MaterialQuantityForm({
           <div className="animate-fade-up space-y-5">
             <HeroResult
               label={t("result.sheetsRequired")}
-              value={result.sheetsRequired.toString()}
+              value={fmt(result.sheetsRequired)}
               unit={t(`unit.${result.unit}`)}
             />
             <dl className="grid grid-cols-2 gap-3">
@@ -227,7 +227,7 @@ export function MaterialQuantityForm({
                       ? t("result.screws")
                       : t("result.nails")
                   }
-                  value={result.estimatedFasteners.toString()}
+                  value={fmt(result.estimatedFasteners)}
                 />
               )}
             </dl>

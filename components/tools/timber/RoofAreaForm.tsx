@@ -25,9 +25,9 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { formatNumber } from "@/lib/utils/format";
 
-const fmt = (n: number, d: number = 2): string =>
-  Number.isInteger(n) && Math.abs(n) < 1e6 ? n.toString() : n.toFixed(d);
+const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
 
 export function RoofAreaForm(): React.ReactElement {
   const t = useTranslations("roofAreaTool");

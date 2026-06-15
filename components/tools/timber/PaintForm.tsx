@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { calculatePaint } from "@/lib/calculations/timber/paint";
+import { formatNumber } from "@/lib/utils/format";
 
 interface PaintFormProps {
   locale: "ko" | "en";
@@ -110,23 +111,23 @@ export function PaintForm({ locale }: PaintFormProps): React.ReactElement {
             {t.liters}
           </dt>
           <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">
-            {result.litersWithWaste}
+            {formatNumber(result.litersWithWaste)}
             <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
               {t.litersUnit}
             </span>
           </dd>
           <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
-            {t.cans4} {result.cans4L}
-            {t.cansUnit} · {t.cans1} {result.cans1L}
+            {t.cans4} {formatNumber(result.cans4L)}
+            {t.cansUnit} · {t.cans1} {formatNumber(result.cans1L)}
             {t.cansUnit}
           </p>
         </div>
 
         <dl className="space-y-1.5 text-sm">
           {[
-            [t.openingArea, `${result.openingArea} ㎡`],
-            [t.netArea, `${result.netArea} ㎡`],
-            [t.totalArea, `${result.totalCoatArea} ㎡`],
+            [t.openingArea, `${formatNumber(result.openingArea)} ㎡`],
+            [t.netArea, `${formatNumber(result.netArea)} ㎡`],
+            [t.totalArea, `${formatNumber(result.totalCoatArea)} ㎡`],
           ].map(([label, val]) => (
             <div key={label} className="flex justify-between">
               <dt className="text-[color:var(--color-text-tertiary)]">{label}</dt>

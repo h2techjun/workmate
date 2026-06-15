@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { calculateGiftMoney } from "@/lib/calculations/korean/giftMoney";
+import { formatNumber } from "@/lib/utils/format";
 
 interface GiftMoneyFormProps {
   locale: "ko" | "en";
@@ -132,13 +133,13 @@ export function GiftMoneyForm({
             {t.recommended}
           </dt>
           <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">
-            {r.recommended}
+            {formatNumber(r.recommended)}
             <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
               {unit}
             </span>
           </dd>
           <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
-            {t.range}: {r.min}~{r.max} {unit}
+            {t.range}: {formatNumber(r.min)}~{formatNumber(r.max)} {unit}
           </p>
         </div>
         {r.attendingNote && (

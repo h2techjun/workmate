@@ -24,6 +24,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { formatNumber } from "@/lib/utils/format";
 
 interface StudsFormProps {
   locale: "ko" | "en";
@@ -140,28 +141,28 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
     switch (s.key) {
       case "studCount":
         return locale === "ko"
-          ? `벽 길이 ${s.wallLength}m ÷ 간격 ${s.spacing}mm = 기본 ${s.result}본 (양 끝 포함)`
-          : `${s.wallLength}m ÷ ${s.spacing}mm = ${s.result} studs (incl. both ends)`;
+          ? `벽 길이 ${formatNumber(s.wallLength)}m ÷ 간격 ${formatNumber(s.spacing)}mm = 기본 ${formatNumber(s.result)}본 (양 끝 포함)`
+          : `${formatNumber(s.wallLength)}m ÷ ${formatNumber(s.spacing)}mm = ${formatNumber(s.result)} studs (incl. both ends)`;
       case "studLength":
         return locale === "ko"
-          ? `층고 ${s.ceilingHeight}mm − 플레이트 ${s.plates}mm = 1본 길이 ${s.result}mm`
-          : `Ceiling ${s.ceilingHeight}mm − plates ${s.plates}mm = stud length ${s.result}mm`;
+          ? `층고 ${formatNumber(s.ceilingHeight)}mm − 플레이트 ${formatNumber(s.plates)}mm = 1본 길이 ${formatNumber(s.result)}mm`
+          : `Ceiling ${formatNumber(s.ceilingHeight)}mm − plates ${formatNumber(s.plates)}mm = stud length ${formatNumber(s.result)}mm`;
       case "plateLength":
         return locale === "ko"
-          ? `벽 길이 ${s.wallLength}m × 3 (더블 탑 + 솔) = 총 ${s.result}m`
-          : `${s.wallLength}m × 3 (double top + sole) = ${s.result}m total`;
+          ? `벽 길이 ${formatNumber(s.wallLength)}m × 3 (더블 탑 + 솔) = 총 ${formatNumber(s.result)}m`
+          : `${formatNumber(s.wallLength)}m × 3 (double top + sole) = ${formatNumber(s.result)}m total`;
       case "headerCount":
         return locale === "ko"
-          ? `개구부 ${s.openings}개 × 2 (더블 헤더) = 헤더 ${s.result}본`
-          : `${s.openings} openings × 2 (double header) = ${s.result} headers`;
+          ? `개구부 ${formatNumber(s.openings)}개 × 2 (더블 헤더) = 헤더 ${formatNumber(s.result)}본`
+          : `${formatNumber(s.openings)} openings × 2 (double header) = ${formatNumber(s.result)} headers`;
       case "totalStuds":
         return locale === "ko"
-          ? `기본 ${s.base}본 × (1 + ${s.waste}% 손실) = 총 ${s.result}본`
-          : `Base ${s.base} × (1 + ${s.waste}% waste) = ${s.result} total`;
+          ? `기본 ${formatNumber(s.base)}본 × (1 + ${formatNumber(s.waste)}% 손실) = 총 ${formatNumber(s.result)}본`
+          : `Base ${formatNumber(s.base)} × (1 + ${formatNumber(s.waste)}% waste) = ${formatNumber(s.result)} total`;
       case "nails":
         return locale === "ko"
-          ? `스터드 ${s.studs}본 × 본당 ${s.nailsPerStud}못 = 총 ${s.result}개`
-          : `${s.studs} studs × ${s.nailsPerStud} nails/stud = ${s.result} nails`;
+          ? `스터드 ${formatNumber(s.studs)}본 × 본당 ${formatNumber(s.nailsPerStud)}못 = 총 ${formatNumber(s.result)}개`
+          : `${formatNumber(s.studs)} studs × ${formatNumber(s.nailsPerStud)} nails/stud = ${formatNumber(s.result)} nails`;
     }
   };
 
@@ -241,26 +242,29 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
           <div className="animate-fade-up space-y-5">
             <HeroResult
               label={T.studCount}
-              value={result.studCount.toString()}
+              value={formatNumber(result.studCount)}
               unit={T.studCountUnit}
             />
             <dl className="grid grid-cols-2 gap-3">
-              <Stat label={T.studLength} value={`${result.studLengthMm} mm`} />
+              <Stat
+                label={T.studLength}
+                value={`${formatNumber(result.studLengthMm)} mm`}
+              />
               <Stat
                 label={T.headerCount}
-                value={`${result.headerCount} ${T.studCountUnit}`}
+                value={`${formatNumber(result.headerCount)} ${T.studCountUnit}`}
               />
               <Stat
                 label={T.topPlate}
-                value={`${result.topPlateTotalLengthM} m`}
+                value={`${formatNumber(result.topPlateTotalLengthM)} m`}
               />
               <Stat
                 label={T.solePlate}
-                value={`${result.solePlateTotalLengthM} m`}
+                value={`${formatNumber(result.solePlateTotalLengthM)} m`}
               />
               <Stat
                 label={T.nailCount}
-                value={`${result.nailCount} ${locale === "ko" ? "개" : "pcs"}`}
+                value={`${formatNumber(result.nailCount)} ${locale === "ko" ? "개" : "pcs"}`}
               />
             </dl>
             <StepsBox
