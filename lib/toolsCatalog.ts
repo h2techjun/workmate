@@ -84,6 +84,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     },
     tools: [
       { labelKo: "종합소득세 계산", labelEn: "Income Tax", href: "/income-tax", keywordsKo: "종합소득세 누진세 8구간 세율표 누진공제 프리랜서" },
+      { labelKo: "외국인 단일세율 vs 누진세", labelEn: "Foreign Flat Tax (19%)", href: "/foreign-flat-tax", keywordsKo: "외국인 단일세율 19% 소득세 누진세 비교 외국인 연말정산 flat tax foreigner" },
       { labelKo: "부동산 양도소득세", labelEn: "Capital Gains Tax", href: "/capital-gains-tax", keywordsKo: "양도소득세 부동산 양도세 장기보유특별공제 1세대1주택" },
       { labelKo: "대출 이자 계산", labelEn: "Loan Calculator", href: "/loan-calc", keywordsKo: "대출 이자 원리금균등 원금균등 만기일시 주담대" },
       { labelKo: "복리 계산기", labelEn: "Compound Interest", href: "/compound-calc", keywordsKo: "복리 예금 적금 CAGR 실효이율 EAR" },

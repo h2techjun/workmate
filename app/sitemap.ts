@@ -65,6 +65,7 @@ const TOOL_PATHS = [
   "/loan-calc",
   "/rent-cap",
   "/income-tax",
+  "/foreign-flat-tax",
   "/tools",
   "/games",
   "/tests",

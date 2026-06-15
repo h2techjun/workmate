@@ -2000,6 +2000,102 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "foreign-flat-tax": {
+      "overview": "Foreign workers in Korea can elect a 19% flat tax (20.9% including the 1.9% local income tax) on earned income instead of the regular progressive rates of 6–45%, under Article 18-2 of the Special Tax Treatment Control Act. This calculator compares both methods side by side from your gross salary, applying the earned-income deduction, personal deduction, and wage-earner credit on the progressive side. It reveals the real breakeven — which, contrary to the common '80 million won' claim, sits around 130–170 million won depending on your deductions. All inputs stay in your browser.",
+      "useCases": [
+        "Foreign professionals (E-7 and other work visas) deciding whether to elect the flat tax at year-end settlement",
+        "High earners checking whether the 19% flat rate beats progressive taxation",
+        "Families comparing — each dependent shifts the breakeven upward",
+        "New arrivals confirming eligibility before the 2026-12-31 sunset",
+        "HR and payroll teams advising foreign employees"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter your annual gross salary (before tax, including bonuses).",
+          "Enter the number of dependents excluding yourself (spouse, children). Each adds a KRW 1.5M personal deduction on the progressive side.",
+          "Click Compare. You will see total tax under each method, the effective rate, and how much the cheaper option saves per year.",
+          "Review the progressive breakdown (taxable base, earned-income deduction, wage-earner credit) to understand why one method wins."
+        ]
+      },
+      "formula": {
+        "title": "Formula (Special Tax Act §18-2 vs Income Tax Act §55)",
+        "body": "Flat tax = Gross salary × 19% + local 1.9% = Gross × 20.9%\n  (all deductions and credits waived)\n\nProgressive (resident basis):\n  Earned-income deduction (§47, capped at KRW 20M)\n  Personal deduction = KRW 1.5M × (1 + dependents)\n  Taxable base = Gross − earned-income deduction − personal deduction\n  Calculated tax = base × bracket rate − progressive deduction\n  − Wage-earner credit (§59)\n  + Local income tax 10%\n\nBetter method = whichever total is lower.\n\nBreakeven (single filer): around KRW 137M. More dependents and more special deductions push it higher."
+      },
+      "examples": {
+        "title": "Real examples (single filer, 2026)",
+        "items": [
+          {
+            "title": "Mid income — gross KRW 50M",
+            "body": "Flat: 50M × 20.9% = KRW 10.45M. Progressive: taxable base ~KRW 36.25M after deductions → about KRW 3.87M total. Progressive wins by a wide margin (~KRW 6.6M). At mid incomes the flat rate's loss of all deductions makes it far more expensive."
+          },
+          {
+            "title": "Breakeven — gross KRW 140M",
+            "body": "Flat: KRW 29.26M. Progressive: about KRW 29.91M. Flat wins by only ~KRW 650K. This is the real crossover point for a single filer — far above the '80 million won' figure repeated in many guides."
+          },
+          {
+            "title": "High income — gross KRW 200M",
+            "body": "Flat: KRW 41.8M. Progressive: about KRW 53.8M. Flat saves ~KRW 12M because it caps your rate at 20.9% while progressive reaches the 38% bracket."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Who can use the 19% flat tax?",
+          "answer": "Foreign workers (not Korean nationals) on earned income, electing under Special Tax Act §18-2. Employees of special-related companies are excluded. It is available whether you are a tax resident or non-resident."
+        },
+        {
+          "question": "Is the rate really 19%?",
+          "answer": "The income tax is 19%, plus a local income tax of 1.9% (10% of the income tax), for an effective 20.9%. This calculator shows both lines."
+        },
+        {
+          "question": "Until when can I start using it?",
+          "answer": "You must begin your first employment in Korea on or before 2026-12-31. Once you qualify, the flat tax applies for 20 years from your first work day (unless the law is extended)."
+        },
+        {
+          "question": "Why is the breakeven so high (around KRW 130–170M)?",
+          "answer": "The progressive method allows the earned-income deduction, personal deductions, and the wage-earner credit, which keep effective rates low. So the flat tax only wins at high salaries with few deductions — much higher than the commonly cited KRW 80M."
+        },
+        {
+          "question": "What do I give up by electing the flat tax?",
+          "answer": "All exemptions, deductions, and credits are waived, and even normally non-taxable allowances become taxable. If you have large deductions (medical, education, mortgage, pension), progressive is usually better."
+        },
+        {
+          "question": "How do I elect the flat tax?",
+          "answer": "Submit a flat-tax application to your employer at year-end settlement, or to the district tax office when filing your return. You may switch your election each year."
+        },
+        {
+          "question": "Does this include the 4 social insurances?",
+          "answer": "No. This compares income tax plus local income tax only — not national pension, health, employment, or industrial-accident insurance. It is not your net take-home pay."
+        }
+      ],
+      "cautions": [
+        "Excludes the 4 social insurances and special credits (medical, education, donations, card spending) — more deductions favor progressive and raise the breakeven.",
+        "On the flat-tax side, employer-paid insurance and normally non-taxable allowances become taxable; this simplified model does not add them, so real flat-tax burden can be higher.",
+        "Resident basis. Non-residents face restricted deductions and different results.",
+        "Flat-tax new entry sunsets on 2026-12-31 unless extended by law.",
+        "Reference estimate only. Confirm with the NTS Hometax or a tax professional."
+      ],
+      "related": [
+        {
+          "label": "Income Tax",
+          "href": "/income-tax"
+        },
+        {
+          "label": "4 Insurances + Net Pay",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Foreign Stock Tax",
+          "href": "/foreign-stock-tax"
+        },
+        {
+          "label": "Salary Take-Home",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-15"
+    },
     "loan-calc": {
       "overview": "The Korean loan calculator compares the three most common Korean repayment types — equal payment (same monthly amount), equal principal (high to low), and balloon (interest only with principal at maturity) — in one screen, with a monthly amortization schedule. The same standard formulas apply to mortgages, credit loans, jeonse-deposit loans, and auto installments. Prepayment fees, stamp duty, and DSR limits are not included.",
       "useCases": [
