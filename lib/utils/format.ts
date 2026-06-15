@@ -31,3 +31,23 @@ export function formatNumber(n: number, digits: number = 2): string {
 export function formatKrw(n: number): string {
   return new Intl.NumberFormat(NUMBER_LOCALE).format(Math.round(n));
 }
+
+/**
+ * 한국식 금액 읽기 — 억·만 단위로 끊어 표기 (예: 12345000 → "1,234만 5,000원").
+ *
+ * 입력칸에 큰 숫자를 적을 때 백만·천만·억을 한눈에 구분하기 위한 보조 표시용.
+ * 만 원 미만은 그대로 원 단위로 붙인다.
+ */
+export function formatKoreanMoney(n: number): string {
+  if (!Number.isFinite(n) || n === 0) return "0원";
+  const sign = n < 0 ? "-" : "";
+  const v = Math.round(Math.abs(n));
+  const eok = Math.floor(v / 1e8);
+  const man = Math.floor((v % 1e8) / 1e4);
+  const won = v % 1e4;
+  const parts: string[] = [];
+  if (eok > 0) parts.push(`${eok.toLocaleString(NUMBER_LOCALE)}억`);
+  if (man > 0) parts.push(`${man.toLocaleString(NUMBER_LOCALE)}만`);
+  if (won > 0) parts.push(`${won.toLocaleString(NUMBER_LOCALE)}`);
+  return `${sign}${parts.join(" ")}원`;
+}

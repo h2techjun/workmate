@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller, type Control } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   calculateCompound,
@@ -9,6 +9,7 @@ import {
   type CompoundInputResolved,
   type CompoundResult,
 } from "@/lib/calculations/finance/compound";
+import { formatKrw, formatKoreanMoney, formatNumber } from "@/lib/utils/format";
 import {
   ActionRow,
   CalcLayout,
@@ -27,98 +28,121 @@ interface CompoundFormProps {
   locale: "ko" | "en";
 }
 
-const won = (n: number): string =>
-  Math.round(n).toLocaleString("ko-KR");
-const pct = (n: number, d = 2): string => n.toFixed(d);
-
 const TEXT = {
   ko: {
-    sectionPrincipal: "원금·기간",
-    sectionRate: "이율·복리",
+    sectionPrincipal: "원금",
+    sectionRate: "이율·횟수",
     sectionContrib: "추가 적립 (선택)",
     fieldPrincipal: "초기 원금 (원)",
     fieldPrincipalHint: "예금/투자/저축 시작 금액",
-    fieldYears: "기간 (년)",
-    fieldYearsHint: "소수점 가능 (1.5 = 1년 6개월)",
-    fieldRate: "연이율 (%)",
-    fieldRateHint: "명목 금리. 0 입력 시 단순 적립",
-    fieldFrequency: "복리 빈도",
-    fieldContrib: "정기 적립액 (원/기간)",
-    fieldContribHint: "복리 빈도와 동일 주기로 적립 (월복리면 매월)",
+    fieldRate: "회당 이율 (%)",
+    fieldRateHint: "한 번 복리될 때 이율. 월복리 연 5%면 약 0.42 (= 5 ÷ 12)",
+    fieldPeriods: "복리 횟수 (회)",
+    fieldPeriodsHint: "복리가 적용되는 총 횟수. 월복리 10년이면 120회",
+    fieldContrib: "정기 적립액 (원/회)",
+    fieldContribHint: "매 회 추가로 적립하는 금액 (없으면 비워두세요)",
     calculate: "계산하기",
     reset: "초기화",
     resultHeading: "복리 계산 결과",
-    resultEmpty: "원금·이율·기간을 입력하고 계산하세요.",
+    resultEmpty: "원금·회당 이율·복리 횟수를 입력하고 계산하세요.",
     error: "계산 중 오류가 발생했습니다.",
     finalAmount: "만기 금액",
     finalAmountUnit: "원",
     principal: "원금",
     totalContrib: "누적 적립",
     totalInterest: "누적 이자",
-    ear: "실효 연이율 (EAR)",
-    cagr: "총 CAGR",
-    yearlyTable: "연도별 잔액",
-    yearLabel: "년차",
-    balanceCol: "잔액",
-    contribCol: "누적 적립",
-    interestCol: "누적 이자",
-    freqYear: "연 1회",
-    freqQuarter: "분기 (4회)",
-    freqMonth: "월 (12회)",
-    freqDay: "일 (365회)",
+    totalReturn: "총 수익률",
     sourceTitle: "공식 · 가정",
     sourceLines: [
-      "FV = P(1 + r/n)^(nt) + PMT × ((1+r/n)^(nt) − 1) / (r/n)",
-      "EAR = (1 + r/n)^n − 1 — 실효 연이율, 명목 → 복리 빈도 반영",
-      "CAGR = (만기금액 / 총투입)^(1/t) − 1 — 적립도 포함된 기하 평균 수익률",
-      "적립은 매 복리 기간 말에 발생한다고 가정 (월복리면 매월 말).",
-      "이자소득세(15.4%)·인플레이션·환율 변동은 미반영. 세전 명목 금액.",
+      "FV = P(1 + i)^n + PMT × ((1+i)^n − 1) / i",
+      "i = 회당 이율, n = 복리 횟수, PMT = 매 회 적립액",
+      "예: 월복리 연 5%·10년 = 회당 0.4167%(= 5 ÷ 12) × 120회",
+      "적립은 매 회 말에 발생한다고 가정.",
+      "이자소득세(15.4%)·인플레이션은 미반영. 세전 명목 금액.",
     ],
   },
   en: {
-    sectionPrincipal: "Principal · Period",
-    sectionRate: "Rate · Compounding",
+    sectionPrincipal: "Principal",
+    sectionRate: "Rate · Periods",
     sectionContrib: "Periodic Contribution (optional)",
     fieldPrincipal: "Initial principal (₩)",
     fieldPrincipalHint: "Starting deposit/investment amount",
-    fieldYears: "Period (years)",
-    fieldYearsHint: "Decimals allowed (1.5 = 1 year 6 months)",
-    fieldRate: "Annual rate (%)",
-    fieldRateHint: "Nominal rate. 0 = no interest",
-    fieldFrequency: "Compound frequency",
-    fieldContrib: "Periodic contribution (₩/period)",
-    fieldContribHint: "Same period as compound frequency (monthly = each month)",
+    fieldRate: "Rate per period (%)",
+    fieldRateHint: "Interest applied each time it compounds. Annual 5% monthly ≈ 0.42 (= 5 ÷ 12)",
+    fieldPeriods: "Number of periods",
+    fieldPeriodsHint: "Total times interest compounds. 10 years monthly = 120",
+    fieldContrib: "Contribution per period (₩)",
+    fieldContribHint: "Added each period (leave blank for none)",
     calculate: "Calculate",
     reset: "Reset",
     resultHeading: "Compound Result",
-    resultEmpty: "Enter principal, rate, and period.",
+    resultEmpty: "Enter principal, rate per period, and number of periods.",
     error: "Calculation failed.",
     finalAmount: "Future value",
     finalAmountUnit: "₩",
     principal: "Principal",
     totalContrib: "Total contribution",
     totalInterest: "Total interest",
-    ear: "Effective Annual Rate",
-    cagr: "Total CAGR",
-    yearlyTable: "Yearly balance",
-    yearLabel: "Year",
-    balanceCol: "Balance",
-    contribCol: "Contrib total",
-    interestCol: "Interest total",
-    freqYear: "Annual (×1)",
-    freqQuarter: "Quarterly (×4)",
-    freqMonth: "Monthly (×12)",
-    freqDay: "Daily (×365)",
+    totalReturn: "Total return",
     sourceTitle: "Formulas · assumptions",
     sourceLines: [
-      "FV = P(1 + r/n)^(nt) + PMT × ((1+r/n)^(nt) − 1) / (r/n)",
-      "EAR = (1 + r/n)^n − 1 — effective annual rate from nominal",
-      "CAGR = (FV / total invested)^(1/t) − 1 — geometric mean incl. contributions",
-      "Contribution timing: end of each compound period (e.g., end of each month for monthly).",
-      "Pre-tax nominal. Income tax (15.4%), inflation, FX excluded.",
+      "FV = P(1 + i)^n + PMT × ((1+i)^n − 1) / i",
+      "i = rate per period, n = number of periods, PMT = contribution per period",
+      "e.g. annual 5% monthly for 10y = 0.4167% (= 5 ÷ 12) × 120 periods",
+      "Contributions assumed at the end of each period.",
+      "Pre-tax nominal. Income tax (15.4%) and inflation excluded.",
     ],
   },
 } as const;
+
+/** 금액 입력 — 천단위 콤마 표시 + (한국어) 한글 금액 보조 표기. */
+function MoneyField({
+  control,
+  name,
+  label,
+  hint,
+  locale,
+  step,
+}: {
+  control: Control<CompoundInputResolved>;
+  name: "principal" | "periodicContribution";
+  label: string;
+  hint: string;
+  locale: "ko" | "en";
+  step: number;
+}): React.ReactElement {
+  return (
+    <Controller
+      control={control}
+      name={name}
+      render={({ field }) => {
+        const num = Number(field.value) || 0;
+        return (
+          <Field label={label} hint={hint}>
+            <input
+              type="text"
+              inputMode="numeric"
+              className="input-base"
+              value={num > 0 ? num.toLocaleString("ko-KR") : ""}
+              placeholder="0"
+              onChange={(e) => {
+                const raw = e.target.value.replace(/[^0-9]/g, "");
+                field.onChange(raw === "" ? 0 : Number(raw));
+              }}
+              onBlur={field.onBlur}
+              data-step={step}
+            />
+            {locale === "ko" && num > 0 && (
+              <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                = {formatKoreanMoney(num)}
+              </p>
+            )}
+          </Field>
+        );
+      }}
+    />
+  );
+}
 
 export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement {
   const T = TEXT[locale];
@@ -127,16 +151,16 @@ export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement 
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     formState: { isSubmitting },
   } = useForm<CompoundInputResolved>({
     resolver: zodResolver(compoundInputSchema),
     defaultValues: {
-      principal: 10_000_000,
-      annualRatePercent: 5,
-      years: 10,
-      compoundFrequency: 12,
+      principal: 1_000_000,
+      ratePerPeriodPercent: 5,
+      periods: 10,
       periodicContribution: 0,
     },
   });
@@ -160,24 +184,14 @@ export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement 
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={T.sectionPrincipal}>
-          <Field label={T.fieldPrincipal} hint={T.fieldPrincipalHint}>
-            <input
-              type="number"
-              step="100000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("principal", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={T.fieldYears} hint={T.fieldYearsHint}>
-            <input
-              type="number"
-              step="0.5"
-              inputMode="decimal"
-              className="input-base"
-              {...register("years", { valueAsNumber: true })}
-            />
-          </Field>
+          <MoneyField
+            control={control}
+            name="principal"
+            label={T.fieldPrincipal}
+            hint={T.fieldPrincipalHint}
+            locale={locale}
+            step={100_000}
+          />
         </FieldGroup>
 
         <FieldGroup title={T.sectionRate}>
@@ -187,32 +201,30 @@ export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement 
               step="0.1"
               inputMode="decimal"
               className="input-base"
-              {...register("annualRatePercent", { valueAsNumber: true })}
+              {...register("ratePerPeriodPercent", { valueAsNumber: true })}
             />
           </Field>
-          <Field label={T.fieldFrequency}>
-            <select
+          <Field label={T.fieldPeriods} hint={T.fieldPeriodsHint}>
+            <input
+              type="number"
+              step="1"
+              min="1"
+              inputMode="numeric"
               className="input-base"
-              {...register("compoundFrequency", { valueAsNumber: true })}
-            >
-              <option value={1}>{T.freqYear}</option>
-              <option value={4}>{T.freqQuarter}</option>
-              <option value={12}>{T.freqMonth}</option>
-              <option value={365}>{T.freqDay}</option>
-            </select>
+              {...register("periods", { valueAsNumber: true })}
+            />
           </Field>
         </FieldGroup>
 
         <FieldGroup title={T.sectionContrib}>
-          <Field label={T.fieldContrib} hint={T.fieldContribHint}>
-            <input
-              type="number"
-              step="10000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("periodicContribution", { valueAsNumber: true })}
-            />
-          </Field>
+          <MoneyField
+            control={control}
+            name="periodicContribution"
+            label={T.fieldContrib}
+            hint={T.fieldContribHint}
+            locale={locale}
+            step={10_000}
+          />
         </FieldGroup>
 
         <ActionRow
@@ -234,51 +246,37 @@ export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement 
         {!calcError && !result && <EmptyResult message={T.resultEmpty} />}
         {result && (
           <div className="animate-fade-up space-y-5">
-            <HeroResult
-              label={T.finalAmount}
-              value={won(result.finalAmount)}
-              unit={T.finalAmountUnit}
-            />
-            <dl className="grid grid-cols-2 gap-3">
-              <Stat label={T.principal} value={`${won(result.principal)} ${T.finalAmountUnit}`} />
-              <Stat label={T.totalContrib} value={`${won(result.totalContribution)} ${T.finalAmountUnit}`} />
-              <Stat label={T.totalInterest} value={`${won(result.totalInterest)} ${T.finalAmountUnit}`} />
-              <Stat label={T.ear} value={`${pct(result.effectiveAnnualRatePercent)}%`} />
-              <Stat label={T.cagr} value={`${pct(result.cagrPercent)}%`} />
-            </dl>
-
             <div>
-              <h3 className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
-                {T.yearlyTable}
-              </h3>
-              <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)]">
-                <table className="w-full text-xs">
-                  <thead>
-                    <tr className="border-b border-[color:var(--color-border-subtle)] text-[color:var(--color-text-tertiary)]">
-                      <th className="px-3 py-2 text-left font-medium">{T.yearLabel}</th>
-                      <th className="px-3 py-2 text-right font-medium">{T.balanceCol}</th>
-                      <th className="px-3 py-2 text-right font-medium">{T.contribCol}</th>
-                      <th className="px-3 py-2 text-right font-medium">{T.interestCol}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {result.yearly.map((row) => (
-                      <tr
-                        key={row.year}
-                        className="border-b border-[color:var(--color-border-subtle)]/50 last:border-0 tabular-nums text-[color:var(--color-text-secondary)]"
-                      >
-                        <td className="px-3 py-1.5">{row.year}</td>
-                        <td className="px-3 py-1.5 text-right text-[color:var(--color-text-primary)]">
-                          {won(row.balance)}
-                        </td>
-                        <td className="px-3 py-1.5 text-right">{won(row.totalContrib)}</td>
-                        <td className="px-3 py-1.5 text-right">{won(row.totalInterest)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <HeroResult
+                label={T.finalAmount}
+                value={formatKrw(result.finalAmount)}
+                unit={T.finalAmountUnit}
+              />
+              {locale === "ko" && (
+                <p className="mt-2 text-sm font-medium text-[color:var(--color-text-secondary)]">
+                  = {formatKoreanMoney(result.finalAmount)}
+                </p>
+              )}
             </div>
+            <dl className="grid grid-cols-2 gap-3">
+              <Stat
+                label={T.principal}
+                value={`${formatKrw(result.principal)} ${T.finalAmountUnit}`}
+              />
+              <Stat
+                label={T.totalContrib}
+                value={`${formatKrw(result.totalContribution)} ${T.finalAmountUnit}`}
+              />
+              <Stat
+                label={T.totalInterest}
+                value={`${formatKrw(result.totalInterest)} ${T.finalAmountUnit}`}
+              />
+              <Stat
+                label={T.totalReturn}
+                value={`${formatNumber(result.totalReturnPercent, 2)}%`}
+                tone="success"
+              />
+            </dl>
 
             <SourceBox lines={[T.sourceTitle, ...T.sourceLines]} />
           </div>

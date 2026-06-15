@@ -16,11 +16,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale !== "en";
   const title = isKo
-    ? "복리 계산기 — 원금·이율·기간 × 정기 적립 + 연도별 잔액표"
-    : "Compound Interest Calculator — principal × rate × period + yearly table";
+    ? "복리 계산기 — 회당 이율 × 복리 횟수로 만기 금액·이자 즉시"
+    : "Compound Interest Calculator — rate per period × number of periods";
   const description = isKo
-    ? "원금·연이율·기간·복리 빈도(월/분기/연)·정기 적립을 입력하면 만기 금액·총 이자·실효이율(EAR)·CAGR·연도별 잔액표까지 즉시. 예금·적금·투자 시나리오 비교용."
-    : "Calculate future value, total interest, EAR, CAGR, and yearly balance table from principal, rate, period, compound frequency, and periodic contribution.";
+    ? "원금·회당 이율·복리 횟수·정기 적립을 입력하면 만기 금액·누적 이자·총 수익률을 즉시 계산. 월복리는 회당 이율(연이율÷12)과 횟수로 입력. 예금·적금·투자 시나리오 비교용."
+    : "Calculate future value, total interest, and total return from principal, rate per period, number of periods, and periodic contribution.";
   const keywords = isKo
     ? [
         "복리 계산기",
@@ -40,8 +40,7 @@ export async function generateMetadata({
         "compound interest calculator",
         "compound calculator",
         "future value FV",
-        "CAGR calculator",
-        "effective annual rate EAR",
+        "rate per period",
         "periodic contribution",
         "savings calculator",
       ];
@@ -93,8 +92,8 @@ export default async function CompoundCalcPage({
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
-              ? "원금·연이율·기간·복리 빈도와 (선택) 정기 적립을 입력하면 만기 금액·총 이자·실효이율(EAR)·CAGR·연도별 잔액표까지 즉시. 예금·적금·장기 투자 시나리오 비교에."
-              : "Enter principal, rate, period, frequency, and optional contribution — get future value, total interest, EAR, CAGR, and yearly balance instantly."}
+              ? "원금·회당 이율·복리 횟수와 (선택) 정기 적립을 입력하면 만기 금액·누적 이자·총 수익률을 즉시. 예금·적금·장기 투자 시나리오 비교에."
+              : "Enter principal, rate per period, number of periods, and optional contribution — get future value, total interest, and total return instantly."}
           </p>
         </header>
         <CompoundForm locale={localeKey} />
