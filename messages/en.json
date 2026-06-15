@@ -2096,6 +2096,102 @@
       ],
       "lastReviewed": "2026-06-15"
     },
+    "foreign-health-insurance": {
+      "overview": "If you live in Korea for six months or more, enrollment in the National Health Insurance Service (NHIS) is mandatory. Employees pay based on salary (7.19% split with the employer, plus long-term care), while the self-employed, unemployed, and students pay under a foreigner rule: the higher of income/asset scoring or the average premium — about ₩158,640 per month in 2026. Students on a D-2 or D-4 visa get a 50% reduction. This calculator estimates your monthly and annual premium by enrollment type. All inputs stay in your browser.",
+      "useCases": [
+        "New arrivals estimating their premium before the 6-month mandatory enrollment",
+        "Employees checking the health + long-term care deduction on their payslip",
+        "Self-employed and freelancers budgeting for the regional premium",
+        "International students confirming the 50% reduced rate",
+        "Anyone comparing employee vs self-employed enrollment cost"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Choose your enrollment type: employee (working at a company) or self-employed/student.",
+          "If employed, enter your monthly salary. The calculator applies your 3.595% share plus 13.14% long-term care.",
+          "If self-employed, check the student box if you hold a D-2/D-4 visa and meet the income/asset limits for the 50% reduction.",
+          "Click Calculate to see your monthly and annual premium, with the employer's matching share shown for reference."
+        ]
+      },
+      "formula": {
+        "title": "Formula (NHIS 2026)",
+        "body": "Employee (your share):\n  Health = monthly salary × 3.595% (capped between ₩10,080 and ₩4,591,740)\n  Long-term care = Health × 13.14%\n  Monthly = Health + Long-term care\n  (employer pays the same amount)\n\nSelf-employed (foreigner rule):\n  Monthly = max(income/asset score, average premium ₩158,640)\n  Student (D-2/D-4) = ₩158,640 × 50% = ₩79,320"
+      },
+      "examples": {
+        "title": "Real examples (2026)",
+        "items": [
+          {
+            "title": "Employee earning ₩3M/month",
+            "body": "Health = 3M × 3.595% = ₩107,850. Long-term care = ₩14,171. Monthly = about ₩122,021 (your share); the employer pays the same amount on top."
+          },
+          {
+            "title": "Self-employed foreigner",
+            "body": "Most pay the average premium — ₩158,640/month (₩1,903,680/year) — even with low reported income, because of the foreigner floor rule."
+          },
+          {
+            "title": "International student (D-2)",
+            "body": "With the 50% reduction, ₩79,320/month, provided annual income is ₩3.6M or less and assets ₩135M or less."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Do I have to join NHIS as a foreigner?",
+          "answer": "Yes. After six months in Korea you are automatically enrolled as a regional subscriber. Employees join immediately through their company, and students (D-2/D-4) join upon foreign registration."
+        },
+        {
+          "question": "Why is my premium fixed even though I earn little?",
+          "answer": "Foreign regional subscribers pay at least the average premium (about ₩158,640 in 2026). Income/asset scoring only raises it above that floor — it cannot go below."
+        },
+        {
+          "question": "How much is the student discount?",
+          "answer": "50% off the average premium, about ₩79,320/month, if your annual income is ₩3.6M or less and assets are ₩135M or less."
+        },
+        {
+          "question": "What happens if I don't pay?",
+          "answer": "Unpaid premiums can block your visa extension — immigration checks tax and NHIS arrears. Late fees and asset seizure are also possible."
+        },
+        {
+          "question": "Is long-term care insurance included?",
+          "answer": "For employees, yes — it is 13.14% of the health premium, shown separately. The regional average premium already reflects the total payment."
+        },
+        {
+          "question": "Does this include income/asset scoring for the self-employed?",
+          "answer": "No. It uses the average-premium floor that most foreigners actually pay. High-income or high-asset foreigners may pay more."
+        },
+        {
+          "question": "Can I be exempted?",
+          "answer": "If you have equivalent coverage through foreign insurance or an employer contract, you can apply for an exemption with NHIS."
+        }
+      ],
+      "cautions": [
+        "Regional income/asset scoring is not modeled — the calculator uses the average-premium floor most foreigners pay. High earners or asset holders may pay more.",
+        "The average premium (~₩158,640) is set yearly by NHIS each November — this is a 2026 estimate, verify annually.",
+        "Employee figures apply the health-premium cap; very high or low salaries differ from a simple percentage.",
+        "Reduction eligibility depends on individual income/asset review — confirm with NHIS (1577-1000).",
+        "Reference estimate only; official assessment follows NHIS rules."
+      ],
+      "related": [
+        {
+          "label": "Salary Take-Home",
+          "href": "/net-salary"
+        },
+        {
+          "label": "4 Insurances + Net Pay",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Foreign Flat Tax",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Stay Days Tracker",
+          "href": "/visa-days"
+        }
+      ],
+      "lastReviewed": "2026-06-15"
+    },
     "loan-calc": {
       "overview": "The Korean loan calculator compares the three most common Korean repayment types — equal payment (same monthly amount), equal principal (high to low), and balloon (interest only with principal at maturity) — in one screen, with a monthly amortization schedule. The same standard formulas apply to mortgages, credit loans, jeonse-deposit loans, and auto installments. Prepayment fees, stamp duty, and DSR limits are not included.",
       "useCases": [
