@@ -2284,6 +2284,98 @@
       ],
       "lastReviewed": "2026-06-15"
     },
+    "f2-residence-visa": {
+      "overview": "F-2-7 is Korea's points-based residence visa — a common step toward permanent residence (F-5). To apply you must (1) fall under one of five eligible categories, (2) meet core requirements (a 3-year continuous legal stay or ₩40M+ annual income, good conduct, public health), and (3) reach 80 of 170 points on a scoring test. This tool checks the categories and core requirements. It deliberately does NOT compute a point total, because the detailed scoring is an internal, unpublished Ministry of Justice manual that varies by source and changes without notice.",
+      "useCases": [
+        "Professionals (E-7, etc.) on a 3+ year stay checking if they can move to F-2-7",
+        "Graduates of Korean master's programs exploring the residence track",
+        "Anyone mapping the path from work visa → F-2-7 → F-5 permanent residence",
+        "Confirming core requirements before booking a hikorea consultation",
+        "Understanding what the 80-point test actually weighs"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Pick the applicant category that matches you (listed-company employee, growth-industry worker, 3-year professional, domestic master's graduate, or STEM talent).",
+          "Check the core requirements: 3-year continuous legal stay or ₩40M+ income, good conduct, and the public-health requirement.",
+          "See whether your core requirements are met and what is still missing.",
+          "Then confirm your actual point total and eligibility at hikorea.go.kr or 1345 — this tool won't guess your score."
+        ]
+      },
+      "formula": {
+        "title": "How the 80-point test works (informational)",
+        "body": "Pass mark: 80 of 170 points (130 core + up to 40 bonus).\nScored items: age, education level, Korean ability (TOPIK or KIIP), annual income, work/stay experience, plus bonuses (Korean degree, government recommendation, KIIP completion, volunteering) and deductions (immigration violations, criminal record).\n\n⚠️ Exact sub-scores are NOT published — they live in an internal MOJ manual and differ between unofficial sources, so this tool does not calculate a number. Income carries the most weight. Verify your real score at hikorea."
+      },
+      "examples": {
+        "title": "Typical scenarios",
+        "items": [
+          {
+            "title": "Professional on a 3-year E-7",
+            "body": "Meets the professional category and the 3-year requirement. Still needs 80 points (income and Korean ability usually decide it) plus good conduct. Check the score at hikorea."
+          },
+          {
+            "title": "Master's graduate from a Korean university",
+            "body": "Qualifies under the study-talent category; the 3-year stay can be waived with ₩40M+ income. Education and Korean ability tend to score well."
+          },
+          {
+            "title": "High earner in a growth industry",
+            "body": "The growth-industry category plus high income (the heaviest-weighted item) makes 80 points reachable — but the category itself requires income of at least 1.5× GNI."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is the F-2-7 visa?",
+          "answer": "A points-based residence visa for skilled foreigners with broad work and residence rights. After holding it for 3 years in good standing you can pursue points-based permanent residence (F-5)."
+        },
+        {
+          "question": "What score do I need?",
+          "answer": "80 out of 170. But 80 alone isn't enough — you must also fit one of the eligible categories and pass the conduct and public-health checks."
+        },
+        {
+          "question": "Why doesn't this tool calculate my points?",
+          "answer": "The detailed scoring table is an unpublished internal MOJ manual, and unofficial sources disagree on the numbers (especially income and education). Asserting a wrong score could mislead your application, so we check the verifiable requirements and send you to the official source for the score."
+        },
+        {
+          "question": "Can the 3-year stay requirement be waived?",
+          "answer": "Yes — with ₩40M+ annual income, or via an approved STEM talent-attraction program with a government recommendation."
+        },
+        {
+          "question": "Does student (D-2) or job-seeker (D-10) time count toward the 3 years?",
+          "answer": "For the professional category, prior D-2/D-10 stay generally does not count (per an official advisory). Korean-degree graduates instead apply under the study-talent category."
+        },
+        {
+          "question": "What comes after F-2-7?",
+          "answer": "Hold it for 3+ years in good standing and you can apply for F-5 (permanent residence) on the points track."
+        }
+      ],
+      "cautions": [
+        "Sub-scores are unofficial and change without notice — this is a requirements checklist, not a score calculator.",
+        "Meeting 80 points does not guarantee approval; category, stay/income, conduct, and health must all be met.",
+        "Eligible categories and income thresholds (GNI-linked) shift yearly.",
+        "Decisions are case-by-case at officer discretion.",
+        "Always verify at hikorea.go.kr or the Immigration Contact Center (1345)."
+      ],
+      "related": [
+        {
+          "label": "Stay Days Tracker",
+          "href": "/visa-days"
+        },
+        {
+          "label": "Health Insurance (NHIS)",
+          "href": "/foreign-health-insurance"
+        },
+        {
+          "label": "Foreign Flat Tax",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Salary Take-Home",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-15"
+    },
     "loan-calc": {
       "overview": "The Korean loan calculator compares the three most common Korean repayment types — equal payment (same monthly amount), equal principal (high to low), and balloon (interest only with principal at maturity) — in one screen, with a monthly amortization schedule. The same standard formulas apply to mortgages, credit loans, jeonse-deposit loans, and auto installments. Prepayment fees, stamp duty, and DSR limits are not included.",
       "useCases": [

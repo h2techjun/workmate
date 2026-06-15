@@ -49,6 +49,7 @@ const TOOL_PATHS = [
   "/name-romanize",
   "/size-convert",
   "/visa-days",
+  "/f2-residence-visa",
   "/net-salary",
   "/freelancer-tax",
   "/car-acquisition-tax",
