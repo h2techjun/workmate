@@ -92,7 +92,7 @@ export function calculateInsurance(rawInput: InsuranceInput): InsuranceResult {
   const healthEmployer = roundDown10(monthlySalary * HEALTH_INSURANCE.employerRate);
   const healthTotal = healthEmployee + healthEmployer;
 
-  // 장기요양보험: 건강보험료 × 12.95%, 절반씩 부담
+  // 장기요양보험: 건강보험료 × 13.14% (2026), 절반씩 부담
   const ltcTotal = healthTotal * LONG_TERM_CARE.rateOnHealth;
   const ltcEmployee = roundDown10(ltcTotal / 2);
   const ltcEmployer = roundDown10(ltcTotal / 2);
@@ -124,13 +124,13 @@ export function calculateInsurance(rawInput: InsuranceInput): InsuranceResult {
       key: "healthInsurance",
       employee: healthEmployee,
       employer: healthEmployer,
-      rateNote: "총 7.09% (각 3.545%)",
+      rateNote: "총 7.19% (각 3.595%)",
     },
     {
       key: "longTermCare",
       employee: ltcEmployee,
       employer: ltcEmployer,
-      rateNote: "건강보험료 × 12.95%",
+      rateNote: "건강보험료 × 13.14%",
     },
     {
       key: "employmentUnemployment",

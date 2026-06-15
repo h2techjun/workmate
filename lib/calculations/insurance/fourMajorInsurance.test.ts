@@ -9,19 +9,19 @@ describe("calculateInsurance - 표준 케이스 (월 300만원)", () => {
     expect(pension?.employer).toBe(135_000);
   });
 
-  it("건강보험: 3,000,000 × 3.545% = 106,350 (각)", () => {
+  it("건강보험: 3,000,000 × 3.595% = 107,850 (각) — 2026 7.19%", () => {
     const r = calculateInsurance({ monthlySalary: 3_000_000 });
     const health = r.lines.find((l) => l.key === "healthInsurance");
-    expect(health?.employee).toBe(106_350);
-    expect(health?.employer).toBe(106_350);
+    expect(health?.employee).toBe(107_850);
+    expect(health?.employer).toBe(107_850);
   });
 
-  it("장기요양: 건강보험료 합계 × 12.95% / 2 ≈ 13,770", () => {
+  it("장기요양: 건강보험료 합계 × 13.14% / 2 ≈ 14,170 — 2026", () => {
     const r = calculateInsurance({ monthlySalary: 3_000_000 });
     const ltc = r.lines.find((l) => l.key === "longTermCare");
-    // (106350 × 2) × 0.1295 / 2 = 13,772.32... → 절사 13,770
-    expect(ltc?.employee).toBe(13_770);
-    expect(ltc?.employer).toBe(13_770);
+    // (107850 × 2) × 0.1314 / 2 = 14,171.49... → 절사 14,170
+    expect(ltc?.employee).toBe(14_170);
+    expect(ltc?.employer).toBe(14_170);
   });
 
   it("고용보험 실업급여: 3,000,000 × 0.9% = 27,000 (각)", () => {

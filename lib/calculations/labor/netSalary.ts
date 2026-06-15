@@ -6,8 +6,8 @@
  *
  * 4대보험 (근로자 부담분):
  *   국민연금 = 과세대상(기준소득월액) × 4.5% (상·하한 적용)
- *   건강보험 = 보수월액 × 3.545%
- *   장기요양 = 건강보험료 × 12.95%
+ *   건강보험 = 보수월액 × 3.595% (2026)
+ *   장기요양 = 건강보험료 × 13.14% (2026)
  *   고용보험 = 보수월액 × 0.9%
  *
  * 근로소득세 (간이세액 추정):
@@ -20,6 +20,10 @@
  */
 
 import { z } from "zod";
+import {
+  HEALTH_INSURANCE,
+  LONG_TERM_CARE,
+} from "@/lib/constants/insurance/rates2026";
 
 export const netSalaryInputSchema = z.object({
   /** 연봉 (원) */
@@ -37,8 +41,8 @@ export type NetSalaryInputResolved = z.output<typeof netSalaryInputSchema>;
 
 // 2026 4대보험 요율 (근로자 부담)
 const PENSION_RATE = 0.045;
-const HEALTH_RATE = 0.03545;
-const LONGTERM_RATE = 0.1295; // 건강보험료의 12.95%
+const HEALTH_RATE = HEALTH_INSURANCE.employeeRate; // 2026: 3.595% — rates2026 단일 진실원
+const LONGTERM_RATE = LONG_TERM_CARE.rateOnHealth; // 2026: 13.14% — rates2026 단일 진실원
 const EMPLOYMENT_RATE = 0.009;
 
 // 국민연금 기준소득월액 상·하한 (2024.7~2025.6)

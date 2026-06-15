@@ -874,7 +874,7 @@
       },
       "source": {
         "line1": "Source: NPS · NHIS · Workers' Comp Service · EI (2026 rates)",
-        "line2": "Long-term care: 12.95% of health insurance / Employment Stability: 0.25% (employer only, < 150 employees)",
+        "line2": "Long-term care: 13.14% of health insurance / Employment Stability: 0.25% (employer only, < 150 employees)",
         "line3": "Note: Industrial accident rate varies 0.6–30% by industry. Verify with Workers' Comp Service."
       }
     },
@@ -3257,7 +3257,7 @@
       },
       "formula": {
         "title": "Deduction items (2026)",
-        "body": "Monthly gross = annual / 12\nTaxable = monthly gross − non-taxable\n\n4 insurances (employee):\n  National pension 4.5% (income cap KRW 6.17M)\n  Health 3.545%\n  Long-term care = health × 12.95%\n  Employment 0.9%\n\nIncome tax: earned-income deduction → personal/pension deductions → progressive rate\n  − wage earner credit − child credit → /12\nLocal income tax = income tax × 10%\n\nTake-home = gross − insurances − income tax − local tax"
+        "body": "Monthly gross = annual / 12\nTaxable = monthly gross − non-taxable\n\n4 insurances (employee):\n  National pension 4.5% (income cap KRW 6.17M)\n  Health 3.595%\n  Long-term care = health × 13.14%\n  Employment 0.9%\n\nIncome tax: earned-income deduction → personal/pension deductions → progressive rate\n  − wage earner credit − child credit → /12\nLocal income tax = income tax × 10%\n\nTake-home = gross − insurances − income tax − local tax"
       },
       "examples": {
         "title": "Real examples",
