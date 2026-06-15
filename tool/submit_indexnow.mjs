@@ -46,16 +46,13 @@ async function fetchSitemapUrls() {
 }
 
 const NEW_TOOLS = [
-  "/ko/income-tax",
-  "/en/income-tax",
-  "/ko/rent-cap",
-  "/en/rent-cap",
-  "/ko/loan-calc",
-  "/en/loan-calc",
-  "/ko/area-convert",
-  "/en/area-convert",
-  "/ko/percent-calc",
-  "/en/percent-calc",
+  // 2026-06-15 영문 외국인 니치 3종 + 복리 재설계
+  "/ko/foreign-flat-tax",
+  "/en/foreign-flat-tax",
+  "/ko/foreign-health-insurance",
+  "/en/foreign-health-insurance",
+  "/ko/apartment-area",
+  "/en/apartment-area",
   "/ko/compound-calc",
   "/en/compound-calc",
 ].map((p) => `https://${HOST}${p}`);

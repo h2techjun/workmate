@@ -226,8 +226,20 @@ Claude Code는 작업 시작 전 반드시 확인:
 
 - 시크릿/API 키 하드코딩 금지 → `.env.local` + Vercel 환경 변수
 - 마스터 승인 없이 프로덕션 배포 금지
-- main 브랜치 = 자동 배포
-- 작업은 feature 브랜치에서 → PR로 머지
+
+### ⚠️ 배포 절차 — git push ≠ 프로덕션 반영 (2026-06-15 사고학습)
+`git push origin main` 은 **GitHub 저장일 뿐, workmate.tools 에 자동 반영되지 않는다.**
+Vercel 이 빌드는 하지만 커스텀 도메인 alias 가 옛 배포에 고정돼 있어, 별도 단계 없이는
+변경이 라이브되지 않는다 (이 사실을 몰라 "배포 완료" 오보가 한 세션 내내 반복됨).
+
+**프로덕션 반영 정확한 3단계** (인증: `npx vercel whoami` = h2techjun):
+```bash
+npx vercel --prod --yes                                                    # ① 프로덕션 빌드·배포
+npx vercel alias set <deployment-url> workmate.tools                       # ② apex 도메인 연결
+npx vercel alias set <deployment-url> www.workmate.tools                   # ③ www 도메인 연결
+```
+검증: `https://workmate.tools/<신규경로>` 가 200 인지 확인 (404 면 alias 누락).
+배포 후 IndexNow 색인: `$env:INDEXNOW_KEY=(irm https://workmate.tools/indexnow-key); node tool/submit_indexnow.mjs --new`
 
 ## 💬 Claude Code 커뮤니케이션 규칙
 
