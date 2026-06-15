@@ -2192,6 +2192,98 @@
       ],
       "lastReviewed": "2026-06-15"
     },
+    "apartment-area": {
+      "overview": "A Korean property listing's headline area — say '84㎡' — is the supply area, which includes shared space like stairs and hallways. Your actual living space is the smaller exclusive area. This tool converts both to pyeong, shows the exclusive ratio, and computes price per pyeong on both bases. It decodes the exclusive-vs-supply trap that causes foreign renters and buyers to overestimate how much space they actually get.",
+      "useCases": [
+        "Renters and buyers checking how much living space a listing really offers",
+        "Comparing apartments with different exclusive ratios at the same supply area",
+        "Calculating the true price per pyeong (exclusive basis) before negotiating",
+        "Understanding why an 84㎡ apartment 'reads' as 25 pyeong but lives like 18",
+        "Converting between ㎡ and pyeong for any Korean property document"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter the supply area in ㎡ — the figure in the listing (e.g. 84).",
+          "Enter the exclusive area in ㎡ — found on the deed or floor plan (e.g. 59).",
+          "Optionally enter the sale or jeonse price to get price per pyeong.",
+          "Click Calculate to see pyeong conversions, the exclusive ratio, and per-pyeong prices on both supply and exclusive bases."
+        ]
+      },
+      "formula": {
+        "title": "Formula",
+        "body": "1 pyeong = 3.3058㎡ (1㎡ = 0.3025 pyeong)\nSupply pyeong = supply ㎡ × 0.3025\nExclusive pyeong = exclusive ㎡ × 0.3025\nExclusive ratio = exclusive ÷ supply\nPrice per pyeong (supply) = price ÷ supply pyeong\nPrice per pyeong (exclusive) = price ÷ exclusive pyeong"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "National size — 84㎡ supply / 59㎡ exclusive",
+            "body": "Supply 25.4 pyeong, exclusive 17.8 pyeong, exclusive ratio 70%. This 84/59 combo is Korea's most common apartment size, the 'national size' (국민평형)."
+          },
+          {
+            "title": "Price per pyeong — ₩1B for the 84㎡",
+            "body": "Supply basis ≈ ₩39.4M/pyeong; exclusive basis ≈ ₩56.0M/pyeong. Agents quote the lower supply figure, but you actually live in the exclusive area."
+          },
+          {
+            "title": "Officetel — 50㎡ supply / 28㎡ exclusive",
+            "body": "Exclusive ratio just 56%. Officetels have far lower ratios than apartments, so the same supply area gives much less living space."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What's the difference between supply and exclusive area?",
+          "answer": "Supply area = exclusive area + shared residential space (stairs, hallways, elevators). Exclusive area is the usable space inside your unit. Listings usually show supply area."
+        },
+        {
+          "question": "What is a good exclusive ratio?",
+          "answer": "Apartments are typically 70–80%; officetels 50–60%. A higher ratio means more of the advertised area is actually yours to live in."
+        },
+        {
+          "question": "Why is 84㎡ called 25 pyeong?",
+          "answer": "84㎡ × 0.3025 = 25.4 pyeong (supply). The exclusive area of about 59㎡ ≈ 17.8 pyeong is what you live in. The 84/59 pairing is Korea's 'national size'."
+        },
+        {
+          "question": "Which price per pyeong should I use?",
+          "answer": "Agents quote the supply basis, which looks cheaper. For honest value comparison, the exclusive basis is better because it reflects the space you actually use."
+        },
+        {
+          "question": "Is there a contract area too?",
+          "answer": "Yes — contract area adds other shared space (underground parking, management offices). It is the largest figure and used mainly for officetels and commercial units."
+        },
+        {
+          "question": "Does this match the deed?",
+          "answer": "The deed (등기부등본) lists the exact exclusive area. Always verify against the deed and contract, not just the listing."
+        }
+      ],
+      "cautions": [
+        "Listings usually show supply area; the exclusive area on the deed is smaller — confirm both.",
+        "Officetels and some mixed-use buildings have much lower exclusive ratios than apartments.",
+        "Price per pyeong on a supply basis looks lower; the exclusive basis reflects true usable cost.",
+        "1 pyeong = 3.3058㎡ exactly; rounded figures in ads can differ slightly.",
+        "Reference only — verify actual areas on the deed and contract."
+      ],
+      "related": [
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Rent Cap (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "Foreign Flat Tax",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Health Insurance (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-06-15"
+    },
     "loan-calc": {
       "overview": "The Korean loan calculator compares the three most common Korean repayment types — equal payment (same monthly amount), equal principal (high to low), and balloon (interest only with principal at maturity) — in one screen, with a monthly amortization schedule. The same standard formulas apply to mortgages, credit loans, jeonse-deposit loans, and auto installments. Prepayment fees, stamp duty, and DSR limits are not included.",
       "useCases": [

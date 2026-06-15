@@ -172,6 +172,12 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         href: "/rent-cap",
         keywordsKo: "임대료 5% 전월세 인상한도 보증금 갱신요구권 주임법",
       },
+      {
+        labelKo: "전용·공급면적 / 평당가",
+        labelEn: "Apartment Area & Price/Pyeong",
+        href: "/apartment-area",
+        keywordsKo: "전용면적 공급면적 전용률 평당가 84제곱미터 평 환산 exclusive supply area",
+      },
     ],
   },
   {
