@@ -14,7 +14,7 @@ export async function generateMetadata({
     return {
       title: "Korean 4-major insurance demystified (2026 rates) | Workmate",
       description:
-        "Why your take-home is 9.4%, not the headline 7.09% number. Korean payroll insurance breakdown for 2026.",
+        "Why your take-home is 9.5%, not the headline 7.19% number. Korean payroll insurance breakdown for 2026.",
     };
   }
   return {
@@ -57,16 +57,16 @@ function ContentKo(): React.ReactElement {
           월급 300만원이면 실수령 얼마? 4대보험 완전 분해
         </h1>
         <p className="mt-4 text-sm text-[color:var(--color-text-tertiary)]">
-          2026년 적용 요율. 마지막 업데이트 2026-04-27.
+          2026년 적용 요율. 마지막 업데이트 2026-06-15.
         </p>
       </header>
 
       <section className="space-y-4">
         <p>
-          뉴스나 회사 소개 자료에서 &ldquo;건강보험 7.09%&rdquo; 같은
+          뉴스나 회사 소개 자료에서 &ldquo;건강보험 7.19%&rdquo; 같은
           숫자를 보고 4대보험을 7%로 생각하는 분들이 많은데, 실제 차감
           비율은 그보다 훨씬 높습니다. 월급 300만원의 경우 근로자가
-          실제로 차감 받는 금액은 282,120원, 비율로는 9.4%입니다.
+          실제로 차감 받는 금액은 284,020원, 비율로는 9.47%입니다.
         </p>
         <p>
           왜 이렇게 차이가 나는지 한 줄씩 따져봅니다.
@@ -93,11 +93,11 @@ function ContentKo(): React.ReactElement {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
-          2. 건강보험 — 3.545%
+          2. 건강보험 — 3.595%
         </h2>
         <p>
-          건강보험 총 요율 7.09%를 절반씩. 근로자 부담 3.545%. 월
-          300만원이면 106,350원입니다.
+          건강보험 총 요율 7.19%를 절반씩. 근로자 부담 3.595%. 월
+          300만원이면 107,850원입니다.
         </p>
         <p>
           국민연금과 달리 <strong>상한이 없습니다</strong>. 월급이
@@ -108,16 +108,16 @@ function ContentKo(): React.ReactElement {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
-          3. 장기요양보험 — 건강보험료의 12.95%
+          3. 장기요양보험 — 건강보험료의 13.14%
         </h2>
         <p>
           이게 헷갈리는 부분입니다. 월급 기준이 아니라{" "}
-          <strong>건강보험료의 12.95%</strong>가 장기요양 보험료입니다.
+          <strong>건강보험료의 13.14%</strong>가 장기요양 보험료입니다.
           이를 근로자·사용자가 절반씩.
         </p>
         <p>
-          월 300만원의 경우 건강보험 총액이 212,700원(106,350 × 2),
-          여기에 12.95% 곱하면 27,544원. 근로자 부담은 절반인 13,770원
+          월 300만원의 경우 건강보험 총액이 215,700원(107,850 × 2),
+          여기에 13.14% 곱하면 28,343원. 근로자 부담은 절반인 14,170원
           (10원 단위 절사). 작은 금액이지만 30년 누적되면 무시 못
           합니다.
         </p>
@@ -177,39 +177,39 @@ function ContentKo(): React.ReactElement {
             <tbody className="text-[color:var(--color-text-secondary)] tabular-nums">
               <tr className="border-t border-[color:var(--color-border-subtle)]">
                 <td className="px-4 py-2">200만원</td>
-                <td className="px-4 py-2 text-right">188,080</td>
-                <td className="px-4 py-2 text-right">1,811,920</td>
-                <td className="px-4 py-2 text-right">9.40%</td>
+                <td className="px-4 py-2 text-right">189,340</td>
+                <td className="px-4 py-2 text-right">1,810,660</td>
+                <td className="px-4 py-2 text-right">9.47%</td>
               </tr>
               <tr className="border-t border-[color:var(--color-border-subtle)]">
                 <td className="px-4 py-2">300만원</td>
-                <td className="px-4 py-2 text-right">282,120</td>
-                <td className="px-4 py-2 text-right">2,717,880</td>
-                <td className="px-4 py-2 text-right">9.40%</td>
+                <td className="px-4 py-2 text-right">284,020</td>
+                <td className="px-4 py-2 text-right">2,715,980</td>
+                <td className="px-4 py-2 text-right">9.47%</td>
               </tr>
               <tr className="border-t border-[color:var(--color-border-subtle)]">
                 <td className="px-4 py-2">400만원</td>
-                <td className="px-4 py-2 text-right">376,170</td>
-                <td className="px-4 py-2 text-right">3,623,830</td>
-                <td className="px-4 py-2 text-right">9.40%</td>
+                <td className="px-4 py-2 text-right">378,690</td>
+                <td className="px-4 py-2 text-right">3,621,310</td>
+                <td className="px-4 py-2 text-right">9.47%</td>
               </tr>
               <tr className="border-t border-[color:var(--color-border-subtle)]">
                 <td className="px-4 py-2">500만원</td>
-                <td className="px-4 py-2 text-right">470,210</td>
-                <td className="px-4 py-2 text-right">4,529,790</td>
-                <td className="px-4 py-2 text-right">9.40%</td>
+                <td className="px-4 py-2 text-right">473,360</td>
+                <td className="px-4 py-2 text-right">4,526,640</td>
+                <td className="px-4 py-2 text-right">9.47%</td>
               </tr>
               <tr className="border-t border-[color:var(--color-border-subtle)]">
                 <td className="px-4 py-2">700만원</td>
-                <td className="px-4 py-2 text-right">605,910</td>
-                <td className="px-4 py-2 text-right">6,394,090</td>
-                <td className="px-4 py-2 text-right">8.66%</td>
+                <td className="px-4 py-2 text-right">625,360</td>
+                <td className="px-4 py-2 text-right">6,374,640</td>
+                <td className="px-4 py-2 text-right">8.93%</td>
               </tr>
               <tr className="border-t border-[color:var(--color-border-subtle)]">
                 <td className="px-4 py-2">1,000만원</td>
-                <td className="px-4 py-2 text-right">747,560</td>
-                <td className="px-4 py-2 text-right">9,252,440</td>
-                <td className="px-4 py-2 text-right">7.48%</td>
+                <td className="px-4 py-2 text-right">774,380</td>
+                <td className="px-4 py-2 text-right">9,225,620</td>
+                <td className="px-4 py-2 text-right">7.74%</td>
               </tr>
             </tbody>
           </table>
@@ -227,11 +227,11 @@ function ContentKo(): React.ReactElement {
         </h2>
         <p>
           월급 300만원 직원을 채용한다면 회사가 실제로 부담하는 비용은
-          315,420원이 추가됩니다. 즉 <strong>총 인건비 3,315,420원</strong>이
+          317,320원이 추가됩니다. 즉 <strong>총 인건비 3,317,320원</strong>이
           나가는 셈이죠.
         </p>
         <p>
-          작은 회사라면 한 명 채용에 매월 31만원이 추가로 나가는
+          작은 회사라면 한 명 채용에 매월 약 32만원이 추가로 나가는
           느낌일 텐데, 1년이면 약 380만원, 5년이면 1,900만원입니다.
           채용 의사결정 시 표면 월급만 보면 안 되는 이유입니다.
         </p>
@@ -242,8 +242,8 @@ function ContentKo(): React.ReactElement {
           마무리
         </h2>
         <p>
-          요약. 4대보험 근로자 부담은 월급의 약 9.4%(고소득자는 7~8%로
-          내려감). 사용자 부담은 약 10.5%(산재 평균 적용 시). 합치면
+          요약. 4대보험 근로자 부담은 월급의 약 9.5%(고소득자는 7~8%로
+          내려감). 사용자 부담은 약 10.6%(산재 평균 적용 시). 합치면
           월급의 약 20%가 사회보험 명목으로 나갑니다. 본 사이트의{" "}
           <Link
             href="/ko/insurance-calc"
@@ -270,15 +270,15 @@ function ContentEn(): React.ReactElement {
           Korean 4-major insurance demystified (2026)
         </h1>
         <p className="mt-4 text-sm text-[color:var(--color-text-tertiary)]">
-          Last updated 2026-04-27.
+          Last updated 2026-06-15.
         </p>
       </header>
 
       <section className="space-y-4">
         <p>
-          People often see the headline rate (e.g., &ldquo;health 7.09%&rdquo;)
+          People often see the headline rate (e.g., &ldquo;health 7.19%&rdquo;)
           and assume Korean payroll insurance is around 7%. The actual
-          deduction is closer to 9.4% of monthly salary. Here&apos;s
+          deduction is closer to 9.5% of monthly salary. Here&apos;s
           why, line by line.
         </p>
       </section>
@@ -296,17 +296,17 @@ function ContentEn(): React.ReactElement {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
-          Health Insurance — 3.545%
+          Health Insurance — 3.595%
         </h2>
         <p>
-          Total 7.09%, split equally. <strong>No cap.</strong> Higher
+          Total 7.19%, split equally. <strong>No cap.</strong> Higher
           earners pay proportionally more.
         </p>
       </section>
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
-          Long-term Care — 12.95% of health insurance
+          Long-term Care — 13.14% of health insurance
         </h2>
         <p>
           Calculated against the health premium, not salary. Tiny per
@@ -341,8 +341,8 @@ function ContentEn(): React.ReactElement {
           Bottom line
         </h2>
         <p>
-          Employee deduction ≈ 9.4% of salary (drops to ~7% above the
-          pension cap). Employer burden ≈ 10.5%. Combined ≈ 20% of
+          Employee deduction ≈ 9.5% of salary (drops to ~7% above the
+          pension cap). Employer burden ≈ 10.6%. Combined ≈ 20% of
           monthly salary going to social insurance. Try the{" "}
           <Link
             href="/en/insurance-calc"
