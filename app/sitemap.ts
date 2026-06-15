@@ -71,6 +71,7 @@ const TOOL_PATHS = [
   "/tools",
   "/games",
   "/tests",
+  "/learn",
   "/blog",
   "/guide",
 ] as const;
