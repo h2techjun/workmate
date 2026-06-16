@@ -6,6 +6,17 @@
  * 인덱스 모두 자동 반영.
  */
 
+/** 블로그 카테고리 — 외국인 니치(living·visa·business) + 한국 실무(tax·realestate·loan·labor·construction) */
+export type BlogCategory =
+  | "living"
+  | "visa"
+  | "business"
+  | "tax"
+  | "realestate"
+  | "loan"
+  | "labor"
+  | "construction";
+
 export interface BlogPost {
   slug: string;
   /** 발행일 (YYYY-MM-DD) — sitemap lastmod, 인덱스 정렬에 사용 */
@@ -16,12 +27,48 @@ export interface BlogPost {
   summaryKo: string;
   summaryEn: string;
   /** 카테고리 (한 글에 하나) */
-  category: "loan" | "tax" | "realestate" | "labor" | "construction";
+  category: BlogCategory;
   /** 예상 읽기 시간 (분) */
   readingMinutes: number;
 }
 
+/** 카테고리 표시 라벨 (ko/en) — /blog 인덱스 섹션 헤더·카드 칩 */
+export const CATEGORY_LABELS: Record<BlogCategory, { ko: string; en: string }> = {
+  living: { ko: "한국 생활 · 외국인", en: "Living in Korea" },
+  visa: { ko: "비자 · 체류", en: "Visa & Stay" },
+  business: { ko: "창업 · 사업", en: "Business & Startup" },
+  tax: { ko: "세금 · 재무", en: "Tax & Finance" },
+  realestate: { ko: "부동산 · 임대", en: "Real Estate" },
+  loan: { ko: "대출", en: "Loans" },
+  labor: { ko: "근로 · 급여", en: "Work & Payroll" },
+  construction: { ko: "건축 · 자재", en: "Construction" },
+};
+
+/** 섹션 노출 순서 — 외국인 니치 우선 */
+export const CATEGORY_ORDER: ReadonlyArray<BlogCategory> = [
+  "living",
+  "visa",
+  "business",
+  "tax",
+  "realestate",
+  "loan",
+  "labor",
+  "construction",
+];
+
 export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
+  {
+    slug: "essential-apps-korea-foreigners",
+    publishedAt: "2026-06-16",
+    titleKo: "한국 사는 외국인 필수 앱 — 본인인증 장벽부터 가입 팁까지",
+    titleEn: "Essential Apps for Living in Korea as a Foreigner (2026)",
+    summaryKo:
+      "카카오톡·네이버지도·토스·배민… 어떤 앱이 외국 번호·외국 카드·외국인등록증 없이 되는지, 한국식 본인인증(PASS) 장벽을 넘는 법까지 카테고리별로 정리했습니다.",
+    summaryEn:
+      "Which Korean apps work without a Korean number, a foreign card, or an ARC — and how to clear the PASS identity-verification wall. Category by category, with sign-up tips.",
+    category: "living",
+    readingMinutes: 11,
+  },
   {
     slug: "loan-30-vs-15-years",
     publishedAt: "2026-05-23",
@@ -94,4 +141,20 @@ export function sortedBlogPosts(): ReadonlyArray<BlogPost> {
   return [...BLOG_POSTS].sort((a, b) =>
     b.publishedAt.localeCompare(a.publishedAt),
   );
+}
+
+/**
+ * 카테고리별 그룹 — CATEGORY_ORDER 순, 각 그룹 내 최신순.
+ * 글이 있는 카테고리만 반환 (빈 섹션 방지).
+ */
+export function postsByCategory(): Array<{
+  category: BlogCategory;
+  posts: BlogPost[];
+}> {
+  return CATEGORY_ORDER.map((category) => ({
+    category,
+    posts: BLOG_POSTS.filter((p) => p.category === category).sort((a, b) =>
+      b.publishedAt.localeCompare(a.publishedAt),
+    ),
+  })).filter((group) => group.posts.length > 0);
 }
