@@ -1,7 +1,7 @@
 # Workmate 프로젝트 상태판
 
 > **단일 진실원** — 매 세션 시작 시 이 파일을 먼저 읽으세요.
-> 마지막 갱신: 2026-06-16 (영문 외국인 니치 6종 라이브 + 필수앱 블로그 + 블로그 카테고리 — 신규 도구 jeonse-wolse, d8-startup-visa)
+> 마지막 갱신: 2026-06-16 (영문 외국인 니치 7종 라이브 — 신규 jeonse-wolse·d8-startup-visa·pension-refund + 필수앱 블로그 + 블로그 카테고리)
 
 ## 🧭 전략 전환 (2026-06-15) — 영문 외국인 니치 + 도구 차별화
 
@@ -12,8 +12,9 @@
 ③ AdSense는 후순위, 검증된 수요 먼저 ④ 세율·요율 등 변동값은 `lib/constants/`에 출처+연도 격리.
 
 **TOP3 우선순위**: 1️⃣ 외국인 세금(완료) 2️⃣ 건강보험(완료) 3️⃣ 평수·면적 심화(완료).
-→ **영문 외국인 니치 6종 라이브** (foreign-flat-tax · foreign-health-insurance · apartment-area · f2-residence-visa 체크리스트 · **jeonse-wolse 전세↔월세+전세사기 방지** · **d8-startup-visa 창업·투자비자 체크리스트**).
+→ **영문 외국인 니치 7종 라이브** (foreign-flat-tax · foreign-health-insurance · apartment-area · f2-residence-visa 체크리스트 · **jeonse-wolse 전세↔월세+전세사기 방지** · **d8-startup-visa 창업·투자비자 체크리스트** · **pension-refund 국민연금 반환일시금**).
 → **콘텐츠**: 필수앱 블로그(essential-apps-korea-foreigners) + 블로그 카테고리 섹션 도입.
+→ **백로그**: 국민연금 요율 2026 9.5% 인상 확정 — rates2026.ts/net-salary/insurance-calc 갱신 필요(spawn_task 분리).
 다음 규율: 도구 양산은 멈추고 **GSC 색인 + 영문 커뮤니티(reddit r/Living_in_Korea 등) 노출로 실제 트래픽 신호 검증**. AdSense 재신청은 트래픽이 붙은 뒤.
 
 ---
@@ -222,6 +223,7 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-06-16 | **국민연금 반환일시금 계산기 신설** — 영문 니치 7번째 (출국 외국인 환급 추정 + 수령 3경로·국적별 단정 회피) | `19242b2` |
 | 2026-06-16 | **D-8 창업·투자 비자 자격 체크리스트 신설** — 영문 니치 6번째 (D-8-1/3/4 유형별 조건부 + OASIS 점수 단정 회피) | `3d16fcc` |
 | 2026-06-16 | **전세↔월세 환산기 + 전세사기 방지 체크리스트 신설** — 영문 니치 5번째 (전월세전환율 4.5% + 외국인 거소지 등록 함정) | `6839e3f` |
 | 2026-06-16 | 한국 필수앱 블로그 + 블로그 카테고리 섹션(BlogCategory enum) 도입 | `a402839` |
