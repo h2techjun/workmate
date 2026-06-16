@@ -11,7 +11,7 @@ describe("연봉 실수령액", () => {
 
   it("4대보험이 세전의 약 9% 수준", () => {
     const out = calculateNetSalary(parse({ annualSalary: 36_000_000 }));
-    // 국민연금 4.5 + 건강 3.545 + 장기요양(건강×12.95%) + 고용 0.9 ≈ 9.3%
+    // 국민연금 4.75 + 건강 3.595 + 장기요양(건강×13.14%) + 고용 0.9 ≈ 9.7% (2026)
     const insRate = out.totalInsurance / out.monthlyGross;
     expect(insRate).toBeGreaterThan(0.08);
     expect(insRate).toBeLessThan(0.1);
@@ -37,8 +37,8 @@ describe("연봉 실수령액", () => {
 
   it("국민연금 상한: 고연봉이어도 기준소득월액 상한 적용", () => {
     const out = calculateNetSalary(parse({ annualSalary: 200_000_000 }));
-    // 상한 617만 × 4.5% = 277,650 → 10원 절사
-    expect(out.pension).toBeLessThanOrEqual(280_000);
+    // 상한 637만 × 4.75% = 302,575 → 10원 절사 302,570 (2026.1 9.5%)
+    expect(out.pension).toBe(302_570);
   });
 
   it("연 실수령 = 월 실수령 × 12", () => {

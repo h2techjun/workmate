@@ -2,11 +2,11 @@ import { describe, expect, it } from "vitest";
 import { calculateInsurance } from "./fourMajorInsurance";
 
 describe("calculateInsurance - 표준 케이스 (월 300만원)", () => {
-  it("국민연금: 3,000,000 × 4.5% = 135,000 (각 부담)", () => {
+  it("국민연금: 3,000,000 × 4.75% = 142,500 (각 부담) — 2026.1 9.5%", () => {
     const r = calculateInsurance({ monthlySalary: 3_000_000 });
     const pension = r.lines.find((l) => l.key === "nationalPension");
-    expect(pension?.employee).toBe(135_000);
-    expect(pension?.employer).toBe(135_000);
+    expect(pension?.employee).toBe(142_500);
+    expect(pension?.employer).toBe(142_500);
   });
 
   it("건강보험: 3,000,000 × 3.595% = 107,850 (각) — 2026 7.19%", () => {
@@ -49,12 +49,12 @@ describe("calculateInsurance - 합계 검증", () => {
 });
 
 describe("calculateInsurance - 국민연금 상한", () => {
-  it("월 700만원 → 기준소득월액 상한 617만원 적용", () => {
+  it("월 700만원 → 기준소득월액 상한 637만원 적용", () => {
     const r = calculateInsurance({ monthlySalary: 7_000_000 });
-    expect(r.pensionBase).toBe(6_170_000);
+    expect(r.pensionBase).toBe(6_370_000);
     const pension = r.lines.find((l) => l.key === "nationalPension");
-    // 6,170,000 × 4.5% = 277,650
-    expect(pension?.employee).toBe(277_650);
+    // 6,370,000 × 4.75% = 302,575 → 10원 절사 302,570
+    expect(pension?.employee).toBe(302_570);
     expect(r.warnings.some((w) => w.key === "pensionCapped")).toBe(true);
   });
 });

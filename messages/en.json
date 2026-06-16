@@ -2001,6 +2001,49 @@
       "lastReviewed": "2026-05-23"
     },
     "foreign-flat-tax": {
+      "checklist": {
+        "title": "Year-end settlement & income-tax checklist for foreigners",
+        "groups": [
+          {
+            "heading": "When & who (year-end settlement)",
+            "items": [
+              "Year-end tax settlement (연말정산) is done in February for the previous calendar year's wage & salary income.",
+              "It applies to employees — your employer reconciles the tax already withheld against your final liability.",
+              "Finalized tax minus tax already withheld = a refund (if negative) or an extra payment (if positive).",
+              "Use the NTS year-end auto-calculation service to estimate your result (not available for non-residents); see the foreigner guides on nts.go.kr/english."
+            ]
+          },
+          {
+            "heading": "19% flat tax vs progressive — choosing",
+            "items": [
+              "Foreign employees may choose each year: global taxation at progressive rates, or a flat 19% on gross wage & salary income.",
+              "Elect the flat rate by submitting the flat-tax-rate application during settlement.",
+              "Critical trade-off: choosing the 19% flat rate means NO exemptions, deductions, reductions, or credits apply at all.",
+              "Rule of thumb: high income with few deductions → flat 19% often wins; lower income with many deductions → progressive often wins (verify with the NTS calculator).",
+              "Flat-rate eligibility is limited to a set number of years from your first Korean employment start date — confirm you are still in the window (verify)."
+            ]
+          },
+          {
+            "heading": "Deductions — available vs restricted",
+            "items": [
+              "Under progressive taxation, residents can claim personal, medical, and credit-card deductions; non-residents (generally under 183 days) get only the personal deduction and the wage-tax credit.",
+              "The credit-card deduction applies only on spending above 25% of your gross annual wage.",
+              "A spouse or dependent earning more than ₩1,000,000 in the year is not eligible for the basic deduction.",
+              "Some housing-related deductions are restricted or unavailable to foreigners — verify each against the NTS foreigner guide (verify)."
+            ]
+          },
+          {
+            "heading": "Documents, tax treaty & special cases",
+            "items": [
+              "Gather: the wage & salary withholding receipt, the income-deduction/tax-credit report, and receipts for medical expenses, donations, etc.",
+              "Teachers/professors (often E-1/E-2) from treaty countries may be exempt on teaching/research income for a set period — but some countries grant none (verify your country's treaty).",
+              "To claim treaty exemption, submit the tax-treaty non-taxation application through your employer to the tax office.",
+              "Early departure: if you leave Korea permanently before year-end, complete a final settlement before departure rather than waiting for February (verify the procedure).",
+              "A comprehensive (global) income tax return is filed in May if you are a freelancer, have multiple income sources, or have income beyond a single employer's wages."
+            ]
+          }
+        ]
+      },
       "overview": "Foreign workers in Korea can elect a 19% flat tax (20.9% including the 1.9% local income tax) on earned income instead of the regular progressive rates of 6–45%, under Article 18-2 of the Special Tax Treatment Control Act. This calculator compares both methods side by side from your gross salary, applying the earned-income deduction, personal deduction, and wage-earner credit on the progressive side. It reveals the real breakeven — which, contrary to the common '80 million won' claim, sits around 130–170 million won depending on your deductions. All inputs stay in your browser.",
       "useCases": [
         "Foreign professionals (E-7 and other work visas) deciding whether to elect the flat tax at year-end settlement",
@@ -2097,6 +2140,50 @@
       "lastReviewed": "2026-06-15"
     },
     "foreign-health-insurance": {
+      "checklist": {
+        "title": "NHIS enrollment & usage checklist for foreigners",
+        "groups": [
+          {
+            "heading": "Mandatory enrollment & eligibility",
+            "items": [
+              "Any foreigner who has stayed 6+ months is auto-enrolled as a local (self-employed) subscriber the day after the 6-month mark — mandatory since 16 Jul 2019.",
+              "Covered statuses include D-2, D-4, E-1–E-10, H-1, H-2, F-1–F-4, G-1, and overseas Koreans.",
+              "Use the NHIS 'expected local-subscriber enrollment date' simulator on nhis.or.kr to estimate your date in advance.",
+              "You can apply for exemption only with proof of equivalent coverage under a foreign law, private insurance, or employer contract.",
+              "Handle all foreigner matters through the NHIS Center for Foreign Residents (☎ 1577-1000, English support)."
+            ]
+          },
+          {
+            "heading": "Employee vs local subscriber & premiums",
+            "items": [
+              "If you work for an insured company you are 'employee insured' — premium is wage × 7.19% (2026), split 50/50 with your employer; this overrides local status.",
+              "If not employed you are 'local insured' — premium is based on household income, property, and vehicles.",
+              "D-2/D-4 students and F-4 overseas-Korean students get a local-premium reduction (commonly cited as 50% — verify the current rate).",
+              "Set up auto-debit (CMS) — local premiums are due by the 25th of the preceding month.",
+              "Extra reductions exist for remote islands/areas (up to 50%) and farming/fishing villages (22%)."
+            ]
+          },
+          {
+            "heading": "Non-payment consequences (critical)",
+            "items": [
+              "Unpaid premiums suspend ALL benefits from the arrears date until paid in full — you pay full price at hospitals.",
+              "Arrears can block your visa extension and other immigration procedures — clear them before any appointment.",
+              "Auto-debit is the safest way to protect both your benefits and your immigration standing.",
+              "Check your balance and payment history on the NHIS website or mobile app to catch arrears early."
+            ]
+          },
+          {
+            "heading": "Card, dependents & hospital use",
+            "items": [
+              "Request your insurance card / certificate through the NHIS Center for Foreign Residents.",
+              "Register dependents with an ARC plus an apostilled family-relationship document (dated within 9 months) and a notarized Korean translation.",
+              "Go to a primary clinic (1차) first; you need a referral (의뢰서) to use a tertiary general hospital with coverage.",
+              "Co-payment rates differ by institution level (clinic vs general vs tertiary) and inpatient/outpatient.",
+              "NHIS does not cover non-covered (비급여) items — consider private indemnity (실손) insurance for those gaps."
+            ]
+          }
+        ]
+      },
       "overview": "If you live in Korea for six months or more, enrollment in the National Health Insurance Service (NHIS) is mandatory. Employees pay based on salary (7.19% split with the employer, plus long-term care), while the self-employed, unemployed, and students pay under a foreigner rule: the higher of income/asset scoring or the average premium — about ₩158,640 per month in 2026. Students on a D-2 or D-4 visa get a 50% reduction. This calculator estimates your monthly and annual premium by enrollment type. All inputs stay in your browser.",
       "useCases": [
         "New arrivals estimating their premium before the 6-month mandatory enrollment",
@@ -2193,6 +2280,50 @@
       "lastReviewed": "2026-06-15"
     },
     "apartment-area": {
+      "checklist": {
+        "title": "Apartment viewing & contract inspection checklist",
+        "groups": [
+          {
+            "heading": "Area terms — don't get fooled by price-per-pyeong",
+            "items": [
+              "Distinguish 전용면적 (exclusive area — your actual living space) from 공급면적 (supply area — exclusive + shared hallways, stairs, lobby).",
+              "Korean listings usually advertise the larger 공급면적, so the unit feels smaller than the headline number — always ask which figure is quoted.",
+              "For officetels, watch for 계약면적 (contract area), which adds parking and facility areas on top, inflating the size further.",
+              "Compute price-per-pyeong (평당가) on a consistent area basis — comparing one unit's 전용 to another's 공급 is misleading.",
+              "Cross-check the stated area against the free 건축물대장 (building register) from gov.kr (1 pyeong ≈ 3.3㎡)."
+            ]
+          },
+          {
+            "heading": "Documents to verify before paying anything",
+            "items": [
+              "Pull a fresh 등기부등본 (property register) yourself from IROS (iros.go.kr, ~₩1,000) — don't trust the landlord's copy.",
+              "Confirm the registered owner matches the landlord's ID and the contract; review the 을구 section for mortgages/liens (근저당권).",
+              "Get the free 건축물대장 from gov.kr to confirm legal use and catch any illegal extension (위반건축물).",
+              "Check 실거래가 (reported transaction prices) on rt.molit.go.kr to judge whether the price or deposit is fair.",
+              "Red flags: an unusually cheap price, a 'friend/agent' signing instead of the owner, or a deposit sent to a third-party account."
+            ]
+          },
+          {
+            "heading": "Physical inspection during the viewing",
+            "items": [
+              "Check the orientation (방향) — 남향 (south-facing) gets the most sunlight; confirm which way the main windows face.",
+              "Inspect for 결로 (condensation) and 곰팡이 (mold) on window frames, low walls, behind furniture, and in the bathroom.",
+              "Test 수압 (water pressure) on taps and the shower, especially in older or high-rise buildings.",
+              "Check the floor, daylight (채광) at the time you'd actually be home, heating (보일러) in every room, and the hallway/elevator.",
+              "Document existing defects (하자) with photos and have them noted in the contract before move-in."
+            ]
+          },
+          {
+            "heading": "Costs, move-in & practical confirmations",
+            "items": [
+              "Get a written breakdown of 관리비 (maintenance fee, ~₩70,000–250,000/month) and what it includes versus separate utilities.",
+              "Confirm parking (주차), the move-in date (입주 가능일), and a written list of built-in/option items (빌트인/옵션 — fridge, washer, A/C).",
+              "Photograph the gas and electricity meter readings at handover so you aren't charged for the previous occupant's usage.",
+              "Bring a Korean speaker or a translation app (Papago) — listings and contracts are usually Korean-only."
+            ]
+          }
+        ]
+      },
       "overview": "A Korean property listing's headline area — say '84㎡' — is the supply area, which includes shared space like stairs and hallways. Your actual living space is the smaller exclusive area. This tool converts both to pyeong, shows the exclusive ratio, and computes price per pyeong on both bases. It decodes the exclusive-vs-supply trap that causes foreign renters and buyers to overestimate how much space they actually get.",
       "useCases": [
         "Renters and buyers checking how much living space a listing really offers",
@@ -2285,6 +2416,50 @@
       "lastReviewed": "2026-06-15"
     },
     "f2-residence-visa": {
+      "checklist": {
+        "title": "F-2-7 residence visa — application & document checklist",
+        "groups": [
+          {
+            "heading": "Confirm your eligibility category",
+            "items": [
+              "Professionals (E-1–E-7 / D-5–D-9) with 3+ years of continuous lawful residence (the 3-year rule is waived if annual income exceeds ₩40M).",
+              "Study-talent: a Korean master's degree or higher, employed in an eligible role within 5 years of graduation.",
+              "Listed-company employees (KOSPI/KOSDAQ) — the 3-year residence rule is waived.",
+              "Promising-industry workers (IT, bio, nano, etc.) at or above the GNI income threshold (verify — the multiple changes yearly).",
+              "Baseline: reach 80 of 170 points and have 1+ year of legal stay before applying (verify the current threshold)."
+            ]
+          },
+          {
+            "heading": "Gather point-evidence & screening documents",
+            "items": [
+              "Income proof: income-amount certificate (소득금액증명) and/or withholding receipt (원천징수영수증).",
+              "Employment proof: work contract or certificate of employment; degree certificate (apostilled if issued abroad).",
+              "Korean-ability proof: a TOPIK certificate or KIIP (Social Integration Program) completion certificate.",
+              "Submit only the documents for the points you actually claimed — full documentation of every category is not required.",
+              "National criminal-background check with apostille (issued within 6 months), plus a TB screening if you are from a designated country (verify)."
+            ]
+          },
+          {
+            "heading": "Core packet & filing",
+            "items": [
+              "Integrated application form (통합신청서), passport, ARC, a 3.5×4.5 cm photo, and your completed F-2-7 score table.",
+              "Proof of residence: a lease, a residence-confirmation form, or a dormitory certificate.",
+              "Apply online via HiKorea (status change → F-2-7) or in person at the immigration office for your address; HiKorea is often 1–2 weeks faster.",
+              "Fee around ₩130,000 for a status change (verify on HiKorea before paying); processing ~4–8 weeks, longer in peak months.",
+              "Track status on HiKorea, then collect the new Residence Card in person; call 1345 for case-specific rules."
+            ]
+          },
+          {
+            "heading": "Maintain status & the F-5 path",
+            "items": [
+              "At each extension, keep your score at 80+ and your income at or above the GNI threshold.",
+              "Hold F-2-7 continuously for 3 years to become eligible for F-5 permanent residence.",
+              "Spouse and children can hold dependent F-2 status and may work after approval (subject to your income meeting the condition — verify).",
+              "Keep updated income, tax, and residence records each year, and confirm current F-5 requirements separately (they change) (verify)."
+            ]
+          }
+        ]
+      },
       "overview": "F-2-7 is Korea's points-based residence visa — a common step toward permanent residence (F-5). To apply you must (1) fall under one of five eligible categories, (2) meet core requirements (a 3-year continuous legal stay or ₩40M+ annual income, good conduct, public health), and (3) reach 80 of 170 points on a scoring test. This tool checks the categories and core requirements. It deliberately does NOT compute a point total, because the detailed scoring is an internal, unpublished Ministry of Justice manual that varies by source and changes without notice.",
       "useCases": [
         "Professionals (E-7, etc.) on a 3+ year stay checking if they can move to F-2-7",
@@ -2377,6 +2552,50 @@
       "lastReviewed": "2026-06-15"
     },
     "d8-startup-visa": {
+      "checklist": {
+        "title": "D-8 incorporation & visa-application checklist",
+        "groups": [
+          {
+            "heading": "Pick your D-8 track",
+            "items": [
+              "D-8-1 (corporate investor): invest ₩100M+ in a Korean corporation and hold 10%+ of voting shares; grants up to 5 years.",
+              "D-8-3 (sole-proprietorship investor): invest ₩100M+ in a business with a Korean co-representative, holding 10%+ of capital; up to 5 years.",
+              "D-8-4 (technology startup): a founder with a degree plus intellectual property, via the OASIS program and a points test; 1 year, renewable.",
+              "Confirm a real, independent office — shared/virtual offices are not accepted for D-8-1/3 (a coworking desk can suffice for D-8-4)."
+            ]
+          },
+          {
+            "heading": "D-8-1/3 — four-step incorporation",
+            "items": [
+              "Step 1 — file a Foreign Investment Declaration (외국인투자신고) at a designated foreign-exchange bank or KOTRA.",
+              "Step 2 — remit ₩100M+ in foreign currency; the sender name must match the shareholder, with an MT103 SWIFT note 'sent on behalf of [investor]'.",
+              "Step 3 — complete corporation establishment registration (법인설립등기), then obtain the Business Registration Certificate (사업자등록증).",
+              "Step 4 — complete Foreign-Invested Company Registration (외국인투자기업 등록) at the bank/KOTRA.",
+              "Keep the full money trail: corporate bank-account history, proof of source of funds, and the ₩100M remittance record."
+            ]
+          },
+          {
+            "heading": "D-8-4 — technology-startup prerequisites (OASIS)",
+            "items": [
+              "Hold a bachelor's degree or higher; a foreign degree must be apostilled.",
+              "Secure IP tied to the business — a patent, utility model, or design application/registration (at least a filing is mandatory).",
+              "Establish a NEW Korean corporation with you as founder/key executive in a technology field.",
+              "Enroll in OASIS and collect course-completion certificates toward your points total.",
+              "Reach the required points (cited as 60, though some sources say 80 — verify) and secure a real office or a leased coworking desk."
+            ]
+          },
+          {
+            "heading": "Documents, filing & the D-10-2 path",
+            "items": [
+              "Prepare a detailed business plan (authenticity is closely reviewed), plus the application form, passport, photo, and fee.",
+              "D-8-1/3 add: investment proof, corporate registry extract, business registration certificate, and proof of fund use.",
+              "D-8-4 add: apostilled degree, OASIS certificate(s), IP filing certificate, points-calculation form, and a residence agreement.",
+              "Establish and register the company and pay in capital BEFORE applying; convert your entry to an ARC within 90 days of arrival.",
+              "Recommended route: enter on D-10-2 (startup-prep, up to 2 years), complete OASIS + file IP + register the company, then change to D-8-4."
+            ]
+          }
+        ]
+      },
       "overview": "The D-8 is Korea's business-investment visa for foreigners who found or invest in a Korean company. It splits into three common types: D-8-1 (set up or invest in a corporation), D-8-3 (invest in a Korean-run company), and D-8-4 (technology startup — found a new company with your own intellectual property). This tool checks the verifiable core requirements for each type. For D-8-4 it deliberately does NOT compute an OASIS score: the official minimum is 60 of 300, but sources disagree (80–120) and the item-by-item table is an internal, unpublished Ministry of Justice manual that changes without notice.",
       "useCases": [
         "Foreign founders deciding between the investment route (D-8-1) and the startup route (D-8-4)",
@@ -2565,6 +2784,48 @@
       "lastReviewed": "2026-06-16"
     },
     "pension-refund": {
+      "checklist": {
+        "title": "Before you leave Korea — exit & settlement checklist",
+        "groups": [
+          {
+            "heading": "Claim your money BEFORE cancelling your ARC",
+            "items": [
+              "Apply for your National Pension (NPS) lump-sum refund — possible if you held an E-8/E-9/H-2 visa, or your country has a reciprocity / social-security agreement (US, Canada, Germany, etc.); China and Japan nationals generally cannot (verify your country).",
+              "File at an NPS office within 1 month of departure with your passport, ARC, flight ticket, and a bankbook copy — or use the Incheon Airport NPS desk (Terminal 1) on departure day.",
+              "Collect severance pay (퇴직금) if you worked 1+ year — due within 14 days of your last working day.",
+              "Ask your employer for a leaver's year-end tax settlement (연말정산) and your withholding receipt (원천징수영수증).",
+              "A tax (~6.75%, lower under a treaty) is withheld from the refund, paid in foreign currency (verify the current rate)."
+            ]
+          },
+          {
+            "heading": "Get your housing deposit back",
+            "items": [
+              "Give written notice to end the lease according to your contract's notice period.",
+              "If the deposit return is delayed, send a 내용증명 (certified mail); if you must move out unpaid, file a Leasehold Registration Order (임차권등기명령) BEFORE leaving the property.",
+              "Settle and close utilities — electricity (KEPCO), gas, water, building fees — and cancel their auto-debits.",
+              "Take dated move-out photos; only tenant-caused damage is deductible, not normal wear and tear."
+            ]
+          },
+          {
+            "heading": "Close accounts & contracts",
+            "items": [
+              "Settle National Health Insurance — leaving a job triggers a final premium adjustment to pay before departure.",
+              "Cancel mobile and internet contracts; check early-termination fees and device-installment balances.",
+              "Keep one Korean bank account open for ~6 months to receive the pension/tax refunds and final settlements.",
+              "Cancel all auto-debits, arrange international shipping, and claim the airport VAT / tax-free refund."
+            ]
+          },
+          {
+            "heading": "Immigration & departure day",
+            "items": [
+              "Do NOT surrender your ARC until severance is paid and your NPS refund is filed — you need it for both.",
+              "Hand your ARC to the immigration officer at the airport on permanent departure.",
+              "If you may return within 1–2 years, apply for a Re-Entry Permit via HiKorea instead of surrendering your status.",
+              "Call Immigration 1345 or NPS 1355 to confirm any country-specific steps before your flight."
+            ]
+          }
+        ]
+      },
       "overview": "If you worked in Korea and paid into the National Pension, you may be able to reclaim it as a lump-sum refund when you leave the country for good. This tool estimates that amount from your monthly income base and the number of months you contributed. For workplace subscribers the refund includes your employer's half too (the full ~9%), not just the 4.5% you saw deducted. The exact figure is computed month-by-month by NPS with yearly deposit-rate interest, so this is a ballpark — and eligibility depends on your nationality and visa, which the guide explains.",
       "useCases": [
         "Foreign workers (E-7, E-9, etc.) leaving Korea wanting a 'how much will I get back' estimate",
@@ -2753,6 +3014,50 @@
       "lastReviewed": "2026-05-23"
     },
     "rent-cap": {
+      "checklist": {
+        "title": "Lease contract & tenant-rights checklist for foreigners",
+        "groups": [
+          {
+            "heading": "Securing your deposit at signing",
+            "items": [
+              "File a move-in report; as a foreigner you must file the 체류지 변경신고 (change-of-residence report) within 14 days of moving, at immigration or the gu/dong office.",
+              "Foreigners are NOT automatically covered by the Housing Lease Protection Act — the 체류지 변경신고 is what gives your ARC the same legal effect (court precedent 93가합73367).",
+              "Get the 확정일자 (fixed-date stamp, ~₩600) the same day — it sets your deposit's repayment priority (우선변제권).",
+              "Note the timing: 대항력 (opposability) and 우선변제권 start at 00:00 the day AFTER you register and occupy, so a same-day landlord mortgage can outrank you.",
+              "Never move your 체류지 변경신고 to another address during the lease — it instantly destroys your priority."
+            ]
+          },
+          {
+            "heading": "Renewal rights & rent-increase cap",
+            "items": [
+              "You have a one-time Contract Renewal Request Right (계약갱신청구권) for a 2-year extension; the landlord can refuse only on limited grounds (e.g., owner/family will move in).",
+              "On renewal, any increase to deposit OR rent is capped at 5% (the cap applies to renewals, NOT to brand-new contracts).",
+              "Give or receive a renewal-or-termination notice between 6 and 2 months before expiry (post-2020 amendment — verify).",
+              "If no notice is given in that window, the lease auto-renews on the same terms (묵시적 갱신, implied renewal).",
+              "Under implied renewal you may terminate anytime with 3 months' written notice, and the deposit is refunded at the end of that period."
+            ]
+          },
+          {
+            "heading": "Costs, fees & documents",
+            "items": [
+              "Use the government Standard Lease form (표준임대차계약서); put the deposit, rent, dates, 관리비, and any verbal promises in writing.",
+              "Verify the broker fee (중개보수) against the legal ceiling — 0.3–0.5% for housing leases; it is a maximum and is negotiable, and a 'foreigner surcharge' is illegal.",
+              "Confirm exactly what 관리비 covers versus what is billed separately (electricity, gas, water) — in writing.",
+              "Pay the deposit by bank transfer to the registered owner's account only (matching the 등기부등본) — never cash or a third party.",
+              "Since June 2025, a deposit over ₩60M or rent over ₩300,000 must be reported (임대차 신고) within 30 days, which auto-issues the 확정일자."
+            ]
+          },
+          {
+            "heading": "Disputes & where to get help",
+            "items": [
+              "For a disputed deposit return or rent increase, file with the Housing Lease Dispute Mediation Committee (주택임대차분쟁조정위원회) — free or low-cost.",
+              "File the 체류지 변경신고 online via HiKorea or in person with your passport, ARC, and the lease.",
+              "Keep the stamped lease, the bank-transfer record, and registration receipts together — they are the proof your priority relies on.",
+              "This is general guidance, not legal advice — confirm current thresholds and deadlines with MOLIT or a licensed agent/attorney."
+            ]
+          }
+        ]
+      },
       "overview": "The Korean rent cap calculator verifies whether a proposed rent increase at lease renewal complies with Article 8 of the Housing Lease Act Enforcement Decree, which caps annual increases at 5%. For mixed deposit + monthly rent leases, the calculator uses the conversion rate (Article 9, BoK base rate + 2%) to compute an equivalent deposit before applying the 5% cap. Tenants can verify whether a landlord's proposal exceeds the legal limit; landlords can simulate maximum deposit-only or rent-only increases within the cap.",
       "useCases": [
         "Tenant: instantly verify whether the landlord's renewal proposal exceeds 5%",
@@ -3445,6 +3750,50 @@
       "lastReviewed": "2026-05-30"
     },
     "gift-money": {
+      "checklist": {
+        "title": "Korean congratulatory & condolence money etiquette checklist",
+        "groups": [
+          {
+            "heading": "Wedding gift money (축의금) — how much",
+            "items": [
+              "Baseline is ₩50,000 (minimum) and ₩100,000 (most common); the 2024 average was around ₩90,000.",
+              "A coworker you only see at work: ₩50,000; a coworker you socialize with: ₩100,000 (judge by closeness, not job rank).",
+              "Friend: ₩100,000 for a regular friend, ₩150,000+ for a close friend, ₩200,000+ for a best friend.",
+              "Relatives: ₩200,000–300,000 for cousins/aunts/uncles; ₩500,000+ for parents/siblings.",
+              "Invited but not attending (no meal): ₩50,000 is customary. Use odd amounts and avoid ₩40,000 (4 sounds like 'death')."
+            ]
+          },
+          {
+            "heading": "Funeral condolence money (부의금)",
+            "items": [
+              "Typical amounts: ₩30,000 / ₩50,000 / ₩70,000 / ₩100,000 — odd numbers are auspicious; avoid ₩90,000 and never give ₩400,000.",
+              "₩50,000–100,000 for a coworker; give more for close ties to the deceased or the bereaved family.",
+              "Unlike weddings, used/older bills are traditionally preferred over crisp new notes.",
+              "Wear black (or subdued navy/grey) — no bright colors, strong perfume, or flashy accessories.",
+              "At the altar, offer incense or a white chrysanthemum, make two deep bows, then a half-bow to the chief mourner; keep words brief."
+            ]
+          },
+          {
+            "heading": "Writing the white envelope",
+            "items": [
+              "Use a plain white envelope and a black (or dark blue) pen.",
+              "Funeral front (centered, vertical): 賻儀 (Buui) or 謹弔 (Geunjo); wedding front: 祝結婚 or 祝華婚.",
+              "Write your name vertically on the lower-left of the BACK, with your affiliation (company/team) above-right.",
+              "For a group gift, write only the organization name — e.g., 'OO회사 임직원 일동'.",
+              "For a bank transfer, write your name plus the occasion word in the memo — e.g., '홍길동 부의'."
+            ]
+          },
+          {
+            "heading": "Other occasions & workplace custom",
+            "items": [
+              "First-birthday party (돌잔치): friends ~₩50,000–100,000 (often ~₩70k); coworkers/acquaintances ~₩30,000–50,000.",
+              "Housewarming (집들이): bring a ~₩50,000 gift (a household item) rather than cash; coworkers often pool.",
+              "Cash is strongly preferred for weddings and funerals; gifts suit doljanchi and housewarmings.",
+              "Bank transfer is fine among close peers, but in-person cash is more polite for seniors; team-pooled envelopes are common at work."
+            ]
+          }
+        ]
+      },
       "overview": "The Korean gift money calculator recommends appropriate amounts for wedding (축의금) and funeral (부의금) cash gifts based on relationship and attendance. There's no fixed rule, but customary ranges exist by closeness — acquaintance, colleague, friend, close friend, relative — plus the custom of giving one tier higher when attending (to cover the meal) and the preference for odd numbers.",
       "useCases": [
         "When unsure how much wedding gift money to give",
@@ -3528,6 +3877,49 @@
       "lastReviewed": "2026-05-30"
     },
     "due-date": {
+      "checklist": {
+        "title": "Pregnancy & childbirth in Korea — checklist for foreign residents",
+        "groups": [
+          {
+            "heading": "After confirming pregnancy",
+            "items": [
+              "Register your pregnancy with the local public health center (보건소), online via e-보건소 (e-health.go.kr), using your Alien Registration Number.",
+              "Registered expectant mothers receive free prenatal screening tests at the health center.",
+              "Apply for the National Happiness Card (국민행복카드) pregnancy/childbirth voucher: ₩1,000,000 single / ₩1,400,000 multiples.",
+              "The voucher is available to foreigners who are National Health Insurance subscribers or dependents with valid alien registration (verify your NHI status)."
+            ]
+          },
+          {
+            "heading": "Prenatal care & choosing a hospital",
+            "items": [
+              "Choose an OB/GYN clinic or a hospital with a delivery unit; many foreigners prefer one with interpretation services.",
+              "Follow the standard prenatal checkup schedule and use voucher funds toward checkups and delivery.",
+              "Keep your NHI coverage active throughout pregnancy so delivery is covered as an insured benefit.",
+              "Confirm your hospital can issue the birth documents you'll need for both Korean and home-country registration."
+            ]
+          },
+          {
+            "heading": "After birth — registration, ARC & insurance",
+            "items": [
+              "File the birth report at the district community center (주민센터) within 1 month of birth.",
+              "If one parent is Korean, the child may acquire Korean nationality; if BOTH parents are foreign, the child does NOT automatically get it (verify).",
+              "Foreign-national babies must also be registered with the home-country embassy/consulate (passport).",
+              "If both parents are foreign, get the baby's passport, then apply for residence status / ARC at immigration before staying over 90 days (verify requirements).",
+              "Register the baby as a dependent on a parent's National Health Insurance so medical and vaccination costs are covered."
+            ]
+          },
+          {
+            "heading": "Cash benefits — foreigner eligibility (verify each)",
+            "items": [
+              "First-Meet Voucher (첫만남이용권, ₩2M first child / ₩3M second+): requires the child to have a Korean resident-registration number; foreign-national children are generally NOT eligible (verify).",
+              "Child Allowance (아동수당, ₩100,000/month under age 8): paid based on the CHILD's nationality — generally only if the child holds Korean nationality (verify).",
+              "Apply for child allowance within 60 days of birth to receive it retroactively to the birth date.",
+              "These benefits are suspended if the child stays abroad for 90+ days.",
+              "Eligibility varies by residence status and the child's nationality — confirm at the community center, Bokjiro (bokjiro.go.kr), or ☎129."
+            ]
+          }
+        ]
+      },
       "overview": "The due date calculator estimates your delivery date from the last menstrual period (LMP). Based on Naegele's rule (LMP + 280 days), it shows the current pregnancy week, trimester, progress, and days to go, and auto-adjusts for cycles other than 28 days.",
       "useCases": [
         "Calculate the due date after confirming pregnancy",
@@ -3629,7 +4021,7 @@
       },
       "formula": {
         "title": "Deduction items (2026)",
-        "body": "Monthly gross = annual / 12\nTaxable = monthly gross − non-taxable\n\n4 insurances (employee):\n  National pension 4.5% (income cap KRW 6.17M)\n  Health 3.595%\n  Long-term care = health × 13.14%\n  Employment 0.9%\n\nIncome tax: earned-income deduction → personal/pension deductions → progressive rate\n  − wage earner credit − child credit → /12\nLocal income tax = income tax × 10%\n\nTake-home = gross − insurances − income tax − local tax"
+        "body": "Monthly gross = annual / 12\nTaxable = monthly gross − non-taxable\n\n4 insurances (employee):\n  National pension 4.75% (income cap KRW 6.37M)\n  Health 3.595%\n  Long-term care = health × 13.14%\n  Employment 0.9%\n\nIncome tax: earned-income deduction → personal/pension deductions → progressive rate\n  − wage earner credit − child credit → /12\nLocal income tax = income tax × 10%\n\nTake-home = gross − insurances − income tax − local tax"
       },
       "examples": {
         "title": "Real examples",
@@ -3644,7 +4036,7 @@
           },
           {
             "title": "Example 3: KRW 100M (monthly 8.33M)",
-            "body": "Pension hits its cap (~278K/month), income tax rises sharply, deduction rate ~18-22%. Higher salaries carry a larger tax share."
+            "body": "Pension hits its cap (~303K/month at the 2026 rate of 9.5%), income tax rises sharply, deduction rate ~18-22%. Higher salaries carry a larger tax share."
           }
         ]
       },
@@ -3671,7 +4063,7 @@
         },
         {
           "question": "Is there a pension cap?",
-          "answer": "Yes. The income base cap (KRW 6.17M as of Jul 2024) fixes pension at ~278K/month for earners above it. Health insurance has a much higher cap."
+          "answer": "Yes. The income base cap (KRW 6.37M as of Jul 2025) fixes pension at ~303K/month for earners above it (at the 2026 rate of 9.5%). Health insurance has a much higher cap."
         }
       ],
       "cautions": [
@@ -3698,6 +4090,50 @@
       "lastReviewed": "2026-05-30"
     },
     "visa-days": {
+      "checklist": {
+        "title": "Stay & visa compliance checklist — avoid overstaying",
+        "groups": [
+          {
+            "heading": "Track your stay & expiry dates",
+            "items": [
+              "Know your exact permitted-stay end date (90 days visa-free, or the date printed on your ARC/visa) and set a calendar countdown.",
+              "Apply to extend at least ~2 months before expiry (some statuses allow up to 4 months ahead) — never let the date pass (verify your window).",
+              "Even one day past expiry counts as overstay — there is no grace period.",
+              "Extensions can only be filed inside Korea (immigration office or HiKorea), never at an overseas embassy.",
+              "If you change job, school, or visa status, file the change before your current authorization lapses."
+            ]
+          },
+          {
+            "heading": "Registration & reporting deadlines",
+            "items": [
+              "Register for an ARC within 90 days of entry if staying longer than 90 days.",
+              "Report any address change (체류지 변경신고) within 14 days of moving, at immigration or your district (gu) office.",
+              "Bring passport, ARC, the change form, and your lease (plus a residency-confirmation form if the home is in someone else's name).",
+              "Report a lost or stolen ARC within 14 days at immigration or a police station.",
+              "Late reporting can be fined up to ~₩1,000,000 (Immigration Act Art. 35) (verify current amount)."
+            ]
+          },
+          {
+            "heading": "Re-entry, ARC carry & travel",
+            "items": [
+              "Carry your ARC at all times once registered — it is your legal ID in Korea.",
+              "Before traveling abroad while waiting for your ARC, get a Re-Entry Permit (REP) — leaving without one can void your visa.",
+              "For absences over ~1 year, apply for a Multiple Re-Entry Permit (valid up to 2 years) via HiKorea.",
+              "Confirm your re-entry status before each international trip; an active ARC alone does not guarantee re-entry."
+            ]
+          },
+          {
+            "heading": "Stay within your visa's activity scope",
+            "items": [
+              "Student (D-2/D-4) and job-seeker (D-10) visas do NOT include automatic work rights.",
+              "Get a part-time/activity permit (시간제취업 / 체류자격 외 활동허가) on HiKorea BEFORE working outside your scope.",
+              "Don't start a job on a promise that 'the paperwork will catch up' — it's the worker, not the employer, who loses status.",
+              "Working outside your scope is illegal employment — fines, refused extensions, cancelled status, and deportation can follow.",
+              "When unsure of your visa's limits, check hikorea.go.kr or call the Immigration Contact Center 1345."
+            ]
+          }
+        ]
+      },
       "overview": "The Korea stay days calculator computes days stayed, expiry date, and days remaining from your entry date and allowed stay. It tracks 90-day visa-free entry and 30/60/180-day visas, warning you before you overstay. It follows the immigration practice of counting the entry day as day 1 to give an accurate expiry date.",
       "useCases": [
         "Track the 90-day visa-free expiry",

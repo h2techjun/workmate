@@ -52,6 +52,16 @@ interface ExamplesData {
   items: ExampleItem[];
 }
 
+interface ChecklistGroup {
+  heading: string;
+  items: string[];
+}
+
+interface ChecklistData {
+  title: string;
+  groups: ChecklistGroup[];
+}
+
 interface ToolGuideData {
   overview: string;
   useCases: string[];
@@ -90,6 +100,16 @@ export async function ToolGuide({
     };
   } catch {
     return null;
+  }
+
+  // 선택적 checklist — 없는 도구는 null (점진 적용 안전, 기존 도구 영향 X).
+  // t.has() 로 먼저 확인해 next-intl MISSING_MESSAGE 콘솔 에러를 피한다.
+  let checklist: ChecklistData | null = null;
+  if (t.has("checklist")) {
+    const raw = t.raw("checklist") as ChecklistData | undefined;
+    if (raw && Array.isArray(raw.groups) && raw.groups.length > 0) {
+      checklist = raw;
+    }
   }
 
   // JSON-LD — Next.js <Script> children 패턴 (XSS 안전)
@@ -207,6 +227,43 @@ export async function ToolGuide({
           ))}
         </div>
       </div>
+
+      {/* Checklist (선택적 — 한국 생활 상황별 체크리스트) */}
+      {checklist && (
+        <div>
+          <h2 className="mb-4 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+            {checklist.title}
+          </h2>
+          <div className="space-y-5">
+            {checklist.groups.map((group, gi) => (
+              <div
+                key={gi}
+                className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] p-4 md:p-5"
+              >
+                <h3 className="mb-3 font-semibold text-[color:var(--color-text-primary)]">
+                  {group.heading}
+                </h3>
+                <ul className="space-y-2.5">
+                  {group.items.map((item, ii) => (
+                    <li
+                      key={ii}
+                      className="flex gap-3 text-sm leading-relaxed text-[color:var(--color-text-secondary)]"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded border border-indigo-400/50 text-[10px] text-indigo-400"
+                      >
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* FAQ */}
       <div>
