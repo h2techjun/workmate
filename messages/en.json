@@ -2564,6 +2564,98 @@
       ],
       "lastReviewed": "2026-06-16"
     },
+    "pension-refund": {
+      "overview": "If you worked in Korea and paid into the National Pension, you may be able to reclaim it as a lump-sum refund when you leave the country for good. This tool estimates that amount from your monthly income base and the number of months you contributed. For workplace subscribers the refund includes your employer's half too (the full ~9%), not just the 4.5% you saw deducted. The exact figure is computed month-by-month by NPS with yearly deposit-rate interest, so this is a ballpark — and eligibility depends on your nationality and visa, which the guide explains.",
+      "useCases": [
+        "Foreign workers (E-7, E-9, etc.) leaving Korea wanting a 'how much will I get back' estimate",
+        "E-9 / H-2 employment-permit workers, who can claim regardless of nationality",
+        "Anyone from a reciprocity or social-security-agreement country checking the payout",
+        "Deciding between taking the refund now vs. totalizing the period with a home-country pension",
+        "Budgeting before booking a one-way ticket out of Korea"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter your monthly income base (your reported salary, capped at ₩6,370,000).",
+          "Enter the total months you contributed to the National Pension.",
+          "Keep the rate at 9% (1998–2025) or set 9.5% for months in 2026+; adjust the interest rate if you know it.",
+          "See the estimated principal + interest — then confirm your eligibility and exact amount with NPS (call 1355)."
+        ]
+      },
+      "formula": {
+        "title": "How the refund is built (informational)",
+        "body": "Estimate used here:\nPrincipal = min(income base, ₩6,370,000) × rate × months\nInterest ≈ principal × deposit rate × (months ÷ 12 ÷ 2)\n\nWorkplace subscribers get the full 9% back — your 4.5% plus the employer's 4.5% (National Pension Act §77). The contribution rate is 9% through 2025 and rises to 9.5% from January 2026 (then +0.5pp a year to 13% by 2033).\n\n⚠️ NPS calculates the real refund by compounding each month's payment at that year's 3-year deposit rate (about 2.6% in 2025, 3.0% in 2024), so the interest here is only an approximation."
+      },
+      "examples": {
+        "title": "Who can claim — three paths",
+        "items": [
+          {
+            "title": "By visa: E-9 / H-2 (any nationality)",
+            "body": "If you held a Non-Professional Employment (E-9) or Visiting Employment (H-2) visa, you can claim the refund regardless of your country — even if there's no agreement with Korea. (The newer E-8 seasonal-work visa is excluded.)"
+          },
+          {
+            "title": "By reciprocity or agreement",
+            "body": "Citizens of countries that grant Koreans a similar benefit, or whose social-security agreement has a lump-sum clause, can claim. Examples that can claim include the US, Canada, the Philippines, India, Thailand, Indonesia, Sri Lanka. Some agreement countries (e.g. Vietnam, Sweden, Denmark, Norway) cannot get a lump sum."
+          },
+          {
+            "title": "Totalize instead of refunding",
+            "body": "From agreement countries you can often choose to add your Korean contribution period to your home pension instead of cashing out. If you contributed 10+ years, the monthly old-age pension may be worth more long-term than the lump sum."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Can every foreigner get a refund?",
+          "answer": "No. By default foreigners are not entitled to it. You qualify only through (1) reciprocity, (2) a social-security agreement with a lump-sum clause, or (3) an E-9 / H-2 employment-permit visa. Check your case with NPS."
+        },
+        {
+          "question": "Do I get the employer's contribution too?",
+          "answer": "Yes, for workplace subscribers. Even though only 4.5% was deducted from your pay, the refund returns the full ~9% including the employer's matching half (National Pension Act §77)."
+        },
+        {
+          "question": "When and how do I claim?",
+          "answer": "You can apply from about a month before departure (with proof like a flight ticket), at the airport NPS desk on the day you leave, or from your home country afterward. The money can be wired to an overseas account. The claim expires 5 years after eligibility arises."
+        },
+        {
+          "question": "Is the refund taxed?",
+          "answer": "Contributions made since 2002 (and their interest) are treated as retirement income and NPS withholds tax at payout; pre-2002 portions and death payouts are tax-free. Your home country may also tax it depending on the tax treaty."
+        },
+        {
+          "question": "What's the 2026 rate change?",
+          "answer": "The contribution rate rose from 9% to 9.5% on 1 January 2026 and increases 0.5 percentage points each year to 13% by 2033. Use 9% for months before 2026 and 9.5% for 2026 months."
+        },
+        {
+          "question": "Refund now or keep the period?",
+          "answer": "Taking the refund erases that contribution period — you can't combine it later. If you may return to Korea, or your home country has a totalization agreement, keeping the period can be the better choice."
+        }
+      ],
+      "cautions": [
+        "Estimate only — NPS computes the exact amount month-by-month with yearly deposit-rate interest.",
+        "Eligibility depends on nationality and visa; E-9/H-2 holders qualify regardless of country, but many nationalities otherwise cannot claim.",
+        "Taking the lump sum permanently erases that contribution period (no later totalization).",
+        "Contributions since 2002 are subject to retirement-income withholding tax.",
+        "Confirm your eligibility and exact figure at nps.or.kr or by calling 1355."
+      ],
+      "related": [
+        {
+          "label": "Salary Take-Home",
+          "href": "/net-salary"
+        },
+        {
+          "label": "4 Major Insurances",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Health Insurance (NHIS)",
+          "href": "/foreign-health-insurance"
+        },
+        {
+          "label": "Stay Days Tracker",
+          "href": "/visa-days"
+        }
+      ],
+      "lastReviewed": "2026-06-16"
+    },
     "loan-calc": {
       "overview": "The Korean loan calculator compares the three most common Korean repayment types — equal payment (same monthly amount), equal principal (high to low), and balloon (interest only with principal at maturity) — in one screen, with a monthly amortization schedule. The same standard formulas apply to mortgages, credit loans, jeonse-deposit loans, and auto installments. Prepayment fees, stamp duty, and DSR limits are not included.",
       "useCases": [

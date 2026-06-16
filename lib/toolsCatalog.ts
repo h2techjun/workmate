@@ -204,6 +204,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "한국식 나이 계산", labelEn: "Korean Age", href: "/korean-age", keywordsKo: "한국 나이 만나이 세는나이 연나이" },
       { labelKo: "체류일수 (90일 비자)", labelEn: "Stay Days Tracker", href: "/visa-days", keywordsKo: "한국 체류일수 90일 무비자 만료일 비자" },
       { labelKo: "외국인 건강보험료", labelEn: "Health Insurance (NHIS)", href: "/foreign-health-insurance", keywordsKo: "외국인 건강보험료 유학생 지역가입자 NHIS 의료보험 foreigner health insurance" },
+      { labelKo: "국민연금 반환일시금", labelEn: "Pension Refund", href: "/pension-refund", keywordsKo: "국민연금 반환일시금 외국인 환급 출국 돌려받기 E-9 pension refund foreigner leaving korea" },
       { labelKo: "F-2-7 거주비자 자격", labelEn: "F-2-7 Residence Visa", href: "/f2-residence-visa", keywordsKo: "F-2-7 비자 거주비자 점수제 영주권 F-5 외국인 거주 visa eligibility" },
       { labelKo: "D-8 창업·투자비자 자격", labelEn: "D-8 Startup Visa", href: "/d8-startup-visa", keywordsKo: "D-8 비자 기술창업 D-8-4 OASIS 외국인 창업 투자 비자 자격 startup visa" },
       { labelKo: "한글 이름 로마자", labelEn: "Name Romanizer", href: "/name-romanize", keywordsKo: "한글 이름 로마자 여권 영문 이름 변환" },

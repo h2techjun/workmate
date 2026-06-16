@@ -1,0 +1,279 @@
+"use client";
+
+import { useState } from "react";
+import { useForm, Controller, type Control } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  calcPensionRefund,
+  pensionRefundInputSchema,
+  type PensionRefundInputResolved,
+  type PensionRefundResult,
+} from "@/lib/calculations/insurance/pensionRefund";
+import { formatKrw, formatKoreanMoney } from "@/lib/utils/format";
+import {
+  ActionRow,
+  CalcLayout,
+  EmptyResult,
+  ErrorBox,
+  Field,
+  FieldGroup,
+  FormShell,
+  HeroResult,
+  ResultShell,
+  SourceBox,
+  Stat,
+} from "@/components/ui/calc-form";
+
+interface PensionRefundFormProps {
+  locale: "ko" | "en";
+}
+
+const TEXT = {
+  ko: {
+    sectionInput: "납부 내역",
+    fieldSalary: "기준소득월액 (원)",
+    fieldSalaryHint: "월 보수(상한 6,370,000원 적용). 회사·본인 합산 9% 기준.",
+    fieldMonths: "납부 개월 수",
+    fieldMonthsHint: "국민연금에 가입해 보험료를 낸 총 개월 수.",
+    fieldRate: "보험료율 (%)",
+    fieldRateHint: "1998~2025년 9%. 2026.1부터 9.5%, 이후 매년 0.5%p 인상.",
+    fieldDeposit: "근사 이자율 (%)",
+    fieldDepositHint: "3년만기 정기예금 이자율(연도별 변동). 2025년 약 2.6%.",
+    calculate: "예상 반환액 계산",
+    reset: "초기화",
+    resultHeading: "예상 반환일시금",
+    resultEmpty: "급여와 납부 개월 수를 입력하세요.",
+    error: "계산 중 오류가 발생했습니다.",
+    heroLabel: "추정 총 반환액",
+    won: "원",
+    statPrincipal: "원금 (총 납부 보험료)",
+    statInterest: "근사 이자",
+    statBase: "적용 기준소득월액",
+    cappedWarn: "⚠️ 입력 급여가 기준소득월액 상한(6,370,000원)을 초과해 상한값으로 계산했습니다.",
+    eligibilityWarn:
+      "💡 금액과 별개로 — 외국인은 원칙적으로 반환일시금 대상이 아닙니다. ① 본국이 상호주의를 인정하거나 ② 사회보장협정에 반환일시금 조항이 있거나 ③ E-9·H-2 비자(고용허가제) 가입자여야 수령 가능합니다. 국적·비자별 수령 가능 여부는 아래 가이드와 NPS(국번없이 1355)로 꼭 확인하세요.",
+    sourceTitle: "기준 · 한계",
+    sourceLines: [
+      "추정치입니다 — 실제 반환액은 NPS가 월별 납부액 × 연도별 정기예금 이자율을 복리 누적해 산정합니다.",
+      "사업장가입자(직장인)는 본인 4.5%만 냈어도 사용자 부담분 포함 전체 9%가 반환됩니다(국민연금법 §77).",
+      "이자는 평균 적립기간(전체기간÷2) 단순이자로 근사 — 실제와 차이날 수 있습니다.",
+      "2002년 이후 납부분은 퇴직소득세 원천징수 대상(사망 지급은 비과세).",
+      "수령 가능 여부·정확액은 nps.or.kr / 1355 확인.",
+    ],
+  },
+  en: {
+    sectionInput: "Your contributions",
+    fieldSalary: "Monthly income base (₩)",
+    fieldSalaryHint: "Monthly pay (capped at ₩6,370,000). Based on the full 9% (you + employer).",
+    fieldMonths: "Months contributed",
+    fieldMonthsHint: "Total months you paid into the National Pension.",
+    fieldRate: "Contribution rate (%)",
+    fieldRateHint: "9% for 1998–2025. From Jan 2026 it's 9.5%, rising 0.5pp a year.",
+    fieldDeposit: "Approx. interest rate (%)",
+    fieldDepositHint: "3-year deposit rate (varies by year). About 2.6% in 2025.",
+    calculate: "Estimate refund",
+    reset: "Reset",
+    resultHeading: "Estimated lump-sum refund",
+    resultEmpty: "Enter your income and months contributed.",
+    error: "Calculation failed.",
+    heroLabel: "Estimated total refund",
+    won: "₩",
+    statPrincipal: "Principal (total contributions)",
+    statInterest: "Approx. interest",
+    statBase: "Income base applied",
+    cappedWarn: "⚠️ Your income exceeds the ₩6,370,000 monthly base ceiling, so the ceiling was used.",
+    eligibilityWarn:
+      "💡 Separately from the amount — foreigners are NOT entitled to a refund by default. You can only claim it if (1) your home country grants reciprocity, (2) a Social Security Agreement includes a lump-sum clause, or (3) you held an E-9 / H-2 (employment-permit) visa. Check your nationality/visa eligibility in the guide below and with NPS (call 1355).",
+    sourceTitle: "Basis · limits",
+    sourceLines: [
+      "This is an estimate — NPS calculates the real refund by compounding each month's contribution at the 3-year deposit rate for that year.",
+      "Workplace subscribers get the full 9% back (employer's half included) even though they only paid 4.5% (National Pension Act §77).",
+      "Interest is approximated as simple interest over the average accrual period (total ÷ 2) — actual figures may differ.",
+      "Contributions since 2002 are subject to retirement-income withholding tax (death payouts are tax-free).",
+      "Confirm eligibility and the exact amount at nps.or.kr / 1355.",
+    ],
+  },
+} as const;
+
+function MoneyField({
+  control,
+  label,
+  hint,
+  locale,
+}: {
+  control: Control<PensionRefundInputResolved>;
+  label: string;
+  hint?: string;
+  locale: "ko" | "en";
+}): React.ReactElement {
+  return (
+    <Controller
+      control={control}
+      name="monthlySalary"
+      render={({ field }) => {
+        const num = Number(field.value) || 0;
+        return (
+          <Field label={label} hint={hint}>
+            <input
+              type="text"
+              inputMode="numeric"
+              className="input-base"
+              value={num > 0 ? num.toLocaleString("ko-KR") : ""}
+              placeholder="0"
+              onChange={(e) => {
+                const raw = e.target.value.replace(/[^0-9]/g, "");
+                field.onChange(raw === "" ? 0 : Number(raw));
+              }}
+              onBlur={field.onBlur}
+            />
+            {locale === "ko" && num > 0 && (
+              <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                = {formatKoreanMoney(num)}
+              </p>
+            )}
+          </Field>
+        );
+      }}
+    />
+  );
+}
+
+export function PensionRefundForm({
+  locale,
+}: PensionRefundFormProps): React.ReactElement {
+  const T = TEXT[locale];
+  const [result, setResult] = useState<PensionRefundResult | null>(null);
+  const [calcError, setCalcError] = useState<string | null>(null);
+
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<PensionRefundInputResolved>({
+    resolver: zodResolver(pensionRefundInputSchema),
+    defaultValues: {
+      monthlySalary: 3_000_000,
+      months: 24,
+      contributionRatePercent: 9,
+      depositRatePercent: 2.6,
+    },
+  });
+
+  const onSubmit = (values: PensionRefundInputResolved): void => {
+    setCalcError(null);
+    try {
+      setResult(calcPensionRefund(values));
+    } catch {
+      setResult(null);
+      setCalcError(T.error);
+    }
+  };
+  const onReset = (): void => {
+    reset();
+    setResult(null);
+    setCalcError(null);
+  };
+
+  return (
+    <CalcLayout>
+      <FormShell onSubmit={handleSubmit(onSubmit)}>
+        <FieldGroup title={T.sectionInput}>
+          <MoneyField
+            control={control}
+            label={T.fieldSalary}
+            hint={T.fieldSalaryHint}
+            locale={locale}
+          />
+          <Field label={T.fieldMonths} hint={T.fieldMonthsHint}>
+            <input
+              type="number"
+              min="0"
+              step="1"
+              inputMode="numeric"
+              className="input-base"
+              {...register("months", { valueAsNumber: true })}
+            />
+          </Field>
+          <Field label={T.fieldRate} hint={T.fieldRateHint}>
+            <input
+              type="number"
+              step="0.1"
+              min="0"
+              inputMode="decimal"
+              className="input-base"
+              {...register("contributionRatePercent", { valueAsNumber: true })}
+            />
+          </Field>
+          <Field label={T.fieldDeposit} hint={T.fieldDepositHint}>
+            <input
+              type="number"
+              step="0.1"
+              min="0"
+              inputMode="decimal"
+              className="input-base"
+              {...register("depositRatePercent", { valueAsNumber: true })}
+            />
+          </Field>
+        </FieldGroup>
+
+        <ActionRow
+          primary={
+            <button type="submit" disabled={isSubmitting} className="btn-primary flex-1">
+              {T.calculate}
+            </button>
+          }
+          secondary={
+            <button type="button" onClick={onReset} className="btn-ghost sm:w-auto">
+              {T.reset}
+            </button>
+          }
+        />
+      </FormShell>
+
+      <ResultShell heading={T.resultHeading}>
+        {calcError && <ErrorBox message={calcError} />}
+        {!calcError && !result && <EmptyResult message={T.resultEmpty} />}
+        {result && (
+          <div className="animate-fade-up space-y-5">
+            <div>
+              <HeroResult
+                label={T.heroLabel}
+                value={formatKrw(result.total)}
+                unit={T.won}
+              />
+              {locale === "ko" && result.total > 0 && (
+                <p className="mt-2 text-sm font-medium text-[color:var(--color-text-secondary)]">
+                  = {formatKoreanMoney(result.total)}
+                </p>
+              )}
+            </div>
+
+            <dl className="grid grid-cols-2 gap-3">
+              <Stat label={T.statPrincipal} value={`${formatKrw(result.principal)} ${T.won}`} />
+              <Stat label={T.statInterest} value={`${formatKrw(result.interest)} ${T.won}`} />
+              <Stat
+                label={T.statBase}
+                value={`${formatKrw(result.effectiveBase)} ${T.won}`}
+                tone={result.capped ? "warning" : "default"}
+              />
+            </dl>
+
+            {result.capped && (
+              <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-200">
+                {T.cappedWarn}
+              </div>
+            )}
+
+            <p className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 text-sm leading-relaxed text-[color:var(--color-text-secondary)]">
+              {T.eligibilityWarn}
+            </p>
+
+            <SourceBox lines={[T.sourceTitle, ...T.sourceLines]} />
+          </div>
+        )}
+      </ResultShell>
+    </CalcLayout>
+  );
+}
