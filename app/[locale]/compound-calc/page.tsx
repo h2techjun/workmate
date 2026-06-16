@@ -16,11 +16,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale !== "en";
   const title = isKo
-    ? "복리 계산기 — 회당 이율 × 복리 횟수로 만기 금액·이자 즉시"
-    : "Compound Interest Calculator — rate per period × number of periods";
+    ? "복리 계산기 — 기본·적립식 + 회차별·연차별 상세표"
+    : "Compound Interest Calculator — lump-sum & recurring, with schedule";
   const description = isKo
-    ? "원금·회당 이율·복리 횟수·정기 적립을 입력하면 만기 금액·누적 이자·총 수익률을 즉시 계산. 월복리는 회당 이율(연이율÷12)과 횟수로 입력. 예금·적금·투자 시나리오 비교용."
-    : "Calculate future value, total interest, and total return from principal, rate per period, number of periods, and periodic contribution.";
+    ? "기본(목돈 복리)과 적립식(매월 적립)을 한 화면에서. 회차별·연차별 상세표로 매 기간 수익·총액·수익률까지. 연복리/월복리·년/개월·년/월 이율 선택. 예금·적금·장기 투자 비교용."
+    : "Lump-sum and recurring compound interest in one place, with a period-by-period and year-by-year schedule. Annual/monthly compounding, year/month units. For deposits, savings, and long-term investing.";
   const keywords = isKo
     ? [
         "복리 계산기",
@@ -92,8 +92,8 @@ export default async function CompoundCalcPage({
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
-              ? "원금·회당 이율·복리 횟수와 (선택) 정기 적립을 입력하면 만기 금액·누적 이자·총 수익률을 즉시. 예금·적금·장기 투자 시나리오 비교에."
-              : "Enter principal, rate per period, number of periods, and optional contribution — get future value, total interest, and total return instantly."}
+              ? "기본(목돈 복리)과 적립식(매월 적립) 두 가지 모드. 회차별·연차별 상세표로 매 기간 수익·총액·수익률을 한눈에. 예금·적금·장기 투자 비교에."
+              : "Two modes — lump-sum and recurring (monthly deposits). A period-by-period and year-by-year schedule shows the profit, balance, and return at every step."}
           </p>
         </header>
         <CompoundForm locale={localeKey} />

@@ -1,15 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { useForm, Controller, type Control } from "react-hook-form";
+import { useState, type ReactNode } from "react";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   calculateCompound,
   compoundInputSchema,
   type CompoundInputResolved,
   type CompoundResult,
+  calculateRecurring,
+  recurringInputSchema,
+  type RecurringInputResolved,
+  type RecurringResult,
 } from "@/lib/calculations/finance/compound";
-import { formatKrw, formatKoreanMoney, formatNumber } from "@/lib/utils/format";
+import { formatKoreanMoney, formatNumber } from "@/lib/utils/format";
 import {
   ActionRow,
   CalcLayout,
@@ -18,133 +22,233 @@ import {
   Field,
   FieldGroup,
   FormShell,
-  HeroResult,
   ResultShell,
   SourceBox,
   Stat,
 } from "@/components/ui/calc-form";
+import { cn } from "@/lib/utils/cn";
 
 interface CompoundFormProps {
   locale: "ko" | "en";
 }
 
+type Mode = "basic" | "recurring";
+
+/** 원 단위 정수 콤마 */
+const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
+
 const TEXT = {
   ko: {
-    sectionPrincipal: "원금",
-    sectionRate: "이율·횟수",
-    sectionContrib: "추가 적립 (선택)",
-    fieldPrincipal: "초기 원금 (원)",
-    fieldPrincipalHint: "예금/투자/저축 시작 금액",
-    fieldRate: "회당 이율 (%)",
-    fieldRateHint: "한 번 복리될 때 이율. 월복리 연 5%면 약 0.42 (= 5 ÷ 12)",
-    fieldPeriods: "복리 횟수 (회)",
-    fieldPeriodsHint: "복리가 적용되는 총 횟수. 월복리 10년이면 120회",
-    fieldContrib: "정기 적립액 (원/회)",
-    fieldContribHint: "매 회 추가로 적립하는 금액 (없으면 비워두세요)",
+    tabBasic: "기본",
+    tabRecurring: "적립식",
+    // basic
+    basicTitle: "복리 계산기",
+    fieldPrincipal: "초기 금액 (₩)",
+    fieldPeriods: "복리 횟수 (기간)",
+    fieldRate: "수익률 (%)",
     calculate: "계산하기",
     reset: "초기화",
-    resultHeading: "복리 계산 결과",
-    resultEmpty: "원금·회당 이율·복리 횟수를 입력하고 계산하세요.",
+    resultEmpty: "금액·복리 횟수·수익률을 입력하고 계산하세요.",
     error: "계산 중 오류가 발생했습니다.",
-    finalAmount: "만기 금액",
-    finalAmountUnit: "원",
-    principal: "원금",
-    totalContrib: "누적 적립",
-    totalInterest: "누적 이자",
-    totalReturn: "총 수익률",
-    sourceTitle: "공식 · 가정",
-    sourceLines: [
-      "FV = P(1 + i)^n + PMT × ((1+i)^n − 1) / i",
-      "i = 회당 이율, n = 복리 횟수, PMT = 매 회 적립액",
-      "예: 월복리 연 5%·10년 = 회당 0.4167%(= 5 ÷ 12) × 120회",
-      "적립은 매 회 말에 발생한다고 가정.",
-      "이자소득세(15.4%)·인플레이션은 미반영. 세전 명목 금액.",
+    totalProfit: "총 수익",
+    finalAmount: "최종 금액",
+    colNo: "#",
+    colProfit: "수익 (₩)",
+    colTotal: "총액 (₩)",
+    colRate: "수익률",
+    truncated: "* 표는 600회차까지만 표시됩니다 (최종 금액은 전체 반영).",
+    basicSource: [
+      "최종 금액 = 초기 금액 × (1 + 수익률)^횟수",
+      "수익률은 한 번 복리될 때 적용. 월복리 연 5%면 회당 약 0.42% × 120회(10년).",
+      "이자소득세(15.4%)·인플레이션 미반영 (세전 명목).",
+    ],
+    // recurring
+    recurringTitle: "적립식 복리 계산기",
+    fieldStart: "시작 금액 (₩)",
+    fieldMonthly: "매월 적립 금액 (₩)",
+    fieldMonthlyHint: "* 두 번째 달부터 원금에 가산됩니다.",
+    fieldPeriod: "투자 기간",
+    fieldInterest: "이자율",
+    unitYear: "년",
+    unitMonth: "개월",
+    rateYear: "년",
+    rateMonth: "월",
+    fieldCompounding: "복리 방식",
+    compAnnual: "연복리",
+    compMonthly: "월복리",
+    totalInvested: "총 투자금",
+    viewYear: "년",
+    viewMonth: "월",
+    colPeriodYear: "년",
+    colPeriodMonth: "개월",
+    colPrincipal: "원금 (₩)",
+    colInterest: "수익 (₩)",
+    colFinal: "최종 금액 (₩)",
+    recurringEmpty: "시작 금액·매월 적립·기간·이자율을 입력하고 계산하세요.",
+    recurringSource: [
+      "연복리: 매월 초 적립금은 그 해 남은 개월만큼 단리 이자를 받고 매년 말 복리 자본화 (한국 적금 방식).",
+      "월복리: 매월 잔액에 (연이율 ÷ 12)을 복리 적용.",
+      "총 투자금 = 시작 금액 + 매월 적립 × (개월 − 1).",
+      "이자소득세(15.4%)·인플레이션 미반영 (세전 명목).",
     ],
   },
   en: {
-    sectionPrincipal: "Principal",
-    sectionRate: "Rate · Periods",
-    sectionContrib: "Periodic Contribution (optional)",
-    fieldPrincipal: "Initial principal (₩)",
-    fieldPrincipalHint: "Starting deposit/investment amount",
+    tabBasic: "Lump sum",
+    tabRecurring: "Recurring",
+    basicTitle: "Compound Interest",
+    fieldPrincipal: "Initial amount (₩)",
+    fieldPeriods: "Compounding periods",
     fieldRate: "Rate per period (%)",
-    fieldRateHint: "Interest applied each time it compounds. Annual 5% monthly ≈ 0.42 (= 5 ÷ 12)",
-    fieldPeriods: "Number of periods",
-    fieldPeriodsHint: "Total times interest compounds. 10 years monthly = 120",
-    fieldContrib: "Contribution per period (₩)",
-    fieldContribHint: "Added each period (leave blank for none)",
     calculate: "Calculate",
     reset: "Reset",
-    resultHeading: "Compound Result",
-    resultEmpty: "Enter principal, rate per period, and number of periods.",
+    resultEmpty: "Enter amount, periods, and rate, then calculate.",
     error: "Calculation failed.",
-    finalAmount: "Future value",
-    finalAmountUnit: "₩",
-    principal: "Principal",
-    totalContrib: "Total contribution",
-    totalInterest: "Total interest",
-    totalReturn: "Total return",
-    sourceTitle: "Formulas · assumptions",
-    sourceLines: [
-      "FV = P(1 + i)^n + PMT × ((1+i)^n − 1) / i",
-      "i = rate per period, n = number of periods, PMT = contribution per period",
-      "e.g. annual 5% monthly for 10y = 0.4167% (= 5 ÷ 12) × 120 periods",
-      "Contributions assumed at the end of each period.",
+    totalProfit: "Total profit",
+    finalAmount: "Final amount",
+    colNo: "#",
+    colProfit: "Profit (₩)",
+    colTotal: "Balance (₩)",
+    colRate: "Return",
+    truncated: "* Table shows the first 600 periods (final amount reflects all).",
+    basicSource: [
+      "Final = initial × (1 + rate)^periods",
+      "Rate applies each time it compounds. Annual 5% monthly ≈ 0.42% × 120 periods (10y).",
+      "Pre-tax nominal. Income tax (15.4%) and inflation excluded.",
+    ],
+    recurringTitle: "Recurring Compound Interest",
+    fieldStart: "Starting amount (₩)",
+    fieldMonthly: "Monthly contribution (₩)",
+    fieldMonthlyHint: "* Added to principal from the second month.",
+    fieldPeriod: "Investment period",
+    fieldInterest: "Interest rate",
+    unitYear: "years",
+    unitMonth: "months",
+    rateYear: "/yr",
+    rateMonth: "/mo",
+    fieldCompounding: "Compounding",
+    compAnnual: "Annual",
+    compMonthly: "Monthly",
+    totalInvested: "Total invested",
+    viewYear: "Yearly",
+    viewMonth: "Monthly",
+    colPeriodYear: "Year",
+    colPeriodMonth: "Month",
+    colPrincipal: "Principal (₩)",
+    colInterest: "Profit (₩)",
+    colFinal: "Balance (₩)",
+    recurringEmpty: "Enter the amounts, period, and rate, then calculate.",
+    recurringSource: [
+      "Annual: each month's deposit earns simple interest for the rest of the year, then compounds at year-end (Korean recurring-deposit method).",
+      "Monthly: the balance compounds at (annual rate ÷ 12) every month.",
+      "Total invested = starting amount + monthly × (months − 1).",
       "Pre-tax nominal. Income tax (15.4%) and inflation excluded.",
     ],
   },
 } as const;
 
-/** 금액 입력 — 천단위 콤마 표시 + (한국어) 한글 금액 보조 표기. */
-function MoneyField({
-  control,
-  name,
-  label,
-  hint,
+/* ---------------------------------------------------------------- helpers */
+
+function MoneyInput({
+  value,
+  onChange,
+  onBlur,
   locale,
-  step,
 }: {
-  control: Control<CompoundInputResolved>;
-  name: "principal" | "periodicContribution";
-  label: string;
-  hint: string;
+  value: number;
+  onChange: (n: number) => void;
+  onBlur: () => void;
   locale: "ko" | "en";
-  step: number;
 }): React.ReactElement {
+  const num = Number(value) || 0;
   return (
-    <Controller
-      control={control}
-      name={name}
-      render={({ field }) => {
-        const num = Number(field.value) || 0;
-        return (
-          <Field label={label} hint={hint}>
-            <input
-              type="text"
-              inputMode="numeric"
-              className="input-base"
-              value={num > 0 ? num.toLocaleString("ko-KR") : ""}
-              placeholder="0"
-              onChange={(e) => {
-                const raw = e.target.value.replace(/[^0-9]/g, "");
-                field.onChange(raw === "" ? 0 : Number(raw));
-              }}
-              onBlur={field.onBlur}
-              data-step={step}
-            />
-            {locale === "ko" && num > 0 && (
-              <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
-                = {formatKoreanMoney(num)}
-              </p>
-            )}
-          </Field>
-        );
-      }}
-    />
+    <>
+      <input
+        type="text"
+        inputMode="numeric"
+        className="input-base"
+        value={num > 0 ? num.toLocaleString("ko-KR") : ""}
+        placeholder="0"
+        onChange={(e) => {
+          const raw = e.target.value.replace(/[^0-9]/g, "");
+          onChange(raw === "" ? 0 : Number(raw));
+        }}
+        onBlur={onBlur}
+      />
+      {locale === "ko" && num > 0 && (
+        <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+          = {formatKoreanMoney(num)}
+        </p>
+      )}
+    </>
   );
 }
 
-export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement {
+function Segmented<T extends string>({
+  value,
+  options,
+  onChange,
+}: {
+  value: T;
+  options: ReadonlyArray<{ value: T; label: string }>;
+  onChange: (v: T) => void;
+}): React.ReactElement {
+  return (
+    <div className="inline-flex rounded-lg border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-0.5">
+      {options.map((o) => (
+        <button
+          key={o.value}
+          type="button"
+          onClick={() => onChange(o.value)}
+          className={cn(
+            "rounded-md px-3.5 py-1 text-sm transition-colors",
+            value === o.value
+              ? "bg-indigo-500/20 font-semibold text-indigo-300"
+              : "text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-secondary)]",
+          )}
+        >
+          {o.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function DataTable({
+  head,
+  children,
+}: {
+  head: ReadonlyArray<string>;
+  children: ReactNode;
+}): React.ReactElement {
+  return (
+    <div className="overflow-hidden rounded-xl border border-[color:var(--color-border-subtle)]">
+      <div className="max-h-[420px] overflow-y-auto">
+        <table className="w-full text-sm tabular-nums">
+          <thead className="sticky top-0 z-10 bg-[color:var(--color-bg-elevated)] text-xs text-[color:var(--color-text-tertiary)]">
+            <tr>
+              {head.map((h, i) => (
+                <th
+                  key={i}
+                  className={cn(
+                    "px-3 py-2.5 font-semibold",
+                    i === 0 ? "text-left" : "text-right",
+                  )}
+                >
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>{children}</tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------- basic tab */
+
+function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
   const T = TEXT[locale];
   const [result, setResult] = useState<CompoundResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
@@ -160,7 +264,7 @@ export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement 
     defaultValues: {
       principal: 1_000_000,
       ratePerPeriodPercent: 5,
-      periods: 10,
+      periods: 20,
       periodicContribution: 0,
     },
   });
@@ -183,28 +287,22 @@ export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement 
   return (
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
-        <FieldGroup title={T.sectionPrincipal}>
-          <MoneyField
+        <FieldGroup title={T.basicTitle}>
+          <Controller
             control={control}
             name="principal"
-            label={T.fieldPrincipal}
-            hint={T.fieldPrincipalHint}
-            locale={locale}
-            step={100_000}
+            render={({ field }) => (
+              <Field label={T.fieldPrincipal}>
+                <MoneyInput
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  locale={locale}
+                />
+              </Field>
+            )}
           />
-        </FieldGroup>
-
-        <FieldGroup title={T.sectionRate}>
-          <Field label={T.fieldRate} hint={T.fieldRateHint}>
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("ratePerPeriodPercent", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={T.fieldPeriods} hint={T.fieldPeriodsHint}>
+          <Field label={T.fieldPeriods}>
             <input
               type="number"
               step="1"
@@ -214,17 +312,15 @@ export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement 
               {...register("periods", { valueAsNumber: true })}
             />
           </Field>
-        </FieldGroup>
-
-        <FieldGroup title={T.sectionContrib}>
-          <MoneyField
-            control={control}
-            name="periodicContribution"
-            label={T.fieldContrib}
-            hint={T.fieldContribHint}
-            locale={locale}
-            step={10_000}
-          />
+          <Field label={T.fieldRate}>
+            <input
+              type="number"
+              step="0.1"
+              inputMode="decimal"
+              className="input-base"
+              {...register("ratePerPeriodPercent", { valueAsNumber: true })}
+            />
+          </Field>
         </FieldGroup>
 
         <ActionRow
@@ -241,47 +337,346 @@ export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement 
         />
       </FormShell>
 
-      <ResultShell heading={T.resultHeading}>
+      <ResultShell heading={T.basicTitle}>
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={T.resultEmpty} />}
         {result && (
           <div className="animate-fade-up space-y-5">
-            <div>
-              <HeroResult
-                label={T.finalAmount}
-                value={formatKrw(result.finalAmount)}
-                unit={T.finalAmountUnit}
-              />
-              {locale === "ko" && (
-                <p className="mt-2 text-sm font-medium text-[color:var(--color-text-secondary)]">
-                  = {formatKoreanMoney(result.finalAmount)}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
+                <p className="text-[11px] font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                  {T.totalProfit}
                 </p>
-              )}
+                <p className="mt-1 text-2xl font-bold tabular-nums text-emerald-300 md:text-3xl">
+                  ₩{won(result.totalInterest)}
+                </p>
+              </div>
+              <div className="rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-4">
+                <p className="text-[11px] font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                  {T.finalAmount}
+                </p>
+                <p className="mt-1 text-2xl font-bold tabular-nums text-indigo-300 md:text-3xl">
+                  ₩{won(result.finalAmount)}
+                </p>
+              </div>
             </div>
-            <dl className="grid grid-cols-2 gap-3">
-              <Stat
-                label={T.principal}
-                value={`${formatKrw(result.principal)} ${T.finalAmountUnit}`}
-              />
-              <Stat
-                label={T.totalContrib}
-                value={`${formatKrw(result.totalContribution)} ${T.finalAmountUnit}`}
-              />
-              <Stat
-                label={T.totalInterest}
-                value={`${formatKrw(result.totalInterest)} ${T.finalAmountUnit}`}
-              />
-              <Stat
-                label={T.totalReturn}
-                value={`${formatNumber(result.totalReturnPercent, 2)}%`}
-                tone="success"
-              />
-            </dl>
+            {locale === "ko" && (
+              <p className="-mt-2 text-sm font-medium text-[color:var(--color-text-secondary)]">
+                최종 {formatKoreanMoney(result.finalAmount)} · 수익률{" "}
+                {formatNumber(result.totalReturnPercent, 2)}%
+              </p>
+            )}
 
-            <SourceBox lines={[T.sourceTitle, ...T.sourceLines]} />
+            <DataTable head={[T.colNo, T.colProfit, T.colTotal, T.colRate]}>
+              {result.schedule.map((r) => (
+                <tr
+                  key={r.period}
+                  className="border-t border-[color:var(--color-border-subtle)]"
+                >
+                  <td className="px-3 py-1.5 text-left font-medium text-[color:var(--color-text-tertiary)]">
+                    {r.period}
+                  </td>
+                  <td className="px-3 py-1.5 text-right text-emerald-300">
+                    +{won(r.interest)}
+                  </td>
+                  <td className="px-3 py-1.5 text-right text-[color:var(--color-text-secondary)]">
+                    {won(r.total)}
+                  </td>
+                  <td className="px-3 py-1.5 text-right text-[color:var(--color-text-tertiary)]">
+                    {formatNumber(r.cumulativeReturnPercent, 2)}%
+                  </td>
+                </tr>
+              ))}
+            </DataTable>
+            {result.truncated && (
+              <p className="text-xs text-[color:var(--color-text-muted)]">
+                {T.truncated}
+              </p>
+            )}
+
+            <SourceBox lines={[...T.basicSource]} />
           </div>
         )}
       </ResultShell>
     </CalcLayout>
+  );
+}
+
+/* --------------------------------------------------------- recurring tab */
+
+function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
+  const T = TEXT[locale];
+  const [result, setResult] = useState<RecurringResult | null>(null);
+  const [calcError, setCalcError] = useState<string | null>(null);
+  const [view, setView] = useState<"year" | "month">("year");
+
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<RecurringInputResolved>({
+    resolver: zodResolver(recurringInputSchema),
+    defaultValues: {
+      startAmount: 100_000,
+      monthlyContribution: 100_000,
+      periodValue: 3,
+      periodUnit: "year",
+      ratePercent: 5,
+      rateUnit: "year",
+      compounding: "annual",
+    },
+  });
+
+  const onSubmit = (values: RecurringInputResolved): void => {
+    setCalcError(null);
+    try {
+      setResult(calculateRecurring(values));
+    } catch {
+      setResult(null);
+      setCalcError(T.error);
+    }
+  };
+  const onReset = (): void => {
+    reset();
+    setResult(null);
+    setCalcError(null);
+  };
+
+  const rows = result ? (view === "year" ? result.yearly : result.monthly) : [];
+  const periodHead = view === "year" ? T.colPeriodYear : T.colPeriodMonth;
+
+  return (
+    <CalcLayout>
+      <FormShell onSubmit={handleSubmit(onSubmit)}>
+        <FieldGroup title={T.recurringTitle}>
+          <Controller
+            control={control}
+            name="startAmount"
+            render={({ field }) => (
+              <Field label={T.fieldStart}>
+                <MoneyInput
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  locale={locale}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="monthlyContribution"
+            render={({ field }) => (
+              <Field label={T.fieldMonthly} hint={T.fieldMonthlyHint}>
+                <MoneyInput
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  locale={locale}
+                />
+              </Field>
+            )}
+          />
+
+          <div>
+            <div className="mb-1.5 flex items-center justify-between">
+              <span className="text-sm font-medium text-[color:var(--color-text-secondary)]">
+                {T.fieldPeriod}
+              </span>
+              <Controller
+                control={control}
+                name="periodUnit"
+                render={({ field }) => (
+                  <Segmented
+                    value={field.value}
+                    onChange={field.onChange}
+                    options={[
+                      { value: "year", label: T.unitYear },
+                      { value: "month", label: T.unitMonth },
+                    ]}
+                  />
+                )}
+              />
+            </div>
+            <input
+              type="number"
+              step="1"
+              min="1"
+              inputMode="numeric"
+              className="input-base"
+              {...register("periodValue", { valueAsNumber: true })}
+            />
+          </div>
+
+          <div>
+            <div className="mb-1.5 flex items-center justify-between">
+              <span className="text-sm font-medium text-[color:var(--color-text-secondary)]">
+                {T.fieldInterest}
+              </span>
+              <Controller
+                control={control}
+                name="rateUnit"
+                render={({ field }) => (
+                  <Segmented
+                    value={field.value}
+                    onChange={field.onChange}
+                    options={[
+                      { value: "year", label: T.rateYear },
+                      { value: "month", label: T.rateMonth },
+                    ]}
+                  />
+                )}
+              />
+            </div>
+            <div className="relative">
+              <input
+                type="number"
+                step="0.1"
+                inputMode="decimal"
+                className="input-base pr-8"
+                {...register("ratePercent", { valueAsNumber: true })}
+              />
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[color:var(--color-text-tertiary)]">
+                %
+              </span>
+            </div>
+          </div>
+
+          <Field label={T.fieldCompounding}>
+            <select className="input-base" {...register("compounding")}>
+              <option value="annual">{T.compAnnual}</option>
+              <option value="monthly">{T.compMonthly}</option>
+            </select>
+          </Field>
+        </FieldGroup>
+
+        <ActionRow
+          primary={
+            <button type="submit" disabled={isSubmitting} className="btn-primary flex-1">
+              {T.calculate}
+            </button>
+          }
+          secondary={
+            <button type="button" onClick={onReset} className="btn-ghost sm:w-auto">
+              {T.reset}
+            </button>
+          }
+        />
+      </FormShell>
+
+      <ResultShell heading={T.recurringTitle}>
+        {calcError && <ErrorBox message={calcError} />}
+        {!calcError && !result && <EmptyResult message={T.recurringEmpty} />}
+        {result && (
+          <div className="animate-fade-up space-y-5">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
+                <p className="text-[11px] font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                  {T.totalProfit}
+                </p>
+                <p className="mt-1 text-2xl font-bold tabular-nums text-emerald-300 md:text-3xl">
+                  ₩{won(result.totalInterest)}
+                </p>
+              </div>
+              <div className="rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-4">
+                <p className="text-[11px] font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                  {T.finalAmount}
+                </p>
+                <p className="mt-1 text-2xl font-bold tabular-nums text-indigo-300 md:text-3xl">
+                  ₩{won(result.finalAmount)}
+                </p>
+              </div>
+            </div>
+            <Stat
+              label={T.totalInvested}
+              value={`₩${won(result.totalInvested)}`}
+              full
+            />
+
+            <div className="flex items-center justify-end">
+              <Segmented
+                value={view}
+                onChange={setView}
+                options={[
+                  { value: "year", label: T.viewYear },
+                  { value: "month", label: T.viewMonth },
+                ]}
+              />
+            </div>
+
+            <DataTable head={[periodHead, T.colPrincipal, T.colInterest, T.colFinal]}>
+              {rows.map((r) => (
+                <tr
+                  key={r.label}
+                  className="border-t border-[color:var(--color-border-subtle)]"
+                >
+                  <td className="px-3 py-1.5 text-left font-medium text-[color:var(--color-text-tertiary)]">
+                    {r.label}
+                  </td>
+                  <td className="px-3 py-1.5 text-right text-[color:var(--color-text-secondary)]">
+                    {won(r.principal)}
+                  </td>
+                  <td className="px-3 py-1.5 text-right text-emerald-300">
+                    +{won(r.interest)}
+                  </td>
+                  <td className="px-3 py-1.5 text-right text-indigo-200">
+                    {won(r.total)}
+                  </td>
+                </tr>
+              ))}
+            </DataTable>
+
+            <SourceBox lines={[...T.recurringSource]} />
+          </div>
+        )}
+      </ResultShell>
+    </CalcLayout>
+  );
+}
+
+/* ----------------------------------------------------------------- parent */
+
+export function CompoundForm({ locale }: CompoundFormProps): React.ReactElement {
+  const T = TEXT[locale];
+  const [mode, setMode] = useState<Mode>("basic");
+
+  return (
+    <div className="space-y-6">
+      <div
+        role="tablist"
+        className="grid grid-cols-2 border-b border-[color:var(--color-border-subtle)]"
+      >
+        {(
+          [
+            ["basic", T.tabBasic],
+            ["recurring", T.tabRecurring],
+          ] as const
+        ).map(([value, label]) => (
+          <button
+            key={value}
+            role="tab"
+            aria-selected={mode === value}
+            type="button"
+            onClick={() => setMode(value)}
+            className={cn(
+              "-mb-px border-b-2 px-4 py-3 text-sm font-semibold transition-colors md:text-base",
+              mode === value
+                ? "border-[color:var(--color-accent)] text-[color:var(--color-accent)]"
+                : "border-transparent text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-secondary)]",
+            )}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {mode === "basic" ? (
+        <BasicTab locale={locale} />
+      ) : (
+        <RecurringTab locale={locale} />
+      )}
+    </div>
   );
 }
