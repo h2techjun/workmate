@@ -2376,6 +2376,98 @@
       ],
       "lastReviewed": "2026-06-15"
     },
+    "d8-startup-visa": {
+      "overview": "The D-8 is Korea's business-investment visa for foreigners who found or invest in a Korean company. It splits into three common types: D-8-1 (set up or invest in a corporation), D-8-3 (invest in a Korean-run company), and D-8-4 (technology startup — found a new company with your own intellectual property). This tool checks the verifiable core requirements for each type. For D-8-4 it deliberately does NOT compute an OASIS score: the official minimum is 60 of 300, but sources disagree (80–120) and the item-by-item table is an internal, unpublished Ministry of Justice manual that changes without notice.",
+      "useCases": [
+        "Foreign founders deciding between the investment route (D-8-1) and the startup route (D-8-4)",
+        "Entrepreneurs with a patent checking the D-8-4 technology-startup requirements",
+        "Investors confirming the ₩100M / 10%-share rule before wiring funds",
+        "D-10-2 (startup-prep) holders mapping the jump to D-8-4",
+        "Anyone preparing documents before a hikorea or KOTRA consultation"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Pick your D-8 type: D-8-1 corporate investment, D-8-3 individual investment, or D-8-4 technology startup.",
+          "Tick the core requirements shown for that type (investment & shares & corp registration, or degree & IP & new corp & an OASIS mandatory item).",
+          "Add the common conduct requirement: no criminal record, fewer than 4 immigration violations, no unpaid taxes.",
+          "See what's met and what's missing — then verify your exact eligibility (and, for D-8-4, your OASIS points) at hikorea.go.kr or the Global Startup Immigration Center."
+        ]
+      },
+      "formula": {
+        "title": "How the OASIS points test works (informational)",
+        "body": "OASIS (Overall Assistance for Startup Immigration System) scores D-8-4 applicants.\nOfficial pass mark: 60 of 300 — but unofficial sources cite 80–120 as the realistic bar.\nMandatory items (need at least one): a registered/pending IP right, government startup funding or OASIS-6/9 participation, ₩100M+ investment raised, or 3+ years as a professor (E-1)/researcher (E-3).\nOptional items add points: OASIS coursework (OASIS-1/2/4/5/8), TOPIK level, and master's/PhD degrees.\n\n⚠️ The full table is an internal, unpublished MOJ manual that changes yearly, so this tool checks the verifiable requirements only and does NOT assert a score."
+      },
+      "examples": {
+        "title": "Typical scenarios",
+        "items": [
+          {
+            "title": "Founder with a pending patent (D-8-4)",
+            "body": "Has an overseas bachelor's, a pending patent, and is forming a new corp — three core items met. Still needs at least one OASIS mandatory item and a clean conduct record. Confirm the points at the Global Startup Immigration Center."
+          },
+          {
+            "title": "Investor setting up a Korean corp (D-8-1)",
+            "body": "Wires ₩100M+, takes 10%+ of voting shares, and completes corp + foreign-investment-enterprise registration. Immigration still examines business substance and source of funds — small investors face closer scrutiny."
+          },
+          {
+            "title": "Investing in a Korean-run company (D-8-3)",
+            "body": "Same ₩100M / 10% rule plus an executive contract. D-8-3 grants the longest single stay among D-8 types (up to 5 years), but the minimum investment is still ₩100M, not ₩300M."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is the D-8 visa?",
+          "answer": "Korea's business-investment visa for foreigners who run or invest in a Korean company. D-8-1/D-8-3 are investment-based; D-8-4 is for technology startups founded on your own IP."
+        },
+        {
+          "question": "How much do I need to invest?",
+          "answer": "For D-8-1 and D-8-3, the legal minimum is ₩100M (about US$73K) with 10%+ voting shares, under the Foreign Investment Promotion Act. D-8-4 has no fixed minimum capital in law, but immigration still expects realistic funding."
+        },
+        {
+          "question": "Why doesn't this tool calculate my OASIS score?",
+          "answer": "The official minimum is 60, but unofficial sources say 80–120, and the detailed point table is an unpublished MOJ manual that changes yearly. Asserting a wrong score could mislead your application, so we check the verifiable requirements and send you to the official source."
+        },
+        {
+          "question": "Can I buy an existing company and get a D-8-4?",
+          "answer": "No. D-8-4 requires founding a NEW corporation. Acquiring an existing company doesn't qualify for the technology-startup route."
+        },
+        {
+          "question": "Does a patent application (not yet granted) count?",
+          "answer": "Yes — a pending patent, utility model, or design right counts for D-8-4. You don't have to wait for registration to be completed."
+        },
+        {
+          "question": "What's the recommended path for founders?",
+          "answer": "Start on D-10-2 (startup-prep, 6 months up to 2 years), join the OASIS program and set up your corporation, then switch to D-8-4 (issued for 12 months at a time)."
+        }
+      ],
+      "cautions": [
+        "OASIS scores and the point table are unofficial/unpublished and change yearly — this is a requirements checklist, not a score calculator.",
+        "Meeting the requirements does not guarantee approval; business substance and source of funds are examined at officer discretion.",
+        "D-8-4 needs a NEW corporation; a virtual-office address is effectively not accepted — a real office is expected.",
+        "The ₩100M minimum is set by law; the ₩300M figure some sources cite is a remittance-rule threshold, not a higher minimum.",
+        "Always verify at hikorea.go.kr, the Immigration Contact Center (1345), or the KOTRA Foreign Investment Support Center."
+      ],
+      "related": [
+        {
+          "label": "F-2-7 Residence Visa",
+          "href": "/f2-residence-visa"
+        },
+        {
+          "label": "Stay Days Tracker",
+          "href": "/visa-days"
+        },
+        {
+          "label": "Foreign Flat Tax",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Health Insurance (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-06-16"
+    },
     "jeonse-wolse": {
       "overview": "Korea has two rental models: jeonse (a large lump-sum deposit, no monthly rent) and wolse (a smaller deposit plus monthly rent). This tool converts between them using the conversion rate — legally capped at 4.5% (base rate 2.5% + 2%). It also confronts what dominated headlines in 2022–2023: a wave of jeonse fraud (deposit scams) that cost thousands of tenants — foreigners included — their entire deposits. Convert first, then run the prevention checklist below before you sign anything.",
       "useCases": [

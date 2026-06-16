@@ -50,6 +50,7 @@ const TOOL_PATHS = [
   "/size-convert",
   "/visa-days",
   "/f2-residence-visa",
+  "/d8-startup-visa",
   "/net-salary",
   "/freelancer-tax",
   "/car-acquisition-tax",
