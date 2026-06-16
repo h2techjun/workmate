@@ -2376,6 +2376,102 @@
       ],
       "lastReviewed": "2026-06-15"
     },
+    "jeonse-wolse": {
+      "overview": "Korea has two rental models: jeonse (a large lump-sum deposit, no monthly rent) and wolse (a smaller deposit plus monthly rent). This tool converts between them using the conversion rate — legally capped at 4.5% (base rate 2.5% + 2%). It also confronts what dominated headlines in 2022–2023: a wave of jeonse fraud (deposit scams) that cost thousands of tenants — foreigners included — their entire deposits. Convert first, then run the prevention checklist below before you sign anything.",
+      "useCases": [
+        "Comparing a jeonse listing against a wolse one at the same value",
+        "Checking whether a landlord's jeonse→monthly rate is within the legal cap",
+        "Seeing what a deposit is 'worth' in monthly-rent terms",
+        "Protecting your deposit from the scams that hit thousands of tenants",
+        "Foreigners learning the protections — and the traps unique to them"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Pick a direction: jeonse → monthly, or monthly → jeonse.",
+          "Enter the deposit (plus the deposit you'd keep, for jeonse→monthly) or the monthly deposit + rent.",
+          "The rate defaults to the 4.5% legal cap — edit it to your landlord's proposed rate.",
+          "See the converted amount and whether the rate exceeds the legal cap."
+        ]
+      },
+      "formula": {
+        "title": "Formula · conversion rate",
+        "body": "Jeonse → monthly:  rent = (jeonse − kept deposit) × rate ÷ 12\nMonthly → jeonse:  jeonse = monthly deposit + (rent × 12) ÷ rate\n\nLegal cap = min(10%, base rate + 2%) = 4.5% (base rate 2.5%, since May 2025).\nThe cap applies to jeonse→monthly conversion during a lease or at renewal — NOT to a brand-new monthly contract."
+      },
+      "examples": {
+        "title": "Deposit-scam prevention checklist",
+        "items": [
+          {
+            "title": "Before you sign",
+            "body": "Check the property register (등기부등본) for the owner's name and any senior mortgages (근저당). Compare market price vs deposit — if the deposit exceeds ~70–80% of the property value, it's an 'underwater jeonse' red flag. Check the landlord's unpaid taxes (allowed without consent for deposits over ₩10M). Verify the agent is licensed. Beware trust-registered (신탁) properties — only the trustee, not the old owner, can lease them."
+          },
+          {
+            "title": "At signing & right after",
+            "body": "File your move-in report (전입신고) and get a fixed date (확정일자) — together they give opposing power + priority repayment. Note opposing power starts the day AFTER your report; scammers exploit that one-day gap. Re-check the register on balance-payment day for any new mortgage. Get deposit-return insurance (HUG / SGI)."
+          },
+          {
+            "title": "Foreigner-specific traps (critical)",
+            "body": "A simple 'residence registration' is NOT enough — as a foreigner you must file a 'change of residence report' under the Immigration Act to get the same opposing power a Korean gets from a move-in report. Many foreigners think they're protected when they aren't. You can get a fixed date with your ARC. Confirm the unit allows move-in reports before signing — some officetels don't."
+          },
+          {
+            "title": "If the deposit isn't returned",
+            "body": "Do NOT move out and transfer your registration first. File a 'lease registration order' (임차권등기명령) to keep your opposing power and priority even after you leave. Moving out first can forfeit your protection."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What are jeonse and wolse?",
+          "answer": "Jeonse is a uniquely Korean lease: a large deposit (often 50–80% of the property value) and no monthly rent — the landlord keeps the interest. Wolse is a smaller deposit plus monthly rent. The conversion rate links the two."
+        },
+        {
+          "question": "What was the 2022–2023 jeonse fraud crisis?",
+          "answer": "Scammers (the 'villa king', 'construction king') bought hundreds of homes with almost no money down using tenants' deposits, then couldn't return them. Tens of thousands were affected and a special victim-relief law runs to 2027. Foreigners were hit too."
+        },
+        {
+          "question": "What is 'underwater jeonse' (깡통전세)?",
+          "answer": "When the deposit plus senior debt approaches or exceeds the property's value — so if the home is auctioned, you can't recover your deposit. Keep the deposit-to-value ratio under roughly 70–80%."
+        },
+        {
+          "question": "What are opposing power and priority repayment?",
+          "answer": "Move-in report + occupancy = opposing power (your lease survives a change of owner). Add a fixed date = priority repayment (paid before junior creditors at auction). You need all three: report, occupancy, fixed date."
+        },
+        {
+          "question": "Does my residence registration protect me as a foreigner?",
+          "answer": "Not by itself. You must file a 'change of residence report' under the Immigration Act — a plain residence registration does NOT create opposing power. This is the #1 foreigner trap, leaving people exposed when they think they're safe."
+        },
+        {
+          "question": "What is HUG deposit-return insurance?",
+          "answer": "A guarantee that pays your deposit if the landlord can't, then recovers from them. You can join via the Anbsim Jeonse app even if you're not the head of household. Eligibility and limits depend on property value and debt ratio — confirm with HUG."
+        }
+      ],
+      "cautions": [
+        "Reference tool and educational guide, not legal or tax advice — verify with the property register, HUG, the tax office, a licensed agent, and a lawyer before signing.",
+        "The conversion-rate cap applies only to jeonse→monthly during a lease or at renewal, not to new contracts or monthly→jeonse.",
+        "Base rate and legal figures change; the 70–80% deposit-to-value line is an industry rule of thumb, not law.",
+        "Foreigners: a residence registration alone gives no opposing power — file a change-of-residence report.",
+        "Deposit-return insurance eligibility and limits must be confirmed with HUG / SGI."
+      ],
+      "related": [
+        {
+          "label": "Rent Cap (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "Apartment Area & Price",
+          "href": "/apartment-area"
+        },
+        {
+          "label": "F-2-7 Residence Visa",
+          "href": "/f2-residence-visa"
+        },
+        {
+          "label": "Health Insurance (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-06-16"
+    },
     "loan-calc": {
       "overview": "The Korean loan calculator compares the three most common Korean repayment types — equal payment (same monthly amount), equal principal (high to low), and balloon (interest only with principal at maturity) — in one screen, with a monthly amortization schedule. The same standard formulas apply to mortgages, credit loans, jeonse-deposit loans, and auto installments. Prepayment fees, stamp duty, and DSR limits are not included.",
       "useCases": [

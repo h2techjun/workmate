@@ -66,6 +66,7 @@ const TOOL_PATHS = [
   "/loan-calc",
   "/rent-cap",
   "/apartment-area",
+  "/jeonse-wolse",
   "/income-tax",
   "/foreign-flat-tax",
   "/foreign-health-insurance",

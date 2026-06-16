@@ -178,6 +178,12 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         href: "/apartment-area",
         keywordsKo: "전용면적 공급면적 전용률 평당가 84제곱미터 평 환산 exclusive supply area",
       },
+      {
+        labelKo: "전세·월세 환산 + 전세사기 방지",
+        labelEn: "Jeonse ↔ Wolse + Scam Check",
+        href: "/jeonse-wolse",
+        keywordsKo: "전세 월세 환산 전월세전환율 전세사기 방지 보증금 보증보험 jeonse wolse deposit scam",
+      },
     ],
   },
   {
