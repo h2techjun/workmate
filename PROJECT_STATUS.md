@@ -224,6 +224,8 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-06-17 | **thin 도구 24개 ToolGuide 전면 보강**(거절 사유 '가치 없는 콘텐츠' 해소) — timber 14·labor 4·finance 5·전압강하 1, 계산 근거 ko/en. audit thin 0·정합 ko=en=4221 | `fb6efef` |
+| 2026-06-17 | **AdSense 정책 시스템** — docs/adsense-compliance.md(5대 정책+전체 정책맵) + CLAUDE.md 가치 게이트 도그마 + audit.mjs thin 자동검출 | `fd581d1` |
 | 2026-06-17 | **외국인 한국생활 필러 블로그**(living-in-korea-foreigner-guide, 도구 9종 허브·여정형) + **About E-A-T 보강**(외국인 독자·검증 방법론·갱신일) + TASKS 현행화 | `de02689` |
 | 2026-06-17 | **복리 계산기 Fical 스타일 개편** — 기본/적립식 2탭 + 회차별·연차별 상세표(한국 적금 연복리 모델) | `4f045d8` |
 | 2026-06-16 | **한국생활 상황별 체크리스트 10개 도구 통합**(ToolGuide checklist 섹션 신설) + **국민연금 요율 2026 9.5% 갱신**(rates2026·netSalary 하드코딩 제거·테스트) | `732ae3e` |
