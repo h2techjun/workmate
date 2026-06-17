@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { TileForm } from "@/components/tools/timber/TileForm";
@@ -100,6 +101,7 @@ export default async function TilePage({
           </p>
         </header>
         <TileForm locale={localeKey} />
+        <ToolGuide toolKey="timber-tile" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

@@ -1896,6 +1896,2169 @@
     }
   },
   "toolGuides": {
+    "compound-calc": {
+      "overview": "The compound interest calculator covers two modes in one screen: lump-sum (a single principal compounding over time) and recurring (monthly deposits with compounding). The lump-sum mode uses FV = P(1+i)^n; the recurring mode offers annual compounding — matching the Korean bank savings-account convention where each month's deposit earns simple interest proportional to the remaining months, then all interest is capitalized at year-end — or monthly compounding. A period-by-period and year-by-year schedule shows the interest earned, running balance, and cumulative return at every step. Results are pre-tax nominal figures; withholding tax (15.4%) and inflation are not applied.",
+      "useCases": [
+        "Estimate the maturity value of a time deposit or savings account before signing up",
+        "Project how much a monthly contribution to a pension savings plan or installment fund will grow over n years",
+        "Back-calculate how long it will take (or how much to save per month) to reach a target amount",
+        "Compare how much extra monthly vs. annual compounding earns for the same rate and period",
+        "Visualize the compounding acceleration effect in the late years using the year-by-year schedule"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Select the tab: 'Lump-sum' or 'Recurring'. Lump-sum needs principal, rate per period, and number of periods. Recurring needs starting amount, monthly contribution, duration (years or months), rate (annual or monthly), and compounding frequency (annual or monthly).",
+          "Click 'Calculate' to instantly see the final amount, total invested, total interest, and overall return rate in the summary cards.",
+          "Switch between the 'Per-period' and 'Yearly' sub-tabs in the schedule below to trace interest, principal, and balance at every interval."
+        ]
+      },
+      "formula": {
+        "title": "Formula & basis",
+        "body": "[Lump-sum]\nFV = P × (1 + i)^n\n  P = principal\n  i = rate per period (% ÷ 100)\n  n = number of periods\n\nWith periodic contribution (PMT each period-end):\nFV = P×(1+i)^n + PMT × [(1+i)^n − 1] / i\n\n[Recurring — annual compounding (Korean savings-account convention)]\nEach monthly deposit earns simple interest of annual rate × (months remaining ÷ 12) within the year; the full balance is capitalized at year-end.\n\n[Recurring — monthly compounding]\nBalance is multiplied by (1 + monthly rate) every month, where monthly rate = annual rate ÷ 12."
+      },
+      "examples": {
+        "title": "Example scenarios",
+        "items": [
+          {
+            "title": "Example 1: ₩10,000,000 time deposit at 3.5% p.a. for 3 years",
+            "body": "Lump-sum mode: principal ₩10,000,000, rate per period 3.5%, 3 periods (annual). Final amount = 10,000,000 × (1.035)^3 ≈ ₩10,877,289. Total interest ≈ ₩877,289 (8.77%). After Korean withholding tax of 15.4%, net interest is approximately ₩742,000."
+          },
+          {
+            "title": "Example 2: ₩500,000/month recurring, 4% p.a. annual compounding, 10 years",
+            "body": "Recurring mode: starting ₩500,000, monthly ₩500,000, 10 years, 4% annual rate, annual compounding. Total invested ₩60,000,000; maturity ≈ ₩73,590,000; total interest ≈ ₩13,590,000 (22.6%). The yearly schedule shows that the 10th year alone generates ~₩2,700,000 in interest — the compounding acceleration effect in action."
+          },
+          {
+            "title": "Example 3: Annual vs. monthly compounding on the same principal",
+            "body": "₩10,000,000 at 5% p.a. for 5 years: annual compounding → ₩12,762,816; monthly compounding → ₩12,833,587. Difference: ₩70,771. The gap widens with higher rates and longer durations, so it is worth checking the compounding frequency stated in a product's terms."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is monthly compounding always better than annual?",
+          "answer": "Yes, for the same stated annual rate. Monthly compounding capitalizes interest more frequently, so the effective annual rate (EAR) is higher. At 12% p.a., annual compounding gives EAR 12%, while monthly compounding gives EAR ≈ 12.68%. However, some products already advertise an effective monthly-compounded rate, so always read the product terms."
+        },
+        {
+          "question": "What is the 'Korean savings-account convention' for annual compounding?",
+          "answer": "Korean banks calculate interest on installment savings by crediting each monthly deposit with simple interest proportional to the number of months remaining in the year. The first month's deposit earns 12 months of interest; the last month's deposit earns 1 month. All accumulated interest is then capitalized at year-end (or maturity). The recurring annual-compounding mode in this calculator replicates that method."
+        },
+        {
+          "question": "Is withholding tax (15.4%) automatically deducted?",
+          "answer": "No. All results are pre-tax nominal amounts. In Korea, interest income is subject to 15.4% withholding (14% income tax + 1.4% local tax). To estimate after-tax interest, multiply the displayed total interest by 0.846."
+        },
+        {
+          "question": "How should I set 'rate per period' and 'periods' in lump-sum mode?",
+          "answer": "Match the period unit to the compounding frequency. For monthly compounding at 6% p.a. over 2 years: rate per period = 0.5% (6% ÷ 12), periods = 24. For annual compounding over 5 years at 5%: rate per period = 5%, periods = 5."
+        },
+        {
+          "question": "Is there a limit to the number of periods?",
+          "answer": "Lump-sum mode accepts up to 2,400 periods (200 years at monthly compounding). The per-period schedule table displays up to 600 rows; a notice appears when it is truncated. Recurring mode supports up to 1,200 months (100 years)."
+        },
+        {
+          "question": "Why might the result differ from my bank's quoted figure?",
+          "answer": "This tool does not include withholding tax, transaction fees, inflation, or exchange-rate effects. For market products like funds or ETFs, returns are not fixed. Even for fixed-rate deposits, rounding rules (truncation vs. rounding at each step) can cause a difference of a few won versus the bank's own calculation."
+        }
+      ],
+      "cautions": [
+        "Pre-tax nominal calculation only — Korean withholding tax of 15.4% is not deducted. Estimate after-tax interest as total interest × 0.846.",
+        "Inflation is not factored in. Nominal return and real return differ.",
+        "In lump-sum mode, periodic contributions are assumed to be deposited at the end of each period. Products with beginning-of-period deposits will show slightly higher results.",
+        "The recurring annual-compounding model follows Korean bank savings-account convention. Minor differences may arise due to each institution's own rounding policy.",
+        "Results are for reference only. Confirm actual product terms with your financial institution or the FSS financial product comparison portal before subscribing."
+      ],
+      "related": [
+        {
+          "label": "Loan calculator",
+          "href": "/loan-calc"
+        },
+        {
+          "label": "Net salary calculator",
+          "href": "/net-salary"
+        },
+        {
+          "label": "VAT calculator",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "Income tax calculator",
+          "href": "/income-tax"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "vat-calc": {
+      "overview": "The Korean VAT calculator covers four calculation modes based on Value-Added Tax Act Article 30 (rate: 10%). 'Add VAT' takes a supply value (tax-exclusive) and adds 10% to produce the total price; 'Extract VAT' reverse-calculates the supply value and VAT from a VAT-inclusive amount. 'General taxpayer return' subtracts input tax from output tax to arrive at the net amount payable. 'Simplified taxpayer' applies the industry-specific value-added rates in Enforcement Decree §111 (15% for retail and restaurants up to 40% for finance and other services) to compute the simplified payable amount. All amounts are truncated to the nearest won, matching the NTS (Hometax) filing standard.",
+      "useCases": [
+        "Freelancers / business owners: verify supply value and VAT before issuing a tax invoice",
+        "Consumers: back-calculate how much VAT is embedded in a receipt total",
+        "General taxpayers: pre-estimate output tax minus input tax before a quarterly VAT return",
+        "Simplified taxpayers: simulate the annual payable amount using the applicable industry value-added rate",
+        "Exporters / importers: confirm whether a transaction is zero-rated or exempt and separate the taxable amount"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Choose the calculation type: 'Add VAT' (enter the tax-exclusive price), 'Extract VAT' (enter the VAT-inclusive total), 'General taxpayer return' (enter sales total and optional purchase amount), or 'Simplified taxpayer' (enter the sales total and select your industry).",
+          "Enter the amount in Korean won. For the general taxpayer mode, entering the optional 'purchase supply value' will automatically compute the deductible input tax.",
+          "Click 'Calculate' to see the supply value, VAT, and total (or net payable amount) along with the step-by-step calculation breakdown."
+        ]
+      },
+      "formula": {
+        "title": "Formula & legal basis",
+        "body": "[Add VAT (add mode)]\nVAT = supply value × 10%  (truncated to nearest won)\nTotal price = supply value + VAT\n\n[Extract VAT (extract mode)]\nSupply value = total price × 10 ÷ 11  (rounded to nearest won)\nVAT = total price − supply value\n\n[General taxpayer payable (general mode)]\nOutput tax = sales total × 10 ÷ 11\nInput tax = purchase supply value × 10%\nNet payable = output tax − input tax\n\n[Simplified taxpayer payable (simple mode) — VAT Act §63, Enforcement Decree §111]\nValue added = sales total × industry value-added rate\nPayable = value added × 10%\n\nIndustry value-added rates (effective 2021-07-01):\n  Retail, restaurants                15%\n  Manufacturing, agriculture, courier 20%\n  Lodging                            25%\n  Construction, transport, IT        30%\n  Finance, real-estate rental, other services 40%\n\n※ Legal basis: VAT Act Article 30 (rate 10%)"
+      },
+      "examples": {
+        "title": "Example scenarios",
+        "items": [
+          {
+            "title": "Example 1: Freelance service fee of ₩1,100,000 — splitting supply value and VAT",
+            "body": "Extract mode, amount ₩1,100,000. Supply value = 1,100,000 × 10 ÷ 11 = ₩1,000,000; VAT = ₩100,000. The tax invoice should read: supply value ₩1,000,000 / tax ₩100,000 / total ₩1,100,000."
+          },
+          {
+            "title": "Example 2: General taxpayer quarterly return — sales ₩22,000,000, purchases ₩5,500,000",
+            "body": "General mode. Output tax = 22,000,000 × 10 ÷ 11 = ₩2,000,000. Input tax = 5,500,000 × 10% = ₩550,000. Net payable = ₩2,000,000 − ₩550,000 = ₩1,450,000."
+          },
+          {
+            "title": "Example 3: Restaurant simplified taxpayer, annual sales ₩40,000,000",
+            "body": "Simplified mode, industry 'retail / restaurants (15%)'. Value added = 40,000,000 × 15% = ₩6,000,000. Payable = 6,000,000 × 10% = ₩600,000. Under the general taxpayer regime, output tax would have been roughly ₩3,636,364 (before input tax deduction), illustrating the substantial benefit of simplified taxpayer status."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why does the formula use '×10÷11' instead of '÷1.1' to extract the supply value?",
+          "answer": "The two are mathematically equivalent, but multiplying by the integer ratio 10/11 avoids floating-point errors. For example, dividing 11,000 by 1.1 can return 9,999.999...998 in some environments instead of the exact 10,000. Using integer numerator and denominator eliminates that rounding artefact before the final truncation step."
+        },
+        {
+          "question": "What is the difference between VAT-exempt and zero-rated?",
+          "answer": "VAT-exempt transactions (medical, education, unprocessed agricultural products, etc.) charge no VAT and cannot reclaim input tax. Zero-rated transactions (exports, etc.) also charge 0% VAT on sales but are fully entitled to input tax refunds. This calculator only handles standard 10% taxable transactions. Do not use it for exempt or zero-rated supplies."
+        },
+        {
+          "question": "When are Korean VAT returns due?",
+          "answer": "General taxpayers file twice a year: the first half (Jan–Jun) by 25 July, and the second half (Jul–Dec) by 25 January of the following year. Preliminary returns are filed in April and October but are often payment-only. Simplified taxpayers file once a year by 25 January."
+        },
+        {
+          "question": "What is the sales threshold for simplified taxpayer status?",
+          "answer": "Since the July 2021 revision, a business with prior-year total supply value below ₩80,000,000 qualifies as a simplified taxpayer. Above that, the business must switch to general taxpayer status from the following year. Real-estate rental and entertainment venues have a lower threshold of ₩48,000,000."
+        },
+        {
+          "question": "Who is required to issue electronic tax invoices?",
+          "answer": "General taxpayers must issue a (electronic) tax invoice for every taxable supply. Simplified taxpayers with annual supply value of ₩48,000,000 or more must also issue electronic tax invoices. Below ₩48,000,000, a simplified receipt may substitute."
+        },
+        {
+          "question": "Is the VAT return the same as the income tax return?",
+          "answer": "No. VAT is an indirect tax collected on sales and remitted to the tax authority. Income tax (comprehensive income tax) is a direct tax levied on net profit and is filed every May. Freelancers and business owners must file both separately."
+        }
+      ],
+      "cautions": [
+        "This calculator handles standard-rated (10%) transactions only. Do not use it for VAT-exempt (medical, education, etc.) or zero-rated (export, etc.) supplies.",
+        "All amounts are truncated to the nearest won following the NTS Hometax filing standard. Minor differences may arise from rounding policies used by card companies or individual businesses.",
+        "The simplified taxpayer industry value-added rates are based on VAT Enforcement Decree §111 as of 2021-07-01. They are subject to change upon legislative revision.",
+        "Results are for reference only. Confirm your actual tax liability via NTS Hometax or a licensed tax accountant.",
+        "This tool does not automatically exclude non-deductible input tax items (e.g., entertainment expenses, non-business purchases). Assess deductibility separately before entering your purchase amount."
+      ],
+      "related": [
+        {
+          "label": "Freelancer 3.3% tax calculator",
+          "href": "/freelancer-tax"
+        },
+        {
+          "label": "Income tax calculator",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Business registration number validator",
+          "href": "/biznum-check"
+        },
+        {
+          "label": "Compound interest calculator",
+          "href": "/compound-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "json-csv": {
+      "overview": "The JSON↔CSV converter is a browser-based utility that transforms JSON arrays into CSV files and CSV files back into JSON arrays, with no data ever sent to a server. In the JSON→CSV direction it defaults to UTF-8 BOM and Windows CRLF line endings — the two settings that prevent Korean (Hangul) characters from appearing as garbage in Korean Windows Excel. In the CSV→JSON direction it auto-detects the delimiter (comma, semicolon, or tab), correctly parses quoted cells that contain commas or embedded newlines per RFC 4180, and optionally converts numeric-looking strings to the number type. Results can be copied to the clipboard or downloaded as a file.",
+      "useCases": [
+        "Convert an API JSON response to a CSV that can be opened directly in Excel or Google Sheets",
+        "Convert an Excel-exported CSV to JSON for a database INSERT or REST API request body",
+        "Fix Korean character corruption in Excel by enabling BOM + CRLF when exporting CSV",
+        "Quickly reformat test data during development or QA without installing any software",
+        "Normalize JSON or verify CSV column schema before uploading to Pandas, BigQuery, or similar tools"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Click the direction toggle to select 'JSON → CSV' or 'CSV → JSON'. Sample data switches automatically when you toggle.",
+          "Paste or edit the text in the input area. For JSON, the top-level must be an array of objects. For CSV, turn on the 'Header row' option if the first row contains column names.",
+          "Review the options (BOM, CRLF, header, number parsing), then click 'Convert'. The output appears on the right — copy it or download as a file. Row and column counts are shown as a summary."
+        ]
+      },
+      "formula": {
+        "title": "Conversion rules & technical basis",
+        "body": "[JSON → CSV]\n- Column order: keys of the first object in the array\n- Cell escaping: cells containing a comma, newline, or double-quote are wrapped in double-quotes; internal double-quotes are escaped as \"\" (RFC 4180)\n- BOM: UTF-8 BOM (EF BB BF) — prevents Korean character corruption in Korean-locale Windows Excel\n- Line ending: CRLF (\\r\\n) for Windows Excel compatibility\n\n[CSV → JSON]\n- Delimiter auto-detection: the character (comma / semicolon / tab) that appears most often in the first row\n- Quoted-cell parsing: everything between an opening and closing double-quote is treated as one field, including embedded newlines\n- Number conversion: values matching /^-?\\d+(\\.\\d+)?$/ are converted to the number type when the option is enabled\n- BOM stripping: a leading UTF-8 BOM in the input is removed automatically\n- Empty-line skipping: blank rows are ignored during parsing"
+      },
+      "examples": {
+        "title": "Example scenarios",
+        "items": [
+          {
+            "title": "Example 1: Convert an API JSON response to an Excel-ready CSV",
+            "body": "Paste [{\"name\":\"홍길동\",\"age\":30,\"city\":\"서울\"}, ...] into the input, select JSON → CSV, enable BOM and CRLF, then click 'Convert'. Downloading the result opens in Korean Windows Excel with all Hangul characters displayed correctly. Column order follows the key order of the first object."
+          },
+          {
+            "title": "Example 2: CSV with commas inside a cell — address data",
+            "body": "If an address cell contains '서울특별시, 강남구' (a comma inside the value), Excel wraps it in double-quotes when exporting. This tool parses the quoted field as a single value per RFC 4180, so the JSON output will contain address: '서울특별시, 강남구' intact — the comma does not split the field."
+          },
+          {
+            "title": "Example 3: Number auto-conversion option",
+            "body": "With 'Parse numbers' on, a CSV column value '30' becomes the JSON number 30 instead of the string '30'. This is convenient for downstream code that expects numeric types. Turn the option off if you need leading zeros preserved (e.g., postal codes like '01234' or phone numbers like '0101234567')."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why does Korean text look garbled when opening a CSV in Excel?",
+          "answer": "Windows Excel interprets a UTF-8 file without a BOM using the system locale, which on Korean Windows is CP949 (EUC-KR). UTF-8-encoded Hangul read as EUC-KR appears as garbage characters. Enabling the 'UTF-8 BOM' option prepends the three bytes EF BB BF to the file, signalling to Excel that the encoding is UTF-8 and causing Hangul to render correctly."
+        },
+        {
+          "question": "What JSON structure is supported?",
+          "answer": "JSON→CSV conversion requires the top-level value to be an array of objects: [ {...}, {...} ]. A single object { ... }, an array of primitives, or a nested array are not supported and will produce an error. Nested objects within a row (object-in-object) are serialized via JSON.stringify and placed in a single CSV cell."
+        },
+        {
+          "question": "Can it handle semicolon-delimited CSV files?",
+          "answer": "Yes. In the CSV→JSON direction, the delimiter is detected automatically from the first row: whichever of comma, semicolon, or tab appears most often is used. European CSV files commonly use semicolons, and the auto-detection handles them correctly. If auto-detection picks the wrong delimiter, inspect the first row for ambiguity."
+        },
+        {
+          "question": "What happens if a row has a different number of columns than the header?",
+          "answer": "A warning is shown for each mismatched row (row.N.colMismatch). Parsing continues: if the row has fewer cells than headers, missing values are filled with an empty string; extra cells beyond the header count are discarded. Conversion is not aborted."
+        },
+        {
+          "question": "Is my data sent to any server?",
+          "answer": "No. All conversion logic runs entirely in your browser using JavaScript. Neither the input nor the output is transmitted over the network. You can safely use this tool with personal data or confidential business data."
+        },
+        {
+          "question": "Can I choose the download file name?",
+          "answer": "The download button saves the file as 'worktool-[timestamp].csv' (or .json). You can rename the file in your file explorer after downloading. Some browsers show a 'Save as' dialog where you can change the name and location before saving."
+        }
+      ],
+      "cautions": [
+        "JSON input must be an array of objects ([ {...}, {...} ]). A single object or a primitive array will cause an error.",
+        "Nested objects or arrays within a row are serialized as a JSON string into a single CSV cell. Flatten the structure first if you need them as separate columns.",
+        "EUC-KR (CP949) encoded CSV files are not directly supported. Convert the file to UTF-8 first using Notepad, VS Code, or similar tools before pasting here.",
+        "Very large files (tens of thousands of rows or more) may be slow or may crash the browser tab due to memory limits.",
+        "With 'Parse numbers' enabled, values with a leading zero — such as postal codes ('01234') or phone numbers ('0101234567') — will lose the leading zero when converted to a number. Disable the option to keep them as strings."
+      ],
+      "related": [
+        {
+          "label": "Business registration number validator",
+          "href": "/biznum-check"
+        },
+        {
+          "label": "Compound interest calculator",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Percentage calculator",
+          "href": "/percent-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "insurance-calc": {
+      "overview": "The 4 Major Insurances Calculator applies Korea's confirmed 2026 rates to split a single monthly salary into employee and employer shares across all five mandatory programs: National Pension, Health Insurance, Long-Term Care, Employment Insurance, and Workers' Compensation. From January 2026 the National Pension rate rose from 9% to 9.5% (4.75% each side), and Health Insurance rose from 7.09% to 7.19% (3.595% each). It automatically checks the pension income cap (6.37 million KRW) and shows both your net take-home pay and the employer's true labor cost. The Workers' Comp rate varies by industry, so you can adjust it yourself.",
+      "useCases": [
+        "Employees: quickly verify that this month's payslip deductions are correct",
+        "HR/payroll staff: simulate a new hire's true labor cost (salary + employer-side insurance) before setting compensation",
+        "Freelancer-to-employee transition: compare offers by net pay after the 4 insurance deductions",
+        "Small business owners: budget total labor cost before deciding staff salaries",
+        "Gauge the impact of the 2026 National Pension and Health Insurance rate hikes"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter your monthly salary (standard remuneration) in KRW. Use pre-tax base pay plus fixed allowances. Irregular items such as bonuses or annual-leave pay may differ from actual deductions depending on whether they are included.",
+          "Check the Workers' Comp rate. The default is the all-industry average of 0.86%; for high-risk sectors such as construction or manufacturing, switch to the rate published by COMWEL (e.g. ~3.6% for construction) for accuracy.",
+          "Click Calculate to see a per-insurance table of employee and employer shares, your net take-home pay (salary − total employee share), and the employer's total labor cost (salary + total employer share)."
+        ]
+      },
+      "formula": {
+        "title": "Formula based on 2026 rates",
+        "body": "National Pension: standard income × 9.5% (employee 4.75% / employer 4.75%)\n  - Income cap 6,370,000 KRW / floor 390,000 KRW (Jul 2025 – Jun 2026)\n  - 2026.1 pension reform hike: 9% → 9.5%\n\nHealth Insurance: salary × 7.19% (employee 3.595% / employer 3.595%)\n  - 2026 hike: 7.09% (frozen 2024–2025) → 7.19%\n\nLong-Term Care: health premium (employee + employer) × 13.14%, split in half\n  - 2026 hike: 12.95% → 13.14%\n\nEmployment Insurance (unemployment): salary × 1.8% (employee 0.9% / employer 0.9%)\nEmployment Insurance (job stability/skills): employer only, 0.25% for firms under 150 staff\n\nWorkers' Comp: salary × industry rate (employer pays 100%)\n  - Average 0.86%, ranging 0.6%–38% by industry (COMWEL)\n\n[Rounded down to the nearest 10 KRW — same as the agencies' actual billing]"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: Employee earning 3M KRW/month (2026 rates)",
+            "body": "National Pension (employee): 3,000,000 × 4.75% = 142,500 KRW\nHealth (employee): 3,000,000 × 3.595% = 107,850 KRW\nLong-Term Care: (107,850×2) × 13.14% ÷ 2 ≈ 14,140 KRW\nEmployment: 3,000,000 × 0.9% = 27,000 KRW\n→ Total employee deduction ≈ 291,490 KRW / net pay ≈ 2,708,510 KRW\n→ Employer adds ≈ 351,080 KRW / total labor cost ≈ 3,351,080 KRW"
+          },
+          {
+            "title": "Example 2: 7M KRW/month — above the pension cap",
+            "body": "The National Pension income cap of 6,370,000 KRW applies. Instead of 7M × 4.75%, it is 6.37M × 4.75% = 302,575 KRW (rounded). Health Insurance, however, applies to the full 7M salary (3.595% = 251,650 KRW). A cap warning is shown automatically."
+          },
+          {
+            "title": "Example 3: Small employer — annual cost for a 36M KRW salary",
+            "body": "At 3M/month the employer share is ~351,080 KRW × 12 = ~4,212,960 KRW per year. True annual labor cost = 36M + ~4.21M = ~40.21M KRW. The 2026 pension and health hikes raised this versus the prior year."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why was more National Pension deducted in 2026?",
+          "answer": "A 2025 amendment to the National Pension Act raised the rate from 9% to 9.5% (a 0.5 point increase) effective January 2026. It then rises 0.5 points each year to 13% by 2033. At a 3M KRW salary the employee's annual share rises by about 18,000 KRW."
+        },
+        {
+          "question": "How is the Long-Term Care premium calculated?",
+          "answer": "It is the health premium (employee + employer combined) multiplied by 13.14%, then split in half. In practice, the Long-Term Care line on your payslip ≈ your health premium (employee share) × 13.14%. It rose from 12.95% to 13.14% in 2026."
+        },
+        {
+          "question": "When does the National Pension income cap change?",
+          "answer": "The National Pension Service adjusts it every July based on the change in the average insured income. The current cap is 6,370,000 KRW for July 2025 – June 2026 and is reset again in July 2026. High earners above the cap pay a fixed maximum premium."
+        },
+        {
+          "question": "Does the job-stability/skills contribution vary by company size?",
+          "answer": "Yes. It is 0.25% for firms under 150 staff, 0.45% for priority-support firms of 150–under 1,000, 0.65% for other 150–1,000 firms, and 0.85% for firms of 1,000+ and government bodies. This tool defaults to 0.25% (under 150 staff)."
+        },
+        {
+          "question": "What industry does the 0.86% Workers' Comp average represent?",
+          "answer": "It is the all-industry average published yearly by COMWEL. Actual rates differ widely — roughly 0.6% for finance/insurance, 1.0–2.0% for manufacturing, and ~3.6% for construction. Change it to your own industry rate for accuracy."
+        },
+        {
+          "question": "Can 3.3%-withholding freelancers use this calculator?",
+          "answer": "No — freelancers under 3.3% withholding (business-income earners) are not mandatorily enrolled in the four insurances, so this tool does not fit. Only 3% income tax + 0.3% local tax is withheld; the four insurances may instead require separate enrollment as a regional subscriber."
+        }
+      ],
+      "cautions": [
+        "This tool uses confirmed 2026 rates; the National Pension income cap (6.37M KRW) is due for readjustment in July 2026.",
+        "Amounts are rounded down to the nearest 10 KRW, so they may differ from agency bills by under 1 KRW.",
+        "Whether irregular pay (bonuses, leave pay) counts toward the insurances depends on the employment contract and work rules; this tool treats the full input as standard remuneration.",
+        "The Employment Insurance job-stability/skills rate varies by firm size. The default (0.25%) assumes under 150 staff.",
+        "Results are for reference only. Confirm exact deductions via your payslip or the 4-Insurance EDI / your workplace administrator."
+      ],
+      "related": [
+        {
+          "label": "Net Salary Calculator",
+          "href": "/net-salary"
+        },
+        {
+          "label": "National Pension Refund",
+          "href": "/pension-refund"
+        },
+        {
+          "label": "Foreigner Health Insurance",
+          "href": "/foreign-health-insurance"
+        },
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "foreign-stock-tax": {
+      "overview": "The Foreign Stock Capital Gains Tax Calculator computes the tax for a Korean resident selling overseas shares (US, Japan, China, etc.). It converts the gain to KRW using the official exchange rate at both the purchase and sale dates, then applies the 2.5 million KRW annual deduction and the 22% rate (20% income tax + 2% local tax). If you already used part of the deduction on another holding this year, enter it in the 'deduction already used' field to apply only the remainder. Results are a preliminary simulation for the May Hometax filing; inputs are processed in your browser and never sent to a server.",
+      "useCases": [
+        "Estimate tax before the May final filing after selling US stocks (S&P 500 ETFs or single names)",
+        "In a high-volatility year, simulate how the gap between the buy-date and sell-date exchange rates affects tax",
+        "Year-end loss-offset strategy: sell losing positions before winners to lower the taxable base",
+        "Plan sales within the 2.5M KRW deduction: back-calculate the gain that keeps tax at zero",
+        "Gauge the taxable gain on holdings before transferring proceeds to an ISA or pension account"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter the buy price (in foreign currency) and the exchange rate at purchase. Find the official rate at the Bank of Korea ECOS (ecos.bok.or.kr) or the 'applied rate' on your brokerage statement.",
+          "Enter the sell price (in foreign currency) and the exchange rate at sale. If you bought the same stock multiple times, use the weighted-average unit cost.",
+          "Enter transaction costs (fees + taxes, in KRW). For US stocks this includes brokerage commissions plus the SEC sell fee. Costs are subtracted from the gain.",
+          "If you already used part of the annual deduction on other foreign-stock gains this year, enter it under 'deduction already used' (0 if none). Click Calculate to see the taxable base, tax, and after-tax profit step by step."
+        ]
+      },
+      "formula": {
+        "title": "Formula (Income Tax Act §94·§104)",
+        "body": "① KRW buy = buy price (foreign) × buy-date rate\n② KRW sell = sell price (foreign) × sell-date rate\n③ Capital gain = ② − ① − transaction cost (KRW)\n\n④ Remaining deduction = 2,500,000 KRW − deduction already used this year\n⑤ Taxable base = max(0, ③ − ④)\n⑥ Capital gains tax = ⑤ × 22%\n   (20% income tax + 2% local tax)\n⑦ After-tax profit = ③ − ⑥\n\n- The 22% rate is a flat rate regardless of income size\n- The 2.5M KRW deduction resets once per year\n- Exchange rate: official rate at the buy date and sell date — so FX moves also affect the gain"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: 5M KRW gain on US stock — full deduction available",
+            "body": "Capital gain 5,000,000 − deduction 2,500,000 = taxable base 2,500,000 KRW\nTax = 2,500,000 × 22% = 550,000 KRW\nAfter-tax profit = 5,000,000 − 550,000 = 4,450,000 KRW\n→ Effective rate on the gain is 11%. The 2.5M deduction softens the burden."
+          },
+          {
+            "title": "Example 2: FX effect — dollar gain but the KRW gain vanishes",
+            "body": "Buy: $100 × 1,350 KRW = 135,000 KRW\nSell: $110 × 1,230 KRW = 135,300 KRW\nA +10% gain in dollars, but only 300 KRW (+0.2%) in won\n→ With a 300 KRW gain, it falls within the 2.5M deduction — zero tax\nA classic case where the FX drop offset the price rise."
+          },
+          {
+            "title": "Example 3: Loss offset — sell the losing name first this year",
+            "body": "Stock A gain 6M KRW, Stock B loss 2M KRW (sold the same year)\nNet gain = 6M − 2M = 4M KRW\nTaxable base = 4M − 2.5M deduction = 1.5M KRW\nTax = 1.5M × 22% = 330,000 KRW\nvs filing only the 6M gain without offset: (6M − 2.5M) × 22% = 770,000 KRW → ~440,000 KRW saved."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "When do I file foreign-stock capital gains tax?",
+          "answer": "You file the final return at Hometax (hometax.go.kr) from May 1 to May 31 each year, covering sales from January 1 to December 31 of the prior year. Failing to file triggers a non-filing penalty (20%) plus a late-payment penalty."
+        },
+        {
+          "question": "How do I make the most of the 2.5M KRW deduction?",
+          "answer": "If your total annual foreign-stock gain (after loss offset) is 2.5M KRW or less, the tax is zero. Many investors time their realizations to stay at or under 2.5M ('tax harvesting'). The deduction is calculated separately from domestic stock and real-estate gains."
+        },
+        {
+          "question": "Which exchange rate should I use?",
+          "answer": "Use the Bank of Korea base rate (the standard reference rate). Apply the rate for the actual transaction date — the acquisition date for the buy and the transfer date for the sell. You can back-calculate from the 'KRW-converted amount' on your brokerage statement or look it up directly at ECOS (ecos.bok.or.kr)."
+        },
+        {
+          "question": "Can I offset domestic-stock losses against foreign-stock gains?",
+          "answer": "Under current law, domestic listed-stock gains/losses and foreign-stock gains/losses cannot be offset against each other. Foreign stocks can offset each other within the same year. Even after the 2025 repeal of the financial-investment income tax, foreign stocks keep the separate 22% regime."
+        },
+        {
+          "question": "Are foreign ETFs and single stocks taxed at the same rate?",
+          "answer": "If you buy an ETF listed on a foreign exchange through a Korean broker, it is taxed like a single stock at 22% on the gain. However, a foreign-index ETF listed on a Korean exchange (e.g. TIGER US S&P500) has its gains taxed as dividend income (15.4%) and is outside this tool's scope."
+        },
+        {
+          "question": "What counts as transaction costs?",
+          "answer": "For US stocks, the main items are brokerage commissions (buy + sell) and the SEC sell fee (sale amount × about 0.00278%). Korea's securities transaction tax does not apply to foreign stocks. Transaction costs are subtracted from the gain, which lowers the tax."
+        }
+      ],
+      "cautions": [
+        "This calculator simulates a single trade. If you bought the same stock multiple times, compute and enter the weighted-average cost yourself.",
+        "Compute your full annual taxable base by summing all foreign-stock trades and file accordingly; this tool handles only one trade.",
+        "A foreign-index ETF listed on a Korean exchange is subject to dividend income tax (15.4%), not capital gains tax, so it differs from this tool.",
+        "Exchange rates, tax rates, and deduction limits change when laws are amended. Confirm the exact filing via Hometax or a tax accountant.",
+        "Results are for reference only and have no legal force. For large amounts or complex trades, consult a licensed tax accountant."
+      ],
+      "related": [
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Freelancer Tax Calculator",
+          "href": "/freelancer-tax"
+        },
+        {
+          "label": "4 Major Insurances Calculator",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Compound Interest Calculator",
+          "href": "/compound-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "labor-annual-leave": {
+      "overview": "The annual leave calculator applies the three-tier rule of Article 60 of the Korean Labor Standards Act automatically. Employees with under one year of service accrue 1 day per fully-worked month, up to 11 days; those with one year or more and at least 80% attendance receive 15 days; from the third year, 1 extra day is added every two years, capped at 25 days. Enter your hire date and reference date to instantly see accrued leave days and unused-leave compensation (based on monthly salary or daily ordinary wage).",
+      "useCases": [
+        "New hires: see how many months in (including probation) leave starts to accrue",
+        "HR staff: compute leave entitlement per employee by length of service",
+        "Departing employees: convert remaining unused leave to cash and combine with severance",
+        "Contract and part-time workers: check monthly accrual rules in the first year",
+        "Dispute prevention: pinpoint the every-two-years increment at years 3, 5, 7, etc."
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter your hire date in YYYY-MM-DD format. The reference date defaults to today — change it to calculate as of a specific date.",
+          "Select whether attendance is 80% or higher. Below 80%, the monthly 1-day accrual rule (Article 60(3)) applies instead of 15 days.",
+          "Enter unused leave days and monthly salary (or daily ordinary wage) to auto-calculate compensation. Skip this if you don't need the cash value.",
+          "Review the step-by-step breakdown on the result screen. It also shows the leave you will accrue at your next anniversary (1st year, 2nd year, etc.)."
+        ]
+      },
+      "formula": {
+        "title": "Formula (Labor Standards Act Article 60)",
+        "body": "Under 1 year: accrued leave = completed months of service (max 11 days)\n\n1 year or more: accrued leave = 15 days (attendance 80% or higher)\n\n3 years or more: accrued leave = 15 + ⌊(years − 1) ÷ 2⌋ days (cap 25 days)\n  e.g., year 3 = 16 days / year 5 = 17 days / year 9 = 19 days / year 21 = 25 days (cap)\n\nUnused leave pay = daily ordinary wage × unused days\nDaily ordinary wage = monthly ordinary wage ÷ 209 × 8\n\nBasis: Labor Standards Act Article 60(1)(2)(4), MOEL administrative interpretation (209 hours)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Employee at 7 months of service",
+            "body": "Seven full months worked. Under 1 year, so 1 day accrues per month → 7 days of leave. After the first year ends, an additional 15 days accrue separately, granted independently of the 7 days earned in the first year (regardless of whether they were used)."
+          },
+          {
+            "title": "Example 2: Employee at 5 years (monthly salary KRW 3.5M, 5 days unused)",
+            "body": "Five years or more, so leave = 15 + ⌊(5−1)÷2⌋ = 15 + 2 = 17 days. Daily ordinary wage = 3,500,000 ÷ 209 × 8 ≈ KRW 133,971. Unused pay = 133,971 × 5 = about KRW 669,856."
+          },
+          {
+            "title": "Example 3: 21+ years of service (reaching the leave cap)",
+            "body": "Year 21: 15 + ⌊(21−1)÷2⌋ = 15 + 10 = 25 days, reaching the statutory cap. Years 22 and 23 stay fixed at 25 days. A company may set a higher cap via work rules, but the statutory floor at this point is 25 days."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Does the probation period count toward length of service?",
+          "answer": "Yes, probation counts as continuous service. Even if you are confirmed as a regular employee after 3 months of probation, accrual is counted from the hire date, so the leave accrual timing does not change."
+        },
+        {
+          "question": "Is no leave accrued at all if attendance is below 80%?",
+          "answer": "No. In a year with attendance below 80%, the 15 days do not accrue, but 1 day still accrues per fully-worked month that year (Article 60(3)). For example, at 75% attendance in year 2, leave accrues for each fully-worked month (up to 11 days)."
+        },
+        {
+          "question": "Is the under-1-year leave (max 11 days) separate from the 15 days at 1 year?",
+          "answer": "Since the May 2018 amendment, yes — they are separate. In the first year you accrue up to 11 days (1 per month), and at the one-year anniversary an additional 15 days accrue independently. The 15 days are newly granted at the anniversary regardless of whether the first-year leave was used."
+        },
+        {
+          "question": "When must unused leave pay be paid?",
+          "answer": "Workplaces that lawfully run a leave-usage promotion scheme are exempt from paying compensation for unused leave. Without such promotion, payment is due by the wage payment date of the month following the leave expiry (typically the one-year expiry date)."
+        },
+        {
+          "question": "Do fixed-term employees accrue leave?",
+          "answer": "Regardless of contract length, leave accrues if weekly contractual hours are 15 or more. A one-year fixed-term worker can be paid for the leave days accrued before the contract ends. However, very-short-time workers (under 15 hours per week) are excluded from leave entitlement."
+        },
+        {
+          "question": "What if the company refuses to pay unused leave on departure?",
+          "answer": "Unused leave pay must be paid within 14 days of the departure date (Labor Standards Act Article 36). If unpaid, you can file a wage-arrears complaint with a regional MOEL office, and the claim must be exercised within 3 years."
+        }
+      ],
+      "cautions": [
+        "This calculator computes statutory leave under the Labor Standards Act and does not reflect leave granted above the statutory standard via work rules or collective agreements.",
+        "Attendance calculation (actual days worked vs. scheduled working days) varies by workplace in its details (holiday treatment, whether parental leave is included, etc.), so confirm the actual figure with HR or a labor attorney.",
+        "The 'ordinary wage' used for leave pay includes regular, uniform allowances beyond base pay. Reimbursement-type allowances such as meal or transport allowances are usually excluded from ordinary wage, but this can vary by workplace.",
+        "Workplaces that run a leave-usage promotion scheme may be exempt from paying for unused leave — verify lawful promotion separately.",
+        "Results are for reference only; for precise leave calculation, consult your workplace work rules and a labor attorney."
+      ],
+      "related": [
+        {
+          "label": "Weekly Holiday Pay Calculator",
+          "href": "/labor-calc/weekly-rest-pay"
+        },
+        {
+          "label": "Severance Pay Calculator",
+          "href": "/labor-calc/severance"
+        },
+        {
+          "label": "Minimum Wage to Monthly Salary",
+          "href": "/labor-calc/min-wage-monthly"
+        },
+        {
+          "label": "Net Salary Calculator",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "labor-min-wage-monthly": {
+      "overview": "The minimum wage to monthly salary calculator instantly converts an hourly wage into a monthly salary and annual income including weekly holiday pay. It automatically applies Korea's standard 209-hour basis (40 weekly hours + 8 weekly holiday hours × 4.345 weeks per month), the key point in 'monthly conversion', and supports pro-rata calculation when you enter shorter weekly hours. The 2025 minimum hourly wage is KRW 10,030, and 2026 is applied at the same level (to be updated upon official notice).",
+      "useCases": [
+        "Job seekers: check whether an offered hourly wage violates the minimum by converting to monthly",
+        "Part-time and short-time workers: calculate expected monthly pay based on weekly contractual hours",
+        "Employers and HR: pre-simulate labor cost increases in monthly and annual terms when the minimum wage rises",
+        "Contract negotiation: compare the difference depending on whether weekly holiday pay is included",
+        "Foreign workers: verify whether your hourly wage meets Korea's legal minimum standard"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter your hourly wage. If left blank, the minimum hourly wage for the year (KRW 10,030 for 2025 and 2026) is filled in automatically.",
+          "Set your weekly contractual hours. For full-time work (5 days, 8 hours), keep the default 40 hours; for short-time work (30, 25 hours, etc.), enter the actual hours.",
+          "Choose whether to include weekly holiday pay. When included, the monthly salary is computed using 209 hours (40-hour basis) or pro-rata hours; when excluded, only actual working hours are reflected."
+        ]
+      },
+      "formula": {
+        "title": "Formula (basis for 209 hours)",
+        "body": "Monthly contractual hours (with weekly holiday, 40-hour basis)\n  = (40 weekly hours + 8 weekly holiday hours) × average weeks per month\n  = 48 hours × (52 weeks ÷ 12 months)\n  = 48 × 4.345 ≈ 208.56 → 209 hours by administrative interpretation\n\nMonthly salary = hourly wage × 209 hours\n2025 and 2026 minimum wage: KRW 10,030 / hour\nMinimum monthly salary = 10,030 × 209 = KRW 2,096,270\n\nShort-time work (N weekly hours):\n  weekly holiday hours = (N ÷ 40) × 8 hours (cap 8 hours)\n  monthly contractual hours = (N + weekly holiday hours) × 4.345\n  monthly salary = hourly wage × monthly contractual hours\n\nBasis: Labor Standards Act Article 55 (weekly holiday), Minimum Wage Act, MOEL administrative interpretation (209 hours)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Full-time at minimum wage (40 weekly hours, 2025/2026 basis)",
+            "body": "KRW 10,030 × 209 hours = KRW 2,096,270 / month. Annualized to KRW 25,155,240. Weekly holiday pay alone = 10,030 × about 34.8 monthly holiday hours = about KRW 349,044 / month."
+          },
+          {
+            "title": "Example 2: Short-time work, 30 weekly hours (hourly KRW 12,000)",
+            "body": "Weekly holiday hours = (30 ÷ 40) × 8 = 6 hours. Monthly contractual hours = (30 + 6) × 4.345 ≈ 156.4 hours. Monthly salary = 12,000 × 156 = about KRW 1,876,800."
+          },
+          {
+            "title": "Example 3: Excluding weekly holiday pay (40 weekly hours, hourly KRW 13,000)",
+            "body": "Monthly contractual hours excluding holiday = 40 × 4.345 ≈ 173.8 → 174 hours. Monthly salary = 13,000 × 174 = KRW 2,262,000. With weekly holiday pay, 13,000 × 209 = KRW 2,717,000, a difference of about KRW 455,000."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why is 209 hours the basis?",
+          "answer": "Adding 8 weekly holiday hours to 40 weekly working hours gives 48 hours per week; multiplied by the average weeks per month, 4.345 (52 weeks ÷ 12 months), this equals 208.56 hours. MOEL administrative interpretation and case law round this to 209 hours as the basis for ordinary wage calculation."
+        },
+        {
+          "question": "What is the 2026 minimum hourly wage?",
+          "answer": "The minimum wage is decided and announced by the Minimum Wage Commission on August 5 each year and applies from January 1 of the following year. The 2025 minimum hourly wage is KRW 10,030, and the same amount is shown until the 2026 figure is announced. It is reflected in this tool immediately after the official notice."
+        },
+        {
+          "question": "Does every worker receive weekly holiday pay?",
+          "answer": "It arises when a worker with at least 15 weekly contractual hours has perfect attendance on all scheduled working days that week. Very-short-time workers with under 15 weekly hours do not receive weekly holiday pay."
+        },
+        {
+          "question": "Are meal and transport allowances included in the minimum wage?",
+          "answer": "Since 2024, meal and transport allowances paid regularly at least once a month are within the scope of the minimum wage. The phase-out of the previously applied exclusion ratios means most regularly paid amounts are now counted. Check MOEL standards for the detailed scope of inclusion."
+        },
+        {
+          "question": "What if a part-time hourly wage is below the minimum?",
+          "answer": "A minimum wage violation is a criminal offense punishable by up to 3 years imprisonment or a fine of up to KRW 20 million. A contract with an hourly wage below the minimum is void for that portion, and the shortfall against the minimum wage can be claimed within 3 years."
+        },
+        {
+          "question": "Are overtime, night, and holiday premiums reflected in this calculator?",
+          "answer": "This calculator computes only ordinary wage based on contractual hours. Overtime (+50%), night (+50%), and holiday (+50% to 100%) premiums are separate; after confirming your work schedule, you can add them in the net salary calculator."
+        }
+      ],
+      "cautions": [
+        "The 2025 and 2026 minimum hourly wage is based on KRW 10,030, and the 2026 minimum wage is a provisional value before official announcement. It will be reflected in this tool after the 2026 announcement.",
+        "The 209 monthly hours are based on full-time 40-hour work; short-time workers have different pro-rata hours — enter your actual contractual hours for an accurate value.",
+        "Confirm details such as inclusion of meal/transport allowances and the probation period (3 months, where 90% of the minimum wage may apply) against your workplace rules and MOEL standards.",
+        "Results are for reference only; confirm the actual pay agreement with your employment contract and your employer or a labor attorney."
+      ],
+      "related": [
+        {
+          "label": "Weekly Holiday Pay Calculator",
+          "href": "/labor-calc/weekly-rest-pay"
+        },
+        {
+          "label": "Annual Leave Calculator",
+          "href": "/labor-calc/annual-leave"
+        },
+        {
+          "label": "Severance Pay Calculator",
+          "href": "/labor-calc/severance"
+        },
+        {
+          "label": "Net Salary Calculator",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "labor-severance": {
+      "overview": "The severance pay calculator precisely applies the formula 'daily average wage × 30 × (service days ÷ 365)' under Article 8 of the Korean Employee Retirement Benefit Security Act. It computes the average wage from the total wages of the three months before departure (base pay + fixed allowances) and supports pro-rata inclusion of 3/12 of regular bonuses and annual leave pay. It also automatically handles the rule that applies the ordinary wage when the average wage is lower than the ordinary wage.",
+      "useCases": [
+        "Departing employees: pre-calculate the expected total severance to plan re-employment",
+        "HR staff: pre-compute severance provisions from each employee's service period and wage data",
+        "Contract enders: check whether fixed-term workers qualify for severance after one year or more",
+        "Bonus-inclusive calculation: understand the effect of annual regular bonuses on the average wage",
+        "DC-type retirement pension members: estimate the annual settlement amount to review funding adequacy"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter the hire date and resignation date. Service days are calculated automatically, and if under 365 days (1 year) it immediately notes that no severance accrues.",
+          "Enter total wages for the three months before departure. This is three months of base pay plus fixed allowances paid in the same period (position allowance, family allowance, etc.).",
+          "Optionally enter regular bonus (annual total) and annual leave pay (accrued in the prior year). Each is multiplied by 3/12 and included pro-rata in the average wage.",
+          "If you need the ordinary wage comparison, also enter the monthly ordinary wage. If it is higher than the average wage, the ordinary wage is applied automatically so severance is computed on the more favorable amount."
+        ]
+      },
+      "formula": {
+        "title": "Formula (Employee Retirement Benefit Security Act Article 8)",
+        "body": "Severance = daily average wage × 30 × (service days ÷ 365)\n\nDaily average wage\n  = (3-month total wages + bonus × 3/12 + leave pay × 3/12) ÷ 90 days\n  But if daily average wage < daily ordinary wage, the ordinary wage applies\n\nDaily ordinary wage = monthly ordinary wage ÷ 209 × 8\n\ne.g., 3-month wages KRW 9M, annual bonus KRW 2M, leave pay KRW 0.5M:\n  = (9,000,000 + 500,000 + 125,000) ÷ 90\n  = 9,625,000 ÷ 90 ≈ KRW 106,944 / day\n\nBasis: Employee Retirement Benefit Security Act Article 8, Labor Standards Act Article 2 (definitions of average wage and ordinary wage)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: 2 years of service, monthly salary KRW 3M (no bonus or leave pay)",
+            "body": "3-month total wages = KRW 9,000,000. Daily average wage = 9,000,000 ÷ 90 = KRW 100,000. Service days = 730. Severance = 100,000 × 30 × (730 ÷ 365) = 100,000 × 30 × 2 = KRW 6,000,000."
+          },
+          {
+            "title": "Example 2: 3 years 6 months, monthly salary KRW 3.5M + annual bonus KRW 7M",
+            "body": "3-month total wages = KRW 10,500,000. Bonus 3/12 = KRW 1,750,000. Daily average wage = (10,500,000 + 1,750,000) ÷ 90 ≈ KRW 136,111. Service days = 1,278. Severance = 136,111 × 30 × (1,278 ÷ 365) ≈ KRW 14,290,000."
+          },
+          {
+            "title": "Example 3: Ordinary wage applied because average wage < ordinary wage",
+            "body": "Unpaid sick leave in the three months before departure reduced wages → average wage KRW 80,000 / day. Monthly ordinary wage KRW 2,090,000 → daily ordinary wage = 2,090,000 ÷ 209 × 8 ≈ KRW 80,000. The two values are equal, so the ordinary wage is used. In practice, when the ordinary wage exceeds the average wage, the ordinary wage must be applied automatically."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is there really no severance for under one year of continuous service?",
+          "answer": "Correct. Article 8 of the Employee Retirement Benefit Security Act specifies one year or more of continuous service as the condition for severance. If you leave after 364 days, no severance accrues. However, if short contracts under one year are repeated, whether the service is continuous must be assessed separately."
+        },
+        {
+          "question": "How are bonuses included in the average wage?",
+          "answer": "For regularly paid bonuses, 3/12 (25%) of the annual total is added to the three-month wages of the average wage period. Irregular or one-off special bonuses are excluded from the average wage calculation."
+        },
+        {
+          "question": "If I have a DC-type (defined contribution) pension, is there separate severance?",
+          "answer": "A DC-type retirement pension is one where the employer contributes at least 1/12 of annual wages to the worker's account each year. For DC members, the amount accumulated in the personal account is the retirement benefit, so they do not separately claim severance from the employer upon departure."
+        },
+        {
+          "question": "Do parental leave and sick leave count toward service days?",
+          "answer": "Parental leave counts toward the service period (Equal Employment Act Article 19). However, the parental leave period is excluded from the average wage calculation, and the average wage period is extended by that duration. For sick leave (non-work injury or illness), treatment varies by workplace, so confirmation is needed."
+        },
+        {
+          "question": "When must severance be paid?",
+          "answer": "As a rule it must be paid within 14 days of the departure date (Employee Retirement Benefit Security Act Article 9). The payment deadline can be extended by agreement, but delays without agreement incur 20% annual delay interest."
+        },
+        {
+          "question": "Is severance taxed?",
+          "answer": "Severance is subject to retirement income tax. After applying the years-of-service deduction and the converted-wage deduction, it is taxed separately at progressive rates of 6 to 45%. Transferring it to a retirement pension (IRP) defers taxation until withdrawal, providing a tax-saving effect."
+        }
+      ],
+      "cautions": [
+        "This calculator uses a fixed 90-day average wage period. If the exact number of days in the actual three months before departure (89 to 92) differs, the result may slightly differ from the actual payment.",
+        "For DC-type pension members, the actual amount received may vary with investment results and may differ from this calculator's result.",
+        "If there is a history of abnormal wage payment such as wage arrears, the average wage period must be adjusted, so a labor attorney's confirmation is needed.",
+        "If interim severance settlement was made, calculation starts from after the interim settlement, so it may differ from the total service days.",
+        "Results are for reference only; confirm precise severance settlement with your employer or a labor attorney."
+      ],
+      "related": [
+        {
+          "label": "Annual Leave Calculator",
+          "href": "/labor-calc/annual-leave"
+        },
+        {
+          "label": "Weekly Holiday Pay Calculator",
+          "href": "/labor-calc/weekly-rest-pay"
+        },
+        {
+          "label": "Minimum Wage to Monthly Salary",
+          "href": "/labor-calc/min-wage-monthly"
+        },
+        {
+          "label": "Net Salary Calculator",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "labor-weekly-rest-pay": {
+      "overview": "The weekly holiday pay calculator precisely computes the pay due on the one paid weekly holiday under Article 55 of the Korean Labor Standards Act. It automatically verifies the two accrual conditions — at least 15 weekly contractual hours and perfect attendance on that week's scheduled working days — and calculates 8 hours' worth for full-time 40-hour workers and a pro-rata (weekly hours ÷ 40) × 8 hours for short-time workers. Enter an hourly wage or a monthly salary (reverse-derived from 209 hours) to see results in weekly, monthly, and annual terms.",
+      "useCases": [
+        "Part-time and short-time workers: check how much weekly holiday pay you get from your hourly wage and weekly hours",
+        "Employers: pre-plan total labor cost including weekly holiday pay when hiring part-time staff",
+        "Workers near the 15-hour threshold: judge whether weekly holiday pay accrues and compute the amount if it does",
+        "Employment contract review: reverse-check whether weekly holiday pay is included in the contracted monthly salary",
+        "Wage dispute preparation: estimate the claim amount by figuring monthly and annual accumulated unpaid weekly holiday pay"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter your hourly wage. If you have a monthly salary, enter it and the hourly wage is auto-derived using the 209-hour basis.",
+          "Enter your weekly contractual hours. The default is 40 hours (5 days, 8 hours per day). Below 15 weekly hours, it automatically notes that no weekly holiday pay accrues.",
+          "From the results, check weekly holiday hours, one week's holiday pay, monthly holiday pay (converted over 4.345 weeks), and annual holiday pay. The step-by-step breakdown is shown as well."
+        ]
+      },
+      "formula": {
+        "title": "Formula (Labor Standards Act Article 55)",
+        "body": "Accrual conditions: at least 15 weekly contractual hours + perfect attendance on scheduled working days\n\nWeekly holiday hours = (weekly contractual hours ÷ 40) × 8 hours (cap 8 hours)\n  - 40 weekly hours: weekly holiday hours = 8 hours\n  - 30 weekly hours: weekly holiday hours = (30 ÷ 40) × 8 = 6 hours\n  - 20 weekly hours: weekly holiday hours = (20 ÷ 40) × 8 = 4 hours\n\nOne week's holiday pay = weekly holiday hours × hourly wage\nMonthly holiday pay = one week's holiday pay × 4.345 weeks\nAnnual holiday pay = monthly holiday pay × 12 months\n\nBasis: Labor Standards Act Article 55 (paid weekly holiday), MOEL administrative interpretation (pro-rata for short-time workers)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Full-time, 40 weekly hours (hourly KRW 12,000)",
+            "body": "Weekly holiday hours = 8 hours. One week's holiday pay = 12,000 × 8 = KRW 96,000. Monthly holiday pay = 96,000 × 4.345 ≈ KRW 417,120. Annual holiday pay ≈ KRW 5,005,440. Under a 209-hour monthly salary, this pay is already included."
+          },
+          {
+            "title": "Example 2: Part-time, 20 weekly hours (hourly KRW 10,030, 2025/2026 minimum wage)",
+            "body": "Weekly holiday hours = (20 ÷ 40) × 8 = 4 hours. One week's holiday pay = 10,030 × 4 = KRW 40,120. Monthly holiday pay = 40,120 × 4.345 ≈ KRW 174,321. Pure weekly working wage (20 hours) = 10,030 × 20 × 4.345 ≈ KRW 871,807. Monthly total including holiday ≈ KRW 1,046,128."
+          },
+          {
+            "title": "Example 3: Very-short-time worker, 14 weekly hours (no weekly holiday pay)",
+            "body": "Weekly contractual hours are 14, below 15, so no weekly holiday pay accrues. In this case monthly pay = hourly wage × 14 hours × 4.345 weeks only. Beware of the practice of contracting at 14 hours per week to avoid weekly holiday pay."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is there always no weekly holiday pay below 15 weekly hours?",
+          "answer": "Under Article 18 of the Labor Standards Act, workers whose average weekly contractual hours over four weeks are below 15 are excluded from weekly holiday pay. Because it is calculated as a four-week average, even if some week was below 15 hours, weekly holiday pay can still accrue if the four-week average is 15 hours or more."
+        },
+        {
+          "question": "Does no weekly holiday pay accrue without perfect attendance?",
+          "answer": "No weekly holiday pay accrues in a week with an absence on a scheduled working day. However, lateness, early leave, and statutory public holidays are not treated as absences and do not affect weekly holiday pay. A day on which annual leave is used is treated as attendance, so weekly holiday pay accrues."
+        },
+        {
+          "question": "Do monthly-paid workers receive weekly holiday pay separately?",
+          "answer": "For monthly-paid workers, weekly holiday pay is generally already included in the monthly salary. The 209-hour monthly salary is exactly such a case (40 weekly hours + 8 weekly holiday hours × 4.345 weeks = 209 hours). If the employment contract lists 'weekly holiday pay' as a separate item beyond 'base pay', beware of double counting."
+        },
+        {
+          "question": "What if the employer does not pay weekly holiday pay?",
+          "answer": "Non-payment of weekly holiday pay is wage arrears and can be reported to a regional MOEL office. There is a 3-year claim right, and if wage arrears are confirmed, the employer faces criminal punishment and must pay the unpaid wages."
+        },
+        {
+          "question": "Do daily and dispatched workers accrue weekly holiday pay?",
+          "answer": "Even daily workers accrue weekly holiday pay if, at the same workplace during one week, they complete at least 15 weekly contractual hours and have perfect attendance. Even with no scheduled work the next week, they can claim it if that week's conditions were met."
+        },
+        {
+          "question": "Is weekly holiday pay included in the average wage used for severance?",
+          "answer": "Weekly holiday pay is included in the ordinary wage. So for monthly-paid workers, the entire 209-hour monthly salary becomes the ordinary wage, and the daily ordinary wage derived from it becomes the comparison basis for leave pay and severance."
+        }
+      ],
+      "cautions": [
+        "Whether the 15-hour threshold is met is judged by the four-week average weekly contractual hours, so you cannot conclude there is no weekly holiday pay simply because 'one week was 14 hours' — check the four-week average.",
+        "Depending on absences, weekly holiday pay may not accrue for that week. Whether attendance is perfect follows the workplace work rules.",
+        "This calculator is a simple computation based on contractual hours and does not reflect actual attendance or the four-week average calculation.",
+        "Be sure to check the employment contract for the difference between a monthly salary that includes weekly holiday pay and a contract that pays weekly holiday pay separately.",
+        "Results are for reference only; for precise calculation in a wage dispute, consult a labor attorney or a MOEL consultation."
+      ],
+      "related": [
+        {
+          "label": "Minimum Wage to Monthly Salary",
+          "href": "/labor-calc/min-wage-monthly"
+        },
+        {
+          "label": "Annual Leave Calculator",
+          "href": "/labor-calc/annual-leave"
+        },
+        {
+          "label": "Severance Pay Calculator",
+          "href": "/labor-calc/severance"
+        },
+        {
+          "label": "Net Salary Calculator",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "electric-voltage-drop": {
+      "overview": "The Voltage Drop Calculator takes conductor cross-section, current, run length, and phase type, then computes the voltage drop (V) and drop percentage (%) and compares it against the distance-based allowable limits in Korea's KEC wiring standard (formerly the Naeseon code). It supports both copper and aluminum conductors and applies the correct coefficient for single-phase 2-wire, single-phase 3-wire, 3-phase 3-wire, and 3-phase 4-wire circuits. Use it to confirm whether a wire gauge is adequate for the run distance and whether the voltage at the far end stays within equipment tolerance.",
+      "useCases": [
+        "Check whether the drop exceeds the limit when a load is far from the distribution panel",
+        "Decide whether to step up to a larger wire gauge because of excessive drop",
+        "Compare voltage drop between single-phase and 3-phase wiring options",
+        "Assess the extra drop when using aluminum conductors instead of copper",
+        "Learn the voltage-drop formula for Korean electrician licensing exams"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter the line (or phase) voltage (V) and load current (A) — e.g., 220V single-phase, 380V 3-phase.",
+          "Enter the run length (m, one-way) — the actual wire length from the panel to the load.",
+          "Select the conductor cross-section (㎟) from the KS standard sizes, the conductor material (copper/aluminum), and the phase type (single-2, single-3, 3-phase-3, 3-phase-4).",
+          "Read the voltage drop (V), drop percentage (%), the distance-based limit, and the pass/fail verdict. If it fails, increase the cross-section or shorten the run."
+        ]
+      },
+      "formula": {
+        "title": "Formula & basis (KEC / former Naeseon code)",
+        "body": "■ Voltage drop\n  e = (coefficient × L × I) ÷ (1000 × A)\n    L = run length (m, one-way), I = current (A), A = cross-section (㎟)\n\n■ Coefficient by phase type (copper)\n  Single-phase 2-wire        35.6\n  3-phase 3-wire             30.8\n  Single-phase 3-wire / 3-phase 4-wire  17.8\n  Aluminum conductor: coefficient × 1.6\n\n■ Drop percentage\n  e(%) = (e ÷ V) × 100\n\n■ Allowable drop by distance (combined feeder + branch)\n  ≤ 60m — 3% / ≤ 120m — 5% / ≤ 200m — 6% / > 200m — 7%"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: 220V single-phase, 20A, 50m, 4㎟ copper",
+            "body": "e = (35.6 × 50 × 20) ÷ (1000 × 4) = 8.9V. Drop = 8.9 ÷ 220 × 100 ≈ 4.05%. The ≤60m limit is 3%, so this fails. Increasing to 6㎟ or larger brings it down to about 2.7% and passes."
+          },
+          {
+            "title": "Example 2: 380V 3-phase 3-wire, 30A, 80m, 10㎟ copper",
+            "body": "e = (30.8 × 80 × 30) ÷ (1000 × 10) = 7.39V. Drop = 7.39 ÷ 380 × 100 ≈ 1.95%. Within the ≤120m limit of 5%, so it passes."
+          },
+          {
+            "title": "Example 3: switching from copper to aluminum",
+            "body": "Same as Example 1 but aluminum: coefficient 35.6 × 1.6 = 56.96 → e ≈ 14.24V, drop ≈ 6.47%. Aluminum's lower conductivity raises the drop by about 60% at the same gauge — you must size up at least one step."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Is the run length one-way or round-trip?",
+          "answer": "Enter the one-way length (panel to load). The return current path is already accounted for in the phase coefficients (35.6, 30.8, 17.8), so do not double the distance."
+        },
+        {
+          "question": "What are the 3% / 5% allowable limits based on?",
+          "answer": "They come from Korea's KEC wiring standard (formerly the Naeseon code): 3% for runs ≤60m, 5% for ≤120m, 6% for ≤200m, 7% over 200m. These are end-of-run values combining feeder and branch circuits, set to keep lighting and equipment within their normal operating voltage."
+        },
+        {
+          "question": "What should I do if the drop exceeds the limit?",
+          "answer": "Either (1) step up the conductor cross-section, (2) shorten the run by relocating the panel, or (3) switch single-phase to 3-phase (lower coefficient). Increasing the wire gauge is the most common fix."
+        },
+        {
+          "question": "Why does aluminum wire have a larger voltage drop?",
+          "answer": "Aluminum's conductivity is about 61% of copper's, so at the same cross-section its resistance — and voltage drop — is roughly 1.6× higher. This calculator applies a ×1.6 factor automatically when aluminum is selected. To match copper's drop, size aluminum one or two steps larger."
+        },
+        {
+          "question": "Does it account for DC or power factor?",
+          "answer": "This is a simplified AC calculation assuming a power factor of 1, ignoring line reactance (inductance). Long, high-current, or low-power-factor circuits are more affected by reactance — use a licensed engineer or design software for precise work."
+        }
+      ],
+      "cautions": [
+        "Simplified AC calculation assuming power factor 1 and ignoring reactance. Precise design needs full line-impedance calculation.",
+        "Enter the one-way length; the round-trip path is already in the phase coefficient.",
+        "Allowable limits follow the KEC distance bands; actual design depends on feeder/branch allocation and equipment characteristics.",
+        "Reference calculation only. Have an electrical safety manager or qualified engineer review actual installations.",
+        "Cross-section must be a KS standard size."
+      ],
+      "related": [
+        {
+          "label": "Wire Size Calculator",
+          "href": "/electric-calc/wire-size"
+        },
+        {
+          "label": "Breaker Capacity Calculator",
+          "href": "/electric-calc/breaker"
+        },
+        {
+          "label": "Industrial Electrical Calculators",
+          "href": "/electric-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-concrete": {
+      "overview": "The Concrete Volume Calculator computes pour volume for two foundation types common in light-frame construction: Strip Footings and Mat Slabs. Enter width, depth (or thickness), and length to get net volume, waste-adjusted order volume (default 5% waste), a quick rebar estimate (default 90 kg/m³ for residential strip footings), and the number of ready-mix trucks based on the Korean standard 6 m³ per truck. It is designed to catch ordering errors before concrete is dispatched to site.",
+      "useCases": [
+        "Pre-order check for ready-mix quantity and truck count before timber-frame house foundation work",
+        "Concrete volume takeoff for small sheds, farm buildings, or container pads",
+        "Side-by-side comparison of different slab thicknesses to balance cost vs strength",
+        "Cross-checking a contractor's concrete quote against your own calculation",
+        "Quick rebar weight estimate for preliminary steel budget"
+      ],
+      "howTo": {
+        "title": "How to Use (4 Steps)",
+        "steps": [
+          "Select foundation type. Choose 'Strip Footing' for a continuous wall footing, or 'Mat Slab' for a flat slab covering the entire footprint.",
+          "Enter width (m), depth or thickness (m), and length (m). For strip footings, depth is the vertical dimension below grade. For mat slabs, thickness is the slab depth.",
+          "Adjust waste factor (%). The default 5% covers typical pour loss and form leakage on straightforward sites. Increase to 10% for uneven terrain or complex formwork.",
+          "Check or adjust rebar density (kg/m³). The default 90 kg/m³ is a rule-of-thumb for residential strip footings with D10–D13 double-layer rebar. Review the results: adjusted volume (m³), rebar weight (kg), and ready-mix truck count."
+        ]
+      },
+      "formula": {
+        "title": "Formulas & References",
+        "body": "■ Net Volume\n  V_raw = width (m) × depth or thickness (m) × length (m)\n\n■ Waste-Adjusted Volume\n  V_adj = V_raw × (1 + waste % / 100)\n  Default waste: 5% (max 30%)\n\n■ Rebar Weight (quick estimate)\n  W_rebar = V_adj × rebar density (default 90 kg/m³)\n  Note: Rule-of-thumb for residential footings only. Use structural drawings for permitted buildings.\n\n■ Ready-Mix Truck Count\n  N_truck = V_adj ÷ 6 m³\n  Korean standard drum mixer: 6 m³ capacity (KS F 4009 convention)\n  Result is shown as a decimal — round up when placing order"
+      },
+      "examples": {
+        "title": "Worked Examples",
+        "items": [
+          {
+            "title": "Example 1: Farm cabin strip footing (10 m × 0.4 m × 0.3 m)",
+            "body": "Width 0.4 m, depth 0.3 m, length 10 m → net volume 1.2 m³. With 5% waste: 1.26 m³. Truck count: 0.21 (order 1 truck — check minimum order with supplier). Rebar at 90 kg/m³: ≈ 113 kg."
+          },
+          {
+            "title": "Example 2: Timber-frame house mat slab (8 m × 10 m, 150 mm thick)",
+            "body": "Width 8 m, thickness 0.15 m, length 10 m → net volume 12 m³. With 5% waste: 12.6 m³. Truck count: 2.1 (order 3 trucks to cover 12.6 m³ across two loads). Rebar at 90 kg/m³: ≈ 1,134 kg. Cross-check with structural engineer's rebar schedule before ordering."
+          },
+          {
+            "title": "Example 3: 4 isolated column pads (each 0.6 m × 0.4 m × 0.6 m)",
+            "body": "Single pad: 0.6 × 0.4 × 0.6 = 0.144 m³. To total 4 pads, enter length as 2.4 m (0.6 × 4) or multiply result by 4 manually. Total with 5% waste: ≈ 0.605 m³. Minimum ready-mix order in Korea is typically 3 m³ — coordinate pour timing with other work."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Should I use 5% or 10% waste?",
+          "answer": "5% covers flat, simple sites with tight formwork. Use 7–10% for uneven ground, complex footing shapes, or whenever you are unsure. Running short after the truck leaves is expensive — when in doubt, add more waste factor."
+        },
+        {
+          "question": "Is one Korean ready-mix truck exactly 6 m³?",
+          "answer": "The standard agitator truck drum holds 6 m³ of mixed concrete. Some larger trucks carry 7–8 m³. This tool uses 6 m³ as the baseline. Always confirm the actual truck capacity with your ready-mix supplier before placing the order."
+        },
+        {
+          "question": "Is the calculation formula different for strip footings vs mat slabs?",
+          "answer": "The formula is identical: V = width × dimension × length. The difference is terminology — for strip footings the middle dimension is 'depth' (vertical below grade), for mat slabs it is 'thickness' (slab depth from top to bottom)."
+        },
+        {
+          "question": "What does the 90 kg/m³ rebar density represent?",
+          "answer": "It is a rule-of-thumb mid-point for residential strip footings reinforced with D10–D13 bars in a double grid (typical range 80–100 kg/m³). If you have structural drawings, use the rebar schedule instead — that will be far more accurate. Treat this tool's rebar output as a budget placeholder only."
+        },
+        {
+          "question": "Does this calculator handle concrete mix design (strength grade)?",
+          "answer": "No. This tool focuses on volume and rebar weight only. Specify concrete compressive strength (e.g., 21 MPa, 24 MPa) separately when ordering from a ready-mix plant. For most residential foundations in Korea, 21–24 MPa (fck) is standard. Check the structural general notes on your drawings."
+        },
+        {
+          "question": "How do I calculate L-shaped or T-shaped footings?",
+          "answer": "Split the cross-section into rectangular segments, calculate each segment separately, and add the volumes together. For isolated pads, enter one pad's dimensions, note the volume, and multiply by the number of pads. Complex shapes benefit from a structural drawing takeoff rather than this tool alone."
+        }
+      ],
+      "cautions": [
+        "Rebar weight (90 kg/m³) is a quick estimate without structural drawings. For permitted buildings, always follow the rebar schedule from your structural engineer.",
+        "Truck count is for reference. Confirm minimum order volume (usually 3 m³), delivery time limits, and pour sequencing with your ready-mix supplier.",
+        "Waste factor varies by site conditions. The default 5% suits straightforward sites; complex or uneven sites may need 10%.",
+        "This calculator does not assess structural adequacy. Any building requiring a permit must be reviewed by a licensed structural engineer.",
+        "Concrete mix design variables (water-cement ratio, slump, admixtures) are outside the scope of this tool."
+      ],
+      "related": [
+        {
+          "label": "Stud Count Calculator",
+          "href": "/timber-calc/studs"
+        },
+        {
+          "label": "Plywood Sheet Calculator",
+          "href": "/timber-calc/plywood"
+        },
+        {
+          "label": "OSB Sheathing Calculator",
+          "href": "/timber-calc/osb"
+        },
+        {
+          "label": "Lumber Board Feet Calculator",
+          "href": "/timber-calc/lumber"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-lumber": {
+      "overview": "The Lumber Board Feet Calculator converts width, thickness, length, and quantity into total volume (m³), Japanese/Korean Sai (才), North American Board Feet (BF), and weight (kg) by species — all in a single calculation. It is built for mixed-unit job sites where import SPF or Douglas Fir invoices are quoted in board feet while domestic lumber dealers still price in Sai, eliminating the unit conversion errors that inflate material costs.",
+      "useCases": [
+        "Total cost check for SPF 2×4 or 2×6 rafter stock purchased at a board-foot price",
+        "Sai-unit quantity and cost for domestic larch or pine sourced from a Korean lumber yard",
+        "Pre-delivery weight check to stay within truck payload limits",
+        "Comparing cost-per-volume between Douglas Fir and SPF at current market prices",
+        "Verifying a supplier's quoted board-foot count against your own dimensions"
+      ],
+      "howTo": {
+        "title": "How to Use (3 Steps)",
+        "steps": [
+          "Enter width (mm), thickness (mm), length (mm), and quantity. Note that nominal dimensions differ from actual (dressed) dimensions — a 2×4 is actually 38 mm × 89 mm after drying and planing.",
+          "Select wood species: SPF (Spruce-Pine-Fir mix), Larch, Pine, Cedar, Douglas Fir, or Oak. The density value for your chosen species (at 12% moisture content) is applied to calculate weight.",
+          "Read the results: total volume (m³), Sai, Board Feet, and weight (kg). Multiply by your unit price (per Sai or per BF) to get a material cost estimate."
+        ]
+      },
+      "formula": {
+        "title": "Formulas & References",
+        "body": "■ Volume per piece\n  V_per = (width mm × thickness mm × length mm) ÷ 1,000,000,000  [m³]\n\n■ Total volume\n  V_total = V_per × quantity\n\n■ Sai (才) conversion\n  Sai = V_total ÷ 0.003342\n  (1 才 = 1 Sun × 1 Sun × 12 Shaku ≈ 30.303 mm × 30.303 mm × 3,636.4 mm ≈ 0.003342 m³)\n\n■ Board Feet (BF) conversion\n  BF = V_total ÷ 0.002359737\n  (1 BF = 1 ft × 1 ft × 1 in = 144 in³ ≈ 2,359.737 cm³)\n\n■ Weight (air-dry, 12% moisture content)\n  W = V_total × species density [kg/m³]\n  SPF: 460 / Pine: 500 / Larch: 540 / Cedar: 380 / Douglas Fir: 530 / Oak: 750"
+      },
+      "examples": {
+        "title": "Worked Examples",
+        "items": [
+          {
+            "title": "Example 1: 30 pieces of 2×6 SPF rafter stock (3,600 mm)",
+            "body": "Width 140 mm, thickness 38 mm, length 3,600 mm, qty 30, species SPF. Volume per piece ≈ 0.019152 m³. Total volume ≈ 0.5746 m³. Sai ≈ 172 才. Board Feet ≈ 243.5 BF. Weight ≈ 264 kg (460 kg/m³ × 0.5746)."
+          },
+          {
+            "title": "Example 2: 10 pieces of larch 4×4 post (3,000 mm)",
+            "body": "Width 89 mm, thickness 89 mm, length 3,000 mm, qty 10, species Larch. Total volume ≈ 0.2376 m³. Sai ≈ 71 才. BF ≈ 100.7. Larch density 540 kg/m³ → weight ≈ 128 kg. Comfortably fits on a 1-ton pickup."
+          },
+          {
+            "title": "Example 3: 5 oak slabs for a dining table (400 × 50 × 2,000 mm)",
+            "body": "Total volume = (400 × 50 × 2000 / 1,000,000,000) × 5 = 0.2 m³. Sai ≈ 60 才. Weight ≈ 150 kg (750 kg/m³). Oak is dense — 50 pieces of this size would weigh 1.5 tonnes. Plan lifting equipment accordingly."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why is a 2×4 actually 38 mm × 89 mm?",
+          "answer": "North American dimensional lumber is sold by its nominal (rough-sawn) size of 2 in × 4 in (50.8 × 101.6 mm). After kiln drying and planing (S4S — Surfaced Four Sides), the lumber shrinks to its actual dressed size of 38 mm × 89 mm. Korea's KS F 3020 adopts these same North American dressed dimensions. Always input the actual (dressed) dimension, not the nominal label."
+        },
+        {
+          "question": "What is the difference between Sai (才) and Board Feet (BF)?",
+          "answer": "Sai is the traditional Korean and Japanese lumber unit: 1 才 ≈ 0.003342 m³ (one Sun square by 12 Shaku long). Board Feet is the North American unit: 1 BF ≈ 0.002360 m³ (one foot square by one inch thick). For the same volume: 1 m³ ≈ 299 Sai ≈ 424 BF. Korean lumber yards typically quote per Sai; imported lumber invoices use BF."
+        },
+        {
+          "question": "Does moisture content affect the weight result?",
+          "answer": "Yes. This tool uses air-dry density at 12% moisture content (MC), which is typical of kiln-dried (KD) structural lumber. Green lumber (fresh-sawn, MC 30–60%) is 30–60% heavier. If you are unsure of the actual MC, weigh a sample board and scale proportionally."
+        },
+        {
+          "question": "What exactly is SPF?",
+          "answer": "SPF stands for Spruce-Pine-Fir, a combined species designation for Canadian structural lumber that groups White Spruce, Red Pine, and Balsam Fir. It is the dominant import species for light-frame (stick-frame) construction due to its low density (≈ 460 kg/m³), ease of working, and wide availability. All three species have similar mechanical properties and are grouped for grading and pricing."
+        },
+        {
+          "question": "How do I enter dimensions in Shaku (尺) or feet?",
+          "answer": "This tool uses millimetres. Conversion: 1 Shaku (尺) = 303.03 mm. A standard 12-Shaku board (≈ 4.8 m) = 3,636 mm. One foot = 304.8 mm, so 12 ft = 3,658 mm. Enter the converted value in the length field."
+        }
+      ],
+      "cautions": [
+        "Weight is calculated at 12% moisture content (air-dry). Green or high-MC lumber can be 30–60% heavier in practice.",
+        "Always enter actual (dressed) dimensions, not nominal dimensions. A 2×4 is 38 × 89 mm, not 50 × 100 mm.",
+        "This tool outputs quantities only — it does not provide market prices per Sai or per BF.",
+        "Volume and weight calculations are for procurement planning only and do not assess structural load capacity or span adequacy."
+      ],
+      "related": [
+        {
+          "label": "Stud Count Calculator",
+          "href": "/timber-calc/studs"
+        },
+        {
+          "label": "Concrete Volume Calculator",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Plywood Sheet Calculator",
+          "href": "/timber-calc/plywood"
+        },
+        {
+          "label": "OSB Sheathing Calculator",
+          "href": "/timber-calc/osb"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-plywood": {
+      "overview": "The Plywood Sheet Calculator takes a wall, floor, or roof area (m²) and returns the number of standard 4×8 ft (1,220×2,440 mm = 2.9768 m²) 18 mm plywood sheets required, the waste-adjusted order area, total weight (33 kg/sheet), and an estimated nail count based on IRC R602.3 edge (150 mm) and field (300 mm) spacing. It is calibrated to Korean distribution-standard sheet sizes so quantities translate directly to a purchase order.",
+      "useCases": [
+        "Wall sheathing sheet count before framing a timber house exterior",
+        "Subfloor plywood quantity for floor joist decking",
+        "Roof deck plywood takeoff including slope-adjusted actual area",
+        "Replacement quantity for damaged wall or floor sheathing panels",
+        "Material budget based on sheet count before getting supplier quotes"
+      ],
+      "howTo": {
+        "title": "How to Use (3 Steps)",
+        "steps": [
+          "Enter the area (m²). For walls, use perimeter × wall height. For floors, use room width × room length. For roofs, enter the actual slope surface area, not the plan footprint.",
+          "Set the waste factor (%). The default 10% covers cutting loss and breakage. For simple rectangular areas use 10%; for areas with many openings or complex angles, use 15–20%.",
+          "Read the results: sheet count, adjusted area (m²), total weight (kg), and estimated nail count. Uncheck 'Estimate Fasteners' to skip the nail count."
+        ]
+      },
+      "formula": {
+        "title": "Formulas & References",
+        "body": "■ Sheet Specification\n  Plywood 18 mm: 1,220 mm × 2,440 mm = 2.9768 m² / sheet, 33 kg / sheet\n\n■ Waste-Adjusted Area\n  A_adj = area (m²) × (1 + waste % / 100)\n  Default waste: 10% (max 30%)\n\n■ Sheet Count (ceiling)\n  N = ceil(A_adj ÷ 2.9768)\n\n■ Total Weight\n  W = N × 33 kg\n\n■ Nail Count Estimate (per IRC R602.3)\n  Edge nails: perimeter (mm) ÷ 150 mm + 4 (end-point correction)\n  Field nails: interior stud rows × (height ÷ 300 mm + 1)\n    Stud spacing assumed 600 mm → interior rows = floor(1220 ÷ 600) − 1 = 1 row\n  Total nails = nails per sheet × sheet count"
+      },
+      "examples": {
+        "title": "Worked Examples",
+        "items": [
+          {
+            "title": "Example 1: Exterior wall sheathing, 4 walls (12 m × 3 m = 36 m²)",
+            "body": "Area 36 m², 10% waste → adjusted 39.6 m². Sheets = ceil(39.6 ÷ 2.9768) = 14. Total weight: 14 × 33 = 462 kg. Nails: ≈ 59 per sheet × 14 = 826 nails. Order 900 nails (2 boxes of 500)."
+          },
+          {
+            "title": "Example 2: Subfloor over floor joists (6 m × 8 m = 48 m²)",
+            "body": "Area 48 m², 10% waste → 52.8 m². Sheets = ceil(52.8 ÷ 2.9768) = 18 sheets. Weight: 594 kg. For a second-floor installation, factor this load into the floor joist design. Joist spacing of 400 mm increases stiffness versus 600 mm."
+          },
+          {
+            "title": "Example 3: Sloped roof deck (slope-adjusted area 25 m²)",
+            "body": "Roof slope must be converted to actual surface area before entering. At 30° slope, actual = plan area ÷ cos(30°) ≈ plan × 1.155. Enter actual 25 m², 15% waste (complex cuts) → 28.75 m². Sheets = ceil(28.75 ÷ 2.9768) = 10. Weight: 330 kg. Use structural-grade plywood (KS F 3113) for roof decking."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why is the sheet listed as 1,220 × 2,440 mm when 4×8 ft should be 1,219 × 2,438 mm?",
+          "answer": "Nominally, 4 ft × 8 ft = 1,219.2 mm × 2,438.4 mm, but Korean distribution rounds this to 1,220 × 2,440 mm (sometimes sold as '4×8 자' referencing the Shaku unit). This tool uses the actual Korean market size of 1,220 × 2,440 mm = 2.9768 m² per sheet."
+        },
+        {
+          "question": "When should I use 12 mm vs 18 mm plywood?",
+          "answer": "This page is for 18 mm only. For 12 mm, use the Plywood 12 mm Calculator. General guidelines: exterior wall sheathing 12–18 mm, subfloor 18–24 mm, roof deck 12–18 mm. Canada Wood Korea and NDS-based practice recommend 18 mm or thicker for structural sheathing on 600 mm stud spacing."
+        },
+        {
+          "question": "How should I handle window and door openings?",
+          "answer": "Option 1 (precise): subtract opening area from total, then use 10–15% waste. Option 2 (practical): leave openings in and use a lower 5–8% waste factor, since cut-off pieces from openings are often reused elsewhere on site. Option 2 is more common in practice."
+        },
+        {
+          "question": "What is the nail spacing based on?",
+          "answer": "IRC R602.3 (International Residential Code, structural sheathing fastening schedule): 6-inch (150 mm) edge spacing and 12-inch (300 mm) field spacing, assuming 600 mm stud spacing. Apply KDS 41 33 02 or your structural drawings if they specify different spacing."
+        },
+        {
+          "question": "What is the difference between structural and non-structural plywood?",
+          "answer": "Structural plywood (KS F 3113) has tighter veneer defect limits and a waterproof adhesive bond meeting interior exposure standards. Use it for load-bearing sheathing, subfloors, and roof decking. Non-structural plywood is for cabinetry, non-load-bearing partitions, and furniture where moisture and load demands are low."
+        }
+      ],
+      "cautions": [
+        "This tool covers 18 mm plywood only. For 12 mm, use the separate Plywood 12 mm Calculator.",
+        "For sloped roofs, enter the actual slope surface area, not the plan footprint.",
+        "Nail count is an estimate based on IRC R602.3 with assumed 600 mm stud spacing. Follow your structural drawings or KDS 41 33 02 if they specify otherwise.",
+        "Structural adequacy (load capacity, deflection) cannot be assessed by this tool. Permitted structures must be reviewed by a licensed structural engineer.",
+        "Total weight (33 kg/sheet) is a reference value for transport and lifting planning — use it to check vehicle payload and hoist capacity."
+      ],
+      "related": [
+        {
+          "label": "OSB Sheathing Calculator",
+          "href": "/timber-calc/osb"
+        },
+        {
+          "label": "Stud Count Calculator",
+          "href": "/timber-calc/studs"
+        },
+        {
+          "label": "Concrete Volume Calculator",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Lumber Board Feet Calculator",
+          "href": "/timber-calc/lumber"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-osb": {
+      "overview": "The OSB Sheathing Calculator converts a wall or roof area (m²) into the number of standard 4×8 ft (1,220×2,440 mm = 2.9768 m²) 18 mm OSB (Oriented Strand Board) sheets required, the waste-adjusted order area, total weight (31 kg/sheet), and an IRC R602.3-based nail count estimate. OSB is the dominant structural sheathing panel in light-frame construction worldwide, priced lower than plywood while meeting equivalent strength and stiffness requirements for wall and roof diaphragms.",
+      "useCases": [
+        "Wall sheathing sheet count for a light-frame timber house exterior",
+        "Roof deck OSB quantity including slope-area correction",
+        "Material budget for container house, barn, or addition project",
+        "Quantity estimate for replacing damaged sheathing panels",
+        "Weight comparison against 18 mm plywood (31 kg vs 33 kg/sheet) to choose between materials"
+      ],
+      "howTo": {
+        "title": "How to Use (3 Steps)",
+        "steps": [
+          "Enter the area (m²). For exterior walls, use total wall perimeter × wall height. For roofs, convert plan footprint to actual slope area (plan area ÷ cos(pitch angle)) before entering.",
+          "Set the waste factor (%). OSB tends to crumble slightly at cut edges compared to plywood, so the default 10% is recommended. Use 15% for roofs with hip ridges, valleys, or many openings.",
+          "Review results: sheet count, adjusted area (m²), total weight (kg), and estimated nail count. Uncheck 'Estimate Fasteners' to skip the nail count if you plan to use screws or an adhesive system."
+        ]
+      },
+      "formula": {
+        "title": "Formulas & References",
+        "body": "■ Sheet Specification\n  OSB 18 mm: 1,220 mm × 2,440 mm = 2.9768 m² / sheet, 31 kg / sheet\n  (vs Plywood 18 mm at 33 kg/sheet — OSB is ≈ 2 kg lighter per sheet)\n\n■ Waste-Adjusted Area\n  A_adj = area (m²) × (1 + waste % / 100)\n  Default waste: 10% (max 30%)\n\n■ Sheet Count (ceiling)\n  N = ceil(A_adj ÷ 2.9768)\n\n■ Total Weight\n  W = N × 31 kg\n\n■ Nail Count Estimate (per IRC R602.3, same as plywood)\n  Edge nails: perimeter (mm) ÷ 150 mm + 4 end-point correction\n  Field nails: 1 interior row × (2440 ÷ 300 + 1) ≈ 9 nails\n    (stud spacing 600 mm assumed → interior rows = floor(1220 ÷ 600) − 1 = 1)\n  Total nails = nails per sheet × sheet count"
+      },
+      "examples": {
+        "title": "Worked Examples",
+        "items": [
+          {
+            "title": "Example 1: Single-story house exterior walls (perimeter 32 m × height 2.7 m)",
+            "body": "Area 32 × 2.7 = 86.4 m². 10% waste → 95.04 m². Sheets = ceil(95.04 ÷ 2.9768) = 32. Weight: 32 × 31 = 992 kg. Nails ≈ 32 × 59 = 1,888. Order 2,000 nails (a little extra for rim and header nailing)."
+          },
+          {
+            "title": "Example 2: Gable roof deck (30° pitch, plan area 72 m²)",
+            "body": "Slope area = 72 ÷ cos(30°) ≈ 83.1 m². 10% waste → 91.4 m². Sheets = ceil(91.4 ÷ 2.9768) = 31. Weight: 961 kg. If your drawings specify 11 mm OSB for roof deck, use the OSB 11 mm Calculator instead."
+          },
+          {
+            "title": "Example 3: Storage shed addition, 3 walls (4 m × 2.5 m each = 30 m²)",
+            "body": "Area 30 m², 10% waste → 33 m². Sheets = ceil(33 ÷ 2.9768) = 12. Weight: 372 kg. Nails ≈ 708. For a low-budget shed with no lateral-load requirement, consider OSB 11 mm — but verify minimum sheathing thickness requirements in your local code or Canada Wood Korea detail."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is the difference between OSB and plywood?",
+          "answer": "OSB (Oriented Strand Board) is engineered wood made by compressing wood strands in alternating cross directions under adhesive and heat. Plywood uses thin peeled veneers cross-laminated. Structural performance (stiffness, shear strength) is comparable, but OSB is typically 10–20% cheaper. Plywood edges are slightly more resistant to moisture swelling. Both are accepted as structural sheathing in light-frame codes (NDS, IRC, KDS 41 33 02)."
+        },
+        {
+          "question": "When should I use 11 mm vs 18 mm OSB?",
+          "answer": "This page is for 18 mm only. For 11 mm, use the separate OSB 11 mm Calculator. General guidance: minimum exterior wall sheathing thickness at 600 mm stud spacing is typically 11–12 mm; roof decking and floors with heavier loads use 18 mm. Verify with your structural drawings or Canada Wood Korea standard details."
+        },
+        {
+          "question": "Is OSB suitable for exterior walls in wet climates?",
+          "answer": "Structural OSB rated Exposure 1 or Exposure 2 withstands limited, short-term moisture exposure during construction. For long-term exterior use, OSB wall sheathing must be covered with a Weather-Resistant Barrier (WRB / housewrap) immediately. Prolonged direct rain exposure causes OSB edges to swell, delaminate, and lose structural integrity."
+        },
+        {
+          "question": "How do I convert roof pitch to slope area?",
+          "answer": "Slope area = plan area ÷ cos(pitch angle in degrees). Common conversions: 6/12 pitch (26.6°) → multiply plan area by 1.118; 8/12 (33.7°) → 1.202; 12/12 (45°) → 1.414. Hip roofs require calculating each face separately."
+        },
+        {
+          "question": "Can I use screws instead of nails for OSB sheathing?",
+          "answer": "Structural sheathing standards (IRC R602.3, NDS) are based on nails (ring-shank or common) because nails provide better lateral shear capacity in dynamic loading (wind, seismic). Screws may be inferior in shear transfer for diaphragm applications. The nail count in this tool is based on IRC nailing schedules. Follow your structural engineer's fastener specification."
+        }
+      ],
+      "cautions": [
+        "This tool covers 18 mm OSB only. For 11 mm OSB, use the separate OSB 11 mm Calculator.",
+        "For sloped roofs, always enter the actual slope surface area, not the plan footprint.",
+        "OSB edges crumble more than plywood when cut — plan for 10–15% waste on complex shapes.",
+        "Protect OSB from prolonged moisture exposure. Apply WRB (housewrap) immediately after sheathing is nailed. Do not leave OSB exposed to rain for more than a few days.",
+        "Structural adequacy (shear wall, diaphragm design) cannot be assessed by this tool. Permitted structures must be reviewed by a licensed structural engineer."
+      ],
+      "related": [
+        {
+          "label": "Plywood Sheet Calculator",
+          "href": "/timber-calc/plywood"
+        },
+        {
+          "label": "Stud Count Calculator",
+          "href": "/timber-calc/studs"
+        },
+        {
+          "label": "Concrete Volume Calculator",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Lumber Board Feet Calculator",
+          "href": "/timber-calc/lumber"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-drywall": {
+      "overview": "The drywall sheet calculator gives you sheet count, fastener (screw) count, and total weight instantly from wall or ceiling area plus a waste factor. It uses the Korean standard distribution size of 900×1800mm (1.62㎡/sheet) at 12.5mm thickness, and estimates screws with edge spacing 200mm and field spacing 300mm. Know your material quantities before pricing a job to avoid over-ordering.",
+      "useCases": [
+        "New build or renovation interior wall and ceiling drywall sheet count",
+        "Pre-price material quantities and weight for interior fit-out quotes",
+        "Estimate screw quantity for site procurement",
+        "Adjust waste factor for walls with many openings (doors, windows)",
+        "Plan material delivery for high-ceiling commercial or office spaces"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter the installation area (m²) — you can combine wall and ceiling areas.",
+          "Set the waste factor (%). The default 10% suits straight walls; bump up to 15-20% for angled ceilings or many openings.",
+          "Click Calculate to see sheet count (rounded up), fastener count, and total weight with step-by-step workings."
+        ]
+      },
+      "formula": {
+        "title": "Formula & reference",
+        "body": "Sheet spec: 900mm × 1800mm = 1.62㎡/sheet, 12.5mm thick, 16 kg/sheet\n\nAdjusted area = installation area × (1 + waste% / 100)\nSheet count = ceil(adjusted area ÷ 1.62)\nTotal weight = sheets × 16 kg\n\nFastener estimate (per sheet):\n  Edge screws: ceil(perimeter ÷ 200mm) + 4\n  Field screws: interior stud rows (stud spacing 600mm) × ceil(sheet length ÷ 300mm)\n  Total fasteners = per-sheet count × sheet count\n\nRecommended waste: straight walls 10% / walls with many openings 15% / angled ceilings 20%"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Studio renovation (42㎡ walls)",
+            "body": "Adjusted area = 42 × 1.10 = 46.2㎡. Sheets = ceil(46.2 ÷ 1.62) = 29 sheets. Weight = 29 × 16 = 464kg. Approx 580 screws — one 1,000-screw box covers it."
+          },
+          {
+            "title": "Example 2: Meeting room ceiling (24㎡, 15% waste)",
+            "body": "Adjusted area = 27.6㎡. Sheets = ceil(27.6 ÷ 1.62) = 18 sheets. Weight 288kg. 15% used to absorb extra cutting at ceiling perimeter and light fittings."
+          },
+          {
+            "title": "Example 3: Full apartment interior walls (130㎡)",
+            "body": "Adjusted area = 143㎡. Sheets = ceil(143 ÷ 1.62) = 89 sheets. Weight ~1,424kg — plan 2-3 elevator runs for delivery in multi-story buildings."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Which size is standard — 900×1800mm or 1220×2440mm (4×8)?",
+          "answer": "900×1800mm (1.62㎡) is the primary distribution size in Korea. North American standard is 4×8 ft (1220×2440mm, 2.976㎡). Always check the project specification. This calculator uses the Korean 900×1800mm size."
+        },
+        {
+          "question": "How do I choose between 9.5mm and 12.5mm thickness?",
+          "answer": "9.5mm (12kg/sheet) is used for lightweight partitions and ceilings. 12.5mm (16kg/sheet) suits load-bearing walls, fire-rated assemblies, and walls adjacent to wet areas. Regulatory fire-compartment requirements often specify 12.5mm minimum."
+        },
+        {
+          "question": "Is 10% waste enough?",
+          "answer": "Yes for straight walls with few openings. Use 15% where doors and windows are frequent, and 20% for angled or irregular ceilings. Under-ordering risks a colour-lot mismatch if you reorder later."
+        },
+        {
+          "question": "What spacing rules are used for fastener estimates?",
+          "answer": "Edge screws at 200mm intervals, field screws at 300mm intervals, stud spacing 600mm assumed. This gives roughly 20 screws per sheet; actual count varies with real stud layout."
+        },
+        {
+          "question": "Why does the result include weight?",
+          "answer": "Weight matters for load assessments, elevator capacity planning, and selecting lightweight steel framing. At 89 sheets of 12.5mm drywall, you are moving about 1,400kg — typically 2-3 trips in a small elevator."
+        },
+        {
+          "question": "Can I add wall and ceiling areas together?",
+          "answer": "Yes, but waste rates differ — walls typically 10%, ceilings 15-20%. For the most accurate result, calculate walls and ceilings separately and add the sheet counts."
+        }
+      ],
+      "cautions": [
+        "Based on Korean 900×1800mm distribution size. Imported or non-standard sizes need separate conversion.",
+        "Fastener count assumes 600mm stud spacing — verify against actual framing layout on site.",
+        "Wet areas (bathrooms, kitchens) require moisture-resistant drywall (green board) or cement board, not standard gypsum.",
+        "Fire-rated assemblies require specific thickness and fire rating confirmation beyond this calculator.",
+        "Sheet count is always rounded up, so expect a small surplus."
+      ],
+      "related": [
+        {
+          "label": "OSB Sheet Calculator",
+          "href": "/timber-calc/osb"
+        },
+        {
+          "label": "Siding Calculator",
+          "href": "/timber-calc/siding"
+        },
+        {
+          "label": "Tile Calculator",
+          "href": "/timber-calc/tile"
+        },
+        {
+          "label": "Insulation Batt Calculator",
+          "href": "/timber-calc/insulation-batt"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-siding": {
+      "overview": "The siding calculator computes fiber-cement siding board count and total weight from exterior wall area and a waste factor. The reference spec is the Korean standard distribution size of 200×3600mm (0.72㎡/board, 9kg/board). A default waste of 10% covers cutting loss; increase to 15% when eave overhangs and window frames have not been deducted from the input area.",
+      "useCases": [
+        "Timber-frame house exterior siding replacement or new installation",
+        "Pricing materials for rural or multi-unit residential exterior cladding",
+        "Optimise order quantity after deducting openings for windows and doors",
+        "Compare material quantities before requesting contractor quotes",
+        "Plan delivery logistics given the 3.6m board length and weight"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter the exterior wall area (m²). If you have already subtracted window and door openings, use a lower waste factor; if you input gross wall area, use 15-20%.",
+          "Set the waste factor (%). Default 10% applies when openings are already deducted. Use 15% for gross area input or lap-siding overlap.",
+          "Click Calculate to get board count (rounded up) and total weight with step-by-step workings."
+        ]
+      },
+      "formula": {
+        "title": "Formula & reference",
+        "body": "Board spec: 200mm × 3600mm = 0.72㎡/board, 9 kg/board\n\nAdjusted area = installation area × (1 + waste% / 100)\nBoard count = ceil(adjusted area ÷ 0.72)\nTotal weight = boards × 9 kg\n\nFiber-cement lap siding notes:\n  - Typical lap overlap 30-50mm → exposed face ~150-170mm of 200mm width\n  - Effective coverage per board ≈ 0.54-0.61㎡ when lapped\n  - For lap installation, use waste factor 15%+ to account for overlap loss\n  - Corner trim and J-channel material calculated separately\n\nRecommended waste: straight wall (openings deducted) 10% / gross area input 15% / complex shapes 20%"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Single-storey house exterior (80㎡ net wall, 10% waste)",
+            "body": "Adjusted area = 80 × 1.10 = 88㎡. Boards = ceil(88 ÷ 0.72) = 123 boards. Weight = 123 × 9 = 1,107kg. Plan one truck delivery."
+          },
+          {
+            "title": "Example 2: Lap installation with 30mm overlap (60㎡, 15% waste)",
+            "body": "Effective coverage with overlap = ~0.612㎡/board. Adjusted area = 69㎡. Boards = ceil(69 ÷ 0.72) = 96 boards. 15% waste absorbs overlap and cutting loss."
+          },
+          {
+            "title": "Example 3: Multi-unit residential (200㎡ gross wall, 40㎡ openings)",
+            "body": "Net wall = 160㎡. 10% waste → adjusted 176㎡. Boards = ceil(176 ÷ 0.72) = 245 boards. Weight 2,205kg — confirm heavy-lift equipment availability."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is the difference between fiber-cement and vinyl siding?",
+          "answer": "Fiber-cement (cement, sand, and cellulose fibre) is fire-resistant, durable, and can replicate a wood-grain finish. Vinyl (PVC) is lighter and cheaper but can deform in heat and fade over time. This calculator uses the fiber-cement spec."
+        },
+        {
+          "question": "Does lap installation require more boards than vertical?",
+          "answer": "Yes. Horizontal lap siding overlaps 30-50mm per course, reducing effective coverage per board to about 0.60-0.66㎡ versus the nominal 0.72㎡. Expect to order 10-15% more boards than a straight-coverage calculation would suggest."
+        },
+        {
+          "question": "Are corner trim and J-channel included?",
+          "answer": "No. This calculator covers siding board count only. Corner trim, J-channel, starter strip, and window flashing must be calculated separately."
+        },
+        {
+          "question": "When should I use 10% vs 15% waste?",
+          "answer": "Use 10% if you have already subtracted opening areas from your input. Use 15-20% if you are entering gross wall area (openings not deducted), or if you are accounting for lap-siding overlap."
+        },
+        {
+          "question": "Why does weight matter for siding?",
+          "answer": "Fiber-cement at 9kg/board is more than twice the weight of vinyl (4kg). At 100+ boards you exceed half a tonne, which affects vehicle selection and site handling. For upper-storey work, scaffold loading also needs checking."
+        },
+        {
+          "question": "How do I measure exterior wall area?",
+          "answer": "Measure each wall face as width × height, then sum. Decide whether to subtract window and door areas — if not, raise the waste factor. For gable-end walls, treat the triangular section as average height × width."
+        }
+      ],
+      "cautions": [
+        "Based on 200×3600mm fiber-cement siding spec. Other siding types or sizes need separate calculations.",
+        "Lap installation reduces effective board coverage — adjust waste factor upward to 15% or more.",
+        "Corner trim, J-channel, starter strip, and flashing are not included in this calculation.",
+        "Board weight is substantial; confirm vehicle capacity and site handling equipment before ordering.",
+        "House wrap (weather-resistant barrier) behind the siding is a separate material not covered here."
+      ],
+      "related": [
+        {
+          "label": "Drywall Calculator",
+          "href": "/timber-calc/drywall"
+        },
+        {
+          "label": "OSB Sheet Calculator",
+          "href": "/timber-calc/osb"
+        },
+        {
+          "label": "Insulation Batt Calculator",
+          "href": "/timber-calc/insulation-batt"
+        },
+        {
+          "label": "Roof Area Calculator",
+          "href": "/timber-calc/roof-area"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-tile": {
+      "overview": "The tile calculator outputs tile count, adhesive (kg), and grout (kg) in one step from installation area, tile size, grout joint width, and waste factor. The core formula computes each tile's footprint including the grout joint — (tile width + grout) × (tile height + grout) — then divides the waste-adjusted area by that footprint. Adhesive is fixed at 4kg/m². Grout consumption uses an empirical formula scaled by tile size and joint width.",
+      "useCases": [
+        "Bathroom floor and wall tile count and adhesive quantity",
+        "Kitchen floor and backsplash tile materials estimate",
+        "Large-format living room or entryway tiles (600×600, 800×800)",
+        "Comparing waste factor across different tile sizes or joint widths",
+        "Pre-ordering adhesive and grout to avoid mid-project shortages"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter the installation area (m²) — you can combine bathroom floor and wall areas.",
+          "Choose a tile size preset (100, 200, 300, 400, 600, 800mm) or enter custom width and height.",
+          "Set the grout joint width (mm). Porcelain tiles typically use 2mm; ceramic and exterior tiles 3-5mm.",
+          "Click Calculate to get tile count (rounded up), adhesive kg, and grout kg with step-by-step workings."
+        ]
+      },
+      "formula": {
+        "title": "Formula & reference",
+        "body": "Tile footprint (m²) = (tile width + grout joint, in m) × (tile height + grout joint, in m)\nAdjusted area = installation area × (1 + waste% / 100)  ← default 10%\nTile count = ceil(adjusted area ÷ footprint)\n\nAdhesive = installation area × 4 kg/m²\n\nGrout empirical formula:\n  rate (kg/m²) = grout_mm × 4 ÷ avg_tile_size_mm × 1.6\n  Example: 300×300 tile, 2mm joint → 2×4÷300×1.6 ≈ 0.043 kg/m²\n  Example: 100×100 tile, 3mm joint → 3×4÷100×1.6 = 0.192 kg/m²\nGrout quantity = installation area × rate\n\nRecommended waste: straight-lay floor 10% / diagonal (45°) 15-20% / complex shape 20%"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Bathroom floor 300×300mm (4㎡, 2mm grout)",
+            "body": "Footprint = 0.302 × 0.302 = 0.09120㎡. Adjusted area = 4 × 1.10 = 4.4㎡. Count = ceil(4.4 ÷ 0.09120) = 49 tiles. Adhesive = 4 × 4 = 16kg. Grout ≈ 4 × 0.043 = 0.17kg."
+          },
+          {
+            "title": "Example 2: Living room floor 600×600mm (30㎡, 2mm grout)",
+            "body": "Footprint = 0.602 × 0.602 = 0.36240㎡. Count = ceil(33 ÷ 0.36240) = 92 tiles. Adhesive = 30 × 4 = 120kg. Grout ≈ 30 × 0.021 = 0.64kg — large tiles consume very little grout."
+          },
+          {
+            "title": "Example 3: Kitchen mosaic backsplash 100×100mm (3㎡, 3mm grout)",
+            "body": "Footprint = 0.103 × 0.103 = 0.01061㎡. Count = ceil(3.3 ÷ 0.01061) = 312 tiles. Adhesive 12kg. Grout ≈ 3 × 0.192 = 0.58kg — small tiles consume comparatively more grout."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How do I choose a grout joint width?",
+          "answer": "Porcelain tiles (bathroom wall/floor) typically use 2mm joints. Ceramic and outdoor tiles use 3-5mm. Large-format tiles (600mm+) laid diagonally benefit from 3mm or wider for levelling. Narrower joints require more precise tile manufacturing tolerances."
+        },
+        {
+          "question": "Is 10% waste enough?",
+          "answer": "Yes for rectangular rooms with straight-lay installation. Use 15-20% for diagonal (45°) installation, 15% for irregular bathroom shapes, and up to 20% for small mosaic tiles with heavy field cutting."
+        },
+        {
+          "question": "What does the 4kg/m² adhesive rate assume?",
+          "answer": "It is the average for ceramic/porcelain tile adhesive based on KS L 1001 tile installation practice. Thick tiles (10mm+) or exterior installation may need 5kg/m²; thin interior tiles may use 3kg/m². The calculator uses 4kg/m² as the mid-range value."
+        },
+        {
+          "question": "Is grout the same as cement grout?",
+          "answer": "Grout (joint filler) comes in cementitious and epoxy types. Wet areas like bathrooms and kitchens benefit from epoxy grout for water resistance. This calculator's grout kg estimate is based on cementitious grout density."
+        },
+        {
+          "question": "How are cut tiles at room edges handled?",
+          "answer": "The waste factor includes edge-cut loss. For large tiles, edge cuts can represent a significant proportion of total tile area, which is why a higher waste factor matters more with large-format tiles."
+        },
+        {
+          "question": "Can I calculate rectangular tiles (e.g. 300×600mm)?",
+          "answer": "Yes — enter width 300mm and height 600mm separately. The calculator handles non-square tiles using the full footprint formula."
+        }
+      ],
+      "cautions": [
+        "Adhesive at 4kg/m² is an average. Confirm the manufacturer's coverage rate for your specific product.",
+        "Grout quantities are empirical estimates. Always check the manufacturer's specification for the actual product.",
+        "Diagonal (45°) or irregular-shape installation needs 15-20% waste factor.",
+        "Wet areas require waterproofing membrane application before tiling.",
+        "Large-format tiles (600mm+) require a flat substrate — verify floor flatness (±3mm per 2m) before starting."
+      ],
+      "related": [
+        {
+          "label": "Drywall Calculator",
+          "href": "/timber-calc/drywall"
+        },
+        {
+          "label": "Paint Calculator",
+          "href": "/paint-calc"
+        },
+        {
+          "label": "Siding Calculator",
+          "href": "/timber-calc/siding"
+        },
+        {
+          "label": "Insulation Batt Calculator",
+          "href": "/timber-calc/insulation-batt"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-insulation-batt": {
+      "overview": "The insulation batt calculator gives roll/batt count and total weight from wall or ceiling area plus a waste factor. The reference spec is R-19 fiberglass batt at 600×2400mm (1.44㎡/batt, 5kg/batt), sized for 2×6 stud walls at 600mm spacing. The default 10% waste covers cutting around pipes, wiring, and openings. Mineral wool (rock wool) is dimensionally compatible but heavier — note that this calculator uses fiberglass weight.",
+      "useCases": [
+        "R-19 batt count for 2×6 timber-frame exterior walls",
+        "Ceiling and attic insulation batt quantity and weight planning",
+        "Retrofit insulation replacement quantity for renovation projects",
+        "Checking area requirements for Korean Energy Code Annex 1 R-value compliance",
+        "Pre-ordering insulation to plan truck delivery by total weight"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter the installation area (m²) — full stud-bay wall area including stud framing is acceptable.",
+          "Set the waste factor (%). The default 10% covers pipe and wire penetrations and openings. Use 15% in conduit-heavy zones.",
+          "Click Calculate to get batt count (rounded up) and total weight with step-by-step workings."
+        ]
+      },
+      "formula": {
+        "title": "Formula & reference",
+        "body": "Batt spec: 600mm × 2400mm = 1.44㎡/batt, R-19, 5 kg/batt\n(Optimised for 2×6 stud walls at 600mm spacing)\n\nAdjusted area = installation area × (1 + waste% / 100)\nBatt count = ceil(adjusted area ÷ 1.44)\nTotal weight = batt count × 5 kg\n\nR-19 thermal performance:\n  RSI ≈ 3.35 m²·K/W  (1 R-unit = 0.176 m²·K/W)\n  Check against Korean Energy Code (별표1) for your climate zone\n\nRecommended waste: straight walls 10% / high pipe/wire density 15% / irregular shapes 20%"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Single-storey timber house exterior walls (90㎡, 10% waste)",
+            "body": "Adjusted area = 90 × 1.10 = 99㎡. Batts = ceil(99 ÷ 1.44) = 69 batts. Weight = 69 × 5 = 345kg. Fits on a small truck."
+          },
+          {
+            "title": "Example 2: Ceiling with attic (60㎡, 15% waste)",
+            "body": "Higher waste for recessed lighting and wiring penetrations. Adjusted area = 69㎡. Batts = ceil(69 ÷ 1.44) = 48 batts. Weight 240kg."
+          },
+          {
+            "title": "Example 3: Two-storey house all exterior walls (160㎡, 10% waste)",
+            "body": "Adjusted area = 176㎡. Batts = ceil(176 ÷ 1.44) = 123 batts. Weight 615kg — single small truck delivery."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What thermal performance does R-19 represent?",
+          "answer": "R-19 equals approximately RSI 3.35 (m²·K/W). Korea's Energy Code Annex 1 sets wall U-values by climate zone (e.g., 0.210 W/m²K for central zone 2 exterior walls). Whether R-19 batts alone meet the requirement depends on the full wall assembly — confirm with your designer."
+        },
+        {
+          "question": "Can 600mm-wide batts be used in 400mm stud spacing walls?",
+          "answer": "R-19 batts at 600mm width are designed for 600mm stud spacing. For 400mm stud bays you need 400mm-wide batts (a separate product). Forcing a 600mm batt into a 400mm bay creates significant cutting waste, so raise the waste factor accordingly."
+        },
+        {
+          "question": "What is the difference between fiberglass and mineral wool (rock wool)?",
+          "answer": "Fiberglass (glasswool) is lighter and easier to handle — this is the spec used here. Mineral wool (rock wool) has superior fire resistance and sound absorption but is 1.5-2× heavier. If you switch to mineral wool, the batt count stays the same but the weight figure will understate actual delivery weight."
+        },
+        {
+          "question": "What does the 10% waste factor cover?",
+          "answer": "Cutting around pipe and cable penetrations, fitting around window and door openings, imperfect fill at joist ends, and breakage allowance. In zones with dense conduit runs or complex ceiling framing, use 15%."
+        },
+        {
+          "question": "Is the vapour barrier (vapour retarder) included?",
+          "answer": "No. Vapour barrier (poly sheet) on the warm side of the insulation is a separate installation step and separate material. This calculator covers batts only. Vapour control is essential for condensation prevention in cold climates."
+        },
+        {
+          "question": "What is the difference between a batt and a roll?",
+          "answer": "A batt is a pre-cut panel of fixed width and length — this calculator's reference format (600×2400mm). A roll is continuous insulation wound on a spool, commonly used for horizontal attic coverage. The calculator uses the batt (panel) format."
+        }
+      ],
+      "cautions": [
+        "Based on R-19 600×2400mm fiberglass batt spec. Other R-values or sizes need separate calculations.",
+        "Compliance with Korean Energy Code Annex 1 requires full wall assembly assessment by a qualified designer.",
+        "Always wear safety glasses, dust mask, and gloves when handling fiberglass insulation — fine fibres are irritants.",
+        "Vapour barrier installation is not covered by this calculator and must be planned separately.",
+        "Ensure insulation fills stud bays without gaps to prevent thermal bridging."
+      ],
+      "related": [
+        {
+          "label": "Drywall Calculator",
+          "href": "/timber-calc/drywall"
+        },
+        {
+          "label": "OSB Sheet Calculator",
+          "href": "/timber-calc/osb"
+        },
+        {
+          "label": "Siding Calculator",
+          "href": "/timber-calc/siding"
+        },
+        {
+          "label": "BTU Cooling & Heating Calculator",
+          "href": "/btu-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-rafter": {
+      "overview": "The rafter length calculator uses the Pythagorean formula (√(run²+rise²)) to find the base rafter length from the horizontal span (run) and vertical height (rise), then adds the eave overhang corrected for slope (eave × sec θ) to give the full cut length. Angle, slope percentage, pitch-in-12, and area correction factor (sec θ = 1/cos θ) are shown simultaneously, making the results immediately useful for material ordering and roof area conversion.",
+      "useCases": [
+        "Lumber ordering: multiply cut length by rafter count to calculate total board footage needed",
+        "Light-frame roof design: find accurate rafter length including eave overhang",
+        "Roof area conversion: use sec θ to convert horizontal projection area to actual sloped area",
+        "Cut angle reference: read upper plumb-cut and lower bird's-mouth cut angles directly from the result",
+        "Pitch notation conversion: see slope %, angle in degrees, and x/12 rise all at once"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter the horizontal run — the horizontal distance from the ridge to the top of the exterior wall plate. For a gable roof with a 6 m east-west span, the run for each side is 3 m (half the total width).",
+          "Enter the rise — the vertical height from the top plate to the ridge. For example, run 3,000 mm and rise 900 mm gives a 30% slope and a 3.6/12 pitch.",
+          "Enter the eave overhang length in mm if applicable. The calculator adds the slope-corrected eave diagonal (eave × sec θ) to give the total cut length. Leave it at 0 if you only need the base rafter length."
+        ]
+      },
+      "formula": {
+        "title": "Formula & basis",
+        "body": "Base rafter length = √(run² + rise²)\n\nAngle θ = atan(rise / run)\nSlope (%) = (rise / run) × 100\nPitch (x/12) = (rise / run) × 12\n\nArea correction factor (sec θ) = 1 / cos θ\n  → multiply projected area by sec θ to get actual sloped area\n\nEave diagonal = eave overhang (mm) × sec θ\nTotal cut length = base rafter length + eave diagonal\n\nExample: run=3,000 mm · rise=900 mm · eave=500 mm\n  Base = √(9,000,000 + 810,000) = 3,132 mm\n  θ = atan(0.30) = 16.7°,  sec θ = 1.044\n  Eave diagonal = 500 × 1.044 = 522 mm\n  Total cut length = 3,132 + 522 = 3,654 mm"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: run 3,000 mm · rise 900 mm · eave 500 mm (30% slope)",
+            "body": "Base rafter = √(3,000²+900²) = 3,132 mm. Angle 16.7°. sec θ = 1.044. Eave diagonal = 522 mm. Total cut length = 3,654 mm. Area correction 1.044 → multiply projected floor area by 1.044 to get actual roof area."
+          },
+          {
+            "title": "Example 2: run 4,000 mm · rise 2,000 mm · eave 600 mm (6/12 pitch)",
+            "body": "Base rafter = √(16,000,000+4,000,000) = 4,472 mm. Angle 26.6°. sec θ = 1.118. Eave diagonal = 671 mm. Total cut length = 5,143 mm. At 6/12 the actual roof area is about 11.8% larger than the projected area."
+          },
+          {
+            "title": "Example 3: run 2,500 mm · rise 1,250 mm · no eave (45°)",
+            "body": "Base rafter = √(6,250,000+1,562,500) = 2,795 mm. Angle 26.6°. With 0 mm eave, total cut length equals base length = 2,795 mm. Area correction factor 1.118. Useful when only the plain rafter length is needed."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Where exactly is the 'run' measured?",
+          "answer": "The run is the horizontal distance from the ridge (peak) to the top of the exterior wall's top plate. For a symmetrical gable roof with a 6 m total width, each side has a run of 3 m. The eave overhang beyond the wall is entered separately."
+        },
+        {
+          "question": "Where is the area correction factor (sec θ) used?",
+          "answer": "Multiply the horizontal projected area by sec θ to get the actual sloped roof area. For example, sec θ = 1.118 means 100 m² projected becomes 111.8 m² actual — the figure needed for shingle or tile quantity takeoffs, waterproofing, and solar panel layout."
+        },
+        {
+          "question": "What does the x/12 pitch notation mean?",
+          "answer": "It is the North American light-frame convention: the number of inches of vertical rise per 12 inches of horizontal run. A 4/12 pitch rises 4 inches for every 12 horizontal inches. This calculator converts rise/run × 12 automatically."
+        },
+        {
+          "question": "Why is the eave not simply added to the rafter length?",
+          "answer": "The eave overhang is measured horizontally, but the rafter runs along the slope. To convert a horizontal eave distance to a sloped rafter distance you must multiply by sec θ (= 1/cos θ). Example: 500 mm horizontal eave at 16.7° becomes 500 × 1.044 = 522 mm along the rafter."
+        },
+        {
+          "question": "How do I use the cut angle in the workshop?",
+          "answer": "The angle result (°) is the cut angle for both ends of the rafter. Use it as the bevel setting on a circular saw or miter saw for the upper plumb cut (at the ridge) and the lower bird's-mouth seat cut (at the wall plate)."
+        },
+        {
+          "question": "Can this calculator find the structural span limit of a rafter?",
+          "answer": "No — this tool handles geometry only (length and angle). To check whether a rafter size can safely span a given distance under bending stress and deflection criteria, use the separate Span Calculator, which applies NDS allowable stress design."
+        }
+      ],
+      "cautions": [
+        "This calculator covers rafter geometry only. Structural adequacy (allowable span, deflection, member size) requires the Span Calculator and review by a licensed structural engineer.",
+        "The run is measured to the top plate, not including the eave. Entering eave length in the run field will double-count the overhang.",
+        "Results assume a simple gable or shed roof with a single straight slope. For hip roofs or complex geometries, calculate each face separately.",
+        "In practice, rafter length may need a small adjustment (1–2 mm) to account for ridge board thickness at the peak.",
+        "Always have a licensed structural professional review calculations before construction."
+      ],
+      "related": [
+        {
+          "label": "Roof Pitch Converter",
+          "href": "/timber-calc/roof-pitch"
+        },
+        {
+          "label": "Span Calculator",
+          "href": "/timber-calc/span"
+        },
+        {
+          "label": "Roof Area Calculator",
+          "href": "/timber-calc/roof-area"
+        },
+        {
+          "label": "Timber Calc Home",
+          "href": "/timber-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-roof-pitch": {
+      "overview": "The roof pitch converter instantly converts between three pitch notations — degrees (°), slope percentage (%), and x/12 rise — in either direction. Enter any one value and the other two, the area correction factor (sec θ), and the pitch category (flat / low / medium / steep / extreme slope) are displayed immediately. It resolves the notation mismatches that arise when architects, framers, and roofers each use a different convention on the same project.",
+      "useCases": [
+        "Drawing conversion: translate a drawing's '26.6°' into the framer's 6/12 or the roofer's 50% in one step",
+        "Material takeoff: use sec θ to convert projected floor area to actual roof area for shingle or tile quantities",
+        "On-site communication: resolve notation conflicts between designers (degrees), carpenters (x/12), and waterproofers (percentage)",
+        "Roofing material selection: confirm pitch category (low-slope vs. steep-slope) to choose the correct material and installation method",
+        "Light-frame education: understand the relationship between angle, slope ratio, and rise-per-foot"
+      ],
+      "howTo": {
+        "title": "How to use (2 steps)",
+        "steps": [
+          "Select the notation you already know: 'Angle (°)' for drawing or inclinometer readings, 'Slope (%)' for Korean construction drawings and civil engineering documents, or 'x/12 Rise' for North American light-frame notation.",
+          "Enter the value. The other two notations, area correction factor (sec θ), and pitch category appear instantly. Categories: flat (< 10°), low slope (10–30°), medium slope (30–45°), steep slope (45–60°), extreme slope (≥ 60°)."
+        ]
+      },
+      "formula": {
+        "title": "Formula & basis",
+        "body": "Angle (°) → slope % and x/12:\n  Slope (%) = tan(θ) × 100\n  x/12 rise = tan(θ) × 12\n  Area correction factor (sec θ) = 1 / cos(θ)\n\nSlope (%) → angle and x/12:\n  θ = atan(slope / 100)\n  x/12 = (slope / 100) × 12\n\nx/12 rise → angle and slope:\n  θ = atan(rise / 12)\n  Slope (%) = (rise / 12) × 100\n\nPitch categories (Korean practice / AIK):\n  Flat        : θ < 10°\n  Low slope   : 10° ≤ θ < 30°\n  Medium slope: 30° ≤ θ < 45°\n  Steep slope : 45° ≤ θ < 60°\n  Extreme     : θ ≥ 60°\n\nKey reference values:\n  4/12  ≈ 18.4° ≈ 33.3%  (sec 1.054)\n  5/12  ≈ 22.6° ≈ 41.7%  (sec 1.083)\n  6/12  = 26.6° = 50.0%  (sec 1.118)\n  8/12  ≈ 33.7° ≈ 66.7%  (sec 1.202)\n  12/12 = 45.0° = 100.0% (sec 1.414)"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: Drawing shows '26.6°' — convert to construction notations",
+            "body": "θ = 26.6°. Slope = tan(26.6°)×100 = 50.0%. x/12 = tan(26.6°)×12 = 6.0 → 6/12. sec θ = 1/cos(26.6°) = 1.118. Category: low slope. 100 m² projected → 111.8 m² actual roof area."
+          },
+          {
+            "title": "Example 2: Korean drawing '45%' — convert to degrees and x/12",
+            "body": "Slope 45% → θ = atan(0.45) = 24.2°. x/12 = 0.45×12 = 5.4/12. sec θ = 1.098. Category: low slope. Sometimes written as '4.5-sun' in traditional Korean notation."
+          },
+          {
+            "title": "Example 3: 8/12 steep roof — area correction",
+            "body": "8/12 rise → θ = atan(8/12) = 33.7°. Slope = 66.7%. sec θ = 1.202. Category: medium slope. Roofing material requirement is 20.2% greater than the projected area; specialized safety equipment is recommended at this pitch."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How does Korean 'sun (寸)' notation differ from x/12?",
+          "answer": "Korean 'x-sun' means x units of rise per 10 units of run (ratio x/10). North American x/12 means x inches of rise per 12 inches of run. Example: Korean 5-sun = 50% slope = atan(0.5) = 26.6° = 6.0/12. The 'Slope (%)' input mode in this calculator is equivalent to the x/10 Korean notation."
+        },
+        {
+          "question": "Why does pitch category matter for roofing materials?",
+          "answer": "Each pitch range requires different waterproofing: below 10° (flat) needs membrane waterproofing (asphalt, urethane coating); 10–30° (low slope) suits TPO, metal standing seam, or fixed-panel systems; above 30° (medium/steep) drains fast enough for shingles, tiles, or metal panels."
+        },
+        {
+          "question": "Why is the area correction factor always greater than 1?",
+          "answer": "At 0° the factor is sec(0°) = 1/cos(0°) = 1 (flat roof = projected area). As the angle increases, cos θ decreases so sec θ grows above 1. A factor of 1.118 at 26.6° means the sloped surface is 11.8% larger than what you see from directly above."
+        },
+        {
+          "question": "What happens if I enter 0°?",
+          "answer": "0° is a perfectly flat roof: slope 0%, x/12 = 0, sec θ = 1.000, category 'flat'. In practice even 'flat' roofs need a minimum 1–2% slope for drainage."
+        },
+        {
+          "question": "Are pitches steeper than 45° used in residential construction?",
+          "answer": "Not commonly in Korea. Slopes above 45° (steep) appear mainly in European chalet-style or religious buildings. Above 60° (extreme), safe installation requires specialist equipment and rigging — it is rarely seen in standard residential work."
+        }
+      ],
+      "cautions": [
+        "This tool covers pitch notation conversion and area correction factor only. Structural load, rafter sizing, and span limits require separate tools.",
+        "The x/12 rise input accepts values from 0 to 60 (angles up to 89.99°). Near-vertical values produce very large area correction factors and have no practical meaning in standard construction.",
+        "The area correction factor assumes a flat inclined plane. Curved surfaces (domes, barrel vaults) require a different approach.",
+        "Pitch categories follow Korean architectural practice and AIK guidelines; classification thresholds may differ by country or application."
+      ],
+      "related": [
+        {
+          "label": "Rafter Length Calculator",
+          "href": "/timber-calc/rafter"
+        },
+        {
+          "label": "Roof Area Calculator",
+          "href": "/timber-calc/roof-area"
+        },
+        {
+          "label": "Span Calculator",
+          "href": "/timber-calc/span"
+        },
+        {
+          "label": "Timber Calc Home",
+          "href": "/timber-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-span": {
+      "overview": "The span calculator uses NDS 2018 (National Design Specification for Wood Construction) allowable stress design to find the maximum safe span for floor joists, ceiling joists, rafters, and headers. It checks both the bending stress limit (M = wL²/8, σ ≤ Fb) and the deflection limit (δ = 5wL⁴/384EI ≤ L/k) simultaneously, reports whichever governs, and applies the repetitive member factor (Cr = 1.15) automatically for closely spaced joists and rafters. Regional snow loads per KDS 41 10 15 are built in for Korean rafter design.",
+      "useCases": [
+        "Floor joist design: check how far 2×8 or 2×10 SPF #2 can span for a 2 kN/m² residential live load",
+        "Rafter span check: factor in regional snow load to plan roof rafter spacing and size",
+        "Ceiling joist planning: size members for attic storage (0.5 kN/m² live load) vs. inaccessible attic",
+        "Header sizing: pre-check maximum span for door or window opening headers before framing",
+        "Species comparison: see how Douglas Fir or Larch spans compare with SPF for the same member size"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Select member type: floor joist, ceiling joist, rafter, or header. Default live load, dead load, and deflection limit (L/k) are set automatically based on member type.",
+          "Choose lumber size (2×4 through 2×12) and species/grade. SPF #2 is the most common imported species in Korean light-frame construction. Actual dressed dimensions per KS F 3020 (e.g., 2×8 = 38×184 mm) are applied automatically.",
+          "Enter spacing in mm. Standards are 400, 450, and 600 mm. Narrower spacing reduces the load per member and increases the allowable span. Spacing ≤ 600 mm with 3 or more members triggers the NDS repetitive member factor Cr = 1.15 automatically.",
+          "For rafters, select the snow region. Gangwon Yeongdong (east coast) and Ulleung Island carry 3.0 kN/m² vs. 0.5 kN/m² elsewhere (KDS 41 10 15), which substantially shortens the allowable rafter span."
+        ]
+      },
+      "formula": {
+        "title": "Formula & basis (NDS Allowable Stress Design)",
+        "body": "1. Load assembly\n   Total load (kN/m²) = live load + dead load + snow load (rafters only)\n   Line load w (N/mm) = total load × (spacing mm / 1000)\n\n2. Section properties — KS F 3020 actual dimensions\n   A = b × d\n   I = b × d³ / 12\n   S = b × d² / 6\n   (b = 38 mm thickness; d = width — load direction for joists/rafters)\n\n3. Repetitive member factor (NDS Cr)\n   Spacing ≤ 600 mm + floor/ceiling joist or rafter + ≥ 3 members\n   → Fb_eff = Fb × 1.15\n\n4. Bending check: L_b = √(8 × Fb_eff × S / w)\n   (derived from M = wL²/8 ≤ Fb_eff × S)\n\n5. Deflection check: L_d = ∛(384 × E × I / (5 × w × k))\n   (from δ = 5wL⁴/384EI ≤ L/k)\n   k = 360 (floor) · 240 (ceiling, header) · 180 (rafter)\n\n6. Max span = min(L_b, L_d)\n\nReference values for SPF #2: Fb = 7.6 MPa, E = 9,500 MPa\nDouglas Fir-Larch #2:       Fb = 12.4 MPa, E = 12,400 MPa"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Example 1: 2×8 SPF #2 floor joist, 400 mm spacing",
+            "body": "Actual section 38×184 mm. Total load 2.5 kN/m² (live 2.0 + dead 0.5). Line load = 2.5×0.4 = 1.0 N/mm. Cr = 1.15, Fb_eff = 8.74 MPa. I = 19,740,672 mm⁴, S = 214,571 mm³. L_b = √(8×8.74×214,571/1.0) = 3,877 mm. L_d = ∛(384×9,500×19,740,672/(5×1.0×360)) = 4,234 mm. Max span 3,877 mm — bending governs."
+          },
+          {
+            "title": "Example 2: 2×10 SPF #2 rafter, Seoul region, 600 mm spacing",
+            "body": "Actual section 38×235 mm. Total load = 0 (live) + 0.5 (dead) + 0.5 (snow Seoul) = 1.0 kN/m². Line load = 1.0×0.6 = 0.6 N/mm. Cr = 1.15, Fb_eff = 8.74 MPa. I = 41,342,729 mm⁴. L_b = 4,985 mm. Deflection k = 180. L_d = ∛(384×9,500×41,342,729/(5×0.6×180)) = 5,801 mm. Max span 4,985 mm — bending governs."
+          },
+          {
+            "title": "Example 3: 2×6 SPF #2 ceiling joist, 600 mm spacing",
+            "body": "Actual section 38×140 mm. Total load 0.8 kN/m² (live 0.5 + dead 0.3). Line load = 0.8×0.6 = 0.48 N/mm. Cr = 1.15, Fb_eff = 8.74 MPa. S = 124,600 mm³, I = 8,722,000 mm⁴. L_b = √(8×8.74×124,600/0.48) = 4,258 mm. Deflection k = 240. L_d = ∛(384×9,500×8,722,000/(5×0.48×240)) = 3,681 mm. Max span 3,681 mm — deflection governs."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What does 'bending governs' vs. 'deflection governs' mean?",
+          "answer": "Bending governs when the member would reach its stress limit (Fb exceeded) at a shorter span than the deflection limit allows. Deflection governs when the floor or roof would sag beyond L/360 (or L/180 for rafters) before the wood reaches its bending stress limit. The smaller of the two span limits is always the controlling value."
+        },
+        {
+          "question": "What does the repetitive member factor (Cr = 1.15) do?",
+          "answer": "When joists or rafters are spaced at 600 mm or less in groups of three or more, adjacent members share load when one is overloaded. NDS recognizes this load-sharing by allowing a 15% increase in the allowable bending stress (Fb). It does not apply to single members such as headers or posts."
+        },
+        {
+          "question": "This tool uses NDS — does it apply in Korea?",
+          "answer": "The underlying design approach (allowable stress, Fb, E, deflection limits) closely parallels KDS 41 33 02. Snow loads use Korean regional values from KDS 41 10 15. Allowable stress values are from NDS for Canadian/US imported species (SPF, DF, Hem-Fir); for domestic Korean larch, consult KS F 3019."
+        },
+        {
+          "question": "Which NDS adjustment factors does this tool NOT apply?",
+          "answer": "NDS includes CD (load duration), CM (wet service), Ct (temperature), CL (beam stability), CF (size factor), and Ci (incising). Only Cr (repetitive member) is applied here. Actual field conditions — green lumber, high humidity, sustained loads — can reduce the allowable span. A licensed structural engineer must account for these factors in final design."
+        },
+        {
+          "question": "Why is the Gangwon Yeongdong snow load so much higher?",
+          "answer": "KDS 41 10 15 Appendix B sets the ground snow load at 3.0 kN/m² for the Gangwon east-coast region (Goseong, Sokcho, Gangneung, Samcheok) and Ulleung Island due to frequent heavy snowfall driven by cold air crossing the East Sea. This is six times the 0.5 kN/m² used for Seoul and most other regions, significantly shortening the allowable rafter span."
+        },
+        {
+          "question": "Can I use this tool for engineered lumber (LVL, PSL, Glulam)?",
+          "answer": "No. Engineered wood products have proprietary allowable stress values that differ from sawn lumber and must be taken from the manufacturer's span tables or ICC evaluation reports. This calculator covers dimension lumber (2×4 through 2×12) in sawn species grades only."
+        }
+      ],
+      "cautions": [
+        "Based on NDS 2018. Only the Cr repetitive member factor (1.15) is applied; CD, CM, Ct, CL, CF, and Ci are not. Results may be unconservative if lumber is wet, temperatures are extreme, or loads are sustained.",
+        "Shear and bearing (compression perpendicular to grain) are not checked. Short, heavily loaded headers may be shear-critical — a structural engineer must verify.",
+        "Default live loads (floor 2.0 kN/m², ceiling 0.5 kN/m²) are for standard residential occupancy. Warehouses, offices, and assembly areas require higher values per KDS 41 10 15 — enter them manually using the override fields.",
+        "Spacing outside 400/450/600 mm triggers a warning. The repetitive member factor (Cr = 1.15) is not applied when spacing exceeds 600 mm, which reduces the allowable span.",
+        "Results are for planning and preliminary review only. Final structural design and construction must be reviewed by a licensed structural engineer (Korean PE or equivalent)."
+      ],
+      "related": [
+        {
+          "label": "Rafter Length Calculator",
+          "href": "/timber-calc/rafter"
+        },
+        {
+          "label": "Roof Pitch Converter",
+          "href": "/timber-calc/roof-pitch"
+        },
+        {
+          "label": "Stud Count Calculator",
+          "href": "/timber-calc/studs"
+        },
+        {
+          "label": "Timber Calc Home",
+          "href": "/timber-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-stairs": {
+      "overview": "The stair calculator computes step count, actual riser height, tread depth, stair length, angle, and Blondel value from total rise (floor-to-floor height) and preferred riser. It simultaneously checks the Korean Building Act Enforcement Decree Article 48 limits (residential: riser ≤ 200 mm, tread ≥ 240 mm; public: riser ≤ 180 mm, tread ≥ 280 mm) and the ergonomic Blondel formula (2R + T = 600–640 mm), displaying warnings when values fall outside safe ranges. Providing the optional total run enables measured tread instead of the Blondel-recommended default.",
+      "useCases": [
+        "New timber-frame homes: draft stair layout (step count, riser, tread) once floor-to-floor height is fixed",
+        "Renovation: re-plan stair division when ceiling height changes",
+        "Compact housing / loft stairs: verify tread depth and pitch angle meet safety criteria in limited horizontal space",
+        "Pre-permit check: spot riser/tread violations before drawing submission",
+        "Deck and exterior stairs: calculate slope angle and stringer length for outdoor construction"
+      ],
+      "howTo": {
+        "title": "How to Use (4 Steps)",
+        "steps": [
+          "Enter total rise in mm — the floor-to-floor structural height including finish materials. Example: 2,700 mm between level 1 and level 2.",
+          "Enter preferred riser height. Residential stairs typically target 170–200 mm. The tool rounds to the nearest whole step count and divides evenly.",
+          "(Optional) Enter total run if you know the horizontal stair footprint. Leave blank to get the Blondel-formula tread recommendation (T = 620 − 2R).",
+          "Choose use type (Residential / Public). The building-code thresholds change accordingly. Review the Blondel pass/fail indicator and any riser or tread warnings in the results."
+        ]
+      },
+      "formula": {
+        "title": "Formulas & Standards",
+        "body": "Step count = round(total rise ÷ preferred riser)  [min 2]\nActual riser (R) = total rise ÷ step count\n\nTread depth (T):\n  With total run → T = total run ÷ (step count − 1)\n  Without total run → T = 620 − 2 × R  (Blondel recommendation)\n\nStair length = √(total rise² + (T × (step count − 1))²)\nPitch angle = atan(R ÷ T)  [degrees]\nBlondel value = 2R + T  → 600–640 mm is ergonomically safe\n\nKorean Building Act Enforcement Decree Art. 48:\n  Residential: R ≤ 200 mm, T ≥ 240 mm, width ≥ 750 mm\n  Public: R ≤ 180 mm, T ≥ 280 mm, width ≥ 1,200 mm\n  Headroom: ≥ 2,100 mm (both types)"
+      },
+      "examples": {
+        "title": "Examples",
+        "items": [
+          {
+            "title": "Example 1: Total rise 2,700 mm, preferred riser 175 mm",
+            "body": "Step count = round(2700 ÷ 175) = 15. Actual R = 2700 ÷ 15 = 180 mm. T = 620 − 2×180 = 260 mm (Blondel). Blondel = 2×180 + 260 = 620 mm → pass. Angle = atan(180÷260) = 34.7°. Stair length = √(2700² + (260×14)²) ≈ 4,534 mm."
+          },
+          {
+            "title": "Example 2: Total rise 3,000 mm, total run 3,640 mm",
+            "body": "Preferred R 180 mm → step count = round(3000÷180) = 17. Actual R = 3000÷17 ≈ 176.5 mm. T = 3640÷(17−1) = 227.5 mm. Blondel = 2×176.5 + 227.5 = 580.5 mm → below 600 mm warning. Reduce step count or widen run to fix."
+          },
+          {
+            "title": "Example 3: Loft stair, total rise 2,000 mm (public threshold applied)",
+            "body": "Public: R ≤ 180 mm. round(2000÷175) = 11 steps. R = 2000÷11 ≈ 181.8 mm → exceeds 180 mm warning. Increasing to 12 steps: R = 166.7 mm, T = 620−2×166.7 = 286.6 mm → both limits met. Angle = 30.2°."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is the Blondel formula?",
+          "answer": "The Blondel formula (2R + T = 600–640 mm) was proposed by 17th-century French architect François Blondel to describe the ergonomic stride length on stairs. When this range is satisfied, climbing feels natural without overstretching or shuffling. This calculator uses 620 mm as the target and warns when the value falls outside 600–640 mm."
+        },
+        {
+          "question": "Why does the actual riser differ from the preferred value I entered?",
+          "answer": "The tool rounds total rise ÷ preferred riser to the nearest integer to ensure every step is equal height. The actual riser (total rise ÷ rounded step count) will therefore differ slightly from your preferred value. Always verify the displayed 'actual riser' before drafting construction drawings."
+        },
+        {
+          "question": "Why is the tread auto-calculated when I leave total run blank?",
+          "answer": "Without a measured run, the Blondel formula T = 620 − 2R provides a recommended starting tread depth. This is useful in early design when only the floor-to-floor height is known. Enter the actual total run once the stair footprint is fixed to get precise tread dimensions."
+        },
+        {
+          "question": "Where are the Korean building-code stair dimensions specified?",
+          "answer": "Building Act Enforcement Decree Article 48 and the Rules on Evacuation and Fire-Protection Structures Article 15 set stair dimensional requirements in Korea. This tool applies: residential (within dwelling unit) R ≤ 200 mm / T ≥ 240 mm; public (common areas / public buildings) R ≤ 180 mm / T ≥ 280 mm. Always verify current local authority requirements before permit submission."
+        },
+        {
+          "question": "How do I design stair width (clear width)?",
+          "answer": "Korean code minimums: residential ≥ 750 mm, public ≥ 1,200 mm clear width. This calculator covers riser, tread, and step count only — stair width design should be confirmed with a licensed architect. Handrail requirements (height ≥ 900 mm) should also be reviewed."
+        },
+        {
+          "question": "Can this calculator be used for outdoor stairs?",
+          "answer": "The geometry formulas apply equally to indoor and outdoor stairs, but outdoor stairs benefit from wider treads (to shed rainwater) and anti-slip finishes. In freeze-thaw climates, keeping risers at 150 mm or below reduces ice-accumulation risk. Structural footings for exterior stair stringers are a separate design consideration."
+        }
+      ],
+      "cautions": [
+        "This tool references Korean Building Act Enforcement Decree Art. 48 as a guide. Final design and permit approval must be confirmed with a licensed architect and the local authority having jurisdiction.",
+        "Stair width (clear width), headroom (≥ 2,100 mm), and handrail requirements are not calculated here.",
+        "Total rise must reflect finished-floor-to-finished-floor height, including floor finish and stair tread thickness. Structural shell height will differ.",
+        "Step count is determined by rounding, so actual riser may differ from the preferred value. Use the displayed actual riser for all drawings.",
+        "Cutting a stair opening through floor joists requires double headers and trimmer/rim joists — consult a structural engineer."
+      ],
+      "related": [
+        {
+          "label": "Stud Framing Calculator",
+          "href": "/timber-calc/studs"
+        },
+        {
+          "label": "Lumber Volume Calculator",
+          "href": "/timber-calc/lumber"
+        },
+        {
+          "label": "Material Quantity Calculator",
+          "href": "/timber-calc/material-quantity"
+        },
+        {
+          "label": "Roof Area Calculator",
+          "href": "/timber-calc/roof-area"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-studs": {
+      "overview": "The stud framing calculator outputs 2×4 SPF stud count, single stud length, double top plate total length, sole plate total length, header count, and nail count from wall length, ceiling height, stud spacing (16\" or 24\" OC), and opening count. It adds 4 extra studs per opening (2 jack + 2 king) on top of the base layout (ceil(wall length ÷ spacing) + 1), then applies a configurable waste factor (default 10%) to give a ready-to-order quantity.",
+      "useCases": [
+        "New timber-frame construction: calculate 2×4 stud order quantity for each wall line",
+        "Addition and renovation: determine extra studs and plates for new partition walls",
+        "Opening layout: quantify jack, king, and header lumber for windows and doors",
+        "Budget planning: fix stud count before pricing labor and material deliveries",
+        "Site management: tune waste factor to minimize over-ordering on the job"
+      ],
+      "howTo": {
+        "title": "How to Use (5 Steps)",
+        "steps": [
+          "Enter wall length in metres — total linear length of all walls combined. Example: 10 + 8 + 10 + 8 = 36 m for a rectangular floor plan.",
+          "Enter ceiling height in mm (default 2,400 mm). Single stud length = ceiling height − 3 × 38 mm (double top plate + sole plate = 114 mm).",
+          "Select stud spacing: 16\" (406 mm) OC for load-bearing and exterior walls; 24\" (610 mm) OC for non-load-bearing interior partitions.",
+          "Enter the number of openings (windows and doors). Each opening adds 2 jack studs + 2 king studs = 4 studs.",
+          "Adjust the waste factor (default 10%) and click Calculate. Use 15% for complex framing or first-time builders."
+        ]
+      },
+      "formula": {
+        "title": "Formulas & Standards",
+        "body": "Base stud count = ceil(wall length(mm) ÷ spacing(mm)) + 1  [includes both end studs]\nOpening extra studs = openings × 4  [2 jack + 2 king per opening]\nWith waste = ceil((base + opening extra) × (1 + waste%/100))\n\nSingle stud length = ceiling height − 38 mm × 3  [2 top plates + 1 sole plate]\n  Example: 2,400 mm ceiling → 2,400 − 114 = 2,286 mm per stud\n\nDouble top plate total length = wall length × 2\nSole plate total length = wall length\n\nHeader count = openings × 2  [double 2×10 header per opening]\nNail count = stud count × 8  [4 toenails per end, 2 ends]\n\nSpacing reference (IRC practice, adopted by Korean timber-frame industry):\n  16\" OC = 406 mm — load-bearing and exterior walls\n  24\" OC = 610 mm — non-load-bearing interior partitions"
+      },
+      "examples": {
+        "title": "Examples",
+        "items": [
+          {
+            "title": "Example 1: 10 m wall, 2,400 mm ceiling, 16\" spacing, 2 openings",
+            "body": "Base studs = ceil(10,000÷406)+1 = 26. Opening extra = 2×4 = 8. Subtotal 34 × 1.10 → ceil = 38 studs. Length = 2,400−114 = 2,286 mm each. Top plates = 20 m, sole plate = 10 m. Headers = 4. Nails = 38×8 = 304."
+          },
+          {
+            "title": "Example 2: 36 m perimeter, 2,700 mm ceiling, 24\" spacing, 6 openings",
+            "body": "Base = ceil(36,000÷610)+1 = 60. Opening extra = 24. Subtotal 84 × 1.10 = 93 studs. Stud length = 2,700−114 = 2,586 mm. Top plates = 72 m, sole plate = 36 m. Headers = 12."
+          },
+          {
+            "title": "Example 3: Interior partition 5 m, 2,400 mm ceiling, 16\" spacing, 1 door",
+            "body": "Base = ceil(5,000÷406)+1 = 14. Opening extra = 4. Subtotal 18 × 1.10 = 20 studs. Top plates = 10 m, sole plate = 5 m. Headers = 2."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How do I choose between 16\" (406 mm) and 24\" (610 mm) spacing?",
+          "answer": "16\" OC is the standard for exterior walls and any wall that carries vertical load from floors or roof above. 24\" OC is acceptable for non-load-bearing interior partitions and saves material cost. In high snow-load or seismic zones, verify the spacing through a structural calculation — do not assume 24\" is permissible without engineering review."
+        },
+        {
+          "question": "What are jack studs and king studs?",
+          "answer": "King studs (also called full studs) run the full height of the wall on each side of an opening. Jack studs (trimmer studs) are shorter members that sit inside the king studs and directly support the header beam above the opening. Each opening therefore requires 2 king studs + 2 jack studs = 4 additional studs beyond the regular layout."
+        },
+        {
+          "question": "Why are there three plates (double top + single sole)?",
+          "answer": "The sole plate anchors the bottom of studs to the floor. The first top plate ties the stud tops together; the second (double) top plate laps over wall intersections and corners to create a continuous structural tie and to carry roof rafters or upper-floor joists. Each plate is a 2×4 (38 mm thick), so three plates total 114 mm deducted from ceiling height to give net stud length."
+        },
+        {
+          "question": "Why does 2×4 lumber actually measure 38×89 mm?",
+          "answer": "Nominal dimensions describe rough-sawn size before kiln drying and planing. After processing, a nominal 2×4\" (50.8×101.6 mm) becomes 1.5\"×3.5\" (38×89 mm) actual. Always use actual dimensions in design calculations — nominal sizes are only for ordering at the lumber yard."
+        },
+        {
+          "question": "What does the 10% waste factor cover?",
+          "answer": "It accounts for off-cuts when studs are trimmed to exact stud length, pieces ruined by splitting or mis-cuts, and small damage during delivery. Simple straight walls: 8–10%. Complex framing or first-time builders: 12–15%. Experienced crews on clean layouts can sometimes target 5–8%. Adjust the field in this calculator to match your job."
+        },
+        {
+          "question": "Is there a Korean code standard for stud spacing?",
+          "answer": "The Korean Building Act and KS standards do not currently prescribe explicit stud-spacing rules for light timber framing. Korean timber-frame practice borrows from the US IRC (International Residential Code) Chapter 6 and NDS (National Design Specification), which is also the basis used by the Korean Wood Construction Association guidance."
+        }
+      ],
+      "cautions": [
+        "This calculator assumes simple straight walls. Corners (L-corner: 3 studs), wall intersections (T-wall: extra channel studs), and wall-to-ceiling blocking require additional studs not included here.",
+        "Structural load analysis (snow, wind, seismic) is outside the scope of this tool. Multi-story builds or high-hazard zones require an engineer-stamped structural calculation.",
+        "Header size scales with opening width. This tool assumes 2-ply 2×10 headers; openings wider than ~3 m may need engineered lumber or a structural steel header.",
+        "Stud length is net length after plate deduction. On-site, re-measure actual floor-to-ceiling dimension and adjust for any out-of-level conditions before cutting.",
+        "Fire-resistance, air-sealing, and acoustic requirements may mandate specific stud spacing or additional blocking — check applicable codes."
+      ],
+      "related": [
+        {
+          "label": "Stair Step Calculator",
+          "href": "/timber-calc/stairs"
+        },
+        {
+          "label": "Material Quantity Calculator",
+          "href": "/timber-calc/material-quantity"
+        },
+        {
+          "label": "OSB / Plywood Sheet Calculator",
+          "href": "/timber-calc/osb"
+        },
+        {
+          "label": "Drywall Sheet Calculator",
+          "href": "/timber-calc/drywall"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "timber-material-quantity": {
+      "overview": "The material quantity calculator determines sheets (or bundles/batts) required, waste-adjusted area, total weight, and fastener count for 11 common timber-frame materials: OSB (11 mm, 18 mm), plywood (12 mm, 18 mm), gypsum board (9.5 mm, 12.5 mm), cement board, fiber-cement siding, vinyl siding, asphalt shingles, and R-19 glass-wool batt insulation. Standard sheet sizes shipped in the Korean market are built in (1,220×2,440 mm for OSB/plywood; 900×1,800 mm for gypsum/cement board), and fastener estimates follow IRC R602.3 nail-spacing rules.",
+      "useCases": [
+        "Roof sheathing: compute OSB sheet count plus nail quantity for structural deck",
+        "Interior finish: calculate gypsum-board sheets and screw count for walls and ceilings",
+        "Exterior cladding: determine fiber-cement or vinyl siding linear pieces for façade",
+        "Roofing: find asphalt shingle bundle count from actual roof area",
+        "Insulation: count R-19 glass-wool batts for 2×6 stud wall cavities"
+      ],
+      "howTo": {
+        "title": "How to Use (4 Steps)",
+        "steps": [
+          "Select the material type: structural (OSB, plywood), interior finish (gypsum board), exterior cladding (cement board, siding), roofing (shingles), or insulation (glass-wool batt).",
+          "Enter the installation area in m². For walls, multiply width × height × number of faces. For roofs, enter the actual sloped area — use the Roof Area Calculator first if you only know the plan footprint.",
+          "Adjust the waste factor (default 10%). Simple rectangles: 5–10%; many cut-outs or diagonal patterns: 15–20%.",
+          "Click Calculate to see sheet count (ceiling-rounded), adjusted area, total weight, and fastener count (nail or screw) based on standard edge/field spacing."
+        ]
+      },
+      "formula": {
+        "title": "Formulas & Standards",
+        "body": "Adjusted area = installation area × (1 + waste%/100)\nSheets required = ceil(adjusted area ÷ area per sheet)\nTotal weight = sheets × weight per sheet (kg)\n\nBuilt-in sheet sizes (Korean market standard):\n  OSB / Plywood: 1,220 × 2,440 mm = 2.9768 m²/sheet (19–33 kg)\n  Gypsum board: 900 × 1,800 mm = 1.62 m²/sheet (12–16 kg)\n  Cement board: 900 × 1,800 mm = 1.62 m²/sheet (22 kg)\n  Fiber-cement siding: 200 × 3,600 mm = 0.72 m²/piece (9 kg)\n  Vinyl siding: 250 × 3,700 mm = 0.93 m²/piece (4 kg)\n  Asphalt shingle: 1 bundle = 3.1 m² (33 sq. ft., 27 kg)\n  Glass-wool R-19 batt: 600 × 2,400 mm = 1.44 m²/batt (5 kg)\n\nFastener spacing (IRC R602.3):\n  Structural sheathing (OSB/plywood): edge 150 mm OC / field 300 mm OC → nails\n  Gypsum board: edge 200 mm OC / field 300 mm OC → screws"
+      },
+      "examples": {
+        "title": "Examples",
+        "items": [
+          {
+            "title": "Example 1: OSB 11 mm roof sheathing, 80 m² area, 10% waste",
+            "body": "Adjusted area = 80 × 1.10 = 88 m². Sheets = ceil(88 ÷ 2.9768) = ceil(29.6) = 30 sheets. Total weight = 30 × 19 kg = 570 kg. Nails estimated from perimeter ÷ 150 mm + interior rows × (2,440 ÷ 300). Plan a 570 kg cargo delivery."
+          },
+          {
+            "title": "Example 2: Gypsum board 12.5 mm, 45 m² walls, 15% waste",
+            "body": "Adjusted area = 45 × 1.15 = 51.75 m². Sheets = ceil(51.75 ÷ 1.62) = 32 sheets. Weight = 32 × 16 = 512 kg. Screws estimated from edge 200 mm + field 300 mm spacing per sheet."
+          },
+          {
+            "title": "Example 3: Asphalt shingles, actual roof area 120 m², 12% waste",
+            "body": "Adjusted area = 120 × 1.12 = 134.4 m². Bundles = ceil(134.4 ÷ 3.1) = 44 bundles. Weight = 44 × 27 = 1,188 kg. Shingles are excluded from fastener estimation — refer to manufacturer's nailing schedule."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is the difference between OSB and plywood?",
+          "answer": "OSB (Oriented Strand Board) is manufactured by compressing wood strands in alternating directions under heat and adhesive. Plywood uses thin veneer layers cross-laminated with adhesive. OSB is typically less expensive with uniform structural strength; plywood has a smoother face, slightly better moisture edge resistance, and is preferred for finish applications. Both are standard for roof and wall sheathing in timber-frame construction."
+        },
+        {
+          "question": "Why is one asphalt shingle bundle equal to 3.1 m²?",
+          "answer": "In US roofing convention, 1 'square' covers 100 sq. ft. (9.29 m²) of roof. Most shingle products use 3 bundles per square, so 1 bundle = 33.3 sq. ft. ≈ 3.1 m². Coverage accounts for the overlap (exposure) required between shingle courses. This calculator uses 3.1 m²/bundle as the built-in coverage constant."
+        },
+        {
+          "question": "What wall type is R-19 glass-wool batt designed for?",
+          "answer": "R-19 (thermal resistance roughly 3.35 m²·K/W) is sized for 2×6 stud wall cavities (140 mm deep). For 2×4 walls (89 mm cavity), R-11 or R-13 batts are the typical match. Korean energy regulations (Building Energy-Saving Design Standards) specify minimum U-values by climate zone — verify the required insulation thickness separately with those tables."
+        },
+        {
+          "question": "How should I set the waste factor?",
+          "answer": "Simple rectangular wall or roof panels: 10% is a reasonable default for the standard 1,220×2,440 mm sheet format. Many windows/doors or non-rectangular shapes: 15–20%. Diagonal siding patterns or multi-faceted roofs: up to 25%. Over-ordering raises cost, so refine the factor as you gain on-site experience with a particular material."
+        },
+        {
+          "question": "Why does total weight matter for ordering?",
+          "answer": "Weight determines vehicle payload (1-tonne pickup vs. 5-tonne flatbed), hoist or crane capacity for multi-story lifting, and temporary floor loading on scaffolding. Gypsum board and cement board (16–22 kg per sheet) are particularly heavy and typically require two workers per sheet plus plan for upper-floor deliveries."
+        },
+        {
+          "question": "Fiber-cement siding vs. vinyl siding — which should I choose?",
+          "answer": "Fiber-cement is durable (20–30+ year lifespan), fire-resistant, and paintable, but heavier (9 kg per piece) and labor-intensive to install. Vinyl siding is lightweight (4 kg), low-cost, and easy to install, but has lower fire resistance and can distort under extreme heat. In Korea's climate with wide seasonal temperature swings, allow adequate expansion joints in vinyl siding to prevent buckling."
+        }
+      ],
+      "cautions": [
+        "Sheet count is the minimum order quantity after rounding up. Add buffer for site-specific complexity beyond the stated waste factor.",
+        "Fastener estimates use IRC R602.3 standard spacing. Seismic or high-wind zones may require closer nail schedules or structural clips — check local requirements.",
+        "Asphalt shingles, vinyl siding, fiber-cement siding, and glass-wool batts are excluded from fastener estimation. Follow the manufacturer's installation instructions for nailing patterns.",
+        "Weight values are dry-condition references. Use code-prescribed unit weights (Korean Building Structural Standard KBC) for structural load calculations — do not use the tool weights for that purpose.",
+        "Gypsum board thickness selection for fire-rated assemblies (e.g., 9.5 mm vs. 12.5 mm for 30-minute or 60-minute ratings) depends on the fire-resistance design. Confirm with your architect."
+      ],
+      "related": [
+        {
+          "label": "OSB / Plywood Sheet Calculator",
+          "href": "/timber-calc/osb"
+        },
+        {
+          "label": "Drywall Sheet Calculator",
+          "href": "/timber-calc/drywall"
+        },
+        {
+          "label": "Stud Framing Calculator",
+          "href": "/timber-calc/studs"
+        },
+        {
+          "label": "Roof Area Calculator",
+          "href": "/timber-calc/roof-area"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
     "_labels": {
       "overview": "What this tool does",
       "useCases": "Who uses this",

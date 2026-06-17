@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
@@ -88,6 +89,7 @@ export default async function VatCalcPage({
         </header>
 
         <VatForm />
+        <ToolGuide toolKey="vat-calc" locale={locale === "en" ? "en" : "ko"} />
 
         <section className="mt-12 grid gap-4 text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:grid-cols-3">
           <ContextBlock title={t("ctx.law.title")} body={t("ctx.law.body")} />

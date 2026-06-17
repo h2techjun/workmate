@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
@@ -62,6 +63,7 @@ export default async function JsonCsvPage({
           </p>
         </header>
         <JsonCsvForm />
+        <ToolGuide toolKey="json-csv" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

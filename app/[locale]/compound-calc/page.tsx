@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { CompoundForm } from "@/components/tools/finance/CompoundForm";
@@ -97,6 +98,7 @@ export default async function CompoundCalcPage({
           </p>
         </header>
         <CompoundForm locale={localeKey} />
+        <ToolGuide toolKey="compound-calc" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { StudsForm } from "@/components/tools/timber/StudsForm";
@@ -99,6 +100,7 @@ export default async function StudsPage({
           </p>
         </header>
         <StudsForm locale={localeKey} />
+        <ToolGuide toolKey="timber-studs" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

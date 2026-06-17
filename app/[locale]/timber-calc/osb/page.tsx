@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { MaterialQuantityForm } from "@/components/tools/timber/MaterialQuantityForm";
@@ -87,6 +88,7 @@ export default async function OsbPage({
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="osb18" />
+        <ToolGuide toolKey="timber-osb" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

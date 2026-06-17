@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { MaterialQuantityForm } from "@/components/tools/timber/MaterialQuantityForm";
@@ -87,6 +88,7 @@ export default async function InsulationBattPage({
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="battInsulationR19" />
+        <ToolGuide toolKey="timber-insulation-batt" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

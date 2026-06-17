@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
@@ -63,6 +64,7 @@ export default async function LumberPage({
           </p>
         </header>
         <LumberForm />
+        <ToolGuide toolKey="timber-lumber" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

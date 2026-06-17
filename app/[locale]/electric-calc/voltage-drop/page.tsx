@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
@@ -65,6 +66,7 @@ export default async function VoltageDropPage({
           </p>
         </header>
         <VoltageDropForm />
+        <ToolGuide toolKey="electric-voltage-drop" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { MaterialQuantityForm } from "@/components/tools/timber/MaterialQuantityForm";
@@ -88,6 +89,7 @@ export default async function DrywallPage({
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="gypsum12" />
+        <ToolGuide toolKey="timber-drywall" locale={locale === "en" ? "en" : "ko"} />
       </div>
     </main>
   );
