@@ -58,6 +58,18 @@ export const CATEGORY_ORDER: ReadonlyArray<BlogCategory> = [
 
 export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
   {
+    slug: "living-in-korea-foreigner-guide",
+    publishedAt: "2026-06-17",
+    titleKo: "한국 사는 외국인 완전 가이드 — 도착부터 출국까지 돈·비자·행정",
+    titleEn: "Living in Korea as a Foreigner: The Complete Money, Visa & Admin Guide (2026)",
+    summaryKo:
+      "도착(ARC·뱅킹)→정착(전월세·건강보험)→근로/세금(연말정산·단일세율)→장기체류(F-2-7·D-8)→출국(국민연금 반환). 한국 생활 전 여정을 단계별로, 무료 계산기·체크리스트와 함께 정리했습니다.",
+    summaryEn:
+      "Arrival (ARC, banking) → settling (rent, health insurance) → work & tax (year-end, flat tax) → staying (F-2-7, D-8) → leaving (pension refund). The whole journey of living in Korea, step by step, with free calculators and checklists.",
+    category: "living",
+    readingMinutes: 14,
+  },
+  {
     slug: "essential-apps-korea-foreigners",
     publishedAt: "2026-06-16",
     titleKo: "한국 사는 외국인 필수 앱 — 본인인증 장벽부터 가입 팁까지",

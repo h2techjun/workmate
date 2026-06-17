@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
@@ -55,7 +56,7 @@ function AboutKo(): React.ReactElement {
           Workmate은 어떤 도구인가요?
         </h1>
         <p className="mt-3 text-sm text-[color:var(--color-text-tertiary)]">
-          최초 작성 2026-04-27 · 운영자: 한국 실무자 한 명
+          최초 작성 2026-04-27 · 최종 검토 2026-06-17 · 운영자: 한국 실무자 한 명
         </p>
       </header>
 
@@ -89,8 +90,39 @@ function AboutKo(): React.ReactElement {
           <li>목조주택 시공자 — 부재 경간·자재 수량·계단·기초 한 번에</li>
           <li>인사·총무 담당자 — 4대보험 한 번에, 2026 요율 자동</li>
           <li>해외주식 양도세 신고자 — 환율 두 번 입력하기 귀찮으신 분</li>
-          <li>한국 표준이 필요한 외국인 엔지니어 — 영어 인터페이스 제공</li>
+          <li>
+            <strong>한국에 사는 외국인</strong> — 비자(F-2-7·D-8)·국민연금
+            반환일시금·건강보험료·전월세·연말정산까지 영어로, 상황별 체크리스트와
+            함께
+          </li>
         </ul>
+        <p className="text-sm text-[color:var(--color-text-tertiary)]">
+          처음엔 현장 실무자용으로 시작했지만, 한국에 정착하는 외국인이
+          "한국 기준을 영어로" 찾을 곳이 마땅치 않다는 걸 알게 됐습니다. 그래서
+          비자·세금·주거·연금 도구를 영어 우선으로 늘려가고 있습니다.
+        </p>
+      </section>
+
+      <section className="space-y-3 leading-relaxed">
+        <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+          외국인용 정보는 어떻게 검증하나요?
+        </h2>
+        <p>
+          비자·세금·연금·임대차처럼 잘못 알면 손해가 큰 영역은 한 가지 원칙을
+          지킵니다. <strong>공식 출처만 인용</strong>합니다 — 국민연금공단(NPS)·
+          국세청(NTS)·건강보험공단(NHIS)·하이코리아(출입국)·국토교통부(MOLIT)·
+          관련 법령. 출처마다 수치가 다르거나(예: OASIS 점수) 비공개인 항목은{" "}
+          <strong>단정하지 않고</strong> "기관에서 확인하세요"로 안내하고,
+          국적·체류자격별로 달라지는 부분은 <strong>(verify)</strong> 표시를
+          그대로 노출합니다.
+        </p>
+        <p className="text-sm text-[color:var(--color-text-tertiary)]">
+          요율·법령은 바뀝니다. 2026년 국민연금 9.5% 인상처럼 확정되는 즉시
+          반영하고, 각 도구 하단에 <strong>최종 검토일</strong>을 적어
+          언제 기준인지 알 수 있게 합니다. 그래도 실제 신고·계약 전에는
+          반드시 해당 기관이나 전문가의 확인을 거치세요 — 이 사이트는
+          90%를 빠르게 잡는 용도입니다.
+        </p>
       </section>
 
       <section className="space-y-3 leading-relaxed">
@@ -169,7 +201,8 @@ function AboutEn(): React.ReactElement {
           About Workmate
         </h1>
         <p className="mt-3 text-sm text-[color:var(--color-text-tertiary)]">
-          First written 2026-04-27 · Operated by a Korean construction professional
+          First written 2026-04-27 · Last reviewed 2026-06-17 · Operated by a
+          Korean construction professional
         </p>
       </header>
 
@@ -206,8 +239,43 @@ function AboutEn(): React.ReactElement {
           <li>Wood frame builders — span, material, stairs, foundation in one place</li>
           <li>HR/payroll administrators — Korean 4-major insurance, 2026 rates</li>
           <li>Foreign stock investors filing Korean capital gains tax</li>
-          <li>Foreign engineers needing Korean standards in English</li>
+          <li>
+            <strong>Foreigners living in Korea</strong> — visas (F-2-7, D-8),
+            National Pension lump-sum refunds, health insurance, jeonse/wolse,
+            and year-end tax settlement, in English, with situation-by-situation
+            checklists
+          </li>
         </ul>
+        <p className="text-sm text-[color:var(--color-text-tertiary)]">
+          It started as a tool for Korean tradespeople, but I realized foreigners
+          settling here have nowhere good to find "Korean standards, in English."
+          So I've been growing the visa, tax, housing, and pension tools
+          English-first.
+        </p>
+      </section>
+
+      <section className="space-y-3 leading-relaxed">
+        <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+          How is the foreigner information verified?
+        </h2>
+        <p>
+          For high-stakes areas like visas, tax, pension, and leases I follow one
+          rule: <strong>cite official sources only</strong> — the National Pension
+          Service (NPS), National Tax Service (NTS), the health-insurance service
+          (NHIS), HiKorea (immigration), the land ministry (MOLIT), and the
+          relevant statutes. Where sources disagree or the figure is unpublished
+          (e.g. the OASIS score), I <strong>don&apos;t assert a number</strong> —
+          I send you to the agency. Items that vary by nationality or visa status
+          are marked <strong>(verify)</strong> right in the text.
+        </p>
+        <p className="text-sm text-[color:var(--color-text-tertiary)]">
+          Rates and laws change. When something is confirmed — like the 2026
+          National Pension rise to 9.5% — I update it immediately, and each tool
+          shows a <strong>last-reviewed date</strong> so you know its basis.
+          Still, always confirm with the agency or a professional before an
+          actual filing or contract — this site is for nailing the first 90%
+          quickly.
+        </p>
       </section>
 
       <section className="space-y-3 leading-relaxed">

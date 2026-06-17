@@ -5,21 +5,24 @@
 
 ## 🔴 진행 중 (in progress)
 
-- [ ] **AdSense 2차 재신청** (담당: 마스터, 시점: 2026-05-27~30)
-  - 1차 거절 보강 작업은 완료. 4~7일 대기 후 재신청.
+- [ ] **AdSense 2차 재신청** (담당: 마스터) — 콘텐츠 보강 충분, 재신청 가능
+  - 1차 거절("가치 없는 콘텐츠") 대비 강화: 외국인 도구 7종·상황별 체크리스트 10·필러 블로그·About E-A-T.
   - 위치: AdSense 대시보드 → 사이트 → workmate.tools → "검토 요청"
 
-- [ ] **GSC 색인 가속** (담당: 마스터, 매일 5~10건)
-  - 우선순위: blog 6개 URL → 신규 도구 4개 URL
-  - 위치: Google Search Console → URL 검사 → 색인 생성 요청
+- [ ] **트래픽 신호 검증** (담당: 마스터) — ⭐ 최우선
+  - GSC URL 검사로 신규 외국인 도구·필러 블로그 색인 요청 (매일 5~10건)
+  - 영문 커뮤니티(reddit r/Living_in_Korea 등)에 필러 글 1회 노출 → 실제 유입 신호 확인
+  - 우선 URL: /en/blog/living-in-korea-foreigner-guide → 외국인 도구 9종
 
 ## 🟡 다음 주 (planned, D+1~7)
 
-- [ ] **GSC 색인 요청** (담당: 마스터) — 신규 6개 도구 우선:
-  - /ko·/en/korean-age, /electric-bill, /name-romanize, /size-convert,
-    /capital-gains-tax, /paint-calc
-- [ ] **외부 백링크 1개** (담당: 마스터) — GitHub README 4개 또는 네이버/티스토리
-- [ ] **음력↔양력 변환기** (담당: Claude) — KASI 데이터 테이블 확보 필요 (보류)
+- [ ] **GSC 색인 요청** (담당: 마스터) — 외국인 니치 우선:
+  - /en·/ko 의 pension-refund · d8-startup-visa · jeonse-wolse · f2-residence-visa ·
+    foreign-flat-tax · foreign-health-insurance · apartment-area · visa-days
+  - + 필러 블로그 living-in-korea-foreigner-guide
+- [ ] **외부 백링크 1개** (담당: 마스터) — GitHub README 또는 네이버/티스토리/레딧
+- [ ] **콘텐츠 2~3편 추가** (담당: Claude, 필요 시) — 검증된 키워드 기반 long-form
+  (후보: "Renting in Korea 심화", "First month in Korea 도착 가이드")
 
 ### ✅ 신규 도구 6종 완료 (2026-05-30, 전부 단계적으로)
 korean-age(영어권 블루오션) · electric-bill(한국 고검색) · name-romanize(외국인) ·
@@ -31,11 +34,18 @@ income-tax · loan-calc · rent-cap · area-convert · percent-calc ·
 biznum-check · electric-breaker · roof-area · wire-size · insulation ·
 korean-age · electric-bill · name-romanize · size-convert · capital-gains-tax · paint-calc
 
-## 🟢 대기 (backlog, AdSense 2차 거절 시 발동)
+## 🟢 대기 (backlog)
 
-- [ ] /guide 인덱스 페이지 (현재 404)
-- [ ] About 페이지에 자격증·경력 명시 (E-A-T 보강)
-- [ ] 도구 페이지 7~10개 추가 ToolGuide 통합 (현재 5개)
+- [x] ~~/guide 인덱스 페이지~~ — 이미 존재 (전기·목조 long-form 5편 + 카테고리)
+- [x] ~~About E-A-T 보강~~ — 완료 (외국인 독자 + 출처·검증 방법론 + 갱신일, 2026-06-17)
+- [ ] /guide 허브에 외국인 니치 가이드 항목 추가 검토 (현재 실무자 중심)
+- [ ] AdSense 통과 후: 도구 즐겨찾기·사이트 검색 강화
+
+### ✅ 영문 외국인 니치 + 콘텐츠 (2026-06-16~17)
+외국인 도구 7종 라이브(foreign-flat-tax·foreign-health-insurance·apartment-area·
+f2-residence-visa·jeonse-wolse·d8-startup-visa·pension-refund) · 상황별 체크리스트
+10개 도구 통합 · 국민연금 9.5% 갱신 · 복리 계산기 기본/적립식 2탭 개편 ·
+About E-A-T · 필러 블로그(living-in-korea-foreigner-guide, 도구 9종 허브)
 
 ## ⚪ 미래 (someday, Phase 4)
 
