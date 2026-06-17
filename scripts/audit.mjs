@@ -134,6 +134,51 @@ if (existsSync(messagesDir)) {
   );
 }
 
+// H. AdSense 가치 게이트 — ToolGuide 없는(=thin) 도구 페이지 검출
+// 정책: 인덱스되는 계산기 페이지는 ToolGuide(고유 본문) 필수, 아니면 noindex.
+// 상세: docs/adsense-compliance.md
+{
+  const localeRoot = join(ROOT, "app", "[locale]");
+  // 리프 계산기가 아닌(=ToolGuide 불필요) 라우트. 허브·정책·콘텐츠·동적.
+  const ALLOW = new Set([
+    "", "about", "contact", "privacy", "terms",
+    "tools", "games", "tests", "learn", "blog", "guide", "projects",
+    // 서브 허브 인덱스 (하위 도구 목록 페이지)
+    "electric-calc", "timber-calc", "labor-calc",
+  ]);
+  const thin = [];
+  const walkPages = (dir, rel = "") => {
+    if (!existsSync(dir)) return;
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      let st; try { st = statSync(full); } catch { continue; }
+      if (st.isDirectory()) {
+        walkPages(full, rel ? `${rel}/${entry}` : entry);
+      } else if (entry === "page.tsx") {
+        const route = rel; // "" = 랜딩
+        // 허브·정책·동적·콘텐츠(blog/guide 하위)는 ToolGuide 불필요
+        if (ALLOW.has(route)) continue;
+        if (route.includes("[")) continue; // 동적 라우트
+        if (route.startsWith("blog/") || route.startsWith("guide/")) continue;
+        let src; try { src = readFileSync(full, "utf-8"); } catch { continue; }
+        const hasGuide = src.includes("ToolGuide");
+        const isNoindex = /index:\s*false/.test(src);
+        if (!hasGuide && !isNoindex) thin.push(route);
+      }
+    }
+  };
+  walkPages(localeRoot);
+  report.add(
+    "H.AdSense",
+    "도구 페이지 ToolGuide 보유 (thin=가치없는 콘텐츠 방지)",
+    thin.length === 0,
+    thin.length
+      ? `thin ${thin.length}개 (ToolGuide 또는 noindex 필요): ${thin.join(", ")}`
+      : "모든 도구 페이지가 ToolGuide 또는 noindex",
+    "warn",
+  );
+}
+
 // 출력
 if (JSON_OUT) {
   console.log(JSON.stringify({

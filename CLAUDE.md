@@ -127,6 +127,19 @@ worktool/
 - URL은 케밥 케이스 (`/electric-calc/wire-size`)
 - h1은 페이지당 1개, 키워드 포함
 
+### 🚦 AdSense 가치 게이트 (하드 룰 — "가치 없는 콘텐츠" 재거절 방지)
+> 상세·정책 출처: [`docs/adsense-compliance.md`](./docs/adsense-compliance.md).
+> AdSense는 사이트를 **통째로** 평가한다. thin 페이지 1개 = 사이트 전체의 부채.
+
+- **인덱스되는 도구 페이지 = `ToolGuide`(또는 동등한 고유 본문 ≥600~800자) 필수.**
+  form+결과만 있는 계산기는 "가치 없는 콘텐츠" → 사이트 전체를 끌어내린다.
+- **ToolGuide 못 채우면 출시 금지, 또는 `robots: { index: false }` noindex.**
+- **페이지 양산 금지** — 템플릿에 숫자만 바꾼 유사 페이지 다수 = scaled content 위반.
+  자동화·템플릿은 OK, 단 각 페이지에 그 도구만의 고유 설명·예시·맥락이 있어야.
+- **허브(`/tools`·`/games`·`/tests`)는 카드 나열만 X** — 자체 설명 본문 포함(doorway 회피).
+- **신규 도구 = ToolGuide 동반 출시 기본.** `node scripts/audit.mjs` [H.AdSense]가
+  ToolGuide 없는 도구 페이지를 자동 경고 → 뜨면 보강 후 출시.
+
 ### i18n
 - 한국어가 기본 언어 (`/ko/...`)
 - 영문은 한국 KS 표준을 영어로 설명하는 버전
