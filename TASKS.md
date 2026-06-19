@@ -22,7 +22,8 @@
   - + 필러 블로그 living-in-korea-foreigner-guide
 - [ ] **외부 백링크 1개** (담당: 마스터) — GitHub README 또는 네이버/티스토리/레딧
 - [ ] **콘텐츠 2~3편 추가** (담당: Claude, 필요 시) — 검증된 키워드 기반 long-form
-  (후보: "Renting in Korea 심화", "First month in Korea 도착 가이드")
+  - [x] ~~"Renting in Korea 심화"~~ → renting-in-korea-jeonse-wolse-guide 완료 (2026-06-19)
+  - [ ] 후보: "First month in Korea 도착 가이드"
 
 ### ✅ 신규 도구 6종 완료 (2026-05-30, 전부 단계적으로)
 korean-age(영어권 블루오션) · electric-bill(한국 고검색) · name-romanize(외국인) ·
@@ -39,7 +40,7 @@ korean-age · electric-bill · name-romanize · size-convert · capital-gains-ta
 - [x] ~~/guide 인덱스 페이지~~ — 이미 존재 (전기·목조 long-form 5편 + 카테고리)
 - [x] ~~About E-A-T 보강~~ — 완료 (외국인 독자 + 출처·검증 방법론 + 갱신일, 2026-06-17)
 - [ ] /guide 허브에 외국인 니치 가이드 항목 추가 검토 (현재 실무자 중심)
-- [ ] AdSense 통과 후: 도구 즐겨찾기·사이트 검색 강화
+- [x] ~~도구 즐겨찾기·사이트 검색 강화~~ — 완료 (검색 64개 단일진실원 재배선 + localStorage 즐겨찾기, 2026-06-19)
 
 ### ✅ 영문 외국인 니치 + 콘텐츠 (2026-06-16~17)
 외국인 도구 7종 라이브(foreign-flat-tax·foreign-health-insurance·apartment-area·
@@ -49,13 +50,12 @@ About E-A-T · 필러 블로그(living-in-korea-foreigner-guide, 도구 9종 허
 
 ## ⚪ 미래 (someday, Phase 4)
 
-- [ ] 사이트 검색 기능 강화
-- [ ] 도구 즐겨찾기 (localStorage)
 - [ ] 다크/라이트 토글
 - [ ] 도구 5개 추가 (총 38개 목표)
 
 ## ✅ 최근 완료 (history)
 
+- [x] 2026-06-19: **재신청 전 통합** — 랜딩 검색을 toolsCatalog(64개 단일진실원)로 재배선('연봉·퇴직금' 검색 0건 버그 해소, 죽은 tools-registry 제거) + 도구 즐겨찾기(localStorage·검색 위젯 별표) + 허브 doorway 본문(/tools·/games·/tests ko/en) + 외국인 임대 블로그(renting-in-korea-jeonse-wolse-guide). minerva-web-qa 전수검사 PASS · 배포 alias 3단계 · IndexNow (`d51c675`)
 - [x] 2026-06-12: 랜딩 페이지 키네틱 재디자인 — 롤링 헤드라인·플로팅 계산 카드·도구 57개 마퀴·인기 TOP6·카테고리 그리드(toolsCatalog 단일 진실원)·스탯 카운트업·블로그/메이커 크로스 프로모. minerva-web-qa 전수검사 통과.
 - [x] 2026-06-06: WaveB — hangul-decompose · korean-number · school-grade (`7cf860f`)
 - [x] 2026-06-06: WaveA — distance-convert · temp-convert · text-romanize · voltage-guide (`8c94cba`)
