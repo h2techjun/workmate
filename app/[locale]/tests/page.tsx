@@ -100,6 +100,36 @@ export default async function TestsHubPage({
         labels={labels}
         visibleTabs={["tests"]}
       />
+
+      <section className="mt-14 max-w-3xl space-y-6 border-t border-[color:var(--color-border-subtle)] pt-10">
+        <h2 className="text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+          {isKo ? "이 심리테스트는 무엇이 다른가요" : "What makes these tests different"}
+        </h2>
+        <p className="text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
+          {isKo
+            ? "MBTI 류의 단순 분류를 넘어, 직장 문화 진단과 자기 이해에 초점을 둔 자가진단 도구입니다. AI가 응답의 일관성·신뢰도를 평가하고, 결과를 익명으로 비교할 수 있습니다. 같은 제작자가 만든 프로젝트로, 외부 광고용 임베드가 아닙니다."
+            : "Beyond MBTI-style labels, these self-assessment tools focus on workplace culture and self-understanding. An AI layer scores the consistency and credibility of your answers, and results can be compared anonymously. They are projects by the same maker — not third-party ad embeds."}
+        </p>
+        <ul className="space-y-2.5 text-sm text-[color:var(--color-text-secondary)] md:text-base">
+          {(isKo
+            ? [
+                "직장 문화 진단 — 우리 회사·팀의 분위기를 항목별로 점검하고 익명 비교.",
+                "AI 신뢰도 평가 — 대충 찍은 응답을 걸러 결과의 신뢰도를 높임.",
+                "무료·무가입. 결과는 개인 참고용이며 진단·의학적 판단이 아닙니다.",
+              ]
+            : [
+                "Workplace culture check — assess your company or team by category and compare anonymously.",
+                "AI credibility scoring — filters careless answers to make the result more reliable.",
+                "Free, no signup. Results are for personal reflection, not a clinical diagnosis.",
+              ]
+          ).map((item, i) => (
+            <li key={i} className="flex gap-2.5">
+              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-fuchsia-400" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
       </div>
     </main>
   );

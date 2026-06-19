@@ -155,6 +155,84 @@ export default async function ToolsHubPage({
           );
         })}
       </div>
+
+      <section className="mx-auto mt-14 max-w-3xl space-y-8 border-t border-[color:var(--color-border-subtle)] pt-10">
+        <div>
+          <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+            {isKo ? "이 모음에 대하여" : "About this collection"}
+          </h2>
+          <p className="text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
+            {isKo
+              ? "Workmate의 계산기는 한국 표준(KS·KEC·NDS)과 현행 법령·요율에 정확히 맞춰져 있습니다. 단순히 답만 보여주지 않고 공식·근거·출처를 함께 제시해, 견적서·결재 자료에 그대로 첨부하거나 직접 검증할 수 있습니다. 모든 입력값은 브라우저에서만 처리되어 서버로 전송되지 않습니다."
+              : "Every Workmate calculator is aligned to Korean standards (KS, KEC, NDS) and current laws and rates. Each one shows the formula, basis, and sources — not just an answer — so you can attach it to a quote or filing, or verify it yourself. All inputs are processed in your browser and never sent to a server."}
+          </p>
+        </div>
+
+        <div>
+          <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+            {isKo ? "어떤 카테고리가 있나요" : "What's inside"}
+          </h2>
+          <ul className="grid gap-2.5 text-sm text-[color:var(--color-text-secondary)] sm:grid-cols-2 md:text-base">
+            {(isKo
+              ? [
+                  "연봉·근로 — 실수령액·연차·주휴수당·퇴직금·최저임금",
+                  "세금·재무 — 종합소득세·부가세·복리·대출·프리랜서 3.3%",
+                  "부동산 — 전월세 환산·임대료 5% 상한·전용/공급 면적",
+                  "전기 — 전선 굵기·차단기·전압강하 (KEC 기준)",
+                  "목조·자재 — 경간·콘크리트·합판·OSB·계단·물량",
+                  "한국 생활·외국인 — 비자·국민연금 반환·건강보험·한국식 나이",
+                ]
+              : [
+                  "Payroll & labor — take-home pay, annual leave, severance, min wage",
+                  "Tax & finance — income tax, VAT, compound interest, loans",
+                  "Real estate — jeonse/wolse, 5% rent cap, exclusive/supply area",
+                  "Electric — wire size, breaker, voltage drop (Korean KEC)",
+                  "Timber & materials — span, concrete, plywood, stairs, quantity",
+                  "Korea living & foreigners — visas, pension refund, health insurance",
+                ]
+            ).map((item, i) => (
+              <li key={i} className="flex gap-2.5">
+                <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+            {isKo ? "한국에 사는 외국인이라면" : "Living in Korea as a foreigner?"}
+          </h2>
+          <p className="text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
+            {isKo ? (
+              <>
+                비자(F-2-7·D-8)·국민연금 반환일시금·건강보험료·전월세·연말정산
+                도구를 영어로 제공합니다. 한국 정착의 전 과정을 정리한{" "}
+                <Link
+                  href={`/${locale}/blog/living-in-korea-foreigner-guide`}
+                  className="text-indigo-300 underline-offset-2 hover:underline"
+                >
+                  완전 가이드
+                </Link>
+                도 함께 보세요.
+              </>
+            ) : (
+              <>
+                Visa (F-2-7, D-8), National Pension refund, health insurance,
+                jeonse/wolse, and year-end tax tools are available in English.
+                See the{" "}
+                <Link
+                  href={`/${locale}/blog/living-in-korea-foreigner-guide`}
+                  className="text-indigo-300 underline-offset-2 hover:underline"
+                >
+                  complete guide to living in Korea
+                </Link>{" "}
+                for the whole journey.
+              </>
+            )}
+          </p>
+        </div>
+      </section>
       </div>
     </main>
   );

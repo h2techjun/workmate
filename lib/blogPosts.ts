@@ -58,6 +58,18 @@ export const CATEGORY_ORDER: ReadonlyArray<BlogCategory> = [
 
 export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
   {
+    slug: "renting-in-korea-jeonse-wolse-guide",
+    publishedAt: "2026-06-18",
+    titleKo: "외국인을 위한 한국 임대 가이드 — 전세·월세·보증금 지키기",
+    titleEn: "Renting in Korea as a Foreigner: Jeonse, Wolse, Deposits & Your Rights",
+    summaryKo:
+      "전세와 월세의 차이, 전월세전환율, 2022~2023 전세사기에서 보증금을 지키는 법, 그리고 외국인이 꼭 알아야 할 '체류지 변경신고' 함정까지. 계약 전 단계별 체크리스트와 함께.",
+    summaryEn:
+      "Jeonse vs wolse, the conversion rate, how to protect your deposit after the 2022–2023 fraud wave, and the change-of-residence-report trap every foreign tenant must know — with a step-by-step pre-signing checklist.",
+    category: "realestate",
+    readingMinutes: 12,
+  },
+  {
     slug: "living-in-korea-foreigner-guide",
     publishedAt: "2026-06-17",
     titleKo: "한국 사는 외국인 완전 가이드 — 도착부터 출국까지 돈·비자·행정",

@@ -27,6 +27,9 @@
   "homeSearch": {
     "placeholder": "Search tools — e.g. wire, insulation, payroll, business",
     "noResults": "No tool matches \"{query}\".",
+    "favorites": "Favorites",
+    "addFavorite": "Add to favorites",
+    "removeFavorite": "Remove from favorites",
     "category": {
       "electric": "Electric",
       "timber": "Timber",
