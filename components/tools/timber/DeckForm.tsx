@@ -5,6 +5,7 @@ import {
   calculateDeck,
   calculateFence,
 } from "@/lib/calculations/timber/deckFence";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface DeckFormProps {
@@ -85,10 +86,23 @@ export function DeckForm({ locale }: DeckFormProps): React.ReactElement {
   const deck = calculateDeck({ area, boardWidth, boardLength, gap, deckLength, joistSpacing, waste: 10 });
   const fence = calculateFence({ length, postSpacing, picketSpacing });
 
-  const field = (label: string, value: number, setter: (v: number) => void, step = 1) => (
+  const field = (
+    label: string,
+    value: number,
+    setter: (v: number) => void,
+    opts: { decimals?: number; thousands?: boolean; suffix?: string } = {},
+  ) => (
     <div>
       <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">{label}</label>
-      <input type="number" step={step} className="input-base" value={value} onChange={(e) => setter(parseFloat(e.target.value) || 0)} />
+      <NumberField
+        value={value}
+        onChange={setter}
+        thousands={opts.thousands ?? false}
+        decimals={opts.decimals ?? 0}
+        min={0}
+        suffix={opts.suffix}
+        aria-label={label}
+      />
     </div>
   );
 
@@ -109,23 +123,23 @@ export function DeckForm({ locale }: DeckFormProps): React.ReactElement {
         <section className="surface-card space-y-4 p-5 md:p-7">
           {mode === "deck" ? (
             <>
-              {field(t.area, area, setArea)}
+              {field(t.area, area, setArea, { decimals: 2, suffix: "㎡" })}
               <div className="grid grid-cols-2 gap-3">
-                {field(t.boardWidth, boardWidth, setBoardWidth)}
-                {field(t.boardLength, boardLength, setBoardLength, 0.1)}
+                {field(t.boardWidth, boardWidth, setBoardWidth, { decimals: 0, suffix: "mm" })}
+                {field(t.boardLength, boardLength, setBoardLength, { decimals: 1, suffix: "m" })}
               </div>
               <div className="grid grid-cols-3 gap-3">
-                {field(t.gap, gap, setGap)}
-                {field(t.deckLength, deckLength, setDeckLength, 0.1)}
-                {field(t.joistSpacing, joistSpacing, setJoistSpacing)}
+                {field(t.gap, gap, setGap, { decimals: 0, suffix: "mm" })}
+                {field(t.deckLength, deckLength, setDeckLength, { decimals: 1, suffix: "m" })}
+                {field(t.joistSpacing, joistSpacing, setJoistSpacing, { decimals: 0, suffix: "mm" })}
               </div>
             </>
           ) : (
             <>
-              {field(t.length, length, setLength)}
+              {field(t.length, length, setLength, { decimals: 1, suffix: "m" })}
               <div className="grid grid-cols-2 gap-3">
-                {field(t.postSpacing, postSpacing, setPostSpacing, 0.1)}
-                {field(t.picketSpacing, picketSpacing, setPicketSpacing)}
+                {field(t.postSpacing, postSpacing, setPostSpacing, { decimals: 1, suffix: "m" })}
+                {field(t.picketSpacing, picketSpacing, setPicketSpacing, { decimals: 0, suffix: "mm" })}
               </div>
             </>
           )}

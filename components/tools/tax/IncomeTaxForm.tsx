@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   BRACKETS_2026,
@@ -23,6 +23,8 @@ import {
   SourceBox,
   Stat,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
+import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface IncomeTaxFormProps {
   locale: "ko" | "en";
@@ -119,6 +121,7 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -150,15 +153,26 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={t.sectionIncome}>
-          <Field label={t.fieldTaxable} hint={t.fieldTaxableHint}>
-            <input
-              type="number"
-              step="100000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("taxableIncome", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="taxableIncome"
+            render={({ field }) => (
+              <Field label={t.fieldTaxable} hint={t.fieldTaxableHint}>
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  suffix={t.heroUnit}
+                  min={0}
+                  aria-label={t.fieldTaxable}
+                />
+                {locale === "ko" && Number(field.value) > 0 && (
+                  <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+                    {formatKoreanMoney(Number(field.value))}
+                  </p>
+                )}
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <FieldGroup title={t.sectionOptions}>

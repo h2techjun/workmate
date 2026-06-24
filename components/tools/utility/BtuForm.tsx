@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { calculateBtu } from "@/lib/calculations/utility/btu";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface BtuFormProps {
   locale: "ko" | "en";
@@ -59,11 +60,25 @@ export function BtuForm({ locale }: BtuFormProps): React.ReactElement {
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">{t.area}</label>
-            <input type="number" className="input-base" value={area} onChange={(e) => setArea(parseFloat(e.target.value) || 0)} />
+            <NumberField
+              value={area}
+              onChange={setArea}
+              thousands={false}
+              decimals={1}
+              suffix="㎡"
+              aria-label={t.area}
+            />
           </div>
           <div>
             <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">{t.ceiling}</label>
-            <input type="number" step={0.1} className="input-base" value={ceiling} onChange={(e) => setCeiling(parseFloat(e.target.value) || 0)} />
+            <NumberField
+              value={ceiling}
+              onChange={setCeiling}
+              thousands={false}
+              decimals={1}
+              suffix="m"
+              aria-label={t.ceiling}
+            />
           </div>
         </div>
         <div>
@@ -79,7 +94,13 @@ export function BtuForm({ locale }: BtuFormProps): React.ReactElement {
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">{t.occupants}</label>
-          <input type="number" className="input-base" value={occupants} onChange={(e) => setOccupants(parseInt(e.target.value, 10) || 0)} />
+          <NumberField
+            value={occupants}
+            onChange={setOccupants}
+            thousands={false}
+            decimals={0}
+            aria-label={t.occupants}
+          />
         </div>
         <label className="flex items-center gap-2 text-sm text-[color:var(--color-text-secondary)]">
           <input type="checkbox" className="h-4 w-4" checked={kitchen} onChange={(e) => setKitchen(e.target.checked)} />

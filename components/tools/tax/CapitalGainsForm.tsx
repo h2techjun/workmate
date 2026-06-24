@@ -5,6 +5,8 @@ import {
   calculateCapitalGainsTax,
   type CapitalGainsResult,
 } from "@/lib/calculations/tax/capitalGainsTax";
+import { NumberField } from "@/components/ui/NumberField";
+import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface CapitalGainsFormProps {
   locale: "ko" | "en";
@@ -85,23 +87,44 @@ export function CapitalGainsForm({
     isOneHouse,
   });
 
-  const numField = (
+  const moneyField = (
     label: string,
     value: number,
     setter: (v: number) => void,
-    step = 1_000_000,
   ) => (
     <div>
       <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">
         {label}
       </label>
-      <input
-        type="number"
-        step={step}
-        inputMode="numeric"
-        className="input-base"
+      <NumberField
         value={value}
-        onChange={(e) => setter(parseFloat(e.target.value) || 0)}
+        onChange={setter}
+        suffix={t.unit}
+        aria-label={label}
+      />
+      {locale === "ko" && value > 0 && (
+        <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+          {formatKoreanMoney(value)}
+        </p>
+      )}
+    </div>
+  );
+
+  const yearField = (
+    label: string,
+    value: number,
+    setter: (v: number) => void,
+  ) => (
+    <div>
+      <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">
+        {label}
+      </label>
+      <NumberField
+        value={value}
+        onChange={setter}
+        thousands={false}
+        max={50}
+        aria-label={label}
       />
     </div>
   );
@@ -109,12 +132,12 @@ export function CapitalGainsForm({
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <section className="surface-card space-y-4 p-5 md:p-7">
-        {numField(t.salePrice, salePrice, setSalePrice)}
-        {numField(t.purchasePrice, purchasePrice, setPurchasePrice)}
-        {numField(t.expenses, expenses, setExpenses)}
+        {moneyField(t.salePrice, salePrice, setSalePrice)}
+        {moneyField(t.purchasePrice, purchasePrice, setPurchasePrice)}
+        {moneyField(t.expenses, expenses, setExpenses)}
         <div className="grid grid-cols-2 gap-3">
-          {numField(t.holdingYears, holdingYears, setHoldingYears, 1)}
-          {numField(t.residingYears, residingYears, setResidingYears, 1)}
+          {yearField(t.holdingYears, holdingYears, setHoldingYears)}
+          {yearField(t.residingYears, residingYears, setResidingYears)}
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">

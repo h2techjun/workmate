@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm, Controller, type Control } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateNhisForeign,
   nhisForeignInputSchema,
@@ -110,30 +111,24 @@ function MoneyField({
     <Controller
       control={control}
       name={name}
-      render={({ field }) => {
-        const num = Number(field.value) || 0;
-        return (
-          <Field label={label} hint={hint}>
-            <input
-              type="text"
-              inputMode="numeric"
-              className="input-base"
-              value={num > 0 ? num.toLocaleString("ko-KR") : ""}
-              placeholder="0"
-              onChange={(e) => {
-                const raw = e.target.value.replace(/[^0-9]/g, "");
-                field.onChange(raw === "" ? 0 : Number(raw));
-              }}
-              onBlur={field.onBlur}
-            />
-            {locale === "ko" && num > 0 && (
-              <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
-                = {formatKoreanMoney(num)}
-              </p>
-            )}
-          </Field>
-        );
-      }}
+      render={({ field }) => (
+        <Field label={label} hint={hint}>
+          <NumberField
+            value={field.value}
+            onChange={field.onChange}
+            thousands
+            decimals={0}
+            min={0}
+            suffix="원"
+            aria-label={label}
+          />
+          {locale === "ko" && field.value > 0 && (
+            <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+              {formatKoreanMoney(field.value)}
+            </p>
+          )}
+        </Field>
+      )}
     />
   );
 }

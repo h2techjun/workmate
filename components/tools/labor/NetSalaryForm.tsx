@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { calculateNetSalary } from "@/lib/calculations/labor/netSalary";
+import { NumberField } from "@/components/ui/NumberField";
+import { ShareButton } from "@/components/ui/ShareButton";
+import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface NetSalaryFormProps {
   locale: "ko" | "en";
@@ -56,6 +60,7 @@ export function NetSalaryForm({
   locale,
 }: NetSalaryFormProps): React.ReactElement {
   const t = T[locale];
+  const tShare = useTranslations("share");
   const [annual, setAnnual] = useState(50_000_000);
   const [dependents, setDependents] = useState(1);
   const [children, setChildren] = useState(0);
@@ -72,38 +77,53 @@ export function NetSalaryForm({
     label: string,
     value: number,
     setter: (v: number) => void,
-    step = 1,
+    opts: { money?: boolean; max?: number } = {},
   ) => (
     <div>
       <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">
         {label}
       </label>
-      <input
-        type="number"
-        step={step}
-        inputMode="numeric"
-        className="input-base"
+      <NumberField
         value={value}
-        onChange={(e) => setter(parseFloat(e.target.value) || 0)}
+        onChange={setter}
+        suffix={opts.money ? t.unit : undefined}
+        max={opts.max}
+        aria-label={label}
       />
+      {opts.money && locale === "ko" && value > 0 && (
+        <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+          {formatKoreanMoney(value)}
+        </p>
+      )}
     </div>
   );
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <section className="surface-card space-y-4 p-5 md:p-7">
-        {field(t.annual, annual, setAnnual, 1_000_000)}
+        {field(t.annual, annual, setAnnual, { money: true })}
         <div className="grid grid-cols-2 gap-3">
-          {field(t.dependents, dependents, setDependents, 1)}
-          {field(t.children, children, setChildren, 1)}
+          {field(t.dependents, dependents, setDependents, { max: 20 })}
+          {field(t.children, children, setChildren, { max: 20 })}
         </div>
-        {field(t.nonTax, nonTax, setNonTax, 10_000)}
+        {field(t.nonTax, nonTax, setNonTax, { money: true })}
       </section>
 
       <section className="surface-card space-y-4 p-5 md:p-7">
-        <h2 className="text-lg font-semibold text-[color:var(--color-text-primary)]">
-          {t.result}
-        </h2>
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="text-lg font-semibold text-[color:var(--color-text-primary)]">
+            {t.result}
+          </h2>
+          <ShareButton
+            text={
+              locale === "ko"
+                ? `연봉 ${won(annual)}원 → 월 실수령액 ${won(r.monthlyNet)}원 (실수령률 ${((1 - r.deductionRate) * 100).toFixed(1)}%)`
+                : `Annual ${won(annual)} KRW → monthly take-home ${won(r.monthlyNet)} KRW`
+            }
+            label={tShare("button")}
+            copiedLabel={tShare("copied")}
+          />
+        </div>
 
         <div className="rounded-xl bg-gradient-to-br from-emerald-500/15 to-teal-500/10 p-4 ring-1 ring-emerald-500/20">
           <dt className="text-xs font-medium text-[color:var(--color-text-tertiary)]">

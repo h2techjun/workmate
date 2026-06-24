@@ -5,6 +5,8 @@ import {
   calculateCarAcquisitionTax,
   type CarAcqResult,
 } from "@/lib/calculations/tax/carTax";
+import { NumberField } from "@/components/ui/NumberField";
+import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface CarAcquisitionFormProps {
   locale: "ko" | "en";
@@ -67,14 +69,18 @@ export function CarAcquisitionForm({
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
             {t.price}
           </label>
-          <input
-            type="number"
-            step={1_000_000}
-            inputMode="numeric"
-            className="input-base text-2xl font-bold tabular-nums"
+          <NumberField
             value={price}
-            onChange={(e) => setPrice(parseFloat(e.target.value) || 0)}
+            onChange={setPrice}
+            suffix={t.unit}
+            aria-label={t.price}
+            className="text-2xl font-bold tabular-nums"
           />
+          {locale === "ko" && price > 0 && (
+            <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+              {formatKoreanMoney(price)}
+            </p>
+          )}
         </div>
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">

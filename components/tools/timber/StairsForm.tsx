@@ -1,13 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
   calculateStairs,
   stairsInputSchema,
-  type StairsInputResolved,
   type StairsResult,
   type StairsStep,
   type StairWarning,
@@ -27,6 +24,7 @@ import {
   StepsBox,
   WarningsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 1): string => formatNumber(n, d);
@@ -35,20 +33,17 @@ export function StairsForm(): React.ReactElement {
   const t = useTranslations("stairsTool");
   const [result, setResult] = useState<StairsResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
+  const [validationErrors, setValidationErrors] = useState<
+    Record<string, string>
+  >({});
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<StairsInputResolved>({
-    resolver: zodResolver(stairsInputSchema),
-    defaultValues: {
-      totalRise: 2700,
-      preferredRiser: 180,
-      useType: "residential",
-    },
-  });
+  const [totalRise, setTotalRise] = useState(2700);
+  const [totalRunRaw, setTotalRunRaw] = useState(0);
+  const [hasTotalRun, setHasTotalRun] = useState(false);
+  const [preferredRiser, setPreferredRiser] = useState(180);
+  const [useType, setUseType] = useState<"residential" | "public">(
+    "residential",
+  );
 
   const renderStep = (s: StairsStep): string => {
     switch (s.key) {
@@ -125,71 +120,113 @@ export function StairsForm(): React.ReactElement {
     }
   };
 
-  const onSubmit = (values: StairsInputResolved): void => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
     setCalcError(null);
+    setValidationErrors({});
+
+    const raw = {
+      totalRise,
+      totalRun: hasTotalRun && totalRunRaw > 0 ? totalRunRaw : undefined,
+      preferredRiser,
+      useType,
+    };
+
+    const parsed = stairsInputSchema.safeParse(raw);
+    if (!parsed.success) {
+      const errs: Record<string, string> = {};
+      parsed.error.errors.forEach((e) => {
+        const key = e.path[0]?.toString() ?? "unknown";
+        errs[key] = t(e.message as never);
+      });
+      setValidationErrors(errs);
+      return;
+    }
+
     try {
-      setResult(calculateStairs(values));
+      setResult(calculateStairs(parsed.data));
     } catch {
       setResult(null);
       setCalcError(t("errors.unknown"));
     }
   };
+
   const onReset = (): void => {
-    reset();
+    setTotalRise(2700);
+    setTotalRunRaw(0);
+    setHasTotalRun(false);
+    setPreferredRiser(180);
+    setUseType("residential");
     setResult(null);
     setCalcError(null);
+    setValidationErrors({});
   };
-  const errMsg = (m?: string) => (m ? t(m as never) : undefined);
 
   return (
     <CalcLayout>
-      <FormShell onSubmit={handleSubmit(onSubmit)}>
+      <FormShell onSubmit={onSubmit}>
         <FieldGroup title={t("sections.geometry")}>
           <Field
             label={t("fields.totalRise")}
-            error={errMsg(errors.totalRise?.message)}
+            error={validationErrors["totalRise"]}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("totalRise", { valueAsNumber: true })}
+            <NumberField
+              value={totalRise}
+              onChange={setTotalRise}
+              thousands={false}
+              decimals={0}
+              min={100}
+              max={10000}
+              suffix="mm"
+              aria-label={t("fields.totalRise")}
             />
           </Field>
           <Field
             label={t("fields.totalRun")}
             hint={t("hints.totalRun")}
-            error={errMsg(errors.totalRun?.message)}
+            error={validationErrors["totalRun"]}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("totalRun", {
-                setValueAs: (v) => (v === "" || v == null ? undefined : Number(v)),
-              })}
+            <NumberField
+              value={totalRunRaw}
+              onChange={(v) => {
+                setTotalRunRaw(v);
+                setHasTotalRun(v > 0);
+              }}
+              thousands={false}
+              decimals={0}
+              min={0}
+              max={20000}
+              suffix="mm"
+              aria-label={t("fields.totalRun")}
             />
           </Field>
           <Field
             label={t("fields.preferredRiser")}
             hint={t("hints.preferredRiser")}
-            error={errMsg(errors.preferredRiser?.message)}
+            error={validationErrors["preferredRiser"]}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("preferredRiser", { valueAsNumber: true })}
+            <NumberField
+              value={preferredRiser}
+              onChange={setPreferredRiser}
+              thousands={false}
+              decimals={0}
+              min={80}
+              max={250}
+              suffix="mm"
+              aria-label={t("fields.preferredRiser")}
             />
           </Field>
         </FieldGroup>
 
         <FieldGroup title={t("sections.options")}>
           <Field label={t("fields.useType")}>
-            <select className="input-base" {...register("useType")}>
+            <select
+              className="input-base"
+              value={useType}
+              onChange={(e) =>
+                setUseType(e.target.value as "residential" | "public")
+              }
+            >
               <option value="residential">{t("useType.residential")}</option>
               <option value="public">{t("useType.public")}</option>
             </select>
@@ -198,11 +235,7 @@ export function StairsForm(): React.ReactElement {
 
         <ActionRow
           primary={
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="btn-primary flex-1"
-            >
+            <button type="submit" className="btn-primary flex-1">
               {t("actions.calculate")}
             </button>
           }

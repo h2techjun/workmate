@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -25,6 +25,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -40,6 +41,7 @@ export function VoltageDropForm(): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -118,36 +120,57 @@ export function VoltageDropForm(): React.ReactElement {
             label={t("fields.voltage")}
             error={errMsg(errors.voltage?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("voltage", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="voltage"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  suffix="V"
+                  aria-label={t("fields.voltage")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.current")}
             error={errMsg(errors.current?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("current", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="current"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  suffix="A"
+                  aria-label={t("fields.current")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.distance")}
             error={errMsg(errors.distance?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("distance", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="distance"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  suffix="m"
+                  aria-label={t("fields.distance")}
+                />
+              )}
             />
           </Field>
           <Field label={t("fields.phaseType")}>

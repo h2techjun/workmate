@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useTranslations } from "next-intl";
+import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateAnnualLeave,
   type AnnualLeaveInput,
@@ -51,6 +52,7 @@ export function AnnualLeaveForm(): React.ReactElement {
     handleSubmit,
     watch,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
@@ -73,14 +75,14 @@ export function AnnualLeaveForm(): React.ReactElement {
       referenceDate: values.referenceDate || undefined,
       attendanceOver80: values.attendanceOver80,
       wageMode: values.wageMode,
-      unusedDays: Number(values.unusedDays) || 0,
+      unusedDays: values.unusedDays,
       monthlySalary:
         values.wageMode === "monthly"
-          ? Number(values.monthlySalary) || undefined
+          ? values.monthlySalary || undefined
           : undefined,
       dailyOrdinaryWage:
         values.wageMode === "daily"
-          ? Number(values.dailyOrdinaryWage) || undefined
+          ? values.dailyOrdinaryWage || undefined
           : undefined,
     };
     try {
@@ -219,46 +221,66 @@ export function AnnualLeaveForm(): React.ReactElement {
           </Field>
 
           {wageMode === "monthly" ? (
-            <Field
-              label={t("fields.monthlySalary")}
-              hint={t("hints.monthlySalary")}
-            >
-              <input
-                type="number"
-                step="10000"
-                inputMode="numeric"
-                className="input-base"
-                {...register("monthlySalary", { valueAsNumber: true })}
-              />
-            </Field>
+            <Controller
+              control={control}
+              name="monthlySalary"
+              render={({ field }) => (
+                <Field
+                  label={t("fields.monthlySalary")}
+                  hint={t("hints.monthlySalary")}
+                >
+                  <NumberField
+                    value={field.value}
+                    onChange={field.onChange}
+                    thousands
+                    decimals={0}
+                    suffix="원"
+                    aria-label={t("fields.monthlySalary")}
+                  />
+                </Field>
+              )}
+            />
           ) : (
-            <Field
-              label={t("fields.dailyOrdinaryWage")}
-              hint={t("hints.dailyOrdinaryWage")}
-            >
-              <input
-                type="number"
-                step="1000"
-                inputMode="numeric"
-                className="input-base"
-                {...register("dailyOrdinaryWage", { valueAsNumber: true })}
-              />
-            </Field>
+            <Controller
+              control={control}
+              name="dailyOrdinaryWage"
+              render={({ field }) => (
+                <Field
+                  label={t("fields.dailyOrdinaryWage")}
+                  hint={t("hints.dailyOrdinaryWage")}
+                >
+                  <NumberField
+                    value={field.value}
+                    onChange={field.onChange}
+                    thousands
+                    decimals={0}
+                    suffix="원"
+                    aria-label={t("fields.dailyOrdinaryWage")}
+                  />
+                </Field>
+              )}
+            />
           )}
 
-          <Field
-            label={t("fields.unusedDays")}
-            hint={t("hints.unusedDays")}
-          >
-            <input
-              type="number"
-              step="1"
-              min={0}
-              inputMode="numeric"
-              className="input-base"
-              {...register("unusedDays", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="unusedDays"
+            render={({ field }) => (
+              <Field
+                label={t("fields.unusedDays")}
+                hint={t("hints.unusedDays")}
+              >
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  aria-label={t("fields.unusedDays")}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

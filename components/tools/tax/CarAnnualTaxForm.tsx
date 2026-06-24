@@ -5,6 +5,7 @@ import {
   calculateCarAnnualTax,
   type CarAnnualResult,
 } from "@/lib/calculations/tax/carTax";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface CarAnnualTaxFormProps {
   locale: "ko" | "en";
@@ -64,27 +65,28 @@ export function CarAnnualTaxForm({
           <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">
             {t.displacement}
           </label>
-          <input
-            type="number"
-            step={100}
-            inputMode="numeric"
-            disabled={isElectric}
-            className="input-base disabled:opacity-50"
+          <NumberField
             value={displacement}
-            onChange={(e) => setDisplacement(parseInt(e.target.value, 10) || 0)}
+            onChange={setDisplacement}
+            thousands={false}
+            min={0}
+            max={10000}
+            disabled={isElectric}
+            aria-label={t.displacement}
+            className="disabled:opacity-50"
           />
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">
             {t.carAge}
           </label>
-          <input
-            type="number"
-            step={1}
-            inputMode="numeric"
-            className="input-base"
+          <NumberField
             value={carAge}
-            onChange={(e) => setCarAge(parseInt(e.target.value, 10) || 0)}
+            onChange={setCarAge}
+            thousands={false}
+            min={0}
+            max={50}
+            aria-label={t.carAge}
           />
         </div>
         <label className="flex items-center gap-2 text-sm text-[color:var(--color-text-secondary)]">

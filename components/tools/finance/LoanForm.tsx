@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   calculateLoan,
@@ -23,6 +23,7 @@ import {
   SourceBox,
   Stat,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface LoanFormProps {
   locale: "ko" | "en";
@@ -120,6 +121,7 @@ export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     formState: { isSubmitting },
@@ -152,33 +154,56 @@ export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={t.sectionPrincipal}>
-          <Field label={t.fieldPrincipal}>
-            <input
-              type="number"
-              step="1000000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("principal", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={t.fieldYears}>
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("years", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={t.fieldRate}>
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("annualRatePercent", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="principal"
+            render={({ field }) => (
+              <Field label={t.fieldPrincipal}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  suffix="원"
+                  aria-label={t.fieldPrincipal}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="years"
+            render={({ field }) => (
+              <Field label={t.fieldYears}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={1}
+                  max={50}
+                  suffix="년"
+                  aria-label={t.fieldYears}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="annualRatePercent"
+            render={({ field }) => (
+              <Field label={t.fieldRate}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  suffix="%"
+                  aria-label={t.fieldRate}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <FieldGroup title={t.sectionType}>

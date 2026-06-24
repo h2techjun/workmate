@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   calculateRentCap,
@@ -22,6 +22,7 @@ import {
   SourceBox,
   Stat,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface RentCapFormProps {
   locale: "ko" | "en";
@@ -114,7 +115,7 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
+    control,
     handleSubmit,
     reset,
     formState: { isSubmitting },
@@ -149,66 +150,108 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={t.sectionCurrent}>
-          <Field label={t.fieldOldDeposit}>
-            <input
-              type="number"
-              step="1000000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("oldDeposit", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={t.fieldOldMonthly}>
-            <input
-              type="number"
-              step="10000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("oldMonthlyRent", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="oldDeposit"
+            render={({ field }) => (
+              <Field label={t.fieldOldDeposit}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  suffix="원"
+                  aria-label={t.fieldOldDeposit}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="oldMonthlyRent"
+            render={({ field }) => (
+              <Field label={t.fieldOldMonthly}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  suffix="원"
+                  aria-label={t.fieldOldMonthly}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <FieldGroup title={t.sectionProposed}>
-          <Field label={t.fieldNewDeposit}>
-            <input
-              type="number"
-              step="1000000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("proposedDeposit", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={t.fieldNewMonthly}>
-            <input
-              type="number"
-              step="10000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("proposedMonthlyRent", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="proposedDeposit"
+            render={({ field }) => (
+              <Field label={t.fieldNewDeposit}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  suffix="원"
+                  aria-label={t.fieldNewDeposit}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="proposedMonthlyRent"
+            render={({ field }) => (
+              <Field label={t.fieldNewMonthly}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  suffix="원"
+                  aria-label={t.fieldNewMonthly}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <FieldGroup title={t.sectionParams}>
-          <Field label={t.fieldConversion} hint={t.conversionHint}>
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("conversionRatePercent", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={t.fieldCap} hint={t.capHint}>
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("capPercent", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="conversionRatePercent"
+            render={({ field }) => (
+              <Field label={t.fieldConversion} hint={t.conversionHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  suffix="%"
+                  aria-label={t.fieldConversion}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="capPercent"
+            render={({ field }) => (
+              <Field label={t.fieldCap} hint={t.capHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  suffix="%"
+                  aria-label={t.fieldCap}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

@@ -9,6 +9,7 @@ import {
   reverseFromIncrease,
   type PercentMode,
 } from "@/lib/calculations/unit/percent";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface PercentCalcProps {
   locale: "ko" | "en";
@@ -121,18 +122,30 @@ export function PercentCalc({ locale }: PercentCalcProps): React.ReactElement {
         <div className="space-y-3">
           {mode === "changePercent" ? (
             <>
-              <NumberField label={t.fieldFrom} value={from} onChange={setFrom} />
-              <NumberField label={t.fieldTo} value={to} onChange={setTo} />
+              <LabeledField label={t.fieldFrom}>
+                <NumberField value={from} onChange={setFrom} thousands={true} decimals={2} aria-label={t.fieldFrom} />
+              </LabeledField>
+              <LabeledField label={t.fieldTo}>
+                <NumberField value={to} onChange={setTo} thousands={true} decimals={2} aria-label={t.fieldTo} />
+              </LabeledField>
             </>
           ) : mode === "reverse" ? (
             <>
-              <NumberField label={t.fieldAfter} value={x} onChange={setX} />
-              <NumberField label={t.fieldPercent} value={y} onChange={setY} step={0.1} />
+              <LabeledField label={t.fieldAfter}>
+                <NumberField value={x} onChange={setX} thousands={true} decimals={2} aria-label={t.fieldAfter} />
+              </LabeledField>
+              <LabeledField label={t.fieldPercent}>
+                <NumberField value={y} onChange={setY} thousands={false} decimals={2} suffix="%" aria-label={t.fieldPercent} />
+              </LabeledField>
             </>
           ) : (
             <>
-              <NumberField label={t.fieldX} value={x} onChange={setX} />
-              <NumberField label={t.fieldPercent} value={y} onChange={setY} step={0.1} />
+              <LabeledField label={t.fieldX}>
+                <NumberField value={x} onChange={setX} thousands={true} decimals={2} aria-label={t.fieldX} />
+              </LabeledField>
+              <LabeledField label={t.fieldPercent}>
+                <NumberField value={y} onChange={setY} thousands={false} decimals={2} suffix="%" aria-label={t.fieldPercent} />
+              </LabeledField>
             </>
           )}
         </div>
@@ -193,30 +206,19 @@ export function PercentCalc({ locale }: PercentCalcProps): React.ReactElement {
   );
 }
 
-function NumberField({
+function LabeledField({
   label,
-  value,
-  onChange,
-  step = 1,
+  children,
 }: {
   label: string;
-  value: number;
-  onChange: (n: number) => void;
-  step?: number;
+  children: React.ReactNode;
 }): React.ReactElement {
   return (
     <div>
       <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">
         {label}
       </label>
-      <input
-        type="number"
-        step={step}
-        inputMode="decimal"
-        className="input-base tabular-nums"
-        value={value}
-        onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
-      />
+      {children}
     </div>
   );
 }

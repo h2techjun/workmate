@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   calculateTile,
@@ -25,6 +25,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface TileFormProps {
   locale: "ko" | "en";
@@ -105,7 +106,7 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
+    control,
     handleSubmit,
     reset,
     setValue,
@@ -170,12 +171,20 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={T.sectionArea}>
           <Field label={T.fieldArea} hint={T.fieldAreaHint}>
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("areaM2", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="areaM2"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  suffix="㎡"
+                  aria-label={T.fieldArea}
+                />
+              )}
             />
           </Field>
         </FieldGroup>
@@ -196,51 +205,92 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
             </div>
           </Field>
           <Field label={T.fieldTileWidth}>
-            <input
-              type="number"
-              step="10"
-              inputMode="numeric"
-              className="input-base"
-              {...register("tileWidthMm", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="tileWidthMm"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  suffix="mm"
+                  aria-label={T.fieldTileWidth}
+                />
+              )}
             />
           </Field>
           <Field label={T.fieldTileHeight}>
-            <input
-              type="number"
-              step="10"
-              inputMode="numeric"
-              className="input-base"
-              {...register("tileHeightMm", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="tileHeightMm"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  suffix="mm"
+                  aria-label={T.fieldTileHeight}
+                />
+              )}
             />
           </Field>
           <Field label={T.fieldGrout} hint={T.fieldGroutHint}>
-            <input
-              type="number"
-              step="0.5"
-              inputMode="decimal"
-              className="input-base"
-              {...register("groutMm", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="groutMm"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="mm"
+                  aria-label={T.fieldGrout}
+                />
+              )}
             />
           </Field>
           <Field label={T.fieldWaste} hint={T.fieldWasteHint}>
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("wasteFactorPercent", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="wasteFactorPercent"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  max={100}
+                  suffix="%"
+                  aria-label={T.fieldWaste}
+                />
+              )}
             />
           </Field>
         </FieldGroup>
 
         <ActionRow
           primary={
-            <button type="submit" disabled={isSubmitting} className="btn-primary flex-1">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-primary flex-1"
+            >
               {T.calculate}
             </button>
           }
           secondary={
-            <button type="button" onClick={onReset} className="btn-ghost sm:w-auto">
+            <button
+              type="button"
+              onClick={onReset}
+              className="btn-ghost sm:w-auto"
+            >
               {T.reset}
             </button>
           }

@@ -5,6 +5,7 @@ import {
   convertKoreanNumber,
   KOREAN_NUMBER_MAX,
 } from "@/lib/calculations/korean/koreanNumber";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface KoreanNumberFormProps {
   locale: "ko" | "en";
@@ -47,15 +48,10 @@ export function KoreanNumberForm({
   locale,
 }: KoreanNumberFormProps): React.ReactElement {
   const t = T[locale];
-  const [raw, setRaw] = useState("21");
+  const [value, setValue] = useState(21);
 
-  const parsed = Number(raw.replace(/[^0-9]/g, ""));
-  const valid =
-    raw.trim() !== "" &&
-    Number.isFinite(parsed) &&
-    parsed >= 0 &&
-    parsed <= KOREAN_NUMBER_MAX;
-  const r = valid ? convertKoreanNumber({ value: parsed }) : null;
+  const valid = Number.isInteger(value) && value >= 0 && value <= KOREAN_NUMBER_MAX;
+  const r = valid ? convertKoreanNumber({ value }) : null;
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
@@ -64,13 +60,16 @@ export function KoreanNumberForm({
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
             {t.label}
           </label>
-          <input
-            type="text"
-            inputMode="numeric"
-            className="input-base text-center text-2xl font-bold tabular-nums"
+          <NumberField
+            value={value}
+            onChange={setValue}
+            thousands={true}
+            decimals={0}
+            min={0}
+            max={KOREAN_NUMBER_MAX}
             placeholder={t.placeholder}
-            value={raw}
-            onChange={(e) => setRaw(e.target.value)}
+            aria-label={t.label}
+            className="text-center text-2xl font-bold tabular-nums"
           />
           {!valid && (
             <p className="mt-2 text-xs text-red-400">{t.invalid}</p>
@@ -85,7 +84,7 @@ export function KoreanNumberForm({
               <button
                 key={p}
                 type="button"
-                onClick={() => setRaw(String(p))}
+                onClick={() => setValue(p)}
                 className="rounded-lg border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-3 py-1.5 text-sm font-medium tabular-nums text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-400 hover:text-[color:var(--color-text-primary)]"
               >
                 {p.toLocaleString()}

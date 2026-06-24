@@ -5,6 +5,7 @@ import {
   calculateVisaDays,
   type VisaDaysResult,
 } from "@/lib/calculations/korean/visaDays";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface VisaDaysFormProps {
   locale: "ko" | "en";
@@ -55,23 +56,20 @@ export function VisaDaysForm({
   today,
 }: VisaDaysFormProps): React.ReactElement {
   const t = T[locale];
-  const [y, setY] = useState(String(today.year));
-  const [m, setM] = useState(String(today.month));
-  const [d, setD] = useState(String(today.day));
+  const [y, setY] = useState(today.year);
+  const [m, setM] = useState(today.month);
+  const [d, setD] = useState(today.day);
   const [allowed, setAllowed] = useState(90);
 
-  const ey = parseInt(y, 10);
-  const em = parseInt(m, 10);
-  const ed = parseInt(d, 10);
   const valid =
-    ey >= 1900 && em >= 1 && em <= 12 && ed >= 1 && ed <= 31;
+    y >= 1900 && m >= 1 && m <= 12 && d >= 1 && d <= 31;
 
   let r: VisaDaysResult | null = null;
   if (valid) {
     r = calculateVisaDays({
-      entryYear: ey,
-      entryMonth: em,
-      entryDay: ed,
+      entryYear: y,
+      entryMonth: m,
+      entryDay: d,
       allowedDays: allowed,
       refYear: today.year,
       refMonth: today.month,
@@ -79,7 +77,7 @@ export function VisaDaysForm({
     });
   }
 
-  const numInput = "input-base text-center text-xl font-bold tabular-nums";
+  const numInputClass = "text-center text-xl font-bold tabular-nums";
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
@@ -89,21 +87,54 @@ export function VisaDaysForm({
             {t.entry}
           </label>
           <div className="grid grid-cols-3 gap-2">
-            <input className={numInput} type="number" inputMode="numeric" placeholder={t.year} value={y} onChange={(e) => setY(e.target.value)} aria-label={t.year} />
-            <input className={numInput} type="number" inputMode="numeric" placeholder={t.month} value={m} onChange={(e) => setM(e.target.value)} aria-label={t.month} />
-            <input className={numInput} type="number" inputMode="numeric" placeholder={t.day} value={d} onChange={(e) => setD(e.target.value)} aria-label={t.day} />
+            <NumberField
+              value={y}
+              onChange={setY}
+              thousands={false}
+              decimals={0}
+              min={1900}
+              max={2100}
+              placeholder={t.year}
+              aria-label={t.year}
+              className={numInputClass}
+            />
+            <NumberField
+              value={m}
+              onChange={setM}
+              thousands={false}
+              decimals={0}
+              min={1}
+              max={12}
+              placeholder={t.month}
+              aria-label={t.month}
+              className={numInputClass}
+            />
+            <NumberField
+              value={d}
+              onChange={setD}
+              thousands={false}
+              decimals={0}
+              min={1}
+              max={31}
+              placeholder={t.day}
+              aria-label={t.day}
+              className={numInputClass}
+            />
           </div>
         </div>
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
             {t.allowed}
           </label>
-          <input
-            type="number"
-            inputMode="numeric"
-            className="input-base"
+          <NumberField
             value={allowed}
-            onChange={(e) => setAllowed(parseInt(e.target.value, 10) || 0)}
+            onChange={setAllowed}
+            thousands={false}
+            decimals={0}
+            min={1}
+            max={365}
+            suffix={t.daysUnit}
+            aria-label={t.allowed}
           />
           <div className="mt-2 flex flex-wrap gap-1.5">
             {PRESETS.map((p) => (

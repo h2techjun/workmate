@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
+import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateInsurance,
   insuranceInputSchema,
@@ -35,9 +36,9 @@ export function InsuranceForm(): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<InsuranceInputResolved>({
     resolver: zodResolver(insuranceInputSchema),
@@ -80,31 +81,46 @@ export function InsuranceForm(): React.ReactElement {
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={t("sections.salary")}>
-          <Field
-            label={t("fields.monthlySalary")}
-            hint={t("hints.monthlySalary")}
-            error={errMsg(errors.monthlySalary?.message)}
-          >
-            <input
-              type="number"
-              step="10000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("monthlySalary", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field
-            label={t("fields.industrialAccidentRate")}
-            hint={t("hints.industrialAccidentRate")}
-          >
-            <input
-              type="number"
-              step="0.001"
-              inputMode="decimal"
-              className="input-base"
-              {...register("industrialAccidentRate", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="monthlySalary"
+            render={({ field }) => (
+              <Field
+                label={t("fields.monthlySalary")}
+                hint={t("hints.monthlySalary")}
+                error={errMsg(errors.monthlySalary?.message)}
+              >
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  min={0}
+                  suffix="원"
+                  aria-label={t("fields.monthlySalary")}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="industrialAccidentRate"
+            render={({ field }) => (
+              <Field
+                label={t("fields.industrialAccidentRate")}
+                hint={t("hints.industrialAccidentRate")}
+              >
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={4}
+                  min={0}
+                  aria-label={t("fields.industrialAccidentRate")}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

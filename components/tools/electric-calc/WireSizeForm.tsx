@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -28,6 +28,7 @@ import {
   StepsBox,
   WarningsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { useUrlSyncedForm } from "@/lib/hooks/useUrlSyncedForm";
 
 type FormValues = WireSizeInputResolved;
@@ -63,6 +64,7 @@ export function WireSizeForm(): React.ReactElement {
     },
   });
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -172,36 +174,57 @@ export function WireSizeForm(): React.ReactElement {
             label={t("fields.voltage")}
             error={errorMessage(errors.voltage?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("voltage", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="voltage"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  suffix="V"
+                  aria-label={t("fields.voltage")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.current")}
             error={errorMessage(errors.current?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("current", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="current"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  suffix="A"
+                  aria-label={t("fields.current")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.distance")}
             error={errorMessage(errors.distance?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("distance", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="distance"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  suffix="m"
+                  aria-label={t("fields.distance")}
+                />
+              )}
             />
           </Field>
           <Field label={t("fields.phaseType")}>
@@ -217,12 +240,19 @@ export function WireSizeForm(): React.ReactElement {
             label={t("fields.allowedDropPercent")}
             error={errorMessage(errors.allowedDropPercent?.message)}
           >
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("allowedDropPercent", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="allowedDropPercent"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  suffix="%"
+                  aria-label={t("fields.allowedDropPercent")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>
@@ -248,12 +278,19 @@ export function WireSizeForm(): React.ReactElement {
             hint={t("hints.ambientTemperature")}
             error={errorMessage(errors.ambientTemperature?.message)}
           >
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("ambientTemperature", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="ambientTemperature"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  suffix="°C"
+                  aria-label={t("fields.ambientTemperature")}
+                />
+              )}
             />
           </Field>
           <Field
@@ -261,12 +298,18 @@ export function WireSizeForm(): React.ReactElement {
             hint={t("hints.numberOfCircuits")}
             error={errorMessage(errors.numberOfCircuits?.message)}
           >
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("numberOfCircuits", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="numberOfCircuits"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  aria-label={t("fields.numberOfCircuits")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>

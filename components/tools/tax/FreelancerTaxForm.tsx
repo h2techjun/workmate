@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { calculateFreelancerTax } from "@/lib/calculations/tax/freelancerTax";
+import { NumberField } from "@/components/ui/NumberField";
+import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface FreelancerTaxFormProps {
   locale: "ko" | "en";
@@ -62,14 +64,18 @@ export function FreelancerTaxForm({
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
             {t.amount}
           </label>
-          <input
-            type="number"
-            step={100_000}
-            inputMode="numeric"
-            className="input-base text-2xl font-bold tabular-nums"
+          <NumberField
             value={amount}
-            onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+            onChange={setAmount}
+            suffix={t.unit}
+            aria-label={t.amount}
+            className="text-2xl font-bold tabular-nums"
           />
+          {locale === "ko" && amount > 0 && (
+            <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+              {formatKoreanMoney(amount)}
+            </p>
+          )}
         </div>
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">

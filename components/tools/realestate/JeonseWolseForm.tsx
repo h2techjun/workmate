@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm, Controller, type Control } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   calculateJeonseWolse,
@@ -23,16 +23,11 @@ import {
   SourceBox,
   Stat,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface JeonseWolseFormProps {
   locale: "ko" | "en";
 }
-
-type MoneyName =
-  | "jeonseDeposit"
-  | "keepDeposit"
-  | "monthlyDeposit"
-  | "monthlyRent";
 
 const TEXT = {
   ko: {
@@ -105,51 +100,6 @@ const TEXT = {
   },
 } as const;
 
-function MoneyField({
-  control,
-  name,
-  label,
-  hint,
-  locale,
-}: {
-  control: Control<JeonseWolseInputResolved>;
-  name: MoneyName;
-  label: string;
-  hint?: string;
-  locale: "ko" | "en";
-}): React.ReactElement {
-  return (
-    <Controller
-      control={control}
-      name={name}
-      render={({ field }) => {
-        const num = Number(field.value) || 0;
-        return (
-          <Field label={label} hint={hint}>
-            <input
-              type="text"
-              inputMode="numeric"
-              className="input-base"
-              value={num > 0 ? num.toLocaleString("ko-KR") : ""}
-              placeholder="0"
-              onChange={(e) => {
-                const raw = e.target.value.replace(/[^0-9]/g, "");
-                field.onChange(raw === "" ? 0 : Number(raw));
-              }}
-              onBlur={field.onBlur}
-            />
-            {locale === "ko" && num > 0 && (
-              <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
-                = {formatKoreanMoney(num)}
-              </p>
-            )}
-          </Field>
-        );
-      }}
-    />
-  );
-}
-
 export function JeonseWolseForm({
   locale,
 }: JeonseWolseFormProps): React.ReactElement {
@@ -158,7 +108,6 @@ export function JeonseWolseForm({
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
     control,
     watch,
     handleSubmit,
@@ -197,35 +146,132 @@ export function JeonseWolseForm({
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={T.sectionMode}>
-          <Field label={T.fieldMode}>
-            <select className="input-base" {...register("mode")}>
-              <option value="toMonthly">{T.modeToMonthly}</option>
-              <option value="toDeposit">{T.modeToDeposit}</option>
-            </select>
-          </Field>
+          <Controller
+            control={control}
+            name="mode"
+            render={({ field }) => (
+              <Field label={T.fieldMode}>
+                <select
+                  className="input-base"
+                  value={field.value}
+                  onChange={field.onChange}
+                >
+                  <option value="toMonthly">{T.modeToMonthly}</option>
+                  <option value="toDeposit">{T.modeToDeposit}</option>
+                </select>
+              </Field>
+            )}
+          />
 
           {mode === "toMonthly" ? (
             <>
-              <MoneyField control={control} name="jeonseDeposit" label={T.fieldJeonse} locale={locale} />
-              <MoneyField control={control} name="keepDeposit" label={T.fieldKeep} hint={T.fieldKeepHint} locale={locale} />
+              <Controller
+                control={control}
+                name="jeonseDeposit"
+                render={({ field }) => (
+                  <Field label={T.fieldJeonse}>
+                    <NumberField
+                      value={field.value}
+                      onChange={field.onChange}
+                      thousands
+                      decimals={0}
+                      suffix="원"
+                      aria-label={T.fieldJeonse}
+                    />
+                    {locale === "ko" && field.value > 0 && (
+                      <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                        = {formatKoreanMoney(field.value)}
+                      </p>
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                control={control}
+                name="keepDeposit"
+                render={({ field }) => (
+                  <Field label={T.fieldKeep} hint={T.fieldKeepHint}>
+                    <NumberField
+                      value={field.value}
+                      onChange={field.onChange}
+                      thousands
+                      decimals={0}
+                      suffix="원"
+                      aria-label={T.fieldKeep}
+                    />
+                    {locale === "ko" && field.value > 0 && (
+                      <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                        = {formatKoreanMoney(field.value)}
+                      </p>
+                    )}
+                  </Field>
+                )}
+              />
             </>
           ) : (
             <>
-              <MoneyField control={control} name="monthlyDeposit" label={T.fieldMonthlyDeposit} locale={locale} />
-              <MoneyField control={control} name="monthlyRent" label={T.fieldMonthlyRent} locale={locale} />
+              <Controller
+                control={control}
+                name="monthlyDeposit"
+                render={({ field }) => (
+                  <Field label={T.fieldMonthlyDeposit}>
+                    <NumberField
+                      value={field.value}
+                      onChange={field.onChange}
+                      thousands
+                      decimals={0}
+                      suffix="원"
+                      aria-label={T.fieldMonthlyDeposit}
+                    />
+                    {locale === "ko" && field.value > 0 && (
+                      <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                        = {formatKoreanMoney(field.value)}
+                      </p>
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                control={control}
+                name="monthlyRent"
+                render={({ field }) => (
+                  <Field label={T.fieldMonthlyRent}>
+                    <NumberField
+                      value={field.value}
+                      onChange={field.onChange}
+                      thousands
+                      decimals={0}
+                      suffix="원"
+                      aria-label={T.fieldMonthlyRent}
+                    />
+                    {locale === "ko" && field.value > 0 && (
+                      <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                        = {formatKoreanMoney(field.value)}
+                      </p>
+                    )}
+                  </Field>
+                )}
+              />
             </>
           )}
 
-          <Field label={T.fieldRate} hint={T.fieldRateHint}>
-            <input
-              type="number"
-              step="0.1"
-              min="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("conversionRatePercent", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="conversionRatePercent"
+            render={({ field }) => (
+              <Field label={T.fieldRate} hint={T.fieldRateHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  min={0.1}
+                  suffix="%"
+                  aria-label={T.fieldRate}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -25,6 +25,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -64,6 +65,7 @@ export function MaterialQuantityForm({
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<MaterialQuantityInputResolved>({
     resolver: zodResolver(materialQuantityInputSchema),
@@ -142,12 +144,20 @@ export function MaterialQuantityForm({
             hint={t("hints.area")}
             error={errMsg(errors.areaM2?.message)}
           >
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("areaM2", { valueAsNumber: true })}
+            <Controller
+              name="areaM2"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="㎡"
+                  aria-label={t("fields.areaM2")}
+                />
+              )}
             />
           </Field>
           <Field
@@ -155,12 +165,21 @@ export function MaterialQuantityForm({
             hint={t("hints.waste")}
             error={errMsg(errors.wasteFactorPercent?.message)}
           >
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("wasteFactorPercent", { valueAsNumber: true })}
+            <Controller
+              name="wasteFactorPercent"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  max={50}
+                  suffix="%"
+                  aria-label={t("fields.wasteFactorPercent")}
+                />
+              )}
             />
           </Field>
           <Field label={t("fields.estimateFasteners")}>

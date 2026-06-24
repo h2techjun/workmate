@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm, Controller, type Control } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { NumberField } from "@/components/ui/NumberField";
 import {
   calcPensionRefund,
   pensionRefundInputSchema,
@@ -110,30 +111,24 @@ function MoneyField({
     <Controller
       control={control}
       name="monthlySalary"
-      render={({ field }) => {
-        const num = Number(field.value) || 0;
-        return (
-          <Field label={label} hint={hint}>
-            <input
-              type="text"
-              inputMode="numeric"
-              className="input-base"
-              value={num > 0 ? num.toLocaleString("ko-KR") : ""}
-              placeholder="0"
-              onChange={(e) => {
-                const raw = e.target.value.replace(/[^0-9]/g, "");
-                field.onChange(raw === "" ? 0 : Number(raw));
-              }}
-              onBlur={field.onBlur}
-            />
-            {locale === "ko" && num > 0 && (
-              <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
-                = {formatKoreanMoney(num)}
-              </p>
-            )}
-          </Field>
-        );
-      }}
+      render={({ field }) => (
+        <Field label={label} hint={hint}>
+          <NumberField
+            value={field.value}
+            onChange={field.onChange}
+            thousands
+            decimals={0}
+            min={0}
+            suffix="원"
+            aria-label={label}
+          />
+          {locale === "ko" && field.value > 0 && (
+            <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+              {formatKoreanMoney(field.value)}
+            </p>
+          )}
+        </Field>
+      )}
     />
   );
 }
@@ -146,7 +141,6 @@ export function PensionRefundForm({
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
     control,
     handleSubmit,
     reset,
@@ -186,36 +180,56 @@ export function PensionRefundForm({
             hint={T.fieldSalaryHint}
             locale={locale}
           />
-          <Field label={T.fieldMonths} hint={T.fieldMonthsHint}>
-            <input
-              type="number"
-              min="0"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("months", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={T.fieldRate} hint={T.fieldRateHint}>
-            <input
-              type="number"
-              step="0.1"
-              min="0"
-              inputMode="decimal"
-              className="input-base"
-              {...register("contributionRatePercent", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={T.fieldDeposit} hint={T.fieldDepositHint}>
-            <input
-              type="number"
-              step="0.1"
-              min="0"
-              inputMode="decimal"
-              className="input-base"
-              {...register("depositRatePercent", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="months"
+            render={({ field }) => (
+              <Field label={T.fieldMonths} hint={T.fieldMonthsHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  aria-label={T.fieldMonths}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="contributionRatePercent"
+            render={({ field }) => (
+              <Field label={T.fieldRate} hint={T.fieldRateHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="%"
+                  aria-label={T.fieldRate}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="depositRatePercent"
+            render={({ field }) => (
+              <Field label={T.fieldDeposit} hint={T.fieldDepositHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="%"
+                  aria-label={T.fieldDeposit}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

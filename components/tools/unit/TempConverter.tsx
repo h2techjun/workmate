@@ -5,6 +5,7 @@ import {
   convertTemperature,
   type TempUnit,
 } from "@/lib/calculations/unit/temperature";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface TempConverterProps {
   locale: "ko" | "en";
@@ -50,7 +51,14 @@ export function TempConverter({ locale }: TempConverterProps): React.ReactElemen
       <section className="surface-card space-y-5 p-5 md:p-7">
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">{t.value}</label>
-          <input type="number" step="0.1" className="input-base text-2xl font-bold tabular-nums" value={value} onChange={(e) => setValue(parseFloat(e.target.value) || 0)} />
+          <NumberField
+            value={value}
+            onChange={setValue}
+            thousands={false}
+            decimals={1}
+            allowNegative={true}
+            aria-label={t.value}
+          />
         </div>
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">{t.unit}</label>

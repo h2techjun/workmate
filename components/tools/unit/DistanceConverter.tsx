@@ -5,6 +5,7 @@ import {
   convertDistance,
   type DistanceUnit,
 } from "@/lib/calculations/unit/distance";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface DistanceConverterProps {
   locale: "ko" | "en";
@@ -68,7 +69,13 @@ export function DistanceConverter({
       <section className="surface-card space-y-5 p-5 md:p-7">
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">{t.value}</label>
-          <input type="number" step="0.1" className="input-base text-2xl font-bold tabular-nums" value={value} onChange={(e) => setValue(parseFloat(e.target.value) || 0)} />
+          <NumberField
+            value={value}
+            onChange={setValue}
+            thousands={true}
+            decimals={4}
+            aria-label={t.value}
+          />
         </div>
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">{t.unit}</label>

@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useTranslations } from "next-intl";
+import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateSeverance,
   type SeveranceInput,
@@ -48,6 +49,7 @@ export function SeveranceForm(): React.ReactElement {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
@@ -65,10 +67,10 @@ export function SeveranceForm(): React.ReactElement {
     const input: SeveranceInput = {
       hireDate: values.hireDate,
       resignDate: values.resignDate,
-      recentThreeMonthsSalary: Number(values.recentThreeMonthsSalary) || 0,
-      annualBonus: Number(values.annualBonus) || 0,
-      annualLeavePay: Number(values.annualLeavePay) || 0,
-      monthlyOrdinaryWage: Number(values.monthlyOrdinaryWage) || undefined,
+      recentThreeMonthsSalary: values.recentThreeMonthsSalary,
+      annualBonus: values.annualBonus,
+      annualLeavePay: values.annualLeavePay,
+      monthlyOrdinaryWage: values.monthlyOrdinaryWage || undefined,
     };
     try {
       const r = calculateSeverance(input);
@@ -151,55 +153,83 @@ export function SeveranceForm(): React.ReactElement {
         </FieldGroup>
 
         <FieldGroup title={t("sections.wage")}>
-          <Field
-            label={t("fields.recentThreeMonthsSalary")}
-            hint={t("hints.recentThreeMonthsSalary")}
-          >
-            <input
-              type="number"
-              step="100000"
-              inputMode="numeric"
-              min={0}
-              className="input-base"
-              {...register("recentThreeMonthsSalary", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={t("fields.annualBonus")} hint={t("hints.annualBonus")}>
-            <input
-              type="number"
-              step="100000"
-              inputMode="numeric"
-              min={0}
-              className="input-base"
-              {...register("annualBonus", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field
-            label={t("fields.annualLeavePay")}
-            hint={t("hints.annualLeavePay")}
-          >
-            <input
-              type="number"
-              step="10000"
-              inputMode="numeric"
-              min={0}
-              className="input-base"
-              {...register("annualLeavePay", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field
-            label={t("fields.monthlyOrdinaryWage")}
-            hint={t("hints.monthlyOrdinaryWage")}
-          >
-            <input
-              type="number"
-              step="10000"
-              inputMode="numeric"
-              min={0}
-              className="input-base"
-              {...register("monthlyOrdinaryWage", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="recentThreeMonthsSalary"
+            render={({ field }) => (
+              <Field
+                label={t("fields.recentThreeMonthsSalary")}
+                hint={t("hints.recentThreeMonthsSalary")}
+              >
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  min={0}
+                  suffix="원"
+                  aria-label={t("fields.recentThreeMonthsSalary")}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="annualBonus"
+            render={({ field }) => (
+              <Field label={t("fields.annualBonus")} hint={t("hints.annualBonus")}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  min={0}
+                  suffix="원"
+                  aria-label={t("fields.annualBonus")}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="annualLeavePay"
+            render={({ field }) => (
+              <Field
+                label={t("fields.annualLeavePay")}
+                hint={t("hints.annualLeavePay")}
+              >
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  min={0}
+                  suffix="원"
+                  aria-label={t("fields.annualLeavePay")}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="monthlyOrdinaryWage"
+            render={({ field }) => (
+              <Field
+                label={t("fields.monthlyOrdinaryWage")}
+                hint={t("hints.monthlyOrdinaryWage")}
+              >
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  min={0}
+                  suffix="원"
+                  aria-label={t("fields.monthlyOrdinaryWage")}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

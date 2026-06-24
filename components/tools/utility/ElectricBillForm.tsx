@@ -5,6 +5,7 @@ import {
   calculateElectricBill,
   type Voltage,
 } from "@/lib/calculations/utility/electricBill";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface ElectricBillFormProps {
   locale: "ko" | "en";
@@ -92,13 +93,14 @@ export function ElectricBillForm({
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
             {t.usage}
           </label>
-          <input
-            type="number"
-            inputMode="numeric"
-            min={0}
-            className="input-base text-2xl font-bold tabular-nums"
+          <NumberField
             value={usage}
-            onChange={(e) => setUsage(parseInt(e.target.value, 10) || 0)}
+            onChange={setUsage}
+            thousands={true}
+            decimals={0}
+            suffix="kWh"
+            min={0}
+            aria-label={t.usage}
           />
         </div>
 

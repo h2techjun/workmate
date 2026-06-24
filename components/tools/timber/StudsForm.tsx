@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   calculateStuds,
@@ -24,6 +24,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface StudsFormProps {
@@ -107,6 +108,7 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -171,25 +173,44 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={T.sectionWall}>
           <Field label={T.fieldWallLength} hint={T.fieldWallLengthHint}>
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("wallLengthM", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="wallLengthM"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="m"
+                  aria-label={T.fieldWallLength}
+                />
+              )}
             />
           </Field>
           <Field label={T.fieldCeiling} hint={T.fieldCeilingHint}>
-            <input
-              type="number"
-              step="50"
-              inputMode="numeric"
-              className="input-base"
-              {...register("ceilingHeightMm", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="ceilingHeightMm"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  suffix="mm"
+                  aria-label={T.fieldCeiling}
+                />
+              )}
             />
           </Field>
           <Field label={T.fieldSpacing}>
-            <select className="input-base" {...register("spacingMm", { valueAsNumber: true })}>
+            <select
+              className="input-base"
+              {...register("spacingMm", { valueAsNumber: true })}
+            >
               <option value={406}>{T.spacing16}</option>
               <option value={610}>{T.spacing24}</option>
             </select>
@@ -198,21 +219,38 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
 
         <FieldGroup title={T.sectionLumber}>
           <Field label={T.fieldOpenings} hint={T.fieldOpeningsHint}>
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("openings", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="openings"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  suffix="개"
+                  aria-label={T.fieldOpenings}
+                />
+              )}
             />
           </Field>
           <Field label={T.fieldWaste} hint={T.fieldWasteHint}>
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("wasteFactorPercent", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="wasteFactorPercent"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  max={100}
+                  suffix="%"
+                  aria-label={T.fieldWaste}
+                />
+              )}
             />
           </Field>
         </FieldGroup>
@@ -228,7 +266,11 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
             </button>
           }
           secondary={
-            <button type="button" onClick={onReset} className="btn-ghost sm:w-auto">
+            <button
+              type="button"
+              onClick={onReset}
+              className="btn-ghost sm:w-auto"
+            >
               {T.reset}
             </button>
           }

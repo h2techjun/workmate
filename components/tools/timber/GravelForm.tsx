@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { calculateGravel } from "@/lib/calculations/timber/gravel";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface GravelFormProps {
   locale: "ko" | "en";
@@ -60,11 +61,11 @@ export function GravelForm({ locale }: GravelFormProps): React.ReactElement {
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">{t.area}</label>
-            <input type="number" className="input-base" value={area} onChange={(e) => setArea(parseFloat(e.target.value) || 0)} />
+            <NumberField value={area} onChange={setArea} thousands={false} decimals={2} min={0} suffix="㎡" aria-label={t.area} />
           </div>
           <div>
             <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">{t.depth}</label>
-            <input type="number" className="input-base" value={depth} onChange={(e) => setDepth(parseFloat(e.target.value) || 0)} />
+            <NumberField value={depth} onChange={setDepth} thousands={false} decimals={1} min={0} suffix="cm" aria-label={t.depth} />
           </div>
         </div>
         <div>
@@ -80,7 +81,7 @@ export function GravelForm({ locale }: GravelFormProps): React.ReactElement {
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">{t.compaction}</label>
-          <input type="number" className="input-base" value={compaction} onChange={(e) => setCompaction(parseFloat(e.target.value) || 0)} />
+          <NumberField value={compaction} onChange={setCompaction} thousands={false} decimals={0} min={0} max={100} suffix="%" aria-label={t.compaction} />
         </div>
       </section>
 

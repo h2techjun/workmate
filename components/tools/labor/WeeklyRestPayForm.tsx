@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useTranslations } from "next-intl";
+import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateWeeklyRestPay,
   type WeeklyRestPayInput,
@@ -44,6 +45,7 @@ export function WeeklyRestPayForm(): React.ReactElement {
     handleSubmit,
     watch,
     reset,
+    control,
     formState: { isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
@@ -61,13 +63,13 @@ export function WeeklyRestPayForm(): React.ReactElement {
     const input: WeeklyRestPayInput = {
       hourlyWage:
         values.wageMode === "hourly"
-          ? Number(values.hourlyWage) || undefined
+          ? values.hourlyWage || undefined
           : undefined,
       monthlySalary:
         values.wageMode === "monthly"
-          ? Number(values.monthlySalary) || undefined
+          ? values.monthlySalary || undefined
           : undefined,
-      weeklyHours: Number(values.weeklyHours) || undefined,
+      weeklyHours: values.weeklyHours || undefined,
     };
     try {
       const r = calculateWeeklyRestPay(input);
@@ -146,45 +148,65 @@ export function WeeklyRestPayForm(): React.ReactElement {
             </div>
           </Field>
           {wageMode === "hourly" ? (
-            <Field label={t("fields.hourlyWage")} hint={t("hints.hourlyWage")}>
-              <input
-                type="number"
-                step="10"
-                inputMode="numeric"
-                min={0}
-                className="input-base"
-                {...register("hourlyWage", { valueAsNumber: true })}
-              />
-            </Field>
+            <Controller
+              control={control}
+              name="hourlyWage"
+              render={({ field }) => (
+                <Field label={t("fields.hourlyWage")} hint={t("hints.hourlyWage")}>
+                  <NumberField
+                    value={field.value}
+                    onChange={field.onChange}
+                    thousands
+                    decimals={0}
+                    min={0}
+                    suffix="원"
+                    aria-label={t("fields.hourlyWage")}
+                  />
+                </Field>
+              )}
+            />
           ) : (
-            <Field
-              label={t("fields.monthlySalary")}
-              hint={t("hints.monthlySalary")}
-            >
-              <input
-                type="number"
-                step="10000"
-                inputMode="numeric"
-                min={0}
-                className="input-base"
-                {...register("monthlySalary", { valueAsNumber: true })}
-              />
-            </Field>
+            <Controller
+              control={control}
+              name="monthlySalary"
+              render={({ field }) => (
+                <Field
+                  label={t("fields.monthlySalary")}
+                  hint={t("hints.monthlySalary")}
+                >
+                  <NumberField
+                    value={field.value}
+                    onChange={field.onChange}
+                    thousands
+                    decimals={0}
+                    min={0}
+                    suffix="원"
+                    aria-label={t("fields.monthlySalary")}
+                  />
+                </Field>
+              )}
+            />
           )}
         </FieldGroup>
 
         <FieldGroup title={t("sections.hours")}>
-          <Field label={t("fields.weeklyHours")} hint={t("hints.weeklyHours")}>
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              min={1}
-              max={80}
-              className="input-base"
-              {...register("weeklyHours", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="weeklyHours"
+            render={({ field }) => (
+              <Field label={t("fields.weeklyHours")} hint={t("hints.weeklyHours")}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={1}
+                  max={80}
+                  aria-label={t("fields.weeklyHours")}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

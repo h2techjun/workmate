@@ -1,9 +1,10 @@
 "use client";
 
 import type { ReactNode } from "react";
-// PDF/인쇄·공유 버튼은 사용자 요청으로 제거됨 (계산 결과만 표시).
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import { AdSlot } from "@/components/seo/AdSlot";
+import { ShareButton } from "@/components/ui/ShareButton";
 
 const RESULT_AD_SLOT =
   (process.env.NEXT_PUBLIC_ADSENSE_RESULT_SLOT?.trim() ?? "") || "0000000001";
@@ -123,21 +124,32 @@ export function HeroResult({
 
 export function ResultShell({
   heading,
+  shareText,
   children,
 }: {
   heading: string;
+  /** 공유 본문 요약 (결과 수치 포함 권장). 없으면 페이지 제목으로 공유 */
+  shareText?: string;
   children: ReactNode;
 }): React.ReactElement {
+  const t = useTranslations("share");
   return (
     <>
       <section
         aria-live="polite"
         className="surface-card overflow-hidden p-5 md:p-7"
       >
-        <h2 className="mb-5 flex items-center gap-2 text-lg font-semibold text-[color:var(--color-text-primary)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" />
-          {heading}
-        </h2>
+        <div className="mb-5 flex items-center justify-between gap-3">
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-[color:var(--color-text-primary)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" />
+            {heading}
+          </h2>
+          <ShareButton
+            text={shareText}
+            label={t("button")}
+            copiedLabel={t("copied")}
+          />
+        </div>
         {children}
       </section>
       {/* 결과 직후 광고 — 사용자가 가치를 막 받은 시점 = 가장 단가 높은 위치 */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm, Controller, type Control } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   calculateApartmentArea,
@@ -23,6 +23,7 @@ import {
   SourceBox,
   Stat,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface ApartmentAreaFormProps {
   locale: "ko" | "en";
@@ -89,51 +90,6 @@ const TEXT = {
   },
 } as const;
 
-function MoneyField({
-  control,
-  name,
-  label,
-  hint,
-  locale,
-}: {
-  control: Control<ApartmentAreaInputResolved>;
-  name: "price";
-  label: string;
-  hint: string;
-  locale: "ko" | "en";
-}): React.ReactElement {
-  return (
-    <Controller
-      control={control}
-      name={name}
-      render={({ field }) => {
-        const num = Number(field.value) || 0;
-        return (
-          <Field label={label} hint={hint}>
-            <input
-              type="text"
-              inputMode="numeric"
-              className="input-base"
-              value={num > 0 ? num.toLocaleString("ko-KR") : ""}
-              placeholder="0"
-              onChange={(e) => {
-                const raw = e.target.value.replace(/[^0-9]/g, "");
-                field.onChange(raw === "" ? 0 : Number(raw));
-              }}
-              onBlur={field.onBlur}
-            />
-            {locale === "ko" && num > 0 && (
-              <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
-                = {formatKoreanMoney(num)}
-              </p>
-            )}
-          </Field>
-        );
-      }}
-    />
-  );
-}
-
 export function ApartmentAreaForm({
   locale,
 }: ApartmentAreaFormProps): React.ReactElement {
@@ -142,7 +98,6 @@ export function ApartmentAreaForm({
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
     control,
     handleSubmit,
     reset,
@@ -173,32 +128,61 @@ export function ApartmentAreaForm({
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={T.section}>
-          <Field label={T.fieldSupply} hint={T.fieldSupplyHint}>
-            <input
-              type="number"
-              step="1"
-              min="0"
-              inputMode="decimal"
-              className="input-base"
-              {...register("supplyAreaSqm", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={T.fieldExclusive} hint={T.fieldExclusiveHint}>
-            <input
-              type="number"
-              step="1"
-              min="0"
-              inputMode="decimal"
-              className="input-base"
-              {...register("exclusiveAreaSqm", { valueAsNumber: true })}
-            />
-          </Field>
-          <MoneyField
+          <Controller
+            control={control}
+            name="supplyAreaSqm"
+            render={({ field }) => (
+              <Field label={T.fieldSupply} hint={T.fieldSupplyHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  suffix="㎡"
+                  aria-label={T.fieldSupply}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="exclusiveAreaSqm"
+            render={({ field }) => (
+              <Field label={T.fieldExclusive} hint={T.fieldExclusiveHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  suffix="㎡"
+                  aria-label={T.fieldExclusive}
+                />
+              </Field>
+            )}
+          />
+          <Controller
             control={control}
             name="price"
-            label={T.fieldPrice}
-            hint={T.fieldPriceHint}
-            locale={locale}
+            render={({ field }) => (
+              <Field label={T.fieldPrice} hint={T.fieldPriceHint}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands
+                  decimals={0}
+                  min={0}
+                  suffix="원"
+                  aria-label={T.fieldPrice}
+                />
+                {locale === "ko" && field.value > 0 && (
+                  <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                    = {formatKoreanMoney(field.value)}
+                  </p>
+                )}
+              </Field>
+            )}
           />
         </FieldGroup>
 

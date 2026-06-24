@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -25,6 +25,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -35,7 +36,7 @@ export function RafterForm(): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
+    control,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
@@ -109,12 +110,20 @@ export function RafterForm(): React.ReactElement {
             hint={t("hints.run")}
             error={errMsg(errors.run?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("run", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="run"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="mm"
+                  aria-label={t("fields.run")}
+                />
+              )}
             />
           </Field>
           <Field
@@ -122,12 +131,20 @@ export function RafterForm(): React.ReactElement {
             hint={t("hints.rise")}
             error={errMsg(errors.rise?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("rise", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="rise"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="mm"
+                  aria-label={t("fields.rise")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>
@@ -138,12 +155,20 @@ export function RafterForm(): React.ReactElement {
             hint={t("hints.eaveOverhang")}
             error={errMsg(errors.eaveOverhang?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("eaveOverhang", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="eaveOverhang"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="mm"
+                  aria-label={t("fields.eaveOverhang")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>

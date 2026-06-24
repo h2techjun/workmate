@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -28,6 +28,7 @@ import {
   StepsBox,
   WarningsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -38,6 +39,7 @@ export function BreakerForm(): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -113,12 +115,19 @@ export function BreakerForm(): React.ReactElement {
             label={t("fields.loadCurrent")}
             error={errMsg(errors.loadCurrent?.message)}
           >
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("loadCurrent", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="loadCurrent"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  suffix="A"
+                  aria-label={t("fields.loadCurrent")}
+                />
+              )}
             />
           </Field>
           <Field label={t("fields.loadType")} hint={t("hints.loadType")}>
@@ -135,16 +144,19 @@ export function BreakerForm(): React.ReactElement {
             hint={t("hints.customSafetyFactor")}
             error={errMsg(errors.customSafetyFactor?.message)}
           >
-            <input
-              type="number"
-              step="0.05"
-              inputMode="decimal"
-              className="input-base"
-              placeholder={t("hints.customSafetyFactorPlaceholder")}
-              {...register("customSafetyFactor", {
-                setValueAs: (v) =>
-                  v === "" || v == null ? undefined : Number(v),
-              })}
+            <Controller
+              control={control}
+              name="customSafetyFactor"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value ?? 0}
+                  onChange={(v) => field.onChange(v === 0 ? undefined : v)}
+                  thousands={false}
+                  decimals={2}
+                  placeholder={t("hints.customSafetyFactorPlaceholder")}
+                  aria-label={t("fields.customSafetyFactor")}
+                />
+              )}
             />
           </Field>
           <Field label={t("fields.useElb")}>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import {
   calculateVat,
@@ -24,6 +24,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface FormValues {
   mode: VatMode;
@@ -42,6 +43,7 @@ export function VatForm(): React.ReactElement {
 
   const {
     register,
+    control,
     handleSubmit,
     watch,
     reset,
@@ -178,35 +180,45 @@ export function VatForm(): React.ReactElement {
         </FieldGroup>
 
         <FieldGroup title={t("sections.amount")}>
-          <Field
-            label={t(`fields.amount.${mode}`)}
-            hint={t(`hints.amount.${mode}`)}
-            error={errMsg(errors.amount?.message)}
-          >
-            <input
-              type="number"
-              step="1000"
-              inputMode="numeric"
-              min={0}
-              className="input-base"
-              {...register("amount", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="amount"
+            render={({ field }) => (
+              <Field
+                label={t(`fields.amount.${mode}`)}
+                hint={t(`hints.amount.${mode}`)}
+                error={errMsg(errors.amount?.message)}
+              >
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  suffix={t("result.wonSuffix")}
+                  min={0}
+                  aria-label={t(`fields.amount.${mode}`)}
+                />
+              </Field>
+            )}
+          />
 
           {mode === "general" ? (
-            <Field
-              label={t("fields.purchaseAmount")}
-              hint={t("hints.purchaseAmount")}
-            >
-              <input
-                type="number"
-                step="1000"
-                inputMode="numeric"
-                min={0}
-                className="input-base"
-                {...register("purchaseAmount", { valueAsNumber: true })}
-              />
-            </Field>
+            <Controller
+              control={control}
+              name="purchaseAmount"
+              render={({ field }) => (
+                <Field
+                  label={t("fields.purchaseAmount")}
+                  hint={t("hints.purchaseAmount")}
+                >
+                  <NumberField
+                    value={Number(field.value) || 0}
+                    onChange={(v) => field.onChange(v)}
+                    suffix={t("result.wonSuffix")}
+                    min={0}
+                    aria-label={t("fields.purchaseAmount")}
+                  />
+                </Field>
+              )}
+            />
           ) : null}
 
           {mode === "simple" ? (

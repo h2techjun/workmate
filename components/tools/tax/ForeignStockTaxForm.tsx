@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -25,6 +25,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 
 const formatKrw = (n: number): string =>
   new Intl.NumberFormat("ko-KR").format(Math.round(n));
@@ -35,7 +36,7 @@ export function ForeignStockTaxForm(): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
+    control,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
@@ -119,88 +120,128 @@ export function ForeignStockTaxForm(): React.ReactElement {
     <CalcLayout>
       <FormShell onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup title={t("sections.buy")}>
-          <Field
-            label={t("fields.buyPriceForeign")}
-            hint={t("hints.foreignCurrency")}
-            error={errMsg(errors.buyPriceForeign?.message)}
-          >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("buyPriceForeign", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field
-            label={t("fields.buyExchangeRate")}
-            hint={t("hints.exchangeRate")}
-            error={errMsg(errors.buyExchangeRate?.message)}
-          >
-            <input
-              type="number"
-              step="0.01"
-              inputMode="decimal"
-              className="input-base"
-              {...register("buyExchangeRate", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="buyPriceForeign"
+            render={({ field }) => (
+              <Field
+                label={t("fields.buyPriceForeign")}
+                hint={t("hints.foreignCurrency")}
+                error={errMsg(errors.buyPriceForeign?.message)}
+              >
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  aria-label={t("fields.buyPriceForeign")}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="buyExchangeRate"
+            render={({ field }) => (
+              <Field
+                label={t("fields.buyExchangeRate")}
+                hint={t("hints.exchangeRate")}
+                error={errMsg(errors.buyExchangeRate?.message)}
+              >
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  aria-label={t("fields.buyExchangeRate")}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <FieldGroup title={t("sections.sell")}>
-          <Field
-            label={t("fields.sellPriceForeign")}
-            error={errMsg(errors.sellPriceForeign?.message)}
-          >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("sellPriceForeign", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field
-            label={t("fields.sellExchangeRate")}
-            error={errMsg(errors.sellExchangeRate?.message)}
-          >
-            <input
-              type="number"
-              step="0.01"
-              inputMode="decimal"
-              className="input-base"
-              {...register("sellExchangeRate", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="sellPriceForeign"
+            render={({ field }) => (
+              <Field
+                label={t("fields.sellPriceForeign")}
+                error={errMsg(errors.sellPriceForeign?.message)}
+              >
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  aria-label={t("fields.sellPriceForeign")}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="sellExchangeRate"
+            render={({ field }) => (
+              <Field
+                label={t("fields.sellExchangeRate")}
+                error={errMsg(errors.sellExchangeRate?.message)}
+              >
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  aria-label={t("fields.sellExchangeRate")}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <FieldGroup title={t("sections.options")}>
-          <Field
-            label={t("fields.transactionCostKrw")}
-            hint={t("hints.transactionCost")}
-            error={errMsg(errors.transactionCostKrw?.message)}
-          >
-            <input
-              type="number"
-              step="1000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("transactionCostKrw", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field
-            label={t("fields.prevDeductionUsed")}
-            hint={t("hints.prevDeduction")}
-            error={errMsg(errors.prevDeductionUsed?.message)}
-          >
-            <input
-              type="number"
-              step="10000"
-              inputMode="numeric"
-              className="input-base"
-              {...register("prevDeductionUsed", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="transactionCostKrw"
+            render={({ field }) => (
+              <Field
+                label={t("fields.transactionCostKrw")}
+                hint={t("hints.transactionCost")}
+                error={errMsg(errors.transactionCostKrw?.message)}
+              >
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  suffix={t("unit.krw")}
+                  min={0}
+                  aria-label={t("fields.transactionCostKrw")}
+                />
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="prevDeductionUsed"
+            render={({ field }) => (
+              <Field
+                label={t("fields.prevDeductionUsed")}
+                hint={t("hints.prevDeduction")}
+                error={errMsg(errors.prevDeductionUsed?.message)}
+              >
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  suffix={t("unit.krw")}
+                  min={0}
+                  aria-label={t("fields.prevDeductionUsed")}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

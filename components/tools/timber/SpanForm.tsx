@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -28,6 +28,7 @@ import {
   StepsBox,
   WarningsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -38,6 +39,7 @@ export function SpanForm(): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -168,12 +170,20 @@ export function SpanForm(): React.ReactElement {
             hint={t("hints.spacing")}
             error={errMsg(errors.spacingMM?.message)}
           >
-            <input
-              type="number"
-              step="50"
-              inputMode="numeric"
-              className="input-base"
-              {...register("spacingMM", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="spacingMM"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  suffix="mm"
+                  aria-label={t("fields.spacingMM")}
+                />
+              )}
             />
           </Field>
           <Field label={t("fields.grade")}>

@@ -27,6 +27,7 @@ import {
   Stat,
 } from "@/components/ui/calc-form";
 import { cn } from "@/lib/utils/cn";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface CompoundFormProps {
   locale: "ko" | "en";
@@ -148,41 +149,6 @@ const TEXT = {
 
 /* ---------------------------------------------------------------- helpers */
 
-function MoneyInput({
-  value,
-  onChange,
-  onBlur,
-  locale,
-}: {
-  value: number;
-  onChange: (n: number) => void;
-  onBlur: () => void;
-  locale: "ko" | "en";
-}): React.ReactElement {
-  const num = Number(value) || 0;
-  return (
-    <>
-      <input
-        type="text"
-        inputMode="numeric"
-        className="input-base"
-        value={num > 0 ? num.toLocaleString("ko-KR") : ""}
-        placeholder="0"
-        onChange={(e) => {
-          const raw = e.target.value.replace(/[^0-9]/g, "");
-          onChange(raw === "" ? 0 : Number(raw));
-        }}
-        onBlur={onBlur}
-      />
-      {locale === "ko" && num > 0 && (
-        <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
-          = {formatKoreanMoney(num)}
-        </p>
-      )}
-    </>
-  );
-}
-
 function Segmented<T extends string>({
   value,
   options,
@@ -254,7 +220,6 @@ function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
     control,
     handleSubmit,
     reset,
@@ -293,34 +258,54 @@ function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
             name="principal"
             render={({ field }) => (
               <Field label={T.fieldPrincipal}>
-                <MoneyInput
+                <NumberField
                   value={field.value}
                   onChange={field.onChange}
-                  onBlur={field.onBlur}
-                  locale={locale}
+                  thousands
+                  decimals={0}
+                  suffix="원"
+                  aria-label={T.fieldPrincipal}
+                />
+                {locale === "ko" && field.value > 0 && (
+                  <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                    = {formatKoreanMoney(field.value)}
+                  </p>
+                )}
+              </Field>
+            )}
+          />
+          <Controller
+            control={control}
+            name="periods"
+            render={({ field }) => (
+              <Field label={T.fieldPeriods}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={1}
+                  aria-label={T.fieldPeriods}
                 />
               </Field>
             )}
           />
-          <Field label={T.fieldPeriods}>
-            <input
-              type="number"
-              step="1"
-              min="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("periods", { valueAsNumber: true })}
-            />
-          </Field>
-          <Field label={T.fieldRate}>
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("ratePerPeriodPercent", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="ratePerPeriodPercent"
+            render={({ field }) => (
+              <Field label={T.fieldRate}>
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  suffix="%"
+                  aria-label={T.fieldRate}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow
@@ -456,12 +441,19 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
             name="startAmount"
             render={({ field }) => (
               <Field label={T.fieldStart}>
-                <MoneyInput
+                <NumberField
                   value={field.value}
                   onChange={field.onChange}
-                  onBlur={field.onBlur}
-                  locale={locale}
+                  thousands
+                  decimals={0}
+                  suffix="원"
+                  aria-label={T.fieldStart}
                 />
+                {locale === "ko" && field.value > 0 && (
+                  <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                    = {formatKoreanMoney(field.value)}
+                  </p>
+                )}
               </Field>
             )}
           />
@@ -470,12 +462,19 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
             name="monthlyContribution"
             render={({ field }) => (
               <Field label={T.fieldMonthly} hint={T.fieldMonthlyHint}>
-                <MoneyInput
+                <NumberField
                   value={field.value}
                   onChange={field.onChange}
-                  onBlur={field.onBlur}
-                  locale={locale}
+                  thousands
+                  decimals={0}
+                  suffix="원"
+                  aria-label={T.fieldMonthly}
                 />
+                {locale === "ko" && field.value > 0 && (
+                  <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
+                    = {formatKoreanMoney(field.value)}
+                  </p>
+                )}
               </Field>
             )}
           />
@@ -500,13 +499,19 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
                 )}
               />
             </div>
-            <input
-              type="number"
-              step="1"
-              min="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("periodValue", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="periodValue"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={1}
+                  aria-label={T.fieldPeriod}
+                />
+              )}
             />
           </div>
 
@@ -530,18 +535,20 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
                 )}
               />
             </div>
-            <div className="relative">
-              <input
-                type="number"
-                step="0.1"
-                inputMode="decimal"
-                className="input-base pr-8"
-                {...register("ratePercent", { valueAsNumber: true })}
-              />
-              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[color:var(--color-text-tertiary)]">
-                %
-              </span>
-            </div>
+            <Controller
+              control={control}
+              name="ratePercent"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  suffix="%"
+                  aria-label={T.fieldInterest}
+                />
+              )}
+            />
           </div>
 
           <Field label={T.fieldCompounding}>

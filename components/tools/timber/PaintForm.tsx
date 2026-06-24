@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { calculatePaint } from "@/lib/calculations/timber/paint";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface PaintFormProps {
@@ -69,19 +70,20 @@ export function PaintForm({ locale }: PaintFormProps): React.ReactElement {
     label: string,
     value: number,
     setter: (v: number) => void,
-    step = 1,
+    opts: { decimals?: number; suffix?: string } = {},
   ) => (
     <div>
       <label className="mb-1.5 block text-sm font-medium text-[color:var(--color-text-secondary)]">
         {label}
       </label>
-      <input
-        type="number"
-        step={step}
-        inputMode="decimal"
-        className="input-base"
+      <NumberField
         value={value}
-        onChange={(e) => setter(parseFloat(e.target.value) || 0)}
+        onChange={setter}
+        thousands={false}
+        decimals={opts.decimals ?? 0}
+        min={0}
+        suffix={opts.suffix}
+        aria-label={label}
       />
     </div>
   );
@@ -89,15 +91,15 @@ export function PaintForm({ locale }: PaintFormProps): React.ReactElement {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <section className="surface-card space-y-4 p-5 md:p-7">
-        {field(t.wallArea, wallArea, setWallArea)}
+        {field(t.wallArea, wallArea, setWallArea, { decimals: 2, suffix: "㎡" })}
         <div className="grid grid-cols-2 gap-3">
-          {field(t.doorCount, doorCount, setDoorCount)}
-          {field(t.windowCount, windowCount, setWindowCount)}
+          {field(t.doorCount, doorCount, setDoorCount, { decimals: 0, suffix: "개" })}
+          {field(t.windowCount, windowCount, setWindowCount, { decimals: 0, suffix: "개" })}
         </div>
         <div className="grid grid-cols-3 gap-3">
-          {field(t.coats, coats, setCoats)}
-          {field(t.spreadRate, spreadRate, setSpreadRate)}
-          {field(t.waste, waste, setWaste)}
+          {field(t.coats, coats, setCoats, { decimals: 0, suffix: "회" })}
+          {field(t.spreadRate, spreadRate, setSpreadRate, { decimals: 1, suffix: "㎡/L" })}
+          {field(t.waste, waste, setWaste, { decimals: 0, suffix: "%" })}
         </div>
       </section>
 

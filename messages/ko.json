@@ -1,4 +1,8 @@
 {
+  "share": {
+    "button": "공유",
+    "copied": "링크 복사됨"
+  },
   "layout": {
     "electric": "전기",
     "timber": "목조",

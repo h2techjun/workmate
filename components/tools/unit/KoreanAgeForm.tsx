@@ -5,6 +5,7 @@ import {
   calculateKoreanAge,
   type KoreanAgeResult,
 } from "@/lib/calculations/unit/koreanAge";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface KoreanAgeFormProps {
   locale: "ko" | "en";
@@ -69,13 +70,13 @@ export function KoreanAgeForm({
   today,
 }: KoreanAgeFormProps): React.ReactElement {
   const t = T[locale];
-  const [birthYear, setBirthYear] = useState<string>("1990");
-  const [birthMonth, setBirthMonth] = useState<string>("3");
-  const [birthDay, setBirthDay] = useState<string>("15");
+  const [birthYear, setBirthYear] = useState<number>(1990);
+  const [birthMonth, setBirthMonth] = useState<number>(3);
+  const [birthDay, setBirthDay] = useState<number>(15);
 
-  const by = parseInt(birthYear, 10);
-  const bm = parseInt(birthMonth, 10);
-  const bd = parseInt(birthDay, 10);
+  const by = birthYear;
+  const bm = birthMonth;
+  const bd = birthDay;
   const valid = isValidDate(by, bm, bd);
 
   let result: KoreanAgeResult | null = null;
@@ -90,9 +91,6 @@ export function KoreanAgeForm({
     });
   }
 
-  const numInput =
-    "input-base text-center text-xl font-bold tabular-nums";
-
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <section className="surface-card space-y-5 p-5 md:p-7">
@@ -101,31 +99,32 @@ export function KoreanAgeForm({
             {t.birthLabel}
           </label>
           <div className="grid grid-cols-3 gap-2">
-            <input
-              type="number"
-              inputMode="numeric"
-              placeholder={t.yearPh}
-              className={numInput}
+            <NumberField
               value={birthYear}
-              onChange={(e) => setBirthYear(e.target.value)}
+              onChange={setBirthYear}
+              thousands={false}
+              decimals={0}
+              placeholder={t.yearPh}
               aria-label={t.yearPh}
             />
-            <input
-              type="number"
-              inputMode="numeric"
-              placeholder={t.monthPh}
-              className={numInput}
+            <NumberField
               value={birthMonth}
-              onChange={(e) => setBirthMonth(e.target.value)}
+              onChange={setBirthMonth}
+              thousands={false}
+              decimals={0}
+              min={1}
+              max={12}
+              placeholder={t.monthPh}
               aria-label={t.monthPh}
             />
-            <input
-              type="number"
-              inputMode="numeric"
-              placeholder={t.dayPh}
-              className={numInput}
+            <NumberField
               value={birthDay}
-              onChange={(e) => setBirthDay(e.target.value)}
+              onChange={setBirthDay}
+              thousands={false}
+              decimals={0}
+              min={1}
+              max={31}
+              placeholder={t.dayPh}
               aria-label={t.dayPh}
             />
           </div>

@@ -6,6 +6,7 @@ import {
   type SchoolGradeResult,
   type SchoolLevel,
 } from "@/lib/calculations/unit/schoolGrade";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface SchoolGradeFormProps {
   locale: "ko" | "en";
@@ -69,9 +70,9 @@ export function SchoolGradeForm({
   today,
 }: SchoolGradeFormProps): React.ReactElement {
   const t = T[locale];
-  const [birthYear, setBirthYear] = useState("2012");
+  const [birthYear, setBirthYear] = useState(2012);
 
-  const by = parseInt(birthYear, 10);
+  const by = birthYear;
   const valid = Number.isFinite(by) && by >= 1900 && by <= 2100;
 
   let result: SchoolGradeResult | null = null;
@@ -95,13 +96,12 @@ export function SchoolGradeForm({
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
             {t.label}
           </label>
-          <input
-            type="number"
-            inputMode="numeric"
-            placeholder={t.yearPh}
-            className="input-base text-center text-2xl font-bold tabular-nums"
+          <NumberField
             value={birthYear}
-            onChange={(e) => setBirthYear(e.target.value)}
+            onChange={setBirthYear}
+            thousands={false}
+            decimals={0}
+            placeholder={t.yearPh}
             aria-label={t.label}
           />
           {!valid && <p className="mt-2 text-xs text-red-400">{t.invalid}</p>}

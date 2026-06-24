@@ -10,6 +10,7 @@ import {
   type ForeignFlatTaxResult,
 } from "@/lib/calculations/tax/foreignFlatTax";
 import { formatKrw, formatKoreanMoney, formatNumber } from "@/lib/utils/format";
+import { NumberField } from "@/components/ui/NumberField";
 import {
   ActionRow,
   CalcLayout,
@@ -110,6 +111,7 @@ function MoneyField({
   hint: string;
   locale: "ko" | "en";
 }): React.ReactElement {
+  const suffix = locale === "ko" ? "원" : "₩";
   return (
     <Controller
       control={control}
@@ -118,17 +120,11 @@ function MoneyField({
         const num = Number(field.value) || 0;
         return (
           <Field label={label} hint={hint}>
-            <input
-              type="text"
-              inputMode="numeric"
-              className="input-base"
-              value={num > 0 ? num.toLocaleString("ko-KR") : ""}
-              placeholder="0"
-              onChange={(e) => {
-                const raw = e.target.value.replace(/[^0-9]/g, "");
-                field.onChange(raw === "" ? 0 : Number(raw));
-              }}
-              onBlur={field.onBlur}
+            <NumberField
+              value={num}
+              onChange={(v) => field.onChange(v)}
+              suffix={suffix}
+              aria-label={label}
             />
             {locale === "ko" && num > 0 && (
               <p className="mt-1.5 text-xs font-medium text-[color:var(--color-accent)]">
@@ -203,7 +199,6 @@ export function ForeignFlatTaxForm({
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
     control,
     handleSubmit,
     reset,
@@ -241,16 +236,22 @@ export function ForeignFlatTaxForm({
             hint={T.fieldGrossHint}
             locale={locale}
           />
-          <Field label={T.fieldDependents} hint={T.fieldDependentsHint}>
-            <input
-              type="number"
-              step="1"
-              min="0"
-              inputMode="numeric"
-              className="input-base"
-              {...register("dependents", { valueAsNumber: true })}
-            />
-          </Field>
+          <Controller
+            control={control}
+            name="dependents"
+            render={({ field }) => (
+              <Field label={T.fieldDependents} hint={T.fieldDependentsHint}>
+                <NumberField
+                  value={Number(field.value) || 0}
+                  onChange={(v) => field.onChange(v)}
+                  thousands={false}
+                  min={0}
+                  max={20}
+                  aria-label={T.fieldDependents}
+                />
+              </Field>
+            )}
+          />
         </FieldGroup>
 
         <ActionRow

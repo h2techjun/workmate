@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -23,6 +23,7 @@ import {
   SourceBox,
   Stat,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -33,6 +34,7 @@ export function RoofPitchForm(): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -73,34 +75,58 @@ export function RoofPitchForm(): React.ReactElement {
           </Field>
           {mode === "angle" && (
             <Field label={t("fields.angle")}>
-              <input
-                type="number"
-                step="0.1"
-                inputMode="decimal"
-                className="input-base"
-                {...register("angle", { valueAsNumber: true })}
+              <Controller
+                control={control}
+                name="angle"
+                render={({ field }) => (
+                  <NumberField
+                    value={field.value ?? 0}
+                    onChange={field.onChange}
+                    thousands={false}
+                    decimals={1}
+                    min={0}
+                    max={89}
+                    suffix="°"
+                    aria-label={t("fields.angle")}
+                  />
+                )}
               />
             </Field>
           )}
           {mode === "slope" && (
             <Field label={t("fields.slope")}>
-              <input
-                type="number"
-                step="0.1"
-                inputMode="decimal"
-                className="input-base"
-                {...register("slope", { valueAsNumber: true })}
+              <Controller
+                control={control}
+                name="slope"
+                render={({ field }) => (
+                  <NumberField
+                    value={field.value ?? 0}
+                    onChange={field.onChange}
+                    thousands={false}
+                    decimals={1}
+                    min={0}
+                    suffix="%"
+                    aria-label={t("fields.slope")}
+                  />
+                )}
               />
             </Field>
           )}
           {mode === "ratio" && (
             <Field label={t("fields.rise")}>
-              <input
-                type="number"
-                step="0.1"
-                inputMode="decimal"
-                className="input-base"
-                {...register("rise", { valueAsNumber: true })}
+              <Controller
+                control={control}
+                name="rise"
+                render={({ field }) => (
+                  <NumberField
+                    value={field.value ?? 0}
+                    onChange={field.onChange}
+                    thousands={false}
+                    decimals={1}
+                    min={0}
+                    aria-label={t("fields.rise")}
+                  />
+                )}
               />
             </Field>
           )}

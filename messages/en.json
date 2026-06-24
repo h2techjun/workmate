@@ -1,4 +1,8 @@
 {
+  "share": {
+    "button": "Share",
+    "copied": "Link copied"
+  },
   "layout": {
     "electric": "Electric",
     "timber": "Timber",

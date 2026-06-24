@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { convertArea, type AreaUnit } from "@/lib/calculations/unit/area";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface AreaConverterProps {
   locale: "ko" | "en";
@@ -76,13 +77,12 @@ export function AreaConverter({ locale }: AreaConverterProps): React.ReactElemen
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
             {t.inputLabel}
           </label>
-          <input
-            type="number"
-            step="0.1"
-            inputMode="decimal"
-            className="input-base text-2xl font-bold tabular-nums"
+          <NumberField
             value={value}
-            onChange={(e) => setValue(parseFloat(e.target.value) || 0)}
+            onChange={setValue}
+            thousands={true}
+            decimals={2}
+            aria-label={t.inputLabel}
           />
         </div>
 

@@ -5,6 +5,7 @@ import {
   calculateDueDate,
   type DueDateResult,
 } from "@/lib/calculations/korean/dueDate";
+import { NumberField } from "@/components/ui/NumberField";
 
 interface DueDateFormProps {
   locale: "ko" | "en";
@@ -53,22 +54,19 @@ export function DueDateForm({
   today,
 }: DueDateFormProps): React.ReactElement {
   const t = T[locale];
-  const [y, setY] = useState(String(today.year));
-  const [m, setM] = useState(String(today.month));
-  const [d, setD] = useState("1");
+  const [y, setY] = useState(today.year);
+  const [m, setM] = useState(today.month);
+  const [d, setD] = useState(1);
   const [cycle, setCycle] = useState(28);
 
-  const ly = parseInt(y, 10);
-  const lm = parseInt(m, 10);
-  const ld = parseInt(d, 10);
-  const valid = ly >= 1900 && lm >= 1 && lm <= 12 && ld >= 1 && ld <= 31;
+  const valid = y >= 1900 && m >= 1 && m <= 12 && d >= 1 && d <= 31;
 
   let r: DueDateResult | null = null;
   if (valid) {
     r = calculateDueDate({
-      lmpYear: ly,
-      lmpMonth: lm,
-      lmpDay: ld,
+      lmpYear: y,
+      lmpMonth: m,
+      lmpDay: d,
       cycleLength: cycle,
       refYear: today.year,
       refMonth: today.month,
@@ -76,7 +74,7 @@ export function DueDateForm({
     });
   }
 
-  const numInput = "input-base text-center text-xl font-bold tabular-nums";
+  const numInputClass = "text-center text-xl font-bold tabular-nums";
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
@@ -86,21 +84,53 @@ export function DueDateForm({
             {t.lmp}
           </label>
           <div className="grid grid-cols-3 gap-2">
-            <input className={numInput} type="number" inputMode="numeric" placeholder={t.year} value={y} onChange={(e) => setY(e.target.value)} aria-label={t.year} />
-            <input className={numInput} type="number" inputMode="numeric" placeholder={t.month} value={m} onChange={(e) => setM(e.target.value)} aria-label={t.month} />
-            <input className={numInput} type="number" inputMode="numeric" placeholder={t.day} value={d} onChange={(e) => setD(e.target.value)} aria-label={t.day} />
+            <NumberField
+              value={y}
+              onChange={setY}
+              thousands={false}
+              decimals={0}
+              min={1900}
+              max={2100}
+              placeholder={t.year}
+              aria-label={t.year}
+              className={numInputClass}
+            />
+            <NumberField
+              value={m}
+              onChange={setM}
+              thousands={false}
+              decimals={0}
+              min={1}
+              max={12}
+              placeholder={t.month}
+              aria-label={t.month}
+              className={numInputClass}
+            />
+            <NumberField
+              value={d}
+              onChange={setD}
+              thousands={false}
+              decimals={0}
+              min={1}
+              max={31}
+              placeholder={t.day}
+              aria-label={t.day}
+              className={numInputClass}
+            />
           </div>
         </div>
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
             {t.cycle}
           </label>
-          <input
-            type="number"
-            inputMode="numeric"
-            className="input-base"
+          <NumberField
             value={cycle}
-            onChange={(e) => setCycle(parseInt(e.target.value, 10) || 28)}
+            onChange={setCycle}
+            thousands={false}
+            decimals={0}
+            min={1}
+            max={60}
+            aria-label={t.cycle}
           />
         </div>
       </section>

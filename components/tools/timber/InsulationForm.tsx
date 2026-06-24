@@ -26,6 +26,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 3): string => formatNumber(n, d);
@@ -177,15 +178,21 @@ export function InsulationForm(): React.ReactElement {
                     </select>
                   )}
                 />
-                <input
-                  type="number"
-                  step="0.5"
-                  inputMode="decimal"
-                  className="input-base w-24"
-                  placeholder="mm"
-                  {...register(`layers.${index}.thicknessMM`, {
-                    valueAsNumber: true,
-                  })}
+                <Controller
+                  name={`layers.${index}.thicknessMM`}
+                  control={control}
+                  render={({ field: f }) => (
+                    <NumberField
+                      value={f.value}
+                      onChange={f.onChange}
+                      thousands={false}
+                      decimals={1}
+                      min={0}
+                      suffix="mm"
+                      aria-label={`layer ${index + 1} thickness`}
+                      className="w-24"
+                    />
+                  )}
                 />
                 <button
                   type="button"

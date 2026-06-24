@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -25,6 +25,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -38,6 +39,7 @@ export function LumberForm(): React.ReactElement {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<LumberInputResolved>({
     resolver: zodResolver(lumberInputSchema),
@@ -110,12 +112,20 @@ export function LumberForm(): React.ReactElement {
             hint={t("hints.widthMM")}
             error={errMsg(errors.widthMM?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("widthMM", { valueAsNumber: true })}
+            <Controller
+              name="widthMM"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="mm"
+                  aria-label={t("fields.widthMM")}
+                />
+              )}
             />
           </Field>
           <Field
@@ -123,12 +133,20 @@ export function LumberForm(): React.ReactElement {
             hint={t("hints.thicknessMM")}
             error={errMsg(errors.thicknessMM?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("thicknessMM", { valueAsNumber: true })}
+            <Controller
+              name="thicknessMM"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="mm"
+                  aria-label={t("fields.thicknessMM")}
+                />
+              )}
             />
           </Field>
           <Field
@@ -136,24 +154,40 @@ export function LumberForm(): React.ReactElement {
             hint={t("hints.lengthMM")}
             error={errMsg(errors.lengthMM?.message)}
           >
-            <input
-              type="number"
-              step="any"
-              inputMode="decimal"
-              className="input-base"
-              {...register("lengthMM", { valueAsNumber: true })}
+            <Controller
+              name="lengthMM"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  suffix="mm"
+                  aria-label={t("fields.lengthMM")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.quantity")}
             error={errMsg(errors.quantity?.message)}
           >
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("quantity", { valueAsNumber: true })}
+            <Controller
+              name="quantity"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={true}
+                  decimals={0}
+                  min={1}
+                  suffix="본"
+                  aria-label={t("fields.quantity")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>

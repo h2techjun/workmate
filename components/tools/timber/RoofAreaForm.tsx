@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -25,6 +25,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -35,7 +36,7 @@ export function RoofAreaForm(): React.ReactElement {
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
-    register,
+    control,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
@@ -103,24 +104,41 @@ export function RoofAreaForm(): React.ReactElement {
             hint={t("hints.planArea")}
             error={errMsg(errors.planAreaM2?.message)}
           >
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("planAreaM2", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="planAreaM2"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  suffix="㎡"
+                  aria-label={t("fields.planAreaM2")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.angleDegrees")}
             error={errMsg(errors.angleDegrees?.message)}
           >
-            <input
-              type="number"
-              step="0.5"
-              inputMode="decimal"
-              className="input-base"
-              {...register("angleDegrees", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="angleDegrees"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  max={89}
+                  suffix="°"
+                  aria-label={t("fields.angleDegrees")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>
@@ -131,24 +149,40 @@ export function RoofAreaForm(): React.ReactElement {
             hint={t("hints.perimeter")}
             error={errMsg(errors.perimeterM?.message)}
           >
-            <input
-              type="number"
-              step="0.1"
-              inputMode="decimal"
-              className="input-base"
-              {...register("perimeterM", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="perimeterM"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="m"
+                  aria-label={t("fields.perimeterM")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.eaveOverhangMM")}
             error={errMsg(errors.eaveOverhangMM?.message)}
           >
-            <input
-              type="number"
-              step="50"
-              inputMode="numeric"
-              className="input-base"
-              {...register("eaveOverhangMM", { valueAsNumber: true })}
+            <Controller
+              control={control}
+              name="eaveOverhangMM"
+              render={({ field }) => (
+                <NumberField
+                  value={field.value}
+                  onChange={field.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  suffix="mm"
+                  aria-label={t("fields.eaveOverhangMM")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>

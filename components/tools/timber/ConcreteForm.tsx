@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import {
@@ -25,6 +25,7 @@ import {
   Stat,
   StepsBox,
 } from "@/components/ui/calc-form";
+import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
@@ -39,6 +40,7 @@ export function ConcreteForm(): React.ReactElement {
     handleSubmit,
     reset,
     watch,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<ConcreteInputResolved>({
     resolver: zodResolver(concreteInputSchema),
@@ -113,12 +115,20 @@ export function ConcreteForm(): React.ReactElement {
             label={t("fields.widthM")}
             error={errMsg(errors.widthM?.message)}
           >
-            <input
-              type="number"
-              step="0.05"
-              inputMode="decimal"
-              className="input-base"
-              {...register("widthM", { valueAsNumber: true })}
+            <Controller
+              name="widthM"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  suffix="m"
+                  aria-label={t("fields.widthM")}
+                />
+              )}
             />
           </Field>
           <Field
@@ -129,24 +139,40 @@ export function ConcreteForm(): React.ReactElement {
             }
             error={errMsg(errors.depthOrThicknessM?.message)}
           >
-            <input
-              type="number"
-              step="0.05"
-              inputMode="decimal"
-              className="input-base"
-              {...register("depthOrThicknessM", { valueAsNumber: true })}
+            <Controller
+              name="depthOrThicknessM"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={2}
+                  min={0}
+                  suffix="m"
+                  aria-label={type === "matSlab" ? t("fields.thickness") : t("fields.depth")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.lengthM")}
             error={errMsg(errors.lengthM?.message)}
           >
-            <input
-              type="number"
-              step="0.5"
-              inputMode="decimal"
-              className="input-base"
-              {...register("lengthM", { valueAsNumber: true })}
+            <Controller
+              name="lengthM"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={1}
+                  min={0}
+                  suffix="m"
+                  aria-label={t("fields.lengthM")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>
@@ -157,24 +183,41 @@ export function ConcreteForm(): React.ReactElement {
             hint={t("hints.rebar")}
             error={errMsg(errors.rebarDensityKgPerM3?.message)}
           >
-            <input
-              type="number"
-              step="5"
-              inputMode="numeric"
-              className="input-base"
-              {...register("rebarDensityKgPerM3", { valueAsNumber: true })}
+            <Controller
+              name="rebarDensityKgPerM3"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  suffix="kg/m³"
+                  aria-label={t("fields.rebarDensity")}
+                />
+              )}
             />
           </Field>
           <Field
             label={t("fields.wasteFactorPercent")}
             error={errMsg(errors.wasteFactorPercent?.message)}
           >
-            <input
-              type="number"
-              step="1"
-              inputMode="numeric"
-              className="input-base"
-              {...register("wasteFactorPercent", { valueAsNumber: true })}
+            <Controller
+              name="wasteFactorPercent"
+              control={control}
+              render={({ field: f }) => (
+                <NumberField
+                  value={f.value}
+                  onChange={f.onChange}
+                  thousands={false}
+                  decimals={0}
+                  min={0}
+                  max={50}
+                  suffix="%"
+                  aria-label={t("fields.wasteFactorPercent")}
+                />
+              )}
             />
           </Field>
         </FieldGroup>
