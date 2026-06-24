@@ -6,6 +6,7 @@ import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { findPost } from "@/lib/blogPosts";
+import PostTags from "@/components/ui/PostTags";
 
 const SLUG = "korean-business-number-checksum";
 
@@ -341,6 +342,7 @@ function EnContent({ locale }: { locale: string }): React.ReactElement {
         Algorithm is current as of the National Tax Service published spec.
         For active-business verification, always cross-check with Hometax.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
     </article>
   );
 }
@@ -568,6 +570,7 @@ function KoContent({ locale }: { locale: string }): React.ReactElement {
         알고리즘은 국세청 공개 사양 기준. 실제 영업 상태는 항상 홈택스로
         교차 확인하세요.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
     </article>
   );
 }

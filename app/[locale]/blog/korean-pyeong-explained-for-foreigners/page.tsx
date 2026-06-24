@@ -6,6 +6,7 @@ import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { findPost } from "@/lib/blogPosts";
+import PostTags from "@/components/ui/PostTags";
 
 const SLUG = "korean-pyeong-explained-for-foreigners";
 
@@ -356,6 +357,7 @@ function EnContent({ locale }: { locale: string }): React.ReactElement {
         Pyeong is unofficial in Korean law since 1961; only ㎡ has legal
         force.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
     </article>
   );
 }
@@ -570,6 +572,7 @@ function KoContent({ locale }: { locale: string }): React.ReactElement {
         환산값은 전통 단위 (1자 = 10/33 m) 기준입니다. 평은 1961년 이후
         법적 단위가 아니며, ㎡ 만 법적 효력을 가집니다.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
     </article>
   );
 }

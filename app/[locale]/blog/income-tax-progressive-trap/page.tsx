@@ -6,6 +6,7 @@ import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { findPost } from "@/lib/blogPosts";
+import PostTags from "@/components/ui/PostTags";
 
 const SLUG = "income-tax-progressive-trap";
 
@@ -221,6 +222,7 @@ function KoContent({ locale }: { locale: string }): React.ReactElement {
         등 세부 항목은 별도 적용해야 합니다. 정확한 신고는 홈택스
         &lsquo;신고도움 서비스&rsquo; 또는 세무사 상담으로 진행하세요.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
     </article>
   );
 }
@@ -372,6 +374,7 @@ function EnContent({ locale }: { locale: string }): React.ReactElement {
         expenses, etc. must be applied separately. For accurate filing, use
         Hometax's filing assistant or a tax accountant.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
     </article>
   );
 }

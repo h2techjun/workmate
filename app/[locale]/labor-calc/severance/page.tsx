@@ -9,6 +9,8 @@ import {
   CalculatorJsonLd,
   BreadcrumbJsonLd,
 } from "@/components/seo/StructuredData";
+import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -84,6 +86,16 @@ export default async function SeverancePage({
 
       <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
+        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
+          <Link
+            href={`/${locale}/labor-calc`}
+            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            {locale === "ko" ? "연봉·근로" : "Payroll"}
+          </Link>
+        </nav>
+
         <header className="mb-8 max-w-3xl animate-fade-up">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
             {t("eyebrow")}

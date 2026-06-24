@@ -15,6 +15,7 @@
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Script from "next/script";
+import { ChevronDown } from "lucide-react";
 
 interface ToolGuideProps {
   /** messages/<locale>.json 의 toolGuides.<toolKey> 와 매칭 */
@@ -156,10 +157,10 @@ export async function ToolGuide({
 
       {/* Overview */}
       <div>
-        <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        <h2 className="mb-3 text-2xl font-bold text-[color:var(--color-text-primary)] md:text-3xl">
           {tLabels("overview")}
         </h2>
-        <p className="text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
+        <p className="text-[15px] leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
           {data.overview}
         </p>
       </div>
@@ -169,7 +170,7 @@ export async function ToolGuide({
         <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
           {tLabels("useCases")}
         </h2>
-        <ul className="space-y-2 text-sm text-[color:var(--color-text-secondary)] md:text-base">
+        <ul className="space-y-2 text-[15px] text-[color:var(--color-text-secondary)] md:text-base">
           {data.useCases.map((useCase, i) => (
             <li key={i} className="flex gap-2.5">
               <span className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
@@ -184,7 +185,7 @@ export async function ToolGuide({
         <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
           {data.howTo.title}
         </h2>
-        <ol className="space-y-3 text-sm text-[color:var(--color-text-secondary)] md:text-base">
+        <ol className="space-y-3 text-[15px] text-[color:var(--color-text-secondary)] md:text-base">
           {data.howTo.steps.map((step, i) => (
             <li key={i} className="flex gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-xs font-bold text-indigo-300">
@@ -201,7 +202,7 @@ export async function ToolGuide({
         <h2 className="mb-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
           {data.formula.title}
         </h2>
-        <p className="whitespace-pre-line text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
+        <p className="whitespace-pre-line text-[15px] leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
           {data.formula.body}
         </p>
       </div>
@@ -274,13 +275,11 @@ export async function ToolGuide({
           {data.faq.map((item, i) => (
             <details
               key={i}
-              className="group rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] p-4 [&[open]>summary>span]:rotate-45"
+              className="group rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] p-4 [&[open]_svg]:rotate-180"
             >
-              <summary className="flex cursor-pointer items-start justify-between gap-3 text-sm font-semibold text-[color:var(--color-text-primary)] md:text-base">
+              <summary className="flex cursor-pointer items-start justify-between gap-3 text-[15px] font-semibold text-[color:var(--color-text-primary)] md:text-base">
                 <span className="flex-1">{item.question}</span>
-                <span className="mt-1 inline-block h-4 w-4 shrink-0 text-indigo-400 transition-transform">
-                  +
-                </span>
+                <ChevronDown className="mt-0.5 h-4 w-4 shrink-0 text-indigo-400 transition-transform" />
               </summary>
               <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-text-secondary)]">
                 {item.answer}

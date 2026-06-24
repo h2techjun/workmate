@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import type { Locale } from "@/i18n";
@@ -33,11 +33,19 @@ export function HeaderNav({
 }: HeaderNavProps): React.ReactElement {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   // 경로 변경 시 모바일 드로어 자동 닫기
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  // 드로어 열릴 때 첫 링크로 포커스 이동
+  useEffect(() => {
+    if (open) {
+      firstLinkRef.current?.focus();
+    }
+  }, [open]);
 
   // 활성 매칭: /ko/tools 또는 /ko/tools/... 가 시작이면 active
   const isActive = (pathMatch: string): boolean => {
@@ -78,8 +86,17 @@ export function HeaderNav({
         {children}
         <button
           type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={
+            open
+              ? locale === "ko"
+                ? "메뉴 닫기"
+                : "Close menu"
+              : locale === "ko"
+                ? "메뉴 열기"
+                : "Open menu"
+          }
           aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((prev) => !prev)}
           className="grid h-9 w-9 place-items-center rounded-lg border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
         >
@@ -88,12 +105,19 @@ export function HeaderNav({
       </div>
 
       {open && (
-        <div className="surface-glass fixed inset-x-0 top-14 z-30 border-b border-[color:var(--color-border-subtle)] sm:hidden">
+        <div
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label={locale === "ko" ? "내비게이션 메뉴" : "Navigation menu"}
+          className="surface-glass fixed inset-x-0 top-14 z-30 border-b border-[color:var(--color-border-subtle)] sm:hidden"
+        >
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
-            {items.map((item) => (
+            {items.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
+                ref={index === 0 ? firstLinkRef : undefined}
                 className={cn(
                   "rounded-lg px-3 py-2.5 text-base font-medium transition-colors",
                   isActive(item.pathMatch)

@@ -6,6 +6,7 @@ import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { findPost } from "@/lib/blogPosts";
+import PostTags from "@/components/ui/PostTags";
 
 const SLUG = "rent-cap-tenant-checklist";
 
@@ -240,6 +241,7 @@ function KoContent({ locale }: { locale: string }): React.ReactElement {
         또는 분쟁조정위원회 상담을 권합니다. 지자체 조례가 더 낮은
         상한을 정한 경우 그 조례가 우선합니다.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
     </article>
   );
 }
@@ -413,6 +415,7 @@ function EnContent({ locale }: { locale: string }): React.ReactElement {
         Korean lawyer or dispute mediation committee. Local ordinances may
         set a stricter cap than 5%.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
     </article>
   );
 }

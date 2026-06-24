@@ -83,10 +83,10 @@ export function Stat({
         full && "col-span-2",
       )}
     >
-      <dt className="text-[11px] font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+      <dt className="text-xs font-medium tracking-wide text-[color:var(--color-text-tertiary)]">
         {label}
       </dt>
-      <dd className={cn("mt-1 font-semibold tabular-nums", toneClass)}>
+      <dd className={cn("mt-1 text-lg font-semibold tabular-nums", toneClass)}>
         {value}
       </dd>
     </div>
@@ -113,7 +113,7 @@ export function HeroResult({
           {value}
         </span>
         {unit && (
-          <span className="text-xl font-semibold text-[color:var(--color-text-secondary)] md:text-2xl">
+          <span className="text-xl font-semibold text-[color:var(--color-text-primary)] opacity-75 md:text-2xl">
             {unit}
           </span>
         )}
@@ -140,9 +140,9 @@ export function ResultShell({
         className="surface-card overflow-hidden p-5 md:p-7"
       >
         <div className="mb-5 flex items-center justify-between gap-3">
-          <h2 className="flex items-center gap-2 text-lg font-semibold text-[color:var(--color-text-primary)]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" />
-            {heading}
+          <h2 className="flex min-w-0 items-center gap-2 text-xl font-bold text-[color:var(--color-text-primary)]">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
+            <span className="truncate">{heading}</span>
           </h2>
           <ShareButton
             text={shareText}
@@ -273,9 +273,14 @@ export function StepsBox({
       <h3 className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
         {title}
       </h3>
-      <ol className="space-y-1.5 rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 text-xs leading-relaxed text-[color:var(--color-text-secondary)]">
+      <ol className="space-y-2 rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 text-xs leading-relaxed text-[color:var(--color-text-secondary)]">
         {items.map((it, i) => (
-          <li key={i}>{it}</li>
+          <li key={i} className="flex gap-2.5">
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-[10px] font-bold text-indigo-300">
+              {i + 1}
+            </span>
+            <span>{it}</span>
+          </li>
         ))}
       </ol>
     </div>
@@ -288,7 +293,7 @@ export function SourceBox({
   lines: string[];
 }): React.ReactElement {
   return (
-    <div className="border-t border-[color:var(--color-border-subtle)] pt-3 text-[11px] leading-relaxed text-[color:var(--color-text-muted)]">
+    <div className="space-y-1 border-t border-[color:var(--color-border-subtle)] pt-3 text-xs leading-relaxed text-[color:var(--color-text-tertiary)]">
       {lines.map((l, i) => (
         <p key={i}>{l}</p>
       ))}

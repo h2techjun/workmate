@@ -6,6 +6,7 @@ import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { findPost } from "@/lib/blogPosts";
+import PostTags from "@/components/ui/PostTags";
 
 const SLUG = "living-in-korea-foreigner-guide";
 
@@ -398,6 +399,7 @@ function ContentEn({ locale }: { locale: string }): React.ReactElement {
         </h2>
         <AllTools locale={locale} isKo={false} />
       </section>
+      <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
     </article>
   );
 }
@@ -627,6 +629,7 @@ function ContentKo({ locale }: { locale: string }): React.ReactElement {
         </h2>
         <AllTools locale={locale} isKo={true} />
       </section>
+      <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
     </article>
   );
 }

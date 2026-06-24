@@ -5,6 +5,7 @@ import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
 import { TOOL_GROUPS, TOOL_GROUP_ORDER } from "@/lib/toolsCatalog";
+import { ToolSearch } from "@/components/layout/ToolSearch";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -95,6 +96,10 @@ export default async function ToolsHubPage({
             : "From payroll take-home to Korean electric code, timber NDS, and VAT — 20+ calculators aligned to Korean standards. No signup, no payment, no app install."}
         </p>
       </header>
+
+      <div className="mb-10">
+        <ToolSearch locale={localeKey} />
+      </div>
 
       <div className="grid gap-5 md:grid-cols-2">
         {groups.map((group) => {

@@ -6,6 +6,7 @@ import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { findPost } from "@/lib/blogPosts";
+import PostTags from "@/components/ui/PostTags";
 
 const SLUG = "renting-in-korea-jeonse-wolse-guide";
 
@@ -292,6 +293,7 @@ function ContentEn({ locale }: { locale: string }): React.ReactElement {
           .
         </p>
       </section>
+      <PostTags tags={findPost("renting-in-korea-jeonse-wolse-guide")!.tags.en} isKo={false} />
     </article>
   );
 }
@@ -457,6 +459,7 @@ function ContentKo({ locale }: { locale: string }): React.ReactElement {
           에서 보세요.
         </p>
       </section>
+      <PostTags tags={findPost("renting-in-korea-jeonse-wolse-guide")!.tags.ko} isKo={true} />
     </article>
   );
 }

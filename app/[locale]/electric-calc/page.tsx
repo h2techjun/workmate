@@ -63,14 +63,14 @@ export default async function ElectricCalcPage({
     },
     {
       href: `/${locale}/electric-calc/breaker`,
-      available: false,
+      available: true,
       title: t("breaker.title"),
       description: t("breaker.description"),
       Icon: ShieldCheck,
     },
     {
       href: `/${locale}/electric-calc/voltage-drop`,
-      available: false,
+      available: true,
       title: t("voltageDrop.title"),
       description: t("voltageDrop.description"),
       Icon: Activity,

@@ -14,9 +14,10 @@
   --color-border-strong: #393f57;
   /* 순백(#f4f5f8) 대신 살짝 가라앉힌 회백색 — 눈부심 완화 + 가독성 유지 */
   --color-text-primary: #dfe2ea;
-  --color-text-secondary: #99a0b3;
-  --color-text-tertiary: #676e88;
-  --color-text-muted: #454c62;
+  --color-text-secondary: #a3aabd;
+  /* tertiary·muted 상향 — 다크 카드(#12141b) 위 WCAG AA(4.5:1) 충족 (이전 3.0~3.5:1 미달) */
+  --color-text-tertiary: #868eac;
+  --color-text-muted: #757d99;
   --color-accent: #6366f1;
   --color-accent-hover: #818cf8;
   --color-accent-bg: #312e81;

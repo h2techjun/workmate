@@ -35,7 +35,7 @@ export function LanguageSwitcher({
             type="button"
             onClick={() => switchTo(loc)}
             aria-pressed={isActive}
-            className={`rounded-md px-2.5 py-1 text-xs font-semibold uppercase transition-colors ${
+            className={`rounded-md px-2.5 py-2 text-xs font-semibold uppercase transition-colors ${
               isActive
                 ? "bg-[color:var(--color-bg-card-hover)] text-[color:var(--color-text-primary)]"
                 : "text-[color:var(--color-text-tertiary)] hover:text-[color:var(--color-text-primary)]"

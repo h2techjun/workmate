@@ -6,6 +6,7 @@ import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { findPost } from "@/lib/blogPosts";
+import PostTags from "@/components/ui/PostTags";
 
 const SLUG = "loan-30-vs-15-years";
 
@@ -251,6 +252,7 @@ function KoContent({ locale }: { locale: string }): React.ReactElement {
         본 글은 일반론이며 개인의 상환 능력·세제 혜택·DSR 한도는 별도로
         검토해야 합니다. 금융기관 상담을 함께 진행하시는 게 안전합니다.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
     </article>
   );
 }
@@ -430,6 +432,7 @@ function EnContent({ locale }: { locale: string }): React.ReactElement {
         This article is generic. Your personal capacity, tax credits, and
         DSR limits require separate review with your bank.
       </p>
+      <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
     </article>
   );
 }

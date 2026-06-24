@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 블로그 글 메타데이터 — /blog 인덱스 및 sitemap 단일 진실원.
  *
  * 본문은 각 글의 page.tsx 에 직접 작성 (MDX 도입 없이 JSX 로 자연스럽게).
@@ -30,6 +30,11 @@ export interface BlogPost {
   category: BlogCategory;
   /** 예상 읽기 시간 (분) */
   readingMinutes: number;
+  /** 글 하단에 표시되는 태그 (각 5개) */
+  tags: {
+    ko: string[];
+    en: string[];
+  };
 }
 
 /** 카테고리 표시 라벨 (ko/en) — /blog 인덱스 섹션 헤더·카드 칩 */
@@ -68,6 +73,10 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
       "Jeonse vs wolse, the conversion rate, how to protect your deposit after the 2022–2023 fraud wave, and the change-of-residence-report trap every foreign tenant must know — with a step-by-step pre-signing checklist.",
     category: "realestate",
     readingMinutes: 12,
+    tags: {
+      ko: ["전세", "월세", "보증금", "전세사기", "외국인 임대"],
+      en: ["Jeonse", "Wolse", "Deposit", "Rental Fraud", "Foreign Tenant"],
+    },
   },
   {
     slug: "living-in-korea-foreigner-guide",
@@ -80,6 +89,10 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
       "Arrival (ARC, banking) → settling (rent, health insurance) → work & tax (year-end, flat tax) → staying (F-2-7, D-8) → leaving (pension refund). The whole journey of living in Korea, step by step, with free calculators and checklists.",
     category: "living",
     readingMinutes: 14,
+    tags: {
+      ko: ["외국인등록증", "한국 생활", "건강보험", "비자", "국민연금 반환"],
+      en: ["ARC", "Living in Korea", "Health Insurance", "Visa", "Pension Refund"],
+    },
   },
   {
     slug: "essential-apps-korea-foreigners",
@@ -92,6 +105,10 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
       "Which Korean apps work without a Korean number, a foreign card, or an ARC — and how to clear the PASS identity-verification wall. Category by category, with sign-up tips.",
     category: "living",
     readingMinutes: 11,
+    tags: {
+      ko: ["카카오톡", "토스", "본인인증", "외국인 앱", "PASS 인증"],
+      en: ["KakaoTalk", "Toss", "Identity Verification", "Korea Apps", "PASS Auth"],
+    },
   },
   {
     slug: "loan-30-vs-15-years",
@@ -104,6 +121,10 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
       "Total interest is much lower for 15-year. Yet most people choose 30-year. Once you factor cash flow, inflation, and reinvestment, the math changes.",
     category: "loan",
     readingMinutes: 8,
+    tags: {
+      ko: ["주담대", "대출 기간", "총이자", "조기상환", "현금흐름"],
+      en: ["Mortgage", "Loan Term", "Total Interest", "Prepayment", "Cash Flow"],
+    },
   },
   {
     slug: "income-tax-progressive-trap",
@@ -116,6 +137,10 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
       "“Crossing a bracket means you earned less in the end” and other myths — debunked with actual numbers.",
     category: "tax",
     readingMinutes: 7,
+    tags: {
+      ko: ["종합소득세", "누진세", "세율 구간", "과세표준", "연말정산"],
+      en: ["Income Tax", "Progressive Tax", "Tax Bracket", "Taxable Base", "Year-End Settlement"],
+    },
   },
   {
     slug: "korean-pyeong-explained-for-foreigners",
@@ -128,6 +153,10 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
       "Why Korean real estate uses pyeong alongside m², how 84㎡ maps to 25-pyeong, and what exclusive vs supply vs contract area really mean.",
     category: "realestate",
     readingMinutes: 7,
+    tags: {
+      ko: ["평수", "전용면적", "공급면적", "아파트 크기", "84m2"],
+      en: ["Pyeong", "Exclusive Area", "Supply Area", "Apartment Size", "84m2"],
+    },
   },
   {
     slug: "korean-business-number-checksum",
@@ -139,6 +168,10 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
       "The 1-3-7 weighted checksum that catches fake or mistyped Korean business numbers before you sign or wire money.",
     category: "tax",
     readingMinutes: 6,
+    tags: {
+      ko: ["사업자등록번호", "체크섬", "번호 검증", "홈택스", "거래 사기 방지"],
+      en: ["Business Number", "Checksum", "Number Validation", "Hometax", "Fraud Prevention"],
+    },
   },
   {
     slug: "rent-cap-tenant-checklist",
@@ -151,6 +184,10 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
       "If your Korean landlord proposes a 6% renewal increase, here are the 7 steps a tenant should take, in order.",
     category: "realestate",
     readingMinutes: 6,
+    tags: {
+      ko: ["임대료 5%", "계약갱신청구권", "내용증명", "임대차 분쟁", "전월세 인상"],
+      en: ["Rent Cap 5%", "Renewal Right", "Certified Mail", "Lease Dispute", "Rent Increase"],
+    },
   },
 ];
 

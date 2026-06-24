@@ -95,7 +95,7 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
     const fav = isFavorite(tool.href);
     const groupTitle = isEn ? tool.groupTitleEn : tool.groupTitleKo;
     return (
-      <li className="flex items-center gap-1">
+      <li role="option" aria-selected={false} className="flex items-center gap-2">
         <Link
           href={`/${locale}${tool.href}`}
           onClick={() => setQuery("")}
@@ -122,7 +122,7 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
           }}
           aria-label={fav ? t("removeFavorite") : t("addFavorite")}
           aria-pressed={fav}
-          className="shrink-0 rounded-lg p-2 text-[color:var(--color-text-tertiary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-amber-300"
+          className="shrink-0 rounded-lg p-2.5 text-[color:var(--color-text-tertiary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-amber-300"
         >
           <Star
             className="h-4 w-4"
@@ -146,6 +146,10 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
           onBlur={() => setFocused(false)}
           placeholder={t("placeholder")}
           aria-label={t("placeholder")}
+          role="combobox"
+          aria-expanded={hasQuery || showFavorites}
+          aria-controls="tool-search-listbox"
+          aria-autocomplete="list"
           className="w-full rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] py-3 pl-11 pr-4 text-sm shadow-sm transition-all focus:border-[color:var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
         />
       </div>
@@ -157,7 +161,7 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
               {t("noResults", { query })}
             </p>
           ) : (
-            <ul className="space-y-1">
+            <ul role="listbox" id="tool-search-listbox" className="space-y-1">
               {filtered.map((tool) => (
                 <Row key={tool.href} tool={tool} />
               ))}
@@ -172,7 +176,7 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
             <Star className="h-3 w-3" fill="#fbbf24" color="#fbbf24" />
             {t("favorites")}
           </p>
-          <ul className="space-y-1">
+          <ul role="listbox" id="tool-search-listbox" className="space-y-1">
             {favoriteTools.map((tool) => (
               <Row key={tool.href} tool={tool} />
             ))}
