@@ -66,6 +66,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "퇴직금 계산기", labelEn: "Severance", href: "/labor-calc/severance", keywordsKo: "퇴직금 평균임금 통상임금" },
       { labelKo: "최저시급 → 월급", labelEn: "Min Wage → Monthly", href: "/labor-calc/min-wage-monthly", keywordsKo: "최저시급 월급 환산 209시간" },
       { labelKo: "4대보험 + 실수령액", labelEn: "4 Insurances + Net Pay", href: "/insurance-calc", keywordsKo: "4대보험 국민연금 건강보험 실수령액" },
+      { labelKo: "실업급여 계산기", labelEn: "Unemployment Benefit", href: "/unemployment-benefit", keywordsKo: "실업급여 구직급여 고용보험 수령액 소정급여일수 계산기" },
     ],
   },
   {
@@ -91,6 +92,8 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "부가세 계산기", labelEn: "VAT", href: "/vat-calc", keywordsKo: "부가세 공급가액 일반과세 간이과세" },
       { labelKo: "프리랜서 3.3%", labelEn: "Freelancer 3.3%", href: "/freelancer-tax", keywordsKo: "프리랜서 3.3 원천징수 사업소득 세금" },
       { labelKo: "해외주식 양도세", labelEn: "Foreign Stock Tax", href: "/foreign-stock-tax", keywordsKo: "해외주식 양도세 22% 250만원 공제" },
+      { labelKo: "증여세 계산기", labelEn: "Gift Tax", href: "/gift-tax", keywordsKo: "증여세 증여재산공제 누진세율 배우자 자녀 증여 계산기" },
+      { labelKo: "중도상환수수료 계산기", labelEn: "Prepayment Penalty", href: "/prepayment-penalty", keywordsKo: "중도상환수수료 대출 갈아타기 상환 수수료 슬라이딩 면제 계산기" },
     ],
   },
   {
@@ -183,6 +186,12 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         labelEn: "Jeonse ↔ Wolse + Scam Check",
         href: "/jeonse-wolse",
         keywordsKo: "전세 월세 환산 전월세전환율 전세사기 방지 보증금 보증보험 jeonse wolse deposit scam",
+      },
+      {
+        labelKo: "부동산 중개수수료 (복비)",
+        labelEn: "Brokerage Fee",
+        href: "/brokerage-fee",
+        keywordsKo: "부동산 중개수수료 복비 중개보수 요율 매매 전세 월세 계산기 공인중개사",
       },
     ],
   },

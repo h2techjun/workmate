@@ -1903,6 +1903,350 @@
     }
   },
   "toolGuides": {
+    "brokerage-fee": {
+      "overview": "This calculator finds the legal maximum brokerage fee for Korean real estate transactions — the amount set by Annex 1 of the Enforcement Rules of the Licensed Real Estate Agents Act (revised and effective 19 October 2021). The 2021 revision replaced the old flat '0.9% above ₩900M' structure with a tiered system that significantly lowered rates on high-value properties. For sales, the cap ranges from 0.4% to 0.7% depending on the price bracket; for rentals (jeonse and monthly), it ranges from 0.3% to 0.6%. Low-bracket transactions also have hard fee ceilings (₩200K–₩800K). For monthly rent (wolse), the tool first converts to a 'transaction amount' using the statutory formula (deposit + rent × 100, or × 70 if that total is under ₩50M), then applies the rental rate table. The result is the legal maximum — the actual fee is negotiable.",
+      "useCases": [
+        "Estimating the brokerage fee before signing an apartment purchase contract",
+        "Checking whether an agent's quoted fee is within the legal cap for a jeonse lease",
+        "Comparing how different deposit/monthly-rent combinations affect the brokerage cost",
+        "Understanding the legal baseline before negotiating the fee down",
+        "Calculating total out-of-pocket cost with or without VAT"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Select the transaction type: sale, jeonse, or monthly rent (wolse).",
+          "Enter the sale price, jeonse deposit, or (for monthly) the deposit and monthly rent. The monthly-rent conversion is automatic.",
+          "Toggle VAT if needed, then click Calculate. You'll see the applicable rate, any cap, and the final fee."
+        ]
+      },
+      "formula": {
+        "title": "Formula",
+        "body": "Sale / jeonse: fee = min(transaction amount × max rate, cap)\n\nMonthly rent conversion: amount = deposit + rent × 100\nIf that total < ₩50M: amount = deposit + rent × 70\n→ Apply the rental rate table to the converted amount\n\nVAT: fee × 10% (only if the agency is a general VAT taxpayer)"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "₩500M apartment purchase",
+            "body": "₩500M falls in the sale bracket ₩200M–₩900M → max rate 0.4%, no cap.\n₩500M × 0.4% = ₩2,000,000.\nWith VAT: ₩2,200,000.\nNegotiating below ₩2M is common and perfectly legal."
+          },
+          {
+            "title": "₩300M jeonse",
+            "body": "₩300M falls in the rental bracket ₩100M–₩600M → max rate 0.3%, no cap.\n₩300M × 0.3% = ₩900,000.\nWith VAT: ₩990,000."
+          },
+          {
+            "title": "₩10M deposit + ₩500K/month wolse",
+            "body": "Converted amount: ₩10M + ₩500K × 100 = ₩60M (≥ ₩50M → use × 100).\n₩60M falls in the rental bracket ₩50M–₩100M → max rate 0.4%, cap ₩300K.\n₩60M × 0.4% = ₩240K < ₩300K cap → cap doesn't apply. Fee: ₩240,000."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Do both buyer and seller (or both landlord and tenant) pay the fee?",
+          "answer": "Yes. Each party pays their own agent separately. Even if one agent handles both sides (dual agency), each side pays independently."
+        },
+        {
+          "question": "Can I negotiate below the legal maximum?",
+          "answer": "Yes. The statutory rate is a ceiling — paying above it is illegal, but agreeing to less is fine and common. Settle on a figure before signing and have it written into the contract."
+        },
+        {
+          "question": "Is VAT always added on top?",
+          "answer": "No. VAT applies only if the agency is a 'general VAT taxpayer' (annual sales ≥ ₩80M). Agencies below that threshold (simplified taxpayers) cannot charge VAT. Confirm the agency's tax status before signing."
+        },
+        {
+          "question": "How do I know whether to use × 70 or × 100 for monthly rent?",
+          "answer": "First compute deposit + rent × 100. If that figure is ₩50M or more, use it as-is (multiplier = 100). If it's below ₩50M, recompute as deposit + rent × 70. This rule is written into Annex 1 of the Enforcement Rules."
+        },
+        {
+          "question": "Is the fee based on the actual contract price or the assessed value?",
+          "answer": "The actual contract price (the price written in the sale or lease agreement), not the assessed or market value. Enter the real transaction amount."
+        },
+        {
+          "question": "Can local governments set different rates?",
+          "answer": "Yes. Cities and provinces may subdivide brackets above ₩900M or set lower rates by ordinance. This calculator reflects only the national legal maximum — check the local ordinance for your area before signing."
+        }
+      ],
+      "cautions": [
+        "This tool shows the legal maximum fee. The actual brokerage fee is negotiable and may be lower.",
+        "Local (city/province) ordinances may subdivide brackets above ₩900M — check your area before signing.",
+        "VAT applicability depends on the agency's tax status (general vs. simplified taxpayer). Confirm before signing.",
+        "This is a reference tool, not legal or tax advice. Verify with a licensed agent or legal professional before completing any transaction."
+      ],
+      "related": [
+        {
+          "label": "Jeonse ↔ Wolse Converter",
+          "href": "/jeonse-wolse"
+        },
+        {
+          "label": "Apartment Area & Price",
+          "href": "/apartment-area"
+        },
+        {
+          "label": "Capital Gains Tax",
+          "href": "/capital-gains-tax"
+        }
+      ],
+      "lastReviewed": "2025-06-24"
+    },
+    "gift-tax": {
+      "overview": "Korean gift tax (증여세) is paid by the recipient (donee) when receiving assets for free. Under the Inheritance and Gift Tax Act §53, a deduction is allowed based on the relationship between donor and donee — up to KRW 600M for spouses, KRW 50M for adult lineal descendants, KRW 20M for minor lineal descendants, and KRW 10M for other relatives — cumulated over a 10-year window. Progressive rates from 10% (up to KRW 100M) to 50% (over KRW 3B) apply under §56. Filing voluntarily within 3 months earns an additional 3% credit on the calculated tax. This calculator instantly outputs the deduction, tax base, calculated tax, self-report credit, and final tax payable. Note: property valuation, generation-skipping surcharge (30%), and penalty taxes are not included.",
+      "useCases": [
+        "Estimate gift tax before parents transfer cash KRW 50M to an adult child",
+        "Calculate spousal gift tax after KRW 600M deduction on property transfer",
+        "Simulate additional gift tax when prior gifts exist within the 10-year window",
+        "Check minor child stock gift tax using the KRW 20M deduction limit",
+        "Compare payable tax with and without the 3% self-report credit"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Enter the gift amount — cash value, appraised property value, or stock market value.",
+          "Select the donor relationship. The deduction is applied automatically based on the relationship chosen.",
+          "Enter any prior gifts received from the same donor within the past 10 years (0 if none), check the self-report box, and the payable tax appears instantly."
+        ]
+      },
+      "formula": {
+        "title": "Formula",
+        "body": "Tax Base = Gift Amount − Relationship Deduction − Prior 10-year Gifts\n\nCalculated Tax = Tax Base × Rate − Progressive Deduction\n\n[Rate table]\n  Up to KRW 100M : 10% (deduction: 0)\n  Up to KRW 500M : 20% (deduction: 10M)\n  Up to KRW 1B   : 30% (deduction: 60M)\n  Up to KRW 3B   : 40% (deduction: 160M)\n  Over KRW 3B    : 50% (deduction: 460M)\n\nFinal Tax = Self-report → Calculated Tax × 0.97\n           No report  → Calculated Tax (no credit)"
+      },
+      "examples": {
+        "title": "Examples",
+        "items": [
+          {
+            "title": "Example 1: Parent gifts KRW 100M to adult child",
+            "body": "Gift amount KRW 100M, relationship 'Ancestor → adult descendant'. Deduction: KRW 50M. Tax base: KRW 50M. Calculated tax: 50M × 10% = KRW 5M. With self-report credit: 5M × 0.97 = KRW 4.85M payable."
+          },
+          {
+            "title": "Example 2: Spouse gifts KRW 1B",
+            "body": "Gift amount KRW 1B, relationship 'Spouse'. Deduction: KRW 600M. Tax base: KRW 400M. Calculated tax: 400M × 20% − 10M = KRW 70M. With self-report credit: 70M × 0.97 = KRW 67.9M payable."
+          },
+          {
+            "title": "Example 3: Additional KRW 30M gift after prior KRW 30M from same parent",
+            "body": "The adult child already received KRW 30M from the same parent 5 years ago. Remaining deduction: 50M − 30M = KRW 20M. Tax base: 30M − 20M = KRW 10M. Calculated tax: 10M × 10% = KRW 1M. With self-report: KRW 970,000 payable."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Who pays Korean gift tax — the giver or the receiver?",
+          "answer": "The recipient (donee) pays. If the donor pays on behalf of the recipient, that payment itself is treated as an additional gift and taxed accordingly."
+        },
+        {
+          "question": "What does '10-year aggregation' mean?",
+          "answer": "Gifts from the same donor are aggregated over a 10-year window when applying the deduction limit. For example, if you received KRW 30M from a parent 5 years ago, only KRW 20M of the KRW 50M adult-descendant deduction remains for a new gift."
+        },
+        {
+          "question": "When is the filing deadline?",
+          "answer": "You must file and pay within 3 months from the last day of the month in which the gift occurred. Filing on time earns the 3% self-report credit. Late filing incurs a 20% non-filing penalty plus daily interest."
+        },
+        {
+          "question": "How is property valued for gift tax purposes?",
+          "answer": "The market value (recent comparable transactions) is used as the primary valuation. When market value is unavailable, supplemental methods such as the published standard price (기준시가) are used. Enter your best estimate into the calculator."
+        },
+        {
+          "question": "What is the generation-skipping surcharge?",
+          "answer": "If grandparents skip the parent generation and gift directly to grandchildren, a 30% surcharge is added to the calculated tax. This calculator does not include that surcharge — consult a tax accountant if this applies."
+        }
+      ],
+      "cautions": [
+        "This calculator is for reference only and has no legal effect. Actual tax payable may differ.",
+        "Property valuation, generation-skipping surcharge (30%), and penalty taxes are not reflected.",
+        "If prior 10-year gifts already exceed the deduction limit, no further deduction is available.",
+        "Missing the 3-month filing deadline forfeits the 3% self-report credit and triggers penalty taxes."
+      ],
+      "related": [
+        {
+          "label": "Capital Gains Tax",
+          "href": "/capital-gains-tax"
+        },
+        {
+          "label": "Income Tax",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Freelancer Tax",
+          "href": "/freelancer-tax"
+        }
+      ],
+      "lastReviewed": "2025-06-24"
+    },
+    "prepayment-penalty": {
+      "overview": "The prepayment penalty calculator uses the sliding-scale formula from Korean bank standard lending terms (여신거래기본약관) to automatically compute the fee charged when you repay a loan in full or in part before its maturity date. The sliding scale means the longer you have held the loan, the lower the penalty: for a typical 1.2% rate with a 3-year exemption period, repaying immediately after origination incurs the full 1.2%, while repaying after 1 year costs about 0.8%, after 2 years about 0.4%, and after 3 years the fee is waived entirely. Enter the prepayment principal, penalty rate, elapsed months, and exemption period to instantly see the penalty amount, remaining days, and exemption status. This tool is ideal for anyone considering refinancing (대환대출) or planning an early repayment after receiving a lump sum.",
+      "useCases": [
+        "Check the prepayment penalty before refinancing (switching banks or loan products)",
+        "Decide the optimal timing for early repayment when a bonus or property sale proceeds arrive",
+        "See how many days remain until the penalty exemption kicks in (usually 3 years)",
+        "Compare the actual penalty amount across different bank penalty rates",
+        "Plan renewal timelines for jeonse loans, mortgage loans, or personal credit loans"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter the prepayment principal — the full remaining balance for full repayment, or the partial amount you plan to repay.",
+          "Enter the penalty rate (%). Check your loan agreement or bank app; typical range is 0.5–2%.",
+          "Enter the elapsed period in months — the number of months since the loan origination date.",
+          "Enter the exemption period in years. Most Korean banks use 3 years; check your agreement.",
+          "Read the result: penalty amount, remaining days until exemption, and effective rate."
+        ]
+      },
+      "formula": {
+        "title": "Sliding-scale formula",
+        "body": "Penalty = principal × rate × (remaining days / exemption period days)\n\nRemaining days = max(0, exemption days − elapsed days)\nExemption period days = exemption years × 365\nElapsed days = elapsed months × 30.4  (simplified: 1 month = 30.4 days)\n\nExample: ₩100M principal, 1.2% rate, 12 months elapsed, 3-year exemption\n→ Elapsed days = 12 × 30.4 = 364.8\n→ Remaining days = 1,095 − 364.8 = 730.2\n→ Penalty = 100,000,000 × 0.012 × (730.2 / 1,095) ≈ ₩800,219"
+      },
+      "examples": {
+        "title": "Calculation examples",
+        "items": [
+          {
+            "title": "Immediate repayment (0 months elapsed)",
+            "body": "Principal ₩100M, rate 1.2%, 3-year exemption. Remaining days = 1,095. Penalty = ₩1,200,000 (full rate). This is the worst-case scenario for switching loans — waiting until the exemption period reduces the cost significantly."
+          },
+          {
+            "title": "Repayment after 1 year (12 months elapsed)",
+            "body": "Principal ₩100M, rate 1.2%, 3-year exemption. Elapsed days = 364.8, remaining days = 730.2. Penalty ≈ ₩800,219 — about 33% less than immediate repayment. The sliding scale reduces the burden as time passes."
+          },
+          {
+            "title": "Repayment after 3+ years — fully exempt",
+            "body": "Principal ₩100M, rate 1.2%, 37+ months elapsed, 3-year exemption. Remaining days = 0. Penalty = ₩0. Under standard Korean bank lending terms, once the exemption period (usually 3 years) has passed, the prepayment penalty is fully waived."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is a loan prepayment penalty?",
+          "answer": "A prepayment penalty (중도상환수수료) is a fee charged by the bank when you repay a loan before its maturity date. Because the bank loses expected interest income, it compensates by charging a percentage of the repaid amount. The fee typically slides down to zero over 3 years."
+        },
+        {
+          "question": "Where can I find my penalty rate?",
+          "answer": "Check your loan agreement (약정서), the loan details screen in your bank's app, or call the bank's customer center. Rates typically range from 0.5% to 2%. Internet-only banks like Kakao Bank or Toss Bank often charge no prepayment penalty."
+        },
+        {
+          "question": "Is the penalty really zero after 3 years?",
+          "answer": "Under the standard Korean bank lending terms (여신거래기본약관), the prepayment penalty is waived once 3 years (1,095 days) have elapsed since origination. However, some products may use different exemption periods — always verify in your specific loan agreement."
+        },
+        {
+          "question": "Why might the calculator differ from my bank's actual fee?",
+          "answer": "This calculator simplifies elapsed days as months × 30.4. Your bank calculates exact calendar days from origination to repayment. Some products may also use different methods (e.g., deducting from the remaining principal). Always confirm the exact fee with your bank before repaying."
+        },
+        {
+          "question": "How do I compare the penalty against the savings from refinancing?",
+          "answer": "Compare the prepayment penalty against the annual interest savings from the new lower rate. For example, if the penalty is ₩800,000 and the new loan saves ₩1,200,000 per year in interest, you break even in less than a year. Use the Loan Calculator to compare total interest under both loans."
+        },
+        {
+          "question": "How is a partial prepayment penalty calculated?",
+          "answer": "The penalty applies only to the amount you actually repay early. Enter the partial repayment amount (not the full loan balance) in the principal field to calculate the penalty for that specific amount."
+        }
+      ],
+      "cautions": [
+        "This calculator uses a simplified model (elapsed days = months × 30.4) and may differ from your bank's exact calculation based on calendar days.",
+        "Internet-only banks (Kakao Bank, Toss Bank, etc.) may charge no prepayment penalty — check your agreement.",
+        "Fixed-rate and variable-rate loans may have different penalty rates; promotional products may have special conditions.",
+        "Always confirm the exact fee with your bank before making an early repayment decision."
+      ],
+      "related": [
+        {
+          "label": "Loan Calculator",
+          "href": "/loan-calc"
+        },
+        {
+          "label": "Compound Interest",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Salary Take-Home",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2025-06-24"
+    },
+    "unemployment-benefit": {
+      "overview": "The Korean Unemployment Benefit (Guikgubup) Calculator estimates your expected payout based on Employment Insurance Act Articles 46 and 50. Enter your average daily wage before separation, employment insurance subscription period, and age (50+ or disability status) to instantly see the daily benefit amount, benefit days, and total estimated payout. The 2019 revision expanded benefit days across all brackets. As of 2025, the daily cap is 66,000 KRW and the floor is approximately 64,192 KRW (minimum wage × 80% × 8 hours). The calculator applies both limits automatically and reflects the preferential schedule for workers aged 50+ or with disabilities. Note: actual eligibility and final amounts are determined by your local Employment Center (Goyong Center) — separation reason, job-seeking activity, and other conditions must also be met.",
+      "useCases": [
+        "Estimate unemployment benefit before resigning to plan living expenses during job search",
+        "Compare how benefit days change across different insurance subscription periods",
+        "Verify that the minimum wage floor applies when your average wage is low",
+        "Convert monthly salary to daily average wage automatically using the monthly input mode",
+        "Understand the extra benefit days available for workers aged 50+ or with disabilities"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Select the input mode: 'Daily average wage' (total wages over last 3 months ÷ total calendar days), or 'Monthly average salary' (auto-divided by 30).",
+          "Enter your average wage. Include base pay, allowances, and the pro-rated portion of any bonuses earned in the 3-month period.",
+          "Enter your employment insurance subscription period in years. For 2 years 6 months, enter 2.5.",
+          "Check the box if you are 50 years or older, or have a registered disability — this unlocks the preferential benefit-days column.",
+          "Read the daily benefit, benefit days, and total estimated payout in the result panel."
+        ]
+      },
+      "formula": {
+        "title": "Calculation formula (Employment Insurance Act Art. 46·50)",
+        "body": "Daily benefit (raw) = Daily average wage × 60%\n\nDaily cap = 66,000 KRW (2025)\nDaily floor = Min. hourly wage (10,030 KRW) × 0.8 × work hours (8h) = 64,192 KRW (2025)\n\nDaily benefit = clamp(raw, floor, cap)\n             = min(66,000, max(64,192, raw))\n\nTotal payout = Daily benefit × Benefit days\n\nBenefit days table (revised 2019-10-01):\n  < 1 year           → Under 50: 120 days / 50+: 120 days\n  1 year – < 3 years → 150 days / 180 days\n  3 years – < 5 years → 180 days / 210 days\n  5 years – < 10 years → 210 days / 240 days\n  10+ years           → 240 days / 270 days"
+      },
+      "examples": {
+        "title": "Calculation examples",
+        "items": [
+          {
+            "title": "Example 1 — Regular worker (3 years insured, under 50)",
+            "body": "Daily average wage 120,000 KRW × 60% = 72,000 KRW → exceeds cap (66,000) → daily benefit 66,000 KRW. Benefit days: 180. Total = 66,000 × 180 = 11,880,000 KRW (approx. 11.9M KRW)."
+          },
+          {
+            "title": "Example 2 — Low-wage worker (2 years insured, under 50)",
+            "body": "Monthly salary 2,400,000 KRW → daily avg 80,000 KRW. 80,000 × 60% = 48,000 KRW → below floor (64,192 KRW) → daily benefit 64,192 KRW. Benefit days: 150. Total = 64,192 × 150 = 9,628,800 KRW (approx. 9.6M KRW)."
+          },
+          {
+            "title": "Example 3 — Long-tenure senior worker (12 years insured, age 55)",
+            "body": "Daily avg 110,000 KRW × 60% = 66,000 KRW → equals cap. 50+, 10+ years → 270 benefit days. Total = 66,000 × 270 = 17,820,000 KRW (approx. 17.8M KRW)."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What are the eligibility requirements for unemployment benefit?",
+          "answer": "① At least 180 insured days in the 18 months before separation, ② involuntary separation (layoff, contract expiry, etc. — voluntary resignation is generally excluded), ③ willing and able to work but unemployed, ④ actively seeking re-employment. This calculator estimates amounts only; it does not determine eligibility."
+        },
+        {
+          "question": "How is the average daily wage calculated?",
+          "answer": "Total wages in the 3 months before separation (base pay + allowances + pro-rated bonuses) divided by the total calendar days in that period (approx. 90–92 days). The Employment Center uses payroll records or withholding tax certificates for the official calculation."
+        },
+        {
+          "question": "Can I receive benefits if I resign voluntarily?",
+          "answer": "Generally no, but exceptions exist for valid reasons: unpaid wages, workplace harassment, impossible commute due to company relocation, or serious health deterioration. You must apply at the local Employment Center and have your reason assessed."
+        },
+        {
+          "question": "What happens if I find a job before the benefit days run out?",
+          "answer": "You may qualify for the Early Re-employment Allowance (Jogi Jaechwieop Sudang) if you re-employ with significant benefit days remaining. The earlier you find work, the larger the one-time bonus, which incentivizes active job-seeking."
+        },
+        {
+          "question": "Why are the cap (66,000) and floor (64,192) so close together?",
+          "answer": "The 2019 amendment raised the floor to 80% of the minimum wage, significantly narrowing the range. Most recipients effectively receive either the cap or the floor. Only workers with average wages between roughly 106,987–110,000 KRW per day fall between the two limits."
+        },
+        {
+          "question": "Does a longer insurance period always mean more benefit days?",
+          "answer": "Yes. The benefit-days table has five brackets from under 1 year (120 days) up to 10+ years (240 days, or 270 for age 50+). Workers aged 50 or older or with disabilities get an additional 30 days in every bracket compared to the under-50 column."
+        }
+      ],
+      "cautions": [
+        "This calculator provides estimates only. Actual eligibility, amounts, and benefit days are determined by your local Korean Employment Center (Goyong Center).",
+        "Voluntary resignation is generally ineligible. Job-seeking activity, waiting period, and other conditions must be met separately.",
+        "The daily cap (66,000 KRW) and minimum-wage-based floor are revised annually by government notice. Values are based on 2025 standards and will change when the 2026 minimum wage is confirmed.",
+        "The monthly-to-daily conversion uses ÷30 for simplicity; the official calculation uses the exact calendar days in the 3-month period."
+      ],
+      "related": [
+        {
+          "label": "Salary Take-Home Calculator",
+          "href": "/net-salary"
+        },
+        {
+          "label": "Severance Pay Calculator",
+          "href": "/labor-calc/severance"
+        },
+        {
+          "label": "4 Major Insurance Calculator",
+          "href": "/insurance-calc"
+        }
+      ],
+      "lastReviewed": "2025-06-24"
+    },
     "compound-calc": {
       "overview": "The compound interest calculator covers two modes in one screen: lump-sum (a single principal compounding over time) and recurring (monthly deposits with compounding). The lump-sum mode uses FV = P(1+i)^n; the recurring mode offers annual compounding — matching the Korean bank savings-account convention where each month's deposit earns simple interest proportional to the remaining months, then all interest is capitalized at year-end — or monthly compounding. A period-by-period and year-by-year schedule shows the interest earned, running balance, and cumulative return at every step. Results are pre-tax nominal figures; withholding tax (15.4%) and inflation are not applied.",
       "useCases": [
