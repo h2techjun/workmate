@@ -224,6 +224,7 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-06-24 | **전환·체류 강화** — ResultShell relatedLinks(결과 직후 '함께 보면 좋아요' 추천 칩) 신설 + 상위 8개 도구 큐레이션 배선(도구+블로그, ko/en) + 즉시 결과(Loan·IncomeTax·Compound·Jeonse·Vat·Insurance 빈 화면 제거). 490테스트·build·브라우저 검증 | `112cb5b` |
 | 2026-06-24 | **사용자 중심 UX 전면 개편** — 4관점 병렬 감사(읽기·쓰기·모바일·정보구조) → 공용 컴포넌트 일괄 개선: 가독성 토큰 WCAG AA·결과 위계(Stat/HeroResult/ResultShell)·출처/단계 가독성·ToolGuide 본문 16px·FAQ ChevronDown·헤더 드로어 a11y·터치 타깃·/tools 검색·electric-calc 허브 숨김 버그 수정. 블로그 8편 태그 5개씩 + PostTags | `8055cbd` |
 | 2026-06-24 | **숫자 입력 전면 개편 + 공유 기능** — 공용 `NumberField`(콤마·캐럿보존·빈값허용·suffix) 신설로 "앞자리 삭제 시 자릿수 소실" 고질버그 해결, 46개 폼 일괄 마이그레이션. 결과 공유 버튼(Web Share+클립보드)·핵심 9개 도구 per-tool OG 카드. 490 테스트·build·minerva-web-qa PASS | `8e90155` |
 | 2026-06-19 | **재신청 전 통합** — 랜딩 검색 단일진실원 재배선(낡은 tools-registry 16개→toolsCatalog 64개, '연봉·퇴직금' 검색 0건 버그 해소·죽은 레지스트리 제거) + 도구 즐겨찾기(localStorage) + 허브 doorway 본문(/tools·/games·/tests) + 외국인 임대 블로그. minerva-web-qa 전수검사 PASS, 배포 alias 3단계+IndexNow | `d51c675` |

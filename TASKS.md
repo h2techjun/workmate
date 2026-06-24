@@ -55,6 +55,7 @@ About E-A-T · 필러 블로그(living-in-korea-foreigner-guide, 도구 9종 허
 
 ## ✅ 최근 완료 (history)
 
+- [x] 2026-06-24: **전환·체류 강화** — ResultShell `relatedLinks`(결과 직후 관련 도구·블로그 추천 칩) 공용 신설 + 상위 8개 도구 큐레이션 배선(ko/en) + 즉시 결과(Loan·IncomeTax·Compound·Jeonse·Vat·Insurance 마운트 시 계산, 빈 화면 제거). build·490 테스트·브라우저 검증·배포 (`112cb5b`)
 - [x] 2026-06-24: **사용자 중심 UX 전면 개편** — 4관점 병렬 UX 감사 → 공용 컴포넌트(calc-form·ToolGuide·globals·헤더) 일괄 개선으로 64도구 가독성·접근성·정보구조 향상(WCAG 대비·결과 위계·출처/단계·FAQ 아이콘·드로어 a11y·터치타깃·/tools 검색·electric-calc 허브 버그). 블로그 8편 태그 5개씩 + PostTags. build·490 테스트·브라우저 검증 통과·배포 (`8055cbd`)
 - [x] 2026-06-24: **숫자 입력 전면 개편 + 공유** — 공용 `NumberField`(콤마·캐럿 보존·빈값 허용·단위 suffix·모바일 키패드)로 "앞자리 삭제 시 자릿수 소실" 버그 근본 해결, 46개 폼 마이그레이션(병렬 에이전트). 결과 공유 버튼(Web Share+클립보드 폴백, 34 ResultShell+net-salary) + 핵심 9개 도구 per-tool OG 카드. 490 테스트·build·minerva-web-qa PASS·배포 (`8e90155`)
 - [x] 2026-06-19: **재신청 전 통합** — 랜딩 검색을 toolsCatalog(64개 단일진실원)로 재배선('연봉·퇴직금' 검색 0건 버그 해소, 죽은 tools-registry 제거) + 도구 즐겨찾기(localStorage·검색 위젯 별표) + 허브 doorway 본문(/tools·/games·/tests ko/en) + 외국인 임대 블로그(renting-in-korea-jeonse-wolse-guide). minerva-web-qa 전수검사 PASS · 배포 alias 3단계 · IndexNow (`d51c675`)
