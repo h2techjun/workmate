@@ -7,6 +7,7 @@ import {
 } from "@/lib/calculations/tax/capitalGainsTax";
 import { NumberField } from "@/components/ui/NumberField";
 import { formatKoreanMoney } from "@/lib/utils/format";
+import { ResultShell } from "@/components/ui/calc-form";
 
 interface CapitalGainsFormProps {
   locale: "ko" | "en";
@@ -171,61 +172,74 @@ export function CapitalGainsForm({
         </label>
       </section>
 
-      <section className="surface-card space-y-4 p-5 md:p-7">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-[color:var(--color-text-primary)]">
-            {t.result}
-          </h2>
+      <ResultShell
+        heading={t.result}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Apartment Area Convert", href: "/apartment-area" },
+                { label: "Income Tax", href: "/income-tax" },
+                { label: "Korean Pyeong explained", href: "/blog/korean-pyeong-explained-for-foreigners" },
+              ]
+            : [
+                { label: "아파트 평형 변환", href: "/apartment-area" },
+                { label: "종합소득세 계산기", href: "/income-tax" },
+                { label: "한국 평수 설명 블로그", href: "/blog/korean-pyeong-explained-for-foreigners" },
+              ]
+        }
+      >
+        <div className="space-y-4">
           {result.isShortTerm && (
-            <span className="rounded-md bg-red-500/15 px-2 py-0.5 text-[11px] font-semibold text-red-300">
+            <span className="inline-block rounded-md bg-red-500/15 px-2 py-0.5 text-[11px] font-semibold text-red-300">
               {t.shortTermBadge}
             </span>
           )}
-        </div>
 
-        <div className="rounded-xl bg-gradient-to-br from-rose-500/15 to-pink-500/10 p-4 ring-1 ring-rose-500/20">
-          <dt className="text-xs font-medium text-[color:var(--color-text-tertiary)]">
-            {t.totalTax}
-          </dt>
-          <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">
-            {won(result.totalTax)}
-            <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
-              {t.unit}
-            </span>
-          </dd>
-          <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
-            {t.effectiveRate} {(result.effectiveRate * 100).toFixed(1)}% ·{" "}
-            {t.marginalRate} {(result.marginalRate * 100).toFixed(0)}%
-          </p>
-        </div>
+          <div className="rounded-xl bg-gradient-to-br from-rose-500/15 to-pink-500/10 p-4 ring-1 ring-rose-500/20">
+            <dt className="text-xs font-medium text-[color:var(--color-text-tertiary)]">
+              {t.totalTax}
+            </dt>
+            <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">
+              {won(result.totalTax)}
+              <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
+                {t.unit}
+              </span>
+            </dd>
+            <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
+              {t.effectiveRate} {(result.effectiveRate * 100).toFixed(1)}% ·{" "}
+              {t.marginalRate} {(result.marginalRate * 100).toFixed(0)}%
+            </p>
+          </div>
 
-        <dl className="space-y-1.5 text-sm">
-          {[
-            [t.gain, result.gain],
-            [t.ltDeduction, -result.longTermDeduction],
-            [t.taxBase, result.taxBase],
-            [t.calcTax, result.calculatedTax],
-            [t.localTax, result.localTax],
-          ].map(([label, val]) => (
-            <div key={label as string} className="flex justify-between">
-              <dt className="text-[color:var(--color-text-tertiary)]">{label}</dt>
-              <dd className="tabular-nums text-[color:var(--color-text-secondary)]">
-                {won(val as number)} {t.unit}
+          <dl className="space-y-1.5 text-sm">
+            {[
+              [t.gain, result.gain],
+              [t.ltDeduction, -result.longTermDeduction],
+              [t.taxBase, result.taxBase],
+              [t.calcTax, result.calculatedTax],
+              [t.localTax, result.localTax],
+            ].map(([label, val]) => (
+              <div key={label as string} className="flex justify-between">
+                <dt className="text-[color:var(--color-text-tertiary)]">{label}</dt>
+                <dd className="tabular-nums text-[color:var(--color-text-secondary)]">
+                  {won(val as number)} {t.unit}
+                </dd>
+              </div>
+            ))}
+            <div className="flex justify-between border-t border-[color:var(--color-border-subtle)] pt-1.5 font-semibold">
+              <dt className="text-emerald-300">{t.netProceeds}</dt>
+              <dd className="tabular-nums text-emerald-300">
+                {won(result.netProceeds)} {t.unit}
               </dd>
             </div>
-          ))}
-          <div className="flex justify-between border-t border-[color:var(--color-border-subtle)] pt-1.5 font-semibold">
-            <dt className="text-emerald-300">{t.netProceeds}</dt>
-            <dd className="tabular-nums text-emerald-300">
-              {won(result.netProceeds)} {t.unit}
-            </dd>
-          </div>
-        </dl>
+          </dl>
 
-        <p className="text-[11px] leading-relaxed text-[color:var(--color-text-muted)]">
-          {t.note}
-        </p>
-      </section>
+          <p className="text-[11px] leading-relaxed text-[color:var(--color-text-muted)]">
+            {t.note}
+          </p>
+        </div>
+      </ResultShell>
     </div>
   );
 }

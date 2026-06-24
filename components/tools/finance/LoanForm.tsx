@@ -114,9 +114,23 @@ const T = {
   },
 } as const;
 
+const LOAN_DEFAULTS: LoanInputResolved = {
+  principal: 100_000_000,
+  annualRatePercent: 5,
+  years: 10,
+  loanType: "equalPayment",
+};
+
 export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
   const t = T[locale];
-  const [result, setResult] = useState<LoanResult | null>(null);
+  // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
+  const [result, setResult] = useState<LoanResult | null>(() => {
+    try {
+      return calculateLoan(LOAN_DEFAULTS);
+    } catch {
+      return null;
+    }
+  });
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
@@ -127,12 +141,7 @@ export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
     formState: { isSubmitting },
   } = useForm<LoanInputResolved>({
     resolver: zodResolver(loanInputSchema),
-    defaultValues: {
-      principal: 100_000_000,
-      annualRatePercent: 5,
-      years: 10,
-      loanType: "equalPayment",
-    },
+    defaultValues: LOAN_DEFAULTS,
   });
 
   const onSubmit = (values: LoanInputResolved): void => {
@@ -230,7 +239,23 @@ export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell heading={t.resultHeading}>
+      <ResultShell
+        heading={t.resultHeading}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Compound Interest", href: "/compound-calc" },
+                { label: "Salary Take-Home", href: "/net-salary" },
+                { label: "30 vs 15-year mortgage", href: "/blog/loan-30-vs-15-years" },
+              ]
+            : [
+                { label: "복리 계산기", href: "/compound-calc" },
+                { label: "연봉 실수령액", href: "/net-salary" },
+                { label: "주담대 30년 vs 15년", href: "/blog/loan-30-vs-15-years" },
+              ]
+        }
+      >
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={t.resultEmpty} />}
         {result && (

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateInsurance,
@@ -30,9 +30,22 @@ import {
 const formatKrw = (n: number): string =>
   new Intl.NumberFormat("ko-KR").format(Math.round(n));
 
+const INSURANCE_DEFAULTS: InsuranceInputResolved = {
+  monthlySalary: 3_000_000,
+  industrialAccidentRate: 0.0086,
+};
+
 export function InsuranceForm(): React.ReactElement {
   const t = useTranslations("insuranceTool");
-  const [result, setResult] = useState<InsuranceResult | null>(null);
+  const locale = useLocale() === "en" ? "en" : "ko";
+  // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
+  const [result, setResult] = useState<InsuranceResult | null>(() => {
+    try {
+      return calculateInsurance(INSURANCE_DEFAULTS);
+    } catch {
+      return null;
+    }
+  });
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
@@ -42,10 +55,7 @@ export function InsuranceForm(): React.ReactElement {
     formState: { errors, isSubmitting },
   } = useForm<InsuranceInputResolved>({
     resolver: zodResolver(insuranceInputSchema),
-    defaultValues: {
-      monthlySalary: 3_000_000,
-      industrialAccidentRate: 0.0086,
-    },
+    defaultValues: INSURANCE_DEFAULTS,
   });
 
   const renderWarning = (w: InsuranceWarning): string => {
@@ -145,7 +155,23 @@ export function InsuranceForm(): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell heading={t("result.heading")}>
+      <ResultShell
+        heading={t("result.heading")}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Salary Take-Home", href: "/net-salary" },
+                { label: "Income Tax", href: "/income-tax" },
+                { label: "Foreign Health Insurance", href: "/foreign-health-insurance" },
+              ]
+            : [
+                { label: "연봉 실수령액", href: "/net-salary" },
+                { label: "종합소득세 계산기", href: "/income-tax" },
+                { label: "외국인 건강보험", href: "/foreign-health-insurance" },
+              ]
+        }
+      >
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={t("result.empty")} />}
         {result && (

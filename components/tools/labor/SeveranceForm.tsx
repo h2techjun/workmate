@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateSeverance,
@@ -42,6 +42,7 @@ const todayIso = (): string => new Date().toISOString().slice(0, 10);
 
 export function SeveranceForm(): React.ReactElement {
   const t = useTranslations("severanceTool");
+  const locale = useLocale() === "en" ? "en" : "ko";
   const [result, setResult] = useState<SeveranceResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
 
@@ -250,7 +251,23 @@ export function SeveranceForm(): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell heading={t("result.heading")}>
+      <ResultShell
+        heading={t("result.heading")}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Salary Take-Home", href: "/net-salary" },
+                { label: "Annual Leave Calculator", href: "/labor-calc/annual-leave" },
+                { label: "4 Major Insurance", href: "/insurance-calc" },
+              ]
+            : [
+                { label: "연봉 실수령액", href: "/net-salary" },
+                { label: "연차 계산기", href: "/labor-calc/annual-leave" },
+                { label: "4대보험 계산기", href: "/insurance-calc" },
+              ]
+        }
+      >
         {calcError ? <ErrorBox message={calcError} /> : null}
 
         {!result || !result.ok ? (

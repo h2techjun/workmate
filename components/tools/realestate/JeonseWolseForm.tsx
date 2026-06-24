@@ -100,11 +100,27 @@ const TEXT = {
   },
 } as const;
 
+const JEONSE_WOLSE_DEFAULTS: JeonseWolseInputResolved = {
+  mode: "toMonthly",
+  jeonseDeposit: 300_000_000,
+  keepDeposit: 100_000_000,
+  monthlyDeposit: 10_000_000,
+  monthlyRent: 500_000,
+  conversionRatePercent: 4.5,
+};
+
 export function JeonseWolseForm({
   locale,
 }: JeonseWolseFormProps): React.ReactElement {
   const T = TEXT[locale];
-  const [result, setResult] = useState<JeonseWolseResult | null>(null);
+  // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
+  const [result, setResult] = useState<JeonseWolseResult | null>(() => {
+    try {
+      return calculateJeonseWolse(JEONSE_WOLSE_DEFAULTS);
+    } catch {
+      return null;
+    }
+  });
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
@@ -115,14 +131,7 @@ export function JeonseWolseForm({
     formState: { isSubmitting },
   } = useForm<JeonseWolseInputResolved>({
     resolver: zodResolver(jeonseWolseInputSchema),
-    defaultValues: {
-      mode: "toMonthly",
-      jeonseDeposit: 300_000_000,
-      keepDeposit: 100_000_000,
-      monthlyDeposit: 10_000_000,
-      monthlyRent: 500_000,
-      conversionRatePercent: 4.5,
-    },
+    defaultValues: JEONSE_WOLSE_DEFAULTS,
   });
 
   const mode = watch("mode");
@@ -288,7 +297,23 @@ export function JeonseWolseForm({
         />
       </FormShell>
 
-      <ResultShell heading={T.resultHeading}>
+      <ResultShell
+        heading={T.resultHeading}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Rent Cap Calculator", href: "/rent-cap" },
+                { label: "Apartment Area Convert", href: "/apartment-area" },
+                { label: "Renting in Korea guide", href: "/blog/renting-in-korea-jeonse-wolse-guide" },
+              ]
+            : [
+                { label: "전월세 상한 계산기", href: "/rent-cap" },
+                { label: "아파트 평형 변환", href: "/apartment-area" },
+                { label: "전세·월세 가이드 블로그", href: "/blog/renting-in-korea-jeonse-wolse-guide" },
+              ]
+        }
+      >
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={T.resultEmpty} />}
         {result && (

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   calculateVat,
   type SimpleIndustry,
@@ -36,9 +36,28 @@ interface FormValues {
 const formatKrw = (n: number): string =>
   new Intl.NumberFormat("ko-KR").format(Math.round(n));
 
+const VAT_DEFAULTS: FormValues = {
+  mode: "extract",
+  amount: 110_000,
+  purchaseAmount: 0,
+  industry: "retail",
+};
+
 export function VatForm(): React.ReactElement {
   const t = useTranslations("vatTool");
-  const [result, setResult] = useState<VatResult | null>(null);
+  const locale = useLocale() === "en" ? "en" : "ko";
+  // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
+  const [result, setResult] = useState<VatResult | null>(() => {
+    try {
+      const r = calculateVat({
+        mode: VAT_DEFAULTS.mode,
+        amount: VAT_DEFAULTS.amount,
+      });
+      return r.ok ? r : null;
+    } catch {
+      return null;
+    }
+  });
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
@@ -49,12 +68,7 @@ export function VatForm(): React.ReactElement {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    defaultValues: {
-      mode: "extract",
-      amount: 110_000,
-      purchaseAmount: 0,
-      industry: "retail",
-    },
+    defaultValues: VAT_DEFAULTS,
   });
 
   const mode = watch("mode");
@@ -256,7 +270,23 @@ export function VatForm(): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell heading={t("result.heading")}>
+      <ResultShell
+        heading={t("result.heading")}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Freelancer Tax", href: "/freelancer-tax" },
+                { label: "Income Tax", href: "/income-tax" },
+                { label: "Business Number Check", href: "/biznum-check" },
+              ]
+            : [
+                { label: "프리랜서 세금 계산기", href: "/freelancer-tax" },
+                { label: "종합소득세 계산기", href: "/income-tax" },
+                { label: "사업자번호 조회", href: "/biznum-check" },
+              ]
+        }
+      >
         {calcError ? <ErrorBox message={calcError} /> : null}
 
         {!result || !result.ok ? (

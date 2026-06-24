@@ -115,9 +115,21 @@ function formatBracket(upper: number | null, prev: number, isKo: boolean): strin
     : `₩${(prev / 10_000).toLocaleString()}0 ~ ₩${(upper / 10_000).toLocaleString()}0`;
 }
 
+const INCOME_TAX_DEFAULTS: IncomeTaxInputResolved = {
+  taxableIncome: 50_000_000,
+  applyWageEarnerCredit: false,
+};
+
 export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElement {
   const t = T[locale];
-  const [result, setResult] = useState<IncomeTaxResult | null>(null);
+  // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
+  const [result, setResult] = useState<IncomeTaxResult | null>(() => {
+    try {
+      return calculateIncomeTax(INCOME_TAX_DEFAULTS);
+    } catch {
+      return null;
+    }
+  });
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
@@ -128,10 +140,7 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
     formState: { isSubmitting },
   } = useForm<IncomeTaxInputResolved>({
     resolver: zodResolver(incomeTaxInputSchema),
-    defaultValues: {
-      taxableIncome: 50_000_000,
-      applyWageEarnerCredit: false,
-    },
+    defaultValues: INCOME_TAX_DEFAULTS,
   });
 
   const onSubmit = (values: IncomeTaxInputResolved): void => {
@@ -200,7 +209,23 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
         />
       </FormShell>
 
-      <ResultShell heading={t.resultHeading}>
+      <ResultShell
+        heading={t.resultHeading}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Freelancer Tax", href: "/freelancer-tax" },
+                { label: "Salary Take-Home", href: "/net-salary" },
+                { label: "Korea income tax traps", href: "/blog/income-tax-progressive-trap" },
+              ]
+            : [
+                { label: "프리랜서 세금 계산기", href: "/freelancer-tax" },
+                { label: "연봉 실수령액", href: "/net-salary" },
+                { label: "누진세 함정 블로그", href: "/blog/income-tax-progressive-trap" },
+              ]
+        }
+      >
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={t.resultEmpty} />}
         {result && (

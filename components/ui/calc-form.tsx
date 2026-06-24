@@ -1,10 +1,19 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import { AdSlot } from "@/components/seo/AdSlot";
 import { ShareButton } from "@/components/ui/ShareButton";
+
+/** 결과 직후 노출할 관련 도구·글 링크 (전환·체류 강화) */
+export interface RelatedLink {
+  label: string;
+  /** locale prefix 제외 경로 (예: "/compound-calc", "/blog/...") */
+  href: string;
+}
 
 const RESULT_AD_SLOT =
   (process.env.NEXT_PUBLIC_ADSENSE_RESULT_SLOT?.trim() ?? "") || "0000000001";
@@ -125,11 +134,17 @@ export function HeroResult({
 export function ResultShell({
   heading,
   shareText,
+  relatedLinks,
+  locale = "ko",
   children,
 }: {
   heading: string;
   /** 공유 본문 요약 (결과 수치 포함 권장). 없으면 페이지 제목으로 공유 */
   shareText?: string;
+  /** 결과 직후 노출할 관련 도구·글 (전환·체류 강화). 없으면 미표시 */
+  relatedLinks?: ReadonlyArray<RelatedLink>;
+  /** relatedLinks href prefix·라벨 로케일. 기본 ko */
+  locale?: "ko" | "en";
   children: ReactNode;
 }): React.ReactElement {
   const t = useTranslations("share");
@@ -151,6 +166,25 @@ export function ResultShell({
           />
         </div>
         {children}
+        {relatedLinks && relatedLinks.length > 0 && (
+          <div className="mt-6 border-t border-[color:var(--color-border-subtle)] pt-4">
+            <p className="mb-2.5 text-xs font-semibold tracking-wide text-[color:var(--color-text-tertiary)]">
+              {locale === "en" ? "Related tools" : "함께 보면 좋아요"}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {relatedLinks.map((l) => (
+                <Link
+                  key={l.href}
+                  href={`/${locale}${l.href}`}
+                  className="inline-flex items-center gap-1 rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-3 py-1.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-500/40 hover:text-indigo-300"
+                >
+                  {l.label}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
       {/* 결과 직후 광고 — 사용자가 가치를 막 받은 시점 = 가장 단가 높은 위치 */}
       <div>

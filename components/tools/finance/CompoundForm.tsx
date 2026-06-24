@@ -214,9 +214,23 @@ function DataTable({
 
 /* ------------------------------------------------------------- basic tab */
 
+const COMPOUND_DEFAULTS: CompoundInputResolved = {
+  principal: 1_000_000,
+  ratePerPeriodPercent: 5,
+  periods: 20,
+  periodicContribution: 0,
+};
+
 function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
   const T = TEXT[locale];
-  const [result, setResult] = useState<CompoundResult | null>(null);
+  // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
+  const [result, setResult] = useState<CompoundResult | null>(() => {
+    try {
+      return calculateCompound(COMPOUND_DEFAULTS);
+    } catch {
+      return null;
+    }
+  });
   const [calcError, setCalcError] = useState<string | null>(null);
 
   const {
@@ -226,12 +240,7 @@ function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
     formState: { isSubmitting },
   } = useForm<CompoundInputResolved>({
     resolver: zodResolver(compoundInputSchema),
-    defaultValues: {
-      principal: 1_000_000,
-      ratePerPeriodPercent: 5,
-      periods: 20,
-      periodicContribution: 0,
-    },
+    defaultValues: COMPOUND_DEFAULTS,
   });
 
   const onSubmit = (values: CompoundInputResolved): void => {
@@ -322,7 +331,23 @@ function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell heading={T.basicTitle}>
+      <ResultShell
+        heading={T.basicTitle}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Loan Calculator", href: "/loan-calc" },
+                { label: "Salary Take-Home", href: "/net-salary" },
+                { label: "30 vs 15-year mortgage", href: "/blog/loan-30-vs-15-years" },
+              ]
+            : [
+                { label: "대출 계산기", href: "/loan-calc" },
+                { label: "연봉 실수령액", href: "/net-salary" },
+                { label: "주담대 30년 vs 15년", href: "/blog/loan-30-vs-15-years" },
+              ]
+        }
+      >
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={T.resultEmpty} />}
         {result && (
@@ -389,9 +414,26 @@ function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
 
 /* --------------------------------------------------------- recurring tab */
 
+const RECURRING_DEFAULTS: RecurringInputResolved = {
+  startAmount: 100_000,
+  monthlyContribution: 100_000,
+  periodValue: 3,
+  periodUnit: "year",
+  ratePercent: 5,
+  rateUnit: "year",
+  compounding: "annual",
+};
+
 function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
   const T = TEXT[locale];
-  const [result, setResult] = useState<RecurringResult | null>(null);
+  // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
+  const [result, setResult] = useState<RecurringResult | null>(() => {
+    try {
+      return calculateRecurring(RECURRING_DEFAULTS);
+    } catch {
+      return null;
+    }
+  });
   const [calcError, setCalcError] = useState<string | null>(null);
   const [view, setView] = useState<"year" | "month">("year");
 
@@ -403,15 +445,7 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
     formState: { isSubmitting },
   } = useForm<RecurringInputResolved>({
     resolver: zodResolver(recurringInputSchema),
-    defaultValues: {
-      startAmount: 100_000,
-      monthlyContribution: 100_000,
-      periodValue: 3,
-      periodUnit: "year",
-      ratePercent: 5,
-      rateUnit: "year",
-      compounding: "annual",
-    },
+    defaultValues: RECURRING_DEFAULTS,
   });
 
   const onSubmit = (values: RecurringInputResolved): void => {
@@ -573,7 +607,23 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
         />
       </FormShell>
 
-      <ResultShell heading={T.recurringTitle}>
+      <ResultShell
+        heading={T.recurringTitle}
+        locale={locale}
+        relatedLinks={
+          locale === "en"
+            ? [
+                { label: "Loan Calculator", href: "/loan-calc" },
+                { label: "Salary Take-Home", href: "/net-salary" },
+                { label: "30 vs 15-year mortgage", href: "/blog/loan-30-vs-15-years" },
+              ]
+            : [
+                { label: "대출 계산기", href: "/loan-calc" },
+                { label: "연봉 실수령액", href: "/net-salary" },
+                { label: "주담대 30년 vs 15년", href: "/blog/loan-30-vs-15-years" },
+              ]
+        }
+      >
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={T.recurringEmpty} />}
         {result && (
