@@ -179,6 +179,49 @@ if (existsSync(messagesDir)) {
   );
 }
 
+// I. 공식 정책 게이트 — "준비 중/coming soon/공사 중/available:false" UI 검출
+// 출처: Google 공식 AdSense Site Approvals 시리즈(영상 6, 거절사유 #3·#6).
+// 미구현 기능을 약속하는 UI = 저품질/미완성 신호 → 인덱스 페이지에서 완전 제거.
+// (메이커 허브 games/tests/projects/learn 은 번역 키 t("cardComingSoon") 사용이라 미해당)
+{
+  const localeRoot = join(ROOT, "app", "[locale]");
+  // 영어는 구분자(공백/하이픈) 필수 — camelCase 식별자(comingSoon) 오탐 방지.
+  // 렌더 텍스트("coming soon", "준비 중")만 잡고 변수명은 무시한다.
+  const BAD = [
+    { re: /available:\s*false/, label: "available:false" },
+    { re: /준비\s*중/, label: "준비 중" },
+    { re: /공사\s*중/, label: "공사 중" },
+    { re: /coming[\s-]soon/i, label: "coming soon" },
+    { re: /under[\s-]construction/i, label: "under construction" },
+  ];
+  const hits = [];
+  const walkCS = (dir, rel = "") => {
+    if (!existsSync(dir)) return;
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      let st; try { st = statSync(full); } catch { continue; }
+      if (st.isDirectory()) {
+        walkCS(full, rel ? `${rel}/${entry}` : entry);
+      } else if (entry === "page.tsx") {
+        let src; try { src = readFileSync(full, "utf-8"); } catch { continue; }
+        for (const b of BAD) {
+          if (b.re.test(src)) hits.push(`${rel || "(landing)"} → ${b.label}`);
+        }
+      }
+    }
+  };
+  walkCS(localeRoot);
+  report.add(
+    "I.공식정책",
+    "coming-soon/available:false UI 없음 (AdSense 거절사유 #3·#6)",
+    hits.length === 0,
+    hits.length
+      ? `미구현 약속 UI ${hits.length}건: ${hits.join(", ")}`
+      : "미구현 약속 UI 없음",
+    "warn",
+  );
+}
+
 // 출력
 if (JSON_OUT) {
   console.log(JSON.stringify({

@@ -122,16 +122,10 @@ export default async function ElectricCalcPage({
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-[color:var(--color-text-secondary)]">
                   {c.description}
                 </p>
-                {c.available ? (
-                  <div className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-indigo-300 transition-colors group-hover:text-white">
-                    <span>{tLayout("open")}</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </div>
-                ) : (
-                  <div className="mt-5 inline-flex w-fit items-center rounded-md border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
-                    {t("comingSoon.title")}
-                  </div>
-                )}
+                <div className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-indigo-300 transition-colors group-hover:text-white">
+                  <span>{tLayout("open")}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </div>
               </article>
             );
 

@@ -12,14 +12,13 @@ interface PageProps {
 
 interface SubTool {
   slug: string;
-  available: boolean;
 }
 
 const SUB_TOOLS: ReadonlyArray<SubTool> = [
-  { slug: "annual-leave", available: true },
-  { slug: "weekly-rest-pay", available: true },
-  { slug: "severance", available: true },
-  { slug: "min-wage-monthly", available: true },
+  { slug: "annual-leave" },
+  { slug: "weekly-rest-pay" },
+  { slug: "severance" },
+  { slug: "min-wage-monthly" },
 ];
 
 export async function generateMetadata({
@@ -80,7 +79,6 @@ export default async function LaborCalcHub({
           <ToolCard
             key={tool.slug}
             slug={tool.slug}
-            available={tool.available}
             locale={localeKey}
             title={t(`tools.${tool.slug}.title`)}
             description={t(`tools.${tool.slug}.description`)}
@@ -94,7 +92,6 @@ export default async function LaborCalcHub({
 
 interface ToolCardProps {
   slug: string;
-  available: boolean;
   locale: Locale;
   title: string;
   description: string;
@@ -102,29 +99,12 @@ interface ToolCardProps {
 
 function ToolCard({
   slug,
-  available,
   locale,
   title,
   description,
 }: ToolCardProps): React.ReactElement {
   const cls =
     "group relative overflow-hidden rounded-2xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] p-6 transition-all";
-
-  if (!available) {
-    return (
-      <div className={`${cls} opacity-60`}>
-        <span className="absolute right-4 top-4 rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[11px] font-semibold text-amber-300">
-          {locale === "ko" ? "준비 중" : "Coming"}
-        </span>
-        <h2 className="text-xl font-bold text-[color:var(--color-text-primary)]">
-          {title}
-        </h2>
-        <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-text-tertiary)]">
-          {description}
-        </p>
-      </div>
-    );
-  }
 
   return (
     <Link

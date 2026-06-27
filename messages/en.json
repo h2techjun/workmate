@@ -139,15 +139,15 @@
       },
       "weekly-rest-pay": {
         "title": "Weekly Rest Pay",
-        "description": "For employees working 15+ hours per week. Pro-rated short-time worker calculation coming soon."
+        "description": "Weekly holiday allowance for employees working 15+ hours per week, from hourly wage and weekly hours."
       },
       "severance": {
         "title": "Severance Pay",
-        "description": "After 1+ year tenure: 30 days of average wage × years served. Auto 3-month average calculation coming soon."
+        "description": "Severance for 1+ year tenure: 30 days of average wage × years served, based on your last 3 months' pay."
       },
       "min-wage-monthly": {
         "title": "Min Wage → Monthly",
-        "description": "2026 minimum wage at 209 hours plus annual salary and net pay comparison. With/without weekly rest pay split coming soon."
+        "description": "Converts the 2026 minimum wage to monthly pay (209 hours) and compares annual salary and take-home."
       }
     }
   },
@@ -676,11 +676,6 @@
       "title": "Voltage Drop",
       "description": "Calculate voltage drop, receiving-end voltage, and code-compliance against the Korean Electrical Code distance limits.",
       "available": true
-    },
-    "comingSoon": {
-      "title": "Coming Soon",
-      "description": "This calculator is currently under development. Try one of the other available calculators.",
-      "back": "Back to Electric Calculators"
     }
   },
   "breakerTool": {
