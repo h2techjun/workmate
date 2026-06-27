@@ -224,6 +224,7 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-06-25 | **Google 공식 AdSense Site Approvals 6편 반영** — 자막 직접 분석 → 거절사유 #3/#6 갭 수정(labor 설명 '~예정/coming soon' 제거, 죽은 '준비 중' UI 전면 제거: labor-calc·electric-calc·ComingSoon.tsx). docs 정본 체크리스트 + 7대 거절사유 + CLAUDE 도그마 + audit [I.공식정책] 자동게이트. 기술셋업(ads.txt·GSC·AdSenseScript) 부합 확인 | `7a7b5ba` |
 | 2026-06-24 | **신규 계산기 4종** — 실업급여(고용보험)·부동산 중개수수료(공인중개사법)·중도상환수수료(슬라이딩)·증여세(상증세법). 각 docs·순수함수+테스트(68개 신규)·SEO page·ToolGuide ko/en + 결과 추천 칩. catalog·messages 병합(parity ko=en=6354). 558테스트·build(294/294)·audit·브라우저(계산정확) 통과·IndexNow | `5a8cb0b` |
 | 2026-06-24 | **전환·체류 강화** — ResultShell relatedLinks(결과 직후 '함께 보면 좋아요' 추천 칩) 신설 + 상위 8개 도구 큐레이션 배선(도구+블로그, ko/en) + 즉시 결과(Loan·IncomeTax·Compound·Jeonse·Vat·Insurance 빈 화면 제거). 490테스트·build·브라우저 검증 | `112cb5b` |
 | 2026-06-24 | **사용자 중심 UX 전면 개편** — 4관점 병렬 감사(읽기·쓰기·모바일·정보구조) → 공용 컴포넌트 일괄 개선: 가독성 토큰 WCAG AA·결과 위계(Stat/HeroResult/ResultShell)·출처/단계 가독성·ToolGuide 본문 16px·FAQ ChevronDown·헤더 드로어 a11y·터치 타깃·/tools 검색·electric-calc 허브 숨김 버그 수정. 블로그 8편 태그 5개씩 + PostTags | `8055cbd` |

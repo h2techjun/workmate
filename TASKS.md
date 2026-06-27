@@ -55,6 +55,7 @@ About E-A-T · 필러 블로그(living-in-korea-foreigner-guide, 도구 9종 허
 
 ## ✅ 최근 완료 (history)
 
+- [x] 2026-06-25: **Google 공식 AdSense Site Approvals 6편 시스템 반영** — 공식 영상 자막 직접 분석 후 거절사유 #3/#6 갭 수정(labor 설명 미구현 '예정' 문구 제거 + 죽은 '준비 중/coming soon' UI 전면 제거) + docs 정본 체크리스트·CLAUDE 도그마·audit [I.공식정책] 자동검출. 558 테스트·build·라이브 검증·배포 (`7a7b5ba`)
 - [x] 2026-06-24: **신규 계산기 4종** — 실업급여(구직급여, 고용보험법)·부동산 중개수수료(복비, 공인중개사법)·중도상환수수료(슬라이딩, 여신약관)·증여세(상증세법). 병렬 빌드 → catalog/messages 병합. 도구 64→68개. 68개 신규 테스트·build(294/294)·audit(thin0)·브라우저 검증·배포·IndexNow (`5a8cb0b`)
 - [x] 2026-06-24: **전환·체류 강화** — ResultShell `relatedLinks`(결과 직후 관련 도구·블로그 추천 칩) 공용 신설 + 상위 8개 도구 큐레이션 배선(ko/en) + 즉시 결과(Loan·IncomeTax·Compound·Jeonse·Vat·Insurance 마운트 시 계산, 빈 화면 제거). build·490 테스트·브라우저 검증·배포 (`112cb5b`)
 - [x] 2026-06-24: **사용자 중심 UX 전면 개편** — 4관점 병렬 UX 감사 → 공용 컴포넌트(calc-form·ToolGuide·globals·헤더) 일괄 개선으로 64도구 가독성·접근성·정보구조 향상(WCAG 대비·결과 위계·출처/단계·FAQ 아이콘·드로어 a11y·터치타깃·/tools 검색·electric-calc 허브 버그). 블로그 8편 태그 5개씩 + PostTags. build·490 테스트·브라우저 검증 통과·배포 (`8055cbd`)
