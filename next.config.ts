@@ -59,11 +59,20 @@ const nextConfig: NextConfig = {
     };
   },
   /**
-   * 구 /projects URL → /games 308 리다이렉트.
-   * 카탈로그·sitemap 이전 시점의 백링크/검색 색인 호환.
+   * 리다이렉트 규칙.
+   * 1) www → apex (301/308): 단일 표준 도메인 강제 → GSC "중복 페이지(표준 없음)" 해소.
+   *    canonical 은 이미 apex 를 가리키지만, www 가 본문을 서빙하면 Google 이 중복으로
+   *    잠시 잡는다. host 조건 리다이렉트로 www 가 아예 본문을 안 내보내게 한다.
+   * 2) 구 /projects URL → /games (308): 이전 백링크/색인 호환.
    */
   async redirects() {
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.workmate.tools" }],
+        destination: "https://workmate.tools/:path*",
+        permanent: true,
+      },
       {
         source: "/:locale(ko|en)/projects",
         destination: "/:locale/games",
