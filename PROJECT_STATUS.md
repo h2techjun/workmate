@@ -224,6 +224,7 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-06-25 | **GSC 색인 진단 + www→apex 301** — sitemap 164개 전부 200·canonical/hreflang 정상 확인. '중복 페이지(표준 없음) 35'는 www 본문 서빙 탓 → next.config host 리다이렉트로 www→apex 308 통합. 404/리디렉션 버킷은 과거 옛 URL(자연 소멸), 발견/크롤링-미색인은 신규 사이트 권위·시간 이슈(코드 무관) | `9553634` |
 | 2026-06-25 | **Google 공식 AdSense Site Approvals 6편 반영** — 자막 직접 분석 → 거절사유 #3/#6 갭 수정(labor 설명 '~예정/coming soon' 제거, 죽은 '준비 중' UI 전면 제거: labor-calc·electric-calc·ComingSoon.tsx). docs 정본 체크리스트 + 7대 거절사유 + CLAUDE 도그마 + audit [I.공식정책] 자동게이트. 기술셋업(ads.txt·GSC·AdSenseScript) 부합 확인 | `7a7b5ba` |
 | 2026-06-24 | **신규 계산기 4종** — 실업급여(고용보험)·부동산 중개수수료(공인중개사법)·중도상환수수료(슬라이딩)·증여세(상증세법). 각 docs·순수함수+테스트(68개 신규)·SEO page·ToolGuide ko/en + 결과 추천 칩. catalog·messages 병합(parity ko=en=6354). 558테스트·build(294/294)·audit·브라우저(계산정확) 통과·IndexNow | `5a8cb0b` |
 | 2026-06-24 | **전환·체류 강화** — ResultShell relatedLinks(결과 직후 '함께 보면 좋아요' 추천 칩) 신설 + 상위 8개 도구 큐레이션 배선(도구+블로그, ko/en) + 즉시 결과(Loan·IncomeTax·Compound·Jeonse·Vat·Insurance 빈 화면 제거). 490테스트·build·브라우저 검증 | `112cb5b` |
