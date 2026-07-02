@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import { AdSlot } from "@/components/seo/AdSlot";
 import { ShareButton } from "@/components/ui/ShareButton";
+import { OfferSlot } from "@/components/seo/OfferSlot";
 
 /** 결과 직후 노출할 관련 도구·글 링크 (전환·체류 강화) */
 export interface RelatedLink {
@@ -135,6 +136,7 @@ export function ResultShell({
   heading,
   shareText,
   relatedLinks,
+  toolKey,
   locale = "ko",
   children,
 }: {
@@ -143,6 +145,8 @@ export function ResultShell({
   shareText?: string;
   /** 결과 직후 노출할 관련 도구·글 (전환·체류 강화). 없으면 미표시 */
   relatedLinks?: ReadonlyArray<RelatedLink>;
+  /** 맥락 제휴 오퍼 키 (lib/offers.ts). 오퍼 없으면 미노출(휴면) */
+  toolKey?: string;
   /** relatedLinks href prefix·라벨 로케일. 기본 ko */
   locale?: "ko" | "en";
   children: ReactNode;
@@ -166,6 +170,7 @@ export function ResultShell({
           />
         </div>
         {children}
+        <OfferSlot toolKey={toolKey} locale={locale} />
         {relatedLinks && relatedLinks.length > 0 && (
           <div className="mt-6 border-t border-[color:var(--color-border-subtle)] pt-4">
             <p className="mb-2.5 text-xs font-semibold tracking-wide text-[color:var(--color-text-tertiary)]">
