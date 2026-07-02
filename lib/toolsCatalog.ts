@@ -188,6 +188,12 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         keywordsKo: "전세 월세 환산 전월세전환율 전세사기 방지 보증금 보증보험 jeonse wolse deposit scam",
       },
       {
+        labelKo: "깡통전세 위험도 진단",
+        labelEn: "Underwater Jeonse Risk",
+        href: "/deposit-risk",
+        keywordsKo: "깡통전세 계산기 전세가율 부채비율 보증금 안전 진단 경매 회수 예상손실 underwater jeonse risk deposit safety",
+      },
+      {
         labelKo: "부동산 중개수수료 (복비)",
         labelEn: "Brokerage Fee",
         href: "/brokerage-fee",
@@ -211,6 +217,8 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
     },
     tools: [
       { labelKo: "한국식 나이 계산", labelEn: "Korean Age", href: "/korean-age", keywordsKo: "한국 나이 만나이 세는나이 연나이" },
+      { labelKo: "한국 생활비 계산", labelEn: "Cost of Living", href: "/cost-of-living", keywordsKo: "한국 생활비 서울 생활비 월 예산 1인 가구 외국인 cost of living korea seoul budget" },
+      { labelKo: "해외송금 비용 계산", labelEn: "Remittance Cost", href: "/remittance", keywordsKo: "해외송금 수수료 비용 환율 마진 스프레드 송금 한도 신고 send money from korea remittance" },
       { labelKo: "체류일수 (90일 비자)", labelEn: "Stay Days Tracker", href: "/visa-days", keywordsKo: "한국 체류일수 90일 무비자 만료일 비자" },
       { labelKo: "외국인 건강보험료", labelEn: "Health Insurance (NHIS)", href: "/foreign-health-insurance", keywordsKo: "외국인 건강보험료 유학생 지역가입자 NHIS 의료보험 foreigner health insurance" },
       { labelKo: "국민연금 반환일시금", labelEn: "Pension Refund", href: "/pension-refund", keywordsKo: "국민연금 반환일시금 외국인 환급 출국 돌려받기 E-9 pension refund foreigner leaving korea" },

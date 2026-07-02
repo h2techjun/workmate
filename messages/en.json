@@ -4413,6 +4413,256 @@
       "related": "Related tools",
       "lastReviewedPrefix": "Last reviewed:"
     },
+    "deposit-risk": {
+      "overview": "An 'underwater jeonse' (깡통전세) is a lease where the deposit plus the landlord's senior debt approaches or exceeds the property's value — so if the home is auctioned, the tenant can't get the deposit back. This calculator turns that risk into numbers. It computes the jeonse ratio (your deposit ÷ market price) and the debt ratio ((senior mortgages + your deposit) ÷ market price), then simulates the worst case: how much you'd actually recover at a foreclosure auction, and how much you could lose. Everything runs in your browser — no data is sent anywhere.",
+      "useCases": [
+        "Deciding whether a specific jeonse or high-deposit wolse listing is financially safe",
+        "Seeing how a landlord's existing mortgage (근저당) eats into what you'd recover",
+        "Stress-testing a deposit against a lower auction price before you commit",
+        "Foreigners assessing risk on their first Korean lease",
+        "Checking if a home is near the ~80% deposit-to-value danger line before viewing"
+      ],
+      "howTo": {
+        "title": "How to use (4 steps)",
+        "steps": [
+          "Enter the property's market price — use real transaction data (실거래가), not the asking price.",
+          "Enter the senior debt: mortgage amounts (근저당 설정액) from the property register's 을구 section, which are repaid before you at auction.",
+          "Enter your deposit, then set an assumed auction recovery rate (default 80%) — lower it to be conservative.",
+          "Read the debt ratio and risk band, plus the estimated recovery and loss if the home were auctioned."
+        ]
+      },
+      "formula": {
+        "title": "How the risk is measured",
+        "body": "Jeonse ratio = your deposit ÷ market price\nDebt ratio  = (senior debt + your deposit) ÷ market price   ← the key metric\n\nWorst-case (auction) simulation:\n  Expected auction proceeds = market price × recovery rate\n  You recover = max(0, proceeds − senior debt)     (senior creditors are paid first)\n  Estimated loss = max(0, your deposit − you recover)\n\nRule-of-thumb bands (industry / HUG usage, NOT law):\n  ≤ 70%  relatively safe\n  70–80% caution\n  80–90% risky\n  > 90%  very risky (classic underwater jeonse)"
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "Borderline case — ₩300M home",
+            "body": "Market price ₩300M, senior mortgage ₩50M, your deposit ₩200M. Debt ratio = (50 + 200) ÷ 300 = 83% → 'risky'. At an 80% auction (₩240M), senior debt takes ₩50M first, leaving ₩190M — ₩10M short of your ₩200M deposit. You'd likely lose about ₩10M without deposit insurance."
+          },
+          {
+            "title": "Safe case — no senior debt",
+            "body": "Market price ₩400M, no mortgage, your deposit ₩200M. Debt ratio = 50% → 'safe'. Even at an 80% auction (₩320M) you'd recover the full ₩200M. Still verify the register on balance-payment day — a new mortgage can appear between signing and move-in."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What counts as 'senior debt'?",
+          "answer": "Anything repaid before your deposit at a foreclosure auction — most commonly the landlord's mortgage (근저당권) shown in the 을구 section of the property register, and unpaid taxes with an earlier statutory date. A deposit registered later ranks behind these."
+        },
+        {
+          "question": "Why does the auction recovery rate matter so much?",
+          "answer": "Foreclosed homes rarely sell for full market value. The winning bid (낙찰가율) varies widely by property and market — often 70–90% of appraised value. Because senior debt is paid from that reduced amount first, a lower recovery rate can wipe out a deposit that looked safe on the debt ratio alone. Simulate conservatively."
+        },
+        {
+          "question": "Is the 80% line an official rule?",
+          "answer": "No. The 70–80% deposit-to-value and ~90% debt-ratio lines are widely-used rules of thumb from HUG guidance and industry practice, not statutory limits. HUG/SGI deposit-insurance eligibility uses its own criteria that change over time — confirm current requirements directly with them."
+        },
+        {
+          "question": "The tool says 'safe' — am I protected?",
+          "answer": "It's only a screen based on the numbers you enter. It does not check the actual register, the landlord's taxes, trust registration (신탁), or whether move-in reports are allowed. Treat a 'safe' result as 'worth proceeding to full due diligence', not as a guarantee."
+        },
+        {
+          "question": "How do I lower my risk if the ratio is high?",
+          "answer": "Prefer wolse or ban-jeonse (smaller deposit), require the landlord to clear the mortgage before the balance payment, get HUG/SGI deposit-return insurance, and complete your move-in report + fixed date immediately. See the full jeonse-scam checklist linked below."
+        }
+      ],
+      "cautions": [
+        "Reference and educational tool, not legal, tax, or investment advice — verify the property register (등기부등본), HUG eligibility, and consult a licensed agent and lawyer before signing.",
+        "The 70/80/90% bands are industry rules of thumb, not law; your real risk depends on facts this tool cannot see.",
+        "Auction recovery rate is an assumption you set — real foreclosure outcomes vary widely by property.",
+        "Market price should come from actual transaction data, not the asking price, or the result is misleading.",
+        "A 'safe' score is a starting screen, not a guarantee — always complete full due diligence."
+      ],
+      "related": [
+        {
+          "label": "Jeonse scam checklist",
+          "href": "/jeonse-wolse"
+        },
+        {
+          "label": "Apartment Area & Price",
+          "href": "/apartment-area"
+        },
+        {
+          "label": "Rent Cap (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "F-2-7 Residence Visa",
+          "href": "/f2-residence-visa"
+        }
+      ],
+      "lastReviewed": "2026-07-02"
+    },
+    "cost-of-living": {
+      "overview": "This is a budgeting tool, not a claim about what Korea 'costs'. Pick a region and household and it prefills typical monthly lines — rent, utilities, food, transport, mobile, health insurance, and other spending — with representative 2026 mid-range estimates. Then you edit every line to your own situation, and the total is simply the sum of your numbers, with annual and per-person figures. It's most useful for planning a move or comparing cities before you commit to a lease. Everything runs in your browser.",
+      "useCases": [
+        "Planning a move to Korea and sizing how much to save first",
+        "Comparing central Seoul against Gyeonggi or a smaller city",
+        "Turning a job offer's salary into a realistic monthly surplus",
+        "Students and single expats setting a lean baseline budget",
+        "Families estimating the jump in rent, food, and utilities for 3–4 people"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Pick your region and household — the seven lines fill with typical mid-range estimates.",
+          "Edit each line to your reality: your actual rent, your phone plan, whether you cook or eat out.",
+          "Read the monthly total, the annualized figure, and the per-person cost. Adjust and compare regions freely."
+        ]
+      },
+      "formula": {
+        "title": "How the estimate is built",
+        "body": "Monthly total = rent + utilities + food + transport + mobile + health insurance + other\nAnnual = monthly × 12\nPer person = monthly ÷ household size (single 1, couple 2, family 4)\n\nThe region/household selection only prefills editable defaults. Rent scales by region and by household (more people → more space); the other lines scale by household size. Nothing here is fixed — the total always reflects the numbers you leave in the fields."
+      },
+      "examples": {
+        "title": "What the defaults look like",
+        "items": [
+          {
+            "title": "Single, central Seoul",
+            "body": "Prefilled to roughly ₩2.5M/month: rent ₩1.3M, utilities ₩130k, food ₩500k, transport ₩80k, mobile ₩40k, health insurance ₩150k, other ₩300k. That sits between a lean (~₩1.5–2M) and comfortable (~₩3–4M) lifestyle — move the lines to match yours."
+          },
+          {
+            "title": "Single, smaller city",
+            "body": "The same profile outside the capital starts near ₩1.6–1.8M, mostly because rent drops to about ₩450k. Food, mobile, and insurance barely change with location — so region mainly moves the rent line."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Are these numbers official?",
+          "answer": "No. They're representative mid-points of commonly-cited ranges for 2026 (aggregated public and private cost data), meant as a starting point. Real costs vary widely by lifestyle and contract, which is exactly why every line is editable and the total only reflects your inputs."
+        },
+        {
+          "question": "Why is there no US dollar figure?",
+          "answer": "Exchange rates move daily, so a fixed USD number would quickly become misleading. The tool shows Korean won only; convert with a live rate when you need dollars."
+        },
+        {
+          "question": "How is health insurance estimated?",
+          "answer": "The default is a rough monthly figure. If you're employed, National Health Insurance is a percentage of your salary (about 8.135% in 2026, split with the employer); if you're a local subscriber it's based on income and assets. Replace the default with your own once you know your scheme."
+        },
+        {
+          "question": "Does 'rent' mean jeonse or monthly rent?",
+          "answer": "Monthly rent (wolse). Jeonse replaces most monthly rent with a large lump-sum deposit instead, so its monthly cash cost is different — use the jeonse tools to compare that model."
+        },
+        {
+          "question": "Does this include one-time move-in costs?",
+          "answer": "No — it's a recurring monthly budget. Deposits (key money), agent fees, furniture, and visa/relocation costs are separate one-time amounts you should budget on top."
+        }
+      ],
+      "cautions": [
+        "Estimates only — representative mid-range values for 2026, not a guarantee or an official figure.",
+        "Region and household just prefill defaults; the total always equals the numbers you leave in the fields.",
+        "Rent and health insurance are the most variable lines — replace them with your real figures first.",
+        "One-time costs (deposit, agent fee, furniture, flights) are not included.",
+        "Confirm actual amounts with real listings, bills, and your insurance scheme before relying on the total."
+      ],
+      "related": [
+        {
+          "label": "Underwater Jeonse Risk",
+          "href": "/deposit-risk"
+        },
+        {
+          "label": "Jeonse ↔ Wolse Converter",
+          "href": "/jeonse-wolse"
+        },
+        {
+          "label": "Salary Take-Home",
+          "href": "/net-salary"
+        },
+        {
+          "label": "Health Insurance (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-07-02"
+    },
+    "remittance": {
+      "overview": "Sending money out of Korea costs more than the fee on the receipt. The bigger, hidden cost is usually the FX margin — the gap between the mid-market exchange rate and the rate your provider actually applies. This tool adds both together so you can see the true effective cost of a transfer and compare methods fairly. It doesn't use live rates or name providers; you enter the margin and fee, and it shows the total cost, effective rate, and value delivered. It also summarizes Korea's outbound-remittance rules so you know what documentation to expect.",
+      "useCases": [
+        "Foreign workers sending part of their salary home each month",
+        "Comparing a bank transfer against a specialist service on true cost, not just the fee",
+        "Seeing how much a 'low fee, bad rate' option really costs on a large transfer",
+        "Understanding why small transfers cost proportionally more (fixed fee weight)",
+        "Checking what reporting or proof a larger remittance from Korea may need"
+      ],
+      "howTo": {
+        "title": "How to use (3 steps)",
+        "steps": [
+          "Pick a method — it prefills a representative margin and fixed fee that you should overwrite with real figures.",
+          "Enter the amount you want to send, then your provider's actual FX margin (spread) and fixed fee.",
+          "Read the total cost, the effective cost rate, and the value delivered. Change the numbers to compare options."
+        ]
+      },
+      "formula": {
+        "title": "How the cost is measured",
+        "body": "FX margin cost = amount × margin %\nTotal cost     = FX margin cost + fixed fee\nEffective rate = total cost ÷ amount\nValue delivered = amount − total cost   (in KRW-value terms)\n\nTo find a provider's real margin, compare their quoted rate to the mid-market rate (e.g. from a neutral source) on the same day: margin % = (mid − applied) ÷ mid × 100. A '0 fee' offer can still be expensive if the margin is wide."
+      },
+      "examples": {
+        "title": "Worked examples",
+        "items": [
+          {
+            "title": "₩1,000,000 via a bank",
+            "body": "At a 2.5% margin + ₩25,000 fixed fee: FX cost ₩25,000 + fee ₩25,000 = ₩50,000 total, an effective 5.0%. Only about ₩950,000 of value reaches the recipient."
+          },
+          {
+            "title": "Same amount via a specialist",
+            "body": "At a 0.7% margin + ₩5,000 fee: ₩7,000 + ₩5,000 = ₩12,000, an effective 1.2%. The gap is almost entirely the hidden margin, not the visible fee — which is why comparing fees alone is misleading."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What is the FX margin (spread)?",
+          "answer": "It's the difference between the mid-market rate (the 'real' rate you see on a neutral source) and the rate your provider gives you. Providers earn on this gap, so a transfer advertised as 'no fee' can still be costly. Always compare the applied rate to the mid-market rate."
+        },
+        {
+          "question": "Are there limits on sending money out of Korea?",
+          "answer": "Yes. Under the Foreign Exchange Transactions rules, banks apply per-transaction and annual thresholds above which extra documentation and reporting to the Bank of Korea / tax authority apply. The exact figures change over time — confirm the current thresholds with your bank before a large transfer."
+        },
+        {
+          "question": "As a foreign worker, can I send my salary home?",
+          "answer": "Generally yes, but banks typically ask for proof — your employment, income, and that tax was paid (e.g. withholding receipt). Requirements vary by bank and amount; ask your bank what documents they need for salary remittances."
+        },
+        {
+          "question": "Does sending or receiving money trigger tax?",
+          "answer": "The transfer itself isn't income, but large gifts can be subject to gift tax, and cross-border transfers may be reported to the National Tax Service. If money is a gift or business income rather than your own funds moving, check the tax treatment with a professional."
+        },
+        {
+          "question": "Why does a small transfer cost a higher percentage?",
+          "answer": "Because the fixed fee is a bigger share of a small amount. ₩5,000 on ₩200,000 is 2.5% before any margin; the same fee on ₩5,000,000 is 0.1%. For small, frequent transfers the fixed fee matters most; for large ones, the margin dominates."
+        }
+      ],
+      "cautions": [
+        "Reference and educational tool — not financial advice and not a live quote. The real cost is set by the rate and fee at the moment you send.",
+        "No live exchange rates or specific provider fees are used; margin and fee are assumptions you enter.",
+        "Method choice only prefills representative ranges — it does not recommend or rank any provider.",
+        "Remittance limits, reporting thresholds, and required proof change over time — confirm current rules with your bank and the Bank of Korea.",
+        "Large gifts or cross-border transfers may have tax and reporting consequences — consult a professional."
+      ],
+      "related": [
+        {
+          "label": "Cost of Living in Korea",
+          "href": "/cost-of-living"
+        },
+        {
+          "label": "Pension Refund",
+          "href": "/pension-refund"
+        },
+        {
+          "label": "Foreign Flat Tax (19%)",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Health Insurance (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-07-02"
+    },
     "income-tax": {
       "overview": "The Korean income tax calculator applies the 8-bracket progressive rate (6% / 15% / 24% / 35% / 38% / 40% / 42% / 45%) as of 2026 to compute calculated tax, final tax, and local income tax from a given taxable base. It supports the wage earner credit (Income Tax Act §59) and shows the effective rate alongside the current bracket. All inputs stay in the browser — nothing is sent to a server.",
       "useCases": [
