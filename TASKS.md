@@ -23,6 +23,7 @@
 - [ ] **외부 백링크 1개** (담당: 마스터) — GitHub README 또는 네이버/티스토리/레딧
 - [ ] **콘텐츠 2~3편 추가** (담당: Claude, 필요 시) — 검증된 키워드 기반 long-form
   - [x] ~~"Renting in Korea 심화"~~ → renting-in-korea-jeonse-wolse-guide 완료 (2026-06-19)
+  - [x] ~~"외국인 단위·숫자 허브"~~ → korean-units-numbers-for-foreigners 완료 (2026-07-02, 영어 우선)
   - [ ] 후보: "First month in Korea 도착 가이드"
 
 ### ✅ 신규 도구 6종 완료 (2026-05-30, 전부 단계적으로)
@@ -55,6 +56,7 @@ About E-A-T · 필러 블로그(living-in-korea-foreigner-guide, 도구 9종 허
 
 ## ✅ 최근 완료 (history)
 
+- [x] 2026-07-02: **영어 니치 강화 — pillar 글 + 도구 4종 SEO 재배선** — GSC 국가별 데이터(미국 순위 9.2 vs 한국 14.1 = 영어 우위) 근거로 영어 우선. 신규 pillar 블로그 korean-units-numbers-for-foreigners(평·나이·사이즈·거리·온도·사업자번호 집약, 외국인 도구 9종 허브 링크) + area-convert(순수 평 변환 소유)·apartment-area(전용/공급·평당가로 재차별화=평 키워드 자가잠식 해소)·school-grade·biznum-check 메타 강화. 558 테스트·build(296/296)·audit(i18n parity·thin0·coming-soon0)·ko/en 브라우저 QA(콘솔0)·배포 alias 3단계·IndexNow 10 URL (`d83dcae`)
 - [x] 2026-06-29: **수익 전략 로드맵 + 휴면 제휴 인프라** — GSC 실적 진단(클릭39/28일·순위12.4) → 정직한 3-Track 모델(AdSense 바닥·금융 제휴/CPA 주력·트래픽 병목) `docs/monetization-strategy.md`. `lib/offers.ts`+`OfferSlot`(휴면=비노출, rel=sponsored 공시, AdSense 심사 무해) ResultShell 통합. 558 테스트·build·라이브(비노출 확인)·배포 (`66b8767`)
 - [x] 2026-06-25: **Google 공식 AdSense Site Approvals 6편 시스템 반영** — 공식 영상 자막 직접 분석 후 거절사유 #3/#6 갭 수정(labor 설명 미구현 '예정' 문구 제거 + 죽은 '준비 중/coming soon' UI 전면 제거) + docs 정본 체크리스트·CLAUDE 도그마·audit [I.공식정책] 자동검출. 558 테스트·build·라이브 검증·배포 (`7a7b5ba`)
 - [x] 2026-06-24: **신규 계산기 4종** — 실업급여(구직급여, 고용보험법)·부동산 중개수수료(복비, 공인중개사법)·중도상환수수료(슬라이딩, 여신약관)·증여세(상증세법). 병렬 빌드 → catalog/messages 병합. 도구 64→68개. 68개 신규 테스트·build(294/294)·audit(thin0)·브라우저 검증·배포·IndexNow (`5a8cb0b`)
