@@ -55,6 +55,7 @@ About E-A-T · 필러 블로그(living-in-korea-foreigner-guide, 도구 9종 허
 
 ## ✅ 최근 완료 (history)
 
+- [x] 2026-06-29: **수익 전략 로드맵 + 휴면 제휴 인프라** — GSC 실적 진단(클릭39/28일·순위12.4) → 정직한 3-Track 모델(AdSense 바닥·금융 제휴/CPA 주력·트래픽 병목) `docs/monetization-strategy.md`. `lib/offers.ts`+`OfferSlot`(휴면=비노출, rel=sponsored 공시, AdSense 심사 무해) ResultShell 통합. 558 테스트·build·라이브(비노출 확인)·배포 (`66b8767`)
 - [x] 2026-06-25: **Google 공식 AdSense Site Approvals 6편 시스템 반영** — 공식 영상 자막 직접 분석 후 거절사유 #3/#6 갭 수정(labor 설명 미구현 '예정' 문구 제거 + 죽은 '준비 중/coming soon' UI 전면 제거) + docs 정본 체크리스트·CLAUDE 도그마·audit [I.공식정책] 자동검출. 558 테스트·build·라이브 검증·배포 (`7a7b5ba`)
 - [x] 2026-06-24: **신규 계산기 4종** — 실업급여(구직급여, 고용보험법)·부동산 중개수수료(복비, 공인중개사법)·중도상환수수료(슬라이딩, 여신약관)·증여세(상증세법). 병렬 빌드 → catalog/messages 병합. 도구 64→68개. 68개 신규 테스트·build(294/294)·audit(thin0)·브라우저 검증·배포·IndexNow (`5a8cb0b`)
 - [x] 2026-06-24: **전환·체류 강화** — ResultShell `relatedLinks`(결과 직후 관련 도구·블로그 추천 칩) 공용 신설 + 상위 8개 도구 큐레이션 배선(ko/en) + 즉시 결과(Loan·IncomeTax·Compound·Jeonse·Vat·Insurance 마운트 시 계산, 빈 화면 제거). build·490 테스트·브라우저 검증·배포 (`112cb5b`)

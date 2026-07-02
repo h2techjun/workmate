@@ -224,6 +224,7 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-06-29 | **수익 전략 전환 + 휴면 제휴 인프라** — GSC 실적(클릭39·순위12.4) 진단 → 정직한 3-Track 모델(AdSense 바닥·금융 제휴/CPA 주력·트래픽 병목) `docs/monetization-strategy.md`. 휴면 OfferSlot+`lib/offers.ts`(비어있음=비노출, AdSense 심사 무해, rel=sponsored 공시). AdSense+제휴 병행 허용 공식 확인 | `66b8767` |
 | 2026-06-25 | **GSC 색인 진단 + www→apex 301** — sitemap 164개 전부 200·canonical/hreflang 정상 확인. '중복 페이지(표준 없음) 35'는 www 본문 서빙 탓 → next.config host 리다이렉트로 www→apex 308 통합. 404/리디렉션 버킷은 과거 옛 URL(자연 소멸), 발견/크롤링-미색인은 신규 사이트 권위·시간 이슈(코드 무관) | `9553634` |
 | 2026-06-25 | **Google 공식 AdSense Site Approvals 6편 반영** — 자막 직접 분석 → 거절사유 #3/#6 갭 수정(labor 설명 '~예정/coming soon' 제거, 죽은 '준비 중' UI 전면 제거: labor-calc·electric-calc·ComingSoon.tsx). docs 정본 체크리스트 + 7대 거절사유 + CLAUDE 도그마 + audit [I.공식정책] 자동게이트. 기술셋업(ads.txt·GSC·AdSenseScript) 부합 확인 | `7a7b5ba` |
 | 2026-06-24 | **신규 계산기 4종** — 실업급여(고용보험)·부동산 중개수수료(공인중개사법)·중도상환수수료(슬라이딩)·증여세(상증세법). 각 docs·순수함수+테스트(68개 신규)·SEO page·ToolGuide ko/en + 결과 추천 칩. catalog·messages 병합(parity ko=en=6354). 558테스트·build(294/294)·audit·브라우저(계산정확) 통과·IndexNow | `5a8cb0b` |
