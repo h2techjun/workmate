@@ -75,6 +75,7 @@ const TOOL_PATHS = [
   "/foreign-flat-tax",
   "/foreign-health-insurance",
   "/pension-refund",
+  "/data",
   "/tools",
   "/games",
   "/tests",

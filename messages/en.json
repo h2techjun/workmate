@@ -342,7 +342,7 @@
     },
     "hints": {
       "year": "Used as min-wage fallback",
-      "tbd": "TBD — defaults to 2025",
+      "tbd": "10,320 KRW confirmed",
       "hourlyWage": "0 = use min wage for selected year",
       "weeklyHours": "5 days × 8 hours = 40. Adjust for part-time.",
       "includeWeeklyRest": "Workers with 15+ weekly hours qualify for weekly rest pay"
@@ -385,7 +385,7 @@
       },
       "minWage": {
         "title": "Minimum wage decision",
-        "body": "Announced yearly by Aug 5 for the following year. 2025 = 10,030 KRW. 2026 TBD — defaults to 2025 value until announced."
+        "body": "Announced yearly by Aug 5 for the following year. 2025 = 10,030 KRW / 2026 = 10,320 KRW (+2.9%, MOEL Notice No. 2025-47)."
       }
     }
   },
@@ -2155,7 +2155,7 @@
       "lastReviewed": "2025-06-24"
     },
     "unemployment-benefit": {
-      "overview": "The Korean Unemployment Benefit (Guikgubup) Calculator estimates your expected payout based on Employment Insurance Act Articles 46 and 50. Enter your average daily wage before separation, employment insurance subscription period, and age (50+ or disability status) to instantly see the daily benefit amount, benefit days, and total estimated payout. The 2019 revision expanded benefit days across all brackets. As of 2025, the daily cap is 66,000 KRW and the floor is approximately 64,192 KRW (minimum wage × 80% × 8 hours). The calculator applies both limits automatically and reflects the preferential schedule for workers aged 50+ or with disabilities. Note: actual eligibility and final amounts are determined by your local Employment Center (Goyong Center) — separation reason, job-seeking activity, and other conditions must also be met.",
+      "overview": "The Korean Unemployment Benefit (Guikgubup) Calculator estimates your expected payout based on Employment Insurance Act Articles 46 and 50. Enter your average daily wage before separation, employment insurance subscription period, and age (50+ or disability status) to instantly see the daily benefit amount, benefit days, and total estimated payout. The 2019 revision expanded benefit days across all brackets. For separations on or after 2026-01-01, the daily cap is 68,100 KRW (first increase in seven years) and the floor is 66,048 KRW (2026 minimum wage 10,320 × 80% × 8 hours); 2025 separations use 66,000 / 64,192 KRW. The calculator applies both limits automatically and reflects the preferential schedule for workers aged 50+ or with disabilities. Note: actual eligibility and final amounts are determined by your local Employment Center (Goyong Center) — separation reason, job-seeking activity, and other conditions must also be met.",
       "useCases": [
         "Estimate unemployment benefit before resigning to plan living expenses during job search",
         "Compare how benefit days change across different insurance subscription periods",
@@ -2175,22 +2175,22 @@
       },
       "formula": {
         "title": "Calculation formula (Employment Insurance Act Art. 46·50)",
-        "body": "Daily benefit (raw) = Daily average wage × 60%\n\nDaily cap = 66,000 KRW (2025)\nDaily floor = Min. hourly wage (10,030 KRW) × 0.8 × work hours (8h) = 64,192 KRW (2025)\n\nDaily benefit = clamp(raw, floor, cap)\n             = min(66,000, max(64,192, raw))\n\nTotal payout = Daily benefit × Benefit days\n\nBenefit days table (revised 2019-10-01):\n  < 1 year           → Under 50: 120 days / 50+: 120 days\n  1 year – < 3 years → 150 days / 180 days\n  3 years – < 5 years → 180 days / 210 days\n  5 years – < 10 years → 210 days / 240 days\n  10+ years           → 240 days / 270 days"
+        "body": "Daily benefit (raw) = Daily average wage × 60%\n\nDaily cap = 68,100 KRW (separation on/after 2026-01-01; 66,000 KRW for 2025 separations)\nDaily floor = Min. hourly wage (10,320 KRW) × 0.8 × work hours (8h) = 66,048 KRW (2026)\n\nDaily benefit = clamp(raw, floor, cap)\n             = min(68,100, max(66,048, raw))\n\nTotal payout = Daily benefit × Benefit days\n\nBenefit days table (revised 2019-10-01):\n  < 1 year           → Under 50: 120 days / 50+: 120 days\n  1 year – < 3 years → 150 days / 180 days\n  3 years – < 5 years → 180 days / 210 days\n  5 years – < 10 years → 210 days / 240 days\n  10+ years           → 240 days / 270 days"
       },
       "examples": {
         "title": "Calculation examples",
         "items": [
           {
             "title": "Example 1 — Regular worker (3 years insured, under 50)",
-            "body": "Daily average wage 120,000 KRW × 60% = 72,000 KRW → exceeds cap (66,000) → daily benefit 66,000 KRW. Benefit days: 180. Total = 66,000 × 180 = 11,880,000 KRW (approx. 11.9M KRW)."
+            "body": "Daily average wage 120,000 KRW × 60% = 72,000 KRW → exceeds cap (68,100) → daily benefit 68,100 KRW. Benefit days: 180. Total = 68,100 × 180 = 12,258,000 KRW (approx. 12.3M KRW)."
           },
           {
             "title": "Example 2 — Low-wage worker (2 years insured, under 50)",
-            "body": "Monthly salary 2,400,000 KRW → daily avg 80,000 KRW. 80,000 × 60% = 48,000 KRW → below floor (64,192 KRW) → daily benefit 64,192 KRW. Benefit days: 150. Total = 64,192 × 150 = 9,628,800 KRW (approx. 9.6M KRW)."
+            "body": "Monthly salary 2,400,000 KRW → daily avg 80,000 KRW. 80,000 × 60% = 48,000 KRW → below floor (66,048 KRW) → daily benefit 66,048 KRW. Benefit days: 150. Total = 66,048 × 150 = 9,907,200 KRW (approx. 9.9M KRW)."
           },
           {
             "title": "Example 3 — Long-tenure senior worker (12 years insured, age 55)",
-            "body": "Daily avg 110,000 KRW × 60% = 66,000 KRW → equals cap. 50+, 10+ years → 270 benefit days. Total = 66,000 × 270 = 17,820,000 KRW (approx. 17.8M KRW)."
+            "body": "Daily avg 113,500 KRW × 60% = 68,100 KRW → equals cap. 50+, 10+ years → 270 benefit days. Total = 68,100 × 270 = 18,387,000 KRW (approx. 18.4M KRW)."
           }
         ]
       },
@@ -2212,8 +2212,8 @@
           "answer": "You may qualify for the Early Re-employment Allowance (Jogi Jaechwieop Sudang) if you re-employ with significant benefit days remaining. The earlier you find work, the larger the one-time bonus, which incentivizes active job-seeking."
         },
         {
-          "question": "Why are the cap (66,000) and floor (64,192) so close together?",
-          "answer": "The 2019 amendment raised the floor to 80% of the minimum wage, significantly narrowing the range. Most recipients effectively receive either the cap or the floor. Only workers with average wages between roughly 106,987–110,000 KRW per day fall between the two limits."
+          "question": "Why are the cap (68,100) and floor (66,048) so close together?",
+          "answer": "The 2019 amendment raised the floor to 80% of the minimum wage, significantly narrowing the range. In 2026 the floor (66,048) would have overtaken the old cap (66,000), so the cap was raised to 68,100 — the first increase in seven years. Most recipients effectively receive either the cap or the floor; only daily wages between roughly 110,080–113,500 KRW fall in between."
         },
         {
           "question": "Does a longer insurance period always mean more benefit days?",
@@ -2223,7 +2223,7 @@
       "cautions": [
         "This calculator provides estimates only. Actual eligibility, amounts, and benefit days are determined by your local Korean Employment Center (Goyong Center).",
         "Voluntary resignation is generally ineligible. Job-seeking activity, waiting period, and other conditions must be met separately.",
-        "The daily cap (66,000 KRW) and minimum-wage-based floor are revised annually by government notice. Values are based on 2025 standards and will change when the 2026 minimum wage is confirmed.",
+        "The daily cap (68,100 KRW) and floor (66,048 KRW) apply to separations on or after 2026-01-01; 2025 separations use 66,000 / 64,192 KRW. The applicable year is determined by your separation date.",
         "The monthly-to-daily conversion uses ÷30 for simplicity; the official calculation uses the exact calendar days in the 3-month period."
       ],
       "related": [
@@ -2530,7 +2530,7 @@
       },
       "formula": {
         "title": "Formula based on 2026 rates",
-        "body": "National Pension: standard income × 9.5% (employee 4.75% / employer 4.75%)\n  - Income cap 6,370,000 KRW / floor 390,000 KRW (Jul 2025 – Jun 2026)\n  - 2026.1 pension reform hike: 9% → 9.5%\n\nHealth Insurance: salary × 7.19% (employee 3.595% / employer 3.595%)\n  - 2026 hike: 7.09% (frozen 2024–2025) → 7.19%\n\nLong-Term Care: health premium (employee + employer) × 13.14%, split in half\n  - 2026 hike: 12.95% → 13.14%\n\nEmployment Insurance (unemployment): salary × 1.8% (employee 0.9% / employer 0.9%)\nEmployment Insurance (job stability/skills): employer only, 0.25% for firms under 150 staff\n\nWorkers' Comp: salary × industry rate (employer pays 100%)\n  - Average 0.86%, ranging 0.6%–38% by industry (COMWEL)\n\n[Rounded down to the nearest 10 KRW — same as the agencies' actual billing]"
+        "body": "National Pension: standard income × 9.5% (employee 4.75% / employer 4.75%)\n  - Income cap 6,590,000 KRW / floor 410,000 KRW (Jul 2026 – Jun 2027)\n  - 2026.1 pension reform hike: 9% → 9.5%\n\nHealth Insurance: salary × 7.19% (employee 3.595% / employer 3.595%)\n  - 2026 hike: 7.09% (frozen 2024–2025) → 7.19%\n\nLong-Term Care: health premium (employee + employer) × 13.14%, split in half\n  - 2026 hike: 12.95% → 13.14%\n\nEmployment Insurance (unemployment): salary × 1.8% (employee 0.9% / employer 0.9%)\nEmployment Insurance (job stability/skills): employer only, 0.25% for firms under 150 staff\n\nWorkers' Comp: salary × industry rate (employer pays 100%)\n  - Average 0.86%, ranging 0.6%–38% by industry (COMWEL)\n\n[Rounded down to the nearest 10 KRW — same as the agencies' actual billing]"
       },
       "examples": {
         "title": "Worked examples",
@@ -2541,7 +2541,7 @@
           },
           {
             "title": "Example 2: 7M KRW/month — above the pension cap",
-            "body": "The National Pension income cap of 6,370,000 KRW applies. Instead of 7M × 4.75%, it is 6.37M × 4.75% = 302,575 KRW (rounded). Health Insurance, however, applies to the full 7M salary (3.595% = 251,650 KRW). A cap warning is shown automatically."
+            "body": "The National Pension income cap of 6,590,000 KRW (from Jul 2026) applies. Instead of 7M × 4.75%, it is 6.59M × 4.75% = 313,025 KRW (313,020 after rounding down to 10 KRW). Health Insurance, however, applies to the full 7M salary (3.595% = 251,650 KRW). A cap warning is shown automatically."
           },
           {
             "title": "Example 3: Small employer — annual cost for a 36M KRW salary",
@@ -2560,7 +2560,7 @@
         },
         {
           "question": "When does the National Pension income cap change?",
-          "answer": "The National Pension Service adjusts it every July based on the change in the average insured income. The current cap is 6,370,000 KRW for July 2025 – June 2026 and is reset again in July 2026. High earners above the cap pay a fixed maximum premium."
+          "answer": "The National Pension Service adjusts it every July based on the change in the average insured income. The current cap is 6,590,000 KRW for July 2026 – June 2027 (up from 6,370,000) and is reset again in July 2027. High earners above the cap pay a fixed maximum premium."
         },
         {
           "question": "Does the job-stability/skills contribution vary by company size?",
@@ -2576,7 +2576,7 @@
         }
       ],
       "cautions": [
-        "This tool uses confirmed 2026 rates; the National Pension income cap (6.37M KRW) is due for readjustment in July 2026.",
+        "This tool uses confirmed 2026 rates; the National Pension income cap is 6.59M KRW (Jul 2026 – Jun 2027, adjusted every July).",
         "Amounts are rounded down to the nearest 10 KRW, so they may differ from agency bills by under 1 KRW.",
         "Whether irregular pay (bonuses, leave pay) counts toward the insurances depends on the employment contract and work rules; this tool treats the full input as standard remuneration.",
         "The Employment Insurance job-stability/skills rate varies by firm size. The default (0.25%) assumes under 150 staff.",
@@ -2787,7 +2787,7 @@
       "lastReviewed": "2026-06-17"
     },
     "labor-min-wage-monthly": {
-      "overview": "The minimum wage to monthly salary calculator instantly converts an hourly wage into a monthly salary and annual income including weekly holiday pay. It automatically applies Korea's standard 209-hour basis (40 weekly hours + 8 weekly holiday hours × 4.345 weeks per month), the key point in 'monthly conversion', and supports pro-rata calculation when you enter shorter weekly hours. The 2025 minimum hourly wage is KRW 10,030, and 2026 is applied at the same level (to be updated upon official notice).",
+      "overview": "The minimum wage to monthly salary calculator instantly converts an hourly wage into a monthly salary and annual income including weekly holiday pay. It automatically applies Korea's standard 209-hour basis (40 weekly hours + 8 weekly holiday hours × 4.345 weeks per month), the key point in 'monthly conversion', and supports pro-rata calculation when you enter shorter weekly hours. The 2026 minimum hourly wage is KRW 10,320 (monthly equivalent KRW 2,156,880, MOEL Notice No. 2025-47); 2025 was KRW 10,030.",
       "useCases": [
         "Job seekers: check whether an offered hourly wage violates the minimum by converting to monthly",
         "Part-time and short-time workers: calculate expected monthly pay based on weekly contractual hours",
@@ -2798,21 +2798,21 @@
       "howTo": {
         "title": "How to use (3 steps)",
         "steps": [
-          "Enter your hourly wage. If left blank, the minimum hourly wage for the year (KRW 10,030 for 2025 and 2026) is filled in automatically.",
+          "Enter your hourly wage. If left blank, the minimum hourly wage for the year (KRW 10,320 for 2026 · KRW 10,030 for 2025) is filled in automatically.",
           "Set your weekly contractual hours. For full-time work (5 days, 8 hours), keep the default 40 hours; for short-time work (30, 25 hours, etc.), enter the actual hours.",
           "Choose whether to include weekly holiday pay. When included, the monthly salary is computed using 209 hours (40-hour basis) or pro-rata hours; when excluded, only actual working hours are reflected."
         ]
       },
       "formula": {
         "title": "Formula (basis for 209 hours)",
-        "body": "Monthly contractual hours (with weekly holiday, 40-hour basis)\n  = (40 weekly hours + 8 weekly holiday hours) × average weeks per month\n  = 48 hours × (52 weeks ÷ 12 months)\n  = 48 × 4.345 ≈ 208.56 → 209 hours by administrative interpretation\n\nMonthly salary = hourly wage × 209 hours\n2025 and 2026 minimum wage: KRW 10,030 / hour\nMinimum monthly salary = 10,030 × 209 = KRW 2,096,270\n\nShort-time work (N weekly hours):\n  weekly holiday hours = (N ÷ 40) × 8 hours (cap 8 hours)\n  monthly contractual hours = (N + weekly holiday hours) × 4.345\n  monthly salary = hourly wage × monthly contractual hours\n\nBasis: Labor Standards Act Article 55 (weekly holiday), Minimum Wage Act, MOEL administrative interpretation (209 hours)"
+        "body": "Monthly contractual hours (with weekly holiday, 40-hour basis)\n  = (40 weekly hours + 8 weekly holiday hours) × average weeks per month\n  = 48 hours × (52 weeks ÷ 12 months)\n  = 48 × 4.345 ≈ 208.56 → 209 hours by administrative interpretation\n\nMonthly salary = hourly wage × 209 hours\n2026 minimum wage: KRW 10,320 / hour (2025: KRW 10,030)\nMinimum monthly salary = 10,320 × 209 = KRW 2,156,880\n\nShort-time work (N weekly hours):\n  weekly holiday hours = (N ÷ 40) × 8 hours (cap 8 hours)\n  monthly contractual hours = (N + weekly holiday hours) × 4.345\n  monthly salary = hourly wage × monthly contractual hours\n\nBasis: Labor Standards Act Article 55 (weekly holiday), Minimum Wage Act, MOEL administrative interpretation (209 hours)"
       },
       "examples": {
         "title": "Real examples",
         "items": [
           {
             "title": "Example 1: Full-time at minimum wage (40 weekly hours, 2025/2026 basis)",
-            "body": "KRW 10,030 × 209 hours = KRW 2,096,270 / month. Annualized to KRW 25,155,240. Weekly holiday pay alone = 10,030 × about 34.8 monthly holiday hours = about KRW 349,044 / month."
+            "body": "KRW 10,320 × 209 hours = KRW 2,156,880 / month. Annualized to KRW 25,882,560. Weekly holiday pay alone = 10,320 × about 34.8 monthly holiday hours = about KRW 359,136 / month."
           },
           {
             "title": "Example 2: Short-time work, 30 weekly hours (hourly KRW 12,000)",
@@ -2831,7 +2831,7 @@
         },
         {
           "question": "What is the 2026 minimum hourly wage?",
-          "answer": "The minimum wage is decided and announced by the Minimum Wage Commission on August 5 each year and applies from January 1 of the following year. The 2025 minimum hourly wage is KRW 10,030, and the same amount is shown until the 2026 figure is announced. It is reflected in this tool immediately after the official notice."
+          "answer": "The minimum wage is decided and announced by the Minimum Wage Commission on August 5 each year and applies from January 1 of the following year. The 2026 minimum hourly wage is KRW 10,320 (+2.9%, MOEL Notice No. 2025-47), already reflected in this tool; 2025 was KRW 10,030."
         },
         {
           "question": "Does every worker receive weekly holiday pay?",
@@ -2851,7 +2851,7 @@
         }
       ],
       "cautions": [
-        "The 2025 and 2026 minimum hourly wage is based on KRW 10,030, and the 2026 minimum wage is a provisional value before official announcement. It will be reflected in this tool after the 2026 announcement.",
+        "The tool reflects KRW 10,320 for 2026 and KRW 10,030 for 2025. The minimum wage is announced every August and this tool is updated as soon as it is official.",
         "The 209 monthly hours are based on full-time 40-hour work; short-time workers have different pro-rata hours — enter your actual contractual hours for an accurate value.",
         "Confirm details such as inclusion of meal/transport allowances and the probation period (3 months, where 90% of the minimum wage may apply) against your workplace rules and MOEL standards.",
         "Results are for reference only; confirm the actual pay agreement with your employment contract and your employer or a labor attorney."
@@ -2997,8 +2997,8 @@
             "body": "Weekly holiday hours = 8 hours. One week's holiday pay = 12,000 × 8 = KRW 96,000. Monthly holiday pay = 96,000 × 4.345 ≈ KRW 417,120. Annual holiday pay ≈ KRW 5,005,440. Under a 209-hour monthly salary, this pay is already included."
           },
           {
-            "title": "Example 2: Part-time, 20 weekly hours (hourly KRW 10,030, 2025/2026 minimum wage)",
-            "body": "Weekly holiday hours = (20 ÷ 40) × 8 = 4 hours. One week's holiday pay = 10,030 × 4 = KRW 40,120. Monthly holiday pay = 40,120 × 4.345 ≈ KRW 174,321. Pure weekly working wage (20 hours) = 10,030 × 20 × 4.345 ≈ KRW 871,807. Monthly total including holiday ≈ KRW 1,046,128."
+            "title": "Example 2: Part-time, 20 weekly hours (hourly KRW 10,320, 2026 minimum wage)",
+            "body": "Weekly holiday hours = (20 ÷ 40) × 8 = 4 hours. One week's holiday pay = 10,320 × 4 = KRW 41,280. Monthly holiday pay = 41,280 × 4.345 ≈ KRW 179,362. Pure weekly working wage (20 hours) = 10,320 × 20 × 4.345 ≈ KRW 896,808. Monthly total including holiday ≈ KRW 1,076,170."
           },
           {
             "title": "Example 3: Very-short-time worker, 14 weekly hours (no weekly holiday pay)",
@@ -5596,7 +5596,7 @@
       "howTo": {
         "title": "How to use (4 steps)",
         "steps": [
-          "Enter your monthly income base (your reported salary, capped at ₩6,370,000).",
+          "Enter your monthly income base (your reported salary, capped at ₩6,590,000 from Jul 2026).",
           "Enter the total months you contributed to the National Pension.",
           "Keep the rate at 9% (1998–2025) or set 9.5% for months in 2026+; adjust the interest rate if you know it.",
           "See the estimated principal + interest — then confirm your eligibility and exact amount with NPS (call 1355)."
@@ -5604,7 +5604,7 @@
       },
       "formula": {
         "title": "How the refund is built (informational)",
-        "body": "Estimate used here:\nPrincipal = min(income base, ₩6,370,000) × rate × months\nInterest ≈ principal × deposit rate × (months ÷ 12 ÷ 2)\n\nWorkplace subscribers get the full 9% back — your 4.5% plus the employer's 4.5% (National Pension Act §77). The contribution rate is 9% through 2025 and rises to 9.5% from January 2026 (then +0.5pp a year to 13% by 2033).\n\n⚠️ NPS calculates the real refund by compounding each month's payment at that year's 3-year deposit rate (about 2.6% in 2025, 3.0% in 2024), so the interest here is only an approximation."
+        "body": "Estimate used here:\nPrincipal = min(income base, ₩6,590,000) × rate × months\nInterest ≈ principal × deposit rate × (months ÷ 12 ÷ 2)\n\nWorkplace subscribers get the full 9% back — your 4.5% plus the employer's 4.5% (National Pension Act §77). The contribution rate is 9% through 2025 and rises to 9.5% from January 2026 (then +0.5pp a year to 13% by 2033).\n\n⚠️ NPS calculates the real refund by compounding each month's payment at that year's 3-year deposit rate (about 2.6% in 2025, 3.0% in 2024), so the interest here is only an approximation."
       },
       "examples": {
         "title": "Who can claim — three paths",
@@ -6780,7 +6780,7 @@
       },
       "formula": {
         "title": "Deduction items (2026)",
-        "body": "Monthly gross = annual / 12\nTaxable = monthly gross − non-taxable\n\n4 insurances (employee):\n  National pension 4.75% (income cap KRW 6.37M)\n  Health 3.595%\n  Long-term care = health × 13.14%\n  Employment 0.9%\n\nIncome tax: earned-income deduction → personal/pension deductions → progressive rate\n  − wage earner credit − child credit → /12\nLocal income tax = income tax × 10%\n\nTake-home = gross − insurances − income tax − local tax"
+        "body": "Monthly gross = annual / 12\nTaxable = monthly gross − non-taxable\n\n4 insurances (employee):\n  National pension 4.75% (income cap KRW 6.59M, from Jul 2026)\n  Health 3.595%\n  Long-term care = health × 13.14%\n  Employment 0.9%\n\nIncome tax: earned-income deduction → personal/pension deductions → progressive rate\n  − wage earner credit − child credit → /12\nLocal income tax = income tax × 10%\n\nTake-home = gross − insurances − income tax − local tax"
       },
       "examples": {
         "title": "Real examples",
@@ -6822,7 +6822,7 @@
         },
         {
           "question": "Is there a pension cap?",
-          "answer": "Yes. The income base cap (KRW 6.37M as of Jul 2025) fixes pension at ~303K/month for earners above it (at the 2026 rate of 9.5%). Health insurance has a much higher cap."
+          "answer": "Yes. The income base cap (KRW 6.59M from Jul 2026) fixes the employee's pension at ~313K/month (6.59M × 4.75%) for earners above it (at the 2026 rate of 9.5%). Health insurance has a much higher cap."
         }
       ],
       "cautions": [

@@ -28,7 +28,7 @@ describe("calcPensionRefund", () => {
     expect(r.total).toBe(6_648_480);
   });
 
-  it("기준소득월액 상한(6,370,000) 초과 시 캡 적용", () => {
+  it("기준소득월액 상한(6,590,000 — 2026.7~) 초과 시 캡 적용", () => {
     const r = calcPensionRefund(
       build({
         monthlySalary: 10_000_000,
@@ -37,19 +37,19 @@ describe("calcPensionRefund", () => {
         depositRatePercent: 0,
       }),
     );
-    expect(r.effectiveBase).toBe(6_370_000);
+    expect(r.effectiveBase).toBe(6_590_000);
     expect(r.capped).toBe(true);
-    // 원금 = 6,370,000 × 0.09 × 12 = 6,879,600
-    expect(r.principal).toBe(6_879_600);
+    // 원금 = 6,590,000 × 0.09 × 12 = 7,117,200
+    expect(r.principal).toBe(7_117_200);
     expect(r.interest).toBe(0);
-    expect(r.total).toBe(6_879_600);
+    expect(r.total).toBe(7_117_200);
   });
 
-  it("하한(390,000) 미만 급여는 하한으로 보정", () => {
+  it("하한(410,000 — 2026.7~) 미만 급여는 하한으로 보정", () => {
     const r = calcPensionRefund(
       build({ monthlySalary: 100_000, months: 12, contributionRatePercent: 9, depositRatePercent: 0 }),
     );
-    expect(r.effectiveBase).toBe(390_000);
+    expect(r.effectiveBase).toBe(410_000);
     expect(r.capped).toBe(false);
   });
 

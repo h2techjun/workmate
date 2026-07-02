@@ -50,8 +50,8 @@ export function WeeklyRestPayForm(): React.ReactElement {
   } = useForm<FormValues>({
     defaultValues: {
       wageMode: "hourly",
-      hourlyWage: 10_030,
-      monthlySalary: 2_096_270,
+      hourlyWage: 10_320,
+      monthlySalary: 2_156_880,
       weeklyHours: 40,
     },
   });

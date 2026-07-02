@@ -30,9 +30,10 @@ export default createMiddleware({
  *     특수 메타데이터 라우트. 확장자가 없어서 위 정규식으로는 못 잡힘.
  *   - /ads.txt, /indexnow-key: AdSense·IndexNow 검증용 루트 텍스트 응답.
  *     locale prefix 가 붙으면 검색엔진/AdSense 가 못 찾음.
+ *   - /llms.txt, /llms-full.txt: AI 답변 엔진(GEO)용 루트 텍스트. 동일 이유로 제외.
  */
 export const config = {
   matcher: [
-    "/((?!api|_next|_vercel|play|app|lab|icon|apple-icon|opengraph-image|twitter-image|favicon|ads\\.txt|indexnow-key|.*\\..*).*)",
+    "/((?!api|_next|_vercel|play|app|lab|icon|apple-icon|opengraph-image|twitter-image|favicon|ads\\.txt|indexnow-key|llms\\.txt|llms-full\\.txt|.*\\..*).*)",
   ],
 };

@@ -47,10 +47,10 @@ export function MinWageMonthlyForm(): React.ReactElement {
     formState: { isSubmitting },
   } = useForm<FormValues>({
     defaultValues: {
-      hourlyWage: 10_030,
+      hourlyWage: 10_320,
       weeklyHours: 40,
       includeWeeklyRest: true,
-      year: "2025",
+      year: "2026",
     },
   });
 
@@ -118,8 +118,8 @@ export function MinWageMonthlyForm(): React.ReactElement {
         <FieldGroup title={t("sections.wage")}>
           <Field label={t("fields.year")} hint={t("hints.year")}>
             <select className="input-base" {...register("year")}>
+              <option value="2026">2026 (10,320원)</option>
               <option value="2025">2025 (10,030원)</option>
-              <option value="2026">2026 ({t("hints.tbd")})</option>
             </select>
           </Field>
           <Controller

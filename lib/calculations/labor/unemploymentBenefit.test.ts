@@ -11,8 +11,8 @@ const parse = (o: Record<string, unknown>) =>
 
 describe("실업급여(구직급여) 계산", () => {
   // ── 상한 클램프 ──────────────────────────────────────────────────────────
-  it("1일 평균임금이 매우 높으면 상한(66,000원) 적용", () => {
-    // 일 200,000원 × 60% = 120,000 > 66,000 → 상한 적용
+  it("1일 평균임금이 매우 높으면 상한(68,100원 — 2026 이직) 적용", () => {
+    // 일 200,000원 × 60% = 120,000 > 68,100 → 상한 적용
     const r = calculateUnemploymentBenefit(
       parse({ inputMode: "daily", dailyAverageWage: 200_000, insuranceYears: 5 }),
     );
@@ -22,8 +22,8 @@ describe("실업급여(구직급여) 계산", () => {
   });
 
   // ── 하한 클램프 ──────────────────────────────────────────────────────────
-  it("1일 평균임금이 낮으면 하한(64,192원) 적용", () => {
-    // 일 10,000원 × 60% = 6,000 < 64,192 → 하한 적용
+  it("1일 평균임금이 낮으면 하한(66,048원 — 2026 최저임금 기반) 적용", () => {
+    // 일 10,000원 × 60% = 6,000 < 66,048 → 하한 적용
     const r = calculateUnemploymentBenefit(
       parse({ inputMode: "daily", dailyAverageWage: 10_000, insuranceYears: 2 }),
     );
@@ -34,12 +34,11 @@ describe("실업급여(구직급여) 계산", () => {
 
   // ── 정상 범위 (상한·하한 미적용) ─────────────────────────────────────────
   it("1일 평균임금이 적정 범위면 그대로 적용", () => {
-    // 일 106,000원 × 60% = 63,600 < 하한(64,192) → 실은 하한 적용
-    // 일 108,000원 × 60% = 64,800 → 하한(64,192)보다 크고 상한(66,000)보다 작음 → 그대로
+    // 일 112,000원 × 60% = 67,200 → 하한(66,048)보다 크고 상한(68,100)보다 작음 → 그대로
     const r = calculateUnemploymentBenefit(
-      parse({ inputMode: "daily", dailyAverageWage: 108_000, insuranceYears: 3 }),
+      parse({ inputMode: "daily", dailyAverageWage: 112_000, insuranceYears: 3 }),
     );
-    expect(r.dailyWageClamped).toBe(Math.round(108_000 * 0.6));
+    expect(r.dailyWageClamped).toBe(Math.round(112_000 * 0.6));
     expect(r.isCapApplied).toBe(false);
     expect(r.isFloorApplied).toBe(false);
   });
@@ -103,14 +102,14 @@ describe("실업급여(구직급여) 계산", () => {
     expect(r.dailyWageClamped).toBe(DAILY_BENEFIT_FLOOR);
   });
 
-  // ── 상한 경계값: 정확히 66,000원 ─────────────────────────────────────────
+  // ── 상한 경계값: 정확히 68,100원 ─────────────────────────────────────────
   it("1일 구직급여raw가 상한과 동일하면 isCapApplied = false", () => {
-    // 66,000 / 0.6 = 110,000 → raw = 66,000 = cap → isCapApplied false
+    // 68,100 / 0.6 = 113,500 → raw = 68,100 = cap → isCapApplied false
     const r = calculateUnemploymentBenefit(
-      parse({ dailyAverageWage: 110_000, insuranceYears: 1 }),
+      parse({ dailyAverageWage: 113_500, insuranceYears: 1 }),
     );
-    expect(r.dailyWageRaw).toBe(66_000);
+    expect(r.dailyWageRaw).toBe(68_100);
     expect(r.isCapApplied).toBe(false);
-    expect(r.dailyWageClamped).toBe(66_000);
+    expect(r.dailyWageClamped).toBe(68_100);
   });
 });

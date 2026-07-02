@@ -49,12 +49,12 @@ describe("calculateInsurance - 합계 검증", () => {
 });
 
 describe("calculateInsurance - 국민연금 상한", () => {
-  it("월 700만원 → 기준소득월액 상한 637만원 적용", () => {
+  it("월 700만원 → 기준소득월액 상한 659만원 적용 (2026.7~)", () => {
     const r = calculateInsurance({ monthlySalary: 7_000_000 });
-    expect(r.pensionBase).toBe(6_370_000);
+    expect(r.pensionBase).toBe(6_590_000);
     const pension = r.lines.find((l) => l.key === "nationalPension");
-    // 6,370,000 × 4.75% = 302,575 → 10원 절사 302,570
-    expect(pension?.employee).toBe(302_570);
+    // 6,590,000 × 4.75% = 313,025 → 10원 절사 313,020
+    expect(pension?.employee).toBe(313_020);
     expect(r.warnings.some((w) => w.key === "pensionCapped")).toBe(true);
   });
 });

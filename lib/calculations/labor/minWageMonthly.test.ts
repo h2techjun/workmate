@@ -10,6 +10,13 @@ describe("calculateMinWageMonthly - 표준 케이스", () => {
     expect(r.monthlySalary).toBe(2_096_270);
   });
 
+  it("2026 최저시급 10,320원 (고시 제2025-47호) → 월 2,156,880원", () => {
+    const r = calculateMinWageMonthly({ year: "2026" });
+    // 10,320 × 209 = 2,156,880 (고용노동부 고시 월 환산액과 일치)
+    expect(r.hourlyWage).toBe(10_320);
+    expect(r.monthlySalary).toBe(2_156_880);
+  });
+
   it("연봉 = 월급 × 12", () => {
     const r = calculateMinWageMonthly({ year: "2025" });
     expect(r.annualSalary).toBe(2_096_270 * 12);

@@ -145,6 +145,8 @@ if (existsSync(messagesDir)) {
     "tools", "games", "tests", "learn", "blog", "guide", "projects",
     // 서브 허브 인덱스 (하위 도구 목록 페이지)
     "electric-calc", "timber-calc", "labor-calc",
+    // 데이터 레지스트리 — 자체 본문(표+방법론) 보유, 계산기 아님
+    "data",
   ]);
   const thin = [];
   const walkPages = (dir, rel = "") => {
@@ -220,6 +222,38 @@ if (existsSync(messagesDir)) {
       : "미구현 약속 UI 없음",
     "warn",
   );
+}
+
+// J. 데이터 신선도 — lib/dataRegistry.ts 의 lastVerified 만료 검사
+// 변동 수치(최저임금·요율·상하한)가 FRESHNESS_LIMIT_DAYS 를 넘기면 경고.
+// 실증: 2026-07-03 레지스트리 구축 시 stale 3건(최저임금·연금 상하한·실업급여) 발견.
+{
+  const regPath = join(ROOT, "lib", "dataRegistry.ts");
+  if (existsSync(regPath)) {
+    const src = readFileSync(regPath, "utf-8");
+    const limitM = src.match(/FRESHNESS_LIMIT_DAYS\s*=\s*(\d+)/);
+    const limitDays = limitM ? Number(limitM[1]) : 180;
+    const stale = [];
+    const entryRe = /key:\s*["']([\w-]+)["'][\s\S]*?lastVerified:\s*["'](\d{4}-\d{2}-\d{2})["']/g;
+    let count = 0;
+    for (const m of src.matchAll(entryRe)) {
+      count++;
+      const [, key, dateStr] = m;
+      const ageDays = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86_400_000);
+      if (ageDays > limitDays) stale.push(`${key} (${dateStr}, ${ageDays}일)`);
+    }
+    report.add(
+      "J.데이터신선도",
+      `레지스트리 lastVerified ≤ ${limitDays}일 (${count}개 항목)`,
+      stale.length === 0,
+      stale.length
+        ? `만료 ${stale.length}건 — 공식 출처 재확인 필요: ${stale.join(", ")}`
+        : `${count}개 전부 신선`,
+      "warn",
+    );
+  } else {
+    report.add("J.데이터신선도", "lib/dataRegistry.ts 존재", false, "레지스트리 파일 없음", "warn");
+  }
 }
 
 // 출력

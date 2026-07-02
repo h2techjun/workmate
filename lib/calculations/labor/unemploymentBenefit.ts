@@ -3,9 +3,11 @@
  *
  * 1일 구직급여액 = clamp(평균임금 × 60%, 하한액, 상한액)
  *
- * 상한액: 66,000원/일 (2019.1.1~, 2025 기준 — 정부 고시로 변동 가능)
+ * 상한액: 68,100원/일 (2026.1.1 이후 이직자 — 하한 역전 방지 위해 7년 만에 인상.
+ *         2019.1.1~2025 이직자는 66,000원)
  * 하한액: 최저시급 × 0.8 × 1일 소정근로시간
- *         = 10,030원 × 0.8 × 8h = 64,192원 (2025 최저임금 기준 — 매년 변동)
+ *         = 10,320원 × 0.8 × 8h = 66,048원 (2026 최저임금 기준 — 매년 변동)
+ * 2026-07-03 검증. 이직일 기준으로 적용 연도가 결정됨(UI 주의 문구 필수).
  *
  * 소정급여일수 표 (2019.10.1 개정):
  *   가입기간 1년 미만             → 50세미만: 120일 / 50세이상·장애인: 120일
@@ -22,12 +24,12 @@
 
 import { z } from "zod";
 
-// ─── 상수 (2025 기준) ──────────────────────────────────────────────────────
-/** 1일 구직급여 상한액 (원, 2019.1.1~, 2025 기준) */
-export const DAILY_BENEFIT_CAP = 66_000;
+// ─── 상수 (2026 이직자 기준) ────────────────────────────────────────────────
+/** 1일 구직급여 상한액 (원, 2026.1.1 이후 이직자. 2025 이직자는 66,000) */
+export const DAILY_BENEFIT_CAP = 68_100;
 
-/** 2025년 최저시급 (원/시간) */
-export const MIN_HOURLY_WAGE_2025 = 10_030;
+/** 2026년 최저시급 (원/시간, 고시 제2025-47호) */
+export const MIN_HOURLY_WAGE_2026 = 10_320;
 
 /** 하한 계산 계수 (최저임금의 80%) */
 export const FLOOR_RATE = 0.8;
@@ -35,10 +37,10 @@ export const FLOOR_RATE = 0.8;
 /** 기본 1일 소정근로시간 (시간) */
 export const DEFAULT_DAILY_WORK_HOURS = 8;
 
-/** 1일 구직급여 하한액 (원, 2025 최저임금 기준) */
+/** 1일 구직급여 하한액 (원, 2026 최저임금 기준) */
 export const DAILY_BENEFIT_FLOOR = Math.round(
-  MIN_HOURLY_WAGE_2025 * FLOOR_RATE * DEFAULT_DAILY_WORK_HOURS,
-); // = 64,192
+  MIN_HOURLY_WAGE_2026 * FLOOR_RATE * DEFAULT_DAILY_WORK_HOURS,
+); // = 66,048
 
 /** 구직급여 지급률 */
 export const BENEFIT_RATE = 0.6;
@@ -130,7 +132,7 @@ function getBenefitDays(insuranceYears: number, ageAbove50: boolean): number {
 
 /** 1일 하한액 계산 (소정근로시간 반영) */
 function computeFloor(dailyWorkHours: number): number {
-  return Math.round(MIN_HOURLY_WAGE_2025 * FLOOR_RATE * dailyWorkHours);
+  return Math.round(MIN_HOURLY_WAGE_2026 * FLOOR_RATE * dailyWorkHours);
 }
 
 // ─── 메인 계산 함수 ────────────────────────────────────────────────────────
