@@ -25,6 +25,17 @@ export const VI_READY_PATHS: readonly string[] = [
   "/foreign-health-insurance",
   "/pension-refund",
   "/foreign-flat-tax",
+  // 웨이브2 — labor·부동산·유틸·사업자 10종 완역 (page+form+ToolGuide vi)
+  "/unemployment-benefit",
+  "/rent-cap",
+  "/apartment-area",
+  "/brokerage-fee",
+  "/electric-bill",
+  "/btu-calc",
+  "/insurance-calc",
+  "/biznum-check",
+  "/labor-calc/annual-leave",
+  "/labor-calc/weekly-rest-pay",
 ];
 
 const SET = new Set(VI_READY_PATHS);

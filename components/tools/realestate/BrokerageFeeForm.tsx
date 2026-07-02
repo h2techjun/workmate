@@ -26,7 +26,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface BrokerageFeeFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -104,6 +104,44 @@ const TEXT = {
       "Monthly conversion: deposit + rent×100 (use ×70 if total < ₩50M)",
       "Source: Enforcement Rules of the Licensed Real Estate Agents Act [Annex 1], MOLIT (2021-10-19)",
       "Disclaimer: legal maximum only; actual fee is negotiable and may be lower. Local ordinances may subdivide brackets. Verify with a licensed agent.",
+    ],
+  },
+  vi: {
+    sectionType: "Giao dịch",
+    fieldType: "Loại giao dịch",
+    typeSale: "Mua bán",
+    typeJeonse: "Jeonse (đặt cọc trọn gói)",
+    typeMonthly: "Thuê trả tiền hàng tháng (wolse)",
+    fieldPrice: "Giá mua bán (₩)",
+    fieldJeonseDeposit: "Tiền đặt cọc jeonse (₩)",
+    fieldMonthlyDeposit: "Tiền đặt cọc wolse (₩)",
+    fieldMonthlyRent: "Tiền thuê hàng tháng (₩/tháng)",
+    sectionOptions: "Tùy chọn",
+    fieldVat: "Bao gồm thuế giá trị gia tăng VAT (10%)",
+    vatHint: "Thêm nếu văn phòng môi giới là đối tượng nộp VAT phổ thông (doanh thu năm ≥ 80 triệu ₩)",
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultHeading: "Kết quả phí môi giới",
+    resultEmpty: "Chọn loại giao dịch và nhập số tiền để tính toán.",
+    error: "Tính toán thất bại.",
+    feeLabel: "Phí môi giới tối đa theo luật",
+    won: "₩",
+    transactionAmount: "Số tiền giao dịch",
+    maxRate: "Tỷ lệ tối đa",
+    rateCap: "Mức trần",
+    vat: "Thuế giá trị gia tăng",
+    totalFee: "Tổng cộng (đã gồm VAT)",
+    monthlyMultiplier100: "Số tiền quy đổi wolse = tiền đặt cọc + tiền thuê × 100",
+    monthlyMultiplier70: "Số tiền quy đổi wolse = tiền đặt cọc + tiền thuê × 70 (vì số tiền quy đổi dưới 50 triệu ₩)",
+    cappedNotice: "Đã áp dụng mức trần. (Phí tính theo tỷ lệ vượt quá mức trần)",
+    negotiableNotice: "Số tiền trên là mức trần theo luật. Phí môi giới thực tế có thể thỏa thuận thấp hơn.",
+    sourceTitle: "Căn cứ pháp lý (có hiệu lực từ 19/10/2021)",
+    sourceLines: [
+      "Mua bán: <50 triệu₩ 0,6% trần 250 nghìn₩ / 50–200 triệu₩ 0,5% trần 800 nghìn₩ / 200–900 triệu₩ 0,4% / 900 triệu–1,2 tỷ₩ 0,5% / 1,2–1,5 tỷ₩ 0,6% / trên 1,5 tỷ₩ 0,7%",
+      "Thuê (jeonse/wolse): <50 triệu₩ 0,5% trần 200 nghìn₩ / 50–100 triệu₩ 0,4% trần 300 nghìn₩ / 100–600 triệu₩ 0,3% / 600 triệu–1,2 tỷ₩ 0,4% / 1,2–1,5 tỷ₩ 0,5% / trên 1,5 tỷ₩ 0,6%",
+      "Quy đổi wolse: tiền đặt cọc + tiền thuê×100 (dùng ×70 nếu tổng dưới 50 triệu₩)",
+      "Nguồn: Quy tắc thi hành Luật Môi giới bất động sản có chứng chỉ [Phụ lục 1], Bộ Đất đai, Hạ tầng và Giao thông (có hiệu lực từ 19/10/2021)",
+      "Miễn trừ trách nhiệm: chỉ là mức trần theo luật; phí thực tế có thể thỏa thuận thấp hơn. Quy định địa phương có thể chia nhỏ các bậc giá. Nên xác nhận với môi giới có chứng chỉ.",
     ],
   },
 } as const;
@@ -315,17 +353,23 @@ export function BrokerageFeeForm({
         heading={T.resultHeading}
         locale={locale}
         relatedLinks={
-          locale !== "ko"
+          locale === "ko"
             ? [
-                { label: "Jeonse ↔ Wolse Converter", href: "/jeonse-wolse" },
-                { label: "Apartment Area & Price", href: "/apartment-area" },
-                { label: "Capital Gains Tax", href: "/capital-gains-tax" },
-              ]
-            : [
                 { label: "전·월세 환산기", href: "/jeonse-wolse" },
                 { label: "아파트 평형 변환", href: "/apartment-area" },
                 { label: "양도소득세 계산기", href: "/capital-gains-tax" },
               ]
+            : locale === "vi"
+              ? [
+                  { label: "Quy đổi Jeonse ↔ Wolse", href: "/jeonse-wolse" },
+                  { label: "Diện tích & giá căn hộ", href: "/apartment-area" },
+                  { label: "Thuế thu nhập từ chuyển nhượng", href: "/capital-gains-tax" },
+                ]
+              : [
+                  { label: "Jeonse ↔ Wolse Converter", href: "/jeonse-wolse" },
+                  { label: "Apartment Area & Price", href: "/apartment-area" },
+                  { label: "Capital Gains Tax", href: "/capital-gains-tax" },
+                ]
         }
       >
         {calcError && <ErrorBox message={calcError} />}

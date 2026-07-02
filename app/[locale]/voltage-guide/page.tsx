@@ -16,20 +16,33 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isVi = locale === "vi";
   const title = isKo
     ? "한국 전압·플러그 가이드 — 변압기·돼지코 필요?"
-    : "Korea Voltage & Plug Guide — do you need a converter?";
+    : isVi
+      ? "Hướng dẫn điện áp·phích cắm Hàn Quốc — có cần biến áp·đầu chuyển không?"
+      : "Korea Voltage & Plug Guide — do you need a converter?";
   const description = isKo
     ? "한국 220V·60Hz·C/F 플러그. 기기 전압과 출신국 플러그로 변압기·어댑터(돼지코) 필요 여부를 즉시 판정. 여행·이주 전 필수 점검."
-    : "Korea uses 220V/60Hz, plug type C/F. Check whether your device needs a transformer or plug adapter from its voltage and your plug type.";
+    : isVi
+      ? "Hàn Quốc dùng điện áp 220V·60Hz, phích cắm loại C/F. Nhập điện áp thiết bị và phích cắm nước bạn để xác định ngay có cần biến áp·đầu chuyển phích cắm (phích cắm tròn) hay không. Kiểm tra bắt buộc trước khi du lịch·định cư."
+      : "Korea uses 220V/60Hz, plug type C/F. Check whether your device needs a transformer or plug adapter from its voltage and your plug type.";
   const keywords = isKo
     ? ["한국 전압", "한국 플러그", "돼지코", "변압기 필요", "220V 110V"]
-    : [
-        "korea voltage converter",
-        "korea plug type",
-        "do i need adapter korea",
-        "korea 220v",
-      ];
+    : isVi
+      ? [
+          "điện áp Hàn Quốc",
+          "phích cắm Hàn Quốc",
+          "đầu chuyển phích cắm",
+          "cần biến áp không",
+          "220V 110V",
+        ]
+      : [
+          "korea voltage converter",
+          "korea plug type",
+          "do i need adapter korea",
+          "korea 220v",
+        ];
   return {
     title,
     description,
@@ -43,7 +56,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/voltage-guide`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -56,8 +69,7 @@ export default async function VoltageGuidePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
-  const localeKey = isKo ? "ko" : "en";
+  const lang: "ko" | "en" | "vi" = locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
@@ -67,21 +79,27 @@ export default async function VoltageGuidePage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : "All tools"}
+            {lang === "ko" ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "한국 전압·플러그 가이드" : "Korea Voltage & Plug Guide"}
+            {lang === "ko"
+              ? "한국 전압·플러그 가이드"
+              : lang === "vi"
+                ? "Hướng dẫn điện áp·phích cắm Hàn Quốc"
+                : "Korea Voltage & Plug Guide"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
-            {isKo
+            {lang === "ko"
               ? "기기 전압과 플러그만 고르면 한국(220V·C/F)에서 변압기·돼지코가 필요한지 즉시 알려줍니다."
-              : "Pick your device voltage and plug to instantly see if you need a transformer or adapter in Korea (220V, C/F)."}
+              : lang === "vi"
+                ? "Chỉ cần chọn điện áp thiết bị và phích cắm, công cụ sẽ cho biết ngay bạn có cần biến áp·đầu chuyển phích cắm khi ở Hàn Quốc (220V·C/F) hay không."
+                : "Pick your device voltage and plug to instantly see if you need a transformer or adapter in Korea (220V, C/F)."}
           </p>
         </header>
-        <VoltageForm locale={localeKey} />
-        <ToolGuide toolKey="voltage-guide" locale={localeKey} />
+        <VoltageForm locale={lang} />
+        <ToolGuide toolKey="voltage-guide" locale={lang} />
       </div>
     </main>
   );

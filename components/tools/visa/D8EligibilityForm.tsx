@@ -25,7 +25,7 @@ import {
 import { cn } from "@/lib/utils/cn";
 
 interface D8EligibilityFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 /** 유형별로 노출할 요건 체크박스 필드 */
@@ -154,6 +154,59 @@ const TEXT = {
       "Reference checklist only. Verify at hikorea.go.kr / 1345 / KOTRA.",
     ],
   },
+  vi: {
+    sectionType: "Loại visa",
+    fieldType: "Đây là loại visa D-8 nào?",
+    types: {
+      none: "Vui lòng chọn / Không chắc chắn",
+      corporateInvestment: "D-8-1 Đầu tư doanh nghiệp — thành lập/đầu tư vào pháp nhân Hàn Quốc",
+      individualInvestment: "D-8-3 Đầu tư cá nhân — đầu tư vào pháp nhân do người Hàn Quốc điều hành",
+      techStartup: "D-8-4 Khởi nghiệp công nghệ — thành lập pháp nhân mới bằng công nghệ của bạn",
+    },
+    sectionReq: "Kiểm tra yêu cầu",
+    req: {
+      meetsInvestment: "Vốn đầu tư nước ngoài từ 100 triệu won (₩100M) trở lên",
+      meetsShares: "Cổ phần có quyền biểu quyết từ 10% trở lên (D-8-3 bao gồm cả hợp đồng điều hành)",
+      corpRegistered: "Đã hoàn tất thành lập pháp nhân + đăng ký kinh doanh + đăng ký doanh nghiệp đầu tư nước ngoài",
+      hasDegree: "Có bằng cao đẳng trong nước hoặc bằng cử nhân trở lên ở nước ngoài (đã hoàn tất)",
+      hasIP: "Đã đăng ký hoặc đang nộp đơn xin bằng sáng chế · giải pháp hữu ích · quyền kiểu dáng",
+      newCorp: "Thành lập pháp nhân mới (không phải mua lại pháp nhân đã có)",
+      oasisMandatory: "Đáp ứng ít nhất 1 hạng mục bắt buộc của OASIS (sở hữu trí tuệ · thu hút đầu tư · hỗ trợ của chính phủ, v.v.)",
+      goodConduct: "Không có tiền án · vi phạm xuất nhập cảnh dưới 4 lần · không nợ thuế",
+    },
+    calculate: "Kiểm tra điều kiện",
+    reset: "Đặt lại",
+    resultHeading: "Kiểm tra điều kiện cơ bản D-8",
+    resultEmpty: "Hãy chọn loại visa và yêu cầu, sau đó kiểm tra điều kiện.",
+    error: "Đã xảy ra lỗi trong quá trình kiểm tra.",
+    eligibleTitle: "Đáp ứng yêu cầu điều kiện xin visa cơ bản",
+    notEligibleTitle: "Chưa đáp ứng yêu cầu cơ bản",
+    metLabel: "đã đáp ứng",
+    blockerHeading: "Những mục cần đáp ứng trước",
+    blockers: {
+      type: "Hãy chọn loại visa D-8 trước",
+      investment: "Cần vốn đầu tư nước ngoài từ 100 triệu won trở lên",
+      shares: "Cần cổ phần có quyền biểu quyết từ 10% trở lên",
+      corp: "Cần hoàn tất thành lập pháp nhân + đăng ký kinh doanh (loại đầu tư cần đăng ký doanh nghiệp đầu tư nước ngoài)",
+      degree: "Cần bằng cao đẳng trong nước hoặc bằng cử nhân trở lên ở nước ngoài",
+      ip: "Cần đã đăng ký hoặc đang nộp đơn xin bằng sáng chế · giải pháp hữu ích · quyền kiểu dáng",
+      newCorp: "Cần thành lập pháp nhân mới (không thể mua lại pháp nhân đã có)",
+      oasis: "Cần đáp ứng tối thiểu 1 hạng mục bắt buộc của OASIS",
+      conduct: "Không được có tiền án · vi phạm xuất nhập cảnh · nợ thuế khiến bị loại",
+    },
+    nextHeading: "Bước tiếp theo",
+    nextNoteStartup:
+      "Ngay cả khi đáp ứng yêu cầu cơ bản, D-8-4 vẫn phải vượt qua chế độ tính điểm OASIS. Mức tối thiểu chính thức là 60 điểm (trên tổng 300), nhưng các nguồn khác nhau đưa ra mức 80–120 điểm, và bảng tính điểm theo từng hạng mục là hướng dẫn nội bộ của Bộ Tư pháp (không công bố) — công cụ này không khẳng định điểm số. Hãy xác minh điểm số và điều kiện chính xác tại hikorea.go.kr hoặc Trung tâm Nhập cư Khởi nghiệp Toàn cầu (OASIS).",
+    nextNoteInvest:
+      "Ngay cả khi đã đáp ứng yêu cầu về vốn đầu tư, cổ phần và pháp nhân, cơ quan xuất nhập cảnh vẫn xem xét riêng tính thực chất của hoạt động kinh doanh (nguồn vốn, địa chỉ văn phòng thực tế, kế hoạch tuyển dụng). Nhà đầu tư với số vốn nhỏ sẽ bị xét duyệt kỹ hơn. Hãy xác minh điều kiện và hồ sơ chính xác tại hikorea.go.kr hoặc Trung tâm Hỗ trợ Đầu tư Nước ngoài KOTRA (02-3497-1741).",
+    sourceTitle: "Căn cứ · giới hạn",
+    sourceLines: [
+      "Vốn đầu tư 100 triệu won · cổ phần 10% theo Điều 2②, Nghị định thi hành Luật Xúc tiến Đầu tư Nước ngoài; trình độ học vấn, sở hữu trí tuệ, pháp nhân mới và hạng mục bắt buộc OASIS theo hướng dẫn nhập cư khởi nghiệp công nghệ của HiKorea.",
+      "Điểm số và bảng tính điểm OASIS không được công bố và có thể thay đổi bất cứ lúc nào — công cụ này không tính điểm.",
+      "Đáp ứng yêu cầu không đảm bảo được chấp thuận. Tính thực chất của hoạt động kinh doanh, nguồn vốn, v.v. tùy theo thẩm quyền của từng cán bộ xét duyệt.",
+      "Chỉ mang tính tham khảo. Hãy xác minh chính thức tại hikorea.go.kr / 1345 / KOTRA.",
+    ],
+  },
 } as const;
 
 export function D8EligibilityForm({
@@ -263,7 +316,7 @@ export function D8EligibilityForm({
         />
       </FormShell>
 
-      <ResultShell heading={T.resultHeading}>
+      <ResultShell heading={T.resultHeading} locale={locale}>
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={T.resultEmpty} />}
         {result && (

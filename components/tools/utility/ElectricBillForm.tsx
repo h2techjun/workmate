@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface ElectricBillFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -67,6 +67,33 @@ const T = {
     colRate: "Rate",
     colAmount: "Charge",
     note: "KEPCO residential 2024 rates. Climate 9 / fuel 5 KRW/kWh assumed. Special discounts not included.",
+  },
+  vi: {
+    usage: "Lượng điện tiêu thụ hàng tháng (kWh)",
+    voltage: "Loại cấp điện",
+    low: "Áp thấp (nhà riêng·biệt thự)",
+    high: "Áp cao (chung cư lớn)",
+    summer: "Áp dụng giảm nhẹ lũy tiến mùa hè (tháng 7–8)",
+    result: "Tiền điện dự kiến",
+    total: "Tổng tiền điện",
+    unit: "₩",
+    appliedTier: "Bậc lũy tiến áp dụng",
+    tierUnit: "",
+    base: "Phí cơ bản",
+    energy: "Phí điện năng",
+    climate: "Phí khí hậu-môi trường",
+    fuel: "Điều chỉnh nhiên liệu",
+    subtotal: "Tổng tiền điện (chưa gồm VAT)",
+    vat: "Thuế giá trị gia tăng (10%)",
+    fund: "Quỹ điện lực (3.7%)",
+    avg: "Đơn giá trung bình",
+    avgUnit: "₩/kWh",
+    tierTable: "Phí điện năng theo bậc",
+    colTier: "Bậc",
+    colKwh: "Lượng dùng",
+    colRate: "Đơn giá",
+    colAmount: "Tiền",
+    note: "Theo biểu giá điện sinh hoạt KEPCO 2024. Giả định phí khí hậu 9 ₩ / điều chỉnh nhiên liệu 5 ₩ mỗi kWh. Chưa bao gồm các khoản giảm trừ đặc biệt (bảo đảm lượng dùng thiết yếu, siêu tiêu thụ...).",
   },
 } as const;
 

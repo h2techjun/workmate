@@ -26,7 +26,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface ApartmentAreaFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -86,6 +86,35 @@ const TEXT = {
       "1 pyeong = 3.3058㎡. 84㎡ ≈ 25.4 pyeong (supply); exclusive 59㎡ ≈ 17.8 pyeong — Korea's 'national size'.",
       "Price per pyeong is usually quoted on supply area, but exclusive-based is more accurate for real value.",
       "Reference only — verify the actual areas on the deed and contract.",
+    ],
+  },
+  vi: {
+    section: "Diện tích · Giá",
+    fieldSupply: "Diện tích cung cấp (㎡)",
+    fieldSupplyHint: "Diện tích được ghi trong tin rao bán/cho thuê (ví dụ: 84㎡)",
+    fieldExclusive: "Diện tích riêng (㎡)",
+    fieldExclusiveHint: "Không gian sống thực tế — phòng, phòng khách, bếp, nhà vệ sinh",
+    fieldPrice: "Giá mua bán·jeonse (KRW, tùy chọn)",
+    fieldPriceHint: "Nhập để tính thêm giá theo pyeong",
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultHeading: "Phân tích diện tích · giá theo pyeong",
+    resultEmpty: "Nhập diện tích cung cấp và diện tích riêng rồi tính toán.",
+    error: "Đã xảy ra lỗi trong quá trình tính toán.",
+    exclusiveHero: "Không gian sống thực tế (diện tích riêng)",
+    pyeong: "pyeong",
+    won: "₩",
+    supplyPyeong: "Diện tích cung cấp",
+    exclusiveRate: "Tỷ lệ diện tích riêng",
+    perPyeongSupply: "Giá theo pyeong (diện tích cung cấp)",
+    perPyeongExclusive: "Giá theo pyeong (diện tích riêng)",
+    sourceTitle: "Căn cứ · Định nghĩa",
+    sourceLines: [
+      "Diện tích cung cấp = diện tích riêng + không gian chung dân dụng (cầu thang, hành lang). '84㎡' trong tin rao thường là diện tích cung cấp.",
+      "Diện tích riêng = không gian sống thực tế. Tỷ lệ diện tích riêng = diện tích riêng ÷ diện tích cung cấp (căn hộ 70–80%, officetel 50–60%).",
+      "1 pyeong = 3,3058㎡. 84㎡ ≈ 25,4 pyeong (diện tích cung cấp); diện tích riêng 59㎡ ≈ 17,8 pyeong = 'diện tích tiêu chuẩn quốc dân'.",
+      "Giá theo pyeong thường được tính theo diện tích cung cấp, nhưng giá trị thực tế chính xác hơn nếu tính theo diện tích riêng.",
+      "Chỉ mang tính tham khảo — hãy xác nhận diện tích thực tế trên giấy đăng ký bất động sản và hợp đồng.",
     ],
   },
 } as const;

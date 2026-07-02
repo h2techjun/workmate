@@ -5,7 +5,7 @@ import { calculateGiftMoney } from "@/lib/calculations/korean/giftMoney";
 import { formatNumber } from "@/lib/utils/format";
 
 interface GiftMoneyFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -50,6 +50,27 @@ const T = {
     attendingNote: "If you attend in person, custom is to give one tier higher to cover the meal (~50,000 KRW).",
     oddNote: "Koreans prefer odd amounts (30/50/70/100K). Even numbers imply 'division' and are avoided — 100K is the exception.",
     note: "No fixed rule; it varies by relationship, region, and prices. Reference based on common custom.",
+  },
+  vi: {
+    event: "Dịp lễ nghi",
+    wedding: "Đám cưới (tiền mừng cưới)",
+    funeral: "Đám tang (tiền phúng viếng)",
+    relation: "Mối quan hệ",
+    relations: {
+      acquaintance: "Người quen (thỉnh thoảng)",
+      colleague: "Đồng nghiệp (thường xuyên)",
+      friend: "Bạn bè",
+      closeFriend: "Bạn thân",
+      family: "Người thân",
+    },
+    attending: "Trực tiếp tham dự đám cưới (dùng bữa)",
+    result: "Số tiền khuyến nghị",
+    recommended: "Khuyến nghị",
+    range: "Mức thông thường",
+    manwon: "0.000 KRW",
+    attendingNote: "Nếu trực tiếp tham dự, tập quán là gửi cao hơn một mức để bù chi phí bữa ăn (thường khoảng 50.000 KRW).",
+    oddNote: "Người Hàn ưa chuộng số lẻ (30/50/70/100 nghìn KRW). Số chẵn mang ý nghĩa 'chia cắt' nên thường tránh, riêng 100 nghìn là ngoại lệ.",
+    note: "Không có quy tắc cố định — tùy theo mối quan hệ, vùng miền và mức giá cả mà thay đổi. Công cụ này chỉ mang tính tham khảo dựa trên tập quán phổ biến.",
   },
 } as const;
 

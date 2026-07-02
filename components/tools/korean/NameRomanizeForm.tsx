@@ -4,7 +4,7 @@ import { useState } from "react";
 import { romanizeKoreanName } from "@/lib/calculations/korean/romanize";
 
 interface NameRomanizeFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -31,6 +31,18 @@ const T = {
     given: "Given name",
     empty: "Enter a Korean name in Hangul.",
     note: "Based on the Revised Romanization of Korean (2000). Names are romanized syllable-by-syllable without sound changes. Surnames commonly use conventional spellings (Kim, Lee, Park) on passports.",
+  },
+  vi: {
+    label: "Nhập tên tiếng Hàn (Hangul)",
+    placeholder: "vd: 홍길동",
+    result: "Phiên âm La-tinh",
+    revised: "Cách viết chính thức (Viện Quốc ngữ Quốc gia)",
+    conventional: "Cách viết thông dụng (phổ biến trên hộ chiếu)",
+    hyphen: "Dạng có gạch nối",
+    surname: "Họ",
+    given: "Tên",
+    empty: "Vui lòng nhập tên tiếng Hàn.",
+    note: "Dựa trên Quy tắc La-tinh hóa tiếng Hàn sửa đổi (2000). Tên được phiên âm theo từng âm tiết mà không phản ánh biến âm. Họ thường dùng cách viết thông dụng (Kim, Lee, Park...) trên hộ chiếu.",
   },
 } as const;
 

@@ -5,7 +5,7 @@ import { calculateBtu } from "@/lib/calculations/utility/btu";
 import { NumberField } from "@/components/ui/NumberField";
 
 interface BtuFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -40,6 +40,22 @@ const T = {
     base: "Base load",
     adjusted: "Adjusted",
     note: "Based on area × 600 BTU/m² plus ceiling/sun/occupant/kitchen adjustments. Also converts to Korean AC 'pyeong type' (1 pyeong ≈ 1,440 BTU). ±20% by insulation and windows.",
+  },
+  vi: {
+    area: "Diện tích phòng (m²)",
+    ceiling: "Chiều cao trần (m)",
+    sun: "Mức độ ánh nắng",
+    suns: { low: "Yếu", normal: "Bình thường", high: "Mạnh" },
+    occupants: "Số người thường trú",
+    kitchen: "Nhà bếp (nhiệt nấu ăn +4.000 BTU)",
+    result: "Công suất làm lạnh khuyến nghị",
+    btu: "BTU khuyến nghị",
+    pyeong: "Loại điều hòa Hàn Quốc",
+    pyeongUnit: "pyeong",
+    kw: "Quy đổi công suất",
+    base: "Tải cơ bản",
+    adjusted: "Sau điều chỉnh",
+    note: "Tính theo diện tích × 600 BTU/m² cộng với điều chỉnh trần nhà·ánh nắng·số người·nhà bếp. Cũng quy đổi sang loại điều hòa Hàn Quốc theo 'pyeong' (1 pyeong ≈ 1.440 BTU). Có thể chênh lệch ±20% tùy cách nhiệt và kích thước cửa sổ.",
   },
 } as const;
 

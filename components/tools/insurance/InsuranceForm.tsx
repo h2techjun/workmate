@@ -37,7 +37,8 @@ const INSURANCE_DEFAULTS: InsuranceInputResolved = {
 
 export function InsuranceForm(): React.ReactElement {
   const t = useTranslations("insuranceTool");
-  const locale = useLocale() === "en" ? "en" : "ko";
+  const locale = useLocale();
+  const localeKey = locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<InsuranceResult | null>(() => {
     try {
@@ -106,7 +107,7 @@ export function InsuranceForm(): React.ReactElement {
                   thousands
                   decimals={0}
                   min={0}
-                  suffix={locale === "ko" ? "원" : "₩"}
+                  suffix={localeKey === "ko" ? "원" : "₩"}
                   aria-label={t("fields.monthlySalary")}
                 />
               </Field>
@@ -157,9 +158,9 @@ export function InsuranceForm(): React.ReactElement {
 
       <ResultShell
         heading={t("result.heading")}
-        locale={locale}
+        locale={localeKey}
         relatedLinks={
-          locale !== "ko"
+          localeKey !== "ko"
             ? [
                 { label: "Salary Take-Home", href: "/net-salary" },
                 { label: "Income Tax", href: "/income-tax" },

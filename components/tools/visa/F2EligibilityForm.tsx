@@ -24,7 +24,7 @@ import {
 import { cn } from "@/lib/utils/cn";
 
 interface F2EligibilityFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -108,6 +108,47 @@ const TEXT = {
       "Point sub-scores (age, education, income, etc.) are an internal, unpublished MOJ manual that changes without notice — this tool does NOT calculate or assert points.",
       "Reaching 80 points does not guarantee approval. Case-by-case officer discretion.",
       "Reference checklist only. Verify officially at hikorea.go.kr / 1345.",
+    ],
+  },
+  vi: {
+    sectionType: "Nhóm đối tượng xin visa",
+    fieldType: "Bạn thuộc nhóm nào?",
+    types: {
+      listedCompany: "Nhân viên công ty niêm yết (KOSPI/KOSDAQ)",
+      growthIndustry: "Người lao động trong ngành công nghiệp triển vọng (thu nhập ≥ 1,5 lần GNI)",
+      professional: "Chuyên gia (D-5–E-7) đã cư trú hợp pháp liên tục từ 3 năm trở lên",
+      studyTalent: "Người đã tốt nghiệp thạc sĩ trở lên tại Hàn Quốc",
+      potentialTalent: "Nhân tài tiềm năng ngành khoa học kỹ thuật có bằng thạc sĩ/tiến sĩ",
+      none: "Không thuộc nhóm nào ở trên / Không chắc chắn",
+    },
+    sectionReq: "Yêu cầu cốt lõi",
+    reqStayIncome: "Cư trú hợp pháp liên tục 3 năm hoặc thu nhập hàng năm từ 40 triệu won trở lên",
+    reqConduct: "Hạnh kiểm tốt · không có lý do bị loại (bị án tù giam trở lên, v.v.)",
+    reqHealth: "Đáp ứng yêu cầu y tế công cộng (khám sàng lọc lao, v.v.)",
+    calculate: "Kiểm tra điều kiện",
+    reset: "Đặt lại",
+    resultHeading: "Kiểm tra điều kiện cơ bản F-2-7",
+    resultEmpty: "Hãy chọn nhóm đối tượng và yêu cầu, sau đó kiểm tra điều kiện.",
+    error: "Đã xảy ra lỗi trong quá trình kiểm tra.",
+    eligibleTitle: "Đáp ứng yêu cầu điều kiện xin visa cơ bản",
+    notEligibleTitle: "Chưa đáp ứng yêu cầu cơ bản",
+    metLabel: "đã đáp ứng",
+    blockerHeading: "Những mục cần đáp ứng trước",
+    blockers: {
+      type: "Bạn phải thuộc một trong 5 nhóm đối tượng đủ điều kiện xin visa",
+      stayIncome: "Cần cư trú hợp pháp liên tục 3 năm hoặc thu nhập hàng năm từ 40 triệu won trở lên",
+      conduct: "Yêu cầu hạnh kiểm tốt · không có lý do bị loại",
+      health: "Yêu cầu y tế công cộng (khám sàng lọc lao, v.v.)",
+    },
+    nextHeading: "Bước tiếp theo",
+    nextNote:
+      "Ngay cả khi đáp ứng yêu cầu cơ bản, bạn vẫn phải đạt riêng 80 điểm trên tổng 170 điểm của chế độ tính điểm. Tham khảo các hạng mục tính điểm ở phần hướng dẫn bên dưới — tuy nhiên điểm chi tiết theo từng mục không được công bố chính thức, vì vậy hãy xác minh điểm số và điều kiện chính xác tại hikorea.go.kr hoặc Trung tâm Thông tin Xuất nhập cảnh 1345.",
+    sourceTitle: "Căn cứ · giới hạn",
+    sourceLines: [
+      "5 nhóm đối tượng xin visa, cư trú liên tục 3 năm (hoặc thu nhập hàng năm 40 triệu won), hạnh kiểm và y tế công cộng đều theo tiêu chuẩn Visa Navigator của Bộ Tư pháp.",
+      "Điểm chi tiết theo từng mục của chế độ tính điểm (tuổi, trình độ học vấn, thu nhập, v.v.) là hướng dẫn nội bộ của Bộ Tư pháp, không được công bố và có thể thay đổi bất cứ lúc nào — công cụ này không khẳng định điểm số.",
+      "Đạt 80 điểm không đảm bảo được chấp thuận. Quyết định tùy theo thẩm quyền của từng cán bộ xét duyệt.",
+      "Chỉ mang tính tham khảo. Hãy xác minh chính thức tại hikorea.go.kr / 1345.",
     ],
   },
 } as const;
@@ -207,7 +248,7 @@ export function F2EligibilityForm({
         />
       </FormShell>
 
-      <ResultShell heading={T.resultHeading}>
+      <ResultShell heading={T.resultHeading} locale={locale}>
         {calcError && <ErrorBox message={calcError} />}
         {!calcError && !result && <EmptyResult message={T.resultEmpty} />}
         {result && (

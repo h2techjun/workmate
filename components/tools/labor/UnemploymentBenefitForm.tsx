@@ -13,7 +13,7 @@ import { ShareButton } from "@/components/ui/ShareButton";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface UnemploymentBenefitFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -69,6 +69,31 @@ const T = {
     note: "Estimate based on Employment Insurance Act Art. 46·50. Actual eligibility, amount, and benefit days are determined by the local employment center. Separation reason, job-seeking activity requirements apply separately. Based on 2025 minimum wage and daily cap — subject to annual revision.",
     shareText: (total: number, days: number) =>
       `Estimated unemployment benefit: ${won(total)} KRW (${days} days)`,
+  },
+  vi: {
+    inputModeLabel: "Cách nhập mức lương bình quân",
+    modeDaily: "Nhập trực tiếp lương bình quân theo ngày",
+    modeMonthly: "Tính từ lương bình quân theo tháng",
+    dailyWageLabel: "Lương bình quân theo ngày (KRW)",
+    dailyWageHint: "Tổng lương 3 tháng trước khi nghỉ việc ÷ tổng số ngày trong giai đoạn đó",
+    monthlyWageLabel: "Lương bình quân theo tháng (KRW)",
+    monthlyWageHint: "Lương bình quân ngày = lương bình quân tháng ÷ 30",
+    insuranceYearsLabel: "Thời gian tham gia bảo hiểm việc làm (năm)",
+    insuranceYearsHint: "Ví dụ: 2 năm 6 tháng thì nhập 2.5",
+    ageAbove50Label: "Từ 50 tuổi trở lên hoặc người khuyết tật",
+    result: "Số tiền dự kiến nhận",
+    totalBenefit: "Tổng số tiền dự kiến nhận",
+    dailyBenefit: "Trợ cấp thất nghiệp theo ngày",
+    benefitDays: "Số ngày hưởng trợ cấp",
+    cap: "Áp dụng mức trần",
+    floor: "Áp dụng mức sàn",
+    unit: "KRW",
+    days: "ngày",
+    capNote: `Áp dụng mức trần (tối đa ${won(DAILY_BENEFIT_CAP)} KRW/ngày)`,
+    floorNote: `Áp dụng mức sàn (tối thiểu ${won(DAILY_BENEFIT_FLOOR)} KRW/ngày được đảm bảo)`,
+    note: "Đây là giá trị ước tính theo Điều 46, 50 Luật Bảo hiểm việc làm. Điều kiện hưởng, số tiền và số ngày hưởng thực tế do Trung tâm việc làm (Goyong Center) tại nơi cư trú quyết định cuối cùng. Cần đáp ứng riêng các điều kiện như lý do nghỉ việc, hoạt động tìm việc. Áp dụng mức lương tối thiểu và mức trần năm 2025, có thể thay đổi theo từng năm.",
+    shareText: (total: number, days: number) =>
+      `Trợ cấp thất nghiệp dự kiến: ${won(total)} KRW (${days} ngày)`,
   },
 } as const;
 

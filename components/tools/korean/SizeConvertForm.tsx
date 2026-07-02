@@ -7,7 +7,7 @@ import {
 } from "@/lib/calculations/korean/sizeConvert";
 
 interface SizeConvertFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -34,6 +34,18 @@ const T = {
     krCol: "Korea",
     intlNote: "Note",
     note: "Based on KS standards + international charts. ±1 size variation by brand/country — reference only. Shoes use mm (foot length); clothing uses chest cm.",
+  },
+  vi: {
+    category: "Phân loại",
+    cats: {
+      shoeMen: "Giày nam",
+      shoeWomen: "Giày nữ",
+      clothingMen: "Quần áo nam",
+      clothingWomen: "Quần áo nữ",
+    } as Record<SizeCategory, string>,
+    krCol: "Hàn Quốc",
+    intlNote: "Ghi chú",
+    note: "Dựa trên tiêu chuẩn KS + bảng đối chiếu quốc tế. Có thể lệch ±1 size tùy thương hiệu/quốc gia — chỉ mang tính tham khảo. Giày dùng mm (chiều dài bàn chân), quần áo dựa trên vòng ngực (cm).",
   },
 } as const;
 

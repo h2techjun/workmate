@@ -20,10 +20,12 @@ interface FlatTool {
   href: string;
   labelKo: string;
   labelEn: string;
+  labelVi: string;
   keywordsKo: string;
   groupId: ToolGroupId;
   groupTitleKo: string;
   groupTitleEn: string;
+  groupTitleVi: string;
   emoji: string;
 }
 
@@ -47,10 +49,12 @@ const ALL_TOOLS: ReadonlyArray<FlatTool> = TOOL_GROUPS.flatMap((group) =>
     href: tool.href,
     labelKo: tool.labelKo,
     labelEn: tool.labelEn,
+    labelVi: tool.labelVi,
     keywordsKo: tool.keywordsKo,
     groupId: group.id,
     groupTitleKo: group.i18n.ko.title,
     groupTitleEn: group.i18n.en.title,
+    groupTitleVi: group.i18n.vi.title,
     emoji: group.emoji,
   })),
 );
@@ -62,16 +66,16 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const { isFavorite, toggle, favorites, hydrated } = useFavorites();
-  const isEn = locale !== "ko";
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (q === "") return [];
     return ALL_TOOLS.filter((tool) => {
-      const labels = `${tool.labelKo} ${tool.labelEn}`.toLowerCase();
+      const labels =
+        `${tool.labelKo} ${tool.labelEn} ${tool.labelVi}`.toLowerCase();
       const keywords = tool.keywordsKo.toLowerCase();
       const group =
-        `${tool.groupTitleKo} ${tool.groupTitleEn}`.toLowerCase();
+        `${tool.groupTitleKo} ${tool.groupTitleEn} ${tool.groupTitleVi}`.toLowerCase();
       return (
         labels.includes(q) || keywords.includes(q) || group.includes(q)
       );
@@ -93,7 +97,12 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
 
   const Row = ({ tool }: { tool: FlatTool }): React.ReactElement => {
     const fav = isFavorite(tool.href);
-    const groupTitle = isEn ? tool.groupTitleEn : tool.groupTitleKo;
+    const groupTitle =
+      locale === "ko"
+        ? tool.groupTitleKo
+        : locale === "vi"
+          ? tool.groupTitleVi
+          : tool.groupTitleEn;
     return (
       <li role="option" aria-selected={false} className="flex items-center gap-2">
         <Link
@@ -108,7 +117,11 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
           </span>
           <div className="min-w-0 flex-1">
             <div className="truncate text-sm font-semibold text-[color:var(--color-text-primary)]">
-              {isEn ? tool.labelEn : tool.labelKo}
+              {locale === "ko"
+                ? tool.labelKo
+                : locale === "vi"
+                  ? tool.labelVi
+                  : tool.labelEn}
             </div>
           </div>
           <ArrowRight className="h-4 w-4 shrink-0 text-[color:var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5" />

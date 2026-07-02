@@ -4,7 +4,7 @@ import { useState } from "react";
 import { checkVoltage } from "@/lib/calculations/korean/voltage";
 
 interface VoltageFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -45,6 +45,25 @@ const T = {
     stepDown: "Step-down transformer (220V → device voltage)",
     koreaStd: "Korea standard",
     note: "Korea uses 220V/60Hz, plug type C/F. Laptop and phone chargers are usually dual-voltage — only a plug adapter is needed. Heat devices (hair dryers, flat irons) must match voltage. '돼지코' is a shape adapter.",
+  },
+  vi: {
+    preset: "Điện áp thiết bị (kiểm tra nhãn INPUT)",
+    presets: {
+      dual: "100~240V (đa điện áp)",
+      us: "Chỉ 120V (Mỹ)",
+      jp: "Chỉ 100V (Nhật Bản)",
+      kr: "220~240V (Hàn Quốc·châu Âu)",
+    },
+    plug: "Phích cắm nước bạn",
+    plugs: { A: "A (Mỹ·Nhật, 2 chân dẹt)", B: "B (Mỹ, 3 chân)", C: "C (châu Âu, 2 chân tròn)", F: "F (Đức, 2 chân tròn)", G: "G (Anh, 3 chân)", I: "I (Úc, hình chữ V)", other: "Khác" },
+    result: "Những gì bạn cần ở Hàn Quốc",
+    transformer: "Biến áp (bộ chuyển đổi điện áp)",
+    plugAdapter: "Đầu chuyển phích cắm (phích cắm tròn)",
+    needYes: "Cần",
+    needNo: "Không cần",
+    stepDown: "Biến áp hạ thế (220V → điện áp thiết bị)",
+    koreaStd: "Tiêu chuẩn Hàn Quốc",
+    note: "Hàn Quốc dùng điện áp 220V·60Hz, phích cắm loại C/F. Sạc laptop·điện thoại phần lớn là đa điện áp nên chỉ cần đầu chuyển phích cắm. Thiết bị tỏa nhiệt (máy sấy tóc, máy uốn tóc...) bắt buộc phải kiểm tra điện áp. 'Phích cắm tròn' là đầu chuyển hình dạng phích cắm.",
   },
 } as const;
 

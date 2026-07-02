@@ -25,7 +25,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface RentCapFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -105,6 +105,44 @@ const T = {
       "Conversion rate = BoK base rate + 2% (Act §9, variable).",
       "Cap does not apply to new contracts or owner-occupied renewals.",
       "Local ordinances may set lower cap (e.g., 4% in some cities).",
+    ],
+  },
+  vi: {
+    sectionCurrent: "Điều kiện thuê hiện tại",
+    sectionProposed: "Điều kiện chủ nhà đề xuất",
+    sectionParams: "Tỷ lệ chuyển đổi · Trần tăng",
+    fieldOldDeposit: "Tiền đặt cọc hiện tại (KRW)",
+    fieldOldMonthly: "Tiền thuê hàng tháng hiện tại (KRW)",
+    fieldNewDeposit: "Tiền đặt cọc mới đề xuất (KRW)",
+    fieldNewMonthly: "Tiền thuê hàng tháng mới đề xuất (KRW)",
+    fieldConversion: "Tỷ lệ chuyển đổi jeonse-wolse (%)",
+    fieldCap: "Trần tăng (%)",
+    conversionHint: "Điều 9 Nghị định thi hành Luật Bảo vệ Thuê nhà = lãi suất cơ bản + 2%. Khoảng 5,0% tính đến 05/2026.",
+    capHint: "Điều 8 Nghị định thi hành Luật Bảo vệ Thuê nhà = trần 5% (có thể thấp hơn theo quy định của địa phương).",
+    calculate: "Kiểm tra",
+    reset: "Đặt lại",
+    resultHeading: "Kết quả kiểm tra",
+    resultEmpty: "Nhập điều kiện hiện tại/mới đề xuất.",
+    error: "Lỗi tính toán",
+    heroLabelPass: "Trong giới hạn",
+    heroLabelFail: "Vượt giới hạn",
+    heroUnit: "",
+    rateLabel: "Tỷ lệ tăng đề xuất",
+    oldEquiv: "Tiền đặt cọc quy đổi hiện tại",
+    maxEquiv: "Tiền đặt cọc quy đổi tối đa (trần 5%)",
+    proposedEquiv: "Tiền đặt cọc quy đổi đề xuất",
+    overage: "Số tiền vượt",
+    remaining: "Số tiền còn dư",
+    recommendHeading: "Đề xuất: mức tăng tối đa trong giới hạn",
+    recDepositOnly: "Tiền đặt cọc tối đa nếu giữ nguyên tiền thuê",
+    recMonthlyOnly: "Tiền thuê tối đa nếu giữ nguyên tiền đặt cọc",
+    sourceTitle: "Căn cứ pháp lý · Giả định",
+    sourceLines: [
+      "Điều 8 Nghị định thi hành Luật Bảo vệ Thuê nhà: khi thực hiện quyền yêu cầu gia hạn hợp đồng, mức tăng tiền thuê tối đa = 5%.",
+      "Tiền đặt cọc quy đổi = tiền đặt cọc + (tiền thuê hàng tháng × 12 / tỷ lệ chuyển đổi). Là tổng số tiền quy đổi tiền thuê hàng tháng sang tiền đặt cọc.",
+      "Tỷ lệ chuyển đổi jeonse-wolse (Điều 9) = lãi suất cơ bản Ngân hàng Trung ương Hàn Quốc + 2%. Nhập trực tiếp nếu có thay đổi.",
+      "Quy tắc 5% không áp dụng cho hợp đồng mới hoặc khi có lý do từ chối gia hạn hợp lệ (ví dụ: chủ nhà chuyển vào ở).",
+      "Địa phương có thể quy định trần thấp hơn (ví dụ: 4% ở một số thành phố lớn) → cần kiểm tra quy định địa phương.",
     ],
   },
 } as const;

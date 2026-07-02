@@ -14,25 +14,34 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale === "ko";
   const t = await getTranslations({ locale, namespace: "bizNumberTool.meta" });
-  const keywords = isKo
-    ? [
-        "사업자등록번호 검증",
-        "사업자번호 진위확인",
-        "체크섬 검산",
-        "사업자번호 조회",
-        "1-3-7 가중치",
-        "가짜 사업자번호",
-      ]
-    : [
-        "korean business registration number checksum algorithm",
-        "validate korean business number",
-        "korean company number check",
-        "1-3-7 checksum korea",
-        "korean biznum validator",
-        "verify korean business registration",
-      ];
+  const keywords =
+    locale === "ko"
+      ? [
+          "사업자등록번호 검증",
+          "사업자번호 진위확인",
+          "체크섬 검산",
+          "사업자번호 조회",
+          "1-3-7 가중치",
+          "가짜 사업자번호",
+        ]
+      : locale === "vi"
+        ? [
+            "kiểm tra mã số đăng ký kinh doanh Hàn Quốc",
+            "xác minh mã số doanh nghiệp Hàn Quốc",
+            "thuật toán checksum 1-3-7",
+            "tra cứu mã số kinh doanh Hàn Quốc",
+            "trọng số 1-3-7 Hàn Quốc",
+            "mã số kinh doanh giả",
+          ]
+        : [
+            "korean business registration number checksum algorithm",
+            "validate korean business number",
+            "korean company number check",
+            "1-3-7 checksum korea",
+            "korean biznum validator",
+            "verify korean business registration",
+          ];
   return {
     title: t("title"),
     description: t("description"),
@@ -42,13 +51,14 @@ export async function generateMetadata({
       languages: {
         ko: "/ko/biznum-check",
         en: "/en/biznum-check",
+        vi: "/vi/biznum-check",
       },
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -82,7 +92,10 @@ export default async function BizNumberPage({
           </p>
         </header>
         <BizNumberForm />
-        <ToolGuide toolKey="biznum-check" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide
+          toolKey="biznum-check"
+          locale={locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en"}
+        />
       </div>
     </main>
   );

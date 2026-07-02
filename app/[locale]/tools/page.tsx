@@ -16,13 +16,18 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isVi = locale === "vi";
 
   const title = isKo
     ? `한국 실무자를 위한 무료 계산기 모음 — ${SITE_BRAND}`
-    : `Free Calculators for Korean Professionals — ${SITE_BRAND}`;
+    : isVi
+      ? `Bộ công cụ tính toán miễn phí cho người làm việc tại Hàn Quốc — ${SITE_BRAND}`
+      : `Free Calculators for Korean Professionals — ${SITE_BRAND}`;
   const description = isKo
     ? "연봉 실수령액·연차·주휴수당·퇴직금·부가세·해외주식 양도세·전기 KEC·목조 NDS·사업자번호 검증·JSON CSV 변환. 한국 표준 기반 무료 계산기 20여 가지를 카테고리별로."
-    : "Korean payroll, tax, electric KEC, timber NDS, business number validation, and JSON/CSV converter. 20+ free calculators grouped by category.";
+    : isVi
+      ? "Lương thực nhận, phép năm, phụ cấp nghỉ hàng tuần, trợ cấp thôi việc, thuế VAT, thuế chuyển nhượng cổ phiếu nước ngoài, điện KEC, nhà gỗ NDS, xác thực mã số kinh doanh, quy đổi JSON/CSV. Hơn 20 công cụ miễn phí theo tiêu chuẩn Hàn Quốc, phân theo danh mục."
+      : "Korean payroll, tax, electric KEC, timber NDS, business number validation, and JSON/CSV converter. 20+ free calculators grouped by category.";
   const keywords = isKo
     ? [
         "연봉 실수령액",
@@ -39,14 +44,23 @@ export async function generateMetadata({
         "사업자번호 검증",
         "JSON CSV 변환",
       ]
-    : [
-        "Korean payroll calculator",
-        "annual leave Korea",
-        "VAT calculator",
-        "Korean electric code KEC",
-        "timber NDS Korea",
-        "business number validation",
-      ];
+    : isVi
+      ? [
+          "lương thực nhận Hàn Quốc",
+          "phép năm Hàn Quốc",
+          "máy tính thuế VAT",
+          "tiêu chuẩn điện KEC Hàn Quốc",
+          "nhà gỗ NDS Hàn Quốc",
+          "xác thực mã số kinh doanh",
+        ]
+      : [
+          "Korean payroll calculator",
+          "annual leave Korea",
+          "VAT calculator",
+          "Korean electric code KEC",
+          "timber NDS Korea",
+          "business number validation",
+        ];
 
   return {
     title,
@@ -74,7 +88,8 @@ export default async function ToolsHubPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey = (isKo ? "ko" : "en") as Locale;
+  const isVi = locale === "vi";
+  const localeKey: Locale = isKo ? "ko" : isVi ? "vi" : "en";
 
   const groups = TOOL_GROUP_ORDER.map(
     (id) => TOOL_GROUPS.find((g) => g.id === id),
@@ -85,15 +100,25 @@ export default async function ToolsHubPage({
       <div className="mx-auto max-w-6xl">
       <header className="mb-10 max-w-3xl animate-fade-up">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
-          {isKo ? "무료 계산기 모음" : "Free Calculator Library"}
+          {isKo
+            ? "무료 계산기 모음"
+            : isVi
+              ? "Bộ công cụ tính toán miễn phí"
+              : "Free Calculator Library"}
         </p>
         <h1 className="text-4xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-5xl">
-          {isKo ? "한국 실무자를 위한 계산기" : "Calculators for Korean Professionals"}
+          {isKo
+            ? "한국 실무자를 위한 계산기"
+            : isVi
+              ? "Công cụ tính toán cho người làm việc tại Hàn Quốc"
+              : "Calculators for Korean Professionals"}
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-[color:var(--color-text-secondary)]">
           {isKo
             ? "연봉 실수령액부터 전기 KEC, 목조 NDS, 부가세까지 — 한국 표준에 정확히 맞춘 20여 가지 계산기. 회원가입·결제·앱 설치 없이 즉시 사용."
-            : "From payroll take-home to Korean electric code, timber NDS, and VAT — 20+ calculators aligned to Korean standards. No signup, no payment, no app install."}
+            : isVi
+              ? "Từ lương thực nhận đến tiêu chuẩn điện KEC, nhà gỗ NDS, thuế VAT — hơn 20 công cụ tính toán bám sát tiêu chuẩn Hàn Quốc. Dùng ngay, không cần đăng ký, thanh toán hay cài đặt ứng dụng."
+              : "From payroll take-home to Korean electric code, timber NDS, and VAT — 20+ calculators aligned to Korean standards. No signup, no payment, no app install."}
         </p>
       </header>
 
@@ -136,7 +161,11 @@ export default async function ToolsHubPage({
                       className="flex items-center justify-between gap-3 rounded-md px-2 py-1.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-elevated)] hover:text-[color:var(--color-text-primary)]"
                     >
                       <span className="truncate">
-                        {localeKey === "ko" ? tool.labelKo : tool.labelEn}
+                        {localeKey === "ko"
+                          ? tool.labelKo
+                          : localeKey === "vi"
+                            ? tool.labelVi
+                            : tool.labelEn}
                       </span>
                       <ArrowUpRight size={14} className="flex-shrink-0 opacity-60" />
                     </Link>
@@ -149,7 +178,11 @@ export default async function ToolsHubPage({
                 className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--color-text-primary)] transition-colors hover:text-indigo-400"
               >
                 <span>
-                  {isKo ? "카테고리 열기" : "Open category"}
+                  {isKo
+                    ? "카테고리 열기"
+                    : isVi
+                      ? "Mở danh mục"
+                      : "Open category"}
                 </span>
                 <ArrowUpRight
                   size={14}
@@ -164,18 +197,28 @@ export default async function ToolsHubPage({
       <section className="mx-auto mt-14 max-w-3xl space-y-8 border-t border-[color:var(--color-border-subtle)] pt-10">
         <div>
           <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
-            {isKo ? "이 모음에 대하여" : "About this collection"}
+            {isKo
+              ? "이 모음에 대하여"
+              : isVi
+                ? "Về bộ công cụ này"
+                : "About this collection"}
           </h2>
           <p className="text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "Workmate의 계산기는 한국 표준(KS·KEC·NDS)과 현행 법령·요율에 정확히 맞춰져 있습니다. 단순히 답만 보여주지 않고 공식·근거·출처를 함께 제시해, 견적서·결재 자료에 그대로 첨부하거나 직접 검증할 수 있습니다. 모든 입력값은 브라우저에서만 처리되어 서버로 전송되지 않습니다."
-              : "Every Workmate calculator is aligned to Korean standards (KS, KEC, NDS) and current laws and rates. Each one shows the formula, basis, and sources — not just an answer — so you can attach it to a quote or filing, or verify it yourself. All inputs are processed in your browser and never sent to a server."}
+              : isVi
+                ? "Các công cụ tính toán của Workmate bám sát tiêu chuẩn Hàn Quốc (KS, KEC, NDS) cùng luật và biểu thuế hiện hành. Mỗi công cụ hiển thị công thức, căn cứ pháp lý và nguồn tham chiếu — không chỉ đưa ra kết quả — để bạn có thể đính kèm vào báo giá, hồ sơ phê duyệt hoặc tự kiểm chứng. Mọi dữ liệu nhập vào chỉ được xử lý trên trình duyệt, không gửi lên máy chủ."
+                : "Every Workmate calculator is aligned to Korean standards (KS, KEC, NDS) and current laws and rates. Each one shows the formula, basis, and sources — not just an answer — so you can attach it to a quote or filing, or verify it yourself. All inputs are processed in your browser and never sent to a server."}
           </p>
         </div>
 
         <div>
           <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
-            {isKo ? "어떤 카테고리가 있나요" : "What's inside"}
+            {isKo
+              ? "어떤 카테고리가 있나요"
+              : isVi
+                ? "Có những danh mục nào"
+                : "What's inside"}
           </h2>
           <ul className="grid gap-2.5 text-sm text-[color:var(--color-text-secondary)] sm:grid-cols-2 md:text-base">
             {(isKo
@@ -187,14 +230,23 @@ export default async function ToolsHubPage({
                   "목조·자재 — 경간·콘크리트·합판·OSB·계단·물량",
                   "한국 생활·외국인 — 비자·국민연금 반환·건강보험·한국식 나이",
                 ]
-              : [
-                  "Payroll & labor — take-home pay, annual leave, severance, min wage",
-                  "Tax & finance — income tax, VAT, compound interest, loans",
-                  "Real estate — jeonse/wolse, 5% rent cap, exclusive/supply area",
-                  "Electric — wire size, breaker, voltage drop (Korean KEC)",
-                  "Timber & materials — span, concrete, plywood, stairs, quantity",
-                  "Korea living & foreigners — visas, pension refund, health insurance",
-                ]
+              : isVi
+                ? [
+                    "Lương · Lao động — lương thực nhận, phép năm, phụ cấp nghỉ hàng tuần, trợ cấp thôi việc, lương tối thiểu",
+                    "Thuế · Tài chính — thuế thu nhập tổng hợp, thuế VAT, lãi suất kép, vay vốn, freelancer 3.3%",
+                    "Bất động sản — quy đổi jeonse/wolse, giới hạn tăng tiền thuê 5%, diện tích sử dụng/cung cấp",
+                    "Điện — tiết diện dây dẫn, cầu dao, sụt áp (theo tiêu chuẩn KEC)",
+                    "Gỗ · Vật liệu — nhịp kết cấu, bê tông, ván ép, OSB, cầu thang, số lượng vật liệu",
+                    "Sống ở Hàn · Người nước ngoài — visa, hoàn trả lương hưu quốc dân, bảo hiểm y tế, tuổi Hàn Quốc",
+                  ]
+                : [
+                    "Payroll & labor — take-home pay, annual leave, severance, min wage",
+                    "Tax & finance — income tax, VAT, compound interest, loans",
+                    "Real estate — jeonse/wolse, 5% rent cap, exclusive/supply area",
+                    "Electric — wire size, breaker, voltage drop (Korean KEC)",
+                    "Timber & materials — span, concrete, plywood, stairs, quantity",
+                    "Korea living & foreigners — visas, pension refund, health insurance",
+                  ]
             ).map((item, i) => (
               <li key={i} className="flex gap-2.5">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
@@ -206,7 +258,11 @@ export default async function ToolsHubPage({
 
         <div>
           <h2 className="mb-3 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
-            {isKo ? "한국에 사는 외국인이라면" : "Living in Korea as a foreigner?"}
+            {isKo
+              ? "한국에 사는 외국인이라면"
+              : isVi
+                ? "Nếu bạn là người nước ngoài sống tại Hàn Quốc"
+                : "Living in Korea as a foreigner?"}
           </h2>
           <p className="text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo ? (
@@ -220,6 +276,19 @@ export default async function ToolsHubPage({
                   완전 가이드
                 </Link>
                 도 함께 보세요.
+              </>
+            ) : isVi ? (
+              <>
+                Các công cụ visa (F-2-7, D-8), hoàn trả lương hưu quốc dân, bảo
+                hiểm y tế, jeonse/wolse và quyết toán thuế cuối năm hiện có
+                bằng tiếng Anh. Xem thêm{" "}
+                <Link
+                  href={`/${locale}/blog/living-in-korea-foreigner-guide`}
+                  className="text-indigo-300 underline-offset-2 hover:underline"
+                >
+                  hướng dẫn đầy đủ về cuộc sống tại Hàn Quốc
+                </Link>{" "}
+                cho toàn bộ hành trình.
               </>
             ) : (
               <>

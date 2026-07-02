@@ -23,13 +23,14 @@ export async function generateMetadata({
       languages: {
         ko: "/ko/insurance-calc",
         en: "/en/insurance-calc",
+        vi: "/vi/insurance-calc",
       },
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -63,7 +64,10 @@ export default async function InsuranceCalcPage({
           </p>
         </header>
         <InsuranceForm />
-        <ToolGuide toolKey="insurance-calc" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide
+          toolKey="insurance-calc"
+          locale={locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en"}
+        />
       </div>
     </main>
   );
