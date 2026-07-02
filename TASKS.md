@@ -56,6 +56,7 @@ About E-A-T · 필러 블로그(living-in-korea-foreigner-guide, 도구 9종 허
 
 ## ✅ 최근 완료 (history)
 
+- [x] 2026-07-02: **외국인 고통점 도구 3종 신규 (깡통전세·생활비·해외송금)** — GSC 영어 우위 + 최대 고통 검색의도(주거사기·생활비·송금) 공략, 영어 우선. 정확성 원칙(범위·기준일·법아님 라벨 + 강한 면책 + 공식출처·직접확인, 과장 금지). deposit-risk(부채비율/경매 손실 시뮬, jeonse-wolse 정성 체크리스트와 중복 회피=정량 계산기) · cost-of-living(지역×가구 편집가능 기본값=본인 예산, USD 배제) · remittance(환율마진+수수료 실질비용, 특정업체·실시간환율 배제). 각 calc+test+form+page+ToolGuide(ko/en)+catalog+sitemap. 577 테스트·build 302/302·audit·브라우저 QA(콘솔0·인터랙션·계산 일치)·배포 alias 3단계·IndexNow 6 URL (`ec22626`). 도구 71개.
 - [x] 2026-07-02: **영어 니치 강화 — pillar 글 + 도구 4종 SEO 재배선** — GSC 국가별 데이터(미국 순위 9.2 vs 한국 14.1 = 영어 우위) 근거로 영어 우선. 신규 pillar 블로그 korean-units-numbers-for-foreigners(평·나이·사이즈·거리·온도·사업자번호 집약, 외국인 도구 9종 허브 링크) + area-convert(순수 평 변환 소유)·apartment-area(전용/공급·평당가로 재차별화=평 키워드 자가잠식 해소)·school-grade·biznum-check 메타 강화. 558 테스트·build(296/296)·audit(i18n parity·thin0·coming-soon0)·ko/en 브라우저 QA(콘솔0)·배포 alias 3단계·IndexNow 10 URL (`d83dcae`)
 - [x] 2026-06-29: **수익 전략 로드맵 + 휴면 제휴 인프라** — GSC 실적 진단(클릭39/28일·순위12.4) → 정직한 3-Track 모델(AdSense 바닥·금융 제휴/CPA 주력·트래픽 병목) `docs/monetization-strategy.md`. `lib/offers.ts`+`OfferSlot`(휴면=비노출, rel=sponsored 공시, AdSense 심사 무해) ResultShell 통합. 558 테스트·build·라이브(비노출 확인)·배포 (`66b8767`)
 - [x] 2026-06-25: **Google 공식 AdSense Site Approvals 6편 시스템 반영** — 공식 영상 자막 직접 분석 후 거절사유 #3/#6 갭 수정(labor 설명 미구현 '예정' 문구 제거 + 죽은 '준비 중/coming soon' UI 전면 제거) + docs 정본 체크리스트·CLAUDE 도그마·audit [I.공식정책] 자동검출. 558 테스트·build·라이브 검증·배포 (`7a7b5ba`)
