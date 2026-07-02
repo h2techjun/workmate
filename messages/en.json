@@ -1005,8 +1005,8 @@
   },
   "bizNumberTool": {
     "meta": {
-      "title": "Business Number Validation (Checksum) | Workmate",
-      "description": "Offline format and checksum validation of Korean business registration numbers per the NTS standard algorithm."
+      "title": "Korean Business Registration Number Validator — Checksum Algorithm (1-3-7)",
+      "description": "Validate a 10-digit Korean business registration number instantly. Explains the 1-3-7-1-3-7-1-3-5 weighted checksum algorithm that catches fake or mistyped numbers before you sign or wire money."
     },
     "title": "Business Number Validation",
     "subtitle": "Validates Korean business registration numbers offline using the National Tax Service standard checksum algorithm. Auto-classifies entity type by middle digits. Operating status requires external API.",

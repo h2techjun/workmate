@@ -63,6 +63,23 @@ export const CATEGORY_ORDER: ReadonlyArray<BlogCategory> = [
 
 export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
   {
+    slug: "korean-units-numbers-for-foreigners",
+    publishedAt: "2026-06-30",
+    titleKo: "외국인을 위한 한국 단위·숫자 완전 가이드 — 평·만나이·사이즈·거리·온도",
+    titleEn:
+      "Korean Units & Numbers for Foreigners: Pyeong, Age, Sizes, Distance & More",
+    summaryKo:
+      "한국에서 마주치는 헷갈리는 단위와 숫자를 한 곳에 정리했습니다 — 평(면적), 만 나이·학년, 옷·신발 사이즈(US↔한국), 거리(리·마일↔km), 온도(℉↔℃), 사업자등록번호까지. 각 항목마다 즉시 변환 도구 연결.",
+    summaryEn:
+      "Every confusing Korean unit and number in one place — pyeong (area), Korean age & school grade, clothing/shoe sizes (US ↔ Korea), distance (ri/miles ↔ km), temperature (°F ↔ °C), and the business registration number. Each with a free instant-conversion tool.",
+    category: "living",
+    readingMinutes: 10,
+    tags: {
+      ko: ["평 변환", "만 나이", "한국 사이즈", "거리 변환", "외국인 한국생활"],
+      en: ["pyeong", "korean age", "korea sizes", "unit conversion", "living in korea"],
+    },
+  },
+  {
     slug: "renting-in-korea-jeonse-wolse-guide",
     publishedAt: "2026-06-18",
     titleKo: "외국인을 위한 한국 임대 가이드 — 전세·월세·보증금 지키기",

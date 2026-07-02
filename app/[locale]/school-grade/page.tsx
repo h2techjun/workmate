@@ -17,19 +17,20 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale !== "en";
   const title = isKo
-    ? "한국 학년 계산기 — 출생연도로 초·중·고·대 학년"
-    : "Korean School Grade Calculator — by birth year";
+    ? "한국 학년 계산기 — 출생연도로 몇 학년? (초·중·고 입학)"
+    : "Korean School Grade Calculator — What Grade Am I in Korea? (by birth year)";
   const description = isKo
-    ? "출생연도만 입력하면 현재 초·중·고·대 학년을 계산. 같은 해 출생자가 같은 학년인 한국 학제 기준 + 입학·졸업 연도까지. 학부모·외국인 필수."
-    : "Enter a birth year to find the current Korean school grade (elementary, middle, high, university), plus entry and graduation years.";
+    ? "출생연도를 입력하면 올해 기준 한국 학년(초·중·고)과 입학 나이를 즉시 계산. 한국 학년 컷오프(초등 입학 기준) 해설 포함."
+    : "If you were born in a given year, what grade are you in Korea? Enter your birth year to get your Korean school grade (elementary/middle/high), entry age, and how the Korean school-year cutoff works.";
   const keywords = isKo
-    ? ["한국 학년 계산기", "출생연도 학년", "초등학교 입학 나이", "몇 학년", "학년 계산"]
+    ? ["한국 학년 계산", "출생연도 학년", "초등학교 입학 나이", "몇 학년", "한국 학제", "연 나이 학년"]
     : [
         "korean school grade calculator",
-        "korean school year",
-        "what grade in korea",
-        "korean school age",
-        "korea elementary entry age",
+        "what grade am i in korea",
+        "born 2010 what grade korea",
+        "korean school year by birth year",
+        "korean grade level",
+        "korea school age cutoff",
       ];
   return {
     title,

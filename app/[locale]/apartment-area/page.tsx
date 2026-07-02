@@ -17,27 +17,27 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale !== "en";
   const title = isKo
-    ? "평 계산기 — 84㎡는 몇 평? ㎡↔평 변환 + 전용·공급면적·평당가"
-    : "Pyeong Converter — Square Meters to Pyeong (㎡ ↔ 평) + Area Guide";
+    ? "전용·공급면적 / 평당가 계산기 — 84㎡ 아파트는 실제 몇 평 거주?"
+    : "Korean Apartment Area & Price per Pyeong — Exclusive vs Supply Area";
   const description = isKo
-    ? "㎡를 입력하면 평으로 즉시 변환(1평=3.3058㎡). 84㎡=약 25평. 전용·공급면적 차이, 전용률, 평당가까지 한 번에. 외국인이 가장 헷갈리는 면적 함정 해설."
-    : "Convert square meters to pyeong instantly (1 pyeong = 3.3058㎡, so 84㎡ ≈ 25 pyeong). What is a pyeong, how big is one, plus exclusive-vs-supply area and price per pyeong — the area trap every foreign renter hits.";
+    ? "공급·전용면적(㎡)으로 전용률·평 환산·평당가(공급/전용 기준)를 즉시 계산. 외국인이 가장 헷갈리는 전용/공급면적 함정 해설. 국민평형 84㎡의 실거주 면적까지."
+    : "Enter supply and exclusive area (㎡) to get the exclusive ratio, pyeong, and price per pyeong. Decodes the exclusive-vs-supply trap behind Korean apartment listings — why an \"84㎡\" flat isn't 84㎡ of living space.";
   const keywords = isKo
     ? [
-        "평 계산기",
-        "제곱미터 평 변환",
-        "84제곱미터 몇 평",
         "전용면적 공급면적",
         "전용률 계산",
         "평당가 계산",
+        "공급면적 전용면적 차이",
+        "국민평형",
+        "84제곱미터 실면적",
       ]
     : [
-        "square meters to pyeong",
-        "84 square meters to pyeong",
-        "what is a pyeong",
-        "how big is a pyeong",
-        "pyeong to square meters",
-        "korea apartment exclusive vs supply area",
+        "korea exclusive vs supply area",
+        "price per pyeong korea",
+        "korean apartment area explained",
+        "exclusive ratio korea",
+        "supply area korea",
+        "korean apartment listing area",
       ];
 
   return {

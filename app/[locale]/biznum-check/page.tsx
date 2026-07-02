@@ -14,10 +14,29 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const isKo = locale !== "en";
   const t = await getTranslations({ locale, namespace: "bizNumberTool.meta" });
+  const keywords = isKo
+    ? [
+        "사업자등록번호 검증",
+        "사업자번호 진위확인",
+        "체크섬 검산",
+        "사업자번호 조회",
+        "1-3-7 가중치",
+        "가짜 사업자번호",
+      ]
+    : [
+        "korean business registration number checksum algorithm",
+        "validate korean business number",
+        "korean company number check",
+        "1-3-7 checksum korea",
+        "korean biznum validator",
+        "verify korean business registration",
+      ];
   return {
     title: t("title"),
     description: t("description"),
+    keywords,
     alternates: {
       canonical: `/${locale}/biznum-check`,
       languages: {

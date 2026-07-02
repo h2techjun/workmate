@@ -17,32 +17,27 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale !== "en";
   const title = isKo
-    ? "평수 계산기 — 평 ↔ ㎡ ↔ 자² 즉시 변환"
-    : "Pyeong Converter — pyeong ↔ m² ↔ ja² instant";
+    ? "평 ↔ ㎡ 변환기 — 제곱미터를 평으로 즉시 (1평=3.3058㎡)"
+    : "Square Meters to Pyeong Converter — What Is a Pyeong? (1 pyeong = 3.3058 m²)";
   const description = isKo
-    ? "평·㎡·제곱자(자²) 양방향 변환. 1평 = 3.30578㎡ = 36자² 정확 공식 + 0.5평 단위 부동산 광고용 반올림. 59㎡·84㎡·114㎡ 프리셋 제공."
-    : "Convert between Korean pyeong, square meters, and square ja. 1 pyeong = 3.30578 m² = 36 ja² exact + 0.5 pyeong real-estate rounding.";
+    ? "평·㎡·제곱자(자²) 양방향 즉시 변환. 1평 = 3.30578㎡ = 36자², 84㎡ ≈ 25평. 0.5평 단위 부동산 반올림 + 59·84·114㎡ 프리셋 제공."
+    : "Convert square meters to pyeong and back instantly — 1 pyeong = 3.3058 m² (so 84 m² ≈ 25 pyeong). What a pyeong is, how big one is, plus square-ja. The Korean area units every foreigner needs.";
   const keywords = isKo
     ? [
-        "평수 계산",
-        "평수 계산기",
         "평 제곱미터 변환",
+        "제곱미터 평 변환",
+        "84제곱미터 몇 평",
         "평수 환산",
-        "㎡ 평 변환",
-        "84제곱미터 평수",
-        "59제곱미터 평수",
-        "전용면적 평수",
-        "공급면적",
-        "부동산 평수",
-        "아파트 평수",
-        "자 단위 변환",
+        "제곱자 변환",
+        "0.5평 반올림",
       ]
     : [
-        "pyeong converter",
-        "Korean area units",
-        "pyeong to square meter",
-        "84 square meters in pyeong",
-        "Korean real estate area",
+        "square meters to pyeong",
+        "what is a pyeong",
+        "how big is a pyeong",
+        "pyeong to square meters",
+        "84 square meters to pyeong",
+        "korean area unit converter",
       ];
 
   return {
