@@ -71,7 +71,7 @@ export default async function SpanPage({
           </p>
         </header>
         <SpanForm />
-        <ToolGuide toolKey="timber-span" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-span" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

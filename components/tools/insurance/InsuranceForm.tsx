@@ -106,7 +106,7 @@ export function InsuranceForm(): React.ReactElement {
                   thousands
                   decimals={0}
                   min={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={t("fields.monthlySalary")}
                 />
               </Field>
@@ -159,7 +159,7 @@ export function InsuranceForm(): React.ReactElement {
         heading={t("result.heading")}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Salary Take-Home", href: "/net-salary" },
                 { label: "Income Tax", href: "/income-tax" },

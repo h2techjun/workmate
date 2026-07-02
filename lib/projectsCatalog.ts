@@ -90,6 +90,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
         description:
           "A roguelike built on Korean card game rules (Go-Stop, Matgo). Seed-locked seeds, escalating bosses, deep deck-building. Play in browser.",
       },
+      vi: {
+        title: "K-Poker",
+        tagline: "Hwatu roguelike — new deck, new boss every run",
+        description:
+          "A roguelike built on Korean card game rules (Go-Stop, Matgo). Seed-locked seeds, escalating bosses, deep deck-building. Play in browser.",
+      },
     },
   },
   {
@@ -110,6 +116,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
           "Flame 엔진 기반 타워디펜스. 무협 캐릭터 성장·장비 강화·스테이지 보스 — 모바일 가로 모드 최적화. 빌드 사이즈가 커서 별도 도메인에서 호스팅.",
       },
       en: {
+        title: "Haewonmun Tower Defense",
+        tagline: "Korean martial-arts universe defense RPG",
+        description:
+          "Flame-engine TD. Character growth, gear upgrades, stage bosses — landscape-optimized mobile play. Hosted on a separate domain (large build).",
+      },
+      vi: {
         title: "Haewonmun Tower Defense",
         tagline: "Korean martial-arts universe defense RPG",
         description:
@@ -141,6 +153,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
         description:
           "Self-audit your workplace on 8 axes, then compare anonymously. Vertex AI auto-scores answer credibility to filter low-quality posts.",
       },
+      vi: {
+        title: "Office Hunter",
+        tagline: "Workplace culture audit + anonymous community",
+        description:
+          "Self-audit your workplace on 8 axes, then compare anonymously. Vertex AI auto-scores answer credibility to filter low-quality posts.",
+      },
     },
   },
   {
@@ -161,6 +179,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
           "6시간 안에 결정해야 하는 정치 음모. 분기 트리 + 시간 압박 + 다중 엔딩. 각 선택은 영구 저장돼 다른 플레이어와 비교한다.",
       },
       en: {
+        title: "6 Hours",
+        tagline: "Political thriller text adventure",
+        description:
+          "A political conspiracy with a 6-hour decision deadline. Branching tree, time pressure, multi-endings, choices compared globally.",
+      },
+      vi: {
         title: "6 Hours",
         tagline: "Political thriller text adventure",
         description:
@@ -193,6 +217,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
         description:
           "Learn everyday Korean with spaced repetition (FSRS) timed to the forgetting curve. 3,400+ cards A1–C2, Hangul + romanization, flashcards + cloze quiz. Fully local, no signup.",
       },
+      vi: {
+        title: "Loopla Korean",
+        tagline: "Everyday Korean SRS timed to your memory curve",
+        description:
+          "Learn everyday Korean with spaced repetition (FSRS) timed to the forgetting curve. 3,400+ cards A1–C2, Hangul + romanization, flashcards + cloze quiz. Fully local, no signup.",
+      },
     },
   },
 
@@ -204,10 +234,10 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
  * 탭 표시 라벨 (UI).
  */
 export const TAB_LABEL: Record<ProjectTab, Record<Locale, string>> = {
-  games: { ko: "게임", en: "Games" },
-  stories: { ko: "스토리", en: "Stories" },
-  tests: { ko: "심리테스트", en: "Tests" },
-  learn: { ko: "학습", en: "Learn" },
+  games: { ko: "게임", en: "Games", vi: "Games" },
+  stories: { ko: "스토리", en: "Stories", vi: "Stories" },
+  tests: { ko: "심리테스트", en: "Tests", vi: "Tests" },
+  learn: { ko: "학습", en: "Learn", vi: "Learn" },
 };
 
 /**
@@ -217,18 +247,22 @@ export const TAB_TAGLINE: Record<ProjectTab, Record<Locale, string>> = {
   games: {
     ko: "브라우저에서 바로 플레이하는 무료 캐주얼 게임",
     en: "Free casual games playable directly in your browser",
+    vi: "Free casual games playable directly in your browser",
   },
   stories: {
     ko: "선택이 결과를 바꾸는 인터랙티브 스토리·텍스트 어드벤처",
     en: "Interactive stories where every choice changes the ending",
+    vi: "Interactive stories where every choice changes the ending",
   },
   tests: {
     ko: "직장 문화·자기 진단 — 익명 심리테스트 + AI 분석",
     en: "Workplace culture and self-discovery tests with AI scoring",
+    vi: "Workplace culture and self-discovery tests with AI scoring",
   },
   learn: {
     ko: "기억력 곡선에 맞춘 간격 반복 학습 — 매일 꾸준히",
     en: "Spaced-repetition everyday Korean timed to your memory curve",
+    vi: "Spaced-repetition everyday Korean timed to your memory curve",
   },
 };
 
@@ -244,8 +278,8 @@ export const TAB_ORDER: ReadonlyArray<ProjectTab> = [
 ];
 
 export const STATUS_LABEL: Record<ProjectStatus, Record<Locale, string>> = {
-  live: { ko: "운영중", en: "Live" },
-  beta: { ko: "베타", en: "Beta" },
-  wip: { ko: "개발중", en: "WIP" },
-  archived: { ko: "아카이브", en: "Archived" },
+  live: { ko: "운영중", en: "Live", vi: "Live" },
+  beta: { ko: "베타", en: "Beta", vi: "Beta" },
+  wip: { ko: "개발중", en: "WIP", vi: "WIP" },
+  archived: { ko: "아카이브", en: "Archived", vi: "Archived" },
 };

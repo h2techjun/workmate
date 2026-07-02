@@ -141,7 +141,7 @@ interface SiteStructuredDataProps {
   /** 사이트 루트 절대 URL (예: https://workmate.tools) */
   siteUrl: string;
   /** 현재 locale */
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 /**

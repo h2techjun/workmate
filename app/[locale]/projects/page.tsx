@@ -13,7 +13,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
 
   const title = isKo
     ? `무료 게임·인터랙티브 스토리·심리테스트 모음 — ${SITE_BRAND}`
@@ -77,7 +77,7 @@ export default async function ProjectsPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
   const t = await getTranslations({ locale: localeKey, namespace: "projects" });
 

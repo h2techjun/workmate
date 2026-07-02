@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "자갈·골재 계산기 — 부피·무게·포대 수량"
     : "Gravel Calculator — volume, weight, bags";
@@ -41,7 +41,7 @@ export default async function GravelCalcPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

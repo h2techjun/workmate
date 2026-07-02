@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "퍼센트 계산기 — 인상·할인·변화율·역산 5가지 모드"
     : "Percent Calculator — 5 modes (increase, sale, change, reverse)";
@@ -70,7 +70,7 @@ export default async function PercentCalcPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

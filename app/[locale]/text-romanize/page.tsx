@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "한글 로마자 변환기 — 문장·단어 음역"
     : "Korean Romanizer — Hangul to roman letters";
@@ -57,7 +57,7 @@ export default async function TextRomanizePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">

@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "임대료 5% 인상한도 검증 — 전월세 갱신 보증금/월세 환산"
     : "Korean Rent Cap Calculator — 5% renewal limit verification";
@@ -69,7 +69,7 @@ export default async function RentCapPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

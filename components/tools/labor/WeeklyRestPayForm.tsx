@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateWeeklyRestPay,
@@ -37,6 +37,7 @@ const formatKrw = (n: number): string =>
 
 export function WeeklyRestPayForm(): React.ReactElement {
   const t = useTranslations("weeklyRestPayTool");
+  const locale = useLocale();
   const [result, setResult] = useState<WeeklyRestPayResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
 
@@ -159,7 +160,7 @@ export function WeeklyRestPayForm(): React.ReactElement {
                     thousands
                     decimals={0}
                     min={0}
-                    suffix="원"
+                    suffix={locale === "ko" ? "원" : "₩"}
                     aria-label={t("fields.hourlyWage")}
                   />
                 </Field>
@@ -180,7 +181,7 @@ export function WeeklyRestPayForm(): React.ReactElement {
                     thousands
                     decimals={0}
                     min={0}
-                    suffix="원"
+                    suffix={locale === "ko" ? "원" : "₩"}
                     aria-label={t("fields.monthlySalary")}
                   />
                 </Field>

@@ -8,6 +8,7 @@ export const contentType = OG_CONTENT_TYPE;
 const COPY: Record<Locale, { sub: string; headline: string }> = {
   ko: { sub: "무료 계산기 · workmate.tools", headline: "외국인 단일세율 계산기" },
   en: { sub: "Free calculator · workmate.tools", headline: "Foreign Flat Tax Calculator" },
+  vi: { sub: "Công cụ miễn phí · workmate.tools", headline: "Máy tính thuế suất đơn cho người nước ngoài" },
 };
 
 export default async function Image({

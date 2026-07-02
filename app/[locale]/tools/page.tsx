@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
 
   const title = isKo
     ? `한국 실무자를 위한 무료 계산기 모음 — ${SITE_BRAND}`
@@ -73,7 +73,7 @@ export default async function ToolsHubPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
 
   const groups = TOOL_GROUP_ORDER.map(

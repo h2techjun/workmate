@@ -58,6 +58,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Payroll · Labor",
         tagline: "Salary take-home, annual leave, weekly rest pay, severance",
       },
+      vi: {
+        title: "Lương · Lao động",
+        tagline: "Lương thực nhận, phép năm, phụ cấp nghỉ hàng tuần, trợ cấp thôi việc",
+      },
     },
     tools: [
       { labelKo: "연봉 실수령액", labelEn: "Salary Take-Home", href: "/net-salary", keywordsKo: "연봉 실수령액 월급 세후 4대보험 공제 계산기" },
@@ -81,6 +85,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       en: {
         title: "Finance · Tax",
         tagline: "Compound interest, VAT, foreign stock capital gains",
+      },
+      vi: {
+        title: "Tài chính · Thuế",
+        tagline: "Lãi suất kép, thuế VAT, thuế chuyển nhượng cổ phiếu nước ngoài",
       },
     },
     tools: [
@@ -110,6 +118,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Electric (KEC)",
         tagline: "Wire size, breaker, voltage drop — Korean Electric Code standard",
       },
+      vi: {
+        title: "Điện (KEC)",
+        tagline: "Tiết diện dây, cầu dao, sụt áp — theo tiêu chuẩn KEC/KS C IEC 60364",
+      },
     },
     tools: [
       { labelKo: "전선 굵기 계산", labelEn: "Wire Size", href: "/electric-calc/wire-size", keywordsKo: "전선 굵기 단면적 KEC 232.5" },
@@ -130,6 +142,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       en: {
         title: "Timber · Materials",
         tagline: "Rafter, roof, stairs, insulation, concrete, materials — NDS-based",
+      },
+      vi: {
+        title: "Nhà gỗ · Vật liệu",
+        tagline: "Xà mái, mái nhà, cầu thang, cách nhiệt, bê tông, vật liệu — theo tiêu chuẩn NDS",
       },
     },
     tools: [
@@ -166,6 +182,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       en: {
         title: "Real Estate · Rental",
         tagline: "Korean rent cap (5% renewal limit) verification",
+      },
+      vi: {
+        title: "Bất động sản · Cho thuê",
+        tagline: "Kiểm tra giới hạn tăng tiền thuê 5% theo luật Hàn Quốc",
       },
     },
     tools: [
@@ -214,6 +234,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Korea Living · Foreigners",
         tagline: "Korean age, name romanizer, size converter — everyday essentials",
       },
+      vi: {
+        title: "Sống ở Hàn · Người nước ngoài",
+        tagline: "Tuổi Hàn Quốc, phiên âm tên, quy đổi size — công cụ thiết yếu hàng ngày",
+      },
     },
     tools: [
       { labelKo: "한국식 나이 계산", labelEn: "Korean Age", href: "/korean-age", keywordsKo: "한국 나이 만나이 세는나이 연나이" },
@@ -248,6 +272,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Car · Tax",
         tagline: "Acquisition & annual car tax — ownership costs",
       },
+      vi: {
+        title: "Ô tô · Thuế",
+        tagline: "Thuế trước bạ và thuế ô tô hàng năm — chi phí sở hữu xe",
+      },
     },
     tools: [
       { labelKo: "자동차 취득세", labelEn: "Acquisition Tax", href: "/car-acquisition-tax", keywordsKo: "자동차 취득세 취등록세 차량 구매 세금" },
@@ -266,6 +294,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       en: {
         title: "Utility Bills",
         tagline: "Korean electricity bill (KEPCO progressive tariff)",
+      },
+      vi: {
+        title: "Hóa đơn tiện ích",
+        tagline: "Tiền điện Hàn Quốc (biểu giá lũy tiến KEPCO)",
       },
     },
     tools: [
@@ -286,6 +318,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Business",
         tagline: "Business number validation — offline checksum",
       },
+      vi: {
+        title: "Doanh nghiệp",
+        tagline: "Xác thực mã số đăng ký kinh doanh — checksum ngoại tuyến",
+      },
     },
     tools: [
       { labelKo: "사업자등록번호 검증", labelEn: "Business Number Validation", href: "/biznum-check", keywordsKo: "사업자번호 체크섬 검증" },
@@ -303,6 +339,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       en: {
         title: "Convert · Daily",
         tagline: "Pyeong ↔ m² · percent · JSON ↔ CSV — everyday quick tools",
+      },
+      vi: {
+        title: "Quy đổi · Hàng ngày",
+        tagline: "Pyeong ↔ m² · phần trăm · JSON ↔ CSV — công cụ nhanh hàng ngày",
       },
     },
     tools: [

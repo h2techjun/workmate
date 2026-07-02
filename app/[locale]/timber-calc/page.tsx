@@ -26,10 +26,12 @@ export async function generateMetadata({
   const titles: Record<Locale, string> = {
     ko: "목조 주택 계산기 | Workmate",
     en: "Timber Construction Calculator | Workmate",
+    vi: "Timber Construction Calculator | Workmate",
   };
   const descriptions: Record<Locale, string> = {
     ko: "부재 경간·단열 R/U값·자재 수량 등 KS 표준과 건축법에 준거한 목조 시공 계산기 모음.",
     en: "Span, R/U-value, material quantity, and more — timber construction calculators based on KS standards and Korean building code.",
+    vi: "Span, R/U-value, material quantity, and more — timber construction calculators based on KS standards and Korean building code.",
   };
   return {
     title: titles[locale as Locale] ?? titles.ko,

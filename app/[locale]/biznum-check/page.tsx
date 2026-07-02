@@ -14,7 +14,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const t = await getTranslations({ locale, namespace: "bizNumberTool.meta" });
   const keywords = isKo
     ? [
@@ -82,7 +82,7 @@ export default async function BizNumberPage({
           </p>
         </header>
         <BizNumberForm />
-        <ToolGuide toolKey="biznum-check" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="biznum-check" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

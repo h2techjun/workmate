@@ -159,7 +159,7 @@ export function GiftTaxForm({
         heading={t.result}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Capital Gains Tax", href: "/capital-gains-tax" },
                 { label: "Income Tax", href: "/income-tax" },

@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "한국 학년 계산기 — 출생연도로 몇 학년? (초·중·고 입학)"
     : "Korean School Grade Calculator — What Grade Am I in Korea? (by birth year)";
@@ -58,7 +58,7 @@ export default async function SchoolGradePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   // 서버 렌더 시점 KST(Asia/Seoul) 기준 오늘 — hydration mismatch 방지

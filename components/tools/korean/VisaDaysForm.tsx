@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface VisaDaysFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
   today: { year: number; month: number; day: number };
 }
 
@@ -46,6 +46,23 @@ const T = {
     safe: "Valid stay",
     refLabel: "Reference date (today)",
     note: "Entry day counted as day 1 (immigration practice). May vary by visa type/extension — verify the exact expiry on HiKorea or your ARC.",
+  },
+  vi: {
+    entry: "Ngày nhập cảnh",
+    year: "Năm",
+    month: "Tháng",
+    day: "Ngày",
+    allowed: "Số ngày được phép lưu trú",
+    presets: "Thời hạn thường dùng",
+    result: "Tình trạng lưu trú",
+    daysStayed: "Số ngày đã lưu trú",
+    daysUnit: "ngày",
+    remaining: "Số ngày còn lại đến khi hết hạn",
+    expiry: "Ngày hết hạn lưu trú",
+    overstay: "Cư trú quá hạn (bất hợp pháp)",
+    safe: "Đang lưu trú hợp lệ",
+    refLabel: "Ngày tham chiếu (hôm nay)",
+    note: "Ngày nhập cảnh được tính là ngày thứ 1 (theo thông lệ xuất nhập cảnh). Có thể khác nhau tùy loại visa/gia hạn — hãy xác minh ngày hết hạn chính xác trên HiKorea hoặc thẻ đăng ký người nước ngoài (ARC) của bạn.",
   },
 } as const;
 

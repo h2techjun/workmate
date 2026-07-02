@@ -176,7 +176,7 @@ export function CapitalGainsForm({
         heading={t.result}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Apartment Area Convert", href: "/apartment-area" },
                 { label: "Income Tax", href: "/income-tax" },

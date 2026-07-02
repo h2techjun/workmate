@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "사이딩 매수 계산기 — 외벽 면적 → 사이딩 보드 매수"
     : "Siding Calculator — exterior wall area to board count";
@@ -61,7 +61,7 @@ export default async function SidingPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
 
   return (
@@ -87,7 +87,7 @@ export default async function SidingPage({
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="fiberCementSiding" />
-        <ToolGuide toolKey="timber-siding" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-siding" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

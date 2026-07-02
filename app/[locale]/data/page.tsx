@@ -19,7 +19,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "한국 기준 수치 레지스트리 — 최저임금·4대보험·기준금리·세율 (검증일 명시)"
     : "Korean Rates & Thresholds Registry — Minimum Wage, Insurance, Base Rate (with verification dates)";
@@ -106,7 +106,7 @@ export default async function DataRegistryPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
 
   const grouped = CATEGORY_ORDER.map((cat) => ({
     cat,

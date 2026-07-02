@@ -274,7 +274,7 @@ export function VatForm(): React.ReactElement {
         heading={t("result.heading")}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Freelancer Tax", href: "/freelancer-tax" },
                 { label: "Income Tax", href: "/income-tax" },

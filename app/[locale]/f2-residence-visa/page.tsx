@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "F-2-7 거주비자 자격 체크리스트 — 점수제·신청요건 가이드"
     : "Korea F-2-7 Residence Visa — Eligibility Checklist & Points Guide";
@@ -66,7 +66,7 @@ export default async function F2ResidenceVisaPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

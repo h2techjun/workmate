@@ -64,7 +64,7 @@ export default async function RoofAreaPage({
           </p>
         </header>
         <RoofAreaForm />
-        <ToolGuide toolKey="timber-roof-area" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-roof-area" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "온도 변환 — 섭씨 °C ↔ 화씨 °F ↔ 켈빈"
     : "Temperature Converter — °C ↔ °F ↔ K";
@@ -56,7 +56,7 @@ export default async function TempConvertPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">

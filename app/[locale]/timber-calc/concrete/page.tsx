@@ -64,7 +64,7 @@ export default async function ConcretePage({
           </p>
         </header>
         <ConcreteForm />
-        <ToolGuide toolKey="timber-concrete" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-concrete" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

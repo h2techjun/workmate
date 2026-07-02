@@ -44,7 +44,7 @@ export default async function HomePage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale as Locale, namespace: "home" });
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
 
   const groups = TOOL_GROUP_ORDER.map((id) =>
     TOOL_GROUPS.find((g) => g.id === id),

@@ -131,6 +131,8 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
     },
   });
 
+  const wonUnit = locale === "ko" ? "원" : "₩";
+
   const onSubmit = (values: RentCapInputResolved): void => {
     setCalcError(null);
     try {
@@ -160,7 +162,7 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={t.fieldOldDeposit}
                 />
               </Field>
@@ -176,7 +178,7 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={t.fieldOldMonthly}
                 />
               </Field>
@@ -195,7 +197,7 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={t.fieldNewDeposit}
                 />
               </Field>
@@ -211,7 +213,7 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={t.fieldNewMonthly}
                 />
               </Field>
@@ -282,23 +284,23 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
               value={`${(result.proposedIncreaseRate * 100).toFixed(2)}%`}
             />
             <dl className="grid grid-cols-2 gap-3">
-              <Stat label={t.oldEquiv} value={`${won(result.oldEquivalentDeposit)} 원`} />
-              <Stat label={t.maxEquiv} value={`${won(result.maxEquivalentDeposit)} 원`} />
+              <Stat label={t.oldEquiv} value={`${won(result.oldEquivalentDeposit)} ${wonUnit}`} />
+              <Stat label={t.maxEquiv} value={`${won(result.maxEquivalentDeposit)} ${wonUnit}`} />
               <Stat
                 label={t.proposedEquiv}
-                value={`${won(result.proposedEquivalentDeposit)} 원`}
+                value={`${won(result.proposedEquivalentDeposit)} ${wonUnit}`}
               />
               {result.withinCap ? (
                 <Stat
                   label={t.remaining}
                   tone="success"
-                  value={`+${won(result.remaining)} 원`}
+                  value={`+${won(result.remaining)} ${wonUnit}`}
                 />
               ) : (
                 <Stat
                   label={t.overage}
                   tone="danger"
-                  value={`−${won(result.overage)} 원`}
+                  value={`−${won(result.overage)} ${wonUnit}`}
                 />
               )}
             </dl>
@@ -310,11 +312,11 @@ export function RentCapForm({ locale }: RentCapFormProps): React.ReactElement {
               <dl className="grid grid-cols-2 gap-3">
                 <Stat
                   label={t.recDepositOnly}
-                  value={`${won(result.recommendedDepositOnly)} 원`}
+                  value={`${won(result.recommendedDepositOnly)} ${wonUnit}`}
                 />
                 <Stat
                   label={t.recMonthlyOnly}
-                  value={`${won(result.recommendedMonthlyOnly)} 원`}
+                  value={`${won(result.recommendedMonthlyOnly)} ${wonUnit}`}
                 />
               </dl>
             </div>

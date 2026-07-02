@@ -30,7 +30,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface CostOfLivingFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -120,6 +120,49 @@ const TEXT = {
       "Representative mid-range estimates for 2026. Reference only — confirm with real contracts and bills.",
     ],
   },
+  vi: {
+    sectionProfile: "Khu vực · hộ gia đình",
+    fieldRegion: "Khu vực",
+    fieldHousehold: "Hộ gia đình",
+    sectionItems: "Mục chi hàng tháng (đều có thể chỉnh sửa)",
+    calculate: "Tính lại",
+    reset: "Về mặc định",
+    heading: "Ước tính chi phí sinh hoạt hàng tháng",
+    heroLabel: "Tổng hàng tháng (ước tính)",
+    won: "원",
+    annual: "Quy đổi năm",
+    perPerson: "Mỗi người / tháng",
+    note: "Mỗi mục là ước tính trung bình điển hình cho khu vực và hộ gia đình. Hãy chỉnh sửa theo tình huống của bạn — tổng số chỉ đơn giản là tổng các giá trị bạn nhập.",
+    regionOpt: {
+      seoulCore: "Trung tâm Seoul (Gangnam, Mapo…)",
+      seoulOuter: "Ngoại ô Seoul",
+      gyeonggi: "Gyeonggi (vùng thủ đô)",
+      metro: "Thành phố lớn (Busan, Daegu…)",
+      other: "Thành phố nhỏ hơn",
+    } as Record<Region, string>,
+    householdOpt: {
+      single: "Độc thân",
+      couple: "Cặp đôi (2 người)",
+      family: "Gia đình (3–4 người)",
+    } as Record<Household, string>,
+    lineLabel: {
+      rent: "Tiền thuê nhà",
+      utilities: "Tiện ích (điện, gas, nước, phí quản lý)",
+      food: "Ăn uống",
+      transport: "Di chuyển",
+      mobile: "Điện thoại",
+      healthInsurance: "Bảo hiểm y tế",
+      other: "Khác (giải trí, quần áo, chi phí lặt vặt)",
+    } as Record<CostLineKey, string>,
+    sourceTitle: "Cơ sở · tính chất",
+    sourceLines: [
+      "Tổng = tổng đơn giản của 7 mục trên (giá trị bạn nhập).",
+      "Khu vực/hộ gia đình chỉ điền sẵn giá trị mặc định có thể chỉnh sửa — đây không phải là khẳng định rằng 'Hàn Quốc tốn X'.",
+      "Tiền thuê nhà thay đổi theo khu vực và diện tích; bảo hiểm y tế thay đổi theo thu nhập, tài sản và loại hình (công ty hay tự do).",
+      "Không quy đổi USD — tỷ giá biến động và có thể gây hiểu nhầm. Chỉ hiển thị KRW.",
+      "Ước tính trung bình đại diện cho năm 2026. Chỉ mang tính tham khảo — xác nhận bằng hợp đồng và hóa đơn thực tế.",
+    ],
+  },
 } as const;
 
 const INITIAL_REGION: Region = "seoulCore";
@@ -136,6 +179,7 @@ export function CostOfLivingForm({
   locale,
 }: CostOfLivingFormProps): React.ReactElement {
   const T = TEXT[locale];
+  const won = locale === "ko" ? "원" : "₩";
   const [region, setRegion] = useState<Region>(INITIAL_REGION);
 
   const { control, watch, setValue, reset } =
@@ -228,7 +272,7 @@ export function CostOfLivingForm({
                     onChange={field.onChange}
                     thousands
                     decimals={0}
-                    suffix="원"
+                    suffix={won}
                     aria-label={T.lineLabel[key]}
                   />
                 </Field>

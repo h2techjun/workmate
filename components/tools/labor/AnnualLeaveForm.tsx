@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateAnnualLeave,
@@ -44,6 +44,7 @@ const todayIso = (): string => new Date().toISOString().slice(0, 10);
 
 export function AnnualLeaveForm(): React.ReactElement {
   const t = useTranslations("annualLeaveTool");
+  const locale = useLocale();
   const [result, setResult] = useState<AnnualLeaveResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
 
@@ -234,7 +235,7 @@ export function AnnualLeaveForm(): React.ReactElement {
                     onChange={field.onChange}
                     thousands
                     decimals={0}
-                    suffix="원"
+                    suffix={locale === "ko" ? "원" : "₩"}
                     aria-label={t("fields.monthlySalary")}
                   />
                 </Field>
@@ -254,7 +255,7 @@ export function AnnualLeaveForm(): React.ReactElement {
                     onChange={field.onChange}
                     thousands
                     decimals={0}
-                    suffix="원"
+                    suffix={locale === "ko" ? "원" : "₩"}
                     aria-label={t("fields.dailyOrdinaryWage")}
                   />
                 </Field>

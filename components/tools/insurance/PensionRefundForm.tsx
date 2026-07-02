@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/calc-form";
 
 interface PensionRefundFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -94,6 +94,38 @@ const TEXT = {
       "Confirm eligibility and the exact amount at nps.or.kr / 1355.",
     ],
   },
+  vi: {
+    sectionInput: "Lịch sử đóng bảo hiểm",
+    fieldSalary: "Mức thu nhập chuẩn tháng (원)",
+    fieldSalaryHint: "Thu nhập hàng tháng (áp dụng mức trần 6,370,000원). Dựa trên tổng 9% (bạn + công ty).",
+    fieldMonths: "Số tháng đã đóng",
+    fieldMonthsHint: "Tổng số tháng bạn đã đóng bảo hiểm lương hưu Quốc dân.",
+    fieldRate: "Tỷ lệ phí bảo hiểm (%)",
+    fieldRateHint: "9% cho giai đoạn 1998–2025. Từ tháng 1/2026 là 9.5%, sau đó tăng 0.5 điểm % mỗi năm.",
+    fieldDeposit: "Lãi suất gần đúng (%)",
+    fieldDepositHint: "Lãi suất tiền gửi kỳ hạn 3 năm (thay đổi theo năm). Khoảng 2.6% vào năm 2025.",
+    calculate: "Tính khoản hoàn trả dự kiến",
+    reset: "Đặt lại",
+    resultHeading: "Khoản hoàn trả một lần dự kiến",
+    resultEmpty: "Nhập thu nhập và số tháng đã đóng.",
+    error: "Đã xảy ra lỗi khi tính toán.",
+    heroLabel: "Tổng khoản hoàn trả ước tính",
+    won: "원",
+    statPrincipal: "Tiền gốc (tổng phí bảo hiểm đã đóng)",
+    statInterest: "Lãi ước tính",
+    statBase: "Mức thu nhập chuẩn tháng áp dụng",
+    cappedWarn: "⚠️ Thu nhập bạn nhập vượt quá mức trần thu nhập chuẩn tháng (6,370,000원), nên hệ thống đã tính theo mức trần.",
+    eligibilityWarn:
+      "💡 Ngoài số tiền — về nguyên tắc, người nước ngoài KHÔNG mặc định thuộc đối tượng nhận hoàn trả một lần. Bạn chỉ có thể nhận nếu (1) quốc gia của bạn công nhận nguyên tắc có đi có lại, (2) Hiệp định An sinh xã hội có điều khoản hoàn trả một lần, hoặc (3) bạn có visa E-9 · H-2 (chế độ cấp phép việc làm). Hãy kiểm tra điều kiện nhận theo quốc tịch/visa của bạn trong hướng dẫn bên dưới và qua NPS (gọi 1355).",
+    sourceTitle: "Căn cứ · giới hạn",
+    sourceLines: [
+      "Đây là số liệu ước tính — NPS tính khoản hoàn trả thực tế bằng cách cộng dồn lãi kép cho từng khoản đóng hàng tháng theo lãi suất tiền gửi kỳ hạn 3 năm của năm đó.",
+      "Người tham gia theo hình thức người lao động công ty được nhận lại đủ 9% (bao gồm cả phần công ty đóng) dù bản thân chỉ đóng 4.5% (Điều 77 Luật Lương hưu Quốc dân).",
+      "Lãi được ước tính theo lãi đơn dựa trên thời gian tích lũy trung bình (tổng thời gian ÷ 2) — số liệu thực tế có thể khác.",
+      "Khoản đóng từ năm 2002 trở đi phải chịu thuế khấu trừ thu nhập hưu trí (khoản chi trả khi tử vong được miễn thuế).",
+      "Xác nhận điều kiện nhận và số tiền chính xác tại nps.or.kr / 1355.",
+    ],
+  },
 } as const;
 
 function MoneyField({
@@ -105,8 +137,9 @@ function MoneyField({
   control: Control<PensionRefundInputResolved>;
   label: string;
   hint?: string;
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }): React.ReactElement {
+  const won = locale === "ko" ? "원" : "₩";
   return (
     <Controller
       control={control}
@@ -119,7 +152,7 @@ function MoneyField({
             thousands
             decimals={0}
             min={0}
-            suffix="원"
+            suffix={won}
             aria-label={label}
           />
           {locale === "ko" && field.value > 0 && (

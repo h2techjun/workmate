@@ -13,7 +13,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
 
   // Loopla — ko 방문자: Loopla English(영어 학습) / en 방문자: Loopla Korean(한국어 학습)
   const title = isKo
@@ -71,7 +71,7 @@ export default async function LearnHubPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
   const t = await getTranslations({ locale: localeKey, namespace: "projects" });
 

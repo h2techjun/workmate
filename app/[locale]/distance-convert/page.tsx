@@ -11,7 +11,7 @@ interface PageProps { params: Promise<{ locale: string }>; }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo ? "거리 단위 변환 — 리·자 ↔ km·마일" : "Korean Distance Converter — ri/ja ↔ km/mile";
   const description = isKo
     ? "한국 전통 거리 단위(리·자·보)를 km·미터·마일로 즉시 변환. 1리 ≈ 392.7m, 십리 ≈ 3.93km. 사극·고문헌·국토 표현 이해에."
@@ -25,7 +25,7 @@ export function generateStaticParams(): Array<{ locale: string }> { return local
 
 export default async function DistanceConvertPage({ params }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">

@@ -62,7 +62,7 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const { isFavorite, toggle, favorites, hydrated } = useFavorites();
-  const isEn = locale === "en";
+  const isEn = locale !== "ko";
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();

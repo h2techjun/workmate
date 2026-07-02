@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "OSB 매수 계산기 — 외벽·지붕 합판 자재 자동 산출"
     : "OSB Sheathing Calculator — wall and roof sheets";
@@ -62,7 +62,7 @@ export default async function OsbPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
 
   return (
@@ -88,7 +88,7 @@ export default async function OsbPage({
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="osb18" />
-        <ToolGuide toolKey="timber-osb" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-osb" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

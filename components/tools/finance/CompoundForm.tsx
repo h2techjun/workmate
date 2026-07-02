@@ -272,7 +272,7 @@ function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={T.fieldPrincipal}
                 />
                 {locale === "ko" && field.value > 0 && (
@@ -335,7 +335,7 @@ function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
         heading={T.basicTitle}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Loan Calculator", href: "/loan-calc" },
                 { label: "Salary Take-Home", href: "/net-salary" },
@@ -480,7 +480,7 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={T.fieldStart}
                 />
                 {locale === "ko" && field.value > 0 && (
@@ -501,7 +501,7 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={T.fieldMonthly}
                 />
                 {locale === "ko" && field.value > 0 && (
@@ -611,7 +611,7 @@ function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
         heading={T.recurringTitle}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Loan Calculator", href: "/loan-calc" },
                 { label: "Salary Take-Home", href: "/net-salary" },

@@ -200,7 +200,7 @@ export function BrokerageFeeForm({
                     onChange={field.onChange}
                     thousands
                     decimals={0}
-                    suffix="원"
+                    suffix={locale === "ko" ? "원" : "₩"}
                     aria-label={
                       transactionType === "sale"
                         ? T.fieldPrice
@@ -230,7 +230,7 @@ export function BrokerageFeeForm({
                       onChange={field.onChange}
                       thousands
                       decimals={0}
-                      suffix="원"
+                      suffix={locale === "ko" ? "원" : "₩"}
                       aria-label={T.fieldMonthlyDeposit}
                     />
                     {locale === "ko" && field.value > 0 && (
@@ -251,7 +251,7 @@ export function BrokerageFeeForm({
                       onChange={field.onChange}
                       thousands
                       decimals={0}
-                      suffix="원"
+                      suffix={locale === "ko" ? "원" : "₩"}
                       aria-label={T.fieldMonthlyRent}
                     />
                     {locale === "ko" && field.value > 0 && (
@@ -315,7 +315,7 @@ export function BrokerageFeeForm({
         heading={T.resultHeading}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Jeonse ↔ Wolse Converter", href: "/jeonse-wolse" },
                 { label: "Apartment Area & Price", href: "/apartment-area" },

@@ -10,7 +10,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  if (locale === "en") {
+  if (locale !== "ko") {
     return {
       title: "Sizing wires under KEC 232.5 — a field guide | Workmate",
       description:

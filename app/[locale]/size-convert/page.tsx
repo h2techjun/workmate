@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "한국 옷·신발 사이즈 변환표 — US/EU/UK/JP"
     : "Korean Clothing & Shoe Size Converter — US/EU/UK/JP";
@@ -66,7 +66,7 @@ export default async function SizeConvertPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

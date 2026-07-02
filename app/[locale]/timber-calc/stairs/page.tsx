@@ -64,7 +64,7 @@ export default async function StairsPage({
           </p>
         </header>
         <StairsForm />
-        <ToolGuide toolKey="timber-stairs" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-stairs" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

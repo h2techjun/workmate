@@ -64,7 +64,7 @@ export default async function LumberPage({
           </p>
         </header>
         <LumberForm />
-        <ToolGuide toolKey="timber-lumber" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-lumber" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

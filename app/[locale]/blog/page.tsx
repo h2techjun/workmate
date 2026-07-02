@@ -14,7 +14,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "현장 노트 — Workmate 블로그"
     : "Field Notes — Workmate Blog";
@@ -46,7 +46,7 @@ export default async function BlogIndexPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const groups = postsByCategory();
 
   return (

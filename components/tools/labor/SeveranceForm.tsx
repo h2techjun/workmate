@@ -42,7 +42,9 @@ const todayIso = (): string => new Date().toISOString().slice(0, 10);
 
 export function SeveranceForm(): React.ReactElement {
   const t = useTranslations("severanceTool");
-  const locale = useLocale() === "en" ? "en" : "ko";
+  const rawLocale = useLocale();
+  const locale = rawLocale === "vi" ? "vi" : rawLocale === "en" ? "en" : "ko";
+  const won = locale === "ko" ? "원" : "₩";
   const [result, setResult] = useState<SeveranceResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
 
@@ -168,7 +170,7 @@ export function SeveranceForm(): React.ReactElement {
                   thousands
                   decimals={0}
                   min={0}
-                  suffix="원"
+                  suffix={won}
                   aria-label={t("fields.recentThreeMonthsSalary")}
                 />
               </Field>
@@ -185,7 +187,7 @@ export function SeveranceForm(): React.ReactElement {
                   thousands
                   decimals={0}
                   min={0}
-                  suffix="원"
+                  suffix={won}
                   aria-label={t("fields.annualBonus")}
                 />
               </Field>
@@ -205,7 +207,7 @@ export function SeveranceForm(): React.ReactElement {
                   thousands
                   decimals={0}
                   min={0}
-                  suffix="원"
+                  suffix={won}
                   aria-label={t("fields.annualLeavePay")}
                 />
               </Field>
@@ -225,7 +227,7 @@ export function SeveranceForm(): React.ReactElement {
                   thousands
                   decimals={0}
                   min={0}
-                  suffix="원"
+                  suffix={won}
                   aria-label={t("fields.monthlyOrdinaryWage")}
                 />
               </Field>
@@ -255,7 +257,7 @@ export function SeveranceForm(): React.ReactElement {
         heading={t("result.heading")}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Salary Take-Home", href: "/net-salary" },
                 { label: "Annual Leave Calculator", href: "/labor-calc/annual-leave" },

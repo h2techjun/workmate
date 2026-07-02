@@ -20,7 +20,7 @@ import { ChevronDown } from "lucide-react";
 interface ToolGuideProps {
   /** messages/<locale>.json 의 toolGuides.<toolKey> 와 매칭 */
   toolKey: string;
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 interface FAQItem {

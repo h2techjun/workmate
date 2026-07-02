@@ -64,7 +64,7 @@ export default async function RoofPitchPage({
           </p>
         </header>
         <RoofPitchForm />
-        <ToolGuide toolKey="timber-roof-pitch" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-roof-pitch" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

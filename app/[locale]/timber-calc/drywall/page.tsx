@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "석고보드 매수 계산기 — 벽·천장 면적 → 매수 + 피스 + 손실률"
     : "Drywall Sheet Calculator — area to sheets, fasteners, waste factor";
@@ -63,7 +63,7 @@ export default async function DrywallPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
 
   return (
@@ -89,7 +89,7 @@ export default async function DrywallPage({
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="gypsum12" />
-        <ToolGuide toolKey="timber-drywall" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-drywall" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

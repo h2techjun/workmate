@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "종합소득세 계산기 — 8구간 누진세 + 누진공제 + 지방세"
     : "Korean Income Tax Calculator — 8 progressive brackets";
@@ -70,7 +70,7 @@ export default async function IncomeTaxPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

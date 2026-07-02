@@ -56,7 +56,7 @@ export default async function SeverancePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const localeKey = (locale === "en" ? "en" : "ko") as Locale;
+  const localeKey = (locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en") as Locale;
   const t = await getTranslations({
     locale: localeKey,
     namespace: "severanceTool",
@@ -109,7 +109,7 @@ export default async function SeverancePage({
         </header>
 
         <SeveranceForm />
-        <ToolGuide toolKey="labor-severance" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="labor-severance" locale={localeKey} />
 
         <section className="mt-12 grid gap-4 text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:grid-cols-3">
           <ContextBlock title={t("ctx.law.title")} body={t("ctx.law.body")} />

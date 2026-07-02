@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "출산예정일 계산기 — 임신 주수·삼분기·D-day"
     : "Due Date Calculator — pregnancy weeks & trimester";
@@ -41,7 +41,7 @@ export default async function DueDatePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   const now = new Date();

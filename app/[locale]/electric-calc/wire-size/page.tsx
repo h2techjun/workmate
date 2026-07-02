@@ -105,7 +105,7 @@ export default async function WireSizePage({
         </header>
 
         <WireSizeForm />
-        <ToolGuide toolKey="electric-wire-size" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="electric-wire-size" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

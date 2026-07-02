@@ -229,7 +229,7 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
                   thousands={false}
                   decimals={0}
                   min={0}
-                  suffix="개"
+                  suffix={locale === "ko" ? "개" : "pcs"}
                   aria-label={T.fieldOpenings}
                 />
               )}

@@ -13,7 +13,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
 
   const title = isKo
     ? `무료 웹게임 모음 — ${SITE_BRAND}`
@@ -68,7 +68,7 @@ export default async function GamesHubPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
   const t = await getTranslations({ locale: localeKey, namespace: "projects" });
 

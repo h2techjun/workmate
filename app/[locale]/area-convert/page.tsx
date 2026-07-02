@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "평 ↔ ㎡ 변환기 — 제곱미터를 평으로 즉시 (1평=3.3058㎡)"
     : "Square Meters to Pyeong Converter — What Is a Pyeong? (1 pyeong = 3.3058 m²)";
@@ -66,7 +66,7 @@ export default async function AreaConvertPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

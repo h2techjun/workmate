@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   calculateLumber,
   lumberInputSchema,
@@ -32,6 +32,7 @@ const fmt = (n: number, d: number = 2): string => formatNumber(n, d);
 
 export function LumberForm(): React.ReactElement {
   const t = useTranslations("lumberTool");
+  const locale = useLocale();
   const [result, setResult] = useState<LumberResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
 
@@ -184,7 +185,7 @@ export function LumberForm(): React.ReactElement {
                   thousands={true}
                   decimals={0}
                   min={1}
-                  suffix="본"
+                  suffix={locale === "ko" ? "본" : "pcs"}
                   aria-label={t("fields.quantity")}
                 />
               )}

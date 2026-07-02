@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "전용·공급면적 / 평당가 계산기 — 84㎡ 아파트는 실제 몇 평 거주?"
     : "Korean Apartment Area & Price per Pyeong — Exclusive vs Supply Area";
@@ -66,7 +66,7 @@ export default async function ApartmentAreaPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

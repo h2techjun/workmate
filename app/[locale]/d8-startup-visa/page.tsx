@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "D-8 창업·투자 비자 자격 체크리스트 (외국인 가이드)"
     : "Korea D-8 Startup & Investment Visa Eligibility Checklist";
@@ -66,7 +66,7 @@ export default async function D8StartupVisaPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

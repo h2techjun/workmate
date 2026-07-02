@@ -69,7 +69,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "도구 가이드 — 사용법·공식·법령 인용"
     : "Tool Guides — How-to, formulas, and law citations";
@@ -101,7 +101,7 @@ export default async function GuideIndexPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
   const blogPosts = sortedBlogPosts();
 

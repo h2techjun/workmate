@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "한글 음절 분해기 — 초성·중성·종성 + 받침"
     : "Hangul Syllable Decomposer — initial, medial, final jamo";
@@ -57,7 +57,7 @@ export default async function HangulDecomposePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">

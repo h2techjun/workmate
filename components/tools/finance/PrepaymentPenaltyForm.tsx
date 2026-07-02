@@ -152,7 +152,7 @@ export function PrepaymentPenaltyForm({
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={t.fieldPrincipal}
                 />
               </Field>
@@ -230,7 +230,7 @@ export function PrepaymentPenaltyForm({
         heading={t.resultHeading}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Loan Calculator", href: "/loan-calc" },
                 { label: "Compound Interest", href: "/compound-calc" },

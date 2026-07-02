@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "한글 숫자 변환기 — 한자어·고유어 수사 읽기"
     : "Korean Number Reader — Sino & Native Korean numbers";
@@ -57,7 +57,7 @@ export default async function KoreanNumberPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">

@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "스터드(각목) 본수 계산기 — 벽 길이 × 층고 × 간격"
     : "Stud Framing Calculator — wall length × ceiling × spacing";
@@ -74,7 +74,7 @@ export default async function StudsPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (
@@ -100,7 +100,7 @@ export default async function StudsPage({
           </p>
         </header>
         <StudsForm locale={localeKey} />
-        <ToolGuide toolKey="timber-studs" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-studs" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

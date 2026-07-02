@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/i18n";
 import { SITE_URL } from "@/lib/siteConfig";
 import { BLOG_POSTS } from "@/lib/blogPosts";
+import { isViReady } from "@/lib/viReady";
 
 const TOOL_PATHS = [
   "",
@@ -88,7 +89,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
   for (const path of TOOL_PATHS) {
-    for (const locale of locales) {
+    // vi 는 완역(VI_READY) 경로만 sitemap 에 포함 (부분 번역 색인 방지)
+    const pathLocales = locales.filter(
+      (l) => l !== "vi" || isViReady(path),
+    );
+    for (const locale of pathLocales) {
       entries.push({
         url: `${SITE_URL}/${locale}${path}`,
         lastModified: now,
@@ -96,16 +101,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: path === "" ? 1.0 : 0.8,
         alternates: {
           languages: Object.fromEntries(
-            locales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
+            pathLocales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
           ),
         },
       });
     }
   }
-  // 블로그 글 — publishedAt 을 lastModified 로 사용 (정확한 색인 시그널)
+  // 블로그 글 — vi 번역 전이므로 ko/en 만 (publishedAt = lastModified)
+  const blogLocales = locales.filter((l) => l !== "vi");
   for (const post of BLOG_POSTS) {
     const path = `/blog/${post.slug}`;
-    for (const locale of locales) {
+    for (const locale of blogLocales) {
       entries.push({
         url: `${SITE_URL}/${locale}${path}`,
         lastModified: new Date(post.publishedAt),
@@ -113,7 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
         alternates: {
           languages: Object.fromEntries(
-            locales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
+            blogLocales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
           ),
         },
       });

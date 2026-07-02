@@ -35,11 +35,13 @@ export async function generateMetadata({
   const titles: Record<Locale, string> = {
     ko: `${SITE_BRAND} — 한국 실무자가 매일 쓰는 무료 도구·계산기 모음`,
     en: `${SITE_BRAND} — Free Tools & Calculators for Korean Standards`,
+    vi: `${SITE_BRAND} — Bộ công cụ và máy tính miễn phí theo tiêu chuẩn Hàn Quốc`,
   };
 
   const descriptions: Record<Locale, string> = {
     ko: "한국 실무자를 위한 무료 계산기 모음. 전기 KEC, 4대보험 2026, 사업자번호 검증, 목조 NDS, 연봉 실수령액.",
     en: "Korean calculators: wire (KEC), 4 insurances, biz number, timber NDS, salary.",
+    vi: "Máy tính Hàn Quốc: dây điện (KEC), 4 loại bảo hiểm, mã số doanh nghiệp, nhà gỗ (NDS), lương thực nhận.",
   };
 
   const localeKey = (locales.includes(locale as Locale) ? locale : "ko") as Locale;
@@ -152,7 +154,7 @@ export default async function LocaleLayout({
       <body>
         <SiteStructuredData
           siteUrl={SITE_URL}
-          locale={locale === "en" ? "en" : "ko"}
+          locale={locale !== "ko" ? "en" : "ko"}
         />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <div className="flex min-h-screen flex-col">

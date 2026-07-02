@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "대출 이자 계산기 — 원리금균등·원금균등·만기일시 + 상환표"
     : "Loan Calculator — equal payment/principal/balloon + schedule";
@@ -72,7 +72,7 @@ export default async function LoanCalcPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

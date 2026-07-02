@@ -11,9 +11,9 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === "en" ? "Terms of Use — Workmate" : "이용약관 — Workmate",
+    title: locale !== "ko" ? "Terms of Use — Workmate" : "이용약관 — Workmate",
     description:
-      locale === "en"
+      locale !== "ko"
         ? "Use Workmate freely. Results are reference-only. Verify with a licensed professional before construction or filing."
         : "Workmate 이용 약관 — 무료로 자유롭게 사용 가능. 결과는 참고용이며 시공·신고 전에는 반드시 전문가 검토가 필요합니다.",
   };

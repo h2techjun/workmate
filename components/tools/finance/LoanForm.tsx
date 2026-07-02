@@ -173,7 +173,7 @@ export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={t.fieldPrincipal}
                 />
               </Field>
@@ -191,7 +191,7 @@ export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
                   decimals={0}
                   min={1}
                   max={50}
-                  suffix="년"
+                  suffix={locale === "ko" ? "년" : "yr"}
                   aria-label={t.fieldYears}
                 />
               </Field>
@@ -243,7 +243,7 @@ export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
         heading={t.resultHeading}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Compound Interest", href: "/compound-calc" },
                 { label: "Salary Take-Home", href: "/net-salary" },

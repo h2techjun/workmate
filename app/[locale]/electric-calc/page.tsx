@@ -15,10 +15,12 @@ export async function generateMetadata({
   const titles: Record<Locale, string> = {
     ko: "산업용 전기 계산기 | Workmate",
     en: "Industrial Electric Calculator | Workmate",
+    vi: "Industrial Electric Calculator | Workmate",
   };
   const descriptions: Record<Locale, string> = {
     ko: "KS C IEC 60364 기반 전선 굵기, 차단기 용량, 전압강하 계산기. 전기공사 실무에 바로 사용 가능.",
     en: "KS C IEC 60364 wire size, breaker capacity, and voltage drop calculators for electrical professionals.",
+    vi: "KS C IEC 60364 wire size, breaker capacity, and voltage drop calculators for electrical professionals.",
   };
   return {
     title: titles[locale as Locale] ?? titles.ko,

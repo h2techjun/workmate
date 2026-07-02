@@ -11,9 +11,9 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === "en" ? "Contact — Workmate" : "연락처 — Workmate",
+    title: locale !== "ko" ? "Contact — Workmate" : "연락처 — Workmate",
     description:
-      locale === "en"
+      locale !== "ko"
         ? "How to reach the operator — bug reports, tool requests, partnerships."
         : "Workmate 운영자 연락처 — 버그 제보, 도구 요청, 제휴 문의.",
   };

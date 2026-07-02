@@ -8,7 +8,7 @@ import { ShareButton } from "@/components/ui/ShareButton";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface NetSalaryFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -53,6 +53,26 @@ const T = {
     localTax: "Local income tax",
     deductionRate: "Deduction rate",
     note: "2026 insurance rates + estimated withholding. Actual withholding follows the NTS simplified table (±5%). Reconciled at year-end settlement.",
+  },
+  vi: {
+    annual: "Lương năm (KRW)",
+    dependents: "Số người phụ thuộc (kể cả bản thân)",
+    children: "Số con dưới 20 tuổi",
+    nonTax: "Khoản miễn thuế hàng tháng (tiền ăn, v.v., KRW)",
+    result: "Lương thực nhận hàng tháng",
+    monthlyNet: "Lương thực nhận hàng tháng",
+    annualNet: "Lương thực nhận hàng năm",
+    unit: "KRW",
+    gross: "Lương gộp hàng tháng",
+    insurance: "4 loại bảo hiểm xã hội",
+    pension: "Lương hưu Quốc dân (NPS)",
+    health: "Bảo hiểm y tế (NHIS)",
+    longTerm: "Bảo hiểm chăm sóc dài hạn",
+    employment: "Bảo hiểm việc làm",
+    incomeTax: "Thuế thu nhập",
+    localTax: "Thuế thu nhập địa phương",
+    deductionRate: "Tỷ lệ khấu trừ",
+    note: "Theo tỷ lệ bảo hiểm 2026 + ước tính khấu trừ tại nguồn. Khấu trừ thực tế theo bảng thuế đơn giản của Cơ quan Thuế Quốc gia (NTS) (±5%). Được quyết toán vào cuối năm.",
   },
 } as const;
 
@@ -118,7 +138,9 @@ export function NetSalaryForm({
             text={
               locale === "ko"
                 ? `연봉 ${won(annual)}원 → 월 실수령액 ${won(r.monthlyNet)}원 (실수령률 ${((1 - r.deductionRate) * 100).toFixed(1)}%)`
-                : `Annual ${won(annual)} KRW → monthly take-home ${won(r.monthlyNet)} KRW`
+                : locale === "vi"
+                  ? `Lương năm ${won(annual)} KRW → lương thực nhận hàng tháng ${won(r.monthlyNet)} KRW`
+                  : `Annual ${won(annual)} KRW → monthly take-home ${won(r.monthlyNet)} KRW`
             }
             label={tShare("button")}
             copiedLabel={tShare("copied")}

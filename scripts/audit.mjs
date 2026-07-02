@@ -132,6 +132,19 @@ if (existsSync(messagesDir)) {
     counts.ko === counts.en && counts.ko > 0,
     `ko=${counts.ko} en=${counts.en}`
   );
+  // vi 는 부분 번역(en 딥머지 폴백) — parity 대신 JSON 유효성만 검사
+  const viPath = join(messagesDir, "vi.json");
+  if (existsSync(viPath)) {
+    let viOk = true; let viDetail = "";
+    try {
+      const vi = JSON.parse(readFileSync(viPath, "utf-8"));
+      const flatten = (obj, prefix = "") => Object.entries(obj).flatMap(([k, v]) =>
+        typeof v === "object" && v !== null ? flatten(v, `${prefix}${k}.`) : [`${prefix}${k}`]
+      );
+      viDetail = `vi=${flatten(vi).length}키 (부분 번역, en 폴백)`;
+    } catch (e) { viOk = false; viDetail = `JSON 파싱 실패: ${e.message}`; }
+    report.add("G.i18n", "vi.json 유효 (부분 번역 로케일)", viOk, viDetail, "warn");
+  }
 }
 
 // H. AdSense 가치 게이트 — ToolGuide 없는(=thin) 도구 페이지 검출

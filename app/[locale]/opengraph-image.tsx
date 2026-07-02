@@ -24,6 +24,11 @@ const COPY: Record<Locale, { sub: string; headline: string; chips: string[] }> =
     headline: "for Korean standards (KEC, KS, NDS)",
     chips: ["Electric KEC", "4 Insurances", "Biz Number", "Timber NDS", "Take-home"],
   },
+  vi: {
+    sub: "Người Hàn Quốc dùng mỗi ngày",
+    headline: "Bộ công cụ · máy tính miễn phí",
+    chips: ["Điện KEC", "4 loại bảo hiểm", "Mã số DN", "Nhà gỗ NDS", "Lương thực nhận"],
+  },
 };
 
 export default async function Image({

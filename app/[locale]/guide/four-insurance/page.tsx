@@ -10,7 +10,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  if (locale === "en") {
+  if (locale !== "ko") {
     return {
       title: "Korean 4-major insurance demystified (2026 rates) | Workmate",
       description:

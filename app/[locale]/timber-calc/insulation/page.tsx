@@ -64,7 +64,7 @@ export default async function InsulationPage({
           </p>
         </header>
         <InsulationForm />
-        <ToolGuide toolKey="timber-insulation" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-insulation" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/calc-form";
 
 interface ForeignHealthInsuranceFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -92,6 +92,37 @@ const TEXT = {
       "Income/asset scoring not modeled; the average premium changes yearly — reference estimate. Verify with NHIS (1577-1000).",
     ],
   },
+  vi: {
+    section: "Thông tin tham gia",
+    fieldType: "Loại hình tham gia",
+    typeEmployee: "Người lao động (làm việc tại công ty)",
+    typeRegional: "Tự do / không có công ty / du học sinh",
+    fieldWage: "Lương hàng tháng (보수월액, 원)",
+    fieldWageHint: "Lương trước thuế hàng tháng (người lao động và công ty chia đôi mỗi bên một nửa)",
+    fieldStudent: "Du học sinh (D-2) · học sinh phổ thông (D-4) — giảm 50%",
+    fieldStudentHint: "Áp dụng khi thu nhập năm ≤ 3.6 triệu 원 và tài sản ≤ 135 triệu 원",
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultHeading: "Ước tính phí bảo hiểm y tế hàng tháng",
+    resultEmpty: "Chọn loại hình tham gia và tính toán.",
+    error: "Đã xảy ra lỗi khi tính toán.",
+    monthly: "Phí bảo hiểm hàng tháng (phần bạn đóng)",
+    won: "원",
+    annual: "Quy đổi năm",
+    health: "Phí bảo hiểm y tế",
+    longTermCare: "Phí bảo hiểm chăm sóc dài hạn",
+    employer: "Phần công ty đóng (hàng tháng, tham khảo)",
+    avgPremium: "Phí bảo hiểm bình quân người nước ngoài",
+    studentApplied: "Đã áp dụng giảm 50% cho du học sinh",
+    sourceTitle: "Cơ sở · giả định (2026)",
+    sourceLines: [
+      "Người lao động = lương hàng tháng × 3.595% (phần bạn đóng) + bảo hiểm chăm sóc dài hạn (13.14% phí bảo hiểm y tế). Công ty đóng số tiền tương đương.",
+      "Người nước ngoài tự do đóng theo mức cao hơn giữa tính điểm thu nhập/tài sản và phí bình quân. Đa số đóng theo phí bình quân (khoảng 158,640원).",
+      "Du học sinh (D-2) và học sinh phổ thông (D-4) được giảm 50% (khoảng 79,320원) nếu đáp ứng điều kiện thu nhập/tài sản.",
+      "Bắt buộc tham gia sau 6 tháng cư trú tại Hàn Quốc (du học sinh phải tham gia ngay). Không đóng phí có thể khiến việc gia hạn visa bị hạn chế.",
+      "Không mô phỏng tính điểm thu nhập/tài sản; phí bình quân thay đổi hàng năm — chỉ mang tính tham khảo. Xác nhận với NHIS (1577-1000).",
+    ],
+  },
 } as const;
 
 function MoneyField({
@@ -105,8 +136,9 @@ function MoneyField({
   name: "monthlyWage";
   label: string;
   hint: string;
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }): React.ReactElement {
+  const won = locale === "ko" ? "원" : "₩";
   return (
     <Controller
       control={control}
@@ -119,7 +151,7 @@ function MoneyField({
             thousands
             decimals={0}
             min={0}
-            suffix="원"
+            suffix={won}
             aria-label={label}
           />
           {locale === "ko" && field.value > 0 && (

@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface KoreanAgeFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
   /** 서버에서 주입한 오늘 날짜 (YYYY-MM-DD) — hydration mismatch 방지 */
   today: { year: number; month: number; day: number };
 }
@@ -53,6 +53,26 @@ const T = {
     daysLeft: "Until next birthday",
     daysUnit: "days",
     invalid: "Please enter a valid date",
+  },
+  vi: {
+    birthLabel: "Ngày sinh",
+    yearPh: "Năm",
+    monthPh: "Tháng",
+    dayPh: "Ngày",
+    refLabel: "Ngày tham chiếu (hôm nay)",
+    result: "Tuổi Hàn Quốc của bạn",
+    international: "Tuổi quốc tế (만나이)",
+    intlNote: "Tuổi pháp lý chính thức của Hàn Quốc từ tháng 6/2023",
+    counting: "Tuổi đếm Hàn Quốc (세는나이)",
+    countNote: "Truyền thống — 1 tuổi khi sinh ra, +1 tuổi mỗi ngày 1/1",
+    yearAge: "Tuổi theo năm (연나이)",
+    yearNote: "Dùng trong luật nghĩa vụ quân sự và bảo vệ thanh thiếu niên",
+    birthdayPassed: "Sinh nhật năm nay",
+    passed: "đã qua",
+    notPassed: "chưa tới",
+    daysLeft: "Đến sinh nhật tiếp theo",
+    daysUnit: "ngày",
+    invalid: "Vui lòng nhập ngày hợp lệ",
   },
 } as const;
 

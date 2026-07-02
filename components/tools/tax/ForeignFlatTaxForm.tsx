@@ -25,7 +25,7 @@ import {
 import { cn } from "@/lib/utils/cn";
 
 interface ForeignFlatTaxFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -95,6 +95,39 @@ const TEXT = {
       "Resident basis, reference estimate only. Verify with Hometax or a tax professional.",
     ],
   },
+  vi: {
+    sectionIncome: "Thu nhập · Khấu trừ",
+    fieldGross: "Tổng lương năm (원)",
+    fieldGrossHint: "Lương năm trước thuế (bao gồm thưởng, tổng số trước khi trừ khoản miễn thuế)",
+    fieldDependents: "Số người phụ thuộc (không tính bản thân)",
+    fieldDependentsHint: "Vợ/chồng, con cái, v.v. thuộc diện khấu trừ cơ bản (khấu trừ cá nhân 1.5 triệu 원/người)",
+    calculate: "So sánh",
+    reset: "Đặt lại",
+    resultHeading: "So sánh thuế suất đơn nhất và thuế lũy tiến",
+    resultEmpty: "Nhập lương năm để so sánh bên nào có lợi hơn.",
+    error: "Đã xảy ra lỗi khi tính toán.",
+    winnerFlat: "Thuế suất đơn nhất (19%) có lợi hơn",
+    winnerProg: "Thuế lũy tiến thông thường có lợi hơn",
+    savingsLabel: "Khoản tiết kiệm thuế hàng năm",
+    flatTitle: "Thuế suất đơn nhất (Flat 20.9%)",
+    progTitle: "Thuế lũy tiến thông thường (6~45%)",
+    totalTax: "Tổng thuế",
+    effectiveRate: "Thuế suất thực tế",
+    incomeTax: "Thuế thu nhập",
+    localTax: "Thuế thu nhập địa phương",
+    taxableIncome: "Thu nhập chịu thuế",
+    earnedDeduction: "Khấu trừ thu nhập từ lao động",
+    wageCredit: "Khấu trừ thuế thu nhập từ lao động",
+    won: "원",
+    sourceTitle: "Căn cứ · giả định (áp dụng năm thuế 2026)",
+    sourceLines: [
+      "Thuế đơn nhất = tổng lương × 19% + thuế địa phương 1.9% = 20.9% (Điều 18-2 Luật Ưu đãi thuế đặc biệt). Không áp dụng bất kỳ khoản khấu trừ nào.",
+      "Thuế lũy tiến = (tổng lương − khấu trừ thu nhập từ lao động − khấu trừ cá nhân) → 8 bậc thuế suất − khấu trừ thuế thu nhập từ lao động + thuế địa phương 10%.",
+      "Người mới bắt đầu áp dụng thuế đơn nhất phải có ngày làm việc đầu tiên tại Hàn Quốc trước 31/12/2026 (áp dụng trong 20 năm kể từ ngày đầu tiên).",
+      "Chưa phản ánh 4 loại bảo hiểm xã hội, khấu trừ đặc biệt (y tế, giáo dục), khấu trừ thẻ tín dụng → càng nhiều khoản khấu trừ thì thuế lũy tiến càng có lợi.",
+      "Chỉ là ước tính tham khảo trên cơ sở cư trú. Vui lòng xác nhận khai báo thực tế tại Hometax hoặc chuyên gia thuế.",
+    ],
+  },
 } as const;
 
 /** 금액 입력 — 천단위 콤마 + (한국어) 한글 금액 보조 표기. */
@@ -109,7 +142,7 @@ function MoneyField({
   name: "grossSalary";
   label: string;
   hint: string;
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }): React.ReactElement {
   const suffix = locale === "ko" ? "원" : "₩";
   return (

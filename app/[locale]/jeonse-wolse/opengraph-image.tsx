@@ -8,6 +8,7 @@ export const contentType = OG_CONTENT_TYPE;
 const COPY: Record<Locale, { sub: string; headline: string }> = {
   ko: { sub: "무료 계산기 · workmate.tools", headline: "전세 월세 전환 계산기" },
   en: { sub: "Free calculator · workmate.tools", headline: "Jeonse–Wolse Converter" },
+  vi: { sub: "Công cụ miễn phí · workmate.tools", headline: "Máy tính quy đổi Jeonse–Wolse" },
 };
 
 export default async function Image({

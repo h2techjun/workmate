@@ -12,11 +12,11 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title:
-      locale === "en"
+      locale !== "ko"
         ? "Privacy Policy — Workmate"
         : "개인정보처리방침 — Workmate",
     description:
-      locale === "en"
+      locale !== "ko"
         ? "How Workmate handles your data — short answer: it doesn't leave your browser."
         : "Workmate의 개인정보 처리 방식. 입력값은 브라우저를 떠나지 않습니다.",
   };

@@ -66,7 +66,7 @@ export default async function ForeignStockTaxPage({
           </p>
         </header>
         <ForeignStockTaxForm />
-        <ToolGuide toolKey="foreign-stock-tax" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="foreign-stock-tax" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

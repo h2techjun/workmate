@@ -67,7 +67,7 @@ export default async function MaterialQuantityPage({
           </p>
         </header>
         <MaterialQuantityForm />
-        <ToolGuide toolKey="timber-material-quantity" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-material-quantity" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

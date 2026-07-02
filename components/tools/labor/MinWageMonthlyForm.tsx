@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { NumberField } from "@/components/ui/NumberField";
 import {
   calculateMinWageMonthly,
@@ -36,6 +36,8 @@ const formatKrw = (n: number): string =>
 
 export function MinWageMonthlyForm(): React.ReactElement {
   const t = useTranslations("minWageTool");
+  const locale = useLocale();
+  const won = locale === "ko" ? "원" : "₩";
   const [result, setResult] = useState<MinWageResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);
 
@@ -118,8 +120,12 @@ export function MinWageMonthlyForm(): React.ReactElement {
         <FieldGroup title={t("sections.wage")}>
           <Field label={t("fields.year")} hint={t("hints.year")}>
             <select className="input-base" {...register("year")}>
-              <option value="2026">2026 (10,320원)</option>
-              <option value="2025">2025 (10,030원)</option>
+              <option value="2026">
+                {locale === "ko" ? "2026 (10,320원)" : "2026 (₩10,320)"}
+              </option>
+              <option value="2025">
+                {locale === "ko" ? "2025 (10,030원)" : "2025 (₩10,030)"}
+              </option>
             </select>
           </Field>
           <Controller
@@ -133,7 +139,7 @@ export function MinWageMonthlyForm(): React.ReactElement {
                   thousands
                   decimals={0}
                   min={0}
-                  suffix="원"
+                  suffix={won}
                   aria-label={t("fields.hourlyWage")}
                 />
               </Field>

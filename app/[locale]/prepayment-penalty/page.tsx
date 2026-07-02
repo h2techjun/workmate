@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "중도상환수수료 계산기 — 슬라이딩 방식·면제 기준 자동 계산"
     : "Loan Prepayment Penalty Calculator — sliding scale & exemption";
@@ -69,7 +69,7 @@ export default async function PrepaymentPenaltyPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

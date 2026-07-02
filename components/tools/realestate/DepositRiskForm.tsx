@@ -28,7 +28,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface DepositRiskFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const LEVEL_TONE: Record<RiskLevel, StatTone> = {
@@ -134,6 +134,50 @@ const TEXT = {
       "Auction recovery rate is a per-property assumption. Reference only — verify the register, HUG, and a professional.",
     ],
   },
+  vi: {
+    section: "Thông tin nhà · hợp đồng",
+    fieldMarket: "Giá thị trường (₩)",
+    fieldMarketHint: "Dùng dữ liệu giao dịch thực tế/thị trường của Bộ Đất đai, không phải giá chào bán.",
+    fieldSenior: "Nợ ưu tiên (₩)",
+    fieldSeniorHint: "Khoản thế chấp (근저당) trong bản sao đăng ký BĐS — được thanh toán trước bạn khi đấu giá.",
+    fieldDeposit: "Tiền đặt cọc của tôi (₩)",
+    fieldRecovery: "Giả định tỷ lệ thu hồi khi đấu giá (%)",
+    fieldRecoveryHint: "Thay đổi nhiều tùy theo bất động sản (~70–90%). Nên mô phỏng thận trọng.",
+    calculate: "Kiểm tra rủi ro",
+    reset: "Đặt lại",
+    heading: "Đánh giá rủi ro tiền đặt cọc",
+    empty: "Nhập giá, nợ ưu tiên và tiền đặt cọc, rồi kiểm tra.",
+    error: "Tính toán thất bại.",
+    invalid: "Nhập giá thị trường lớn hơn 0.",
+    heroLabel: "Tỷ lệ nợ (nợ ưu tiên + tiền đặt cọc) ÷ giá",
+    levelLabel: {
+      safe: "Tương đối an toàn",
+      caution: "Cần thận trọng",
+      danger: "Rủi ro",
+      critical: "Rất rủi ro",
+    } as Record<RiskLevel, string>,
+    levelMsg: {
+      safe: "Nằm trong ngưỡng an toàn thông thường (tỷ lệ nợ ≤ 70%), nhưng luôn phải tự xác minh bản sao đăng ký BĐS và giá thị trường.",
+      caution: "Tỷ lệ nợ ở mức 70–80%. Bạn có thể mất một phần tiền đặt cọc nếu giá nhà giảm — nên đăng ký bảo hiểm hoàn trả tiền đặt cọc.",
+      danger: "Tỷ lệ nợ ở mức cao 80–90%. Việc thu hồi tiền khi đấu giá không chắc chắn. Phải xem lại hợp đồng và mua bảo hiểm.",
+      critical: "Tỷ lệ nợ vượt quá 90% — rủi ro 'jeonse rỗng' điển hình. Bạn nên cân nhắc nghiêm túc trước khi ký hợp đồng với điều kiện này.",
+    } as Record<RiskLevel, string>,
+    jeonseRatio: "Tỷ lệ jeonse (tiền đặt cọc ÷ giá)",
+    recoverable: "Số tiền dự kiến thu hồi khi đấu giá",
+    shortfall: "Thiệt hại dự kiến",
+    recoveryPct: "Tỷ lệ thu hồi tiền đặt cọc",
+    won: "₩",
+    noLoss: "Không có thiệt hại dự kiến",
+    checklistCta: "Danh sách phòng chống từng bước trước khi ký hợp đồng thực tế →",
+    sourceTitle: "Chỉ số · căn cứ",
+    sourceLines: [
+      "Tỷ lệ jeonse = tiền đặt cọc của tôi ÷ giá thị trường",
+      "Tỷ lệ nợ = (nợ ưu tiên + tiền đặt cọc của tôi) ÷ giá thị trường  ← chỉ số then chốt để xác định 'jeonse rỗng'",
+      "Thu hồi khi đấu giá = max(0, giá × tỷ lệ thu hồi − nợ ưu tiên); thiệt hại = tiền đặt cọc − số tiền thu hồi",
+      "Các ngưỡng 70/80/90% là kinh nghiệm thông thường của ngành/HUG, không phải quy định pháp luật.",
+      "Tỷ lệ thu hồi khi đấu giá là giả định theo từng bất động sản. Chỉ mang tính tham khảo — xác minh bản sao đăng ký BĐS, HUG và chuyên gia.",
+    ],
+  },
 } as const;
 
 const DEFAULTS: DepositRiskInputResolved = {
@@ -149,6 +193,7 @@ export function DepositRiskForm({
   locale,
 }: DepositRiskFormProps): React.ReactElement {
   const T = TEXT[locale];
+  const won = locale === "ko" ? "원" : "₩";
   const [result, setResult] = useState<DepositRiskResult | null>(() => {
     try {
       return calculateDepositRisk(DEFAULTS);
@@ -198,7 +243,7 @@ export function DepositRiskForm({
             onChange={field.onChange}
             thousands
             decimals={0}
-            suffix="원"
+            suffix={won}
             aria-label={label}
           />
           {locale === "ko" && field.value > 0 && (
@@ -260,7 +305,7 @@ export function DepositRiskForm({
         heading={T.heading}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Jeonse scam checklist", href: "/jeonse-wolse" },
                 { label: "Apartment area & price", href: "/apartment-area" },

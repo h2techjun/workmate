@@ -26,7 +26,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface JeonseWolseFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -98,6 +98,40 @@ const TEXT = {
       "Reference estimate. Verify with the property register, a licensed agent, and a professional.",
     ],
   },
+  vi: {
+    sectionMode: "Hướng chuyển đổi",
+    fieldMode: "Bạn muốn chuyển đổi gì?",
+    modeToMonthly: "Jeonse → hàng tháng (chuyển một phần tiền đặt cọc thành tiền thuê)",
+    modeToDeposit: "Hàng tháng → jeonse (tương đương tiền đặt cọc)",
+    fieldJeonse: "Tiền đặt cọc jeonse (₩)",
+    fieldKeep: "Tiền đặt cọc giữ lại sau chuyển đổi (₩)",
+    fieldKeepHint: "0 = chuyển toàn bộ tiền đặt cọc jeonse thành tiền thuê",
+    fieldMonthlyDeposit: "Tiền đặt cọc thuê hàng tháng (₩)",
+    fieldMonthlyRent: "Tiền thuê hàng tháng (₩)",
+    fieldRate: "Tỷ lệ chuyển đổi (%)",
+    fieldRateHint: "Mức trần pháp lý 4,5% (lãi suất cơ bản 2,5% + 2%). Thực tế có thể thương lượng — chỉnh sửa tự do.",
+    calculate: "Chuyển đổi",
+    reset: "Đặt lại",
+    resultHeading: "Kết quả chuyển đổi Jeonse–Wolse",
+    resultEmpty: "Chọn hướng chuyển đổi, nhập số tiền, rồi chuyển đổi.",
+    error: "Tính toán thất bại.",
+    monthlyResult: "Tiền thuê hàng tháng",
+    jeonseResult: "Tương đương Jeonse",
+    won: "₩",
+    convertedDeposit: "Tiền đặt cọc đã chuyển thành tiền thuê",
+    appliedRate: "Tỷ lệ áp dụng",
+    legalCap: "Mức trần pháp lý",
+    exceedWarn: "⚠️ Tỷ lệ của bạn vượt mức trần pháp lý 4,5%. Mức trần này áp dụng cho việc chuyển đổi jeonse sang hàng tháng trong thời gian thuê hoặc khi gia hạn hợp đồng.",
+    newContractWarn: "Lưu ý: mức trần tỷ lệ chỉ áp dụng khi chuyển đổi jeonse sang hàng tháng trong thời gian thuê hoặc khi gia hạn — không áp dụng cho hợp đồng thuê hàng tháng hoàn toàn mới.",
+    sourceTitle: "Công thức · căn cứ (2026)",
+    sourceLines: [
+      "Jeonse→hàng tháng: tiền thuê = (jeonse − tiền đặt cọc giữ lại) × tỷ lệ ÷ 12",
+      "Hàng tháng→jeonse: jeonse = tiền đặt cọc hàng tháng + (tiền thuê × 12) ÷ tỷ lệ",
+      "Mức trần pháp lý = min(10%, lãi suất cơ bản + 2%) = 4,5% (Luật Cho thuê Nhà ở §7-2, lãi suất cơ bản 2,5%)",
+      "Mức trần chỉ áp dụng cho việc chuyển đổi trong thời gian thuê/khi gia hạn hợp đồng; hợp đồng mới và hàng tháng→jeonse chỉ mang tính tham khảo.",
+      "Ước tính tham khảo. Xác minh với bản sao đăng ký BĐS (등기부등본), môi giới được cấp phép và chuyên gia.",
+    ],
+  },
 } as const;
 
 const JEONSE_WOLSE_DEFAULTS: JeonseWolseInputResolved = {
@@ -113,6 +147,7 @@ export function JeonseWolseForm({
   locale,
 }: JeonseWolseFormProps): React.ReactElement {
   const T = TEXT[locale];
+  const won = locale === "ko" ? "원" : "₩";
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<JeonseWolseResult | null>(() => {
     try {
@@ -184,7 +219,7 @@ export function JeonseWolseForm({
                       onChange={field.onChange}
                       thousands
                       decimals={0}
-                      suffix="원"
+                      suffix={won}
                       aria-label={T.fieldJeonse}
                     />
                     {locale === "ko" && field.value > 0 && (
@@ -205,7 +240,7 @@ export function JeonseWolseForm({
                       onChange={field.onChange}
                       thousands
                       decimals={0}
-                      suffix="원"
+                      suffix={won}
                       aria-label={T.fieldKeep}
                     />
                     {locale === "ko" && field.value > 0 && (
@@ -229,7 +264,7 @@ export function JeonseWolseForm({
                       onChange={field.onChange}
                       thousands
                       decimals={0}
-                      suffix="원"
+                      suffix={won}
                       aria-label={T.fieldMonthlyDeposit}
                     />
                     {locale === "ko" && field.value > 0 && (
@@ -250,7 +285,7 @@ export function JeonseWolseForm({
                       onChange={field.onChange}
                       thousands
                       decimals={0}
-                      suffix="원"
+                      suffix={won}
                       aria-label={T.fieldMonthlyRent}
                     />
                     {locale === "ko" && field.value > 0 && (
@@ -301,7 +336,7 @@ export function JeonseWolseForm({
         heading={T.resultHeading}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Rent Cap Calculator", href: "/rent-cap" },
                 { label: "Apartment Area Convert", href: "/apartment-area" },

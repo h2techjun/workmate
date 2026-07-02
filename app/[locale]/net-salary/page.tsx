@@ -15,13 +15,18 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
+  const isVi = locale === "vi";
   const title = isKo
     ? "연봉 실수령액 계산기 — 4대보험·소득세 공제 후 월급"
-    : "Korean Salary Take-Home Calculator — net pay after tax";
+    : isVi
+      ? "Máy tính lương thực nhận Hàn Quốc — sau khi trừ 4 loại bảo hiểm xã hội·thuế thu nhập"
+      : "Korean Salary Take-Home Calculator — net pay after tax";
   const description = isKo
     ? "연봉을 넣으면 4대보험·소득세·지방세를 공제한 월 실수령액을 즉시 계산. 부양가족·자녀·비과세 반영. 2026 요율 기준 세전→세후 한눈에."
-    : "Enter your annual salary to get monthly take-home pay after the 4 insurances, income tax, and local tax. Reflects dependents and non-taxable amounts. 2026 rates.";
+    : isVi
+      ? "Nhập mức lương năm để tính ngay lương thực nhận hàng tháng sau khi trừ 4 loại bảo hiểm xã hội, thuế thu nhập và thuế địa phương. Có tính đến người phụ thuộc, con cái và khoản miễn thuế. Theo tỷ lệ 2026."
+      : "Enter your annual salary to get monthly take-home pay after the 4 insurances, income tax, and local tax. Reflects dependents and non-taxable amounts. 2026 rates.";
   const keywords = isKo
     ? [
         "연봉 실수령액",
@@ -33,12 +38,20 @@ export async function generateMetadata({
         "연봉 실수령",
         "2026 연봉",
       ]
-    : [
-        "korean salary calculator",
-        "korea take home pay",
-        "net salary korea",
-        "korean income after tax",
-      ];
+    : isVi
+      ? [
+          "máy tính lương thực nhận Hàn Quốc",
+          "lương thực nhận Hàn Quốc",
+          "tính lương sau thuế Hàn Quốc",
+          "4 loại bảo hiểm xã hội Hàn Quốc",
+          "lương net Hàn Quốc",
+        ]
+      : [
+          "korean salary calculator",
+          "korea take home pay",
+          "net salary korea",
+          "korean income after tax",
+        ];
 
   return {
     title,
@@ -53,7 +66,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/net-salary`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -66,8 +79,7 @@ export default async function NetSalaryPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
-  const localeKey = isKo ? "ko" : "en";
+  const lang: "ko" | "en" | "vi" = locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -78,21 +90,27 @@ export default async function NetSalaryPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : "All tools"}
+            {lang === "ko" ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "연봉 실수령액 계산기" : "Korean Salary Take-Home Calculator"}
+            {lang === "ko"
+              ? "연봉 실수령액 계산기"
+              : lang === "vi"
+                ? "Máy tính lương thực nhận Hàn Quốc"
+                : "Korean Salary Take-Home Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
-            {isKo
+            {lang === "ko"
               ? "연봉만 넣으면 4대보험·소득세·지방세를 뺀 월 실수령액을 즉시 산출. 부양가족·자녀·비과세까지 반영해 세전→세후 한눈에."
-              : "Enter your annual salary for instant monthly take-home pay after the 4 insurances and taxes — with dependents, children, and non-taxable amounts."}
+              : lang === "vi"
+                ? "Chỉ cần nhập lương năm, hệ thống sẽ tính ngay lương thực nhận hàng tháng sau khi trừ 4 loại bảo hiểm xã hội, thuế thu nhập và thuế địa phương — có tính cả người phụ thuộc, con cái và khoản miễn thuế."
+                : "Enter your annual salary for instant monthly take-home pay after the 4 insurances and taxes — with dependents, children, and non-taxable amounts."}
           </p>
         </header>
-        <NetSalaryForm locale={localeKey} />
-        <ToolGuide toolKey="net-salary" locale={localeKey} />
+        <NetSalaryForm locale={lang} />
+        <ToolGuide toolKey="net-salary" locale={lang} />
       </div>
     </main>
   );

@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "타일 매수 계산기 — 면적 + 타일 크기 → 매수 + 줄눈재 + 본드"
     : "Tile Calculator — area × tile size → count + grout + adhesive";
@@ -75,7 +75,7 @@ export default async function TilePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (
@@ -101,7 +101,7 @@ export default async function TilePage({
           </p>
         </header>
         <TileForm locale={localeKey} />
-        <ToolGuide toolKey="timber-tile" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-tile" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

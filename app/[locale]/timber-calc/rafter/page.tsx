@@ -64,7 +64,7 @@ export default async function RafterPage({
           </p>
         </header>
         <RafterForm />
-        <ToolGuide toolKey="timber-rafter" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-rafter" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

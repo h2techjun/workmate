@@ -4,7 +4,7 @@ import { getOffer } from "@/lib/offers";
 interface OfferSlotProps {
   /** lib/offers.ts 의 OFFERS 키 (도구 식별자). 오퍼 없으면 미노출 */
   toolKey?: string;
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 /**
@@ -23,7 +23,7 @@ export function OfferSlot({
   const offer = getOffer(toolKey);
   if (!offer) return null;
 
-  const isEn = locale === "en";
+  const isEn = locale !== "ko";
 
   return (
     <div className="mt-4 rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4">

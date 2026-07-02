@@ -1,0 +1,1581 @@
+{
+  "share": {
+    "button": "Chia sẻ",
+    "copied": "Đã sao chép liên kết"
+  },
+  "layout": {
+    "electric": "Điện",
+    "timber": "Gỗ",
+    "projects": "Maker",
+    "tools": "Công cụ",
+    "games": "Trò chơi",
+    "tests": "Trắc nghiệm",
+    "learn": "Học",
+    "open": "Mở",
+    "nav": {
+      "about": "Giới thiệu",
+      "blog": "Ghi chú thực tế",
+      "privacy": "Chính sách bảo mật",
+      "terms": "Điều khoản sử dụng",
+      "contact": "Liên hệ"
+    },
+    "footer": {
+      "copyright": "© 2026 Workmate — Công cụ miễn phí theo tiêu chuẩn Hàn Quốc",
+      "disclaimer": "Các công cụ tính toán trên trang này tham chiếu luật và tiêu chuẩn hiện hành, chỉ mang tính tham khảo. Đối với việc khai báo thuế, ký hợp đồng hoặc thiết kế thực tế trong các lĩnh vực như thuế, lao động, xây dựng, vui lòng xác nhận với cơ quan liên quan hoặc chuyên gia có chứng chỉ.",
+      "tagline": "Công cụ tính toán chính xác theo tiêu chuẩn Hàn Quốc + ghi chú thực tế từ hiện trường.",
+      "groupCatalog": "Khám phá",
+      "groupCompany": "Công ty",
+      "groupLegal": "Pháp lý"
+    }
+  },
+  "homeSearch": {
+    "placeholder": "Tìm công cụ — vd: dây điện, cách nhiệt, lương, doanh nghiệp",
+    "noResults": "Không có công cụ nào khớp với \"{query}\".",
+    "favorites": "Yêu thích",
+    "addFavorite": "Thêm vào yêu thích",
+    "removeFavorite": "Bỏ khỏi yêu thích",
+    "category": {
+      "electric": "Điện",
+      "timber": "Gỗ",
+      "finance": "Tài chính",
+      "util": "Tiện ích",
+      "business": "Doanh nghiệp"
+    },
+    "tools": {
+      "wireSize": {
+        "title": "Tiết diện dây dẫn",
+        "description": "Tự động tính tiết diện theo KEC 232.5",
+        "keywords": "wire size cable cross-section KEC 232 dây điện tiết diện"
+      },
+      "breaker": {
+        "title": "Công suất cầu dao (Breaker)",
+        "description": "Tự động chọn định mức MCB/MCCB",
+        "keywords": "breaker MCB MCCB ELB cầu dao hệ số an toàn"
+      },
+      "voltageDrop": {
+        "title": "Sụt áp",
+        "description": "Tự động kiểm tra tuân thủ tiêu chuẩn",
+        "keywords": "voltage drop sụt áp Korean Electrical Code 1410-1"
+      },
+      "span": {
+        "title": "Khẩu độ cấu kiện",
+        "description": "Uốn + võng cho xà gồ/rui mè",
+        "keywords": "span joist rafter header xà gồ rui mè uốn võng NDS KDS"
+      },
+      "insulation": {
+        "title": "Cách nhiệt R/U",
+        "description": "Tự động kiểm tra theo quy chuẩn năng lượng Hàn Quốc",
+        "keywords": "insulation R-value U-value cách nhiệt quy chuẩn năng lượng PHIKO"
+      },
+      "materialQuantity": {
+        "title": "Khối lượng vật liệu",
+        "description": "Số tấm + số lượng đinh",
+        "keywords": "material quantity OSB plywood gypsum siding đinh vật liệu"
+      },
+      "stairs": {
+        "title": "Cầu thang",
+        "description": "Quy chuẩn Hàn Quốc + công thức Blondel",
+        "keywords": "stairs riser tread Blondel cầu thang bậc thang"
+      },
+      "rafter": {
+        "title": "Chiều dài rui mè",
+        "description": "Run+rise → chiều dài cắt",
+        "keywords": "rafter rui mè mái nhà run rise"
+      },
+      "roofPitch": {
+        "title": "Độ dốc mái",
+        "description": "Góc↔độ dốc↔pitch",
+        "keywords": "roof pitch slope angle độ dốc mái"
+      },
+      "roofArea": {
+        "title": "Diện tích mái",
+        "description": "Diện tích mặt dốc + phần đua",
+        "keywords": "roof area diện tích mái slope sec"
+      },
+      "concrete": {
+        "title": "Khối lượng bê tông",
+        "description": "Móng + cốt thép + xe bê tông trộn sẵn",
+        "keywords": "concrete móng bê tông cốt thép remicon"
+      },
+      "lumber": {
+        "title": "Quy đổi gỗ xẻ",
+        "description": "m³·sai·BF",
+        "keywords": "lumber sai 才 board feet BF gỗ xẻ"
+      },
+      "insurance": {
+        "title": "4 loại bảo hiểm xã hội",
+        "description": "Tỷ lệ 2026 + lương thực nhận",
+        "keywords": "insurance pension health employment bảo hiểm xã hội Hàn Quốc"
+      },
+      "foreignStockTax": {
+        "title": "Thuế cổ phiếu nước ngoài",
+        "description": "Tỷ giá + khấu trừ + 22%",
+        "keywords": "foreign stock capital gains tax FX 22% thuế cổ phiếu nước ngoài"
+      },
+      "jsonCsv": {
+        "title": "JSON ↔ CSV",
+        "description": "BOM tiếng Hàn + thân thiện với Excel",
+        "keywords": "JSON CSV convert BOM Excel UTF-8"
+      },
+      "bizNumber": {
+        "title": "Xác thực mã số đăng ký kinh doanh",
+        "description": "Kiểm tra checksum ngay lập tức",
+        "keywords": "business number validation checksum NTS Korea mã số đăng ký kinh doanh"
+      }
+    }
+  },
+  "home": {
+    "badge": "{tools} công cụ · hoàn toàn miễn phí · không cần cài đặt",
+    "heroLine1": "Những con số Hàn Quốc rắc rối,",
+    "heroRoll1": "Lương thực nhận",
+    "heroRoll2": "Pyeong ↔ m²",
+    "heroRoll3": "Bậc thang tiền điện",
+    "heroRoll4": "Trợ cấp thôi việc",
+    "heroRoll5": "Thuế VAT Hàn Quốc",
+    "heroLine2End": "— giải quyết trong 3 giây.",
+    "heroSubtitle": "{tools} công cụ tính toán miễn phí dựa theo luật Hàn Quốc và tiêu chuẩn KS. Không cần đăng ký — tìm kiếm, nhập số, nhận kết quả ngay.",
+    "popularChipsLabel": "Phổ biến",
+    "floatAreaLabel": "Quy đổi pyeong",
+    "floatAreaExpr": "84㎡ là bao nhiêu pyeong?",
+    "floatAreaResult": "= 25,4 pyeong",
+    "floatVatLabel": "Tách thuế VAT",
+    "floatVatExpr": "₩11.000 (đã gồm VAT)",
+    "floatVatResult": "= 10.000 + 1.000",
+    "floatSalaryLabel": "Lương thực nhận",
+    "floatSalaryExpr": "Với mức lương ₩50 triệu,",
+    "floatSalaryQuestion": "bạn thực nhận bao nhiêu?",
+    "floatSalaryCta": "Tính ngay",
+    "marqueeLabel": "Toàn bộ {tools} công cụ — bấm để mở",
+    "popularHeading": "Đang được dùng nhiều nhất",
+    "popularSub": "Lượt tìm kiếm hàng đầu",
+    "popular": {
+      "netSalary": "Số tiền thực sự vào tài khoản sau khi trừ bảo hiểm và thuế thu nhập Hàn Quốc",
+      "areaConvert": "84㎡ là bao nhiêu pyeong — kèm mẫu diện tích bất động sản Hàn Quốc",
+      "percentCalc": "Giảm giá, tăng giá, tính ngược phần trăm — mọi trường hợp % gây rối trên một màn hình",
+      "biznumCheck": "Xác minh mã số đăng ký kinh doanh Hàn Quốc bằng checksum trước khi thanh toán",
+      "electricBill": "Bạn đang ở bậc thang lũy tiến nào — biểu giá điện sinh hoạt KEPCO",
+      "koreanAge": "Tuổi quốc tế so với tuổi đếm và tuổi theo năm Hàn Quốc — làm rõ trong một lần"
+    },
+    "openTool": "Sử dụng",
+    "categoriesHeading": "Mọi phép tính, đều có đủ",
+    "categoriesSub": "{groups} danh mục · {tools} công cụ — mỗi công cụ đều trích dẫn nguồn pháp lý hoặc tiêu chuẩn KS",
+    "moreTools": "+{count}",
+    "statsTools": "Công cụ miễn phí",
+    "statsCategories": "Danh mục",
+    "statsLanguages": "Ngôn ngữ hỗ trợ",
+    "statsSources": "Nguồn được trích dẫn",
+    "notesHeading": "Ghi chú thực tế",
+    "notesSub": "Câu chuyện đằng sau các công cụ tính toán",
+    "notesAll": "Xem tất cả",
+    "readMinutes": "{minutes} phút đọc",
+    "readPost": "Đọc bài viết",
+    "makerEyebrow": "MAKER LAB",
+    "makerTitle": "Thêm những thử nghiệm khác của người tạo Workmate",
+    "makerDesc": "Trò chơi · trắc nghiệm · dịch vụ — các dự án indie do một người tự làm và vận hành.",
+    "makerCta": "Ghé thăm maker hub",
+    "ctaTitle": "Thiếu một công cụ bạn cần?",
+    "ctaButton": "Đề xuất công cụ"
+  },
+  "minWageTool": {
+    "meta": {
+      "title": "Chuyển đổi lương giờ → lương tháng (Hàn Quốc, kèm phụ cấp nghỉ hàng tuần)",
+      "description": "Chuyển đổi lương theo giờ sang lương tháng và thu nhập hàng năm theo tiêu chuẩn 209 giờ của Hàn Quốc (tuần làm 40 giờ + phụ cấp nghỉ hàng tuần). Có tính theo tỷ lệ cho lao động bán thời gian."
+    },
+    "eyebrow": "Lương tối thiểu → lương tháng",
+    "heading": "Lương giờ → Lương tháng / Lương năm",
+    "intro": "Chuyển đổi lương theo giờ sang lương tháng theo tiêu chuẩn 209 giờ của Hàn Quốc (40 giờ/tuần + phụ cấp nghỉ hàng tuần). Giờ làm bán thời gian được tự động tính theo tỷ lệ.",
+    "breadcrumb": {
+      "home": "Trang chủ",
+      "labor": "Công cụ tính lao động"
+    },
+    "sections": {
+      "wage": "Lương theo giờ",
+      "hours": "Giờ làm việc"
+    },
+    "fields": {
+      "year": "Năm tham chiếu",
+      "hourlyWage": "Lương theo giờ",
+      "weeklyHours": "Giờ làm việc mỗi tuần",
+      "includeWeeklyRest": "Bao gồm phụ cấp nghỉ hàng tuần"
+    },
+    "hints": {
+      "year": "Dùng làm mức lương tối thiểu dự phòng",
+      "tbd": "Đã xác nhận 10.320 KRW",
+      "hourlyWage": "0 = dùng lương tối thiểu của năm đã chọn",
+      "weeklyHours": "5 ngày × 8 giờ = 40. Điều chỉnh cho lao động bán thời gian.",
+      "includeWeeklyRest": "Người lao động làm từ 15 giờ/tuần trở lên đủ điều kiện nhận phụ cấp nghỉ hàng tuần"
+    },
+    "actions": {
+      "calculate": "Chuyển đổi",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập lương theo giờ và số giờ làm mỗi tuần, sau đó chuyển đổi.",
+      "monthlyLabel": "Lương tháng",
+      "annualLabel": "Lương năm",
+      "monthlyHoursLabel": "Số giờ làm việc mỗi tháng",
+      "weeklyRestLabel": "Phụ cấp nghỉ hàng tuần (theo tháng)",
+      "hourlyLabel": "Lương giờ áp dụng",
+      "wonSuffix": " KRW",
+      "hoursSuffix": " giờ"
+    },
+    "steps": {
+      "heading": "Các bước tính",
+      "input": "Lương giờ {hourlyWage}, {weeklyHours} giờ/tuần, năm {year}",
+      "monthlyHoursWithRest": "{weeklyHours} giờ/tuần + giờ nghỉ hàng tuần × 4,345 tuần = {monthlyHours} giờ/tháng",
+      "monthlyHoursNoRest": "{weeklyHours} giờ/tuần × 4,345 tuần = {monthlyHours} giờ/tháng (không gồm phụ cấp nghỉ hàng tuần)",
+      "monthlySalary": "Lương giờ {hourlyWage} × {monthlyHours} giờ = lương tháng {monthlySalary}",
+      "annualSalary": "Lương tháng {monthlySalary} × 12 = lương năm {annualSalary}"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi trong quá trình chuyển đổi."
+    },
+    "source": "Luật Tiêu chuẩn Lao động Điều 55 (ngày nghỉ hàng tuần). 209 giờ là tiêu chuẩn hành chính cho số giờ làm việc hàng tháng. Mức lương thực tế có thể khác nhau tùy theo quy định của từng công ty.",
+    "ctx": {
+      "formula": {
+        "title": "209 giờ đến từ đâu?",
+        "body": "40 giờ làm việc/tuần + 8 giờ nghỉ hàng tuần = 48 giờ/tuần. 52 tuần ÷ 12 tháng ≈ 4,345 tuần/tháng. 48 × 4,345 ≈ 208,56 → làm tròn theo giải thích hành chính thành 209."
+      },
+      "partTime": {
+        "title": "Tính theo tỷ lệ cho lao động bán thời gian",
+        "body": "Dưới 15 giờ/tuần → không có phụ cấp nghỉ hàng tuần. 15-40 giờ → phụ cấp nghỉ hàng tuần = (số giờ/tuần / 5) giờ mỗi tuần, tối đa 8 giờ."
+      },
+      "minWage": {
+        "title": "Quyết định lương tối thiểu",
+        "body": "Được công bố hàng năm trước ngày 5/8 cho năm tiếp theo. 2025 = 10.030 KRW / 2026 = 10.320 KRW (+2,9%, Thông báo MOEL số 2025-47)."
+      }
+    }
+  },
+  "severanceTool": {
+    "meta": {
+      "title": "Công cụ tính trợ cấp thôi việc Hàn Quốc (So sánh lương bình quân với lương thông thường)",
+      "description": "Ngày vào làm, ngày nghỉ việc, lương 3 tháng gần nhất → tự động tính lương bình quân hàng ngày + so sánh với lương thông thường → tự động ra trợ cấp thôi việc. Có thể cộng thêm thưởng và tiền phép năm chưa sử dụng."
+    },
+    "eyebrow": "Luật Bảo đảm Trợ cấp Thôi việc Điều 8",
+    "heading": "Công cụ tính trợ cấp thôi việc (퇴직금)",
+    "intro": "Lương bình quân hàng ngày × 30 × (số ngày làm việc ÷ 365). Áp dụng mức cao hơn giữa lương bình quân và lương thông thường hàng ngày. Có thể cộng thêm 3/12 phần thưởng hàng năm và tiền phép năm chưa sử dụng.",
+    "breadcrumb": {
+      "home": "Trang chủ",
+      "labor": "Công cụ tính lao động"
+    },
+    "sections": {
+      "tenure": "Thời gian làm việc",
+      "wage": "Tiền lương"
+    },
+    "fields": {
+      "hireDate": "Ngày vào làm",
+      "resignDate": "Ngày nghỉ việc",
+      "recentThreeMonthsSalary": "Tổng lương 3 tháng gần nhất",
+      "annualBonus": "Thưởng định kỳ hàng năm (tùy chọn)",
+      "annualLeavePay": "Tiền phép năm chưa sử dụng năm trước (tùy chọn)",
+      "monthlyOrdinaryWage": "Lương thông thường theo tháng (tùy chọn)"
+    },
+    "hints": {
+      "hireDate": "Ngày bắt đầu hợp đồng lao động",
+      "resignDate": "Ngày kế tiếp sau ngày làm việc cuối cùng",
+      "recentThreeMonthsSalary": "Tổng lương cơ bản + phụ cấp cố định trong 3 tháng",
+      "annualBonus": "Chỉ tính thưởng định kỳ, đã ấn định (cộng thêm 3/12)",
+      "annualLeavePay": "Tiền phép năm chưa sử dụng trong 1 năm gần nhất (cộng thêm 3/12)",
+      "monthlyOrdinaryWage": "Được dùng khi lương thông thường hàng ngày cao hơn lương bình quân"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập ngày tháng và mức lương.",
+      "severanceLabel": "Trợ cấp thôi việc",
+      "tenureLabel": "Thời gian làm việc",
+      "tenureValue": "{years} năm {months} tháng",
+      "totalDaysLabel": "Tổng số ngày",
+      "appliedDailyLabel": "Lương ngày áp dụng",
+      "averageDailyLabel": "Lương bình quân (1 ngày)",
+      "wonSuffix": " KRW",
+      "notQualifiedTitle": "Không đủ điều kiện",
+      "notQualifiedBody": "Thời gian làm việc {days} ngày — dưới 365 ngày = không có trợ cấp thôi việc (Luật Bảo đảm Trợ cấp Thôi việc Điều 4)."
+    },
+    "steps": {
+      "heading": "Các bước tính",
+      "tenure": "Thời gian làm việc {years} năm {months} tháng {days} ngày = tổng {totalDays} ngày",
+      "notQualified": "{totalDays} ngày — dưới 365 ngày, không có trợ cấp thôi việc",
+      "averageWage": "Lương bình quân = (lương 3 tháng {threeMonthSalary} + thưởng 3/12 {bonusPortion} + phép năm 3/12 {leavePayPortion}) ÷ 90 ngày = lương ngày {averageDailyWage}",
+      "ordinaryWage": "Lương thông thường hàng ngày — {monthlyOrdinary} ÷ 209 × 8 = lương ngày {ordinaryDailyWage}",
+      "ordinaryApplied": "Lương thông thường {ordinaryDailyWage} > lương bình quân {averageDailyWage} → áp dụng lương thông thường",
+      "severance": "Lương ngày {appliedDailyWage} × 30 × ({serviceDays} ÷ 365) = trợ cấp thôi việc {severance}"
+    },
+    "errors": {
+      "invalid": "Vui lòng kiểm tra lại thông tin đã nhập.",
+      "unknown": "Đã xảy ra lỗi trong quá trình tính toán."
+    },
+    "source": "Luật Bảo đảm Trợ cấp Thôi việc Điều 8 (chế độ trợ cấp thôi việc — 퇴직금). Cách tính lương bình quân có thể khác nhau tùy công ty và ngành nghề. Một số công ty vẫn trả trợ cấp thôi việc cho người làm việc dưới 1 năm.",
+    "ctx": {
+      "law": {
+        "title": "Điều kiện phát sinh trợ cấp thôi việc",
+        "body": "Làm việc liên tục từ 1 năm trở lên VÀ trung bình từ 15 giờ/tuần trở lên (tính bình quân 4 tuần). Phát sinh bất kể nghỉ việc tự nguyện hay bị sa thải. Áp dụng cả với nơi làm việc dưới 5 người (từ sau 01/12/2010)."
+      },
+      "average": {
+        "title": "Cách tính lương bình quân",
+        "body": "Tổng lương 3 tháng trước khi nghỉ việc ÷ số ngày trong khoảng thời gian đó (thường là 90 ngày). Thưởng định kỳ = 1/4 của tổng năm; tiền phép năm chưa sử dụng = 1/4 của năm trước, cả hai đều được cộng thêm."
+      },
+      "dc": {
+        "title": "DC (đóng góp xác định) so với DB (lợi ích xác định)",
+        "body": "Loại DC (đóng góp xác định): mỗi năm tích lũy 1/12 lương tháng vào tài khoản. Công cụ này giả định theo loại DB (lợi ích xác định). Số tiền cuối cùng của loại DC phụ thuộc vào lợi nhuận đầu tư."
+      }
+    },
+    "validation": {
+      "hireDateRequired": "Vui lòng nhập ngày vào làm.",
+      "resignDateRequired": "Vui lòng nhập ngày nghỉ việc.",
+      "salaryPositive": "Vui lòng nhập tổng lương 3 tháng gần nhất.",
+      "hireBeforeResign": "Ngày vào làm phải trước ngày nghỉ việc."
+    }
+  },
+  "toolGuides": {
+    "_labels": {
+      "overview": "Công cụ này dùng để làm gì",
+      "useCases": "Ai nên sử dụng",
+      "faq": "Câu hỏi thường gặp",
+      "cautions": "Lưu ý",
+      "related": "Công cụ liên quan",
+      "lastReviewedPrefix": "Cập nhật lần cuối:"
+    },
+    "labor-min-wage-monthly": {
+      "overview": "Công cụ chuyển đổi lương tối thiểu sang lương tháng giúp quy đổi ngay lập tức lương theo giờ thành lương tháng và thu nhập hàng năm, bao gồm cả phụ cấp nghỉ hàng tuần. Công cụ tự động áp dụng tiêu chuẩn 209 giờ của Hàn Quốc (40 giờ làm việc/tuần + 8 giờ nghỉ hàng tuần × 4,345 tuần/tháng) — điểm mấu chốt trong việc 'quy đổi ra lương tháng' — và hỗ trợ tính theo tỷ lệ khi bạn nhập số giờ làm việc mỗi tuần ngắn hơn. Lương tối thiểu theo giờ năm 2026 là 10.320 KRW (tương đương lương tháng 2.156.880 KRW, Thông báo MOEL số 2025-47); năm 2025 là 10.030 KRW.",
+      "useCases": [
+        "Người tìm việc: kiểm tra xem mức lương theo giờ được đề nghị có vi phạm lương tối thiểu hay không bằng cách quy đổi ra lương tháng",
+        "Người làm bán thời gian và thời gian ngắn: tính lương tháng dự kiến dựa trên số giờ làm việc theo hợp đồng mỗi tuần",
+        "Người sử dụng lao động và bộ phận nhân sự: mô phỏng trước mức tăng chi phí lao động theo tháng và năm khi lương tối thiểu tăng",
+        "Đàm phán hợp đồng: so sánh sự khác biệt tùy theo việc có bao gồm phụ cấp nghỉ hàng tuần hay không",
+        "Người lao động nước ngoài: xác minh xem lương theo giờ của bạn có đạt mức tối thiểu hợp pháp của Hàn Quốc hay không"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (3 bước)",
+        "steps": [
+          "Nhập lương theo giờ của bạn. Nếu để trống, lương tối thiểu theo giờ của năm đó (10.320 KRW cho 2026 · 10.030 KRW cho 2025) sẽ được tự động điền vào.",
+          "Thiết lập số giờ làm việc theo hợp đồng mỗi tuần. Với công việc toàn thời gian (5 ngày, 8 giờ), giữ mặc định 40 giờ; với công việc bán thời gian (30, 25 giờ, v.v.), nhập số giờ thực tế.",
+          "Chọn có bao gồm phụ cấp nghỉ hàng tuần hay không. Khi bao gồm, lương tháng được tính dựa trên 209 giờ (theo tiêu chuẩn 40 giờ) hoặc giờ theo tỷ lệ; khi không bao gồm, chỉ phản ánh số giờ làm việc thực tế."
+        ]
+      },
+      "formula": {
+        "title": "Công thức tính (cơ sở của con số 209 giờ)",
+        "body": "Số giờ làm việc theo hợp đồng mỗi tháng (bao gồm nghỉ hàng tuần, theo tiêu chuẩn 40 giờ)\n  = (40 giờ/tuần + 8 giờ nghỉ hàng tuần) × số tuần trung bình mỗi tháng\n  = 48 giờ × (52 tuần ÷ 12 tháng)\n  = 48 × 4,345 ≈ 208,56 → 209 giờ theo giải thích hành chính\n\nLương tháng = lương theo giờ × 209 giờ\nLương tối thiểu 2026: 10.320 KRW/giờ (2025: 10.030 KRW)\nLương tháng tối thiểu = 10.320 × 209 = 2.156.880 KRW\n\nLàm việc bán thời gian (N giờ/tuần):\n  giờ nghỉ hàng tuần = (N ÷ 40) × 8 giờ (tối đa 8 giờ)\n  giờ theo hợp đồng mỗi tháng = (N + giờ nghỉ hàng tuần) × 4,345\n  lương tháng = lương theo giờ × giờ theo hợp đồng mỗi tháng\n\nCăn cứ: Luật Tiêu chuẩn Lao động Điều 55 (nghỉ hàng tuần), Luật Lương tối thiểu, giải thích hành chính của MOEL (209 giờ)"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Toàn thời gian với lương tối thiểu (40 giờ/tuần, cơ sở 2025/2026)",
+            "body": "10.320 KRW × 209 giờ = 2.156.880 KRW/tháng. Quy đổi năm là 25.882.560 KRW. Riêng phụ cấp nghỉ hàng tuần = 10.320 × khoảng 34,8 giờ nghỉ hàng tháng = khoảng 359.136 KRW/tháng."
+          },
+          {
+            "title": "Ví dụ 2: Làm bán thời gian, 30 giờ/tuần (lương giờ 12.000 KRW)",
+            "body": "Giờ nghỉ hàng tuần = (30 ÷ 40) × 8 = 6 giờ. Giờ theo hợp đồng mỗi tháng = (30 + 6) × 4,345 ≈ 156,4 giờ. Lương tháng = 12.000 × 156 = khoảng 1.876.800 KRW."
+          },
+          {
+            "title": "Ví dụ 3: Không bao gồm phụ cấp nghỉ hàng tuần (40 giờ/tuần, lương giờ 13.000 KRW)",
+            "body": "Giờ theo hợp đồng mỗi tháng không tính nghỉ hàng tuần = 40 × 4,345 ≈ 173,8 → 174 giờ. Lương tháng = 13.000 × 174 = 2.262.000 KRW. Nếu tính cả phụ cấp nghỉ hàng tuần, 13.000 × 209 = 2.717.000 KRW, chênh lệch khoảng 455.000 KRW."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao 209 giờ lại là con số tiêu chuẩn?",
+          "answer": "Cộng 8 giờ nghỉ hàng tuần vào 40 giờ làm việc mỗi tuần, ta được 48 giờ/tuần; nhân với số tuần trung bình mỗi tháng là 4,345 (52 tuần ÷ 12 tháng), kết quả là 208,56 giờ. Giải thích hành chính của MOEL và án lệ làm tròn con số này thành 209 giờ làm cơ sở tính lương thông thường."
+        },
+        {
+          "question": "Lương tối thiểu theo giờ năm 2026 là bao nhiêu?",
+          "answer": "Lương tối thiểu được Ủy ban Lương tối thiểu quyết định và công bố vào ngày 5/8 hàng năm, áp dụng từ ngày 1/1 năm sau. Lương tối thiểu theo giờ năm 2026 là 10.320 KRW (+2,9%, Thông báo MOEL số 2025-47), đã được phản ánh trong công cụ này; năm 2025 là 10.030 KRW."
+        },
+        {
+          "question": "Mọi người lao động đều nhận được phụ cấp nghỉ hàng tuần?",
+          "answer": "Phụ cấp phát sinh khi người lao động có số giờ làm việc theo hợp đồng từ 15 giờ/tuần trở lên và đi làm đầy đủ tất cả các ngày làm việc đã định trong tuần đó. Người làm việc rất ngắn với dưới 15 giờ/tuần không nhận được phụ cấp nghỉ hàng tuần."
+        },
+        {
+          "question": "Phụ cấp ăn uống và đi lại có được tính vào lương tối thiểu không?",
+          "answer": "Từ năm 2024, phụ cấp ăn uống và đi lại được trả định kỳ ít nhất một lần mỗi tháng nằm trong phạm vi tính lương tối thiểu. Việc loại bỏ dần tỷ lệ trừ trước đây có nghĩa là hầu hết các khoản trả định kỳ hiện được tính vào. Kiểm tra tiêu chuẩn của MOEL để biết phạm vi tính toán chi tiết."
+        },
+        {
+          "question": "Nếu lương theo giờ của lao động bán thời gian thấp hơn mức tối thiểu thì sao?",
+          "answer": "Vi phạm lương tối thiểu là hành vi hình sự, có thể bị phạt tù đến 3 năm hoặc phạt tiền đến 20 triệu KRW. Hợp đồng có lương theo giờ thấp hơn mức tối thiểu sẽ vô hiệu đối với phần đó, và phần chênh lệch so với lương tối thiểu có thể được yêu cầu bồi thường trong vòng 3 năm."
+        },
+        {
+          "question": "Công cụ này có tính phụ cấp làm thêm giờ, làm đêm và làm ngày lễ không?",
+          "answer": "Công cụ này chỉ tính lương thông thường dựa trên số giờ theo hợp đồng. Phụ cấp làm thêm giờ (+50%), làm đêm (+50%) và làm ngày lễ (+50% đến 100%) là các khoản riêng biệt; sau khi xác nhận lịch làm việc, bạn có thể cộng thêm trong công cụ tính lương thực nhận."
+        }
+      ],
+      "cautions": [
+        "Công cụ phản ánh 10.320 KRW cho năm 2026 và 10.030 KRW cho năm 2025. Lương tối thiểu được công bố mỗi tháng 8 và công cụ này sẽ cập nhật ngay khi có thông báo chính thức.",
+        "209 giờ mỗi tháng dựa trên công việc toàn thời gian 40 giờ; người làm bán thời gian có số giờ theo tỷ lệ khác nhau — hãy nhập số giờ theo hợp đồng thực tế để có kết quả chính xác.",
+        "Xác nhận các chi tiết như việc bao gồm phụ cấp ăn uống/đi lại và thời gian thử việc (3 tháng, có thể áp dụng 90% lương tối thiểu) theo quy định của nơi làm việc và tiêu chuẩn MOEL.",
+        "Kết quả chỉ mang tính tham khảo; hãy xác nhận thỏa thuận lương thực tế với hợp đồng lao động và người sử dụng lao động hoặc luật sư lao động."
+      ],
+      "related": [
+        {
+          "label": "Công cụ tính phụ cấp nghỉ hàng tuần",
+          "href": "/labor-calc/weekly-rest-pay"
+        },
+        {
+          "label": "Công cụ tính phép năm",
+          "href": "/labor-calc/annual-leave"
+        },
+        {
+          "label": "Công cụ tính trợ cấp thôi việc",
+          "href": "/labor-calc/severance"
+        },
+        {
+          "label": "Công cụ tính lương thực nhận",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "labor-severance": {
+      "overview": "Công cụ tính trợ cấp thôi việc (퇴직금) áp dụng chính xác công thức 'lương bình quân hàng ngày × 30 × (số ngày làm việc ÷ 365)' theo Điều 8 Luật Bảo đảm Trợ cấp Thôi việc Hàn Quốc. Công cụ tính lương bình quân từ tổng lương của 3 tháng trước khi nghỉ việc (lương cơ bản + phụ cấp cố định) và hỗ trợ cộng thêm theo tỷ lệ 3/12 của thưởng định kỳ và tiền phép năm. Công cụ cũng tự động áp dụng quy tắc dùng lương thông thường khi lương bình quân thấp hơn lương thông thường.",
+      "useCases": [
+        "Người sắp nghỉ việc: tính trước tổng trợ cấp thôi việc dự kiến để lên kế hoạch tìm việc mới",
+        "Nhân viên nhân sự: tính trước khoản dự phòng trợ cấp thôi việc từ thời gian làm việc và dữ liệu lương của từng nhân viên",
+        "Người kết thúc hợp đồng: kiểm tra xem lao động có thời hạn có đủ điều kiện nhận trợ cấp sau 1 năm trở lên hay không",
+        "Tính có thưởng: hiểu tác động của thưởng định kỳ hàng năm đến lương bình quân",
+        "Người tham gia lương hưu hưu trí loại DC: ước tính số tiền quyết toán hàng năm để xem xét mức độ đủ vốn"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập ngày vào làm và ngày nghỉ việc. Số ngày làm việc được tính tự động, và nếu dưới 365 ngày (1 năm) sẽ hiển thị ngay thông báo không phát sinh trợ cấp thôi việc.",
+          "Nhập tổng lương của 3 tháng trước khi nghỉ việc. Đây là tổng lương cơ bản cộng phụ cấp cố định được trả trong cùng khoảng thời gian đó (phụ cấp chức vụ, phụ cấp gia đình, v.v.).",
+          "Tùy chọn nhập thưởng định kỳ (tổng năm) và tiền phép năm (phát sinh trong năm trước). Mỗi khoản sẽ được nhân với 3/12 và cộng theo tỷ lệ vào lương bình quân.",
+          "Nếu cần so sánh với lương thông thường, hãy nhập thêm lương thông thường theo tháng. Nếu số này cao hơn lương bình quân, lương thông thường sẽ được tự động áp dụng để trợ cấp thôi việc được tính trên mức có lợi hơn."
+        ]
+      },
+      "formula": {
+        "title": "Công thức tính (Luật Bảo đảm Trợ cấp Thôi việc Điều 8)",
+        "body": "Trợ cấp thôi việc = lương bình quân hàng ngày × 30 × (số ngày làm việc ÷ 365)\n\nLương bình quân hàng ngày\n  = (tổng lương 3 tháng + thưởng × 3/12 + tiền phép năm × 3/12) ÷ 90 ngày\n  Nhưng nếu lương bình quân hàng ngày < lương thông thường hàng ngày, áp dụng lương thông thường\n\nLương thông thường hàng ngày = lương thông thường theo tháng ÷ 209 × 8\n\nVí dụ: lương 3 tháng 9 triệu KRW, thưởng năm 2 triệu KRW, tiền phép năm 0,5 triệu KRW:\n  = (9.000.000 + 500.000 + 125.000) ÷ 90\n  = 9.625.000 ÷ 90 ≈ 106.944 KRW/ngày\n\nCăn cứ: Luật Bảo đảm Trợ cấp Thôi việc Điều 8, Luật Tiêu chuẩn Lao động Điều 2 (định nghĩa lương bình quân và lương thông thường)"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: 2 năm làm việc, lương tháng 3 triệu KRW (không thưởng hay tiền phép năm)",
+            "body": "Tổng lương 3 tháng = 9.000.000 KRW. Lương bình quân hàng ngày = 9.000.000 ÷ 90 = 100.000 KRW. Số ngày làm việc = 730. Trợ cấp thôi việc = 100.000 × 30 × (730 ÷ 365) = 100.000 × 30 × 2 = 6.000.000 KRW."
+          },
+          {
+            "title": "Ví dụ 2: 3 năm 6 tháng, lương tháng 3,5 triệu KRW + thưởng năm 7 triệu KRW",
+            "body": "Tổng lương 3 tháng = 10.500.000 KRW. Thưởng 3/12 = 1.750.000 KRW. Lương bình quân hàng ngày = (10.500.000 + 1.750.000) ÷ 90 ≈ 136.111 KRW. Số ngày làm việc = 1.278. Trợ cấp thôi việc = 136.111 × 30 × (1.278 ÷ 365) ≈ 14.290.000 KRW."
+          },
+          {
+            "title": "Ví dụ 3: Áp dụng lương thông thường vì lương bình quân < lương thông thường",
+            "body": "Nghỉ ốm không lương trong 3 tháng trước khi nghỉ việc làm giảm lương → lương bình quân 80.000 KRW/ngày. Lương thông thường theo tháng 2.090.000 KRW → lương thông thường hàng ngày = 2.090.000 ÷ 209 × 8 ≈ 80.000 KRW. Hai giá trị bằng nhau nên áp dụng lương thông thường. Trong thực tế, khi lương thông thường vượt lương bình quân, phải tự động áp dụng lương thông thường."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Thật sự không có trợ cấp thôi việc nếu làm việc liên tục dưới 1 năm?",
+          "answer": "Đúng vậy. Điều 8 Luật Bảo đảm Trợ cấp Thôi việc quy định điều kiện là làm việc liên tục từ 1 năm trở lên. Nếu nghỉ việc sau 364 ngày, không phát sinh trợ cấp thôi việc. Tuy nhiên, nếu các hợp đồng ngắn hạn dưới 1 năm được lặp lại, cần đánh giá riêng xem việc làm có được coi là liên tục hay không."
+        },
+        {
+          "question": "Thưởng được cộng vào lương bình quân như thế nào?",
+          "answer": "Đối với thưởng được trả định kỳ, 3/12 (25%) của tổng năm sẽ được cộng vào lương 3 tháng trong kỳ tính lương bình quân. Thưởng đặc biệt không định kỳ hoặc một lần sẽ bị loại khỏi cách tính lương bình quân."
+        },
+        {
+          "question": "Nếu tôi có lương hưu hưu trí loại DC (đóng góp xác định), có trợ cấp thôi việc riêng không?",
+          "answer": "Lương hưu hưu trí loại DC là loại mà người sử dụng lao động đóng góp ít nhất 1/12 tổng lương năm vào tài khoản của người lao động mỗi năm. Đối với người tham gia loại DC, số tiền tích lũy trong tài khoản cá nhân chính là khoản trợ cấp hưu trí, vì vậy họ không yêu cầu trợ cấp thôi việc riêng từ người sử dụng lao động khi nghỉ việc."
+        },
+        {
+          "question": "Nghỉ thai sản và nghỉ ốm có được tính vào số ngày làm việc không?",
+          "answer": "Nghỉ thai sản được tính vào thời gian làm việc (Luật Bình đẳng Việc làm Điều 19). Tuy nhiên, thời gian nghỉ thai sản bị loại khỏi cách tính lương bình quân, và kỳ tính lương bình quân được kéo dài thêm khoảng thời gian đó. Đối với nghỉ ốm (do thương tật hoặc bệnh tật ngoài công việc), cách xử lý khác nhau tùy nơi làm việc, cần xác nhận cụ thể."
+        },
+        {
+          "question": "Trợ cấp thôi việc phải được trả khi nào?",
+          "answer": "Theo nguyên tắc phải trả trong vòng 14 ngày kể từ ngày nghỉ việc (Luật Bảo đảm Trợ cấp Thôi việc Điều 9). Thời hạn thanh toán có thể được gia hạn theo thỏa thuận, nhưng nếu chậm trễ mà không có thỏa thuận sẽ phát sinh lãi chậm trả 20%/năm."
+        },
+        {
+          "question": "Trợ cấp thôi việc có bị đánh thuế không?",
+          "answer": "Trợ cấp thôi việc chịu thuế thu nhập hưu trí. Sau khi áp dụng khấu trừ theo số năm làm việc và khấu trừ lương quy đổi, thuế được tính riêng theo mức lũy tiến từ 6% đến 45%. Việc chuyển vào tài khoản hưu trí cá nhân (IRP) sẽ hoãn thuế đến khi rút tiền, mang lại hiệu quả tiết kiệm thuế."
+        }
+      ],
+      "cautions": [
+        "Công cụ này sử dụng kỳ tính lương bình quân cố định 90 ngày. Nếu số ngày thực tế của 3 tháng trước khi nghỉ việc (89 đến 92 ngày) khác đi, kết quả có thể hơi khác so với số tiền thực trả.",
+        "Đối với người tham gia lương hưu loại DC, số tiền thực nhận có thể thay đổi theo kết quả đầu tư và khác với kết quả của công cụ này.",
+        "Nếu có lịch sử trả lương bất thường như nợ lương, cần điều chỉnh kỳ tính lương bình quân, do đó cần xác nhận với luật sư lao động.",
+        "Nếu đã có quyết toán trợ cấp thôi việc tạm thời, việc tính toán bắt đầu từ sau lần quyết toán tạm thời đó, nên có thể khác với tổng số ngày làm việc.",
+        "Kết quả chỉ mang tính tham khảo; hãy xác nhận việc quyết toán trợ cấp thôi việc chính xác với người sử dụng lao động hoặc luật sư lao động."
+      ],
+      "related": [
+        {
+          "label": "Công cụ tính phép năm",
+          "href": "/labor-calc/annual-leave"
+        },
+        {
+          "label": "Công cụ tính phụ cấp nghỉ hàng tuần",
+          "href": "/labor-calc/weekly-rest-pay"
+        },
+        {
+          "label": "Chuyển đổi lương tối thiểu sang lương tháng",
+          "href": "/labor-calc/min-wage-monthly"
+        },
+        {
+          "label": "Công cụ tính lương thực nhận",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "deposit-risk": {
+      "overview": "'Jeonse rỗng' (깡통전세) là hình thức thuê nhà mà tổng tiền đặt cọc cộng với khoản thế chấp ưu tiên của chủ nhà (근저당) tiệm cận hoặc vượt quá giá trị căn nhà — vì vậy nếu căn nhà bị phát mãi, người thuê không thể lấy lại tiền đặt cọc. Công cụ này biến rủi ro đó thành con số cụ thể. Nó tính tỷ lệ jeonse (tiền đặt cọc của bạn ÷ giá thị trường) và tỷ lệ nợ ((thế chấp ưu tiên + tiền đặt cọc của bạn) ÷ giá thị trường), sau đó mô phỏng trường hợp xấu nhất: bạn sẽ thực sự thu hồi được bao nhiêu khi đấu giá phát mãi, và bạn có thể mất bao nhiêu. Mọi tính toán đều chạy trong trình duyệt của bạn — không có dữ liệu nào được gửi đi đâu cả.",
+      "useCases": [
+        "Quyết định xem một căn nhà thuê theo jeonse hoặc wolse (thuê trả tiền hàng tháng) với tiền đặt cọc cao có an toàn về mặt tài chính hay không",
+        "Xem khoản thế chấp hiện có của chủ nhà (근저당) ăn mòn số tiền bạn có thể thu hồi như thế nào",
+        "Kiểm tra khả năng chịu đựng của tiền đặt cọc khi giá đấu giá thấp hơn trước khi quyết định ký hợp đồng",
+        "Người nước ngoài đánh giá rủi ro cho hợp đồng thuê nhà đầu tiên tại Hàn Quốc",
+        "Kiểm tra xem một căn nhà có gần ngưỡng nguy hiểm ~80% tỷ lệ tiền đặt cọc trên giá trị hay không trước khi đi xem nhà"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập giá thị trường của căn nhà — sử dụng dữ liệu giao dịch thực tế (실거래가), không phải giá chào bán.",
+          "Nhập khoản thế chấp ưu tiên: số tiền thế chấp (근저당 설정액) từ mục 을구 của bản sao đăng ký bất động sản (등기부등본), khoản này được hoàn trả trước bạn khi phát mãi.",
+          "Nhập tiền đặt cọc của bạn, sau đó thiết lập tỷ lệ thu hồi giả định khi đấu giá (mặc định 80%) — hạ thấp con số này nếu muốn thận trọng.",
+          "Đọc tỷ lệ nợ và mức độ rủi ro, cùng với số tiền thu hồi và thiệt hại ước tính nếu căn nhà bị đấu giá."
+        ]
+      },
+      "formula": {
+        "title": "Cách đo lường rủi ro",
+        "body": "Tỷ lệ jeonse = tiền đặt cọc của bạn ÷ giá thị trường\nTỷ lệ nợ  = (thế chấp ưu tiên + tiền đặt cọc của bạn) ÷ giá thị trường   ← chỉ số then chốt\n\nMô phỏng trường hợp xấu nhất (đấu giá):\n  Số tiền thu được từ đấu giá dự kiến = giá thị trường × tỷ lệ thu hồi\n  Bạn thu hồi được = max(0, số tiền thu được − thế chấp ưu tiên)     (chủ nợ ưu tiên được trả trước)\n  Thiệt hại ước tính = max(0, tiền đặt cọc của bạn − số tiền bạn thu hồi được)\n\nMức tham khảo theo kinh nghiệm (ngành / HUG sử dụng, KHÔNG phải luật):\n  ≤ 70%  tương đối an toàn\n  70–80% cần thận trọng\n  80–90% rủi ro cao\n  > 90%  rất rủi ro (jeonse rỗng điển hình)"
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Trường hợp ranh giới — căn nhà 300 triệu KRW",
+            "body": "Giá thị trường 300 triệu KRW, thế chấp ưu tiên 50 triệu KRW, tiền đặt cọc của bạn 200 triệu KRW. Tỷ lệ nợ = (50 + 200) ÷ 300 = 83% → 'rủi ro cao'. Nếu đấu giá ở mức 80% (240 triệu KRW), thế chấp ưu tiên được lấy trước 50 triệu KRW, còn lại 190 triệu KRW — thiếu 10 triệu KRW so với tiền đặt cọc 200 triệu KRW của bạn. Bạn có thể mất khoảng 10 triệu KRW nếu không có bảo hiểm tiền đặt cọc."
+          },
+          {
+            "title": "Trường hợp an toàn — không có thế chấp ưu tiên",
+            "body": "Giá thị trường 400 triệu KRW, không có thế chấp, tiền đặt cọc của bạn 200 triệu KRW. Tỷ lệ nợ = 50% → 'an toàn'. Ngay cả khi đấu giá ở mức 80% (320 triệu KRW), bạn vẫn thu hồi đủ 200 triệu KRW. Vẫn nên kiểm tra bản sao đăng ký vào ngày thanh toán số dư — một khoản thế chấp mới có thể xuất hiện giữa lúc ký hợp đồng và lúc dọn vào."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "'Thế chấp ưu tiên' bao gồm những gì?",
+          "answer": "Bất cứ khoản nào được hoàn trả trước tiền đặt cọc của bạn khi đấu giá phát mãi — phổ biến nhất là khoản thế chấp của chủ nhà (근저당권) thể hiện trong mục 을구 của bản sao đăng ký bất động sản, và các khoản thuế chưa nộp có ngày pháp định sớm hơn. Tiền đặt cọc đăng ký sau sẽ xếp sau các khoản này."
+        },
+        {
+          "question": "Tại sao tỷ lệ thu hồi khi đấu giá lại quan trọng đến vậy?",
+          "answer": "Nhà bị phát mãi hiếm khi bán được đúng giá thị trường. Tỷ lệ trúng đấu giá (낙찰가율) thay đổi rất nhiều tùy bất động sản và thị trường — thường là 70–90% giá trị thẩm định. Vì thế chấp ưu tiên được trả trước từ số tiền đã giảm đó, tỷ lệ thu hồi thấp hơn có thể xóa sạch một khoản đặt cọc trông có vẻ an toàn chỉ dựa trên tỷ lệ nợ. Hãy mô phỏng một cách thận trọng."
+        },
+        {
+          "question": "Ngưỡng 80% có phải là quy định chính thức không?",
+          "answer": "Không. Ngưỡng tỷ lệ tiền đặt cọc trên giá trị 70–80% và tỷ lệ nợ ~90% là các mức tham khảo theo kinh nghiệm được sử dụng rộng rãi từ hướng dẫn của HUG và thực tiễn ngành, không phải giới hạn theo luật định. Điều kiện tham gia bảo hiểm hoàn trả tiền đặt cọc của HUG/SGI có tiêu chí riêng và thay đổi theo thời gian — hãy xác nhận yêu cầu hiện hành trực tiếp với họ."
+        },
+        {
+          "question": "Công cụ báo 'an toàn' — vậy tôi đã được bảo vệ chưa?",
+          "answer": "Đây chỉ là một bước sàng lọc dựa trên các số liệu bạn nhập vào. Công cụ không kiểm tra bản sao đăng ký thực tế, tình trạng thuế của chủ nhà, việc đăng ký ủy thác (신탁), hay việc khai báo chuyển cư trú có được phép hay không. Hãy xem kết quả 'an toàn' là 'đáng để tiến hành thẩm định kỹ lưỡng hơn', không phải là một sự bảo đảm."
+        },
+        {
+          "question": "Làm sao để giảm rủi ro nếu tỷ lệ cao?",
+          "answer": "Ưu tiên chọn wolse hoặc ban-jeonse (tiền đặt cọc nhỏ hơn), yêu cầu chủ nhà xóa thế chấp trước khi thanh toán số dư, mua bảo hiểm hoàn trả tiền đặt cọc HUG/SGI, và hoàn tất việc khai báo chuyển cư trú (전입신고) + xin ngày xác nhận (확정일자) ngay lập tức. Xem danh sách kiểm tra đầy đủ phòng chống lừa đảo jeonse ở liên kết bên dưới."
+        }
+      ],
+      "cautions": [
+        "Công cụ tham khảo và mang tính giáo dục, không phải tư vấn pháp lý, thuế hay đầu tư — hãy xác minh bản sao đăng ký bất động sản (등기부등본), điều kiện của HUG, và tham khảo ý kiến của môi giới có giấy phép cùng luật sư trước khi ký hợp đồng.",
+        "Các ngưỡng 70/80/90% là mức tham khảo theo kinh nghiệm của ngành, không phải luật; rủi ro thực tế của bạn phụ thuộc vào các yếu tố mà công cụ này không thể nhìn thấy.",
+        "Tỷ lệ thu hồi khi đấu giá là giả định do bạn thiết lập — kết quả phát mãi thực tế thay đổi rất nhiều tùy bất động sản.",
+        "Giá thị trường nên lấy từ dữ liệu giao dịch thực tế, không phải giá chào bán, nếu không kết quả sẽ gây hiểu lầm.",
+        "Điểm số 'an toàn' chỉ là bước sàng lọc ban đầu, không phải sự bảo đảm — luôn hoàn tất việc thẩm định kỹ lưỡng."
+      ],
+      "related": [
+        {
+          "label": "Danh sách kiểm tra lừa đảo jeonse",
+          "href": "/jeonse-wolse"
+        },
+        {
+          "label": "Diện tích & giá căn hộ",
+          "href": "/apartment-area"
+        },
+        {
+          "label": "Trần tăng tiền thuê (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "Visa cư trú F-2-7",
+          "href": "/f2-residence-visa"
+        }
+      ],
+      "lastReviewed": "2026-07-02"
+    },
+    "cost-of-living": {
+      "overview": "Đây là công cụ lập ngân sách, không phải một tuyên bố về việc sống ở Hàn Quốc 'tốn bao nhiêu'. Chọn một khu vực và loại hộ gia đình, công cụ sẽ tự động điền các khoản chi tiêu tháng điển hình — tiền thuê nhà, tiện ích, ăn uống, đi lại, điện thoại, bảo hiểm y tế và các khoản khác — với các ước tính trung bình mang tính đại diện cho năm 2026. Sau đó bạn chỉnh sửa từng dòng theo tình huống của mình, và tổng số chỉ đơn giản là tổng các con số bạn nhập, kèm theo số liệu theo năm và theo đầu người. Công cụ này hữu ích nhất khi lên kế hoạch chuyển đến hoặc so sánh các thành phố trước khi quyết định ký hợp đồng thuê. Mọi tính toán đều chạy trong trình duyệt của bạn.",
+      "useCases": [
+        "Lên kế hoạch chuyển đến Hàn Quốc và ước tính số tiền cần tiết kiệm trước",
+        "So sánh trung tâm Seoul với Gyeonggi hoặc một thành phố nhỏ hơn",
+        "Chuyển đổi mức lương trong lời mời làm việc thành khoản dư hàng tháng thực tế",
+        "Sinh viên và người độc thân nước ngoài thiết lập ngân sách cơ bản tiết kiệm",
+        "Gia đình ước tính mức tăng tiền thuê, ăn uống và tiện ích cho 3–4 người"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (3 bước)",
+        "steps": [
+          "Chọn khu vực và loại hộ gia đình của bạn — bảy dòng chi tiêu sẽ được điền với các ước tính trung bình điển hình.",
+          "Chỉnh sửa từng dòng theo thực tế của bạn: tiền thuê nhà thực tế, gói cước điện thoại, việc bạn tự nấu ăn hay ăn ngoài.",
+          "Đọc tổng số tiền hàng tháng, số liệu quy đổi theo năm, và chi phí theo đầu người. Điều chỉnh và so sánh các khu vực một cách tự do."
+        ]
+      },
+      "formula": {
+        "title": "Cách xây dựng ước tính",
+        "body": "Tổng hàng tháng = tiền thuê nhà + tiện ích + ăn uống + đi lại + điện thoại + bảo hiểm y tế + khác\nTheo năm = hàng tháng × 12\nTheo đầu người = hàng tháng ÷ số người trong hộ gia đình (độc thân 1, cặp đôi 2, gia đình 4)\n\nViệc chọn khu vực/hộ gia đình chỉ điền sẵn các giá trị mặc định có thể chỉnh sửa. Tiền thuê nhà thay đổi theo khu vực và theo hộ gia đình (nhiều người hơn → cần nhiều không gian hơn); các dòng khác thay đổi theo quy mô hộ gia đình. Không có gì ở đây là cố định — tổng số luôn phản ánh các con số bạn để lại trong các ô nhập liệu."
+      },
+      "examples": {
+        "title": "Các giá trị mặc định trông như thế nào",
+        "items": [
+          {
+            "title": "Độc thân, trung tâm Seoul",
+            "body": "Điền sẵn khoảng 2,5 triệu KRW/tháng: tiền thuê 1,3 triệu KRW, tiện ích 130 nghìn KRW, ăn uống 500 nghìn KRW, đi lại 80 nghìn KRW, điện thoại 40 nghìn KRW, bảo hiểm y tế 150 nghìn KRW, khác 300 nghìn KRW. Mức này nằm giữa lối sống tiết kiệm (~1,5–2 triệu KRW) và thoải mái (~3–4 triệu KRW) — hãy điều chỉnh các dòng cho phù hợp với bạn."
+          },
+          {
+            "title": "Độc thân, thành phố nhỏ hơn",
+            "body": "Cùng một hồ sơ chi tiêu bên ngoài thủ đô bắt đầu gần mức 1,6–1,8 triệu KRW, chủ yếu vì tiền thuê giảm xuống còn khoảng 450 nghìn KRW. Ăn uống, điện thoại và bảo hiểm hầu như không thay đổi theo vị trí — vì vậy khu vực chủ yếu ảnh hưởng đến dòng tiền thuê nhà."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Các con số này có chính thức không?",
+          "answer": "Không. Đây là các giá trị trung bình mang tính đại diện của các khoảng thường được trích dẫn cho năm 2026 (tổng hợp dữ liệu chi phí công khai và tư nhân), chỉ nhằm làm điểm khởi đầu. Chi phí thực tế thay đổi rất nhiều tùy theo lối sống và hợp đồng — đó chính xác là lý do mỗi dòng đều có thể chỉnh sửa và tổng số chỉ phản ánh những gì bạn nhập vào."
+        },
+        {
+          "question": "Tại sao không có số liệu bằng đô la Mỹ?",
+          "answer": "Tỷ giá hối đoái thay đổi hàng ngày, nên một con số USD cố định sẽ nhanh chóng trở nên sai lệch. Công cụ chỉ hiển thị won Hàn Quốc; hãy tự quy đổi theo tỷ giá thực tế khi bạn cần con số đô la."
+        },
+        {
+          "question": "Bảo hiểm y tế được ước tính như thế nào?",
+          "answer": "Giá trị mặc định là một con số ước tính hàng tháng gần đúng. Nếu bạn đi làm, Bảo hiểm Y tế Quốc dân là một tỷ lệ phần trăm trên lương (khoảng 8,135% năm 2026, chia đôi với người sử dụng lao động); nếu bạn là người tham gia bảo hiểm địa phương thì dựa trên thu nhập và tài sản. Hãy thay thế giá trị mặc định bằng con số thực tế của bạn khi bạn biết chế độ áp dụng."
+        },
+        {
+          "question": "'Tiền thuê nhà' có nghĩa là jeonse hay wolse?",
+          "answer": "Là wolse (thuê trả tiền hàng tháng). Jeonse thay thế phần lớn tiền thuê hàng tháng bằng một khoản đặt cọc lớn một lần, nên chi phí tiền mặt hàng tháng của nó khác đi — hãy dùng các công cụ jeonse để so sánh mô hình đó."
+        },
+        {
+          "question": "Công cụ này có bao gồm các chi phí dọn vào một lần không?",
+          "answer": "Không — đây là ngân sách định kỳ hàng tháng. Tiền đặt cọc (key money), phí môi giới, nội thất, và chi phí visa/chuyển nhà là các khoản một lần riêng biệt mà bạn nên lập ngân sách thêm."
+        }
+      ],
+      "cautions": [
+        "Chỉ là ước tính — các giá trị trung bình mang tính đại diện cho năm 2026, không phải sự bảo đảm hay con số chính thức.",
+        "Khu vực và hộ gia đình chỉ điền sẵn giá trị mặc định; tổng số luôn bằng các con số bạn để lại trong các ô nhập liệu.",
+        "Tiền thuê nhà và bảo hiểm y tế là các dòng thay đổi nhiều nhất — hãy thay thế chúng bằng con số thực tế của bạn trước tiên.",
+        "Các chi phí một lần (tiền đặt cọc, phí môi giới, nội thất, vé máy bay) không được bao gồm.",
+        "Xác nhận số tiền thực tế qua các tin đăng thực, hóa đơn, và chế độ bảo hiểm của bạn trước khi dựa vào tổng số này."
+      ],
+      "related": [
+        {
+          "label": "Rủi ro jeonse rỗng",
+          "href": "/deposit-risk"
+        },
+        {
+          "label": "Chuyển đổi Jeonse ↔ Wolse",
+          "href": "/jeonse-wolse"
+        },
+        {
+          "label": "Lương thực nhận",
+          "href": "/net-salary"
+        },
+        {
+          "label": "Bảo hiểm y tế (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-07-02"
+    },
+    "remittance": {
+      "overview": "Gửi tiền ra khỏi Hàn Quốc tốn nhiều hơn khoản phí ghi trên biên nhận. Chi phí lớn hơn, ẩn giấu thường là chênh lệch tỷ giá (FX margin) — khoảng cách giữa tỷ giá thị trường trung bình và tỷ giá mà nhà cung cấp dịch vụ của bạn thực sự áp dụng. Công cụ này cộng cả hai lại để bạn thấy được chi phí thực sự của một giao dịch chuyển tiền và so sánh công bằng giữa các phương thức. Công cụ không sử dụng tỷ giá trực tiếp hay nêu tên nhà cung cấp; bạn nhập vào chênh lệch tỷ giá và phí, công cụ sẽ hiển thị tổng chi phí, tỷ lệ chi phí thực tế, và giá trị được chuyển đến. Công cụ cũng tóm tắt các quy định về chuyển tiền ra nước ngoài của Hàn Quốc để bạn biết cần chuẩn bị giấy tờ gì.",
+      "useCases": [
+        "Người lao động nước ngoài gửi một phần lương về nhà mỗi tháng",
+        "So sánh chuyển khoản ngân hàng với dịch vụ chuyên biệt dựa trên chi phí thực, không chỉ phí",
+        "Xem một lựa chọn 'phí thấp, tỷ giá kém' thực sự tốn bao nhiêu trên một khoản chuyển lớn",
+        "Hiểu tại sao các khoản chuyển nhỏ lại tốn chi phí theo tỷ lệ phần trăm cao hơn (trọng số của phí cố định)",
+        "Kiểm tra loại báo cáo hoặc chứng từ nào có thể cần cho một khoản chuyển tiền lớn hơn từ Hàn Quốc"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (3 bước)",
+        "steps": [
+          "Chọn một phương thức — công cụ sẽ điền sẵn chênh lệch tỷ giá và phí cố định mang tính đại diện mà bạn nên ghi đè bằng con số thực tế.",
+          "Nhập số tiền bạn muốn gửi, sau đó nhập chênh lệch tỷ giá (spread) và phí cố định thực tế của nhà cung cấp.",
+          "Đọc tổng chi phí, tỷ lệ chi phí thực tế, và giá trị được chuyển đến. Thay đổi các con số để so sánh các lựa chọn."
+        ]
+      },
+      "formula": {
+        "title": "Cách đo lường chi phí",
+        "body": "Chi phí chênh lệch tỷ giá = số tiền × chênh lệch %\nTổng chi phí     = chi phí chênh lệch tỷ giá + phí cố định\nTỷ lệ chi phí thực tế = tổng chi phí ÷ số tiền\nGiá trị được chuyển đến = số tiền − tổng chi phí   (tính theo giá trị KRW)\n\nĐể tìm chênh lệch tỷ giá thực của một nhà cung cấp, hãy so sánh tỷ giá họ báo với tỷ giá thị trường trung bình (ví dụ từ một nguồn trung lập) trong cùng một ngày: chênh lệch % = (trung bình − áp dụng) ÷ trung bình × 100. Một đề nghị 'phí 0 đồng' vẫn có thể đắt nếu chênh lệch tỷ giá lớn."
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "1.000.000 KRW qua ngân hàng",
+            "body": "Với chênh lệch tỷ giá 2,5% + phí cố định 25.000 KRW: chi phí chênh lệch tỷ giá 25.000 KRW + phí 25.000 KRW = tổng 50.000 KRW, tương đương 5,0% thực tế. Chỉ khoảng 950.000 KRW giá trị đến được người nhận."
+          },
+          {
+            "title": "Cùng số tiền qua dịch vụ chuyên biệt",
+            "body": "Với chênh lệch tỷ giá 0,7% + phí 5.000 KRW: 7.000 KRW + 5.000 KRW = 12.000 KRW, tương đương 1,2% thực tế. Khoảng cách gần như hoàn toàn nằm ở chênh lệch tỷ giá ẩn, không phải phí hiển thị — đó là lý do chỉ so sánh phí sẽ gây hiểu lầm."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Chênh lệch tỷ giá (spread) là gì?",
+          "answer": "Đó là khoảng cách giữa tỷ giá thị trường trung bình (tỷ giá 'thực' bạn thấy từ một nguồn trung lập) và tỷ giá nhà cung cấp áp dụng cho bạn. Các nhà cung cấp kiếm lời từ khoảng cách này, nên một giao dịch được quảng cáo là 'không phí' vẫn có thể tốn kém. Luôn so sánh tỷ giá áp dụng với tỷ giá thị trường trung bình."
+        },
+        {
+          "question": "Có giới hạn khi gửi tiền ra khỏi Hàn Quốc không?",
+          "answer": "Có. Theo quy định Giao dịch Ngoại hối, các ngân hàng áp dụng ngưỡng theo từng giao dịch và theo năm, vượt qua ngưỡng đó cần thêm chứng từ và báo cáo cho Ngân hàng Trung ương Hàn Quốc (BOK) / cơ quan thuế. Con số chính xác thay đổi theo thời gian — hãy xác nhận ngưỡng hiện hành với ngân hàng của bạn trước khi thực hiện một giao dịch lớn."
+        },
+        {
+          "question": "Là người lao động nước ngoài, tôi có thể gửi lương về nhà không?",
+          "answer": "Nhìn chung là có, nhưng ngân hàng thường yêu cầu chứng từ — việc làm, thu nhập, và bằng chứng đã nộp thuế của bạn (ví dụ biên nhận khấu trừ thuế). Yêu cầu khác nhau tùy ngân hàng và số tiền; hãy hỏi ngân hàng của bạn cần những giấy tờ gì cho việc chuyển tiền lương."
+        },
+        {
+          "question": "Việc gửi hoặc nhận tiền có bị đánh thuế không?",
+          "answer": "Bản thân giao dịch chuyển tiền không phải là thu nhập, nhưng các khoản quà tặng lớn có thể chịu thuế quà tặng, và các giao dịch chuyển tiền xuyên biên giới có thể được báo cáo cho Cục Thuế Quốc gia. Nếu tiền là quà tặng hoặc thu nhập kinh doanh thay vì tiền của chính bạn được chuyển đi, hãy kiểm tra cách xử lý thuế với một chuyên gia."
+        },
+        {
+          "question": "Tại sao một khoản chuyển nhỏ lại tốn tỷ lệ phần trăm cao hơn?",
+          "answer": "Vì phí cố định chiếm tỷ trọng lớn hơn trong một số tiền nhỏ. 5.000 KRW trên 200.000 KRW là 2,5% trước khi tính chênh lệch tỷ giá; cùng khoản phí đó trên 5.000.000 KRW chỉ là 0,1%. Với các khoản chuyển nhỏ, thường xuyên, phí cố định là yếu tố quan trọng nhất; với các khoản lớn, chênh lệch tỷ giá chiếm ưu thế."
+        }
+      ],
+      "cautions": [
+        "Công cụ tham khảo và mang tính giáo dục — không phải tư vấn tài chính và không phải báo giá trực tiếp. Chi phí thực tế được xác định bởi tỷ giá và phí tại thời điểm bạn thực hiện giao dịch.",
+        "Không sử dụng tỷ giá hối đoái trực tiếp hay phí cụ thể của nhà cung cấp nào; chênh lệch tỷ giá và phí là giả định do bạn nhập vào.",
+        "Việc chọn phương thức chỉ điền sẵn các khoảng giá trị mang tính đại diện — không đề xuất hay xếp hạng bất kỳ nhà cung cấp nào.",
+        "Giới hạn chuyển tiền, ngưỡng báo cáo, và chứng từ yêu cầu thay đổi theo thời gian — hãy xác nhận quy định hiện hành với ngân hàng của bạn và Ngân hàng Trung ương Hàn Quốc.",
+        "Các khoản quà tặng lớn hoặc chuyển tiền xuyên biên giới có thể có hệ quả về thuế và báo cáo — hãy tham khảo ý kiến chuyên gia."
+      ],
+      "related": [
+        {
+          "label": "Chi phí sinh hoạt tại Hàn Quốc",
+          "href": "/cost-of-living"
+        },
+        {
+          "label": "Tiền hoàn trả lương hưu",
+          "href": "/pension-refund"
+        },
+        {
+          "label": "Thuế suất cố định 19% cho người nước ngoài",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Bảo hiểm y tế (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-07-02"
+    },
+    "foreign-flat-tax": {
+      "checklist": {
+        "title": "Danh sách kiểm tra quyết toán cuối năm & thuế thu nhập cho người nước ngoài",
+        "groups": [
+          {
+            "heading": "Khi nào & ai (quyết toán cuối năm)",
+            "items": [
+              "Quyết toán thuế cuối năm (연말정산) được thực hiện vào tháng 2 cho thu nhập tiền lương của năm dương lịch trước đó.",
+              "Áp dụng cho người lao động — người sử dụng lao động của bạn đối chiếu số thuế đã khấu trừ với nghĩa vụ thuế cuối cùng.",
+              "Thuế đã quyết toán trừ thuế đã khấu trừ = khoản hoàn thuế (nếu âm) hoặc khoản phải nộp thêm (nếu dương).",
+              "Sử dụng dịch vụ tự động tính quyết toán cuối năm của NTS để ước tính kết quả của bạn (không khả dụng cho người không cư trú); xem hướng dẫn dành cho người nước ngoài tại nts.go.kr/english."
+            ]
+          },
+          {
+            "heading": "Thuế suất cố định 19% so với thuế lũy tiến — lựa chọn",
+            "items": [
+              "Người lao động nước ngoài có thể chọn mỗi năm: đánh thuế toàn cầu theo mức lũy tiến, hoặc thuế suất cố định 19% trên tổng thu nhập tiền lương.",
+              "Chọn thuế suất cố định bằng cách nộp đơn đăng ký thuế suất cố định trong quá trình quyết toán.",
+              "Điểm đánh đổi quan trọng: chọn thuế suất cố định 19% nghĩa là KHÔNG áp dụng bất kỳ miễn trừ, khấu trừ, giảm trừ, hay tín dụng thuế nào cả.",
+              "Nguyên tắc chung: thu nhập cao với ít khoản khấu trừ → thuế suất cố định 19% thường có lợi hơn; thu nhập thấp hơn với nhiều khoản khấu trừ → thuế lũy tiến thường có lợi hơn (xác minh bằng công cụ tính của NTS).",
+              "Điều kiện áp dụng thuế suất cố định giới hạn trong một số năm nhất định kể từ ngày bắt đầu làm việc đầu tiên tại Hàn Quốc — hãy xác nhận bạn còn trong thời hạn đó (cần xác minh)."
+            ]
+          },
+          {
+            "heading": "Khấu trừ — được áp dụng so với bị hạn chế",
+            "items": [
+              "Theo thuế lũy tiến, người cư trú có thể yêu cầu khấu trừ cá nhân, y tế, và chi tiêu thẻ tín dụng; người không cư trú (thường dưới 183 ngày) chỉ được khấu trừ cá nhân và tín dụng thuế tiền lương.",
+              "Khấu trừ chi tiêu thẻ tín dụng chỉ áp dụng cho phần chi tiêu vượt quá 25% tổng lương năm.",
+              "Vợ/chồng hoặc người phụ thuộc có thu nhập trên 1.000.000 KRW trong năm không đủ điều kiện khấu trừ cơ bản.",
+              "Một số khoản khấu trừ liên quan đến nhà ở bị hạn chế hoặc không áp dụng cho người nước ngoài — hãy xác minh từng khoản với hướng dẫn dành cho người nước ngoài của NTS (cần xác minh)."
+            ]
+          },
+          {
+            "heading": "Chứng từ, hiệp định thuế & trường hợp đặc biệt",
+            "items": [
+              "Chuẩn bị: biên nhận khấu trừ thuế tiền lương, báo cáo khấu trừ thu nhập/tín dụng thuế, và các hóa đơn cho chi phí y tế, quyên góp, v.v.",
+              "Giáo viên/giảng viên (thường visa E-1/E-2) từ các nước có hiệp định có thể được miễn thuế thu nhập giảng dạy/nghiên cứu trong một khoảng thời gian nhất định — nhưng một số nước không được miễn trừ gì cả (xác minh hiệp định của nước bạn).",
+              "Để yêu cầu miễn thuế theo hiệp định, hãy nộp đơn miễn thuế theo hiệp định thuế thông qua người sử dụng lao động của bạn đến cơ quan thuế.",
+              "Rời khỏi sớm: nếu bạn rời Hàn Quốc vĩnh viễn trước cuối năm, hãy hoàn tất quyết toán cuối cùng trước khi rời đi thay vì chờ đến tháng 2 (xác minh quy trình).",
+              "Hồ sơ khai thuế thu nhập tổng hợp (toàn cầu) được nộp vào tháng 5 nếu bạn là người làm tự do, có nhiều nguồn thu nhập, hoặc có thu nhập ngoài tiền lương từ một người sử dụng lao động duy nhất."
+            ]
+          }
+        ]
+      },
+      "overview": "Người lao động nước ngoài tại Hàn Quốc có thể chọn thuế suất cố định 19% (20,9% bao gồm thuế thu nhập địa phương 1,9%) trên thu nhập kiếm được thay vì các mức thuế lũy tiến thông thường từ 6–45%, theo Điều 18-2 Luật Kiểm soát Ưu đãi Thuế Đặc biệt. Công cụ tính này so sánh song song cả hai phương pháp từ mức lương gộp của bạn, áp dụng khấu trừ thu nhập từ tiền lương, khấu trừ cá nhân, và tín dụng thuế người lao động ở phía thuế lũy tiến. Nó cho thấy điểm hòa vốn thực sự — trái với tuyên bố phổ biến '80 triệu won', điểm này nằm ở khoảng 130–170 triệu won tùy theo các khoản khấu trừ của bạn. Mọi dữ liệu nhập vào đều ở lại trong trình duyệt của bạn.",
+      "useCases": [
+        "Chuyên gia nước ngoài (visa E-7 và các visa lao động khác) quyết định có nên chọn thuế suất cố định khi quyết toán cuối năm hay không",
+        "Người có thu nhập cao kiểm tra xem thuế suất cố định 19% có tốt hơn thuế lũy tiến hay không",
+        "Gia đình so sánh — mỗi người phụ thuộc sẽ đẩy điểm hòa vốn lên cao hơn",
+        "Người mới đến xác nhận điều kiện đủ trước khi hết hạn vào 2026-12-31",
+        "Đội ngũ nhân sự và tính lương tư vấn cho nhân viên nước ngoài"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập tổng lương năm gộp của bạn (trước thuế, bao gồm cả thưởng).",
+          "Nhập số người phụ thuộc không tính bản thân bạn (vợ/chồng, con cái). Mỗi người thêm khoản khấu trừ cá nhân 1,5 triệu KRW ở phía thuế lũy tiến.",
+          "Bấm So sánh. Bạn sẽ thấy tổng thuế theo từng phương pháp, tỷ lệ thuế thực tế, và số tiền lựa chọn rẻ hơn tiết kiệm được mỗi năm.",
+          "Xem lại phần chi tiết thuế lũy tiến (mức thu nhập chịu thuế, khấu trừ thu nhập từ tiền lương, tín dụng thuế người lao động) để hiểu tại sao một phương pháp có lợi hơn."
+        ]
+      },
+      "formula": {
+        "title": "Công thức tính (Luật Thuế Đặc biệt §18-2 so với Luật Thuế Thu nhập §55)",
+        "body": "Thuế suất cố định = Lương gộp × 19% + địa phương 1,9% = Lương gộp × 20,9%\n  (miễn toàn bộ khấu trừ và tín dụng thuế)\n\nThuế lũy tiến (theo cơ sở người cư trú):\n  Khấu trừ thu nhập từ tiền lương (§47, tối đa 20 triệu KRW)\n  Khấu trừ cá nhân = 1,5 triệu KRW × (1 + số người phụ thuộc)\n  Mức thu nhập chịu thuế = Lương gộp − khấu trừ thu nhập từ tiền lương − khấu trừ cá nhân\n  Thuế tính được = mức chịu thuế × tỷ lệ bậc thuế − khấu trừ lũy tiến\n  − Tín dụng thuế người lao động (§59)\n  + Thuế thu nhập địa phương 10%\n\nPhương pháp tốt hơn = tổng số nào thấp hơn.\n\nĐiểm hòa vốn (người khai độc thân): khoảng 137 triệu KRW. Càng nhiều người phụ thuộc và khấu trừ đặc biệt càng đẩy điểm này lên cao hơn."
+      },
+      "examples": {
+        "title": "Ví dụ thực tế (người khai độc thân, 2026)",
+        "items": [
+          {
+            "title": "Thu nhập trung bình — lương gộp 50 triệu KRW",
+            "body": "Thuế cố định: 50 triệu × 20,9% = 10,45 triệu KRW. Thuế lũy tiến: mức chịu thuế ~36,25 triệu KRW sau khấu trừ → khoảng 3,87 triệu KRW tổng cộng. Thuế lũy tiến thắng với khoảng cách lớn (~6,6 triệu KRW). Ở mức thu nhập trung bình, việc mất toàn bộ khấu trừ khi dùng thuế cố định khiến nó đắt hơn nhiều."
+          },
+          {
+            "title": "Điểm hòa vốn — lương gộp 140 triệu KRW",
+            "body": "Thuế cố định: 29,26 triệu KRW. Thuế lũy tiến: khoảng 29,91 triệu KRW. Thuế cố định thắng chỉ với ~650 nghìn KRW. Đây là điểm giao thoa thực sự cho người khai độc thân, cao hơn nhiều so với con số '80 triệu won' được lặp lại trong nhiều hướng dẫn."
+          },
+          {
+            "title": "Thu nhập cao — lương gộp 200 triệu KRW",
+            "body": "Thuế cố định: 41,8 triệu KRW. Thuế lũy tiến: khoảng 53,8 triệu KRW. Thuế cố định tiết kiệm ~12 triệu KRW vì nó giới hạn mức thuế của bạn ở 20,9% trong khi thuế lũy tiến đạt đến bậc thuế 38%."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Ai có thể sử dụng thuế suất cố định 19%?",
+          "answer": "Người lao động nước ngoài (không phải công dân Hàn Quốc) có thu nhập kiếm được, lựa chọn theo Luật Thuế Đặc biệt §18-2. Nhân viên của các công ty liên kết đặc biệt bị loại trừ. Có thể áp dụng bất kể bạn là người cư trú thuế hay không cư trú."
+        },
+        {
+          "question": "Mức thuế thực sự là 19%?",
+          "answer": "Thuế thu nhập là 19%, cộng thêm thuế thu nhập địa phương 1,9% (10% của thuế thu nhập), tổng cộng là 20,9% thực tế. Công cụ tính này hiển thị cả hai dòng."
+        },
+        {
+          "question": "Đến khi nào tôi có thể bắt đầu sử dụng?",
+          "answer": "Bạn phải bắt đầu công việc đầu tiên tại Hàn Quốc trước hoặc vào ngày 2026-12-31. Khi đủ điều kiện, thuế suất cố định áp dụng trong 20 năm kể từ ngày làm việc đầu tiên của bạn (trừ khi luật được gia hạn)."
+        },
+        {
+          "question": "Tại sao điểm hòa vốn lại cao đến vậy (khoảng 130–170 triệu KRW)?",
+          "answer": "Phương pháp thuế lũy tiến cho phép khấu trừ thu nhập từ tiền lương, khấu trừ cá nhân, và tín dụng thuế người lao động, giúp giữ mức thuế thực tế thấp. Vì vậy thuế cố định chỉ thắng ở mức lương cao với ít khoản khấu trừ — cao hơn nhiều so với con số 80 triệu KRW thường được trích dẫn."
+        },
+        {
+          "question": "Tôi mất gì khi chọn thuế suất cố định?",
+          "answer": "Toàn bộ miễn trừ, khấu trừ, và tín dụng thuế đều bị bỏ qua, và ngay cả các khoản phụ cấp thường không chịu thuế cũng trở thành chịu thuế. Nếu bạn có các khoản khấu trừ lớn (y tế, giáo dục, thế chấp, lương hưu), thuế lũy tiến thường tốt hơn."
+        },
+        {
+          "question": "Làm sao để chọn thuế suất cố định?",
+          "answer": "Nộp đơn đăng ký thuế suất cố định cho người sử dụng lao động của bạn khi quyết toán cuối năm, hoặc cho cơ quan thuế địa phương khi khai thuế. Bạn có thể thay đổi lựa chọn mỗi năm."
+        },
+        {
+          "question": "Công cụ này có bao gồm 4 loại bảo hiểm xã hội không?",
+          "answer": "Không. Công cụ này chỉ so sánh thuế thu nhập cộng thuế thu nhập địa phương — không bao gồm lương hưu quốc dân, bảo hiểm y tế, bảo hiểm việc làm, hay bảo hiểm tai nạn lao động. Đây không phải là lương thực nhận của bạn."
+        }
+      ],
+      "cautions": [
+        "Không bao gồm 4 loại bảo hiểm xã hội và các tín dụng thuế đặc biệt (y tế, giáo dục, quyên góp, chi tiêu thẻ) — càng nhiều khoản khấu trừ càng có lợi cho thuế lũy tiến và đẩy điểm hòa vốn lên cao.",
+        "Ở phía thuế cố định, bảo hiểm do người sử dụng lao động trả và các khoản phụ cấp thường không chịu thuế sẽ trở thành chịu thuế; mô hình đơn giản hóa này không cộng thêm chúng, nên gánh nặng thuế cố định thực tế có thể cao hơn.",
+        "Dựa trên cơ sở người cư trú. Người không cư trú phải chịu các khoản khấu trừ bị hạn chế và kết quả khác đi.",
+        "Việc gia nhập mới thuế suất cố định hết hạn vào 2026-12-31 trừ khi được luật gia hạn.",
+        "Chỉ là ước tính tham khảo. Hãy xác nhận với Hometax của NTS hoặc một chuyên gia thuế."
+      ],
+      "related": [
+        {
+          "label": "Thuế thu nhập",
+          "href": "/income-tax"
+        },
+        {
+          "label": "4 loại bảo hiểm + lương thực nhận",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Thuế cổ phiếu nước ngoài",
+          "href": "/foreign-stock-tax"
+        },
+        {
+          "label": "Lương thực nhận",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-15"
+    },
+    "foreign-health-insurance": {
+      "checklist": {
+        "title": "Danh sách kiểm tra đăng ký & sử dụng NHIS cho người nước ngoài",
+        "groups": [
+          {
+            "heading": "Đăng ký bắt buộc & điều kiện",
+            "items": [
+              "Bất kỳ người nước ngoài nào lưu trú từ 6 tháng trở lên sẽ tự động được đăng ký làm người tham gia bảo hiểm địa phương (tự làm chủ) vào ngày sau mốc 6 tháng — bắt buộc từ ngày 16/7/2019.",
+              "Các loại visa được bao gồm gồm D-2, D-4, E-1–E-10, H-1, H-2, F-1–F-4, G-1, và người gốc Hàn ở nước ngoài.",
+              "Sử dụng công cụ mô phỏng 'ngày dự kiến đăng ký người tham gia bảo hiểm địa phương' của NHIS trên nhis.or.kr để ước tính ngày của bạn trước.",
+              "Bạn chỉ có thể xin miễn trừ khi có bằng chứng về bảo hiểm tương đương theo luật nước ngoài, bảo hiểm tư nhân, hoặc hợp đồng với người sử dụng lao động.",
+              "Giải quyết mọi vấn đề liên quan đến người nước ngoài thông qua Trung tâm NHIS dành cho Cư dân Nước ngoài (☎ 1577-1000, hỗ trợ tiếng Anh)."
+            ]
+          },
+          {
+            "heading": "Người tham gia bảo hiểm theo công ty so với địa phương & mức phí",
+            "items": [
+              "Nếu bạn làm việc cho một công ty có bảo hiểm, bạn là 'người tham gia bảo hiểm theo công ty' — mức phí là lương × 7,19% (2026), chia đôi 50/50 với người sử dụng lao động; điều này thay thế tình trạng bảo hiểm địa phương.",
+              "Nếu không đi làm, bạn là 'người tham gia bảo hiểm địa phương' — mức phí dựa trên thu nhập, tài sản, và phương tiện của hộ gia đình.",
+              "Sinh viên visa D-2/D-4 và sinh viên gốc Hàn F-4 được giảm mức phí bảo hiểm địa phương (thường được nêu là 50% — hãy xác minh mức hiện hành).",
+              "Thiết lập tự động trừ tiền (CMS) — mức phí địa phương phải đóng trước ngày 25 của tháng trước.",
+              "Có thêm mức giảm cho khu vực đảo xa/vùng sâu (lên đến 50%) và làng nông nghiệp/ngư nghiệp (22%)."
+            ]
+          },
+          {
+            "heading": "Hệ quả khi không đóng phí (quan trọng)",
+            "items": [
+              "Phí chưa đóng sẽ tạm ngưng TOÀN BỘ quyền lợi từ ngày phát sinh nợ cho đến khi trả đủ — bạn sẽ phải trả toàn bộ giá tại bệnh viện.",
+              "Nợ phí có thể chặn việc gia hạn visa và các thủ tục xuất nhập cảnh khác — hãy giải quyết trước bất kỳ cuộc hẹn nào.",
+              "Tự động trừ tiền là cách an toàn nhất để bảo vệ cả quyền lợi bảo hiểm và tình trạng cư trú của bạn.",
+              "Kiểm tra số dư và lịch sử thanh toán trên trang web hoặc ứng dụng di động của NHIS để phát hiện sớm khoản nợ."
+            ]
+          },
+          {
+            "heading": "Thẻ, người phụ thuộc & sử dụng dịch vụ bệnh viện",
+            "items": [
+              "Yêu cầu thẻ bảo hiểm / giấy chứng nhận thông qua Trung tâm NHIS dành cho Cư dân Nước ngoài.",
+              "Đăng ký người phụ thuộc với ARC cùng giấy tờ quan hệ gia đình đã hợp pháp hóa lãnh sự (cấp trong vòng 9 tháng) và bản dịch tiếng Hàn có công chứng.",
+              "Hãy đến phòng khám ban đầu (1차) trước; bạn cần giấy giới thiệu (의뢰서) để sử dụng bệnh viện đa khoa cấp ba với bảo hiểm chi trả.",
+              "Tỷ lệ đồng chi trả khác nhau theo cấp cơ sở y tế (phòng khám so với bệnh viện đa khoa so với cấp ba) và nội trú/ngoại trú.",
+              "NHIS không chi trả các hạng mục không được bảo hiểm (비급여) — hãy cân nhắc bảo hiểm bồi thường tư nhân (실손) cho những khoảng trống đó."
+            ]
+          }
+        ]
+      },
+      "overview": "Nếu bạn sống ở Hàn Quốc từ sáu tháng trở lên, việc đăng ký Bảo hiểm Y tế Quốc dân (NHIS) là bắt buộc. Người đi làm đóng phí dựa trên lương (7,19% chia đôi với người sử dụng lao động, cộng thêm bảo hiểm chăm sóc dài hạn), trong khi người tự làm chủ, thất nghiệp, và sinh viên đóng theo quy tắc dành cho người nước ngoài: mức cao hơn giữa điểm số thu nhập/tài sản hoặc mức phí trung bình — khoảng 158.640 KRW mỗi tháng năm 2026. Sinh viên visa D-2 hoặc D-4 được giảm 50%. Công cụ tính này ước tính mức phí hàng tháng và hàng năm của bạn theo loại đăng ký. Mọi dữ liệu nhập vào đều ở lại trong trình duyệt của bạn.",
+      "useCases": [
+        "Người mới đến ước tính mức phí trước khi đến hạn đăng ký bắt buộc 6 tháng",
+        "Người đi làm kiểm tra khoản khấu trừ bảo hiểm y tế + chăm sóc dài hạn trên phiếu lương",
+        "Người tự làm chủ và freelancer lập ngân sách cho mức phí bảo hiểm địa phương",
+        "Sinh viên quốc tế xác nhận mức phí giảm 50%",
+        "Bất kỳ ai so sánh chi phí đăng ký theo công ty so với tự làm chủ"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Chọn loại đăng ký của bạn: theo công ty (làm việc tại một công ty) hoặc tự làm chủ/sinh viên.",
+          "Nếu đi làm, nhập lương hàng tháng của bạn. Công cụ tính áp dụng phần đóng góp 3,595% của bạn cộng 13,14% bảo hiểm chăm sóc dài hạn.",
+          "Nếu tự làm chủ, hãy đánh dấu ô sinh viên nếu bạn có visa D-2/D-4 và đáp ứng giới hạn thu nhập/tài sản để được giảm 50%.",
+          "Bấm Tính toán để xem mức phí hàng tháng và hàng năm của bạn, cùng với phần đóng góp tương ứng của người sử dụng lao động để tham khảo."
+        ]
+      },
+      "formula": {
+        "title": "Công thức tính (NHIS 2026)",
+        "body": "Người đi làm (phần của bạn):\n  Bảo hiểm y tế = lương tháng × 3,595% (giới hạn từ 10.080 đến 4.591.740 KRW)\n  Bảo hiểm chăm sóc dài hạn = Bảo hiểm y tế × 13,14%\n  Hàng tháng = Bảo hiểm y tế + Bảo hiểm chăm sóc dài hạn\n  (người sử dụng lao động trả cùng một số tiền)\n\nTự làm chủ (quy tắc dành cho người nước ngoài):\n  Hàng tháng = max(điểm thu nhập/tài sản, mức phí trung bình 158.640 KRW)\n  Sinh viên (D-2/D-4) = 158.640 KRW × 50% = 79.320 KRW"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế (2026)",
+        "items": [
+          {
+            "title": "Người đi làm với lương 3 triệu KRW/tháng",
+            "body": "Bảo hiểm y tế = 3 triệu × 3,595% = 107.850 KRW. Bảo hiểm chăm sóc dài hạn = 14.171 KRW. Hàng tháng = khoảng 122.021 KRW (phần của bạn); người sử dụng lao động trả thêm cùng một số tiền."
+          },
+          {
+            "title": "Người nước ngoài tự làm chủ",
+            "body": "Hầu hết đóng mức phí trung bình — 158.640 KRW/tháng (1.903.680 KRW/năm) — ngay cả khi thu nhập khai báo thấp, do quy tắc mức sàn dành cho người nước ngoài."
+          },
+          {
+            "title": "Sinh viên quốc tế (D-2)",
+            "body": "Với mức giảm 50%, 79.320 KRW/tháng, với điều kiện thu nhập hàng năm từ 3,6 triệu KRW trở xuống và tài sản từ 135 triệu KRW trở xuống."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tôi có phải tham gia NHIS với tư cách người nước ngoài không?",
+          "answer": "Có. Sau sáu tháng ở Hàn Quốc, bạn sẽ tự động được đăng ký làm người tham gia bảo hiểm địa phương. Người đi làm tham gia ngay lập tức thông qua công ty, và sinh viên (D-2/D-4) tham gia khi đăng ký cư trú người nước ngoài."
+        },
+        {
+          "question": "Tại sao mức phí của tôi cố định dù tôi thu nhập ít?",
+          "answer": "Người tham gia bảo hiểm địa phương là người nước ngoài phải đóng ít nhất mức phí trung bình (khoảng 158.640 KRW năm 2026). Điểm số thu nhập/tài sản chỉ làm tăng mức phí trên mức sàn đó — không thể thấp hơn."
+        },
+        {
+          "question": "Mức giảm cho sinh viên là bao nhiêu?",
+          "answer": "Giảm 50% mức phí trung bình, khoảng 79.320 KRW/tháng, nếu thu nhập hàng năm của bạn từ 3,6 triệu KRW trở xuống và tài sản từ 135 triệu KRW trở xuống."
+        },
+        {
+          "question": "Điều gì xảy ra nếu tôi không đóng phí?",
+          "answer": "Phí chưa đóng có thể chặn việc gia hạn visa của bạn — cơ quan xuất nhập cảnh kiểm tra nợ thuế và NHIS. Phí phạt trễ hạn và tịch thu tài sản cũng có thể xảy ra."
+        },
+        {
+          "question": "Bảo hiểm chăm sóc dài hạn có được bao gồm không?",
+          "answer": "Đối với người đi làm, có — đây là 13,14% của phí bảo hiểm y tế, được hiển thị riêng. Mức phí trung bình địa phương đã phản ánh tổng số tiền phải đóng."
+        },
+        {
+          "question": "Công cụ này có bao gồm điểm số thu nhập/tài sản cho người tự làm chủ không?",
+          "answer": "Không. Công cụ sử dụng mức sàn phí trung bình mà hầu hết người nước ngoài thực sự phải đóng. Người có thu nhập cao hoặc tài sản lớn có thể phải đóng nhiều hơn."
+        },
+        {
+          "question": "Tôi có thể được miễn trừ không?",
+          "answer": "Nếu bạn có bảo hiểm tương đương thông qua bảo hiểm nước ngoài hoặc hợp đồng với người sử dụng lao động, bạn có thể xin miễn trừ với NHIS."
+        }
+      ],
+      "cautions": [
+        "Điểm số thu nhập/tài sản địa phương không được mô hình hóa — công cụ tính sử dụng mức sàn phí trung bình mà hầu hết người nước ngoài phải đóng. Người thu nhập cao hoặc có tài sản lớn có thể phải đóng nhiều hơn.",
+        "Mức phí trung bình (~158.640 KRW) được NHIS thiết lập hàng năm vào tháng 11 — đây là ước tính cho năm 2026, hãy xác minh hàng năm.",
+        "Số liệu cho người đi làm áp dụng mức trần phí bảo hiểm y tế; lương rất cao hoặc rất thấp sẽ khác với một tỷ lệ phần trăm đơn giản.",
+        "Điều kiện giảm phí phụ thuộc vào việc xét duyệt thu nhập/tài sản của từng cá nhân — hãy xác nhận với NHIS (1577-1000).",
+        "Chỉ là ước tính tham khảo; đánh giá chính thức tuân theo quy tắc của NHIS."
+      ],
+      "related": [
+        {
+          "label": "Lương thực nhận",
+          "href": "/net-salary"
+        },
+        {
+          "label": "4 loại bảo hiểm + lương thực nhận",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Thuế suất cố định cho người nước ngoài",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Theo dõi số ngày cư trú",
+          "href": "/visa-days"
+        }
+      ],
+      "lastReviewed": "2026-06-15"
+    },
+    "jeonse-wolse": {
+      "overview": "Hàn Quốc có hai mô hình thuê nhà: jeonse (tiền đặt cọc thuê nhà lớn kiểu Hàn Quốc — một khoản đặt cọc lớn một lần, không có tiền thuê hàng tháng) và wolse (thuê trả tiền hàng tháng — tiền đặt cọc nhỏ hơn cộng tiền thuê hàng tháng). Công cụ này chuyển đổi giữa hai hình thức bằng tỷ lệ chuyển đổi jeonse–wolse — bị giới hạn hợp pháp ở mức 4,5% (lãi suất cơ bản 2,5% + 2%). Công cụ cũng đề cập đến điều đã thống trị các bản tin năm 2022–2023: làn sóng lừa đảo jeonse (lừa đảo tiền đặt cọc) khiến hàng nghìn người thuê nhà — bao gồm cả người nước ngoài — mất trắng toàn bộ tiền đặt cọc. Hãy chuyển đổi trước, sau đó thực hiện danh sách kiểm tra phòng ngừa bên dưới trước khi ký bất cứ điều gì.",
+      "useCases": [
+        "So sánh một căn nhà cho thuê jeonse với một căn wolse có cùng giá trị",
+        "Kiểm tra xem tỷ lệ chuyển đổi jeonse→hàng tháng của chủ nhà có nằm trong giới hạn hợp pháp hay không",
+        "Xem một khoản đặt cọc 'đáng giá' bao nhiêu khi quy đổi ra tiền thuê hàng tháng",
+        "Bảo vệ tiền đặt cọc của bạn khỏi các vụ lừa đảo đã ảnh hưởng đến hàng nghìn người thuê nhà",
+        "Người nước ngoài tìm hiểu các biện pháp bảo vệ — và những cạm bẫy đặc thù dành cho họ"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Chọn một hướng: jeonse → hàng tháng, hoặc hàng tháng → jeonse.",
+          "Nhập tiền đặt cọc (cộng với khoản đặt cọc bạn muốn giữ lại, đối với jeonse→hàng tháng) hoặc tiền đặt cọc hàng tháng + tiền thuê.",
+          "Tỷ lệ mặc định là giới hạn hợp pháp 4,5% — hãy chỉnh sửa theo tỷ lệ mà chủ nhà đề xuất.",
+          "Xem số tiền được chuyển đổi và liệu tỷ lệ đó có vượt quá giới hạn hợp pháp hay không."
+        ]
+      },
+      "formula": {
+        "title": "Công thức · tỷ lệ chuyển đổi jeonse–wolse",
+        "body": "Jeonse → hàng tháng:  tiền thuê = (jeonse − tiền đặt cọc giữ lại) × tỷ lệ ÷ 12\nHàng tháng → jeonse:  jeonse = tiền đặt cọc hàng tháng + (tiền thuê × 12) ÷ tỷ lệ\n\nGiới hạn hợp pháp = min(10%, lãi suất cơ bản + 2%) = 4,5% (lãi suất cơ bản 2,5%, từ tháng 5/2025).\nGiới hạn này áp dụng cho việc chuyển đổi jeonse→hàng tháng trong thời hạn thuê hoặc khi gia hạn hợp đồng — KHÔNG áp dụng cho một hợp đồng thuê hàng tháng hoàn toàn mới."
+      },
+      "examples": {
+        "title": "Danh sách kiểm tra phòng chống lừa đảo tiền đặt cọc",
+        "items": [
+          {
+            "title": "Trước khi ký hợp đồng",
+            "body": "Kiểm tra bản sao đăng ký bất động sản (등기부등본) để biết tên chủ sở hữu và bất kỳ khoản thế chấp ưu tiên nào (근저당). So sánh giá thị trường với tiền đặt cọc — nếu tiền đặt cọc vượt quá khoảng 70–80% giá trị bất động sản, đó là dấu hiệu cảnh báo 'jeonse rỗng'. Kiểm tra khoản thuế chưa nộp của chủ nhà (được phép kiểm tra mà không cần sự đồng ý đối với tiền đặt cọc trên 10 triệu KRW). Xác minh môi giới có giấy phép hợp lệ. Cẩn thận với bất động sản đã đăng ký ủy thác (신탁) — chỉ người được ủy thác, không phải chủ sở hữu cũ, mới có quyền cho thuê."
+          },
+          {
+            "title": "Khi ký hợp đồng & ngay sau đó",
+            "body": "Nộp khai báo chuyển cư trú (전입신고) và xin ngày xác nhận (확정일자) — cả hai cùng nhau tạo ra quyền đối kháng + quyền ưu tiên hoàn trả. Lưu ý quyền đối kháng bắt đầu vào ngày SAU khi bạn khai báo; kẻ lừa đảo lợi dụng khoảng trống một ngày đó. Kiểm tra lại bản sao đăng ký vào ngày thanh toán số dư để phát hiện bất kỳ khoản thế chấp mới nào. Mua bảo hiểm hoàn trả tiền đặt cọc (HUG / SGI)."
+          },
+          {
+            "title": "Cạm bẫy đặc thù dành cho người nước ngoài (quan trọng)",
+            "body": "Chỉ đăng ký 'cư trú' thông thường là KHÔNG đủ — với tư cách người nước ngoài, bạn phải nộp 'báo cáo thay đổi nơi cư trú' theo Luật Xuất nhập cảnh để có được quyền đối kháng tương tự như người Hàn Quốc nhận được từ khai báo chuyển cư trú. Nhiều người nước ngoài nghĩ mình đã được bảo vệ trong khi thực tế không phải vậy. Bạn có thể xin ngày xác nhận bằng thẻ ARC của mình. Xác nhận căn hộ có cho phép khai báo chuyển cư trú trước khi ký hợp đồng — một số officetel không cho phép."
+          },
+          {
+            "title": "Nếu tiền đặt cọc không được hoàn trả",
+            "body": "ĐỪNG dọn ra khỏi nhà và chuyển đăng ký cư trú trước. Nộp 'lệnh đăng ký quyền thuê nhà' (임차권등기명령) để giữ quyền đối kháng và quyền ưu tiên ngay cả sau khi bạn rời đi. Dọn ra trước có thể khiến bạn mất quyền bảo vệ."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Jeonse và wolse là gì?",
+          "answer": "Jeonse là một hình thức thuê nhà đặc trưng của Hàn Quốc: một khoản đặt cọc lớn (thường 50–80% giá trị bất động sản) và không có tiền thuê hàng tháng — chủ nhà giữ lại tiền lãi. Wolse là tiền đặt cọc nhỏ hơn cộng tiền thuê hàng tháng. Tỷ lệ chuyển đổi jeonse–wolse liên kết hai hình thức này."
+        },
+        {
+          "question": "Cuộc khủng hoảng lừa đảo jeonse 2022–2023 là gì?",
+          "answer": "Những kẻ lừa đảo (được gọi là 'vua villa', 'vua xây dựng') đã mua hàng trăm căn nhà với gần như không cần vốn bằng tiền đặt cọc của người thuê, sau đó không thể hoàn trả. Hàng chục nghìn người bị ảnh hưởng và một luật cứu trợ nạn nhân đặc biệt có hiệu lực đến năm 2027. Người nước ngoài cũng bị ảnh hưởng."
+        },
+        {
+          "question": "'Jeonse rỗng' (깡통전세 — nhà bị 'âm vốn') là gì?",
+          "answer": "Khi tiền đặt cọc cộng thế chấp ưu tiên tiệm cận hoặc vượt quá giá trị bất động sản — vì vậy nếu căn nhà bị đấu giá phát mãi, bạn không thể thu hồi tiền đặt cọc. Hãy giữ tỷ lệ tiền đặt cọc trên giá trị dưới khoảng 70–80%."
+        },
+        {
+          "question": "Quyền đối kháng và quyền ưu tiên hoàn trả là gì?",
+          "answer": "Khai báo chuyển cư trú + cư trú thực tế = quyền đối kháng (hợp đồng thuê của bạn vẫn có hiệu lực khi chủ sở hữu thay đổi). Thêm ngày xác nhận = quyền ưu tiên hoàn trả (được trả trước các chủ nợ thứ cấp khi đấu giá). Bạn cần cả ba: khai báo, cư trú, và ngày xác nhận."
+        },
+        {
+          "question": "Đăng ký cư trú của tôi có bảo vệ tôi với tư cách người nước ngoài không?",
+          "answer": "Không tự động. Bạn phải nộp 'báo cáo thay đổi nơi cư trú' theo Luật Xuất nhập cảnh — chỉ đăng ký cư trú thông thường KHÔNG tạo ra quyền đối kháng. Đây là cạm bẫy số 1 đối với người nước ngoài, khiến họ dễ bị tổn thương khi nghĩ rằng mình đã an toàn."
+        },
+        {
+          "question": "Bảo hiểm hoàn trả tiền đặt cọc của HUG là gì?",
+          "answer": "Một khoản bảo lãnh chi trả tiền đặt cọc của bạn nếu chủ nhà không thể, sau đó thu hồi lại từ họ. Bạn có thể tham gia qua ứng dụng Anbsim Jeonse ngay cả khi bạn không phải là chủ hộ. Điều kiện và giới hạn phụ thuộc vào giá trị bất động sản và tỷ lệ nợ — hãy xác nhận với HUG."
+        }
+      ],
+      "cautions": [
+        "Công cụ tham khảo và hướng dẫn mang tính giáo dục, không phải tư vấn pháp lý hay thuế — hãy xác minh với bản sao đăng ký bất động sản, HUG, cơ quan thuế, môi giới có giấy phép, và luật sư trước khi ký hợp đồng.",
+        "Giới hạn tỷ lệ chuyển đổi chỉ áp dụng cho việc chuyển đổi jeonse→hàng tháng trong thời hạn thuê hoặc khi gia hạn, không áp dụng cho hợp đồng mới hoặc hàng tháng→jeonse.",
+        "Lãi suất cơ bản và các con số pháp lý có thể thay đổi; ngưỡng tỷ lệ tiền đặt cọc trên giá trị 70–80% là mức tham khảo theo kinh nghiệm của ngành, không phải luật.",
+        "Người nước ngoài: chỉ đăng ký cư trú thông thường không mang lại quyền đối kháng — hãy nộp báo cáo thay đổi nơi cư trú.",
+        "Điều kiện và giới hạn của bảo hiểm hoàn trả tiền đặt cọc phải được xác nhận với HUG / SGI."
+      ],
+      "related": [
+        {
+          "label": "Trần tăng tiền thuê (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "Diện tích & giá căn hộ",
+          "href": "/apartment-area"
+        },
+        {
+          "label": "Visa cư trú F-2-7",
+          "href": "/f2-residence-visa"
+        },
+        {
+          "label": "Bảo hiểm y tế (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-06-16"
+    },
+    "pension-refund": {
+      "checklist": {
+        "title": "Trước khi bạn rời Hàn Quốc — danh sách kiểm tra xuất cảnh & quyết toán",
+        "groups": [
+          {
+            "heading": "Nhận tiền của bạn TRƯỚC KHI hủy thẻ ARC",
+            "items": [
+              "Nộp đơn xin hoàn trả tiền hưu một lần từ Lương hưu Quốc dân (NPS) — có thể nếu bạn từng có visa E-8/E-9/H-2, hoặc nước bạn có thỏa thuận có đi có lại / hiệp định an sinh xã hội với Hàn Quốc (Mỹ, Canada, Đức, v.v.); công dân Trung Quốc và Nhật Bản thường không thể (hãy xác minh với nước của bạn).",
+              "Nộp hồ sơ tại văn phòng NPS trong vòng 1 tháng kể từ khi xuất cảnh, kèm hộ chiếu, ARC, vé máy bay, và bản sao sổ ngân hàng — hoặc sử dụng quầy NPS tại Sân bay Incheon (Nhà ga 1) vào ngày xuất cảnh.",
+              "Nhận trợ cấp thôi việc (퇴직금) nếu bạn đã làm việc từ 1 năm trở lên — phải được thanh toán trong vòng 14 ngày kể từ ngày làm việc cuối cùng.",
+              "Yêu cầu người sử dụng lao động thực hiện quyết toán thuế cuối năm dành cho người nghỉ việc (연말정산) và biên nhận khấu trừ thuế (원천징수영수증) của bạn.",
+              "Một khoản thuế (~6,75%, thấp hơn nếu có hiệp định) sẽ được khấu trừ từ khoản hoàn trả, thanh toán bằng ngoại tệ (hãy xác minh mức thuế hiện hành)."
+            ]
+          },
+          {
+            "heading": "Lấy lại tiền đặt cọc nhà ở của bạn",
+            "items": [
+              "Thông báo bằng văn bản để chấm dứt hợp đồng thuê theo thời hạn báo trước trong hợp đồng của bạn.",
+              "Nếu việc hoàn trả tiền đặt cọc bị trì hoãn, hãy gửi 내용증명 (thư bảo đảm có xác nhận nội dung); nếu bạn phải dọn ra mà chưa được thanh toán, hãy nộp Lệnh Đăng ký Quyền Thuê Nhà (임차권등기명령) TRƯỚC KHI rời khỏi bất động sản.",
+              "Quyết toán và đóng các dịch vụ tiện ích — điện (KEPCO), gas, nước, phí quản lý tòa nhà — và hủy các khoản tự động trừ tiền của chúng.",
+              "Chụp ảnh có ngày tháng khi dọn ra; chỉ hư hỏng do người thuê gây ra mới có thể bị trừ, không tính hao mòn tự nhiên thông thường."
+            ]
+          },
+          {
+            "heading": "Đóng tài khoản & hợp đồng",
+            "items": [
+              "Quyết toán Bảo hiểm Y tế Quốc dân — việc nghỉ việc sẽ kích hoạt điều chỉnh phí bảo hiểm cuối cùng cần thanh toán trước khi xuất cảnh.",
+              "Hủy hợp đồng điện thoại di động và internet; kiểm tra phí hủy sớm và số dư trả góp thiết bị.",
+              "Giữ mở một tài khoản ngân hàng Hàn Quốc trong khoảng 6 tháng để nhận các khoản hoàn trả lương hưu/thuế và quyết toán cuối cùng.",
+              "Hủy tất cả các khoản tự động trừ tiền, sắp xếp vận chuyển quốc tế, và yêu cầu hoàn thuế VAT / miễn thuế tại sân bay."
+            ]
+          },
+          {
+            "heading": "Xuất nhập cảnh & ngày rời đi",
+            "items": [
+              "ĐỪNG nộp lại thẻ ARC cho đến khi trợ cấp thôi việc đã được thanh toán và đơn xin hoàn trả NPS của bạn đã được nộp — bạn cần thẻ này cho cả hai việc.",
+              "Giao thẻ ARC của bạn cho nhân viên xuất nhập cảnh tại sân bay khi xuất cảnh vĩnh viễn.",
+              "Nếu bạn có thể quay lại trong vòng 1–2 năm, hãy xin Giấy phép Tái nhập cảnh qua HiKorea thay vì nộp lại tình trạng cư trú của bạn.",
+              "Gọi Xuất nhập cảnh 1345 hoặc NPS 1355 để xác nhận bất kỳ bước nào đặc thù theo quốc gia trước chuyến bay của bạn."
+            ]
+          }
+        ]
+      },
+      "overview": "Nếu bạn đã làm việc tại Hàn Quốc và đóng vào Lương hưu Quốc dân, bạn có thể được nhận lại số tiền đó dưới dạng tiền hoàn trả lương hưu một lần khi bạn rời khỏi đất nước vĩnh viễn. Công cụ này ước tính số tiền đó từ mức thu nhập chuẩn tháng của bạn và số tháng bạn đã đóng góp. Đối với người tham gia bảo hiểm theo công ty, khoản hoàn trả bao gồm cả phần đóng góp của người sử dụng lao động (tổng cộng ~9%), không chỉ 4,5% mà bạn thấy bị khấu trừ. Con số chính xác được NPS tính toán theo từng tháng với lãi suất tiền gửi hàng năm, vì vậy đây chỉ là ước tính gần đúng — và điều kiện đủ phụ thuộc vào quốc tịch và visa của bạn, được giải thích trong hướng dẫn.",
+      "useCases": [
+        "Người lao động nước ngoài (E-7, E-9, v.v.) rời Hàn Quốc muốn ước tính 'tôi sẽ nhận lại bao nhiêu'",
+        "Người lao động theo giấy phép việc làm E-9 / H-2, những người có thể yêu cầu hoàn trả bất kể quốc tịch",
+        "Bất kỳ ai từ quốc gia có thỏa thuận có đi có lại hoặc hiệp định an sinh xã hội kiểm tra khoản thanh toán",
+        "Quyết định giữa việc nhận hoàn trả ngay bây giờ so với gộp thời gian đóng góp với lương hưu ở quê nhà",
+        "Lập ngân sách trước khi đặt vé một chiều rời khỏi Hàn Quốc"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập mức thu nhập chuẩn tháng của bạn (mức lương đã khai báo, giới hạn tối đa 6.590.000 KRW từ tháng 7/2026).",
+          "Nhập tổng số tháng bạn đã đóng góp vào Lương hưu Quốc dân.",
+          "Giữ tỷ lệ ở mức 9% (1998–2025) hoặc đặt 9,5% cho các tháng từ 2026 trở đi; điều chỉnh lãi suất nếu bạn biết con số đó.",
+          "Xem số tiền gốc + lãi ước tính — sau đó xác nhận điều kiện đủ và số tiền chính xác của bạn với NPS (gọi 1355)."
+        ]
+      },
+      "formula": {
+        "title": "Cách xây dựng khoản hoàn trả (mang tính thông tin)",
+        "body": "Ước tính được sử dụng ở đây:\nSố tiền gốc = min(mức thu nhập chuẩn, 6.590.000 KRW) × tỷ lệ × số tháng\nLãi suất ≈ số tiền gốc × lãi suất tiền gửi × (số tháng ÷ 12 ÷ 2)\n\nNgười tham gia bảo hiểm theo công ty nhận lại đầy đủ 9% — 4,5% của bạn cộng 4,5% của người sử dụng lao động (Luật Lương hưu Quốc dân §77). Tỷ lệ đóng góp là 9% cho đến hết 2025 và tăng lên 9,5% từ tháng 1/2026 (sau đó +0,5 điểm phần trăm mỗi năm đến 13% vào năm 2033).\n\n⚠️ NPS tính khoản hoàn trả thực tế bằng cách cộng dồn lãi mỗi khoản đóng góp hàng tháng theo lãi suất tiền gửi 3 năm của năm đó (khoảng 2,6% năm 2025, 3,0% năm 2024), vì vậy phần lãi ở đây chỉ là con số gần đúng."
+      },
+      "examples": {
+        "title": "Ai có thể yêu cầu hoàn trả — ba con đường",
+        "items": [
+          {
+            "title": "Theo visa: E-9 / H-2 (bất kỳ quốc tịch nào)",
+            "body": "Nếu bạn từng có visa Việc làm Phi chuyên nghiệp (E-9) hoặc Việc làm Thăm viếng (H-2), bạn có thể yêu cầu hoàn trả bất kể quốc gia của bạn — ngay cả khi không có hiệp định với Hàn Quốc. (Visa lao động thời vụ E-8 mới hơn bị loại trừ.)"
+          },
+          {
+            "title": "Theo thỏa thuận có đi có lại hoặc hiệp định",
+            "body": "Công dân của các quốc gia cấp cho người Hàn Quốc một quyền lợi tương tự, hoặc có hiệp định an sinh xã hội với điều khoản trả một lần, có thể yêu cầu hoàn trả. Các ví dụ có thể yêu cầu gồm Mỹ, Canada, Philippines, Ấn Độ, Thái Lan, Indonesia, Sri Lanka. Một số quốc gia có hiệp định (ví dụ Việt Nam, Thụy Điển, Đan Mạch, Na Uy) không thể nhận khoản trả một lần."
+          },
+          {
+            "title": "Gộp thời gian đóng góp thay vì hoàn trả",
+            "body": "Từ các quốc gia có hiệp định, bạn thường có thể chọn cộng thời gian đóng góp tại Hàn Quốc vào lương hưu ở quê nhà thay vì rút tiền mặt. Nếu bạn đã đóng góp 10 năm trở lên, lương hưu tuổi già hàng tháng có thể có giá trị hơn về lâu dài so với khoản trả một lần."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Mọi người nước ngoài đều có thể nhận hoàn trả?",
+          "answer": "Không. Mặc định người nước ngoài không có quyền nhận hoàn trả. Bạn chỉ đủ điều kiện thông qua (1) thỏa thuận có đi có lại, (2) hiệp định an sinh xã hội có điều khoản trả một lần, hoặc (3) visa giấy phép việc làm E-9 / H-2. Hãy kiểm tra trường hợp của bạn với NPS."
+        },
+        {
+          "question": "Tôi có nhận được cả phần đóng góp của người sử dụng lao động không?",
+          "answer": "Có, đối với người tham gia bảo hiểm theo công ty. Mặc dù chỉ có 4,5% bị khấu trừ từ lương của bạn, khoản hoàn trả trả lại đầy đủ khoảng 9% bao gồm cả phần đóng góp tương ứng của người sử dụng lao động (Luật Lương hưu Quốc dân §77)."
+        },
+        {
+          "question": "Khi nào và làm sao để tôi yêu cầu hoàn trả?",
+          "answer": "Bạn có thể nộp đơn từ khoảng một tháng trước khi xuất cảnh (kèm bằng chứng như vé máy bay), tại quầy NPS ở sân bay vào ngày bạn rời đi, hoặc từ quê nhà sau đó. Tiền có thể được chuyển vào tài khoản ở nước ngoài. Yêu cầu hết hạn sau 5 năm kể từ khi phát sinh điều kiện đủ."
+        },
+        {
+          "question": "Khoản hoàn trả có bị đánh thuế không?",
+          "answer": "Các khoản đóng góp từ năm 2002 trở đi (và tiền lãi của chúng) được coi là thu nhập hưu trí và NPS khấu trừ thuế khi chi trả; phần trước 2002 và các khoản chi trả khi tử vong được miễn thuế. Nước của bạn cũng có thể đánh thuế khoản này tùy theo hiệp định thuế."
+        },
+        {
+          "question": "Thay đổi tỷ lệ năm 2026 là gì?",
+          "answer": "Tỷ lệ đóng góp tăng từ 9% lên 9,5% vào ngày 1/1/2026 và tăng thêm 0,5 điểm phần trăm mỗi năm đến 13% vào năm 2033. Hãy dùng 9% cho các tháng trước 2026 và 9,5% cho các tháng của 2026."
+        },
+        {
+          "question": "Nên hoàn trả ngay hay giữ lại thời gian đóng góp?",
+          "answer": "Nhận khoản hoàn trả sẽ xóa bỏ thời gian đóng góp đó — bạn không thể gộp lại sau này. Nếu bạn có thể quay lại Hàn Quốc, hoặc nước của bạn có hiệp định gộp thời gian đóng góp, việc giữ lại thời gian đó có thể là lựa chọn tốt hơn."
+        }
+      ],
+      "cautions": [
+        "Chỉ là ước tính — NPS tính số tiền chính xác theo từng tháng với lãi suất tiền gửi hàng năm.",
+        "Điều kiện đủ phụ thuộc vào quốc tịch và visa; người có visa E-9/H-2 đủ điều kiện bất kể quốc gia nào, nhưng nhiều quốc tịch khác không thể yêu cầu hoàn trả.",
+        "Nhận khoản trả một lần sẽ xóa bỏ vĩnh viễn thời gian đóng góp đó (không thể gộp sau này).",
+        "Các khoản đóng góp từ năm 2002 chịu thuế khấu trừ thu nhập hưu trí.",
+        "Xác nhận điều kiện đủ và số tiền chính xác của bạn tại nps.or.kr hoặc gọi 1355."
+      ],
+      "related": [
+        {
+          "label": "Lương thực nhận",
+          "href": "/net-salary"
+        },
+        {
+          "label": "4 loại bảo hiểm xã hội chính",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Bảo hiểm y tế (NHIS)",
+          "href": "/foreign-health-insurance"
+        },
+        {
+          "label": "Theo dõi số ngày cư trú",
+          "href": "/visa-days"
+        }
+      ],
+      "lastReviewed": "2026-06-16"
+    },
+    "net-salary": {
+      "overview": "Công cụ tính lương thực nhận Hàn Quốc tính lương thực tế hàng tháng của bạn sau khi trừ 4 loại bảo hiểm xã hội và thuế thu nhập từ lương năm của bạn. Công cụ phản ánh lương hưu quốc dân, bảo hiểm y tế, bảo hiểm chăm sóc dài hạn, và bảo hiểm việc làm, cộng thuế thu nhập và thuế địa phương, đồng thời tính đến người phụ thuộc, con cái, và khoản phụ cấp không chịu thuế. Xem ngay chênh lệch từ lương gộp đến lương thực nhận trước khi đổi việc hoặc đàm phán lương.",
+      "useCases": [
+        "So sánh lương thực nhận trước khi đổi việc hoặc đàm phán",
+        "Xem mức tăng thực tế hàng tháng từ một đợt tăng lương",
+        "Hiểu sự khác biệt về thuế theo số người phụ thuộc và con cái",
+        "Lương chính xác phản ánh phụ cấp ăn uống không chịu thuế",
+        "Nắm được khoảng cách giữa lương gộp và lương thực nhận"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập lương năm của bạn (gộp, KRW). Thông thường là lương cơ bản không tính thưởng.",
+          "Nhập số người phụ thuộc (bao gồm bản thân) và số con dưới 20 tuổi để tính khấu trừ cá nhân và trẻ em.",
+          "Nhập khoản không chịu thuế hàng tháng (phụ cấp ăn uống, mặc định 200.000 KRW), được loại trừ khỏi cả bảo hiểm và thuế."
+        ]
+      },
+      "formula": {
+        "title": "Các khoản khấu trừ (2026)",
+        "body": "Lương gộp hàng tháng = lương năm / 12\nChịu thuế = lương gộp hàng tháng − không chịu thuế\n\n4 loại bảo hiểm xã hội (người đi làm):\n  Lương hưu quốc dân 4,75% (giới hạn thu nhập 6,59 triệu KRW, từ tháng 7/2026)\n  Bảo hiểm y tế 3,595%\n  Chăm sóc dài hạn = bảo hiểm y tế × 13,14%\n  Bảo hiểm việc làm 0,9%\n\nThuế thu nhập: khấu trừ thu nhập từ tiền lương → khấu trừ cá nhân/lương hưu → mức thuế lũy tiến\n  − tín dụng thuế người lao động − tín dụng thuế trẻ em → /12\nThuế thu nhập địa phương = thuế thu nhập × 10%\n\nLương thực nhận = lương gộp − bảo hiểm − thuế thu nhập − thuế địa phương"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: 36 triệu KRW (tháng 3 triệu KRW)",
+            "body": "Bảo hiểm ~270 nghìn KRW cộng một khoản thuế thu nhập nhỏ. Lương thực nhận khoảng 2,7 triệu KRW. Mức lương thấp có tỷ lệ khấu trừ thấp hơn, nên tỷ lệ thực nhận cao hơn."
+          },
+          {
+            "title": "Ví dụ 2: 50 triệu KRW (tháng ~4,17 triệu KRW)",
+            "body": "Bảo hiểm ~380 nghìn KRW cộng thuế thu nhập tăng dần. Tỷ lệ khấu trừ ~13-15%. Lương thực nhận khoảng 3,5 triệu KRW. Càng nhiều người phụ thuộc thì thuế càng thấp."
+          },
+          {
+            "title": "Ví dụ 3: 100 triệu KRW (tháng 8,33 triệu KRW)",
+            "body": "Lương hưu đạt mức trần (~303 nghìn KRW/tháng ở tỷ lệ 9,5% năm 2026), thuế thu nhập tăng mạnh, tỷ lệ khấu trừ ~18-22%. Lương càng cao thì tỷ trọng thuế càng lớn."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao lương ÷ 12 không phải là lương thực nhận?",
+          "answer": "4 loại bảo hiểm xã hội (~9%) và thuế thu nhập/địa phương được khấu trừ từ lương gộp. 50 triệu KRW là 4,17 triệu KRW lương gộp hàng tháng, nhưng chỉ khoảng 3,5 triệu KRW vào tài khoản sau khi khấu trừ."
+        },
+        {
+          "question": "Khoản không chịu thuế là gì và tại sao nó quan trọng?",
+          "answer": "Phụ cấp ăn uống (200 nghìn KRW/tháng) và các khoản tương tự được loại trừ khỏi thuế và bảo hiểm. Phần không chịu thuế càng lớn thì mức chịu thuế càng thấp và lương thực nhận càng cao. Cùng một mức lương, lương thực nhận khác nhau tùy theo cấu trúc."
+        },
+        {
+          "question": "Người phụ thuộc giúp tiết kiệm bao nhiêu?",
+          "answer": "Khấu trừ cá nhân 150 nghìn KRW cho mỗi người phụ thuộc cộng với tín dụng thuế trẻ em (1 con 150 nghìn KRW, 2 con 350 nghìn KRW). Một gia đình 4 người với 2 con tiết kiệm hàng chục nghìn won mỗi năm, làm tăng lương thực nhận hàng tháng."
+        },
+        {
+          "question": "Tại sao con số này khác với lương thực tế của tôi?",
+          "answer": "Việc khấu trừ thuế thực tế tuân theo bảng đơn giản hóa của NTS; công cụ này ước tính qua các mức thuế lũy tiến. Chênh lệch ±5% là bình thường, được điều chỉnh mỗi tháng 2 khi quyết toán cuối năm."
+        },
+        {
+          "question": "Thưởng có được bao gồm không?",
+          "answer": "Công cụ này giả định phân bổ đều hàng tháng. Thưởng được khấu trừ riêng khi chi trả với tỷ lệ có thể khác. Hãy nhập lương cơ bản để có mức lương thực nhận trung bình hàng tháng chính xác."
+        },
+        {
+          "question": "Có giới hạn trần cho lương hưu không?",
+          "answer": "Có. Giới hạn mức thu nhập chuẩn (6,59 triệu KRW từ tháng 7/2026) cố định phần lương hưu của người lao động ở mức ~313 nghìn KRW/tháng (6,59 triệu × 4,75%) cho người có thu nhập trên mức đó (ở tỷ lệ 9,5% năm 2026). Bảo hiểm y tế có mức trần cao hơn nhiều."
+        }
+      ],
+      "cautions": [
+        "Tỷ lệ bảo hiểm 2026 + thuế thu nhập ước tính. Khấu trừ thực tế ±5% theo bảng của NTS.",
+        "Giả định phụ cấp ăn uống không chịu thuế 200 nghìn KRW; cấu trúc công ty có thể khác nhau.",
+        "Thưởng được khấu trừ riêng và khác với ước tính này.",
+        "Thuế chính xác được điều chỉnh khi quyết toán cuối năm.",
+        "Tỷ lệ bảo hiểm thay đổi hàng năm."
+      ],
+      "related": [
+        {
+          "label": "Công cụ tính 4 loại bảo hiểm",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Công cụ tính thuế thu nhập",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Thuế freelancer 3,3%",
+          "href": "/freelancer-tax"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "visa-days": {
+      "checklist": {
+        "title": "Danh sách kiểm tra tuân thủ cư trú & visa — tránh cư trú quá hạn",
+        "groups": [
+          {
+            "heading": "Theo dõi thời gian cư trú & ngày hết hạn",
+            "items": [
+              "Nắm rõ ngày hết hạn cư trú được phép chính xác của bạn (90 ngày miễn visa, hoặc ngày in trên ARC/visa của bạn) và đặt đếm ngược trên lịch.",
+              "Nộp đơn xin gia hạn ít nhất ~2 tháng trước khi hết hạn (một số tình trạng cho phép trước tới 4 tháng) — đừng bao giờ để ngày đó trôi qua (hãy xác minh thời hạn của bạn).",
+              "Ngay cả một ngày quá hạn cũng được tính là cư trú quá hạn — không có thời gian ân hạn.",
+              "Việc gia hạn chỉ có thể được nộp trong Hàn Quốc (văn phòng xuất nhập cảnh hoặc HiKorea), không bao giờ tại đại sứ quán ở nước ngoài.",
+              "Nếu bạn đổi việc làm, trường học, hoặc tình trạng visa, hãy nộp thay đổi trước khi giấy phép hiện tại của bạn hết hiệu lực."
+            ]
+          },
+          {
+            "heading": "Thời hạn đăng ký & báo cáo",
+            "items": [
+              "Đăng ký ARC trong vòng 90 ngày kể từ khi nhập cảnh nếu lưu trú lâu hơn 90 ngày.",
+              "Báo cáo bất kỳ thay đổi địa chỉ nào (체류지 변경신고) trong vòng 14 ngày kể từ khi chuyển nhà, tại văn phòng xuất nhập cảnh hoặc văn phòng quận (gu) của bạn.",
+              "Mang theo hộ chiếu, ARC, mẫu thay đổi, và hợp đồng thuê nhà (cộng mẫu xác nhận cư trú nếu nhà đứng tên người khác).",
+              "Báo cáo ARC bị mất hoặc bị đánh cắp trong vòng 14 ngày tại văn phòng xuất nhập cảnh hoặc đồn cảnh sát.",
+              "Báo cáo trễ có thể bị phạt đến ~1.000.000 KRW (Luật Xuất nhập cảnh Điều 35) (hãy xác minh số tiền hiện hành)."
+            ]
+          },
+          {
+            "heading": "Tái nhập cảnh, mang theo ARC & du lịch",
+            "items": [
+              "Luôn mang theo ARC của bạn khi đã đăng ký — đây là giấy tờ tùy thân hợp pháp của bạn tại Hàn Quốc.",
+              "Trước khi đi ra nước ngoài trong lúc chờ ARC, hãy xin Giấy phép Tái nhập cảnh (REP) — rời đi mà không có giấy phép này có thể làm mất hiệu lực visa của bạn.",
+              "Đối với thời gian vắng mặt trên khoảng 1 năm, hãy xin Giấy phép Tái nhập cảnh Nhiều lần (có hiệu lực đến 2 năm) qua HiKorea.",
+              "Xác nhận tình trạng tái nhập cảnh của bạn trước mỗi chuyến đi quốc tế; chỉ có ARC còn hiệu lực không đảm bảo việc tái nhập cảnh."
+            ]
+          },
+          {
+            "heading": "Ở trong phạm vi hoạt động của visa",
+            "items": [
+              "Visa sinh viên (D-2/D-4) và visa tìm việc (D-10) KHÔNG bao gồm quyền làm việc tự động.",
+              "Xin giấy phép làm việc bán thời gian/hoạt động (시간제취업 / 체류자격 외 활동허가) trên HiKorea TRƯỚC KHI làm việc ngoài phạm vi của bạn.",
+              "Đừng bắt đầu công việc với lời hứa rằng 'giấy tờ sẽ được bổ sung sau' — người mất tình trạng cư trú là người lao động, không phải người sử dụng lao động.",
+              "Làm việc ngoài phạm vi của bạn là việc làm bất hợp pháp — có thể dẫn đến phạt tiền, từ chối gia hạn, hủy tình trạng cư trú, và trục xuất.",
+              "Khi không chắc chắn về giới hạn của visa, hãy kiểm tra hikorea.go.kr hoặc gọi Trung tâm Liên hệ Xuất nhập cảnh 1345."
+            ]
+          }
+        ]
+      },
+      "overview": "Công cụ tính số ngày cư trú tại Hàn Quốc tính số ngày đã ở, ngày hết hạn, và số ngày còn lại từ ngày nhập cảnh và thời gian cư trú được phép của bạn. Công cụ theo dõi việc nhập cảnh miễn visa 90 ngày và các visa 30/60/180 ngày, cảnh báo bạn trước khi cư trú quá hạn. Công cụ tuân theo thực tiễn xuất nhập cảnh là tính ngày nhập cảnh là ngày thứ 1 để đưa ra ngày hết hạn chính xác.",
+      "useCases": [
+        "Theo dõi ngày hết hạn miễn visa 90 ngày",
+        "Kiểm tra số ngày còn lại khi lên kế hoạch xuất cảnh",
+        "Ngăn ngừa cư trú quá hạn bất hợp pháp từ trước",
+        "Xác định thời điểm cần nộp đơn xin gia hạn",
+        "Xem lại tổng thời gian cư trú sau khi tái nhập cảnh"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập ngày nhập cảnh của bạn (năm/tháng/ngày) — ngày đóng dấu nhập cảnh trên hộ chiếu.",
+          "Nhập số ngày được phép hoặc chọn một mức có sẵn (30/60/90/180). Miễn visa thường là 90 ngày.",
+          "Xem số ngày đã ở, ngày hết hạn, và số ngày còn lại. Một cảnh báo màu đỏ sẽ hiện lên nếu bạn đã cư trú quá hạn."
+        ]
+      },
+      "formula": {
+        "title": "Phương pháp tính",
+        "body": "Số ngày đã ở = (hôm nay − ngày nhập cảnh) + 1 (bao gồm cả ngày nhập cảnh)\nNgày hết hạn = ngày nhập cảnh + (số ngày được phép − 1)\n  ví dụ: nhập cảnh ngày 1/6, 90 ngày → 1/6 là ngày thứ 1, 29/8 là ngày thứ 90 (hết hạn)\nSố ngày còn lại = ngày hết hạn − hôm nay\n\nLưu ý: việc tính ngày nhập cảnh là ngày thứ 1 là thực tiễn của cơ quan xuất nhập cảnh Hàn Quốc.\n  Việc thay đổi tình trạng cư trú có thể sử dụng cách tính khác."
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Nhập cảnh ngày 1/6, visa miễn 90 ngày",
+            "body": "Hết hạn ngày 29/8 (1/6 là ngày thứ 1). Vào ngày 30/6 bạn đã ở 30 ngày, còn 60 ngày. Xuất cảnh trước ngày 29/8 là ổn."
+          },
+          {
+            "title": "Ví dụ 2: Xuất cảnh đúng ngày hết hạn",
+            "body": "Xuất cảnh vào ngày 29/8 (ngày thứ 90) là hợp lệ. Từ ngày 30/8 trở đi là cư trú quá hạn. Việc xuất cảnh phải nằm trong ngày hết hạn."
+          },
+          {
+            "title": "Ví dụ 3: Phát hiện cư trú quá hạn",
+            "body": "Ngày 1/9 là quá hạn 3 ngày (hết hạn 29/8). Một cảnh báo màu đỏ sẽ hiện lên. Cư trú quá hạn dẫn đến phạt tiền và cấm nhập cảnh — hãy xuất cảnh và báo cáo ngay lập tức."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Ngày nhập cảnh có được tính là ngày thứ 1 không?",
+          "answer": "Có. Theo thực tiễn xuất nhập cảnh Hàn Quốc, ngày nhập cảnh là ngày thứ 1. Nhập cảnh ngày 1/6 thì đó là ngày thứ 1; visa miễn 90 ngày hết hạn vào ngày 29/8 (ngày thứ 90). Điều này khác với các cách hiểu tính ngày nhập cảnh là ngày thứ 0."
+        },
+        {
+          "question": "90 ngày được tính như thế nào — có tính cả ngày xuất cảnh không?",
+          "answer": "Xuất cảnh vào ngày hết hạn (ngày thứ 90) là hợp lệ. Nếu ngày hết hạn là 29/8, xuất cảnh ngày 29/8 là được; ngày 30/8 là cư trú quá hạn 1 ngày. Xuất cảnh trước ngày hết hạn một ngày là lựa chọn an toàn."
+        },
+        {
+          "question": "Tôi có thể tái nhập cảnh ngay sau 90 ngày không?",
+          "answer": "Bản thân việc tái nhập cảnh là có thể, nhưng việc ra vào ngắn hạn lặp đi lặp lại (border run) có thể dẫn đến từ chối nhập cảnh. Đối với thời gian lưu trú dài, hãy xin visa phù hợp (D/E/F)."
+        },
+        {
+          "question": "Điều gì xảy ra nếu tôi cư trú quá hạn?",
+          "answer": "Sẽ áp dụng phạt tiền (theo số ngày/thời gian), và bạn có thể phải đối mặt với cấm nhập cảnh hoặc trục xuất. Việc tự nguyện báo cáo có thể giảm nhẹ hình phạt — hãy liên hệ cơ quan xuất nhập cảnh trước khi cư trú quá hạn."
+        },
+        {
+          "question": "Khi nào tôi nên nộp đơn xin gia hạn?",
+          "answer": "Thường là từ 4 tháng trước khi hết hạn, trực tuyến qua HiKorea hoặc tại văn phòng xuất nhập cảnh trước khi hết hạn. Nộp đơn vào phút chót có nguy cơ bị từ chối hoặc chậm trễ."
+        },
+        {
+          "question": "Tôi có thể dùng công cụ này làm bằng chứng chính thức không?",
+          "answer": "Chỉ mang tính tham khảo. ARC của bạn, thông tin cư trú trên HiKorea, và văn phòng xuất nhập cảnh mới là nguồn chính thức cho ngày hết hạn và tình trạng chính xác. Hãy dùng công cụ này để tự kiểm tra."
+        }
+      ],
+      "cautions": [
+        "Ngày nhập cảnh được tính là ngày thứ 1 (thực tiễn xuất nhập cảnh).",
+        "Cách tính có thể khác đối với các loại visa hoặc khi thay đổi tình trạng cư trú.",
+        "Việc ra vào ngắn hạn lặp lại (border run) có thể dẫn đến từ chối nhập cảnh.",
+        "Hãy xác minh ngày hết hạn chính xác qua HiKorea, ARC, hoặc văn phòng xuất nhập cảnh.",
+        "Cư trú quá hạn dẫn đến phạt tiền và cấm nhập cảnh."
+      ],
+      "related": [
+        {
+          "label": "Tuổi Hàn Quốc",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Chuyển tên sang chữ La-tinh",
+          "href": "/name-romanize"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "korean-age": {
+      "overview": "Công cụ tính tuổi Hàn Quốc tính cả ba hệ thống tuổi của Hàn Quốc từ ngày sinh của bạn: tuổi quốc tế (만 나이), tuổi đếm kiểu Hàn Quốc, và tuổi theo năm. Kể từ ngày 28/6/2023, Hàn Quốc chính thức sử dụng tuổi quốc tế cho các mục đích pháp lý và hành chính, nhưng tuổi đếm vẫn phổ biến trong giao tiếp hàng ngày — điều này gây nhầm lẫn cho cả người nước ngoài lẫn người Hàn Quốc. Công cụ này thể hiện rõ ràng sự khác biệt, cùng với số ngày còn lại đến sinh nhật tiếp theo của bạn.",
+      "useCases": [
+        "Người nước ngoài tại Hàn Quốc: trả lời chính xác câu hỏi 'bạn bao nhiêu tuổi?'",
+        "Người hâm mộ K-pop / K-drama: so sánh tuổi quốc tế và tuổi đếm của một thần tượng",
+        "Hiểu tại sao một người bạn Hàn Quốc lại nói rằng bạn già hơn 1-2 tuổi",
+        "Kiểm tra tuổi theo năm cho các quy định mua rượu/thuốc lá",
+        "Xem chính xác khi nào tuổi của bạn thay đổi quanh sinh nhật"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập ngày sinh của bạn (năm, tháng, ngày). Kết quả được tính ngay lập tức.",
+          "Ngày tham chiếu mặc định là hôm nay (theo Giờ chuẩn Hàn Quốc, KST).",
+          "Bạn sẽ thấy cả ba loại tuổi — quốc tế (chính thức), đếm (truyền thống), tuổi theo năm (pháp lý) — cùng với việc sinh nhật năm nay đã qua hay chưa và số ngày còn lại đến lần tiếp theo."
+        ]
+      },
+      "formula": {
+        "title": "Ba công thức tính tuổi",
+        "body": "Tuổi quốc tế (tiêu chuẩn toàn cầu, chính thức từ 2023):\n  Nếu sinh nhật đã qua = năm hiện tại − năm sinh\n  Nếu chưa đến = năm hiện tại − năm sinh − 1\n\nTuổi đếm kiểu Hàn Quốc (truyền thống):\n  = năm hiện tại − năm sinh + 1\n  (1 tuổi khi sinh ra, mọi người +1 tuổi vào ngày 1/1)\n\nTuổi theo năm (luật quân sự & thanh thiếu niên):\n  = năm hiện tại − năm sinh\n  (Bỏ qua sinh nhật, chỉ tính chênh lệch năm)\n\nVí dụ: sinh ngày 25/12/1990, tham chiếu ngày 6/6/2026:\n  Tuổi quốc tế = 35 (sinh nhật chưa đến), tuổi đếm = 37, tuổi theo năm = 36"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Sinh ngày 15/3/1990 (sinh nhật đã qua)",
+            "body": "Tính đến ngày 6/6/2026. Tuổi quốc tế 36 (sinh nhật tháng 3 đã qua), tuổi đếm 37, tuổi theo năm 36. Tuổi quốc tế và tuổi theo năm trùng nhau; chỉ tuổi đếm cao hơn +1."
+          },
+          {
+            "title": "Ví dụ 2: Sinh ngày 25/12/1990 (sinh nhật chưa đến)",
+            "body": "Tính đến ngày 6/6/2026. Tuổi quốc tế 35 (sinh nhật tháng 12 chưa đến), tuổi đếm 37, tuổi theo năm 36. Cả ba đều khác nhau — tuổi đếm cao hơn tuổi quốc tế 2 tuổi."
+          },
+          {
+            "title": "Ví dụ 3: Cạm bẫy trẻ sơ sinh sinh ngày 31/12",
+            "body": "Sinh ngày 31/12/2025, tính đến ngày 1/1/2026: tuổi quốc tế 0 (mới một ngày tuổi) nhưng tuổi đếm đã là 2. Trẻ sinh vào cuối năm bị thiệt nhiều nhất theo hệ thống tuổi đếm."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tuổi đếm đã lỗi thời sau khi thống nhất năm 2023 chưa?",
+          "answer": "Các bối cảnh pháp lý, hành chính, hợp đồng, và y tế hiện đều sử dụng tuổi quốc tế. Nhưng giao tiếp hàng ngày vẫn dùng tuổi đếm, nên ngay cả người Hàn Quốc cũng hỏi nhau 'tính theo tuổi quốc tế thì bao nhiêu?' Việc mua rượu/thuốc lá sử dụng tuổi theo năm."
+        },
+        {
+          "question": "Tại sao tuổi đếm lại cao hơn tuổi quốc tế 1-2 tuổi?",
+          "answer": "Tuổi đếm bắt đầu từ 1 khi sinh ra (tuổi quốc tế bắt đầu từ 0) và mọi người tăng thêm một tuổi vào ngày 1/1 bất kể sinh nhật. Nếu sinh nhật của bạn chưa đến, khoảng cách là 2 tuổi (+1 khi sinh, +1 vào năm mới)."
+        },
+        {
+          "question": "Tuổi theo năm được dùng để làm gì?",
+          "answer": "Tuổi theo năm (= năm hiện tại − năm sinh) được dùng trong nghĩa vụ quân sự, luật bảo vệ thanh thiếu niên (rượu/thuốc lá), và phân nhóm khối lớp học. Nó coi mọi người sinh cùng năm là cùng tuổi, đơn giản hóa việc quản lý hành chính."
+        },
+        {
+          "question": "Việc mua rượu/thuốc lá dựa trên tuổi quốc tế hay tuổi theo năm?",
+          "answer": "Tuổi theo năm, theo Luật Bảo vệ Thanh thiếu niên. Năm 2026, bất kỳ ai sinh năm 2007 trở về trước đều có thể mua (2026−2007=19), ngay cả khi sinh nhật của họ chưa đến."
+        },
+        {
+          "question": "Làm sao để giải thích tuổi Hàn Quốc cho một người nước ngoài?",
+          "answer": "Tuổi quốc tế khớp với tiêu chuẩn toàn cầu. Hãy giải thích rằng 'tuổi Hàn Quốc bắt đầu từ 1 khi sinh ra và mọi người tăng tuổi vào ngày 1/1.' Thêm rằng chính thức hiện nay chỉ dùng tuổi quốc tế."
+        },
+        {
+          "question": "Điều gì xảy ra đúng vào ngày sinh nhật?",
+          "answer": "Tuổi quốc tế tăng vào ngày sinh nhật (bao gồm cả ngày đó). Công cụ này coi ngày tham chiếu trùng với ngày sinh nhật là 'đã qua' và tính tăng tuổi."
+        }
+      ],
+      "cautions": [
+        "Từ ngày 28/6/2023, tuổi pháp lý/hành chính chính thức là tuổi quốc tế.",
+        "Việc mua rượu/thuốc lá sử dụng 'tuổi theo năm' (năm hiện tại − năm sinh), có thể khác với tuổi quốc tế.",
+        "Tuổi đếm không có hiệu lực pháp lý nhưng phổ biến trong giao tiếp.",
+        "Ngày tham chiếu theo Giờ chuẩn Hàn Quốc (KST). Sống ở nước ngoài có thể làm lệch ngày đi một ngày."
+      ],
+      "related": [
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Công cụ tính phần trăm",
+          "href": "/percent-calc"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    }
+  }
+}

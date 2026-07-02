@@ -10,7 +10,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  if (locale === "en") {
+  if (locale !== "ko") {
     return {
       title: "Korean insulation code in plain English | Workmate",
       description:

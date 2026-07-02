@@ -18,7 +18,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const post = findPost(SLUG)!;
   const title = isKo ? post.titleKo : post.titleEn;
   const description = isKo ? post.summaryKo : post.summaryEn;
@@ -72,7 +72,7 @@ export default async function BlogPostPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">

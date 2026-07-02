@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "합판 매수 계산기 — 면적 → 합판 매수 + 못 개수"
     : "Plywood Sheet Calculator — area to sheets and nails";
@@ -63,7 +63,7 @@ export default async function PlywoodPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
 
   return (
@@ -89,7 +89,7 @@ export default async function PlywoodPage({
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="plywood18" />
-        <ToolGuide toolKey="timber-plywood" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-plywood" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

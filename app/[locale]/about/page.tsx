@@ -13,11 +13,11 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title:
-      locale === "en"
+      locale !== "ko"
         ? "About — Workmate"
         : "Workmate은 어떤 도구인가요? — 만든 이유와 운영 원칙",
     description:
-      locale === "en"
+      locale !== "ko"
         ? "Why Workmate exists, who we serve, and the principles behind every calculator."
         : "현장 실무자가 매일 쓰는 계산을 위해 만들었습니다. 운영 철학과 작동 원리를 솔직하게 정리했습니다.",
   };

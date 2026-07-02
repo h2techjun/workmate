@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "부동산 중개수수료(복비) 계산기 — 매매·전세·월세 법정 상한요율"
     : "Korea Real Estate Brokerage Fee Calculator — Sale, Jeonse & Wolse";
@@ -68,7 +68,7 @@ export default async function BrokerageFeePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (

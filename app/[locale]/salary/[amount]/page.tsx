@@ -72,7 +72,7 @@ export async function generateMetadata({
   const amountMan = Number(amount);
   if (!Number.isFinite(amountMan) || amountMan < 100) return {};
   const monthlyKrw = amountMan * 10000;
-  if (locale === "en") {
+  if (locale !== "ko") {
     return {
       title: `Monthly KRW ${formatKrw(monthlyKrw)} take-home (Korean 2026 payroll insurance)`,
       description: `If your gross monthly salary is KRW ${formatKrw(monthlyKrw)}, here's the breakdown of Korean 4-major insurance deductions and your take-home pay (2026 rates).`,

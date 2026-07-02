@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "복리 계산기 — 기본·적립식 + 회차별·연차별 상세표"
     : "Compound Interest Calculator — lump-sum & recurring, with schedule";
@@ -72,7 +72,7 @@ export default async function CompoundCalcPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = isKo ? "ko" : "en";
 
   return (
@@ -98,7 +98,7 @@ export default async function CompoundCalcPage({
           </p>
         </header>
         <CompoundForm locale={localeKey} />
-        <ToolGuide toolKey="compound-calc" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="compound-calc" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

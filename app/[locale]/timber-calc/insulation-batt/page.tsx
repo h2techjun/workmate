@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const title = isKo
     ? "단열재 두루마리 매수 — 벽·천장 면적 → 인슐레이션 배트"
     : "Insulation Batt Calculator — wall and ceiling rolls";
@@ -62,7 +62,7 @@ export default async function InsulationBattPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale !== "en";
+  const isKo = locale === "ko";
   const localeKey = (isKo ? "ko" : "en") as Locale;
 
   return (
@@ -88,7 +88,7 @@ export default async function InsulationBattPage({
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="battInsulationR19" />
-        <ToolGuide toolKey="timber-insulation-batt" locale={locale === "en" ? "en" : "ko"} />
+        <ToolGuide toolKey="timber-insulation-batt" locale={locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

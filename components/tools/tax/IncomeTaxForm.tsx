@@ -213,7 +213,7 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
         heading={t.resultHeading}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Freelancer Tax", href: "/freelancer-tax" },
                 { label: "Salary Take-Home", href: "/net-salary" },

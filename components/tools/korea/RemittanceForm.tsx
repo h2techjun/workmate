@@ -27,7 +27,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface RemittanceFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const TEXT = {
@@ -87,6 +87,34 @@ const TEXT = {
       "Reference estimate. The real cost is fixed by the quote (applied rate + fee) at the moment you send.",
     ],
   },
+  vi: {
+    sectionMethod: "Phương thức chuyển tiền",
+    fieldMethod: "Bạn chuyển tiền bằng cách nào?",
+    methodBank: "Quầy giao dịch/ứng dụng ngân hàng (thường chênh lệch·phí lớn hơn)",
+    methodSpecialist: "Dịch vụ chuyển tiền chuyên biệt (thường thấp hơn)",
+    sectionAmount: "Số tiền · chi phí (có thể chỉnh sửa)",
+    fieldAmount: "Số tiền chuyển (원)",
+    fieldMargin: "Chênh lệch tỷ giá (spread) (%)",
+    fieldMarginHint: "Khoảng cách giữa tỷ giá niêm yết và tỷ giá thực áp dụng. Thay bằng số liệu của nhà cung cấp bạn dùng.",
+    fieldFee: "Phí cố định mỗi lần chuyển (원)",
+    heading: "Ước tính chi phí chuyển tiền ra nước ngoài",
+    empty: "Nhập số tiền cần chuyển.",
+    heroLabel: "Tỷ lệ chi phí thực tế",
+    totalCost: "Tổng chi phí",
+    fxCost: "Chi phí chênh lệch tỷ giá",
+    fixedFee: "Phí cố định",
+    afterCost: "Giá trị thực nhận (theo giá trị KRW)",
+    won: "원",
+    note: "'Chi phí thực tế' là tổng của phí nhìn thấy được cộng với chênh lệch tỷ giá ẩn. Mức chênh lệch khác nhau tùy nhà cung cấp — hãy thay bằng số liệu thực tế để so sánh.",
+    sourceTitle: "Cơ sở · tính chất",
+    sourceLines: [
+      "Tổng chi phí = số tiền chuyển × tỷ lệ chênh lệch + phí cố định;  tỷ lệ thực tế = tổng chi phí ÷ số tiền chuyển.",
+      "Không sử dụng tỷ giá thời gian thực hay phí của nhà cung cấp cụ thể (vì luôn biến động). Chênh lệch và phí là giả định do bạn nhập.",
+      "Lựa chọn phương thức chỉ điền sẵn khoảng giá trị đại diện — không giới thiệu hay so sánh nhà cung cấp cụ thể.",
+      "Quy định (hạn mức hàng năm, khai báo, chứng từ) — xem hướng dẫn bên dưới và ngân hàng của bạn / Ngân hàng Trung ương Hàn Quốc (BOK).",
+      "Ước tính tham khảo. Chi phí thực tế được xác định bởi báo giá (tỷ giá áp dụng + phí) tại thời điểm bạn chuyển tiền.",
+    ],
+  },
 } as const;
 
 const DEFAULT_METHOD: RemittanceMethod = "bank";
@@ -105,6 +133,7 @@ export function RemittanceForm({
   locale,
 }: RemittanceFormProps): React.ReactElement {
   const T = TEXT[locale];
+  const won = locale === "ko" ? "원" : "₩";
   const [method, setMethod] = useState<RemittanceMethod>(DEFAULT_METHOD);
 
   const { control, watch, setValue } = useForm<RemittanceInputResolved>({
@@ -161,7 +190,7 @@ export function RemittanceForm({
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={won}
                   aria-label={T.fieldAmount}
                 />
                 {locale === "ko" && field.value > 0 && (
@@ -198,7 +227,7 @@ export function RemittanceForm({
                   onChange={field.onChange}
                   thousands
                   decimals={0}
-                  suffix="원"
+                  suffix={won}
                   aria-label={T.fieldFee}
                 />
               </Field>
@@ -211,7 +240,7 @@ export function RemittanceForm({
         heading={T.heading}
         locale={locale}
         relatedLinks={
-          locale === "en"
+          locale !== "ko"
             ? [
                 { label: "Cost of Living in Korea", href: "/cost-of-living" },
                 { label: "Pension Refund", href: "/pension-refund" },

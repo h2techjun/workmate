@@ -173,7 +173,7 @@ export function ApartmentAreaForm({
                   thousands
                   decimals={0}
                   min={0}
-                  suffix="원"
+                  suffix={locale === "ko" ? "원" : "₩"}
                   aria-label={T.fieldPrice}
                 />
                 {locale === "ko" && field.value > 0 && (
