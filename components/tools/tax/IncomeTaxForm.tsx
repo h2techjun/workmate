@@ -100,7 +100,7 @@ const T = {
   vi: {
     sectionIncome: "Cơ sở tính thuế",
     sectionOptions: "Tùy chọn",
-    fieldTaxable: "Cơ sở tính thuế thu nhập tổng hợp (원)",
+    fieldTaxable: "Cơ sở tính thuế thu nhập tổng hợp (₩)",
     fieldTaxableHint: "Tổng thu nhập tổng hợp − Khấu trừ thu nhập tổng hợp = Cơ sở tính thuế",
     fieldWageCredit: "Áp dụng khấu trừ thuế cho người lao động (nhân viên)",
     calculate: "Tính toán",
@@ -109,7 +109,7 @@ const T = {
     resultEmpty: "Vui lòng nhập cơ sở tính thuế.",
     error: "Lỗi tính toán",
     heroLabel: "Tổng gánh nặng thuế (thuế thu nhập + thuế địa phương)",
-    heroUnit: "원",
+    heroUnit: "₩",
     marginalRate: "Thuế suất biên",
     calculatedTax: "Thuế thu nhập (tính toán)",
     wageCredit: "Khấu trừ thuế người lao động",
@@ -131,20 +131,29 @@ const T = {
   },
 } as const;
 
-function formatBracket(upper: number | null, prev: number, isKo: boolean): string {
-  if (upper === null) {
-    return isKo
-      ? `${(prev / 100_000_000).toFixed(0)}억 초과`
-      : `Over ₩${(prev / 100_000_000).toFixed(0)}00M`;
+function formatBracket(
+  upper: number | null,
+  prev: number,
+  locale: "ko" | "en" | "vi",
+): string {
+  if (locale === "ko") {
+    // 만/억 한글 단위 (1.4억·5,000만 등 자연스러운 표기)
+    const k = (n: number): string =>
+      n >= 100_000_000
+        ? `${(n / 100_000_000).toLocaleString("ko-KR")}억`
+        : `${(n / 10_000).toLocaleString("ko-KR")}만`;
+    if (upper === null) return `${k(prev)}원 초과`;
+    return prev === 0 ? `${k(upper)}원 이하` : `${k(prev)} ~ ${k(upper)}원`;
   }
-  if (isKo) {
-    return prev === 0
-      ? `${(upper / 10_000).toLocaleString("ko-KR")}만 이하`
-      : `${(prev / 10_000).toLocaleString("ko-KR")}만 ~ ${(upper / 10_000).toLocaleString("ko-KR")}만`;
-  }
-  return prev === 0
-    ? `≤ ₩${(upper / 10_000).toLocaleString()}0`
-    : `₩${(prev / 10_000).toLocaleString()}0 ~ ₩${(upper / 10_000).toLocaleString()}0`;
+  // en / vi — 백만(M/triệu)·십억(B/tỷ) 국제 표기
+  const um = locale === "vi" ? "tr" : "M";
+  const ub = locale === "vi" ? "tỷ" : "B";
+  const c = (n: number): string =>
+    n >= 1_000_000_000
+      ? `₩${(n / 1_000_000_000).toLocaleString("en-US")}${ub}`
+      : `₩${(n / 1_000_000).toLocaleString("en-US")}${um}`;
+  if (upper === null) return locale === "vi" ? `Trên ${c(prev)}` : `Over ${c(prev)}`;
+  return prev === 0 ? `≤ ${c(upper)}` : `${c(prev)} – ${c(upper)}`;
 }
 
 const INCOME_TAX_DEFAULTS: IncomeTaxInputResolved = {
@@ -154,6 +163,9 @@ const INCOME_TAX_DEFAULTS: IncomeTaxInputResolved = {
 
 export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElement {
   const t = T[locale];
+  // 통화 표기: ko="1,234,567 원", en/vi="₩1,234,567" (값은 동일, 단위만 로케일별)
+  const money = (n: number): string =>
+    locale === "ko" ? `${won(n)} 원` : `₩${won(n)}`;
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<IncomeTaxResult | null>(() => {
     try {
@@ -276,20 +288,20 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
                 label={t.effectiveRate}
                 value={`${(result.effectiveRate * 100).toFixed(2)}%`}
               />
-              <Stat label={t.calculatedTax} value={`${won(result.calculatedTax)} 원`} />
+              <Stat label={t.calculatedTax} value={money(result.calculatedTax)} />
               {result.wageEarnerCredit > 0 && (
                 <Stat
                   label={t.wageCredit}
-                  value={`−${won(result.wageEarnerCredit)} 원`}
+                  value={`−${money(result.wageEarnerCredit)}`}
                   tone="success"
                 />
               )}
               <Stat
                 label={t.finalTax}
-                value={`${won(result.finalTax)} 원`}
+                value={money(result.finalTax)}
                 full={result.wageEarnerCredit === 0}
               />
-              <Stat label={t.localTax} value={`${won(result.localIncomeTax)} 원`} />
+              <Stat label={t.localTax} value={money(result.localIncomeTax)} />
             </dl>
 
             <div>
@@ -321,13 +333,13 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
                           }`}
                         >
                           <td className="px-3 py-1.5">
-                            {formatBracket(b.upper, prev, locale === "ko")}
+                            {formatBracket(b.upper, prev, locale)}
                           </td>
                           <td className="px-3 py-1.5 text-right">
                             {(b.rate * 100).toFixed(0)}%
                           </td>
                           <td className="px-3 py-1.5 text-right">
-                            {b.deduction === 0 ? "—" : `${won(b.deduction)} 원`}
+                            {b.deduction === 0 ? "—" : money(b.deduction)}
                           </td>
                         </tr>
                       );
