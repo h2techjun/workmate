@@ -5,7 +5,7 @@ import { convertArea, type AreaUnit } from "@/lib/calculations/unit/area";
 import { NumberField } from "@/components/ui/NumberField";
 
 interface AreaConverterProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const fmt = (n: number, d = 2): string =>
@@ -59,6 +59,29 @@ const T = {
       "1 pyeong = 6 ja × 6 ja = 36 ja² = 3600/1089 ≈ 3.30578 m²",
       "Real-estate ads round to 0.5 pyeong. Official deeds use ㎡ (mandatory since 2007).",
       "Exclusive area = contract area minus shared spaces (corridors, lobbies, etc.).",
+    ],
+  },
+  vi: {
+    inputLabel: "Nhập giá trị",
+    unitLabel: "Chọn đơn vị",
+    units: { pyeong: "Pyeong (평)", sqm: "m² (mét vuông)", ja2: "ja² (thước vuông)" } as Record<AreaUnit, string>,
+    result: "Kết quả quy đổi",
+    pyeongLabel: "Pyeong",
+    pyeongRounded: "Làm tròn 0,5 pyeong (dùng cho quảng cáo BĐS)",
+    sqmLabel: "Mét vuông (㎡)",
+    ja2Label: "Thước vuông (자²)",
+    presetTitle: "Diện tích thường dùng",
+    presets: [
+      { value: 59, unit: "sqm" as AreaUnit, label: "59㎡ (căn hộ nhỏ)" },
+      { value: 84, unit: "sqm" as AreaUnit, label: "84㎡ (diện tích nhà ở tiêu chuẩn quốc gia)" },
+      { value: 114, unit: "sqm" as AreaUnit, label: "114㎡ (căn hộ trung)" },
+      { value: 30, unit: "pyeong" as AreaUnit, label: "30 pyeong (diện tích sử dụng riêng)" },
+      { value: 50, unit: "pyeong" as AreaUnit, label: "50 pyeong (căn hộ lớn)" },
+    ],
+    notes: [
+      "1 pyeong = 6 ja × 6 ja = 36 ja² = 3600/1089 ≈ 3,30578 m²",
+      "Quảng cáo bất động sản thường làm tròn theo đơn vị 0,5 pyeong. Hợp đồng/đăng ký chính thức bắt buộc dùng ㎡ (từ năm 2007).",
+      "Diện tích sử dụng riêng (전용면적) = diện tích hợp đồng trừ đi phần diện tích dùng chung (hành lang, sảnh, v.v.).",
     ],
   },
 } as const;

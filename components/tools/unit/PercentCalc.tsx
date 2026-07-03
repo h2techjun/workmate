@@ -12,7 +12,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface PercentCalcProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const fmt = (n: number): string =>
@@ -67,6 +67,30 @@ const T = {
     resultDelta: "Delta",
     resultPercent: "Change %",
   },
+  vi: {
+    modes: {
+      ofValue: "Y% của X (ví dụ: 15% của 50.000)",
+      increase: "X tăng thêm Y% (tăng giá)",
+      decrease: "X giảm đi Y% (giảm giá)",
+      changePercent: "X → Y thay đổi bao nhiêu % ?",
+      reverse: "Tính ngược: Z là X tăng Y%, tìm X",
+    } satisfies Record<PercentMode, string>,
+    presets: [
+      { label: "VAT 10%", value: 10 },
+      { label: "Tiền tip 15%", value: 15 },
+      { label: "Giảm giá 30%", value: 30 },
+      { label: "Giảm giá 50%", value: 50 },
+      { label: "Tăng 5%", value: 5 },
+    ],
+    fieldX: "Giá trị gốc (X)",
+    fieldFrom: "Trước thay đổi (X)",
+    fieldTo: "Sau thay đổi (Y)",
+    fieldAfter: "Giá trị sau khi tăng (Z)",
+    fieldPercent: "Phần trăm (%)",
+    resultValue: "Kết quả",
+    resultDelta: "Mức thay đổi",
+    resultPercent: "Tỷ lệ thay đổi (%)",
+  },
 } as const;
 
 export function PercentCalc({ locale }: PercentCalcProps): React.ReactElement {
@@ -99,7 +123,7 @@ export function PercentCalc({ locale }: PercentCalcProps): React.ReactElement {
       <section className="surface-card space-y-5 p-5 md:p-7">
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
-            {locale === "ko" ? "계산 모드" : "Mode"}
+            {locale === "ko" ? "계산 모드" : locale === "vi" ? "Chế độ tính" : "Mode"}
           </label>
           <div className="space-y-1.5">
             {modes.map((m) => (
@@ -152,7 +176,7 @@ export function PercentCalc({ locale }: PercentCalcProps): React.ReactElement {
 
         <div>
           <label className="mb-2 block text-sm font-semibold text-[color:var(--color-text-primary)]">
-            {locale === "ko" ? "자주 쓰는 퍼센트" : "Common percents"}
+            {locale === "ko" ? "자주 쓰는 퍼센트" : locale === "vi" ? "Phần trăm thường dùng" : "Common percents"}
           </label>
           <div className="flex flex-wrap gap-1.5">
             {t.presets.map((p) => (

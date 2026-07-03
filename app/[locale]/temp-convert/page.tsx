@@ -16,15 +16,22 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isVi = locale === "vi";
   const title = isKo
     ? "온도 변환 — 섭씨 °C ↔ 화씨 °F ↔ 켈빈"
-    : "Temperature Converter — °C ↔ °F ↔ K";
+    : isVi
+      ? "Chuyển đổi nhiệt độ — độ C ↔ độ F ↔ Kelvin"
+      : "Temperature Converter — °C ↔ °F ↔ K";
   const description = isKo
     ? "섭씨·화씨·켈빈 온도를 즉시 변환. °F = °C × 9/5 + 32. 체온·끓는점 프리셋 + 체감 안내. 한국 섭씨 ↔ 미국 화씨."
-    : "Convert Celsius, Fahrenheit, and Kelvin instantly. F equals C times 9/5 plus 32, with body/boiling presets and a feel guide.";
+    : isVi
+      ? "Chuyển đổi nhiệt độ độ C, độ F và Kelvin tức thì. °F = °C × 9/5 + 32. Có mẫu thân nhiệt·điểm sôi kèm hướng dẫn cảm nhận. Hàn Quốc dùng độ C, Mỹ dùng độ F."
+      : "Convert Celsius, Fahrenheit, and Kelvin instantly. F equals C times 9/5 plus 32, with body/boiling presets and a feel guide.";
   const keywords = isKo
     ? ["온도 변환", "섭씨 화씨 변환", "화씨 섭씨", "온도 계산기", "섭씨 화씨"]
-    : [
+    : isVi
+      ? ["chuyển đổi nhiệt độ", "chuyển đổi độ C độ F", "độ F độ C", "máy tính nhiệt độ", "độ C độ F"]
+      : [
         "temperature converter",
         "celsius to fahrenheit",
         "c to f",
@@ -43,7 +50,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/temp-convert`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -57,7 +64,8 @@ export default async function TempConvertPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey = isKo ? "ko" : "en";
+  const isVi = locale === "vi";
+  const localeKey: "ko" | "en" | "vi" = isKo ? "ko" : isVi ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
@@ -67,17 +75,23 @@ export default async function TempConvertPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : "All tools"}
+            {isKo ? "툴 모음" : isVi ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "온도 변환 (°C ↔ °F ↔ K)" : "Temperature Converter"}
+            {isKo
+              ? "온도 변환 (°C ↔ °F ↔ K)"
+              : isVi
+                ? "Chuyển đổi nhiệt độ (°C ↔ °F ↔ K)"
+                : "Temperature Converter"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "섭씨·화씨·켈빈을 즉시 변환. 체온·끓는점 프리셋과 체감 안내까지."
-              : "Convert Celsius, Fahrenheit, and Kelvin instantly with presets and a feel guide."}
+              : isVi
+                ? "Chuyển đổi độ C, độ F và Kelvin tức thì, kèm mẫu thân nhiệt·điểm sôi và hướng dẫn cảm nhận."
+                : "Convert Celsius, Fahrenheit, and Kelvin instantly with presets and a feel guide."}
           </p>
         </header>
         <TempConverter locale={localeKey} />

@@ -9,7 +9,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface CarAcquisitionFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -48,6 +48,23 @@ const T = {
     tax: "Tax (before discount)",
     discount: "Eco discount",
     note: "Local Tax Act. New cars use ex-factory price (excl. VAT); used cars the higher of actual price/assessed value. Bond purchase and registration fees are separate.",
+  },
+  vi: {
+    price: "Giá trị mua xe (chưa gồm VAT, ₩)",
+    carType: "Loại xe",
+    types: {
+      passenger: "Xe con (7%)",
+      light: "Xe hạng nhẹ (4%)",
+      eco: "Xe thân thiện môi trường",
+      commercial: "Xe khách/tải (5%)",
+    },
+    result: "Thuế trước bạ",
+    total: "Thuế trước bạ phải nộp",
+    unit: "₩",
+    rate: "Thuế suất",
+    tax: "Thuế trước bạ (trước giảm trừ)",
+    discount: "Giảm trừ xe thân thiện môi trường",
+    note: "Theo Luật Thuế địa phương. Xe mới dùng giá xuất xưởng (chưa gồm VAT); xe cũ lấy giá trị cao hơn giữa giá giao dịch thực tế/giá trị đánh giá. Phí mua trái phiếu và phí đăng ký tính riêng.",
   },
 } as const;
 

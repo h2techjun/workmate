@@ -16,15 +16,29 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isVi = locale === "vi";
   const title = isKo
     ? "한국 학년 계산기 — 출생연도로 몇 학년? (초·중·고 입학)"
-    : "Korean School Grade Calculator — What Grade Am I in Korea? (by birth year)";
+    : isVi
+      ? "Máy tính lớp học Hàn Quốc — Sinh năm nào thì học lớp mấy? (Tiểu học·THCS·THPT)"
+      : "Korean School Grade Calculator — What Grade Am I in Korea? (by birth year)";
   const description = isKo
     ? "출생연도를 입력하면 올해 기준 한국 학년(초·중·고)과 입학 나이를 즉시 계산. 한국 학년 컷오프(초등 입학 기준) 해설 포함."
-    : "If you were born in a given year, what grade are you in Korea? Enter your birth year to get your Korean school grade (elementary/middle/high), entry age, and how the Korean school-year cutoff works.";
+    : isVi
+      ? "Nhập năm sinh để tính ngay lớp học hiện tại ở Hàn Quốc (Tiểu học·THCS·THPT) và tuổi nhập học theo năm nay. Bao gồm giải thích về mốc cắt tuổi nhập học tiểu học của Hàn Quốc."
+      : "If you were born in a given year, what grade are you in Korea? Enter your birth year to get your Korean school grade (elementary/middle/high), entry age, and how the Korean school-year cutoff works.";
   const keywords = isKo
     ? ["한국 학년 계산", "출생연도 학년", "초등학교 입학 나이", "몇 학년", "한국 학제", "연 나이 학년"]
-    : [
+    : isVi
+      ? [
+          "tính lớp học Hàn Quốc",
+          "năm sinh lớp mấy",
+          "tuổi nhập học tiểu học Hàn Quốc",
+          "học lớp mấy",
+          "hệ thống giáo dục Hàn Quốc",
+          "tuổi Hàn theo lớp học",
+        ]
+      : [
         "korean school grade calculator",
         "what grade am i in korea",
         "born 2010 what grade korea",
@@ -45,7 +59,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/school-grade`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -59,7 +73,8 @@ export default async function SchoolGradePage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey = isKo ? "ko" : "en";
+  const isVi = locale === "vi";
+  const localeKey: "ko" | "en" | "vi" = isKo ? "ko" : isVi ? "vi" : "en";
 
   // 서버 렌더 시점 KST(Asia/Seoul) 기준 오늘 — hydration mismatch 방지
   const now = new Date();
@@ -78,17 +93,23 @@ export default async function SchoolGradePage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : "All tools"}
+            {isKo ? "툴 모음" : isVi ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "한국 학년 계산기" : "Korean School Grade Calculator"}
+            {isKo
+              ? "한국 학년 계산기"
+              : isVi
+                ? "Máy tính lớp học Hàn Quốc"
+                : "Korean School Grade Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "출생연도만 넣으면 현재 학년과 입학·졸업 연도를 한 번에. 같은 해 출생자가 같은 학년인 한국 학제 기준."
-              : "Enter a birth year to get the current grade plus entry and graduation years, based on Korea's calendar-year cohort system."}
+              : isVi
+                ? "Chỉ cần nhập năm sinh là biết ngay lớp học hiện tại cùng năm nhập học và tốt nghiệp. Dựa trên hệ thống Hàn Quốc, những người sinh cùng năm dương lịch học cùng một lớp."
+                : "Enter a birth year to get the current grade plus entry and graduation years, based on Korea's calendar-year cohort system."}
           </p>
         </header>
         <SchoolGradeForm locale={localeKey} today={today} />

@@ -16,12 +16,17 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isVi = locale === "vi";
   const title = isKo
     ? "평 ↔ ㎡ 변환기 — 제곱미터를 평으로 즉시 (1평=3.3058㎡)"
-    : "Square Meters to Pyeong Converter — What Is a Pyeong? (1 pyeong = 3.3058 m²)";
+    : isVi
+      ? "Chuyển đổi Pyeong ↔ m² — Đổi mét vuông sang pyeong tức thì (1 pyeong = 3,3058 m²)"
+      : "Square Meters to Pyeong Converter — What Is a Pyeong? (1 pyeong = 3.3058 m²)";
   const description = isKo
     ? "평·㎡·제곱자(자²) 양방향 즉시 변환. 1평 = 3.30578㎡ = 36자², 84㎡ ≈ 25평. 0.5평 단위 부동산 반올림 + 59·84·114㎡ 프리셋 제공."
-    : "Convert square meters to pyeong and back instantly — 1 pyeong = 3.3058 m² (so 84 m² ≈ 25 pyeong). What a pyeong is, how big one is, plus square-ja. The Korean area units every foreigner needs.";
+    : isVi
+      ? "Chuyển đổi hai chiều giữa pyeong, m² và ja² (thước vuông) tức thì. 1 pyeong = 3,30578 m² = 36 ja², 84 m² ≈ 25 pyeong. Tự động làm tròn 0,5 pyeong theo kiểu bất động sản + mẫu có sẵn 59·84·114 m²."
+      : "Convert square meters to pyeong and back instantly — 1 pyeong = 3.3058 m² (so 84 m² ≈ 25 pyeong). What a pyeong is, how big one is, plus square-ja. The Korean area units every foreigner needs.";
   const keywords = isKo
     ? [
         "평 제곱미터 변환",
@@ -31,7 +36,16 @@ export async function generateMetadata({
         "제곱자 변환",
         "0.5평 반올림",
       ]
-    : [
+    : isVi
+      ? [
+          "chuyển đổi pyeong mét vuông",
+          "chuyển đổi mét vuông pyeong",
+          "84 mét vuông bao nhiêu pyeong",
+          "quy đổi pyeong",
+          "chuyển đổi ja vuông",
+          "làm tròn 0.5 pyeong",
+        ]
+      : [
         "square meters to pyeong",
         "what is a pyeong",
         "how big is a pyeong",
@@ -53,7 +67,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/area-convert`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -67,7 +81,8 @@ export default async function AreaConvertPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey = isKo ? "ko" : "en";
+  const isVi = locale === "vi";
+  const localeKey: "ko" | "en" | "vi" = isKo ? "ko" : isVi ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -78,17 +93,23 @@ export default async function AreaConvertPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : "All tools"}
+            {isKo ? "툴 모음" : isVi ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "평수 계산기 (평 ↔ ㎡ ↔ 자²)" : "Pyeong / m² / ja² Converter"}
+            {isKo
+              ? "평수 계산기 (평 ↔ ㎡ ↔ 자²)"
+              : isVi
+                ? "Máy tính diện tích (Pyeong ↔ m² ↔ ja²)"
+                : "Pyeong / m² / ja² Converter"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "부동산 면적 단위를 즉시 변환. 84㎡ 같은 국민주택규모를 한 번에 평수로, 자(尺) 단위까지. 0.5평 단위 광고용 반올림 자동 제공."
-              : "Convert real-estate area units instantly. National housing standard 84㎡ to pyeong + ja unit support. Auto 0.5-pyeong rounding for ads."}
+              : isVi
+                ? "Chuyển đổi đơn vị diện tích bất động sản tức thì. Quy đổi diện tích tiêu chuẩn nhà ở quốc gia như 84 m² sang pyeong, cả đơn vị ja (尺). Tự động làm tròn 0,5 pyeong dùng cho quảng cáo bất động sản."
+                : "Convert real-estate area units instantly. National housing standard 84㎡ to pyeong + ja unit support. Auto 0.5-pyeong rounding for ads."}
           </p>
         </header>
         <AreaConverter locale={localeKey} />

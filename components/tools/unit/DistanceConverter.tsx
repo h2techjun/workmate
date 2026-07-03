@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface DistanceConverterProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const fmt = (n: number): string =>
@@ -34,6 +34,16 @@ const T = {
     metric: "Metric",
     imperial: "Imperial",
     note: "1 ja = 10/33 m ≈ 0.303 m, 1 ri = 1,296 ja ≈ 392.7 m (10 ri ≈ 3.93 km). Ri varied by era/region; the most common value is used.",
+  },
+  vi: {
+    value: "Nhập giá trị",
+    unit: "Chọn đơn vị",
+    units: { ri: "Ri (里)", ja: "Ja (尺)", bo: "Bo (步)", m: "Mét (m)", km: "Ki-lô-mét (km)", mile: "Dặm (mile)", yard: "Yard", ft: "Feet", inch: "Inch" } as Record<DistanceUnit, string>,
+    result: "Kết quả quy đổi",
+    korean: "Đơn vị truyền thống Hàn Quốc",
+    metric: "Hệ mét",
+    imperial: "Hệ Anh - Mỹ",
+    note: "1 ja = 10/33 m ≈ 0,303 m, 1 ri = 1.296 ja ≈ 392,7 m (10 ri ≈ 3,93 km). Giá trị của ri từng khác nhau theo thời đại/vùng miền; ở đây dùng giá trị phổ biến nhất.",
   },
 } as const;
 

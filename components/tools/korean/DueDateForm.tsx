@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface DueDateFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
   today: { year: number; month: number; day: number };
 }
 
@@ -46,6 +46,23 @@ const T = {
     daysToGo: "Days to go",
     progress: "Progress",
     note: "Based on Naegele's rule (LMP + 280 days). Cycles other than 28 are auto-adjusted. The actual date is confirmed by ultrasound; term spans 37-42 weeks so the due date is an estimate.",
+  },
+  vi: {
+    lmp: "Ngày đầu kỳ kinh cuối (LMP)",
+    year: "Năm",
+    month: "Tháng",
+    day: "Ngày",
+    cycle: "Chu kỳ kinh trung bình (ngày)",
+    result: "Ngày dự sinh",
+    due: "Ngày dự sinh ước tính",
+    weeks: "Tuần thai hiện tại",
+    weeksUnit: "tuần",
+    daysUnit: "ngày",
+    trimester: "Tam cá nguyệt",
+    trimesterUnit: "",
+    daysToGo: "Còn lại đến khi sinh",
+    progress: "Tiến độ",
+    note: "Tính theo quy tắc Naegele (LMP + 280 ngày). Chu kỳ khác 28 ngày sẽ được tự động hiệu chỉnh. Ngày sinh thực tế được xác định qua siêu âm; thai đủ tháng trải dài từ 37-42 tuần nên ngày dự sinh chỉ là ước tính.",
   },
 } as const;
 

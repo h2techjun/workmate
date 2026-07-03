@@ -12,7 +12,7 @@ import { formatKoreanMoney } from "@/lib/utils/format";
 import { ResultShell } from "@/components/ui/calc-form";
 
 interface GiftTaxFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -64,6 +64,31 @@ const T = {
       "lineal-ancestor": "Descendant → ancestor (KRW 50M)",
       "other-relative": "Other relative (KRW 10M)",
       other: "Non-relative (no deduction)",
+    } satisfies Record<DonorRelation, string>,
+  },
+  vi: {
+    giftAmount: "Giá trị tài sản tặng cho (KRW)",
+    donorRelation: "Quan hệ với người tặng",
+    priorGifts: "Tổng tài sản đã tặng cho trong 10 năm (KRW, tùy chọn)",
+    priorGiftsHint:
+      "Tổng giá trị tài sản đã nhận tặng cho từ cùng người tặng trong vòng 10 năm",
+    selfReport: "Áp dụng ưu đãi khai thuế tự nguyện 3%",
+    unit: "KRW",
+    result: "Thuế tặng cho dự kiến phải nộp",
+    finalTax: "Thuế thực nộp",
+    deduction: "Khấu trừ tài sản tặng cho",
+    taxBase: "Cơ sở tính thuế",
+    calcTax: "Thuế tính toán",
+    reportDiscount: "Ưu đãi khai thuế (3%)",
+    marginalRate: "Thuế suất áp dụng",
+    note: "Tính toán đơn giản dựa trên Điều 53, 56 Luật Thuế Thừa kế và Thuế Tặng cho (상속세 및 증여세법) của Hàn Quốc. Không phản ánh việc định giá tài sản, phụ thu bỏ qua thế hệ (30%) và các khoản phạt thuế. Vui lòng tham khảo chuyên gia thuế hoặc sử dụng Hometax của Cơ quan Thuế Quốc gia (NTS) để khai báo thực tế.",
+    donorRelationOptions: {
+      spouse: "Vợ/chồng (khấu trừ 600 triệu KRW)",
+      "lineal-adult": "Trực hệ tôn thuộc → con thành niên (khấu trừ 50 triệu KRW)",
+      "lineal-minor": "Trực hệ tôn thuộc → con chưa thành niên (khấu trừ 20 triệu KRW)",
+      "lineal-ancestor": "Trực hệ ti thuộc → trực hệ tôn thuộc (khấu trừ 50 triệu KRW)",
+      "other-relative": "Họ hàng khác (khấu trừ 10 triệu KRW)",
+      other: "Người không có quan hệ họ hàng (không khấu trừ)",
     } satisfies Record<DonorRelation, string>,
   },
 } as const;

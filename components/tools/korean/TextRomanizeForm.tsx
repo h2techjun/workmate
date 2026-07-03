@@ -4,7 +4,7 @@ import { useState } from "react";
 import { romanizeText } from "@/lib/calculations/korean/textRomanize";
 
 interface TextRomanizeFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -23,6 +23,14 @@ const T = {
     syllables: "Syllables",
     empty: "Enter Korean text.",
     note: "Syllable-by-syllable transliteration per Revised Romanization. Sound changes (assimilation) are not reflected — e.g. 신라 → Sinra (not the spoken Silla). Best for signs, menus, words.",
+  },
+  vi: {
+    label: "Nhập văn bản tiếng Hàn (Hangul)",
+    placeholder: "VD: 안녕하세요, 서울 시청",
+    result: "Phiên âm La-tinh",
+    syllables: "Số âm tiết",
+    empty: "Vui lòng nhập văn bản tiếng Hàn.",
+    note: "Phiên âm theo từng âm tiết dựa trên quy tắc phiên âm chính thức của Viện Ngôn ngữ Quốc gia Hàn Quốc. Các biến đổi âm (đồng hóa phụ âm...) không được phản ánh — ví dụ: 신라 → Sinra (không phải cách phát âm thực tế là Silla). Phù hợp để đọc biển hiệu, thực đơn, từ vựng.",
   },
 } as const;
 

@@ -4243,6 +4243,2404 @@
         }
       ],
       "lastReviewed": "2026-05-30"
+    },
+    "area-convert": {
+      "overview": "Công cụ chuyển đổi diện tích Hàn Quốc xử lý ba đơn vị được dùng nhiều nhất trong bất động sản, nội thất và xây dựng tại Hàn Quốc: pyeong (평), mét vuông (㎡), và ja² kiểu Nhật (尺²). Sử dụng tỷ lệ chính xác 1 pyeong = 3.600/1.089 ≈ 3,30579 ㎡, công cụ chuyển đổi cả ba đơn vị tức thì và cung cấp các mức đặt sẵn cho các diện tích bất động sản Hàn Quốc phổ biến (59㎡, 84㎡, 114㎡) và các mức pyeong (30 pyeong, 50 pyeong).",
+      "useCases": [
+        "So sánh căn hộ Hàn Quốc: căn 84㎡ tương đương bao nhiêu pyeong (= 25,41 pyeong)",
+        "Ước tính nội thất: chuyển đổi giá theo pyeong sang đơn giá theo ㎡",
+        "Bản vẽ kiến trúc: chuyển đổi đơn vị ja² kiểu Nhật/Hàn cổ",
+        "Hợp đồng thuê nhà: chuyển đổi ㎡ trên giấy đăng ký chính thức sang pyeong",
+        "Phân bổ diện tích trống: chuyển đổi tiền thuê theo pyeong sang tỷ lệ theo ㎡"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập diện tích vào bất kỳ ô nào trong ba đơn vị (pyeong, ㎡, ja²). Hai đơn vị còn lại sẽ tự động cập nhật.",
+          "Các nút đặt sẵn (59㎡, 84㎡, 114㎡, 30 pyeong, 50 pyeong) áp dụng các diện tích bất động sản Hàn Quốc phổ biến chỉ với một cú nhấp.",
+          "Kết quả hiển thị pyeong với hai chữ số thập phân, ㎡ và ja² với hai chữ số thập phân, cùng với giá trị 'làm tròn 0,5 pyeong' theo quy ước niêm yết bất động sản."
+        ]
+      },
+      "formula": {
+        "title": "Công thức chuyển đổi (tiêu chuẩn Hàn Quốc)",
+        "body": "1 pyeong = 6 ja × 6 ja = 36 ja² = 3.600/1.089 ㎡ ≈ 3,30579 ㎡\n1 ja = 10/33 m ≈ 0,30303 m\n\npyeong → ㎡  : pyeong × 3,30579\n㎡ → pyeong  : ㎡ / 3,30579 ≈ ㎡ × 0,3025\npyeong → ja² : pyeong × 36\nja² → ㎡     : ja² × (10/33)² ≈ ja² × 0,0918\n\nDiện tích bất động sản Hàn Quốc:\n  59㎡  ≈ 17,84 pyeong (loại '18 pyeong', diện tích sử dụng riêng)\n  84㎡  ≈ 25,41 pyeong (loại '25 pyeong')\n  114㎡ ≈ 34,49 pyeong (loại '34 pyeong')"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Pyeong chính xác của căn hộ 84㎡",
+            "body": "84 / 3,30579 = 25,408 pyeong. Làm tròn 0,5 pyeong = 25,5 pyeong. Các tin bất động sản ghi '25 pyeong' hoặc '26 pyeong' thường dựa trên diện tích cung cấp (sử dụng riêng + phần chung) hoặc theo quy ước làm tròn."
+          },
+          {
+            "title": "Ví dụ 2: Thi công 30 pyeong tính ra ㎡",
+            "body": "30 × 3,30579 = 99,17 ㎡. Báo giá nội thất '1 triệu won mỗi pyeong' cho 30 pyeong là 30 triệu won, tương đương khoảng 302.500 won mỗi ㎡."
+          },
+          {
+            "title": "Ví dụ 3: Bản vẽ ja² kiểu Nhật",
+            "body": "Nhãn '108 ja²' trên bản vẽ → 108 × 0,0918 ≈ 9,91 ㎡ ≈ 3 pyeong. Hữu ích khi đọc bản vẽ kiểu Nhật hoặc Hàn Quốc cổ."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Chính xác 1 pyeong bằng bao nhiêu ㎡?",
+          "answer": "1 pyeong = 3.600 / 1.089 = chính xác 3,30578512... ㎡. Con số ước lượng 3,3 ㎡ thường được dùng nhưng tích lũy sai số khi diện tích lớn hơn. Công cụ này sử dụng tỷ lệ chính xác."
+        },
+        {
+          "question": "Sự khác biệt giữa diện tích sử dụng riêng, diện tích cung cấp và diện tích hợp đồng là gì?",
+          "answer": "Diện tích sử dụng riêng = không gian sinh hoạt (phòng, phòng khách, phòng tắm). Diện tích cung cấp = sử dụng riêng + phần chung nơi ở (hành lang, cầu thang). Diện tích hợp đồng = cung cấp + phần chung khác (bãi đỗ xe, quản lý). '84 ㎡' thường chỉ diện tích sử dụng riêng, còn 'loại 25 pyeong' chỉ diện tích cung cấp khoảng 80-90 ㎡."
+        },
+        {
+          "question": "Tại sao đơn vị pyeong vẫn còn được sử dụng?",
+          "answer": "Hàn Quốc đã yêu cầu dùng đơn vị mét từ năm 1961, nhưng quy ước bất động sản và nội thất vẫn dựa trên pyeong. Giấy tờ và hợp đồng chính thức dùng ㎡, còn tin rao bán và sử dụng thông thường ưa chuộng pyeong."
+        },
+        {
+          "question": "Đơn vị ja² (尺²) được dùng ở đâu?",
+          "answer": "Bản vẽ Hàn Quốc cổ, kiến trúc Nhật Bản, y học cổ truyền và đo kích thước đồ nội thất truyền thống. 1 pyeong = 36 ja², nên việc chuyển đổi rất đơn giản."
+        },
+        {
+          "question": "Tại sao lại hiển thị riêng giá trị 'làm tròn 0,5 pyeong'?",
+          "answer": "Các tin bất động sản thường làm tròn đến 0,5 pyeong (ví dụ: 25,4 → 25,5). Công cụ này hiển thị cả giá trị chính xác lẫn giá trị làm tròn theo kiểu niêm yết."
+        },
+        {
+          "question": "Tôi có thể dùng công cụ này để tính tỷ lệ diện tích xây dựng/tầng không?",
+          "answer": "Không — công cụ này chỉ xử lý chuyển đổi đơn vị. Tỷ lệ phủ đất (diện tích xây dựng / diện tích lô đất) và tỷ lệ diện tích sàn (tổng diện tích sàn / diện tích lô đất) của Hàn Quốc tuân theo giới hạn riêng theo khu vực quy hoạch và cần tính toán theo luật xây dựng."
+        }
+      ],
+      "cautions": [
+        "1 pyeong = 3,30579 ㎡ chính xác. Cách ước lượng nhanh 3,3 ㎡ tích lũy sai số khi diện tích lớn.",
+        "Tin bất động sản thường trộn lẫn diện tích sử dụng riêng và diện tích cung cấp. Luôn kiểm tra ㎡ trên giấy đăng ký chính thức.",
+        "Ja² là đơn vị Hàn Quốc cổ/Nhật Bản. Xác nhận nguồn gốc bản vẽ khi kết hợp các đơn vị.",
+        "Chỉ ㎡ có hiệu lực pháp lý trong hợp đồng và giấy tờ chính thức. Pyeong chỉ để tiện dùng hàng ngày."
+      ],
+      "related": [
+        {
+          "label": "Máy tính gạch ốp lát",
+          "href": "/timber-calc/tile"
+        },
+        {
+          "label": "Giới hạn tăng tiền thuê (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "Thể tích bê tông",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Máy tính phần trăm",
+          "href": "/percent-calc"
+        }
+      ],
+      "lastReviewed": "2026-05-23"
+    },
+    "percent-calc": {
+      "overview": "Máy tính phần trăm xử lý năm phép tính phần trăm phổ biến nhất trên một màn hình — B% của A (giảm giá/tỷ lệ), A tăng B%, A giảm B%, tỷ lệ thay đổi từ A sang B, và tính ngược khi kết quả tăng B% bằng A. Dùng cho giảm giá mua sắm, tách thuế VAT, tăng lương, biên lợi nhuận và lợi tức đầu tư.",
+      "useCases": [
+        "Mua sắm: số tiền thực trả sau khi giảm giá 20%",
+        "Lương: tỷ lệ thay đổi từ 50 triệu won năm ngoái lên 55 triệu won năm nay (10%)",
+        "Tách VAT: tách 110.000 won (đã gồm VAT) thành 100.000 won giá cung cấp + 10.000 won VAT",
+        "Biên lợi nhuận: giá vốn 10.000 won → giá bán 15.000 won (tăng giá 50%, biên lợi nhuận 33,3%)",
+        "Đầu tư: đầu tư 100 triệu won → thu về 120 triệu won = lãi 20%"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Chọn một trong năm chế độ: B% của A, A tăng B%, A giảm B%, tỷ lệ thay đổi từ A sang B, hoặc tính ngược (tìm giá trị gốc từ giá trị đã tăng).",
+          "Nhập hai giá trị cần thiết theo chế độ đã chọn. Kết quả cập nhật ngay lập tức — không cần nút Tính toán.",
+          "Các nút đặt sẵn cho VAT (10%) và các mức giảm giá phổ biến (10/20/30/50%) giúp xử lý nhanh các trường hợp thường gặp."
+        ]
+      },
+      "formula": {
+        "title": "Công thức năm chế độ",
+        "body": "1) B% của A          : A × B/100\n   Ví dụ: 20% của 50.000 = 10.000\n\n2) A tăng B%: A × (1 + B/100)\n   Ví dụ: 30.000 + 10% = 33.000\n\n3) A giảm B%: A × (1 − B/100)\n   Ví dụ: 30.000 − 10% = 27.000\n\n4) Tỷ lệ thay đổi A → B: (B − A) / A × 100\n   Ví dụ: 100 → 130 = +30%\n\n5) Tính ngược từ tăng B%: A / (1 + B/100)\n   Ví dụ: giá đã gồm VAT 11.000 → 11.000 / 1,10 = 10.000 (giá cung cấp)"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Giảm 30% từ 89.000 won",
+            "body": "Chế độ giảm → A=89.000, B=30. Kết quả = 89.000 × 0,70 = 62.300. Số tiền giảm = 26.700."
+          },
+          {
+            "title": "Ví dụ 2: Tỷ lệ tăng lương từ 50 triệu won → 54 triệu won",
+            "body": "Chế độ tỷ lệ thay đổi → A=50.000.000, B=54.000.000. Tỷ lệ = (54 triệu − 50 triệu) / 50 triệu × 100 = 8%. Lương thực nhận sẽ khác sau khi trừ thuế và bảo hiểm — cần kiểm tra riêng."
+          },
+          {
+            "title": "Ví dụ 3: Báo giá đã gồm VAT 2,2 triệu won → tách ra",
+            "body": "Chế độ tính ngược → A=2.200.000, B=10. Giá cung cấp = 2.200.000 / 1,10 = 2.000.000. VAT = 200.000."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tăng 10% rồi giảm 10% có trở về giá trị ban đầu không?",
+          "answer": "Không. 100 → +10% = 110 → −10% = 99. Xảy ra hao hụt 1% vì phần trăm được áp dụng trên các giá trị cơ sở khác nhau (100 so với 110)."
+        },
+        {
+          "question": "Làm sao để tách VAT (10%)?",
+          "answer": "Giá đã gồm VAT ÷ 1,1 cho ra giá cung cấp; phần chênh lệch là VAT. Ví dụ: 11.000 đã gồm VAT → 10.000 giá cung cấp + 1.000 VAT. Nhân giá đã gồm VAT với 10% là phép tính sai."
+        },
+        {
+          "question": "Biên lợi nhuận và tỷ lệ tăng giá có giống nhau không?",
+          "answer": "Không. Giá vốn 10.000 → giá bán 15.000 nghĩa là tăng giá 50% (so với giá vốn) nhưng biên lợi nhuận 33,3% (so với giá bán). Tỷ lệ tăng giá đo lường từ giá vốn đến giá bán; biên lợi nhuận đo lường lợi nhuận trên giá bán."
+        },
+        {
+          "question": "Phép tính phần trăm này có giống lãi kép so với lãi đơn không?",
+          "answer": "Lãi đơn là cộng thẳng cùng một tỷ lệ mỗi kỳ; lãi kép áp dụng tỷ lệ lên số dư mới mỗi kỳ. Các phép tăng theo một tỷ lệ duy nhất ở đây là lãi đơn. Đối với lợi tức nhiều kỳ, hãy dùng máy tính lãi kép."
+        },
+        {
+          "question": "Tôi thấy chênh lệch làm tròn trong phép tính giảm giá",
+          "answer": "Máy tính hiển thị hai chữ số thập phân. Số tiền thu thực tế được làm tròn đến đơn vị won (theo chính sách mạng thẻ), nên có thể chênh lệch 1-2 won. Hãy đối chiếu với hóa đơn thực tế đối với số tiền lớn."
+        },
+        {
+          "question": "Tỷ lệ thay đổi có thể là số âm không?",
+          "answer": "Có. 100 → 80 = (80−100)/100 = −20%. Máy tính tự động hiển thị tỷ lệ thay đổi có dấu."
+        }
+      ],
+      "cautions": [
+        "Tăng B% rồi giảm B% không trở về giá trị ban đầu (100 → 110 → 99).",
+        "Tách VAT bằng cách 'giá đã gồm VAT ÷ 1,1', không phải 'giá đã gồm VAT × 10%'.",
+        "Tỷ lệ tăng giá (so với giá vốn) và biên lợi nhuận (so với giá bán) là hai tỷ lệ khác nhau.",
+        "Quy tắc làm tròn của mạng thẻ và cơ quan thuế có thể khác nhau — hãy kiểm tra hóa đơn thực tế với số tiền lớn."
+      ],
+      "related": [
+        {
+          "label": "Máy tính thuế VAT",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "Lãi kép",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Máy tính khoản vay",
+          "href": "/loan-calc"
+        }
+      ],
+      "lastReviewed": "2026-05-23"
+    },
+    "distance-convert": {
+      "overview": "Công cụ chuyển đổi khoảng cách này chuyển đổi giữa hệ mét (m, km), đơn vị Anh/Mỹ (dặm, yard, ft, inch), và các đơn vị truyền thống Hàn Quốc (ja, ri, bo) cùng một lúc. 1 ja (尺) = 10/33 m (khoảng 30,3 cm), 1 ri (里) = 1296 ja ≈ 392,7 m, và 1 bo (步) = 6 ja. Rất tiện lợi cho khoảng cách chạy bộ (dặm↔km), kích thước đồ nội thất nhập khẩu (inch→cm), và đọc hiểu 'ri' trong các văn bản Hàn Quốc cổ.",
+      "useCases": [
+        "Chuyển đổi khoảng cách chạy bộ/marathon giữa dặm và kilômét",
+        "Chuyển đổi inch/ft của đồ nội thất nhập khẩu sang cm/m",
+        "Diễn giải 'ri' (里) trong các văn bản và địa danh Hàn Quốc cổ",
+        "Chuyển đổi đơn vị 'ja' (尺) trong bản vẽ Hanok truyền thống sang mét",
+        "Chuyển đổi yard trong golf/thể thao sang mét"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Chọn đơn vị gốc bạn muốn nhập (ví dụ: mét, dặm, ja).",
+          "Nhập một con số và cả 9 đơn vị (ri, ja, bo, m, km, dặm, yard, ft, inch) sẽ chuyển đổi ngay lập tức.",
+          "Các đơn vị Hàn Quốc, hệ mét và hệ Anh/Mỹ được nhóm lại với nhau, giúp bạn tìm ngay đơn vị cần dùng."
+        ]
+      },
+      "formula": {
+        "title": "Cơ sở chuyển đổi",
+        "body": "Đơn vị truyền thống Hàn Quốc (luật đo lường):\n  1 ja (尺) = 10/33 m ≈ 0,30303 m\n  1 bo (步) = 6 ja ≈ 1,818 m\n  1 ri (里) = 1296 ja ≈ 392,727 m\n\nĐơn vị Anh/Mỹ (quốc tế):\n  1 dặm = 1609,344 m\n  1 yard = 0,9144 m\n  1 ft = 0,3048 m\n  1 inch = 0,0254 m\n\nMọi phép chuyển đổi đều dùng mét (m) làm giá trị cơ sở."
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: 5 dặm → km",
+            "body": "5 dặm × 1609,344 = 8046,72 m ≈ 8,05 km. Hữu ích khi so sánh chạy 5 dặm với chạy 5K."
+          },
+          {
+            "title": "Ví dụ 2: 10 ri là bao xa?",
+            "body": "10 ri × 392,727 m = 3927,27 m ≈ 3,93 km. Xác nhận câu nói Hàn Quốc 'sip-ri' (mười ri) là khoảng 4 km."
+          },
+          {
+            "title": "Ví dụ 3: Cột trụ 6 ja → m",
+            "body": "6 ja × 0,30303 = 1,818 m. Dùng để chuyển đổi kích thước cột trụ và khung cửa Hanok sang mét."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Chính xác 1 ja (尺) bằng bao nhiêu cm?",
+          "answer": "Theo luật đo lường Hàn Quốc, 1 ja = 10/33 m ≈ 30,303 cm. Đơn vị này khớp với shaku của thợ mộc Nhật Bản và thường được làm tròn thành 30,3 cm."
+        },
+        {
+          "question": "Tại sao 1 ri (里) lại khác nhau giữa các nguồn?",
+          "answer": "'Ri' được định nghĩa khác nhau qua các thời đại và quốc gia. Tiêu chuẩn Hàn Quốc hiện nay là 1296 ja (≈392,7 m), nhưng thời Joseon dùng khoảng 420 m, còn ri của Nhật Bản khoảng 3927 m — lớn hơn khoảng 10 lần. Công cụ này sử dụng tiêu chuẩn Hàn Quốc 1296 ja."
+        },
+        {
+          "question": "Công cụ này dùng loại 'dặm' nào?",
+          "answer": "Dặm quốc tế = 1609,344 m. Khác với hải lý (nautical mile, 1852 m) dùng trên biển."
+        },
+        {
+          "question": "'Bo' (步) được dùng để làm gì?",
+          "answer": "Một bo bằng 6 ja (khoảng 1,82 m) và theo truyền thống là chiều dài cơ sở để tính diện tích đất (pyeong, danbo). Nó giúp diễn giải các cách diễn đạt khoảng cách cổ và tài liệu đo đạc đất đai."
+        },
+        {
+          "question": "Độ chính xác của công cụ này ra sao?",
+          "answer": "Đơn vị hệ mét và hệ Anh/Mỹ dùng định nghĩa quốc tế chính xác, còn đơn vị Hàn Quốc áp dụng trực tiếp định nghĩa pháp lý (10/33 m). Lưu ý rằng ri và bo trong văn bản cổ có thể mang ý nghĩa khoảng cách thực tế khác nhau tùy thời đại, nên hãy xem đó là thông tin tham khảo."
+        }
+      ],
+      "cautions": [
+        "Đơn vị Hàn Quốc (ja, ri, bo) tuân theo định nghĩa pháp lý; văn bản cổ có thể khác nhau tùy thời đại.",
+        "'Dặm' ở đây là dặm quốc tế (1609,344 m), không phải hải lý (1852 m).",
+        "Ri dùng cơ sở 1296-ja của Hàn Quốc — nhỏ hơn 10 lần so với ri Nhật Bản (~3,9 km).",
+        "Đối với bản vẽ pháp lý/đo đạc, hãy xác minh lại bằng đơn vị chính thức (m)."
+      ],
+      "related": [
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        },
+        {
+          "label": "Máy tính nhiệt độ",
+          "href": "/temp-convert"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "temp-convert": {
+      "overview": "Công cụ chuyển đổi nhiệt độ này chuyển đổi ngay lập tức giữa độ C, độ F, và Kelvin (K). Hàn Quốc và châu Âu dùng độ C, Mỹ dùng độ F, còn khoa học/kỹ thuật dùng thang tuyệt đối Kelvin. Được xây dựng dựa trên F = C × 9/5 + 32 và K = C + 273,15, công cụ bổ sung các mức đặt sẵn cho thân nhiệt và điểm sôi cùng hướng dẫn cảm nhận (lạnh / dễ chịu / nóng). Rất tiện lợi cho ứng dụng thời tiết nước ngoài, công thức nấu ăn dùng lò nướng, và mức cài đặt điều hòa.",
+      "useCases": [
+        "Đọc thời tiết Mỹ theo độ F thành độ C kiểu Hàn Quốc",
+        "Chuyển đổi nhiệt độ lò nướng trong công thức nấu ăn nước ngoài (ví dụ 350°F)",
+        "Kiểm tra ngưỡng sốt (°F ↔ °C)",
+        "Tính nhiệt độ tuyệt đối (Kelvin) cho khoa học/kỹ thuật",
+        "Diễn giải nhiệt độ cài đặt của điều hòa và nồi hơi"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Chọn đơn vị gốc để chuyển đổi (°C / °F / K).",
+          "Nhập một nhiệt độ và hai đơn vị còn lại sẽ chuyển đổi ngay lập tức.",
+          "Chạm vào mức đặt sẵn thân nhiệt/điểm sôi để nạp các nhiệt độ phổ biến, và dùng hướng dẫn cảm nhận để có cảm giác nhanh về nó."
+        ]
+      },
+      "formula": {
+        "title": "Công thức chuyển đổi",
+        "body": "Độ C → Độ F:  °F = °C × 9/5 + 32\nĐộ F → Độ C:  °C = (°F − 32) × 5/9\nĐộ C → Kelvin:  K = °C + 273,15\nKelvin → Độ C:  °C = K − 273,15\n\nĐiểm tham chiếu:\n  Nước đóng băng = 0°C = 32°F = 273,15K\n  Nước sôi = 100°C = 212°F = 373,15K\n  Thân nhiệt = 36,5°C ≈ 97,7°F\n  −40°C = −40°F (điểm giao nhau của độ C và độ F)"
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: 100°F → độ C",
+            "body": "(100 − 32) × 5/9 = 37,8°C. Dự báo thời tiết Mỹ 100°F là một đợt nắng nóng 37,8°C theo cách tính của Hàn Quốc."
+          },
+          {
+            "title": "Ví dụ 2: Công thức nấu ăn 350°F → độ C",
+            "body": "(350 − 32) × 5/9 ≈ 177°C. Đặt lò nướng ở khoảng 175–180°C cho mức 350°F trong công thức Mỹ."
+          },
+          {
+            "title": "Ví dụ 3: 25°C là bao nhiêu độ F?",
+            "body": "25 × 9/5 + 32 = 77°F. Nhiệt độ mùa xuân/thu dễ chịu 25°C tương đương 77°F."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Có cách nào ước lượng nhanh từ độ F sang độ C không?",
+          "answer": "Ước lượng đại khái là '(°F − 30) ÷ 2'. Ví dụ: 70°F → (70−30)/2 = 20°C (thực tế 21,1°C). Đủ chính xác để cảm nhận thời tiết hàng ngày."
+        },
+        {
+          "question": "Tại sao Kelvin không có ký hiệu độ (°)?",
+          "answer": "Kelvin là đơn vị cơ bản SI của nhiệt độ tuyệt đối. Vì đây là thang đo tuyệt đối bắt đầu từ 0K (độ không tuyệt đối), nó được viết đơn giản là K, không có chữ 'độ'."
+        },
+        {
+          "question": "Có nhiệt độ nào mà độ C bằng độ F không?",
+          "answer": "Có — chính xác tại −40°C = −40°F. Do độ dốc khác nhau của hai thang đo, chúng chỉ trùng nhau tại điểm duy nhất này."
+        },
+        {
+          "question": "Thân nhiệt bình thường tính theo độ F là bao nhiêu?",
+          "answer": "Hàn Quốc dùng 36,5°C ≈ 97,7°F; mức 98,6°F thường được nhắc đến ở Mỹ tương đương 37°C. Sốt thường được tính từ 38°C (100,4°F) trở lên."
+        },
+        {
+          "question": "Tại sao lò nướng của tôi khác với công thức?",
+          "answer": "Ngoài sự khác biệt về đơn vị (°F↔°C), lò nướng còn có sai lệch nhiệt độ thực tế khoảng ±10–20°C. Hãy dùng giá trị đã chuyển đổi làm cơ sở và hiệu chỉnh bằng nhiệt kế lò nướng."
+        }
+      ],
+      "cautions": [
+        "Công thức là chính xác; các chữ số hiển thị có thể được làm tròn.",
+        "Nhiệt độ thực tế của lò nướng/thiết bị có thể lệch ±10–20°C — giá trị chuyển đổi chỉ là cơ sở.",
+        "Đối với quyết định về sốt/y tế, hãy dựa vào nhiệt kế y tế, không phải giá trị chuyển đổi.",
+        "Kelvin bắt đầu từ độ không tuyệt đối (−273,15°C) — không tồn tại Kelvin âm."
+      ],
+      "related": [
+        {
+          "label": "Máy tính khoảng cách",
+          "href": "/distance-convert"
+        },
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "json-csv": {
+      "overview": "Công cụ chuyển đổi JSON↔CSV là tiện ích chạy trên trình duyệt, chuyển đổi mảng JSON thành tệp CSV và tệp CSV trở lại thành mảng JSON, không có dữ liệu nào được gửi lên máy chủ. Ở chiều JSON→CSV, công cụ mặc định sử dụng BOM UTF-8 và dấu xuống dòng CRLF của Windows — hai thiết lập giúp ngăn ký tự tiếng Hàn (Hangul) hiển thị thành ký tự lỗi trong Excel trên Windows tiếng Hàn. Ở chiều CSV→JSON, công cụ tự động phát hiện dấu phân cách (dấu phẩy, dấu chấm phẩy, hoặc tab), phân tích chính xác các ô được đặt trong dấu ngoặc kép chứa dấu phẩy hoặc dấu xuống dòng nhúng theo chuẩn RFC 4180, và tùy chọn chuyển đổi các chuỗi có dạng số sang kiểu số. Kết quả có thể được sao chép vào clipboard hoặc tải xuống dưới dạng tệp.",
+      "useCases": [
+        "Chuyển đổi phản hồi JSON từ API thành CSV có thể mở trực tiếp trong Excel hoặc Google Sheets",
+        "Chuyển đổi CSV được xuất từ Excel thành JSON để dùng cho câu lệnh INSERT vào cơ sở dữ liệu hoặc phần thân yêu cầu REST API",
+        "Khắc phục lỗi hiển thị ký tự tiếng Hàn trong Excel bằng cách bật BOM + CRLF khi xuất CSV",
+        "Định dạng lại nhanh dữ liệu thử nghiệm trong quá trình phát triển hoặc QA mà không cần cài đặt phần mềm nào",
+        "Chuẩn hóa JSON hoặc kiểm tra lược đồ cột CSV trước khi tải lên Pandas, BigQuery, hoặc các công cụ tương tự"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (3 bước)",
+        "steps": [
+          "Nhấp vào nút chuyển hướng để chọn 'JSON → CSV' hoặc 'CSV → JSON'. Dữ liệu mẫu sẽ tự động chuyển đổi khi bạn chuyển hướng.",
+          "Dán hoặc chỉnh sửa văn bản trong khu vực nhập liệu. Đối với JSON, cấp cao nhất phải là một mảng các đối tượng. Đối với CSV, hãy bật tùy chọn 'Hàng tiêu đề' nếu hàng đầu tiên chứa tên cột.",
+          "Xem lại các tùy chọn (BOM, CRLF, tiêu đề, phân tích số), sau đó nhấp 'Chuyển đổi'. Kết quả xuất hiện bên phải — sao chép hoặc tải xuống dưới dạng tệp. Số hàng và số cột được hiển thị dưới dạng tóm tắt."
+        ]
+      },
+      "formula": {
+        "title": "Quy tắc chuyển đổi & cơ sở kỹ thuật",
+        "body": "[JSON → CSV]\n- Thứ tự cột: theo thứ tự khóa của đối tượng đầu tiên trong mảng\n- Thoát ký tự trong ô: các ô chứa dấu phẩy, dấu xuống dòng, hoặc dấu ngoặc kép sẽ được bọc trong dấu ngoặc kép; dấu ngoặc kép bên trong được thoát thành \"\" (RFC 4180)\n- BOM: BOM UTF-8 (EF BB BF) — ngăn lỗi hiển thị ký tự tiếng Hàn trong Excel trên Windows khu vực tiếng Hàn\n- Dấu xuống dòng: CRLF (\\r\\n) để tương thích với Excel trên Windows\n\n[CSV → JSON]\n- Tự động phát hiện dấu phân cách: ký tự (dấu phẩy / dấu chấm phẩy / tab) xuất hiện nhiều nhất ở hàng đầu tiên\n- Phân tích ô có dấu ngoặc kép: mọi nội dung giữa dấu ngoặc kép mở và đóng được xử lý như một trường duy nhất, kể cả dấu xuống dòng nhúng bên trong\n- Chuyển đổi số: các giá trị khớp với /^-?\\d+(\\.\\d+)?$/ được chuyển đổi sang kiểu số khi tùy chọn được bật\n- Loại bỏ BOM: BOM UTF-8 ở đầu dữ liệu nhập được tự động loại bỏ\n- Bỏ qua dòng trống: các hàng trống bị bỏ qua trong quá trình phân tích"
+      },
+      "examples": {
+        "title": "Kịch bản ví dụ",
+        "items": [
+          {
+            "title": "Ví dụ 1: Chuyển đổi phản hồi JSON từ API thành CSV sẵn sàng cho Excel",
+            "body": "Dán [{\"name\":\"홍길동\",\"age\":30,\"city\":\"서울\"}, ...] vào ô nhập liệu, chọn JSON → CSV, bật BOM và CRLF, rồi nhấp 'Chuyển đổi'. Tải xuống kết quả sẽ mở trong Excel trên Windows tiếng Hàn với tất cả ký tự Hangul hiển thị chính xác. Thứ tự cột theo thứ tự khóa của đối tượng đầu tiên."
+          },
+          {
+            "title": "Ví dụ 2: CSV có dấu phẩy bên trong một ô — dữ liệu địa chỉ",
+            "body": "Nếu một ô địa chỉ chứa '서울특별시, 강남구' (có dấu phẩy bên trong giá trị), Excel sẽ bọc nó trong dấu ngoặc kép khi xuất. Công cụ này phân tích trường có dấu ngoặc kép như một giá trị duy nhất theo RFC 4180, nên kết quả JSON sẽ chứa address: '서울특별시, 강남구' nguyên vẹn — dấu phẩy không làm tách trường."
+          },
+          {
+            "title": "Ví dụ 3: Tùy chọn tự động chuyển đổi số",
+            "body": "Khi bật 'Phân tích số', giá trị cột CSV '30' trở thành số JSON 30 thay vì chuỗi '30'. Điều này thuận tiện cho mã nguồn phía sau vốn kỳ vọng kiểu số. Tắt tùy chọn này nếu bạn cần giữ nguyên số 0 ở đầu (ví dụ: mã bưu chính như '01234' hoặc số điện thoại như '0101234567')."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao văn bản tiếng Hàn bị lỗi hiển thị khi mở tệp CSV trong Excel?",
+          "answer": "Excel trên Windows diễn giải tệp UTF-8 không có BOM theo ngôn ngữ hệ thống, mà trên Windows tiếng Hàn là CP949 (EUC-KR). Ký tự Hangul được mã hóa UTF-8 nhưng đọc theo EUC-KR sẽ hiển thị thành ký tự lỗi. Bật tùy chọn 'BOM UTF-8' sẽ thêm ba byte EF BB BF vào đầu tệp, báo cho Excel biết mã hóa là UTF-8 và khiến Hangul hiển thị chính xác."
+        },
+        {
+          "question": "Cấu trúc JSON nào được hỗ trợ?",
+          "answer": "Chuyển đổi JSON→CSV yêu cầu giá trị cấp cao nhất phải là một mảng các đối tượng: [ {...}, {...} ]. Một đối tượng đơn { ... }, mảng các giá trị nguyên thủy, hoặc mảng lồng nhau đều không được hỗ trợ và sẽ gây lỗi. Các đối tượng lồng nhau trong một hàng (đối tượng trong đối tượng) được tuần tự hóa qua JSON.stringify và đặt vào một ô CSV duy nhất."
+        },
+        {
+          "question": "Công cụ có xử lý được tệp CSV phân cách bằng dấu chấm phẩy không?",
+          "answer": "Có. Ở chiều CSV→JSON, dấu phân cách được tự động phát hiện từ hàng đầu tiên: bất kỳ ký tự nào trong số dấu phẩy, dấu chấm phẩy, hoặc tab xuất hiện nhiều nhất sẽ được sử dụng. Tệp CSV kiểu châu Âu thường dùng dấu chấm phẩy, và tính năng tự động phát hiện xử lý chính xác điều này. Nếu tự động phát hiện chọn sai dấu phân cách, hãy kiểm tra hàng đầu tiên để xem có sự mơ hồ nào không."
+        },
+        {
+          "question": "Điều gì xảy ra nếu một hàng có số cột khác với tiêu đề?",
+          "answer": "Một cảnh báo sẽ hiển thị cho mỗi hàng không khớp (row.N.colMismatch). Quá trình phân tích vẫn tiếp tục: nếu hàng có ít ô hơn số tiêu đề, các giá trị thiếu sẽ được điền bằng chuỗi rỗng; các ô thừa vượt quá số tiêu đề sẽ bị loại bỏ. Quá trình chuyển đổi không bị hủy bỏ."
+        },
+        {
+          "question": "Dữ liệu của tôi có được gửi lên máy chủ nào không?",
+          "answer": "Không. Toàn bộ logic chuyển đổi chạy hoàn toàn trong trình duyệt của bạn bằng JavaScript. Cả dữ liệu đầu vào lẫn đầu ra đều không được truyền qua mạng. Bạn có thể yên tâm sử dụng công cụ này với dữ liệu cá nhân hoặc dữ liệu kinh doanh bảo mật."
+        },
+        {
+          "question": "Tôi có thể chọn tên tệp tải xuống không?",
+          "answer": "Nút tải xuống lưu tệp với tên 'worktool-[dấu thời gian].csv' (hoặc .json). Bạn có thể đổi tên tệp trong trình quản lý tệp sau khi tải xuống. Một số trình duyệt hiển thị hộp thoại 'Lưu dưới dạng' cho phép bạn đổi tên và vị trí trước khi lưu."
+        }
+      ],
+      "cautions": [
+        "Dữ liệu JSON đầu vào phải là một mảng các đối tượng ([ {...}, {...} ]). Một đối tượng đơn hoặc mảng giá trị nguyên thủy sẽ gây lỗi.",
+        "Các đối tượng hoặc mảng lồng nhau trong một hàng được tuần tự hóa thành chuỗi JSON trong một ô CSV duy nhất. Hãy làm phẳng cấu trúc trước nếu bạn cần chúng thành các cột riêng biệt.",
+        "Tệp CSV được mã hóa EUC-KR (CP949) không được hỗ trợ trực tiếp. Hãy chuyển đổi tệp sang UTF-8 trước bằng Notepad, VS Code, hoặc công cụ tương tự trước khi dán vào đây.",
+        "Các tệp rất lớn (hàng chục nghìn hàng trở lên) có thể xử lý chậm hoặc làm treo tab trình duyệt do giới hạn bộ nhớ.",
+        "Khi bật 'Phân tích số', các giá trị có số 0 ở đầu — như mã bưu chính ('01234') hoặc số điện thoại ('0101234567') — sẽ mất số 0 ở đầu khi chuyển đổi sang số. Hãy tắt tùy chọn này để giữ chúng dưới dạng chuỗi."
+      ],
+      "related": [
+        {
+          "label": "Xác minh mã số đăng ký kinh doanh",
+          "href": "/biznum-check"
+        },
+        {
+          "label": "Máy tính lãi kép",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Máy tính phần trăm",
+          "href": "/percent-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "school-grade": {
+      "overview": "Máy tính lớp học Hàn Quốc này tìm ra lớp học hiện tại ở bậc tiểu học, trung học cơ sở, trung học phổ thông, hoặc đại học chỉ từ năm sinh. Kể từ năm 2009, Hàn Quốc áp dụng quy tắc nhóm theo năm dương lịch: trẻ em sinh cùng năm (1 tháng 1 – 31 tháng 12) sẽ học cùng một lớp. Lớp 1 tiểu học bắt đầu vào tháng 3 của năm sau khi trẻ tròn 6 tuổi (tuổi quốc tế), vì vậy năm nhập học tiểu học = năm sinh + 7. Năm học chạy từ tháng 3 đến tháng 2.",
+      "useCases": [
+        "Phụ huynh kiểm tra lớp hiện tại và sắp tới của con",
+        "Người nước ngoài tìm hiểu hệ thống trường học Hàn Quốc",
+        "Kiểm tra thời điểm nhập học tiểu học",
+        "So sánh năm sinh của các bạn cùng lớp",
+        "Dự đoán năm tốt nghiệp trung học phổ thông và nhập học đại học"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập năm sinh của con bạn (hoặc của chính bạn).",
+          "Cấp học và lớp cho năm học hiện tại sẽ xuất hiện ngay lập tức.",
+          "Cũng xem năm nhập học tiểu học/trung học cơ sở/trung học phổ thông, năm tốt nghiệp trung học phổ thông, và tuổi đếm Hàn Quốc."
+        ]
+      },
+      "formula": {
+        "title": "Cơ sở tính toán (từ năm 2009)",
+        "body": "Nhập học tiểu học = ngày 1 tháng 3 của năm sau khi trẻ tròn 6 tuổi quốc tế\n  → năm nhập học tiểu học = năm sinh + 7\n  → trẻ em sinh cùng năm (tháng 1–12) sẽ học cùng một lớp\n\nNăm học bắt đầu vào tháng 3 (tháng 1–2 thuộc năm học trước):\n  năm học = (tháng ≥ 3) ? năm : năm − 1\n  cấp độ tiến trình g = năm học − (năm sinh + 7)   // g=0 → lớp 1 tiểu học\n    g 0–5 → Tiểu học lớp 1–6\n    g 6–8 → Trung học cơ sở lớp 1–3\n    g 9–11 → Trung học phổ thông lớp 1–3\n    g 12–15 → Đại học năm 1–4 (giả định tiến trình chuẩn)\n\nLưu ý: trước năm 2009, mốc cắt là từ ngày 2 tháng 3 đến ngày 1 tháng 3."
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: Sinh năm 2018 → lớp 1 vào năm 2025",
+            "body": "2018 + 7 = nhập học tiểu học vào tháng 3 năm 2025. Đối với năm học 2025, đó là lớp 1 tiểu học."
+          },
+          {
+            "title": "Ví dụ 2: Sinh năm 2012 → trung học cơ sở lớp 1 vào năm 2025",
+            "body": "2012 + 7 = lớp 1 vào năm 2019 → đối với năm học 2025, cấp độ tiến trình 6 = trung học cơ sở lớp 1."
+          },
+          {
+            "title": "Ví dụ 3: Sinh năm 2006 → đại học năm 1 vào năm 2025",
+            "body": "2006 + 7 = lớp 1 vào năm 2013 → tốt nghiệp trung học phổ thông năm 2024 → đại học năm 1 vào năm 2025 (tiến trình chuẩn)."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao lớp học được xác định theo năm sinh, không phải ngày sinh?",
+          "answer": "Thay đổi luật năm 2009 khiến trẻ em sinh cùng năm dương lịch (tháng 1–12) nhập học cùng nhau. Trước đó, mốc cắt là từ ngày 2 tháng 3 đến ngày 1 tháng 3, nên trẻ sinh tháng 1–2 sẽ học trước một lớp ('sinh đầu năm')."
+        },
+        {
+          "question": "'Sinh đầu năm' còn tồn tại không?",
+          "answer": "Không đối với những người sinh sau năm 2009 — mọi người sinh cùng năm đều học cùng một lớp. Đối với các thế hệ trước (ví dụ sinh vào thập niên 1990), trẻ sinh tháng 1–2 vẫn có thể học trước một lớp."
+        },
+        {
+          "question": "Tại sao lớp học lại khác nếu tôi kiểm tra vào tháng 1–2?",
+          "answer": "Vì năm học bắt đầu vào tháng 3. Tháng 1 và tháng 2 vẫn thuộc năm học trước, nên cho đến khi học kỳ tháng 3 mới bắt đầu, lớp học trước đó sẽ được hiển thị."
+        },
+        {
+          "question": "Lớp đại học có chính xác không?",
+          "answer": "Năm đại học là giá trị tham khảo giả định sinh viên nhập học ngay sau khi tốt nghiệp trung học phổ thông ('tiến trình chuẩn'). Nó không tính đến năm ôn thi lại, chuyển trường, nghỉ học, hoặc nghĩa vụ quân sự, nên có thể khác với thực tế."
+        },
+        {
+          "question": "Nhập học sớm hoặc hoãn nhập học thì sao?",
+          "answer": "Máy tính này chỉ áp dụng quy tắc nhập học chuẩn. Với nhập học sớm (một năm sớm hơn) hoặc hoãn nhập học (một năm muộn hơn), lớp học thực tế có thể khác ±1."
+        }
+      ],
+      "cautions": [
+        "Nhóm theo năm dương lịch từ năm 2009 — các thế hệ trước có thể có 'sinh đầu năm'.",
+        "Năm học bắt đầu vào tháng 3 — kiểm tra vào tháng 1–2 sẽ dùng lớp học trước đó.",
+        "Lớp đại học giả định tiến trình chuẩn (không có năm ôn thi lại/nghỉ học/chuyển trường).",
+        "Nhập học sớm hoặc hoãn nhập học có thể làm lệch lớp học thực tế ±1."
+      ],
+      "related": [
+        {
+          "label": "Máy tính tuổi Hàn Quốc",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Đọc số tiếng Hàn",
+          "href": "/korean-number"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "due-date": {
+      "checklist": {
+        "title": "Mang thai & sinh con tại Hàn Quốc — danh sách kiểm tra cho cư dân nước ngoài",
+        "groups": [
+          {
+            "heading": "Sau khi xác nhận mang thai",
+            "items": [
+              "Đăng ký thai kỳ của bạn tại trung tâm y tế công cộng địa phương (보건소), trực tuyến qua e-보건소 (e-health.go.kr), sử dụng Số đăng ký người nước ngoài của bạn.",
+              "Các bà mẹ mang thai đã đăng ký được nhận các xét nghiệm sàng lọc tiền sản miễn phí tại trung tâm y tế.",
+              "Đăng ký Thẻ Hạnh phúc Quốc gia (국민행복카드) phiếu voucher thai sản/sinh con: 1.000.000 won cho một thai / 1.400.000 won cho đa thai.",
+              "Phiếu voucher này dành cho người nước ngoài là người tham gia Bảo hiểm Y tế Quốc gia hoặc người phụ thuộc có đăng ký người nước ngoài hợp lệ (hãy kiểm tra tình trạng bảo hiểm y tế của bạn)."
+            ]
+          },
+          {
+            "heading": "Chăm sóc tiền sản & chọn bệnh viện",
+            "items": [
+              "Chọn phòng khám sản phụ khoa hoặc bệnh viện có khoa sinh; nhiều người nước ngoài ưu tiên nơi có dịch vụ phiên dịch.",
+              "Tuân theo lịch khám thai chuẩn và sử dụng tiền voucher cho các buổi khám và sinh nở.",
+              "Duy trì bảo hiểm y tế quốc gia trong suốt thai kỳ để việc sinh nở được bảo hiểm chi trả.",
+              "Xác nhận bệnh viện có thể cấp các giấy tờ khai sinh bạn cần cho cả việc đăng ký tại Hàn Quốc và nước sở tại."
+            ]
+          },
+          {
+            "heading": "Sau khi sinh — đăng ký, ARC & bảo hiểm",
+            "items": [
+              "Nộp báo cáo khai sinh tại trung tâm cộng đồng quận (주민센터) trong vòng 1 tháng sau khi sinh.",
+              "Nếu một trong hai cha mẹ là người Hàn Quốc, trẻ có thể được nhập quốc tịch Hàn Quốc; nếu CẢ HAI cha mẹ đều là người nước ngoài, trẻ KHÔNG tự động được nhập quốc tịch (hãy xác minh).",
+              "Trẻ sơ sinh mang quốc tịch nước ngoài cũng phải được đăng ký với đại sứ quán/lãnh sự quán nước sở tại (hộ chiếu).",
+              "Nếu cả hai cha mẹ đều là người nước ngoài, hãy làm hộ chiếu cho bé, sau đó xin tư cách cư trú / ARC tại cơ quan xuất nhập cảnh trước khi lưu trú quá 90 ngày (hãy xác minh yêu cầu cụ thể).",
+              "Đăng ký bé làm người phụ thuộc trên Bảo hiểm Y tế Quốc gia của cha hoặc mẹ để chi phí y tế và tiêm chủng được bảo hiểm chi trả."
+            ]
+          },
+          {
+            "heading": "Trợ cấp tiền mặt — điều kiện đủ cho người nước ngoài (hãy xác minh từng khoản)",
+            "items": [
+              "Phiếu Chào Đón Đầu Tiên (첫만남이용권, 2 triệu won con đầu / 3 triệu won con thứ hai trở lên): yêu cầu trẻ phải có số đăng ký cư trú Hàn Quốc; trẻ mang quốc tịch nước ngoài thường KHÔNG đủ điều kiện (hãy xác minh).",
+              "Trợ cấp trẻ em (아동수당, 100.000 won/tháng cho trẻ dưới 8 tuổi): chi trả dựa trên quốc tịch của TRẺ — thường chỉ khi trẻ mang quốc tịch Hàn Quốc (hãy xác minh).",
+              "Nộp đơn xin trợ cấp trẻ em trong vòng 60 ngày sau khi sinh để được truy lĩnh về ngày sinh.",
+              "Các khoản trợ cấp này sẽ bị đình chỉ nếu trẻ lưu trú ở nước ngoài từ 90 ngày trở lên.",
+              "Điều kiện đủ khác nhau tùy theo tư cách cư trú và quốc tịch của trẻ — hãy xác nhận tại trung tâm cộng đồng, Bokjiro (bokjiro.go.kr), hoặc ☎129."
+            ]
+          }
+        ]
+      },
+      "overview": "Máy tính ngày dự sinh ước tính ngày sinh của bạn từ ngày đầu tiên của kỳ kinh nguyệt cuối cùng (LMP). Dựa trên quy tắc Naegele (LMP + 280 ngày), công cụ hiển thị tuần thai hiện tại, tam cá nguyệt, tiến độ, và số ngày còn lại, đồng thời tự động điều chỉnh cho các chu kỳ khác 28 ngày.",
+      "useCases": [
+        "Tính ngày dự sinh sau khi xác nhận mang thai",
+        "Kiểm tra tuần thai hiện tại và tam cá nguyệt",
+        "Lên kế hoạch khám thai và nghỉ thai sản",
+        "Ngày dự sinh đã điều chỉnh cho chu kỳ không đều",
+        "Theo dõi tiến độ thai kỳ và đếm ngược D-day"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập ngày đầu tiên của kỳ kinh nguyệt cuối cùng (LMP).",
+          "Nhập độ dài chu kỳ trung bình của bạn. Mặc định là 28 ngày; nếu khác, thời điểm rụng trứng sẽ được điều chỉnh.",
+          "Xem ngày dự sinh, tuần thai/tam cá nguyệt hiện tại, tiến độ, và số ngày còn lại."
+        ]
+      },
+      "formula": {
+        "title": "Quy tắc Naegele",
+        "body": "Ngày dự sinh (EDD) = LMP + 280 ngày (40 tuần)\n  = LMP + 1 năm − 3 tháng + 7 ngày\n\nTuần thai = (hôm nay − LMP) / 7\nTam cá nguyệt: thứ 1 tuần 0-13, thứ 2 tuần 14-27, thứ 3 từ tuần 28 trở đi\n\nĐiều chỉnh chu kỳ: dịch chuyển EDD theo (chu kỳ − 28) ngày\n  ví dụ: chu kỳ 35 ngày → EDD muộn hơn 7 ngày"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: LMP ngày 1 tháng 1 (chu kỳ 28 ngày)",
+            "body": "1 tháng 1 + 280 ngày = ngày dự sinh 8 tháng 10. Dựa trên đủ tháng 40 tuần."
+          },
+          {
+            "title": "Ví dụ 2: Thai 20 tuần",
+            "body": "140 ngày sau LMP = 20 tuần = tam cá nguyệt thứ 2. Thời điểm siêu âm giải phẫu và xác định giới tính. Tiến độ 50%."
+          },
+          {
+            "title": "Ví dụ 3: Chu kỳ 35 ngày",
+            "body": "Rụng trứng muộn hơn làm dịch chuyển ngày dự sinh muộn hơn 7 ngày so với ước tính chu kỳ 28 ngày. Điều chỉnh chu kỳ cho ngày chính xác hơn."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tôi có sinh đúng vào ngày dự sinh không?",
+          "answer": "Đây chỉ là ước tính. Thai đủ tháng kéo dài từ 37-42 tuần, và chỉ khoảng 5% sinh đúng vào ngày dự sinh. Hầu hết sinh trong khoảng ±2 tuần."
+        },
+        {
+          "question": "Có chính xác không với chu kỳ không đều?",
+          "answer": "Quy tắc Naegele giả định chu kỳ đều 28 ngày. Chu kỳ không đều làm tăng sai số, nên ngày dự sinh theo siêu âm (đo kích thước thai) chính xác hơn. Công cụ này hỗ trợ điều chỉnh chu kỳ nhưng chỉ mang tính tham khảo."
+        },
+        {
+          "question": "Việc đếm tuần thai bắt đầu từ khi nào?",
+          "answer": "Ngày đầu tiên của LMP được tính là tuần 0 ngày 0. Thụ thai thực tế xảy ra khoảng 2 tuần sau đó, nhưng vì không biết chính xác ngày rụng trứng, LMP được dùng làm chuẩn. Vì vậy 'tuần 4' là khoảng thời điểm dự kiến có kinh."
+        },
+        {
+          "question": "Tam cá nguyệt được chia như thế nào?",
+          "answer": "Thứ 1: tuần 0-13 (hình thành cơ quan, buồn nôn), thứ 2: tuần 14-27 (ổn định, thai máy), thứ 3: từ tuần 28 trở đi (tăng trưởng nhanh, chuẩn bị đủ tháng). Mỗi giai đoạn có các xét nghiệm và lưu ý khác nhau."
+        },
+        {
+          "question": "Khác với ngày siêu âm — cái nào đúng?",
+          "answer": "Ngày siêu âm sớm (7-12 tuần) là chính xác nhất. Nếu khác với LMP từ 1 tuần trở lên, ngày siêu âm thường được áp dụng. Công cụ này ước tính từ LMP, nên hãy ưu tiên ngày xác nhận của bác sĩ sản phụ khoa."
+        },
+        {
+          "question": "Song thai có cùng ngày dự sinh không?",
+          "answer": "Song thai/đa thai có xu hướng sinh sớm hơn (thường trước 37 tuần). Máy tính này giả định đơn thai, nên hãy tuân theo hướng dẫn y tế đối với đa thai."
+        }
+      ],
+      "cautions": [
+        "Ước tính theo quy tắc Naegele (LMP+280) — ngày siêu âm chính xác hơn.",
+        "Thai đủ tháng kéo dài 37-42 tuần; khoảng 5% sinh đúng ngày dự sinh.",
+        "Chu kỳ không đều làm tăng sai số.",
+        "Song thai/đa thai có xu hướng sinh sớm hơn (riêng biệt).",
+        "Xác nhận ngày chính xác qua siêu âm tại bác sĩ sản phụ khoa."
+      ],
+      "related": [
+        {
+          "label": "Tuổi Hàn Quốc",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Tiền mừng",
+          "href": "/gift-money"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "korean-number": {
+      "overview": "Công cụ đọc số tiếng Hàn này chuyển đổi một con số Ả Rập thành cả số Hán-Hàn (il, i, sam) và số thuần Hàn (hana, dul, set) cùng một lúc. Tiếng Hàn chọn hệ thống theo ngữ cảnh: ngày tháng, tiền bạc, số điện thoại, và phút dùng số Hán-Hàn, trong khi tuổi, đếm đồ vật, giờ, và người dùng số thuần Hàn. Số thuần Hàn chỉ tồn tại cho 1–99; từ 100 trở lên dùng số Hán-Hàn. Các dạng bổ nghĩa (han, du, se, seu-mu) dùng trước danh từ đếm cũng được hiển thị.",
+      "useCases": [
+        "Hiểu hai hệ thống số của Hàn Quốc khi là người học",
+        "Luyện nói tuổi và số đếm (số thuần Hàn)",
+        "Luyện đọc tiền bạc, ngày tháng, số điện thoại (số Hán-Hàn)",
+        "Nói giờ — giờ (thuần Hàn) + phút (Hán-Hàn)",
+        "Đọc số tiền lớn bằng tiếng Hàn (đơn vị man/eok/jo)"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập một con số (số nguyên không âm).",
+          "Cả cách đọc Hán-Hàn và thuần Hàn sẽ xuất hiện cùng nhau.",
+          "Nếu số nằm trong phạm vi thuần Hàn (1–99), dạng bổ nghĩa (dùng trước danh từ đếm) cũng được hiển thị. Sử dụng các mức đặt sẵn cho các số thường dùng."
+        ]
+      },
+      "formula": {
+        "title": "Hai hệ thống",
+        "body": "Số Hán-Hàn (không giới hạn): yeong·il·i·sam·sa·o·yuk·chil·pal·gu\n  hàng: sip(10)·baek(100)·cheon(1000) / đơn vị lớn: man·eok·jo\n  số 1 bị lược bỏ trước 십/백/천 (천=1000, 백=100, 십=10)\n  nhóm man bằng 1 được đọc là '만' (không phải 일만); 억·조 giữ nguyên '일억'·'일조'\n\nSố thuần Hàn (1–99): hana·dul·set·net·daseot·yeoseot·ilgop·yeodeol·ahop·yeol\n  hàng chục: yeol·seumul·seoreun·maheun·swin·yesun·ilheun·yeodeun·aheun\n  dạng bổ nghĩa: hana→han, dul→du, set→se, net→ne, seumul→seumu\n  ví dụ: tuổi 20 = 스무 살, 21 vật = 스물한 개"
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: 21 → 이십일 / 스물하나",
+            "body": "Hán-Hàn '이십일' (mã số, tiền bạc), thuần Hàn '스물하나' (tuổi, đếm số). Khi nói tuổi bạn dùng dạng bổ nghĩa '스물한 살'."
+          },
+          {
+            "title": "Ví dụ 2: 3:30",
+            "body": "Giờ dùng dạng bổ nghĩa thuần Hàn '세 시', phút dùng Hán-Hàn '삼십 분' → '세 시 삼십 분'. Giờ giấc kết hợp cả hai hệ thống."
+          },
+          {
+            "title": "Ví dụ 3: 12.345 → 만이천삼백사십오",
+            "body": "Nhóm man bằng 1 lược bỏ '일' và bắt đầu bằng '만'. Vì từ 100 trở lên, không có dạng thuần Hàn — chỉ dùng Hán-Hàn."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Khi nào dùng Hán-Hàn và khi nào dùng thuần Hàn?",
+          "answer": "Hán-Hàn (il, i, sam) dùng cho ngày tháng, tiền bạc, số điện thoại, tầng nhà, phút, mã số, và tuổi tính bằng '세'. Thuần Hàn (hana, dul, set) dùng cho đếm đồ vật, tuổi tính bằng '살', giờ, và người. Ví dụ: 3 vật = 세 개 (thuần Hàn), tháng 3 = 삼월 (Hán-Hàn)."
+        },
+        {
+          "question": "Tại sao số thuần Hàn chỉ đến 99?",
+          "answer": "Số đếm thuần Hàn chỉ tồn tại đến 아흔아홉 (99); từ 100 trở lên dùng số Hán-Hàn (백, 천, 만). Không có từ thuần Hàn thông dụng cho các số từ 100 trở lên."
+        },
+        {
+          "question": "Tại sao '스무 살' và '스물한 살' lại khác nhau?",
+          "answer": "Trước danh từ đếm, số thuần Hàn chuyển sang dạng bổ nghĩa. Số 20 đứng một mình là '스무' (스무 살), nhưng 21 là '스물한' (스물한 살). Hana/dul/set/net cũng chuyển thành han/du/se/ne."
+        },
+        {
+          "question": "Tại sao 10000 là '만' nhưng 100000000 là '일억'?",
+          "answer": "Khi nhóm man chính xác bằng 1, '일' theo quy ước sẽ bị lược bỏ, nên đọc là '만' (만 원). Đối với 억 và 조, chuẩn mực vẫn giữ '일', đọc là '일억' và '일조'."
+        },
+        {
+          "question": "0 được đọc như thế nào?",
+          "answer": "Là số Hán-Hàn '영' hoặc '공' (số điện thoại thường dùng '공'). Công cụ này hiển thị '영'. Số thuần Hàn không có từ đếm cho số 0."
+        }
+      ],
+      "cautions": [
+        "Số thuần Hàn chỉ bao gồm 1–99 — dùng số Hán-Hàn cho 100 trở lên.",
+        "Trước danh từ đếm, thuần Hàn chuyển sang dạng bổ nghĩa (han, du, se, seumu).",
+        "10000 đọc là '만' (lược bỏ 일); 억/조 giữ nguyên '일억'/'일조'.",
+        "0 là '영/공' — công cụ này hiển thị '영'."
+      ],
+      "related": [
+        {
+          "label": "Phân giải âm tiết Hangul",
+          "href": "/hangul-decompose"
+        },
+        {
+          "label": "Máy tính tuổi Hàn Quốc",
+          "href": "/korean-age"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "hangul-decompose": {
+      "overview": "Công cụ phân giải âm tiết Hangul này tách các chữ cái tiếng Hàn thành phụ âm đầu (choseong), nguyên âm (jungseong), và phụ âm cuối (jongseong). Vì Hangul xếp chồng các jamo thành khối, '한' được tạo thành từ ㅎ+ㅏ+ㄴ. Việc một âm tiết có phụ âm cuối (받침, patchim) hay không ảnh hưởng trực tiếp đến việc chọn trợ từ (은/는, 이/가, 을/를) và cách phát âm, khiến công cụ này đặc biệt hữu ích cho người học. Âm La-tinh của mỗi jamo cũng được hiển thị.",
+      "useCases": [
+        "Học cấu trúc jamo và phụ âm cuối khi là người học tiếng Hàn",
+        "Quyết định trợ từ (은/는, 이/가) dựa trên sự hiện diện của phụ âm cuối",
+        "Hiểu cách bộ gõ/IME Hangul ghép các chữ cái",
+        "Kiểm tra âm La-tinh của từng chữ cái",
+        "Xem cấu trúc jamo cho công việc thiết kế/phông chữ Hangul"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập từ hoặc câu tiếng Hàn cần phân giải.",
+          "Mỗi âm tiết xuất hiện dưới dạng thẻ phụ âm đầu, nguyên âm, và phụ âm cuối.",
+          "Kiểm tra sự hiện diện của phụ âm cuối (có/không), âm La-tinh của từng jamo, và số lượng âm tiết/jamo."
+        ]
+      },
+      "formula": {
+        "title": "Cách thức hoạt động",
+        "body": "Các âm tiết Hangul Unicode (AC00–D7A3) được ghép theo quy tắc này:\n  mã âm tiết = ((chỉ số phụ âm đầu × 21) + chỉ số nguyên âm) × 28 + chỉ số phụ âm cuối + 0xAC00\n\nPhân giải bằng cách đảo ngược:\n  chỉ số phụ âm đầu = (mã − 0xAC00) ÷ (21 × 28)\n  chỉ số nguyên âm = ((mã − 0xAC00) ÷ 28) mod 21\n  chỉ số phụ âm cuối = (mã − 0xAC00) mod 28  (0 = không có phụ âm cuối)\n\n19 phụ âm đầu × 21 nguyên âm × 28 phụ âm cuối (bao gồm không có) = 11.172 âm tiết.\nÂm La-tinh tuân theo giá trị jamo của Romanization Chuẩn hóa (không có thay đổi âm)."
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: 한 → ㅎ + ㅏ + ㄴ",
+            "body": "Phụ âm đầu ㅎ(h), nguyên âm ㅏ(a), phụ âm cuối ㄴ(n) → han. Phụ âm cuối ㄴ nghĩa là nó nhận các trợ từ có phụ âm cuối như 한은/한이."
+          },
+          {
+            "title": "Ví dụ 2: 가 → ㄱ + ㅏ (không có phụ âm cuối)",
+            "body": "Phụ âm đầu ㄱ(g), nguyên âm ㅏ(a), không có phụ âm cuối → ga. Không có phụ âm cuối nên nhận các trợ từ nguyên âm như 가는/가가."
+          },
+          {
+            "title": "Ví dụ 3: 닭 → ㄷ + ㅏ + ㄺ (phụ âm cuối kép)",
+            "body": "Phụ âm cuối kép ㄺ được xử lý như một phụ âm cuối duy nhất → dak, phân giải thành ba jamo."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao phụ âm cuối (받침, patchim) lại quan trọng?",
+          "answer": "Trợ từ thay đổi theo phụ âm cuối: có phụ âm cuối → 은/이/을/과, không có → 는/가/를/와. Ví dụ: '책은' (phụ âm cuối ㄱ) so với '나무는' (không có phụ âm cuối). Đây là quy tắc cốt lõi đối với người học tiếng Hàn."
+        },
+        {
+          "question": "Phụ âm cuối kép (ㄺ, ㄵ) có được phân giải không?",
+          "answer": "Có, các phụ âm cuối kép như ㄺ·ㄵ·ㄶ được hiển thị dưới dạng một phụ âm cuối duy nhất. Quy tắc chỉ một trong hai được phát âm thực tế (ví dụ 닭 → [닥]) là một vấn đề riêng biệt; công cụ này chỉ phân giải cấu trúc chữ cái."
+        },
+        {
+          "question": "Tại sao chữ La-tinh lại khác với cách phát âm thực tế?",
+          "answer": "Đây là phiên âm theo giá trị jamo, nên các thay đổi phát âm như đồng hóa và liên âm không được áp dụng. Phụ âm cuối ㄱ luôn hiển thị là 'k'. Hãy kiểm tra quy tắc phát âm riêng để có âm thanh chính xác."
+        },
+        {
+          "question": "Các jamo đơn lẻ (ㄱ, ㅏ) có được phân giải không?",
+          "answer": "Công cụ này chỉ phân giải các âm tiết đã ghép (가–힣). Các jamo đơn lẻ (ㄱ, ㅏ, v.v.) và Hangul cổ không phải là khối âm tiết, nên bị loại trừ."
+        },
+        {
+          "question": "Có bao nhiêu phụ âm đầu, nguyên âm, và phụ âm cuối?",
+          "answer": "19 phụ âm đầu, 21 nguyên âm, và 28 phụ âm cuối (bao gồm 'không có phụ âm cuối'). Kết hợp lại, 19×21×28 = 11.172 âm tiết Hangul hiện đại."
+        }
+      ],
+      "cautions": [
+        "Chỉ phân giải các âm tiết đã ghép (가–힣) — jamo đơn lẻ/Hangul cổ bị loại trừ.",
+        "Chữ La-tinh là phiên âm theo giá trị jamo — không phản ánh đồng hóa/liên âm.",
+        "Phụ âm cuối kép được hiển thị theo cấu trúc (quy tắc âm đại diện là vấn đề riêng)."
+      ],
+      "related": [
+        {
+          "label": "Chuyển chữ La-tinh tiếng Hàn",
+          "href": "/text-romanize"
+        },
+        {
+          "label": "Đọc số tiếng Hàn",
+          "href": "/korean-number"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "text-romanize": {
+      "overview": "Công cụ chuyển chữ La-tinh tiếng Hàn này phiên âm các câu và từ Hangul theo Romanization Chuẩn hóa của Hàn Quốc (Revised Romanization of Korean). Khi bạn muốn đọc biển hiệu, thực đơn, tên địa danh, hoặc từ ngữ bằng chữ La-tinh, công cụ chuyển đổi theo từng âm tiết trong khi vẫn giữ nguyên khoảng trắng và dấu câu. Rất tốt cho người học tiếng Hàn và để thêm cách viết La-tinh vào nội dung tiếng Hàn. (Đối với tên trên hộ chiếu, hãy dùng công cụ 'Chuyển chữ La-tinh Tên Hàn Quốc' chuyên dụng thay thế.)",
+      "useCases": [
+        "Giúp người nước ngoài đọc biển hiệu, thực đơn, và tên địa danh tiếng Hàn",
+        "Luyện phát âm và chính tả cho người học tiếng Hàn",
+        "Thêm cách viết La-tinh bên cạnh từ tiếng Hàn trong bài viết",
+        "Soạn thảo cách viết La-tinh cho tên địa danh và doanh nghiệp Hàn Quốc",
+        "Kiểm tra cách phiên âm của lời bài hát hoặc câu tiếng Hàn"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Gõ câu hoặc từ tiếng Hàn vào ô nhập liệu.",
+          "Bản phiên âm La-tinh xuất hiện ngay khi bạn gõ.",
+          "Khoảng trắng và dấu câu được giữ nguyên và mỗi từ được viết hoa chữ đầu. Số lượng âm tiết cũng được hiển thị."
+        ]
+      },
+      "formula": {
+        "title": "Cơ sở chính tả",
+        "body": "Dựa trên Romanization Chuẩn hóa của Hàn Quốc (2000), mỗi âm tiết được phân giải thành phụ âm đầu, nguyên âm, và phụ âm cuối rồi được phiên âm.\n  Nguyên âm: ㅏ=a, ㅓ=eo, ㅗ=o, ㅜ=u, ㅡ=eu, ㅣ=i, ㅐ=ae, ㅔ=e ...\n  Phụ âm: ㄱ=g/k, ㄷ=d/t, ㅂ=b/p, ㅈ=j, ㅊ=ch, ㄹ=r/l ...\n\nLưu ý: đây là phiên âm theo từng âm tiết KHÔNG áp dụng các thay đổi âm thanh (đồng hóa).\n  ví dụ: 신라 → Sinra (không phải Silla như phát âm thực tế)\n  ví dụ: 종로 → Jongro (không phải Jongno như phát âm thực tế)\nCách viết chính thức phản ánh các thay đổi phát âm, nên hãy xem kết quả như thông tin tham khảo."
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: 안녕하세요 → Annyeonghaseyo",
+            "body": "Các âm tiết 안=an, 녕=nyeong, 하=ha, 세=se, 요=yo → Annyeonghaseyo. Lời chào cơ bản nhất, được chuyển sang chữ La-tinh."
+          },
+          {
+            "title": "Ví dụ 2: 서울 시청 → Seoul Sicheong",
+            "body": "Khoảng trắng được giữ nguyên thành hai từ, mỗi từ viết hoa chữ đầu. Lý tưởng để đọc tên địa danh và tổ chức."
+          },
+          {
+            "title": "Ví dụ 3: 김밥 → Gimbap",
+            "body": "Chuyển món ăn trong thực đơn gimbap thành Gimbap — để giải thích thực đơn cho khách nước ngoài."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Công cụ có áp dụng thay đổi âm thanh (đồng hóa) không?",
+          "answer": "Không. Đây là phiên âm theo từng âm tiết, nên các thay đổi ngữ âm như đồng hóa phụ âm không được phản ánh — ví dụ: 신라 → Sinra (thực tế phát âm là Silla). Để có cách viết phát âm chính xác, hãy kiểm tra cách viết La-tinh chính thức."
+        },
+        {
+          "question": "Tôi có thể dùng công cụ này cho tên trên hộ chiếu không?",
+          "answer": "Không khuyến khích. Tên trên hộ chiếu nên tuân theo hướng dẫn chính thức và quy ước chính tả gia đình hiện có, vì vậy hãy dùng công cụ 'Chuyển chữ La-tinh Tên Hàn Quốc' chuyên dụng hoặc hướng dẫn chính thức."
+        },
+        {
+          "question": "Tại sao ㅓ trở thành 'eo' và ㅡ trở thành 'eu'?",
+          "answer": "Romanization Chuẩn hóa quy định ㅓ=eo và ㅡ=eu. Hai tổ hợp chữ cái này biểu diễn các nguyên âm tiếng Hàn không có chữ cái tiếng Anh tương đương duy nhất."
+        },
+        {
+          "question": "Phụ âm cuối (받침, patchim) có được chuyển đổi không?",
+          "answer": "Có, các phụ âm cuối được chuyển thành chữ La-tinh theo jamo cuối của âm tiết. Tuy nhiên, cách phát âm thực tế khi phụ âm cuối liên kết hoặc đồng hóa với âm tiết tiếp theo không được phản ánh (xử lý theo cấp âm tiết)."
+        },
+        {
+          "question": "Còn tiếng Anh và số xen lẫn thì sao?",
+          "answer": "Các ký tự không phải Hangul (tiếng Anh, số, ký hiệu, khoảng trắng) được giữ nguyên. Chỉ các âm tiết Hangul mới được phiên âm sang chữ La-tinh."
+        }
+      ],
+      "cautions": [
+        "Phiên âm theo cấp âm tiết — các thay đổi âm thanh (đồng hóa) không được áp dụng.",
+        "Ví dụ: 신라→Sinra, 종로→Jongro (có thể khác với phát âm thực tế).",
+        "Đối với tên trên hộ chiếu, hãy dùng công cụ 'Chuyển chữ La-tinh Tên Hàn Quốc' chuyên dụng.",
+        "Có thể khác với cách viết tên địa danh/biển hiệu chính thức — hãy dùng làm tham khảo."
+      ],
+      "related": [
+        {
+          "label": "Chuyển chữ La-tinh Tên Hàn Quốc",
+          "href": "/name-romanize"
+        },
+        {
+          "label": "Hướng dẫn điện áp & ổ cắm",
+          "href": "/voltage-guide"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
+    },
+    "income-tax": {
+      "overview": "Máy tính thuế thu nhập Hàn Quốc áp dụng thuế suất lũy tiến 8 bậc (6% / 15% / 24% / 35% / 38% / 40% / 42% / 45%) tính đến năm 2026 để tính thuế tính toán, thuế quyết định và thuế thu nhập địa phương từ cơ sở tính thuế đã cho. Công cụ hỗ trợ khấu trừ thuế cho người lao động (Luật Thuế Thu nhập (소득세법) §59) và hiển thị thuế suất thực tế cùng với bậc thuế hiện tại. Mọi dữ liệu nhập chỉ xử lý trên trình duyệt — không gửi lên máy chủ.",
+      "useCases": [
+        "Freelancer và hộ kinh doanh cá thể: mô phỏng việc khai thuế thu nhập tháng 5",
+        "Người lao động: ước tính số tiền hoàn thuế hoặc phải nộp thêm sau quyết toán cuối năm",
+        "Chủ nhà cho thuê: xem khi nào thu nhập cho thuê đẩy bạn lên bậc thuế cao hơn",
+        "Nhà đầu tư: so sánh đánh thuế riêng lẻ và đánh thuế tổng hợp đối với cổ tức và lãi tiền gửi",
+        "Lập kế hoạch cuối năm: ước tính mức giảm thuế từ đóng góp lương hưu hoặc IRP"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập cơ sở tính thuế của bạn — tổng thu nhập trừ đi các khoản khấu trừ (cá nhân, lương hưu, đặc biệt). Người lao động có thể xem trực tiếp giá trị này trong tài liệu quyết toán cuối năm.",
+          "Nếu bạn là người lao động, hãy đánh dấu 'Áp dụng khấu trừ thuế cho người lao động'. Máy tính sẽ tự động áp dụng khoản khấu trừ theo Luật Thuế Thu nhập (소득세법) §59 (tối đa 740.000 won).",
+          "Nhấn Tính toán. Bạn sẽ thấy thuế suất biên, khấu trừ lũy tiến, thuế tính toán, khấu trừ thuế người lao động, thuế quyết định, thuế thu nhập địa phương 10% và thuế suất thực tế.",
+          "Bảng 8 bậc thuế sẽ đánh dấu bậc hiện tại của bạn. Điều chỉnh cơ sở tính thuế để xem bạn còn cách ranh giới bậc tiếp theo bao xa."
+        ]
+      },
+      "formula": {
+        "title": "Công thức (Luật Thuế Thu nhập (소득세법) §55)",
+        "body": "Thuế tính toán = Cơ sở tính thuế × Thuế suất biên − Khấu trừ lũy tiến\n\nBậc thuế năm 2026:\n  đến 14 triệu won       : 6%   (khấu trừ 0)\n  đến 50 triệu won       : 15%  (khấu trừ 1.260.000)\n  đến 88 triệu won       : 24%  (khấu trừ 5.760.000)\n  đến 150 triệu won      : 35%  (khấu trừ 15.440.000)\n  đến 300 triệu won      : 38%  (khấu trừ 19.940.000)\n  đến 500 triệu won      : 40%  (khấu trừ 25.940.000)\n  đến 1 tỷ won           : 42%  (khấu trừ 35.940.000)\n  trên 1 tỷ won          : 45%  (khấu trừ 65.940.000)\n\nThuế quyết định = Thuế tính toán − các khoản khấu trừ thuế (người lao động, con cái, v.v.)\nThuế thu nhập địa phương = Thuế quyết định × 10%\nTổng thuế = Thuế quyết định + Thuế địa phương"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Người lao động, tổng thu nhập 50 triệu won (cơ sở tính thuế ~30 triệu won)",
+            "body": "Bậc thuế: 15%. Thuế tính toán = 30 triệu × 0,15 − 1,26 triệu = 3,24 triệu won. Sau khấu trừ thuế người lao động (~1,78 triệu won) và thuế địa phương (~146 nghìn won), tổng cộng khoảng 1,6 triệu won."
+          },
+          {
+            "title": "Ví dụ 2: Freelancer, cơ sở tính thuế 80 triệu won",
+            "body": "Bậc thuế: 24%. Thuế tính toán = 80 triệu × 0,24 − 5,76 triệu = 13,44 triệu won. Không có khấu trừ thuế người lao động. Cộng thuế địa phương 10% = tổng 14,78 triệu won."
+          },
+          {
+            "title": "Ví dụ 3: Vượt sang bậc 35% ở mức 90 triệu won",
+            "body": "Ở mức 88 triệu won bạn vẫn ở bậc 24%. Thêm 2 triệu won thu nhập sẽ đẩy bạn lên bậc 35%: 90 triệu × 0,35 − 15,44 triệu = 16,06 triệu won, tăng khoảng 2,5 triệu won chỉ vì thêm 2 triệu won thu nhập. Hãy lập kế hoạch khấu trừ cuối năm để tránh vượt bậc."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Kỳ khai thuế thu nhập tổng hợp Hàn Quốc là khi nào?",
+          "answer": "Từ ngày 1 đến ngày 31 tháng 5 hàng năm. Người nộp thuế thuộc diện xác nhận khai thuế trung thực được gia hạn đến ngày 30 tháng 6. Thời hạn nộp thuế cũng trong khoảng này, có thể trả góp tối đa 2 tháng sau đó."
+        },
+        {
+          "question": "Người lao động có cần khai thuế không?",
+          "answer": "Nếu bạn chỉ có thu nhập từ lương, quyết toán cuối năm sẽ xử lý việc này. Nếu bạn có thu nhập phụ, thu nhập freelance, thu nhập cho thuê hoặc thu nhập tài chính trên 20 triệu won, bạn phải khai thuế vào tháng 5."
+        },
+        {
+          "question": "Khấu trừ lũy tiến là gì?",
+          "answer": "Đây là cách rút gọn cho công thức thuế theo từng bậc. Thay vì tính thuế từng bậc một, bạn nhân toàn bộ cơ sở tính thuế với thuế suất biên cao nhất rồi trừ đi khấu trừ lũy tiến của bậc đó — kết quả hoàn toàn giống nhau."
+        },
+        {
+          "question": "Tôi khai thuế thu nhập địa phương ở đâu?",
+          "answer": "Thuế thu nhập địa phương bằng 10% thuế quyết định và được khai cùng với thuế thu nhập qua Hometax. Một thông báo nộp thuế riêng sẽ được phát hành và nộp cho văn phòng thành phố hoặc quận của bạn."
+        },
+        {
+          "question": "Giới hạn khấu trừ thuế người lao động là bao nhiêu?",
+          "answer": "Tối đa 740 nghìn won cho tổng thu nhập dưới 33 triệu won; mức trần giảm dần khi thu nhập cao hơn (sàn 660 nghìn / 500 nghìn / 200 nghìn won ở mức thu nhập cao). Khấu trừ 55% trên thuế tính toán đến 1,3 triệu won, sau đó 30%, có giới hạn trần."
+        },
+        {
+          "question": "Công cụ này có xử lý khấu trừ con cái hoặc lương hưu không?",
+          "answer": "Hiện tại chỉ áp dụng khấu trừ thuế người lao động. Khấu trừ con cái (150 nghìn won mỗi con), khấu trừ tiết kiệm hưu trí (tối đa 16,5%) và khấu trừ y tế/quyên góp phải được trừ thủ công từ thuế quyết định."
+        },
+        {
+          "question": "Người nộp thuế thuộc diện xác nhận khai thuế trung thực là ai?",
+          "answer": "Chủ doanh nghiệp có doanh thu vượt ngưỡng quy định (ví dụ 1,5 tỷ won với bán buôn/bán lẻ, 750 triệu won với nhà hàng) phải đính kèm xác nhận của chuyên viên thuế và khai thuế trước ngày 30 tháng 6. Bỏ lỡ điều này sẽ bị phạt."
+        }
+      ],
+      "cautions": [
+        "Đây là mô phỏng đơn giản hóa tập trung vào phép tính chính. Việc khai thuế thực tế bao gồm các khoản khấu trừ chi tiết cho con cái, quyên góp, chi phí y tế, v.v.",
+        "Các khoản mục đánh thuế riêng lẻ (thu nhập tài chính dưới 20 triệu won, thu nhập lương ngày, v.v.) không được tính vào cơ sở tính thuế.",
+        "Người nộp thuế thuộc diện xác nhận khai thuế trung thực có thời hạn đến ngày 30 tháng 6.",
+        "Kết quả chỉ mang tính tham khảo. Hãy xác minh bằng 'Trợ lý khai thuế' của Hometax hoặc chuyên viên thuế.",
+        "Thuế suất và mức trần có thể thay đổi theo sửa đổi luật trong tương lai. Cập nhật tính đến tháng 1 năm 2026."
+      ],
+      "related": [
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "4 Insurances + Net Pay",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Compound Interest",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Foreign Stock Tax",
+          "href": "/foreign-stock-tax"
+        }
+      ],
+      "lastReviewed": "2026-05-23"
+    },
+    "capital-gains-tax": {
+      "overview": "Máy tính thuế chuyển nhượng bất động sản Hàn Quốc ước tính thuế từ giá bán, giá mua và thời gian sở hữu. Từ lãi chuyển nhượng, công cụ trừ đi khấu trừ đặc biệt sở hữu dài hạn (tối đa 30% mức thông thường, tối đa 80% cho hộ 1 nhà 1 căn) và khấu trừ cơ bản 2,5 triệu won, áp dụng thuế suất lũy tiến 8 bậc, cộng thêm thuế địa phương 10%, và hiển thị tổng thuế cùng lãi sau thuế. Đã bao gồm mức thuế nặng cho chuyển nhượng ngắn hạn (dưới 2 năm).",
+      "useCases": [
+        "Mô phỏng thuế trước khi bán bất động sản",
+        "So sánh khấu trừ dài hạn theo thời gian sở hữu",
+        "Kiểm tra mức tiết kiệm từ ưu đãi hộ 1 nhà 1 căn",
+        "Xem mức thuế nặng cho chuyển nhượng ngắn hạn (dưới 2 năm)",
+        "Ước tính lãi ròng sau thuế"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (5 bước)",
+        "steps": [
+          "Nhập giá bán và giá mua.",
+          "Nhập chi phí (thuế mua, phí môi giới, chi phí cải tạo). Các khoản này làm giảm lãi chuyển nhượng.",
+          "Nhập thời gian sở hữu (năm). Khấu trừ dài hạn áp dụng từ 3 năm trở lên.",
+          "Chọn loại tài sản (nhà ở/đất) và tình trạng hộ 1 nhà 1 căn. Với hộ 1 nhà 1 căn, thời gian cư trú cũng ảnh hưởng đến khấu trừ.",
+          "Kết quả hiển thị lãi chuyển nhượng, khấu trừ dài hạn, cơ sở tính thuế, thuế tính toán, thuế địa phương và lãi sau thuế."
+        ]
+      },
+      "formula": {
+        "title": "Công thức thuế chuyển nhượng (Luật Thuế Thu nhập (소득세법))",
+        "body": "Lãi chuyển nhượng = giá bán − giá mua − chi phí\nKhấu trừ dài hạn = lãi chuyển nhượng × tỷ lệ\n  Thông thường: 6% ở năm thứ 3, +2%/năm, tối đa 30% ở năm thứ 15\n  Hộ 1 nhà 1 căn: 4%/năm sở hữu + 4%/năm cư trú, tối đa 80%\nThu nhập chịu thuế = lãi chuyển nhượng − khấu trừ dài hạn\nCơ sở tính thuế = thu nhập chịu thuế − khấu trừ cơ bản 2,5 triệu won\nThuế tính toán = cơ sở tính thuế × thuế suất lũy tiến − khấu trừ (8 bậc giống thuế thu nhập)\nThuế thu nhập địa phương = thuế tính toán × 10%\n\nNgắn hạn (mức thuế nặng): nhà ở dưới 1 năm 70%, dưới 2 năm 60%\n  Đất/công trình dưới 1 năm 50%, dưới 2 năm 40%"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Bán 500 triệu, mua 300 triệu, sở hữu 5 năm (nhà ở thông thường)",
+            "body": "Lãi chuyển nhượng 180 triệu won (sau chi phí 20 triệu won). Khấu trừ dài hạn 10% (6%+2×2%) = 18 triệu won. Cơ sở tính thuế 155 triệu won. Bậc 35% → thuế tính toán ~39 triệu + thuế địa phương 3,9 triệu = tổng ~42,9 triệu won."
+          },
+          {
+            "title": "Ví dụ 2: Hộ 1 nhà 1 căn, sở hữu và cư trú 10 năm",
+            "body": "Ngay cả với lãi chuyển nhượng 1 tỷ won, khấu trừ 80% = trừ 800 triệu won. Cơ sở tính thuế giảm xuống còn ~190 triệu won. Lưu ý: nếu giá bán dưới 1,2 tỷ won thì được miễn thuế hoàn toàn (công cụ này áp dụng cho trường hợp chịu thuế)."
+          },
+          {
+            "title": "Ví dụ 3: Ngắn hạn, dưới 1 năm",
+            "body": "Lãi chuyển nhượng 100 triệu won, sở hữu 6 tháng. Không có khấu trừ dài hạn (dưới 3 năm). Cơ sở tính thuế 97,5 triệu × 70% = 68,25 triệu won + thuế địa phương. Việc lướt sóng ngắn hạn phải chịu mức thuế rất cao."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Hộ 1 nhà 1 căn có luôn được miễn thuế không?",
+          "answer": "Được miễn thuế nếu giá bán dưới 1,2 tỷ won và sở hữu từ 2 năm trở lên (cư trú 2 năm tại khu vực bị quản lý). Phần vượt trên 1,2 tỷ won sẽ bị đánh thuế, và khấu trừ dài hạn tối đa 80% giúp giảm đáng kể. Công cụ này áp dụng cho trường hợp chịu thuế."
+        },
+        {
+          "question": "Tại sao khấu trừ dài hạn lại lớn như vậy?",
+          "answer": "Điều này phản ánh lạm phát và chính sách hỗ trợ sở hữu lâu dài. Mức thông thường tối đa 30%, nhưng hộ 1 nhà 1 căn (sở hữu + cư trú, mỗi loại tối đa 40%) đạt tới 80%, giảm mạnh thuế cho người sở hữu và cư trú trên 10 năm."
+        },
+        {
+          "question": "Tại sao mức thuế ngắn hạn lại cao như vậy?",
+          "answer": "Nhằm hạn chế việc lướt sóng đầu cơ. Nhà ở sở hữu dưới 1 năm bị đánh thuế 70% — cao hơn cả bậc thuế lũy tiến cao nhất (45%). Sở hữu từ 2 năm trở lên để được áp dụng thuế suất lũy tiến thông thường."
+        },
+        {
+          "question": "Những khoản chi phí nào được khấu trừ?",
+          "answer": "Thuế mua/đăng ký, phí pháp lý và môi giới, và chi phí cải tạo làm tăng giá trị (cửa sổ, mở rộng ban công, thay lò sưởi). Chi phí bảo trì (giấy dán tường, sàn nhà) không được tính. Hãy giữ lại hóa đơn."
+        },
+        {
+          "question": "Có bao gồm mức thuế nặng cho sở hữu nhiều nhà không?",
+          "answer": "Không, công cụ này sử dụng thuế suất lũy tiến cơ bản. Phụ thu khu vực bị quản lý (+20 điểm phần trăm cho 2 nhà, +30 điểm phần trăm cho 3 nhà) thay đổi thường xuyên theo chính sách nên không được tính. Người sở hữu nhiều nhà nên tham khảo ý kiến chuyên viên thuế."
+        },
+        {
+          "question": "Khấu trừ cơ bản 2,5 triệu won là gì?",
+          "answer": "Đây là khoản khấu trừ hàng năm áp dụng một lần cho lãi chuyển nhượng. Nhiều lần bán trong cùng một năm chỉ được chia sẻ một khoản khấu trừ 2,5 triệu won duy nhất. Công cụ này áp dụng khấu trừ này cho mỗi lần bán riêng lẻ."
+        }
+      ],
+      "cautions": [
+        "Tính toán đơn giản hóa theo Luật Thuế Thu nhập (소득세법) 2024. Chưa bao gồm miễn thuế hộ 1 nhà 1 căn và mức thuế nặng cho sở hữu nhiều nhà.",
+        "Phụ thu và giảm thuế khu vực bị quản lý thay đổi thường xuyên — hãy xác minh riêng.",
+        "Chỉ chi phí cải tạo mới được khấu trừ (không phải bảo trì); hãy giữ lại hóa đơn.",
+        "Khấu trừ dài hạn tính thời gian sở hữu và cư trú theo năm tròn.",
+        "Để khai báo chính xác, hãy tham khảo Hometax hoặc chuyên viên thuế."
+      ],
+      "related": [
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Rent Cap (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "Pyeong ↔ m²",
+          "href": "/area-convert"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "loan-calc": {
+      "overview": "Máy tính vay Hàn Quốc so sánh 3 phương thức trả nợ phổ biến nhất tại Hàn Quốc — trả góp đều gốc+lãi (số tiền cố định hàng tháng), trả đều gốc (cao đầu kỳ đến thấp cuối kỳ) và trả cuối kỳ (chỉ trả lãi, trả gốc khi đáo hạn) — trên cùng một màn hình, kèm bảng khấu hao hàng tháng. Cùng công thức chuẩn này áp dụng cho vay thế chấp nhà, vay tín chấp, vay đặt cọc jeonse và vay trả góp mua ô tô. Chưa bao gồm phí trả nợ trước hạn, thuế tem và giới hạn DSR.",
+      "useCases": [
+        "Lập kế hoạch vay thế chấp: so sánh tổng lãi giữa trả góp đều gốc+lãi và trả đều gốc",
+        "Vay tín chấp: xem chênh lệch gánh nặng hàng tháng giữa trả cuối kỳ và trả góp có khấu hao",
+        "Vay đặt cọc jeonse: xác nhận khoản chỉ trả lãi hàng tháng + trả gốc một lần khi đáo hạn",
+        "Tái cấp vốn: nhập số dư còn lại và lãi suất mới để xem số tiền trả mới",
+        "Lập kế hoạch dài hạn: theo dõi số dư ở năm thứ 1, 5, 10 trong khoản vay thế chấp 30 năm"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập số tiền vay gốc bằng won. Vay thế chấp 400 triệu won = 400000000; vay tín chấp 50 triệu won = 50000000.",
+          "Nhập thời hạn vay theo năm. Vay thế chấp Hàn Quốc thường 30 năm, vay tín chấp 1-5 năm, vay jeonse 2 năm.",
+          "Nhập lãi suất hàng năm (%). 4,5% = nhập 4.5. Với lãi suất thả nổi, hãy dùng lãi suất hiện tại; mô phỏng riêng các kịch bản tăng lãi suất.",
+          "Chọn một trong ba phương thức trả nợ và nhấn Tính toán. Bạn sẽ thấy số tiền trả kỳ đầu/kỳ cuối, tổng lãi, tổng số tiền trả và bảng khấu hao (lấy mẫu mỗi 6 tháng với thời hạn trên 60 tháng)."
+        ]
+      },
+      "formula": {
+        "title": "Công thức (3 phương thức trả nợ)",
+        "body": "Trả góp đều gốc+lãi: M = P × r(1+r)^n / ((1+r)^n − 1)\n  P = số tiền gốc, r = lãi suất hàng tháng (hàng năm / 12), n = tổng số tháng\n  Số tiền hàng tháng M không đổi. Các kỳ đầu nghiêng về lãi nhiều hơn, các kỳ sau nghiêng về gốc nhiều hơn.\n\nTrả đều gốc: gốc hàng tháng = P/n, lãi hàng tháng = số dư × r\n  Kỳ trả đầu tiên = P/n + P×r (lớn nhất)\n  Kỳ trả cuối cùng = P/n + (P/n)×r (nhỏ nhất)\n  Tổng lãi ít hơn khoảng 4-5% so với trả góp đều gốc+lãi.\n\nTrả cuối kỳ: hàng tháng = P × r (chỉ trả lãi)\n  Kỳ trả cuối cùng = P × r + P (toàn bộ gốc khi đáo hạn)\n  Tổng lãi cao nhất nhưng gánh nặng hàng tháng nhẹ nhất. Phổ biến với vay tín chấp và vay jeonse tại Hàn Quốc."
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: 400 triệu won / 30 năm / 4,5% / trả góp đều gốc+lãi",
+            "body": "Lãi suất hàng tháng 0,375%, 360 kỳ trả. Số tiền hàng tháng ~2.026.920 won. Tổng số tiền trả ~729,7 triệu won, tổng lãi ~329,7 triệu won — gần bằng số tiền gốc trong 30 năm."
+          },
+          {
+            "title": "Ví dụ 2: Cùng điều kiện, so sánh trả đều gốc",
+            "body": "Kỳ trả đầu tiên 2.611.111 won (gốc 1,11 triệu + lãi 1,5 triệu), kỳ trả cuối cùng 1.115.278 won. Tổng lãi ~270,7 triệu won — ít hơn khoảng 59 triệu won so với trả góp đều gốc+lãi. Nhưng 5 năm đầu tốn thêm khoảng 500 nghìn won mỗi tháng."
+          },
+          {
+            "title": "Ví dụ 3: 50 triệu won / 3 năm / 6% / trả cuối kỳ",
+            "body": "Lãi hàng tháng = 50 triệu × 6%/12 = 250.000 won. 36 tháng chỉ trả lãi, sau đó trả 50 triệu won + lãi cuối cùng 250 nghìn won khi đáo hạn. Tổng lãi 9 triệu won. Nhẹ hàng tháng nhưng khoản trả gộp khi đáo hạn cần có nguồn trả nợ rõ ràng."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Trả góp đều gốc+lãi và trả đều gốc — cách nào tốt hơn?",
+          "answer": "Xét về tổng lãi, trả đều gốc tiết kiệm khoảng 4-5%. Nhưng 5-10 năm đầu có gánh nặng hàng tháng nặng hơn nhiều. Nếu dòng tiền đầu kỳ eo hẹp, hãy chọn trả góp đều gốc+lãi; nếu bạn có dư dả đầu kỳ và muốn tiết kiệm dài hạn, hãy chọn trả đều gốc."
+        },
+        {
+          "question": "Tại sao trả cuối kỳ lại phổ biến ở Hàn Quốc?",
+          "answer": "Vay tín chấp và vay đặt cọc jeonse thường có thời hạn ngắn (1-3 năm) cho một nhu cầu lớn cụ thể. Việc giảm thiểu khoản trả gốc hàng tháng và trả nợ khi đáo hạn từ nguồn khác (hoàn tiền đặt cọc, tiền bán tài sản) phù hợp với mô hình này."
+        },
+        {
+          "question": "Phí trả nợ trước hạn được xử lý như thế nào?",
+          "answer": "Máy tính này không bao gồm khoản phí đó. Phí trả nợ trước hạn tại Hàn Quốc thường là 0,5-1,5% số dư còn lại và áp dụng trong 3 năm đầu. Khi tái cấp vốn, hãy trừ phí khỏi khoản tiết kiệm lãi để thấy lợi ích thực sự."
+        },
+        {
+          "question": "Tôi kiểm tra giới hạn DSR (tỷ lệ trả nợ trên thu nhập) ở đâu?",
+          "answer": "DSR là tổng gốc+lãi hàng năm chia cho thu nhập hàng năm, giới hạn tối đa 40% với ngân hàng và 50% với tổ chức tín dụng thứ cấp. Nhân số tiền trả hàng tháng của máy tính này với 12 rồi chia cho thu nhập hàng năm, cộng dồn tất cả các khoản nợ."
+        },
+        {
+          "question": "Tôi xử lý khoản vay lãi suất thả nổi như thế nào?",
+          "answer": "Lãi suất thả nổi được điều chỉnh lại mỗi 6 hoặc 12 tháng. Máy tính này giả định một lãi suất cố định, vì vậy hãy mô phỏng thận trọng các kịch bản tăng lãi suất (ví dụ +1% sau 1 năm) bằng cách chạy lại với lãi suất đã điều chỉnh."
+        },
+        {
+          "question": "Tại sao kỳ trả đầu tiên và cuối cùng lại khác nhau?",
+          "answer": "Trả góp đều gốc+lãi không đổi; kỳ trả cuối cùng của trả đều gốc nhỏ hơn khoảng 30-40% khi số dư giảm dần; khoản trả hàng tháng của trả cuối kỳ giống nhau nhưng kỳ trả cuối cùng cộng thêm toàn bộ số tiền gốc."
+        },
+        {
+          "question": "Trả nợ trước hạn tiết kiệm được bao nhiêu?",
+          "answer": "Trả hết khoản vay thế chấp 30 năm ở năm thứ 10 sẽ loại bỏ hoàn toàn lãi của năm 11-30. Phí trả nợ trước hạn thường áp dụng trong 5 năm đầu (0,5-1,5%), sau đó biến mất. Trả nợ trước hạn là công cụ tiết kiệm mạnh mẽ."
+        }
+      ],
+      "cautions": [
+        "Chưa bao gồm phí trả nợ trước hạn, thuế tem và phí đăng ký thế chấp.",
+        "Cần kiểm tra riêng giới hạn DSR (40% với ngân hàng).",
+        "Lãi suất thả nổi giả định một mức lãi suất cố định — hãy mô phỏng riêng các kịch bản tăng lãi.",
+        "Lãi suất hàng tháng r = lãi suất hàng năm / 12 (chuẩn tính lãi đơn của Hàn Quốc).",
+        "Kết quả chỉ dùng để lập kế hoạch. Điều khoản thực tế do bên cho vay xác nhận."
+      ],
+      "related": [
+        {
+          "label": "Compound Interest",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Rent Cap (5%)",
+          "href": "/rent-cap"
+        },
+        {
+          "label": "VAT Calculator",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "Income Tax Calculator",
+          "href": "/income-tax"
+        }
+      ],
+      "lastReviewed": "2026-05-23"
+    },
+    "compound-calc": {
+      "overview": "Máy tính lãi kép bao gồm hai chế độ trên cùng một màn hình: một lần (một khoản gốc sinh lãi kép theo thời gian) và tích lũy (gửi hàng tháng kèm lãi kép). Chế độ một lần dùng công thức FV = P(1+i)^n; chế độ tích lũy có lãi kép theo năm — theo đúng quy ước của sổ tiết kiệm ngân hàng Hàn Quốc, trong đó mỗi khoản gửi hàng tháng được tính lãi đơn tỷ lệ theo số tháng còn lại, sau đó toàn bộ lãi được vốn hóa vào cuối năm — hoặc lãi kép theo tháng. Bảng chi tiết theo kỳ và theo năm hiển thị lãi phát sinh, số dư lũy kế và tỷ suất sinh lời tích lũy ở mỗi bước. Kết quả là số danh nghĩa trước thuế; chưa áp dụng thuế khấu trừ (15,4%) và lạm phát.",
+      "useCases": [
+        "Ước tính giá trị đáo hạn của tiền gửi có kỳ hạn hoặc sổ tiết kiệm trước khi đăng ký",
+        "Dự tính khoản tích lũy hàng tháng vào quỹ tiết kiệm hưu trí hoặc quỹ góp định kỳ sẽ tăng trưởng bao nhiêu sau n năm",
+        "Tính ngược thời gian cần thiết (hoặc số tiền cần tiết kiệm mỗi tháng) để đạt được mục tiêu",
+        "So sánh lãi kép theo tháng so với theo năm mang lại thêm bao nhiêu với cùng lãi suất và thời gian",
+        "Hình dung hiệu ứng tăng tốc của lãi kép trong những năm cuối bằng bảng chi tiết theo năm"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (3 bước)",
+        "steps": [
+          "Chọn tab: 'Một lần' hoặc 'Tích lũy'. Chế độ một lần cần số tiền gốc, lãi suất mỗi kỳ và số kỳ. Chế độ tích lũy cần số tiền khởi đầu, số tiền tích lũy hàng tháng, thời gian (năm hoặc tháng), lãi suất (theo năm hoặc theo tháng) và phương thức lãi kép (theo năm hoặc theo tháng).",
+          "Nhấn 'Tính toán' để xem ngay số tiền cuối cùng, tổng số tiền đầu tư, tổng lợi nhuận và tỷ suất sinh lời tổng thể trong các thẻ tóm tắt.",
+          "Chuyển đổi giữa các tab con 'Theo kỳ' và 'Theo năm' trong bảng chi tiết bên dưới để theo dõi lãi, gốc và số dư ở từng khoảng thời gian."
+        ]
+      },
+      "formula": {
+        "title": "Công thức & cơ sở tính toán",
+        "body": "[Một lần]\nFV = P × (1 + i)^n\n  P = số tiền gốc\n  i = lãi suất mỗi kỳ (% ÷ 100)\n  n = số kỳ\n\nCó khoản góp định kỳ (PMT vào cuối mỗi kỳ):\nFV = P×(1+i)^n + PMT × [(1+i)^n − 1] / i\n\n[Tích lũy — lãi kép theo năm (quy ước sổ tiết kiệm Hàn Quốc)]\nMỗi khoản gửi hàng tháng được tính lãi đơn theo lãi suất năm × (số tháng còn lại ÷ 12) trong năm đó; toàn bộ số dư được vốn hóa vào cuối năm.\n\n[Tích lũy — lãi kép theo tháng]\nSố dư được nhân với (1 + lãi suất tháng) mỗi tháng, trong đó lãi suất tháng = lãi suất năm ÷ 12."
+      },
+      "examples": {
+        "title": "Kịch bản ví dụ",
+        "items": [
+          {
+            "title": "Ví dụ 1: Tiền gửi có kỳ hạn 10.000.000 ₩ với lãi suất 3,5%/năm trong 3 năm",
+            "body": "Chế độ một lần: số tiền gốc 10.000.000 ₩, lãi suất mỗi kỳ 3,5%, 3 kỳ (theo năm). Số tiền cuối cùng = 10.000.000 × (1,035)^3 ≈ 10.877.289 ₩. Tổng lợi nhuận ≈ 877.289 ₩ (8,77%). Sau khi trừ thuế khấu trừ 15,4% của Hàn Quốc, lãi thực nhận khoảng 742.000 ₩."
+          },
+          {
+            "title": "Ví dụ 2: Tích lũy 500.000 ₩/tháng, lãi suất 4%/năm, lãi kép theo năm, trong 10 năm",
+            "body": "Chế độ tích lũy: khởi đầu 500.000 ₩, hàng tháng 500.000 ₩, 10 năm, lãi suất năm 4%, lãi kép theo năm. Tổng số tiền đầu tư 60.000.000 ₩; giá trị đáo hạn ≈ 73.590.000 ₩; tổng lợi nhuận ≈ 13.590.000 ₩ (22,6%). Bảng theo năm cho thấy riêng năm thứ 10 đã tạo ra khoảng 2.700.000 ₩ tiền lãi — đó chính là hiệu ứng tăng tốc của lãi kép."
+          },
+          {
+            "title": "Ví dụ 3: Lãi kép theo năm so với theo tháng trên cùng một khoản gốc",
+            "body": "10.000.000 ₩ với lãi suất 5%/năm trong 5 năm: lãi kép theo năm → 12.762.816 ₩; lãi kép theo tháng → 12.833.587 ₩. Chênh lệch: 70.771 ₩. Khoảng cách này càng lớn khi lãi suất cao hơn và thời gian dài hơn, vì vậy nên kiểm tra kỹ phương thức lãi kép được ghi trong điều khoản sản phẩm."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Lãi kép theo tháng có luôn tốt hơn theo năm không?",
+          "answer": "Đúng, với cùng một lãi suất năm được công bố. Lãi kép theo tháng vốn hóa lãi thường xuyên hơn, nên lãi suất hiệu dụng theo năm (EAR) sẽ cao hơn. Ở mức 12%/năm, lãi kép theo năm cho EAR 12%, trong khi lãi kép theo tháng cho EAR ≈ 12,68%. Tuy nhiên, một số sản phẩm đã công bố sẵn lãi suất hiệu dụng theo lãi kép tháng, nên luôn đọc kỹ điều khoản sản phẩm."
+        },
+        {
+          "question": "'Quy ước sổ tiết kiệm Hàn Quốc' cho lãi kép theo năm là gì?",
+          "answer": "Các ngân hàng Hàn Quốc tính lãi cho tiết kiệm tích lũy bằng cách ghi nhận lãi đơn cho mỗi khoản gửi hàng tháng, tỷ lệ theo số tháng còn lại trong năm. Khoản gửi tháng đầu tiên được tính lãi 12 tháng; khoản gửi tháng cuối cùng được tính lãi 1 tháng. Toàn bộ lãi tích lũy sau đó được vốn hóa vào cuối năm (hoặc khi đáo hạn). Chế độ lãi kép theo năm trong máy tính này mô phỏng đúng phương pháp đó."
+        },
+        {
+          "question": "Thuế khấu trừ (15,4%) có được tự động trừ không?",
+          "answer": "Không. Tất cả kết quả đều là số danh nghĩa trước thuế. Tại Hàn Quốc, thu nhập từ lãi phải chịu thuế khấu trừ 15,4% (thuế thu nhập 14% + thuế địa phương 1,4%). Để ước tính lãi sau thuế, nhân tổng lợi nhuận hiển thị với 0,846."
+        },
+        {
+          "question": "Nên đặt 'lãi suất mỗi kỳ' và 'số kỳ' như thế nào trong chế độ một lần?",
+          "answer": "Hãy khớp đơn vị kỳ với phương thức lãi kép. Với lãi kép theo tháng ở mức 6%/năm trong 2 năm: lãi suất mỗi kỳ = 0,5% (6% ÷ 12), số kỳ = 24. Với lãi kép theo năm trong 5 năm ở mức 5%: lãi suất mỗi kỳ = 5%, số kỳ = 5."
+        },
+        {
+          "question": "Số kỳ có giới hạn không?",
+          "answer": "Chế độ một lần chấp nhận tối đa 2.400 kỳ (200 năm với lãi kép theo tháng). Bảng chi tiết theo kỳ hiển thị tối đa 600 dòng; sẽ có thông báo khi bị cắt bớt. Chế độ tích lũy hỗ trợ tối đa 1.200 tháng (100 năm)."
+        },
+        {
+          "question": "Tại sao kết quả có thể khác với số liệu ngân hàng thông báo?",
+          "answer": "Công cụ này không bao gồm thuế khấu trừ, phí giao dịch, lạm phát hoặc ảnh hưởng tỷ giá hối đoái. Với các sản phẩm theo thị trường như quỹ hoặc ETF, lợi nhuận không cố định. Ngay cả với tiền gửi lãi suất cố định, quy tắc làm tròn (cắt bớt hay làm tròn ở mỗi bước) cũng có thể tạo ra chênh lệch vài won so với cách tính của ngân hàng."
+        }
+      ],
+      "cautions": [
+        "Chỉ là tính toán danh nghĩa trước thuế — chưa trừ thuế khấu trừ 15,4% của Hàn Quốc. Ước tính lãi sau thuế bằng tổng lợi nhuận × 0,846.",
+        "Chưa tính đến lạm phát. Lợi nhuận danh nghĩa và lợi nhuận thực tế khác nhau.",
+        "Trong chế độ một lần, các khoản góp định kỳ được giả định gửi vào cuối mỗi kỳ. Các sản phẩm gửi vào đầu kỳ sẽ cho kết quả cao hơn một chút.",
+        "Mô hình lãi kép theo năm cho chế độ tích lũy tuân theo quy ước sổ tiết kiệm ngân hàng Hàn Quốc. Có thể có sai lệch nhỏ do chính sách làm tròn riêng của từng tổ chức.",
+        "Kết quả chỉ mang tính tham khảo. Hãy xác nhận điều khoản sản phẩm thực tế với tổ chức tài chính hoặc cổng so sánh sản phẩm tài chính của FSS trước khi đăng ký."
+      ],
+      "related": [
+        {
+          "label": "Máy tính khoản vay",
+          "href": "/loan-calc"
+        },
+        {
+          "label": "Máy tính lương thực nhận",
+          "href": "/net-salary"
+        },
+        {
+          "label": "Máy tính thuế VAT",
+          "href": "/vat-calc"
+        },
+        {
+          "label": "Máy tính thuế thu nhập",
+          "href": "/income-tax"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "freelancer-tax": {
+      "overview": "Máy tính thuế 3,3% cho freelancer tại Hàn Quốc tính khoản khấu trừ tại nguồn trên thu nhập kinh doanh của freelancer/dịch vụ cá nhân — 3,3% (thuế thu nhập 3% + thuế địa phương 0,3%). Công cụ chuyển đổi từ trước thuế sang sau thuế và ngược lại, kèm số liệu quy đổi theo năm. Đây là khoản tạm nộp được quyết toán qua kỳ khai thuế thu nhập tổng hợp vào tháng 5, và việc khấu trừ chi phí có thể mang lại khoản hoàn thuế.",
+      "useCases": [
+        "Kiểm tra số tiền thực nhận từ các khoản phí freelance",
+        "Đàm phán số tiền trước thuế và sau thuế trong hợp đồng",
+        "Tính ngược số tiền trước thuế cần xuất hóa đơn để đạt mục tiêu thực nhận",
+        "Xem thu nhập quy đổi theo năm và tổng số tiền khấu trừ tại nguồn",
+        "Rà soát tổng số tiền đã khấu trừ trước kỳ khai thuế tháng 5"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập số tiền (KRW).",
+          "Chọn cơ sở tính. 'Trước thuế' sẽ tính ra số tiền sau thuế; 'Sau thuế' sẽ tính ngược ra số tiền trước thuế.",
+          "Xem thuế thu nhập 3%, thuế địa phương 0,3%, tổng 3,3%, số tiền thực nhận và số liệu quy đổi theo năm."
+        ]
+      },
+      "formula": {
+        "title": "Công thức khấu trừ tại nguồn",
+        "body": "Thuế thu nhập = số tiền × 3%\nThuế địa phương = số tiền × 0,3%\nTổng khấu trừ tại nguồn = số tiền × 3,3%\nSố tiền thực nhận = số tiền − khấu trừ\n\nTính ngược (từ thực nhận → trước thuế):\n  trước thuế = thực nhận / (1 − 0,033)\n  ví dụ: thực nhận 967.000 → trước thuế 1.000.000"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Trước thuế 1.000.000 → thực nhận 967.000",
+            "body": "Thuế thu nhập 30.000 + thuế địa phương 3.000 = khấu trừ 33.000. Thực nhận 967.000 KRW."
+          },
+          {
+            "title": "Ví dụ 2: Mục tiêu thực nhận 3.000.000 → tính ngược ra số tiền trước thuế",
+            "body": "Trước thuế = 3.000.000 / 0,967 ≈ 3.102.000 KRW. Xuất hóa đơn số tiền này để nhận được đúng 3.000.000 thực nhận."
+          },
+          {
+            "title": "Ví dụ 3: Freelancer nhận 2.000.000/tháng, quy đổi theo năm",
+            "body": "2.000.000 trước thuế × 12 = 24.000.000 mỗi năm. Khấu trừ tại nguồn theo năm khoảng 792.000. Được quyết toán vào tháng 5 cùng với chi phí/khoản khấu trừ (có thể được hoàn thuế)."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "3,3% có phải là số thuế cuối cùng không?",
+          "answer": "Không. Khấu trừ tại nguồn chỉ là khoản tạm nộp. Kỳ khai thuế thu nhập tổng hợp vào tháng 5 sẽ tính ra số thuế thực tế — được hoàn thuế nếu có nhiều chi phí/khoản khấu trừ, hoặc phải nộp thêm nếu thu nhập cao. 3,3% chỉ là khoản nộp trước."
+        },
+        {
+          "question": "Tại sao khác với các khoản bảo hiểm của người lao động?",
+          "answer": "Freelancer là người có thu nhập kinh doanh, không phải người lao động, nên không có khấu trừ bảo hiểm — chỉ có khấu trừ tại nguồn 3,3% trên thu nhập kinh doanh. Bảo hiểm y tế và hưu trí được đóng riêng với tư cách người tham gia theo khu vực."
+        },
+        {
+          "question": "Khấu trừ chi phí có thể được hoàn thuế bao nhiêu?",
+          "answer": "Việc khai báo chi phí kinh doanh (thiết bị, đi lại, thông tin liên lạc) làm giảm cơ sở tính thuế. Có thể áp dụng qua tỷ lệ chi phí đơn giản/tiêu chuẩn hoặc ghi sổ kế toán; với thu nhập thấp và chi phí cao, phần lớn khoản đã khấu trừ có thể được hoàn lại."
+        },
+        {
+          "question": "Tôi có bắt buộc phải khai thuế thu nhập không?",
+          "answer": "Có. Chỉ khấu trừ tại nguồn thôi chưa phải là kết thúc. Không khai thuế vào tháng 5 sẽ bị phạt và mất quyền được hoàn thuế. Ngay cả khi thu nhập thấp, việc khai thuế vẫn đáng làm để nhận khoản hoàn thuế."
+        },
+        {
+          "question": "Nhiều đơn vị chi trả đã khấu trừ 3,3% — tôi có phải gộp lại không?",
+          "answer": "Có. Hãy gộp toàn bộ thu nhập kinh doanh từ tất cả các đơn vị chi trả và khai vào tháng 5. Sử dụng biên lai khấu trừ (hoặc bảng kê thanh toán trên Hometax) để tổng hợp."
+        },
+        {
+          "question": "3,3% khác gì so với 8,8% (thu nhập khác)?",
+          "answer": "Dịch vụ liên tục/lặp lại được coi là thu nhập kinh doanh với mức 3,3%; các khoản thù lao giảng dạy/viết bài một lần được coi là thu nhập khác với mức 8,8% (sau khi trừ 60% chi phí ước tính). Công cụ này sử dụng cơ sở thu nhập kinh doanh 3,3%."
+        }
+      ],
+      "cautions": [
+        "3,3% là khoản tạm nộp, không phải số thuế cuối cùng — được quyết toán vào kỳ khai thuế tháng 5.",
+        "Việc được hoàn thuế hay phải nộp thêm phụ thuộc vào chi phí và mức thu nhập.",
+        "Bảo hiểm y tế và hưu trí được đóng riêng với tư cách người tham gia theo khu vực.",
+        "Thu nhập một lần (giảng dạy, viết bài) được coi là thu nhập khác với mức 8,8%.",
+        "Hãy gộp thu nhập từ nhiều đơn vị chi trả khi khai thuế."
+      ],
+      "related": [
+        {
+          "label": "Máy tính thuế thu nhập",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Máy tính lương thực nhận",
+          "href": "/net-salary"
+        },
+        {
+          "label": "Máy tính thuế VAT",
+          "href": "/vat-calc"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "vat-calc": {
+      "overview": "Máy tính thuế VAT Hàn Quốc bao gồm bốn chế độ tính toán dựa trên Điều 30 Luật Thuế Giá trị Gia tăng (부가가치세법, thuế suất 10%). 'Cộng thuế VAT' lấy giá trị cung ứng (chưa gồm thuế) và cộng thêm 10% để ra tổng giá; 'Tách thuế VAT' tính ngược lại giá trị cung ứng và thuế VAT từ số tiền đã gồm thuế VAT. 'Kê khai người nộp thuế thông thường' trừ thuế đầu vào khỏi thuế đầu ra để ra số tiền thực nộp. 'Người nộp thuế đơn giản' áp dụng tỷ lệ giá trị gia tăng theo ngành quy định tại Nghị định thi hành §111 (15% cho bán lẻ và nhà hàng đến 40% cho tài chính và các dịch vụ khác) để tính số tiền phải nộp theo chế độ đơn giản. Tất cả số tiền được làm tròn xuống đến won gần nhất, khớp với tiêu chuẩn kê khai của Cơ quan Thuế Quốc gia (NTS, Hometax).",
+      "useCases": [
+        "Freelancer / chủ doanh nghiệp: xác nhận giá trị cung ứng và thuế VAT trước khi phát hành hóa đơn thuế",
+        "Người tiêu dùng: tính ngược xem hóa đơn tổng chứa bao nhiêu thuế VAT",
+        "Người nộp thuế thông thường: ước tính trước thuế đầu ra trừ thuế đầu vào trước khi kê khai thuế VAT hàng quý",
+        "Người nộp thuế đơn giản: mô phỏng số tiền phải nộp hàng năm bằng tỷ lệ giá trị gia tăng theo ngành áp dụng",
+        "Nhà xuất nhập khẩu: xác nhận giao dịch có thuế suất 0% hay được miễn thuế và tách riêng số tiền chịu thuế"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (3 bước)",
+        "steps": [
+          "Chọn loại tính toán: 'Cộng thuế VAT' (nhập giá chưa gồm thuế), 'Tách thuế VAT' (nhập tổng số tiền đã gồm thuế VAT), 'Kê khai người nộp thuế thông thường' (nhập tổng doanh thu và số tiền mua vào tùy chọn), hoặc 'Người nộp thuế đơn giản' (nhập tổng doanh thu và chọn ngành nghề).",
+          "Nhập số tiền bằng won Hàn Quốc (KRW). Với chế độ người nộp thuế thông thường, nếu nhập thêm 'giá trị cung ứng mua vào' tùy chọn, hệ thống sẽ tự động tính thuế đầu vào được khấu trừ.",
+          "Nhấn 'Tính toán' để xem giá trị cung ứng, thuế VAT và tổng số tiền (hoặc số tiền thực nộp) cùng với các bước tính toán chi tiết."
+        ]
+      },
+      "formula": {
+        "title": "Công thức & căn cứ pháp lý",
+        "body": "[Cộng thuế VAT (chế độ add)]\nThuế VAT = giá trị cung ứng × 10%  (làm tròn xuống đến won gần nhất)\nTổng giá = giá trị cung ứng + thuế VAT\n\n[Tách thuế VAT (chế độ extract)]\nGiá trị cung ứng = tổng giá × 10 ÷ 11  (làm tròn đến won gần nhất)\nThuế VAT = tổng giá − giá trị cung ứng\n\n[Số tiền phải nộp của người nộp thuế thông thường (chế độ general)]\nThuế đầu ra = tổng doanh thu × 10 ÷ 11\nThuế đầu vào = giá trị cung ứng mua vào × 10%\nSố tiền thực nộp = thuế đầu ra − thuế đầu vào\n\n[Số tiền phải nộp của người nộp thuế đơn giản (chế độ simple) — Luật Thuế Giá trị Gia tăng §63, Nghị định thi hành §111]\nGiá trị gia tăng = tổng doanh thu × tỷ lệ giá trị gia tăng theo ngành\nSố tiền phải nộp = giá trị gia tăng × 10%\n\nTỷ lệ giá trị gia tăng theo ngành (hiệu lực từ 2021-07-01):\n  Bán lẻ, nhà hàng                15%\n  Sản xuất, nông nghiệp, chuyển phát 20%\n  Lưu trú                            25%\n  Xây dựng, vận tải, IT               30%\n  Tài chính, cho thuê bất động sản, dịch vụ khác 40%\n\n※ Căn cứ pháp lý: Điều 30 Luật Thuế Giá trị Gia tăng (부가가치세법, thuế suất 10%)"
+      },
+      "examples": {
+        "title": "Tình huống ví dụ",
+        "items": [
+          {
+            "title": "Ví dụ 1: Phí dịch vụ freelance 1.100.000 won — tách giá trị cung ứng và thuế VAT",
+            "body": "Chế độ tách thuế, số tiền 1.100.000 won. Giá trị cung ứng = 1.100.000 × 10 ÷ 11 = 1.000.000 won; thuế VAT = 100.000 won. Hóa đơn thuế cần ghi: giá trị cung ứng 1.000.000 won / thuế 100.000 won / tổng 1.100.000 won."
+          },
+          {
+            "title": "Ví dụ 2: Kê khai hàng quý của người nộp thuế thông thường — doanh thu 22.000.000 won, mua vào 5.500.000 won",
+            "body": "Chế độ thông thường. Thuế đầu ra = 22.000.000 × 10 ÷ 11 = 2.000.000 won. Thuế đầu vào = 5.500.000 × 10% = 550.000 won. Số tiền thực nộp = 2.000.000 − 550.000 = 1.450.000 won."
+          },
+          {
+            "title": "Ví dụ 3: Nhà hàng là người nộp thuế đơn giản, doanh thu hàng năm 40.000.000 won",
+            "body": "Chế độ đơn giản, ngành 'bán lẻ / nhà hàng (15%)'. Giá trị gia tăng = 40.000.000 × 15% = 6.000.000 won. Số tiền phải nộp = 6.000.000 × 10% = 600.000 won. Theo chế độ người nộp thuế thông thường, thuế đầu ra sẽ vào khoảng 3.636.364 won (trước khi khấu trừ thuế đầu vào), minh họa rõ lợi ích đáng kể của tư cách người nộp thuế đơn giản."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao công thức dùng '×10÷11' thay vì '÷1,1' để tách giá trị cung ứng?",
+          "answer": "Hai cách này về mặt toán học là tương đương, nhưng nhân với tỷ lệ số nguyên 10/11 tránh được lỗi dấu phẩy động. Ví dụ, chia 11.000 cho 1,1 trong một số môi trường có thể trả về 9.999,999...998 thay vì đúng 10.000. Dùng tử số và mẫu số nguyên loại bỏ sai số làm tròn này trước bước làm tròn xuống cuối cùng."
+        },
+        {
+          "question": "Sự khác biệt giữa miễn thuế VAT và thuế suất 0% là gì?",
+          "answer": "Giao dịch được miễn thuế VAT (y tế, giáo dục, nông sản chưa chế biến, v.v.) không thu thuế VAT và không được hoàn thuế đầu vào. Giao dịch thuế suất 0% (xuất khẩu, v.v.) cũng thu 0% thuế VAT trên doanh thu nhưng được hoàn đầy đủ thuế đầu vào. Máy tính này chỉ xử lý giao dịch chịu thuế tiêu chuẩn 10%. Không sử dụng cho giao dịch được miễn thuế hoặc thuế suất 0%."
+        },
+        {
+          "question": "Khi nào phải kê khai thuế VAT tại Hàn Quốc?",
+          "answer": "Người nộp thuế thông thường kê khai hai lần một năm: nửa đầu năm (tháng 1–6) trước ngày 25 tháng 7, và nửa cuối năm (tháng 7–12) trước ngày 25 tháng 1 năm sau. Kê khai tạm thời được thực hiện vào tháng 4 và tháng 10 nhưng thường chỉ là nộp thuế. Người nộp thuế đơn giản kê khai một lần một năm trước ngày 25 tháng 1."
+        },
+        {
+          "question": "Ngưỡng doanh thu để trở thành người nộp thuế đơn giản là bao nhiêu?",
+          "answer": "Kể từ lần sửa đổi tháng 7 năm 2021, doanh nghiệp có tổng giá trị cung ứng năm trước dưới 80.000.000 won đủ điều kiện là người nộp thuế đơn giản. Trên mức đó, doanh nghiệp phải chuyển sang tư cách người nộp thuế thông thường từ năm sau. Cho thuê bất động sản và cơ sở giải trí có ngưỡng thấp hơn là 48.000.000 won."
+        },
+        {
+          "question": "Ai bắt buộc phải phát hành hóa đơn thuế điện tử?",
+          "answer": "Người nộp thuế thông thường phải phát hành hóa đơn thuế (điện tử) cho mọi giao dịch chịu thuế. Người nộp thuế đơn giản có giá trị cung ứng hàng năm từ 48.000.000 won trở lên cũng phải phát hành hóa đơn thuế điện tử. Dưới 48.000.000 won, có thể thay thế bằng biên nhận đơn giản."
+        },
+        {
+          "question": "Kê khai thuế VAT có giống với kê khai thuế thu nhập không?",
+          "answer": "Không. Thuế VAT là thuế gián thu được thu trên doanh thu và nộp lại cho cơ quan thuế. Thuế thu nhập (thuế thu nhập tổng hợp) là thuế trực thu đánh trên lợi nhuận ròng và được kê khai vào tháng 5 hàng năm. Freelancer và chủ doanh nghiệp phải kê khai riêng cả hai loại thuế."
+        }
+      ],
+      "cautions": [
+        "Máy tính này chỉ xử lý giao dịch chịu thuế suất tiêu chuẩn (10%). Không sử dụng cho giao dịch được miễn thuế VAT (y tế, giáo dục, v.v.) hoặc thuế suất 0% (xuất khẩu, v.v.).",
+        "Tất cả số tiền được làm tròn xuống đến won gần nhất theo tiêu chuẩn kê khai của Hometax (NTS). Có thể có chênh lệch nhỏ do chính sách làm tròn của công ty thẻ hoặc từng doanh nghiệp.",
+        "Tỷ lệ giá trị gia tăng theo ngành cho người nộp thuế đơn giản dựa trên Nghị định thi hành Luật Thuế Giá trị Gia tăng §111 tính đến 2021-07-01. Có thể thay đổi khi luật được sửa đổi.",
+        "Kết quả chỉ mang tính tham khảo. Vui lòng xác nhận nghĩa vụ thuế thực tế qua Hometax của NTS hoặc chuyên gia thuế được cấp phép.",
+        "Công cụ này không tự động loại trừ các khoản thuế đầu vào không được khấu trừ (ví dụ: chi phí tiếp khách, mua sắm ngoài mục đích kinh doanh). Vui lòng đánh giá riêng khả năng khấu trừ trước khi nhập số tiền mua vào."
+      ],
+      "related": [
+        {
+          "label": "Máy tính thuế freelancer 3,3%",
+          "href": "/freelancer-tax"
+        },
+        {
+          "label": "Máy tính thuế thu nhập",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Tra cứu mã số đăng ký kinh doanh",
+          "href": "/biznum-check"
+        },
+        {
+          "label": "Máy tính lãi kép",
+          "href": "/compound-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "foreign-stock-tax": {
+      "overview": "Máy tính thuế chuyển nhượng cổ phiếu nước ngoài tính thuế cho cư dân Hàn Quốc khi bán cổ phiếu nước ngoài (Mỹ, Nhật Bản, Trung Quốc, v.v.). Công cụ chuyển đổi lợi nhuận sang KRW theo tỷ giá chính thức tại cả ngày mua và ngày bán, sau đó áp dụng khấu trừ hàng năm 2,5 triệu KRW và thuế suất 22% (20% thuế thu nhập + 2% thuế địa phương). Nếu bạn đã sử dụng một phần khấu trừ cho khoản đầu tư khác trong năm nay, hãy nhập vào ô 'khấu trừ đã sử dụng' để chỉ áp dụng phần còn lại. Kết quả là mô phỏng sơ bộ cho kỳ kê khai Hometax vào tháng 5; dữ liệu nhập được xử lý ngay trên trình duyệt của bạn và không bao giờ gửi lên máy chủ.",
+      "useCases": [
+        "Ước tính thuế trước kỳ kê khai cuối cùng tháng 5 sau khi bán cổ phiếu Mỹ (ETF S&P 500 hoặc cổ phiếu đơn lẻ)",
+        "Trong năm biến động cao, mô phỏng chênh lệch tỷ giá giữa ngày mua và ngày bán ảnh hưởng đến thuế như thế nào",
+        "Chiến lược bù trừ lỗ cuối năm: bán vị thế lỗ trước vị thế lãi để giảm cơ sở tính thuế",
+        "Lập kế hoạch bán trong hạn mức khấu trừ 2,5 triệu KRW: tính ngược lợi nhuận giữ thuế ở mức 0",
+        "Đánh giá lợi nhuận chịu thuế trước khi chuyển tiền vào tài khoản ISA hoặc tài khoản hưu trí"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập giá mua (bằng ngoại tệ) và tỷ giá tại thời điểm mua. Tìm tỷ giá chính thức tại ECOS của Ngân hàng Trung ương Hàn Quốc (ecos.bok.or.kr) hoặc 'tỷ giá áp dụng' trên sao kê giao dịch của công ty chứng khoán.",
+          "Nhập giá bán (bằng ngoại tệ) và tỷ giá tại thời điểm bán. Nếu bạn đã mua cùng một cổ phiếu nhiều lần, hãy dùng đơn giá bình quân gia quyền.",
+          "Nhập chi phí giao dịch (phí + thuế, bằng KRW). Với cổ phiếu Mỹ, khoản này bao gồm phí môi giới cộng phí bán SEC. Chi phí được trừ khỏi lợi nhuận.",
+          "Nếu đã sử dụng một phần khấu trừ hàng năm cho các khoản lợi nhuận cổ phiếu nước ngoài khác trong năm nay, nhập vào 'khấu trừ đã sử dụng' (nhập 0 nếu chưa dùng). Nhấn Tính toán để xem cơ sở tính thuế, thuế và lợi nhuận sau thuế từng bước."
+        ]
+      },
+      "formula": {
+        "title": "Công thức (Luật Thuế Thu nhập §94·§104)",
+        "body": "① KRW mua = giá mua (ngoại tệ) × tỷ giá ngày mua\n② KRW bán = giá bán (ngoại tệ) × tỷ giá ngày bán\n③ Lợi nhuận chuyển nhượng = ② − ① − chi phí giao dịch (KRW)\n\n④ Khấu trừ còn lại = 2.500.000 KRW − khấu trừ đã sử dụng trong năm\n⑤ Cơ sở tính thuế = max(0, ③ − ④)\n⑥ Thuế chuyển nhượng vốn = ⑤ × 22%\n   (20% thuế thu nhập + 2% thuế địa phương)\n⑦ Lợi nhuận sau thuế = ③ − ⑥\n\n- Thuế suất 22% là mức cố định bất kể quy mô thu nhập\n- Khấu trừ 2,5 triệu KRW được đặt lại mỗi năm một lần\n- Tỷ giá: tỷ giá chính thức tại ngày mua và ngày bán — do đó biến động tỷ giá cũng ảnh hưởng đến lợi nhuận"
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: Lợi nhuận 5 triệu KRW từ cổ phiếu Mỹ — được khấu trừ đầy đủ",
+            "body": "Lợi nhuận chuyển nhượng 5.000.000 − khấu trừ 2.500.000 = cơ sở tính thuế 2.500.000 KRW\nThuế = 2.500.000 × 22% = 550.000 KRW\nLợi nhuận sau thuế = 5.000.000 − 550.000 = 4.450.000 KRW\n→ Thuế suất thực tế trên lợi nhuận là 11%. Khấu trừ 2,5 triệu KRW giúp giảm bớt gánh nặng."
+          },
+          {
+            "title": "Ví dụ 2: Ảnh hưởng tỷ giá — lãi bằng đô la nhưng lãi bằng won gần như biến mất",
+            "body": "Mua: 100 USD × 1.350 KRW = 135.000 KRW\nBán: 110 USD × 1.230 KRW = 135.300 KRW\nLãi +10% tính bằng đô la, nhưng chỉ 300 KRW (+0,2%) tính bằng won\n→ Với lợi nhuận 300 KRW, khoản này nằm trong hạn mức khấu trừ 2,5 triệu KRW — không phải nộp thuế\nĐây là trường hợp điển hình khi tỷ giá giảm bù trừ mức tăng giá cổ phiếu."
+          },
+          {
+            "title": "Ví dụ 3: Bù trừ lỗ — bán cổ phiếu lỗ trước trong năm",
+            "body": "Cổ phiếu A lãi 6 triệu KRW, cổ phiếu B lỗ 2 triệu KRW (bán trong cùng năm)\nLợi nhuận ròng = 6 triệu − 2 triệu = 4 triệu KRW\nCơ sở tính thuế = 4 triệu − khấu trừ 2,5 triệu = 1,5 triệu KRW\nThuế = 1,5 triệu × 22% = 330.000 KRW\nSo với chỉ kê khai lợi nhuận 6 triệu mà không bù trừ: (6 triệu − 2,5 triệu) × 22% = 770.000 KRW → tiết kiệm khoảng 440.000 KRW."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Khi nào phải kê khai thuế chuyển nhượng cổ phiếu nước ngoài?",
+          "answer": "Bạn kê khai quyết toán cuối cùng tại Hometax (hometax.go.kr) từ ngày 1 đến ngày 31 tháng 5 hàng năm, bao gồm các giao dịch bán từ ngày 1 tháng 1 đến ngày 31 tháng 12 năm trước. Không kê khai sẽ bị phạt không kê khai (20%) cộng thêm phạt chậm nộp."
+        },
+        {
+          "question": "Làm sao để tận dụng tối đa khấu trừ 2,5 triệu KRW?",
+          "answer": "Nếu tổng lợi nhuận cổ phiếu nước ngoài hàng năm của bạn (sau khi bù trừ lỗ) là 2,5 triệu KRW hoặc thấp hơn, thuế phải nộp bằng 0. Nhiều nhà đầu tư căn thời điểm hiện thực hóa lợi nhuận để giữ ở mức bằng hoặc dưới 2,5 triệu KRW ('thu hoạch thuế'). Khấu trừ này được tính riêng với lợi nhuận cổ phiếu trong nước và bất động sản."
+        },
+        {
+          "question": "Nên dùng tỷ giá nào?",
+          "answer": "Sử dụng tỷ giá cơ sở của Ngân hàng Trung ương Hàn Quốc (tỷ giá tham chiếu tiêu chuẩn). Áp dụng tỷ giá của ngày giao dịch thực tế — ngày mua đối với giao dịch mua và ngày chuyển nhượng đối với giao dịch bán. Bạn có thể tính ngược từ 'số tiền quy đổi KRW' trên sao kê của công ty chứng khoán hoặc tra cứu trực tiếp tại ECOS (ecos.bok.or.kr)."
+        },
+        {
+          "question": "Có thể bù trừ lỗ cổ phiếu trong nước với lãi cổ phiếu nước ngoài không?",
+          "answer": "Theo luật hiện hành, lãi/lỗ cổ phiếu niêm yết trong nước và lãi/lỗ cổ phiếu nước ngoài không thể bù trừ lẫn nhau. Cổ phiếu nước ngoài có thể bù trừ lẫn nhau trong cùng năm. Ngay cả sau khi bãi bỏ thuế thu nhập từ đầu tư tài chính vào năm 2025, cổ phiếu nước ngoài vẫn giữ chế độ thuế 22% riêng biệt."
+        },
+        {
+          "question": "ETF nước ngoài và cổ phiếu đơn lẻ có bị đánh thuế cùng mức không?",
+          "answer": "Nếu bạn mua ETF niêm yết trên sàn giao dịch nước ngoài thông qua công ty chứng khoán Hàn Quốc, khoản này bị đánh thuế như cổ phiếu đơn lẻ với mức 22% trên lợi nhuận. Tuy nhiên, ETF chỉ số nước ngoài niêm yết trên sàn giao dịch Hàn Quốc (ví dụ TIGER US S&P500) bị đánh thuế lợi nhuận như thu nhập cổ tức (15,4%) và nằm ngoài phạm vi của công cụ này."
+        },
+        {
+          "question": "Chi phí giao dịch gồm những gì?",
+          "answer": "Với cổ phiếu Mỹ, các khoản chính là phí môi giới (mua + bán) và phí bán SEC (số tiền bán × khoảng 0,00278%). Thuế giao dịch chứng khoán của Hàn Quốc không áp dụng cho cổ phiếu nước ngoài. Chi phí giao dịch được trừ khỏi lợi nhuận, giúp giảm thuế phải nộp."
+        }
+      ],
+      "cautions": [
+        "Máy tính này mô phỏng một giao dịch đơn lẻ. Nếu bạn đã mua cùng một cổ phiếu nhiều lần, hãy tự tính và nhập đơn giá bình quân gia quyền.",
+        "Hãy tính tổng cơ sở tính thuế hàng năm bằng cách cộng tất cả giao dịch cổ phiếu nước ngoài và kê khai theo đó; công cụ này chỉ xử lý một giao dịch.",
+        "ETF chỉ số nước ngoài niêm yết trên sàn giao dịch Hàn Quốc chịu thuế thu nhập cổ tức (15,4%), không phải thuế chuyển nhượng vốn, nên khác với công cụ này.",
+        "Tỷ giá, thuế suất và hạn mức khấu trừ thay đổi khi luật được sửa đổi. Vui lòng xác nhận thông tin kê khai chính xác qua Hometax hoặc chuyên gia thuế.",
+        "Kết quả chỉ mang tính tham khảo và không có giá trị pháp lý. Với số tiền lớn hoặc giao dịch phức tạp, hãy tham khảo chuyên gia thuế được cấp phép."
+      ],
+      "related": [
+        {
+          "label": "Máy tính thuế thu nhập",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Máy tính thuế freelancer",
+          "href": "/freelancer-tax"
+        },
+        {
+          "label": "Máy tính 4 loại bảo hiểm bắt buộc",
+          "href": "/insurance-calc"
+        },
+        {
+          "label": "Máy tính lãi kép",
+          "href": "/compound-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "gift-tax": {
+      "overview": "Thuế tặng cho Hàn Quốc (증여세) do người nhận (người được tặng cho) nộp khi nhận tài sản miễn phí. Theo Điều 53 Luật Thuế Thừa kế và Thuế Tặng cho (상속세 및 증여세법), khoản khấu trừ được áp dụng dựa trên mối quan hệ giữa người tặng và người nhận — tối đa 600 triệu KRW cho vợ/chồng, 50 triệu KRW cho con thành niên trực hệ, 20 triệu KRW cho con chưa thành niên trực hệ, và 10 triệu KRW cho họ hàng khác — được cộng dồn trong khoảng thời gian 10 năm. Thuế suất lũy tiến từ 10% (đến 100 triệu KRW) đến 50% (trên 3 tỷ KRW) được áp dụng theo Điều 56. Việc tự nguyện kê khai trong vòng 3 tháng sẽ được hưởng thêm ưu đãi 3% trên số thuế tính toán. Máy tính này ngay lập tức đưa ra khấu trừ, cơ sở tính thuế, thuế tính toán, ưu đãi khai thuế tự nguyện và thuế thực nộp cuối cùng. Lưu ý: định giá tài sản, phụ thu bỏ qua thế hệ (30%) và các khoản phạt thuế không được bao gồm.",
+      "useCases": [
+        "Ước tính thuế tặng cho trước khi cha mẹ chuyển 50 triệu KRW tiền mặt cho con đã thành niên",
+        "Tính thuế tặng cho giữa vợ chồng sau khi khấu trừ 600 triệu KRW khi chuyển nhượng bất động sản",
+        "Mô phỏng thuế tặng cho bổ sung khi đã có các khoản tặng cho trước đó trong khoảng 10 năm",
+        "Kiểm tra thuế tặng cho cổ phiếu cho con chưa thành niên bằng hạn mức khấu trừ 20 triệu KRW",
+        "So sánh thuế phải nộp khi có và không có ưu đãi khai thuế tự nguyện 3%"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (3 bước)",
+        "steps": [
+          "Nhập giá trị tài sản tặng cho — giá trị tiền mặt, giá trị thẩm định tài sản, hoặc giá trị thị trường của cổ phiếu.",
+          "Chọn mối quan hệ với người tặng. Khoản khấu trừ sẽ được áp dụng tự động dựa trên mối quan hệ đã chọn.",
+          "Nhập các khoản đã nhận tặng cho trước đó từ cùng người tặng trong 10 năm qua (nhập 0 nếu không có), đánh dấu vào ô tự nguyện khai thuế, và thuế phải nộp sẽ hiển thị ngay lập tức."
+        ]
+      },
+      "formula": {
+        "title": "Công thức",
+        "body": "Cơ sở tính thuế = Giá trị tài sản tặng cho − Khấu trừ theo quan hệ − Tài sản đã tặng cho trong 10 năm trước\n\nThuế tính toán = Cơ sở tính thuế × Thuế suất − Khấu trừ lũy tiến\n\n[Bảng thuế suất]\n  Đến 100 triệu KRW : 10% (khấu trừ: 0)\n  Đến 500 triệu KRW : 20% (khấu trừ: 10 triệu)\n  Đến 1 tỷ KRW      : 30% (khấu trừ: 60 triệu)\n  Đến 3 tỷ KRW      : 40% (khấu trừ: 160 triệu)\n  Trên 3 tỷ KRW      : 50% (khấu trừ: 460 triệu)\n\nThuế thực nộp = Tự nguyện khai thuế → Thuế tính toán × 0,97\n              Không khai thuế  → Thuế tính toán (không có ưu đãi)"
+      },
+      "examples": {
+        "title": "Ví dụ",
+        "items": [
+          {
+            "title": "Ví dụ 1: Cha mẹ tặng cho con đã thành niên 100 triệu KRW",
+            "body": "Giá trị tặng cho 100 triệu KRW, quan hệ 'Trực hệ tôn thuộc → con thành niên'. Khấu trừ: 50 triệu KRW. Cơ sở tính thuế: 50 triệu KRW. Thuế tính toán: 50 triệu × 10% = 5 triệu KRW. Với ưu đãi khai thuế tự nguyện: 5 triệu × 0,97 = 4,85 triệu KRW phải nộp."
+          },
+          {
+            "title": "Ví dụ 2: Vợ/chồng tặng cho 1 tỷ KRW",
+            "body": "Giá trị tặng cho 1 tỷ KRW, quan hệ 'Vợ/chồng'. Khấu trừ: 600 triệu KRW. Cơ sở tính thuế: 400 triệu KRW. Thuế tính toán: 400 triệu × 20% − 10 triệu = 70 triệu KRW. Với ưu đãi khai thuế tự nguyện: 70 triệu × 0,97 = 67,9 triệu KRW phải nộp."
+          },
+          {
+            "title": "Ví dụ 3: Tặng cho thêm 30 triệu KRW sau khi đã nhận 30 triệu KRW từ cùng cha mẹ trước đó",
+            "body": "Người con đã thành niên đã nhận 30 triệu KRW từ cùng cha mẹ 5 năm trước. Khấu trừ còn lại: 50 triệu − 30 triệu = 20 triệu KRW. Cơ sở tính thuế: 30 triệu − 20 triệu = 10 triệu KRW. Thuế tính toán: 10 triệu × 10% = 1 triệu KRW. Với khai thuế tự nguyện: 970.000 KRW phải nộp."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Ai nộp thuế tặng cho Hàn Quốc — người tặng hay người nhận?",
+          "answer": "Người nhận (người được tặng cho) nộp thuế. Nếu người tặng thay mặt người nhận nộp thuế, khoản thanh toán đó sẽ được xem là một khoản tặng cho bổ sung và bị đánh thuế tương ứng."
+        },
+        {
+          "question": "'Cộng dồn 10 năm' có nghĩa là gì?",
+          "answer": "Các khoản tặng cho từ cùng một người tặng được cộng dồn trong khoảng thời gian 10 năm khi áp dụng hạn mức khấu trừ. Ví dụ, nếu bạn đã nhận 30 triệu KRW từ cha mẹ 5 năm trước, chỉ còn 20 triệu KRW trong hạn mức khấu trừ 50 triệu KRW dành cho con thành niên có thể áp dụng cho khoản tặng cho mới."
+        },
+        {
+          "question": "Thời hạn kê khai là khi nào?",
+          "answer": "Bạn phải kê khai và nộp thuế trong vòng 3 tháng kể từ ngày cuối cùng của tháng xảy ra việc tặng cho. Kê khai đúng hạn sẽ được hưởng ưu đãi khai thuế tự nguyện 3%. Kê khai trễ sẽ bị phạt không kê khai 20% cộng thêm lãi phạt hàng ngày."
+        },
+        {
+          "question": "Tài sản được định giá như thế nào cho mục đích thuế tặng cho?",
+          "answer": "Giá trị thị trường (dựa trên các giao dịch tương đương gần đây) được dùng làm phương pháp định giá chính. Khi không có giá trị thị trường, các phương pháp bổ sung như giá chuẩn công bố (기준시가) được sử dụng. Vui lòng nhập ước tính tốt nhất của bạn vào máy tính."
+        },
+        {
+          "question": "Phụ thu bỏ qua thế hệ là gì?",
+          "answer": "Nếu ông bà bỏ qua thế hệ cha mẹ để tặng cho trực tiếp cho cháu, một khoản phụ thu 30% sẽ được cộng thêm vào thuế tính toán. Máy tính này không bao gồm khoản phụ thu đó — hãy tham khảo chuyên gia thuế nếu trường hợp này áp dụng cho bạn."
+        }
+      ],
+      "cautions": [
+        "Máy tính này chỉ mang tính tham khảo và không có giá trị pháp lý. Số thuế thực nộp có thể khác.",
+        "Định giá tài sản, phụ thu bỏ qua thế hệ (30%) và các khoản phạt thuế không được phản ánh.",
+        "Nếu các khoản tặng cho trong 10 năm trước đã vượt quá hạn mức khấu trừ, sẽ không còn khấu trừ nào khả dụng thêm.",
+        "Bỏ lỡ thời hạn kê khai 3 tháng sẽ mất ưu đãi khai thuế tự nguyện 3% và phát sinh các khoản phạt thuế."
+      ],
+      "related": [
+        {
+          "label": "Thuế chuyển nhượng vốn",
+          "href": "/capital-gains-tax"
+        },
+        {
+          "label": "Thuế thu nhập",
+          "href": "/income-tax"
+        },
+        {
+          "label": "Thuế freelancer",
+          "href": "/freelancer-tax"
+        }
+      ],
+      "lastReviewed": "2025-06-24"
+    },
+    "prepayment-penalty": {
+      "overview": "Máy tính phí trả nợ trước hạn sử dụng công thức lũy tiến (sliding-scale) trong điều khoản giao dịch tín dụng ngân hàng (여신거래기본약관) chuẩn của các ngân hàng Hàn Quốc, để tự động tính khoản phí phải trả khi bạn trả nợ toàn bộ hoặc một phần trước ngày đáo hạn. Công thức lũy tiến có nghĩa là thời gian bạn giữ khoản vay càng lâu thì phí trả nợ trước hạn càng thấp: với tỷ lệ điển hình 1,2% và kỳ hạn miễn phí 3 năm, trả nợ ngay sau khi giải ngân sẽ chịu toàn bộ 1,2%, trong khi trả sau 1 năm chỉ khoảng 0,8%, sau 2 năm khoảng 0,4%, và sau 3 năm thì phí được miễn hoàn toàn. Nhập số tiền gốc trả trước hạn, tỷ lệ phí, số tháng đã trôi qua và kỳ hạn miễn phí để xem ngay số tiền phí, số ngày còn lại và tình trạng miễn phí. Công cụ này phù hợp với bất kỳ ai đang cân nhắc chuyển đổi khoản vay (대환대출, refinancing) hoặc lên kế hoạch trả nợ sớm sau khi nhận được một khoản tiền lớn.",
+      "useCases": [
+        "Kiểm tra phí trả nợ trước hạn trước khi chuyển đổi khoản vay (đổi ngân hàng hoặc sản phẩm vay)",
+        "Quyết định thời điểm tối ưu để trả nợ sớm khi nhận tiền thưởng hoặc tiền bán bất động sản",
+        "Xem còn bao nhiêu ngày nữa đến khi được miễn phí trả nợ trước hạn (thường là 3 năm)",
+        "So sánh số tiền phí thực tế giữa các mức tỷ lệ phí khác nhau của từng ngân hàng",
+        "Lên kế hoạch thời điểm gia hạn cho khoản vay jeonse, khoản vay thế chấp nhà, hoặc khoản vay tín chấp cá nhân"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập số tiền gốc trả trước hạn — toàn bộ số dư còn lại nếu trả hết, hoặc số tiền một phần bạn dự định trả.",
+          "Nhập tỷ lệ phí (%). Kiểm tra hợp đồng vay hoặc ứng dụng ngân hàng của bạn; phạm vi điển hình là 0,5–2%.",
+          "Nhập thời gian đã trôi qua theo tháng — số tháng kể từ ngày giải ngân khoản vay.",
+          "Nhập kỳ hạn miễn phí theo năm. Hầu hết ngân hàng Hàn Quốc dùng 3 năm; hãy kiểm tra hợp đồng của bạn.",
+          "Đọc kết quả: số tiền phí, số ngày còn lại đến khi được miễn phí, và tỷ lệ phí thực tế."
+        ]
+      },
+      "formula": {
+        "title": "Công thức lũy tiến (sliding-scale)",
+        "body": "Phí trả nợ trước hạn = số tiền gốc × tỷ lệ phí × (số ngày còn lại / số ngày kỳ hạn miễn phí)\n\nSố ngày còn lại = max(0, số ngày kỳ hạn miễn phí − số ngày đã trôi qua)\nSố ngày kỳ hạn miễn phí = số năm miễn phí × 365\nSố ngày đã trôi qua = số tháng đã trôi qua × 30,4 (đơn giản hóa: 1 tháng = 30,4 ngày)\n\nVí dụ: số tiền gốc 100 triệu won, tỷ lệ phí 1,2%, đã trôi qua 12 tháng, kỳ hạn miễn phí 3 năm\n→ Số ngày đã trôi qua = 12 × 30,4 = 364,8\n→ Số ngày còn lại = 1.095 − 364,8 = 730,2\n→ Phí trả nợ trước hạn = 100.000.000 × 0,012 × (730,2 / 1.095) ≈ 800.219 won"
+      },
+      "examples": {
+        "title": "Ví dụ tính toán",
+        "items": [
+          {
+            "title": "Trả nợ ngay lập tức (0 tháng đã trôi qua)",
+            "body": "Số tiền gốc 100 triệu won, tỷ lệ phí 1,2%, kỳ hạn miễn phí 3 năm. Số ngày còn lại = 1.095. Phí trả nợ trước hạn = 1.200.000 won (toàn bộ tỷ lệ). Đây là kịch bản tệ nhất khi chuyển đổi khoản vay — chờ đến khi hết kỳ hạn miễn phí sẽ giảm đáng kể chi phí."
+          },
+          {
+            "title": "Trả nợ sau 1 năm (đã trôi qua 12 tháng)",
+            "body": "Số tiền gốc 100 triệu won, tỷ lệ phí 1,2%, kỳ hạn miễn phí 3 năm. Số ngày đã trôi qua = 364,8, số ngày còn lại = 730,2. Phí trả nợ trước hạn ≈ 800.219 won — thấp hơn khoảng 33% so với trả nợ ngay lập tức. Công thức lũy tiến giúp giảm gánh nặng theo thời gian."
+          },
+          {
+            "title": "Trả nợ sau 3 năm trở lên — được miễn phí hoàn toàn",
+            "body": "Số tiền gốc 100 triệu won, tỷ lệ phí 1,2%, đã trôi qua 37 tháng trở lên, kỳ hạn miễn phí 3 năm. Số ngày còn lại = 0. Phí trả nợ trước hạn = 0 won. Theo điều khoản giao dịch tín dụng ngân hàng chuẩn của Hàn Quốc, khi kỳ hạn miễn phí (thường là 3 năm) đã qua, phí trả nợ trước hạn được miễn hoàn toàn."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Phí trả nợ trước hạn khoản vay là gì?",
+          "answer": "Phí trả nợ trước hạn (중도상환수수료) là khoản phí ngân hàng thu khi bạn trả nợ khoản vay trước ngày đáo hạn. Vì ngân hàng mất đi khoản thu nhập lãi dự kiến, họ bù đắp bằng cách thu một tỷ lệ phần trăm trên số tiền trả trước hạn. Khoản phí này thường giảm dần về 0 trong vòng 3 năm."
+        },
+        {
+          "question": "Tôi có thể tìm tỷ lệ phí của mình ở đâu?",
+          "answer": "Kiểm tra hợp đồng vay (약정서), màn hình chi tiết khoản vay trong ứng dụng ngân hàng của bạn, hoặc gọi trung tâm chăm sóc khách hàng của ngân hàng. Tỷ lệ phí thường dao động từ 0,5% đến 2%. Các ngân hàng số như Kakao Bank hoặc Toss Bank thường không thu phí trả nợ trước hạn."
+        },
+        {
+          "question": "Sau 3 năm phí có thực sự bằng 0 không?",
+          "answer": "Theo điều khoản giao dịch tín dụng ngân hàng (여신거래기본약관) chuẩn của Hàn Quốc, phí trả nợ trước hạn được miễn khi đã trôi qua 3 năm (1.095 ngày) kể từ ngày giải ngân. Tuy nhiên, một số sản phẩm có thể áp dụng kỳ hạn miễn phí khác — hãy luôn xác nhận trong hợp đồng vay cụ thể của bạn."
+        },
+        {
+          "question": "Tại sao kết quả máy tính có thể khác với khoản phí thực tế của ngân hàng tôi?",
+          "answer": "Máy tính này đơn giản hóa số ngày đã trôi qua bằng số tháng × 30,4. Ngân hàng của bạn tính chính xác số ngày theo lịch từ ngày giải ngân đến ngày trả nợ. Một số sản phẩm cũng có thể dùng phương pháp khác (ví dụ: trừ trực tiếp từ số tiền gốc còn lại). Luôn xác nhận khoản phí chính xác với ngân hàng trước khi trả nợ."
+        },
+        {
+          "question": "Làm sao để so sánh phí trả nợ trước hạn với khoản tiết kiệm khi chuyển đổi khoản vay?",
+          "answer": "So sánh phí trả nợ trước hạn với khoản tiết kiệm lãi suất hàng năm từ khoản vay mới có lãi suất thấp hơn. Ví dụ, nếu phí là 800.000 won và khoản vay mới tiết kiệm 1.200.000 won lãi mỗi năm, bạn hòa vốn trong chưa đầy một năm. Dùng Máy tính vay để so sánh tổng lãi giữa hai khoản vay."
+        },
+        {
+          "question": "Phí trả nợ trước hạn một phần được tính như thế nào?",
+          "answer": "Khoản phí chỉ áp dụng cho số tiền bạn thực sự trả sớm. Nhập số tiền trả trước hạn một phần (không phải toàn bộ số dư khoản vay) vào trường số tiền gốc để tính phí cho riêng số tiền đó."
+        }
+      ],
+      "cautions": [
+        "Máy tính này sử dụng mô hình đơn giản hóa (số ngày đã trôi qua = số tháng × 30,4) và có thể khác với cách tính chính xác theo ngày lịch của ngân hàng bạn.",
+        "Các ngân hàng số (Kakao Bank, Toss Bank, v.v.) có thể không thu phí trả nợ trước hạn — hãy kiểm tra hợp đồng của bạn.",
+        "Khoản vay lãi suất cố định và lãi suất thả nổi có thể có tỷ lệ phí khác nhau; các sản phẩm khuyến mãi có thể có điều kiện đặc biệt.",
+        "Luôn xác nhận khoản phí chính xác với ngân hàng trước khi quyết định trả nợ sớm."
+      ],
+      "related": [
+        {
+          "label": "Máy tính vay",
+          "href": "/loan-calc"
+        },
+        {
+          "label": "Lãi suất kép",
+          "href": "/compound-calc"
+        },
+        {
+          "label": "Lương thực nhận",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2025-06-24"
+    },
+    "car-acquisition-tax": {
+      "overview": "Máy tính thuế trước bạ (취득세) ô tô Hàn Quốc tính thuế dựa trên giá mua xe. Áp dụng 7% cho xe con, 4% cho xe hạng nhẹ, và 5% cho xe khách/tải, kèm giảm trừ tối đa 1,4 triệu won cho xe thân thiện môi trường và miễn thuế cho xe hạng nhẹ dưới 500.000 won. Hãy kiểm tra khoản thuế thực tế trước khi đăng ký xe mới hoặc xe cũ.",
+      "useCases": [
+        "Ước tính thuế trước bạ trước khi mua xe mới",
+        "Tính thuế khi mua xe cũ",
+        "Kiểm tra mức giảm trừ cho xe điện/xe hydro",
+        "Xác định điều kiện miễn thuế cho xe hạng nhẹ",
+        "Lên kế hoạch tổng chi phí mua xe"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập giá trị mua xe (căn cứ tính thuế, chưa gồm VAT). Xe mới dùng giá xuất xưởng; xe cũ lấy giá trị cao hơn giữa giá giao dịch thực tế/giá trị đánh giá.",
+          "Chọn loại xe (xe con/xe hạng nhẹ/xe thân thiện môi trường/xe khách-tải) để áp dụng thuế suất và mức giảm trừ tương ứng.",
+          "Xem khoản thuế sau khi đã áp dụng giảm trừ cho xe thân thiện môi trường. Phí mua trái phiếu được tính riêng."
+        ]
+      },
+      "formula": {
+        "title": "Công thức thuế trước bạ (theo Luật Thuế địa phương)",
+        "body": "Thuế = giá mua xe × thuế suất\n  Xe con: 7%\n  Xe hạng nhẹ (≤1000cc): 4% (miễn thuế nếu ≤ 500.000 won)\n  Xe khách/tải: 5%\n\nXe thân thiện môi trường (xe điện/xe hydro): giảm trừ tối đa 1,4 triệu won\n\nVí dụ: xe con 30 triệu won × 7% = 2,1 triệu won\n  xe thân thiện môi trường 50 triệu won × 7% = 3,5 triệu − 1,4 triệu = 2,1 triệu won"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Xe con 30 triệu won",
+            "body": "30 triệu × 7% = 2,1 triệu won. Phí mua trái phiếu (theo khu vực/giá xe) và phí tem được tính cộng thêm riêng."
+          },
+          {
+            "title": "Ví dụ 2: Xe hạng nhẹ 10 triệu won",
+            "body": "10 triệu × 4% = 400.000 won, nhưng vì dưới 500.000 won nên được miễn thuế. Thuế = 0. Đây là một ưu đãi dành cho xe hạng nhẹ."
+          },
+          {
+            "title": "Ví dụ 3: Xe điện 50 triệu won",
+            "body": "50 triệu × 7% = 3,5 triệu − 1,4 triệu (giảm trừ xe thân thiện môi trường) = 2,1 triệu won. Rẻ hơn 1,4 triệu won so với xe xăng tương đương."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Thuế trước bạ và thuế đăng ký có khác nhau không?",
+          "answer": "Thuế đăng ký đã được hợp nhất vào thuế trước bạ từ năm 2011, nên hiện nay chỉ còn 'thuế trước bạ' được thu. Người ta vẫn hay nói '취등록세' (thuế trước bạ + đăng ký), nhưng khoản mục thực tế chỉ là thuế trước bạ."
+        },
+        {
+          "question": "Tại sao phí trái phiếu được tính riêng?",
+          "answer": "Đăng ký xe yêu cầu mua trái phiếu phát triển khu vực — đây là khoản mua trái phiếu, không phải thuế. Nếu bán ngay trái phiếu với giá chiết khấu, bạn chỉ phải chịu một phần chi phí. Mức này thay đổi theo khu vực và giá xe."
+        },
+        {
+          "question": "Căn cứ tính thuế cho xe cũ là gì?",
+          "answer": "Là giá trị cao hơn giữa giá giao dịch thực tế và giá trị đánh giá thuế địa phương (theo năm sản xuất). Nếu khai báo giá quá thấp sẽ bị áp thuế theo giá trị đánh giá."
+        },
+        {
+          "question": "Có giảm trừ cho gia đình đông con không?",
+          "answer": "Từ năm 2025, các hộ gia đình có từ 2 con trở lên dưới 18 tuổi được miễn thuế toàn bộ (3 con) hoặc 50% (2 con) đối với xe con từ 6 chỗ trở xuống. Máy tính này chưa bao gồm mức giảm trừ này — hãy xác nhận riêng."
+        },
+        {
+          "question": "Mức giảm trừ cho xe thân thiện môi trường có hiệu lực đến khi nào?",
+          "answer": "Mức giảm trừ thuế trước bạ cho xe điện/xe hydro (tối đa 1,4 triệu won) được gia hạn hoặc điều chỉnh theo chính sách. Hãy kiểm tra mức trần hiện hành tại thời điểm mua xe."
+        },
+        {
+          "question": "Khi nào tôi phải nộp thuế trước bạ?",
+          "answer": "Khai báo và nộp thuế trong vòng 60 ngày kể từ ngày mua xe (đăng ký). Thường được xử lý cùng với việc đăng ký xe; nộp trễ sẽ bị phạt."
+        }
+      ],
+      "cautions": [
+        "Căn cứ theo Luật Thuế địa phương. Phí mua trái phiếu và phí tem được tính riêng.",
+        "Xe cũ lấy giá trị cao hơn giữa giá giao dịch thực tế/giá trị đánh giá.",
+        "Chưa bao gồm mức giảm trừ cho gia đình đông con năm 2025 — hãy xác nhận riêng.",
+        "Mức trần giảm trừ cho xe thân thiện môi trường thay đổi theo chính sách.",
+        "Khai báo/nộp thuế trong vòng 60 ngày kể từ ngày mua xe."
+      ],
+      "related": [
+        {
+          "label": "Thuế ô tô hàng năm",
+          "href": "/car-tax"
+        },
+        {
+          "label": "Máy tính vay",
+          "href": "/loan-calc"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "car-tax": {
+      "overview": "Máy tính thuế ô tô hàng năm của Hàn Quốc tính khoản thuế hàng năm dựa trên dung tích xi-lanh và tuổi xe. Áp dụng đơn giá theo cc (≤1000cc là 80 won, ≤1600cc là 140 won, >1600cc là 200 won) cộng thuế giáo dục 30%, giảm trừ theo tuổi xe (5%/năm từ năm thứ 3, tối đa 50%), và mức thuế cố định cho xe điện (130.000 won). Công cụ cũng hiển thị số tiền nộp theo nửa năm vào tháng 6 và tháng 12.",
+      "useCases": [
+        "Kiểm tra thuế ô tô hàng năm của xe bạn",
+        "So sánh chi phí sở hữu xe trước khi mua",
+        "Xem mức giảm trừ thuế theo tuổi xe",
+        "Kiểm tra thuế ô tô cho xe điện",
+        "Xem khoản thuế cơ bản trước khi áp dụng giảm trừ khi nộp trước cả năm"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập dung tích xi-lanh (cc), được ghi trên giấy đăng ký xe.",
+          "Nhập tuổi xe (theo năm); mức giảm trừ áp dụng từ năm thứ 3.",
+          "Chọn ô xe điện để áp dụng mức thuế cố định 130.000 won. Xem tổng số tiền hàng năm và số tiền nộp theo nửa năm."
+        ]
+      },
+      "formula": {
+        "title": "Công thức thuế ô tô (xe con phi thương mại)",
+        "body": "Thuế ô tô = dung tích xi-lanh × đơn giá theo cc\n  ≤1000cc: 80, ≤1600cc: 140, >1600cc: 200 won\n\nThuế giáo dục = thuế ô tô × 30%\nTổng số tiền hàng năm = thuế ô tô + thuế giáo dục\n\nGiảm trừ theo tuổi xe: 5%/năm từ năm thứ 3, tối đa 50% (từ năm thứ 12 trở đi)\nXe điện: mức cố định 130.000 won (xe con phi thương mại)\n\nVí dụ: 1600cc = 1600 × 140 = 224.000 + thuế giáo dục 67.200 = 291.200 won"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Xe mới 1600cc",
+            "body": "1600 × 140 = 224.000 + thuế giáo dục 30% là 67.200 = 291.200 won/năm. Khoảng 145.600 won mỗi lần vào tháng 6 và tháng 12."
+          },
+          {
+            "title": "Ví dụ 2: Xe 2000cc, đã sử dụng 5 năm",
+            "body": "2000 × 200 = 400.000 won thuế cơ bản. Giảm trừ 15% ở năm thứ 5 → còn khoảng 340.000 won + thuế giáo dục. Xe càng cũ thì thuế càng thấp."
+          },
+          {
+            "title": "Ví dụ 3: Xe điện",
+            "body": "Mức cố định 130.000 won bất kể dung tích xi-lanh + thuế giáo dục 39.000 = 169.000 won/năm. Rẻ hơn nhiều so với xe xăng dung tích lớn."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao thuế ô tô lại tính theo dung tích xi-lanh?",
+          "answer": "Thuế ô tô hiện hành dùng dung tích xi-lanh (cc) làm căn cứ tính thuế. Dung tích càng lớn thì đơn giá theo cc càng cao, dẫn đến thuế càng nhiều. Vì không tính theo giá xe, một chiếc xe nhỏ đắt tiền có thể phải nộp thuế ít hơn một chiếc xe lớn."
+        },
+        {
+          "question": "Giảm trừ theo tuổi xe hoạt động như thế nào?",
+          "answer": "Từ năm thứ 3 sau khi đăng ký, mỗi năm được giảm thêm 5%, đạt tối đa 50% ở năm thứ 12. Xe càng cũ thì gánh nặng thuế càng nhẹ."
+        },
+        {
+          "question": "Có giảm trừ khi nộp thuế trước không?",
+          "answer": "Có. Nộp toàn bộ số tiền cả năm vào tháng 1 được giảm khoảng 7% (theo mức năm 2024, giảm dần theo từng năm). Máy tính này hiển thị khoản thuế cơ bản trước khi áp dụng giảm trừ."
+        },
+        {
+          "question": "Tại sao thuế xe điện lại là mức cố định?",
+          "answer": "Xe điện không có dung tích xi-lanh, nên áp dụng mức cố định 130.000 won (xe con phi thương mại). Thấp hơn nhiều so với xe xăng dung tích lớn (2000cc là 400.000 won trở lên) — đây là một trong những lợi ích khi sở hữu xe điện."
+        },
+        {
+          "question": "Thuế giáo dục là gì?",
+          "answer": "Là khoản phụ thu trên thuế ô tô — 30% được dùng cho quỹ giáo dục địa phương. Khoản này được gộp chung trong hóa đơn thuế ô tô."
+        },
+        {
+          "question": "Khi nào tôi phải nộp thuế ô tô?",
+          "answer": "Nộp hai lần một năm — tháng 6 (nửa đầu năm) và tháng 12 (nửa cuối năm), mỗi lần một nửa. Nếu nộp trước cả năm vào tháng 1, bạn trả một lần toàn bộ số tiền đã được giảm trừ."
+        }
+      ],
+      "cautions": [
+        "Áp dụng cho xe con phi thương mại. Xe thương mại/xe khách/xe tải dùng hệ thống tính thuế khác.",
+        "Chưa bao gồm mức giảm trừ khi nộp trước (~7%) — kết quả hiển thị là thuế cơ bản.",
+        "Mức thuế cố định cho xe điện là 130.000 won áp dụng cho xe con phi thương mại.",
+        "Giảm trừ theo tuổi xe bắt đầu từ năm thứ 3 sau khi đăng ký.",
+        "Thuế giáo dục 30% được cộng thêm vào thuế ô tô."
+      ],
+      "related": [
+        {
+          "label": "Thuế trước bạ ô tô",
+          "href": "/car-acquisition-tax"
+        },
+        {
+          "label": "Hóa đơn tiền điện",
+          "href": "/electric-bill"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "f2-residence-visa": {
+      "checklist": {
+        "title": "Danh mục hồ sơ & điều kiện xin visa cư trú F-2-7",
+        "groups": [
+          {
+            "heading": "Xác nhận nhóm điều kiện đủ tư cách",
+            "items": [
+              "Chuyên gia (E-1–E-7 / D-5–D-9) cư trú hợp pháp liên tục từ 3 năm trở lên (miễn điều kiện 3 năm nếu thu nhập hàng năm trên ₩40 triệu).",
+              "Nhân tài học thuật: có bằng thạc sĩ trở lên tại Hàn Quốc, làm việc ở vị trí đủ điều kiện trong vòng 5 năm sau tốt nghiệp.",
+              "Nhân viên công ty niêm yết (KOSPI/KOSDAQ) — được miễn điều kiện cư trú 3 năm.",
+              "Người lao động ngành công nghiệp triển vọng (IT, sinh học, nano, v.v.) đạt ngưỡng thu nhập theo GNI (cần xác minh — ngưỡng này thay đổi hàng năm).",
+              "Điều kiện cơ bản: đạt 80/170 điểm và có tối thiểu 1 năm lưu trú hợp pháp trước khi nộp hồ sơ (xác minh ngưỡng hiện hành)."
+            ]
+          },
+          {
+            "heading": "Chuẩn bị giấy tờ chứng minh điểm & sàng lọc",
+            "items": [
+              "Chứng minh thu nhập: giấy chứng nhận số tiền thu nhập (소득금액증명) và/hoặc biên lai khấu trừ thuế tại nguồn (원천징수영수증).",
+              "Chứng minh việc làm: hợp đồng lao động hoặc giấy xác nhận việc làm; bằng cấp (hợp pháp hóa lãnh sự nếu cấp ở nước ngoài).",
+              "Chứng minh năng lực tiếng Hàn: chứng chỉ TOPIK hoặc giấy chứng nhận hoàn thành KIIP (Chương trình Hòa nhập Xã hội).",
+              "Chỉ nộp giấy tờ tương ứng với mục điểm bạn thực sự đăng ký — không bắt buộc nộp đầy đủ hồ sơ của mọi hạng mục.",
+              "Giấy xác nhận không có tiền án hình sự cấp quốc gia có hợp pháp hóa lãnh sự (cấp trong vòng 6 tháng), kèm khám sàng lọc lao (TB) nếu bạn đến từ quốc gia thuộc diện chỉ định (xác minh)."
+            ]
+          },
+          {
+            "heading": "Hồ sơ chính & nộp đơn",
+            "items": [
+              "Đơn xin cấp phép tổng hợp (통합신청서), hộ chiếu, thẻ ARC, ảnh 3.5×4.5cm, và bảng tính điểm F-2-7 đã hoàn thành.",
+              "Chứng minh nơi cư trú: hợp đồng thuê nhà, giấy xác nhận cư trú, hoặc giấy chứng nhận ký túc xá.",
+              "Nộp trực tuyến qua HiKorea (chuyển đổi tư cách → F-2-7) hoặc trực tiếp tại văn phòng xuất nhập cảnh theo địa chỉ cư trú; HiKorea thường nhanh hơn 1–2 tuần.",
+              "Lệ phí khoảng ₩130.000 cho chuyển đổi tư cách (xác nhận trên HiKorea trước khi thanh toán); thời gian xử lý khoảng 4–8 tuần, có thể lâu hơn vào mùa cao điểm.",
+              "Theo dõi trạng thái trên HiKorea, sau đó nhận Thẻ Cư trú mới trực tiếp; gọi 1345 để biết quy định cho từng trường hợp cụ thể."
+            ]
+          },
+          {
+            "heading": "Duy trì tư cách & lộ trình lên F-5",
+            "items": [
+              "Ở mỗi lần gia hạn, duy trì điểm số từ 80 trở lên và thu nhập đạt ngưỡng GNI trở lên.",
+              "Giữ tư cách F-2-7 liên tục 3 năm để đủ điều kiện xin thường trú F-5.",
+              "Vợ/chồng và con cái có thể giữ tư cách F-2 phụ thuộc và được phép làm việc sau khi được chấp thuận (tùy thuộc thu nhập của bạn đáp ứng điều kiện — xác minh).",
+              "Cập nhật hồ sơ thu nhập, thuế, cư trú hàng năm, và xác nhận riêng các điều kiện F-5 hiện hành (có thể thay đổi) (xác minh)."
+            ]
+          }
+        ]
+      },
+      "overview": "F-2-7 là visa cư trú theo chế độ tính điểm của Hàn Quốc — một bước phổ biến hướng tới thường trú (F-5). Để nộp hồ sơ, bạn cần (1) thuộc một trong năm nhóm đủ điều kiện, (2) đáp ứng các điều kiện cốt lõi (cư trú hợp pháp liên tục 3 năm hoặc thu nhập hàng năm từ ₩40 triệu trở lên, hạnh kiểm tốt, sức khỏe cộng đồng), và (3) đạt 80/170 điểm trong bài kiểm tra tính điểm. Công cụ này kiểm tra các nhóm điều kiện và yêu cầu cốt lõi. Công cụ CỐ Ý không tính tổng điểm, vì bảng tính điểm chi tiết là tài liệu nội bộ chưa công bố của Bộ Tư pháp, khác nhau tùy nguồn và có thể thay đổi mà không báo trước.",
+      "useCases": [
+        "Chuyên gia (E-7, v.v.) cư trú từ 3 năm trở lên kiểm tra khả năng chuyển sang F-2-7",
+        "Người tốt nghiệp thạc sĩ tại Hàn Quốc tìm hiểu lộ trình cư trú",
+        "Bất kỳ ai đang vạch lộ trình từ visa lao động → F-2-7 → thường trú F-5",
+        "Xác nhận điều kiện cốt lõi trước khi đặt lịch tư vấn tại HiKorea",
+        "Hiểu rõ bài kiểm tra 80 điểm thực sự đánh giá những gì"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Chọn nhóm đối tượng phù hợp với bạn (nhân viên công ty niêm yết, người lao động ngành triển vọng, chuyên gia 3 năm, người tốt nghiệp thạc sĩ trong nước, hoặc nhân tài STEM).",
+          "Kiểm tra các điều kiện cốt lõi: cư trú hợp pháp liên tục 3 năm hoặc thu nhập từ ₩40 triệu trở lên, hạnh kiểm tốt, và điều kiện sức khỏe cộng đồng.",
+          "Xem điều kiện cốt lõi của bạn đã đáp ứng đến đâu và còn thiếu gì.",
+          "Sau đó xác nhận tổng điểm và tư cách đủ điều kiện thực tế tại hikorea.go.kr hoặc gọi 1345 — công cụ này sẽ không ước đoán điểm số của bạn."
+        ]
+      },
+      "formula": {
+        "title": "Cách hoạt động của bài kiểm tra 80 điểm (mang tính tham khảo)",
+        "body": "Điểm đạt: 80/170 điểm (130 điểm cốt lõi + tối đa 40 điểm cộng thêm).\nCác mục được tính điểm: độ tuổi, trình độ học vấn, năng lực tiếng Hàn (TOPIK hoặc KIIP), thu nhập hàng năm, kinh nghiệm làm việc/cư trú, cộng thêm các khoản cộng điểm (bằng cấp Hàn Quốc, giới thiệu của chính phủ, hoàn thành KIIP, hoạt động tình nguyện) và khoản trừ điểm (vi phạm xuất nhập cảnh, tiền án hình sự).\n\n⚠️ Các điểm số chi tiết theo từng mục KHÔNG được công bố chính thức — chúng nằm trong tài liệu nội bộ của Bộ Tư pháp và khác nhau giữa các nguồn không chính thức, vì vậy công cụ này không tính ra một con số cụ thể. Thu nhập là yếu tố có trọng số lớn nhất. Xác minh điểm số thực tế của bạn tại HiKorea."
+      },
+      "examples": {
+        "title": "Các tình huống điển hình",
+        "items": [
+          {
+            "title": "Chuyên gia đang giữ visa E-7 trong 3 năm",
+            "body": "Đáp ứng nhóm chuyên gia và điều kiện 3 năm. Vẫn cần đạt 80 điểm (thu nhập và năng lực tiếng Hàn thường là yếu tố quyết định) cùng hạnh kiểm tốt. Kiểm tra điểm số tại HiKorea."
+          },
+          {
+            "title": "Người tốt nghiệp thạc sĩ tại trường đại học Hàn Quốc",
+            "body": "Đủ điều kiện theo nhóm nhân tài học thuật; điều kiện cư trú 3 năm có thể được miễn nếu thu nhập từ ₩40 triệu trở lên. Học vấn và năng lực tiếng Hàn thường được điểm cao."
+          },
+          {
+            "title": "Người có thu nhập cao trong ngành công nghiệp triển vọng",
+            "body": "Nhóm ngành công nghiệp triển vọng cùng thu nhập cao (mục có trọng số lớn nhất) giúp đạt 80 điểm khả thi — nhưng bản thân nhóm này yêu cầu thu nhập tối thiểu bằng 1,5 lần GNI."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Visa F-2-7 là gì?",
+          "answer": "Là visa cư trú theo chế độ tính điểm dành cho người nước ngoài có kỹ năng, với quyền làm việc và cư trú rộng rãi. Sau khi giữ visa này 3 năm với tình trạng tốt, bạn có thể theo đuổi thường trú theo điểm số (F-5)."
+        },
+        {
+          "question": "Tôi cần bao nhiêu điểm?",
+          "answer": "80 trên tổng 170 điểm. Nhưng chỉ đạt 80 điểm là chưa đủ — bạn còn phải thuộc một trong các nhóm đủ điều kiện và vượt qua kiểm tra hạnh kiểm cùng sức khỏe cộng đồng."
+        },
+        {
+          "question": "Tại sao công cụ này không tính điểm cho tôi?",
+          "answer": "Bảng tính điểm chi tiết là tài liệu nội bộ chưa công bố của Bộ Tư pháp, và các nguồn không chính thức không thống nhất về con số (đặc biệt là thu nhập và học vấn). Đưa ra điểm số sai có thể gây hiểu lầm cho hồ sơ của bạn, vì vậy chúng tôi chỉ kiểm tra các điều kiện có thể xác minh và hướng dẫn bạn đến nguồn chính thức để lấy điểm số."
+        },
+        {
+          "question": "Điều kiện cư trú 3 năm có thể được miễn không?",
+          "answer": "Có — nếu thu nhập hàng năm từ ₩40 triệu trở lên, hoặc thông qua chương trình thu hút nhân tài STEM được phê duyệt kèm giới thiệu của chính phủ."
+        },
+        {
+          "question": "Thời gian giữ visa du học (D-2) hoặc tìm việc (D-10) có được tính vào 3 năm không?",
+          "answer": "Đối với nhóm chuyên gia, thời gian giữ D-2/D-10 trước đó thường KHÔNG được tính (theo hướng dẫn chính thức). Người tốt nghiệp bằng cấp Hàn Quốc thay vào đó nộp hồ sơ theo nhóm nhân tài học thuật."
+        },
+        {
+          "question": "Sau F-2-7 là gì?",
+          "answer": "Giữ visa này từ 3 năm trở lên với tình trạng tốt, bạn có thể nộp hồ sơ xin F-5 (thường trú) theo lộ trình tính điểm."
+        }
+      ],
+      "cautions": [
+        "Các điểm số chi tiết theo từng mục không chính thức và có thể thay đổi mà không báo trước — đây là danh mục điều kiện, không phải công cụ tính điểm.",
+        "Đạt 80 điểm không đảm bảo được chấp thuận; nhóm đối tượng, cư trú/thu nhập, hạnh kiểm và sức khỏe đều phải được đáp ứng.",
+        "Các nhóm đủ điều kiện và ngưỡng thu nhập (liên kết với GNI) thay đổi hàng năm.",
+        "Quyết định được xét theo từng trường hợp cụ thể, tùy vào đánh giá của cán bộ thụ lý.",
+        "Luôn xác minh tại hikorea.go.kr hoặc Trung tâm Liên lạc Xuất nhập cảnh (1345)."
+      ],
+      "related": [
+        {
+          "label": "Theo dõi số ngày lưu trú",
+          "href": "/visa-days"
+        },
+        {
+          "label": "Bảo hiểm y tế (NHIS)",
+          "href": "/foreign-health-insurance"
+        },
+        {
+          "label": "Thuế suất cố định cho người nước ngoài",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Lương thực nhận",
+          "href": "/net-salary"
+        }
+      ],
+      "lastReviewed": "2026-06-15"
+    },
+    "d8-startup-visa": {
+      "checklist": {
+        "title": "Danh mục thành lập doanh nghiệp & nộp hồ sơ visa D-8",
+        "groups": [
+          {
+            "heading": "Chọn loại hình D-8 phù hợp",
+            "items": [
+              "D-8-1 (nhà đầu tư pháp nhân): đầu tư từ ₩100 triệu trở lên vào một pháp nhân Hàn Quốc và nắm giữ từ 10% cổ phần có quyền biểu quyết trở lên; cấp tối đa 5 năm.",
+              "D-8-3 (nhà đầu tư doanh nghiệp tư nhân): đầu tư từ ₩100 triệu trở lên vào doanh nghiệp có đồng đại diện là người Hàn Quốc, nắm giữ từ 10% vốn trở lên; tối đa 5 năm.",
+              "D-8-4 (khởi nghiệp công nghệ): người sáng lập có bằng cấp cùng sở hữu trí tuệ, thông qua chương trình OASIS và bài kiểm tra tính điểm; 1 năm, có thể gia hạn.",
+              "Xác nhận có văn phòng thực tế, độc lập — văn phòng dùng chung/văn phòng ảo không được chấp nhận cho D-8-1/3 (bàn làm việc tại coworking space có thể đủ điều kiện cho D-8-4)."
+            ]
+          },
+          {
+            "heading": "D-8-1/3 — quy trình thành lập doanh nghiệp 4 bước",
+            "items": [
+              "Bước 1 — nộp Khai báo Đầu tư của Người nước ngoài (외국인투자신고) tại ngân hàng ngoại hối được chỉ định hoặc KOTRA.",
+              "Bước 2 — chuyển khoản từ ₩100 triệu trở lên bằng ngoại tệ; tên người gửi phải trùng với cổ đông, kèm ghi chú MT103 SWIFT 'chuyển thay mặt cho [nhà đầu tư]'.",
+              "Bước 3 — hoàn tất đăng ký thành lập pháp nhân (법인설립등기), sau đó lấy Giấy chứng nhận Đăng ký Kinh doanh (사업자등록증).",
+              "Bước 4 — hoàn tất Đăng ký Doanh nghiệp có Vốn đầu tư nước ngoài (외국인투자기업 등록) tại ngân hàng/KOTRA.",
+              "Lưu giữ đầy đủ dòng tiền: lịch sử tài khoản ngân hàng doanh nghiệp, chứng minh nguồn gốc vốn, và hồ sơ chuyển khoản ₩100 triệu."
+            ]
+          },
+          {
+            "heading": "D-8-4 — điều kiện tiên quyết khởi nghiệp công nghệ (OASIS)",
+            "items": [
+              "Có bằng cử nhân trở lên; bằng cấp nước ngoài phải được hợp pháp hóa lãnh sự.",
+              "Sở hữu quyền sở hữu trí tuệ gắn với doanh nghiệp — bằng sáng chế, giải pháp hữu ích, hoặc đơn đăng ký/đăng ký kiểu dáng (tối thiểu phải đã nộp đơn).",
+              "Thành lập MỚI một pháp nhân Hàn Quốc với bạn là người sáng lập/lãnh đạo chủ chốt trong lĩnh vực công nghệ.",
+              "Đăng ký tham gia OASIS và thu thập chứng chỉ hoàn thành khóa học để tích lũy điểm.",
+              "Đạt số điểm yêu cầu (thường được nêu là 60, dù một số nguồn nói 80 — xác minh) và có văn phòng thực tế hoặc bàn làm việc thuê tại coworking space."
+            ]
+          },
+          {
+            "heading": "Hồ sơ, nộp đơn & lộ trình D-10-2",
+            "items": [
+              "Chuẩn bị kế hoạch kinh doanh chi tiết (tính xác thực được xem xét kỹ lưỡng), cùng đơn xin cấp phép, hộ chiếu, ảnh, và lệ phí.",
+              "D-8-1/3 bổ sung: chứng minh đầu tư, bản sao đăng ký pháp nhân, giấy chứng nhận đăng ký kinh doanh, và chứng minh mục đích sử dụng vốn.",
+              "D-8-4 bổ sung: bằng cấp đã hợp pháp hóa lãnh sự, (các) chứng chỉ OASIS, giấy chứng nhận nộp đơn sở hữu trí tuệ, bảng tính điểm, và hợp đồng cư trú.",
+              "Thành lập, đăng ký công ty và góp đủ vốn TRƯỚC khi nộp hồ sơ; chuyển đổi diện nhập cảnh sang thẻ ARC trong vòng 90 ngày kể từ khi đến.",
+              "Lộ trình khuyến nghị: nhập cảnh bằng D-10-2 (chuẩn bị khởi nghiệp, tối đa 2 năm), hoàn thành OASIS + nộp đơn sở hữu trí tuệ + đăng ký công ty, sau đó chuyển sang D-8-4."
+            ]
+          }
+        ]
+      },
+      "overview": "D-8 là visa đầu tư kinh doanh của Hàn Quốc dành cho người nước ngoài thành lập hoặc đầu tư vào một công ty Hàn Quốc. Visa này chia thành ba loại phổ biến: D-8-1 (thành lập hoặc đầu tư vào pháp nhân), D-8-3 (đầu tư vào doanh nghiệp do người Hàn Quốc điều hành), và D-8-4 (khởi nghiệp công nghệ — thành lập công ty mới bằng sở hữu trí tuệ của chính bạn). Công cụ này kiểm tra các điều kiện cốt lõi có thể xác minh cho từng loại. Đối với D-8-4, công cụ CỐ Ý không tính điểm OASIS: mức tối thiểu chính thức là 60/300, nhưng các nguồn không thống nhất (80–120) và bảng chi tiết từng mục là tài liệu nội bộ chưa công bố của Bộ Tư pháp, có thể thay đổi mà không báo trước.",
+      "useCases": [
+        "Người sáng lập nước ngoài đang cân nhắc giữa lộ trình đầu tư (D-8-1) và lộ trình khởi nghiệp (D-8-4)",
+        "Doanh nhân sở hữu bằng sáng chế kiểm tra điều kiện khởi nghiệp công nghệ D-8-4",
+        "Nhà đầu tư xác nhận quy tắc ₩100 triệu / 10% cổ phần trước khi chuyển tiền",
+        "Người giữ D-10-2 (chuẩn bị khởi nghiệp) đang vạch lộ trình chuyển sang D-8-4",
+        "Bất kỳ ai đang chuẩn bị hồ sơ trước buổi tư vấn tại HiKorea hoặc KOTRA"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Chọn loại D-8 của bạn: D-8-1 đầu tư pháp nhân, D-8-3 đầu tư cá nhân, hoặc D-8-4 khởi nghiệp công nghệ.",
+          "Đánh dấu các điều kiện cốt lõi hiển thị cho loại đó (đầu tư & cổ phần & đăng ký pháp nhân, hoặc bằng cấp & sở hữu trí tuệ & pháp nhân mới & một mục bắt buộc của OASIS).",
+          "Bổ sung điều kiện hạnh kiểm chung: không có tiền án hình sự, ít hơn 4 lần vi phạm xuất nhập cảnh, không nợ thuế.",
+          "Xem những gì đã đáp ứng và còn thiếu — sau đó xác minh tư cách đủ điều kiện chính xác của bạn (và, với D-8-4, số điểm OASIS của bạn) tại hikorea.go.kr hoặc Trung tâm Xuất nhập cảnh Khởi nghiệp Toàn cầu."
+        ]
+      },
+      "formula": {
+        "title": "Cách hoạt động của bài kiểm tra điểm OASIS (mang tính tham khảo)",
+        "body": "OASIS (Hệ thống Hỗ trợ Toàn diện cho Xuất nhập cảnh Khởi nghiệp) chấm điểm cho người nộp hồ sơ D-8-4.\nMức đạt chính thức: 60/300 — nhưng các nguồn không chính thức nêu 80–120 là ngưỡng thực tế.\nCác mục bắt buộc (cần ít nhất một): quyền sở hữu trí tuệ đã đăng ký/đang chờ xử lý, nguồn vốn khởi nghiệp của chính phủ hoặc tham gia OASIS-6/9, huy động đầu tư từ ₩100 triệu trở lên, hoặc từ 3 năm trở lên làm giáo sư (E-1)/nhà nghiên cứu (E-3).\nCác mục tùy chọn cộng thêm điểm: các khóa học OASIS (OASIS-1/2/4/5/8), trình độ TOPIK, và bằng thạc sĩ/tiến sĩ.\n\n⚠️ Bảng đầy đủ là tài liệu nội bộ chưa công bố của Bộ Tư pháp, thay đổi hàng năm, vì vậy công cụ này chỉ kiểm tra các điều kiện có thể xác minh và KHÔNG khẳng định một điểm số cụ thể."
+      },
+      "examples": {
+        "title": "Các tình huống điển hình",
+        "items": [
+          {
+            "title": "Người sáng lập có bằng sáng chế đang chờ xử lý (D-8-4)",
+            "body": "Có bằng cử nhân nước ngoài, bằng sáng chế đang chờ xử lý, và đang thành lập pháp nhân mới — đáp ứng ba mục cốt lõi. Vẫn cần ít nhất một mục bắt buộc của OASIS và hồ sơ hạnh kiểm sạch. Xác nhận điểm số tại Trung tâm Xuất nhập cảnh Khởi nghiệp Toàn cầu."
+          },
+          {
+            "title": "Nhà đầu tư thành lập pháp nhân Hàn Quốc (D-8-1)",
+            "body": "Chuyển khoản từ ₩100 triệu trở lên, nắm giữ từ 10% cổ phần có quyền biểu quyết trở lên, và hoàn tất đăng ký pháp nhân + doanh nghiệp có vốn đầu tư nước ngoài. Cơ quan xuất nhập cảnh vẫn xem xét thực chất kinh doanh và nguồn gốc vốn — nhà đầu tư nhỏ bị giám sát chặt chẽ hơn."
+          },
+          {
+            "title": "Đầu tư vào công ty do người Hàn Quốc điều hành (D-8-3)",
+            "body": "Cùng quy tắc ₩100 triệu / 10% cộng hợp đồng điều hành. D-8-3 cấp thời hạn lưu trú một lần dài nhất trong các loại D-8 (tối đa 5 năm), nhưng mức đầu tư tối thiểu vẫn là ₩100 triệu, không phải ₩300 triệu."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Visa D-8 là gì?",
+          "answer": "Là visa đầu tư kinh doanh của Hàn Quốc dành cho người nước ngoài điều hành hoặc đầu tư vào một công ty Hàn Quốc. D-8-1/D-8-3 dựa trên đầu tư; D-8-4 dành cho khởi nghiệp công nghệ được thành lập dựa trên sở hữu trí tuệ của chính người nộp hồ sơ."
+        },
+        {
+          "question": "Tôi cần đầu tư bao nhiêu?",
+          "answer": "Đối với D-8-1 và D-8-3, mức tối thiểu theo luật là ₩100 triệu (khoảng 73.000 USD) với từ 10% cổ phần có quyền biểu quyết trở lên, theo Luật Xúc tiến Đầu tư Nước ngoài. D-8-4 không có mức vốn tối thiểu cố định theo luật, nhưng cơ quan xuất nhập cảnh vẫn kỳ vọng nguồn vốn thực tế."
+        },
+        {
+          "question": "Tại sao công cụ này không tính điểm OASIS cho tôi?",
+          "answer": "Mức tối thiểu chính thức là 60, nhưng các nguồn không chính thức nói 80–120, và bảng điểm chi tiết là tài liệu nội bộ chưa công bố của Bộ Tư pháp, thay đổi hàng năm. Đưa ra điểm số sai có thể gây hiểu lầm cho hồ sơ của bạn, vì vậy chúng tôi chỉ kiểm tra các điều kiện có thể xác minh và hướng dẫn bạn đến nguồn chính thức."
+        },
+        {
+          "question": "Tôi có thể mua lại một công ty có sẵn để xin D-8-4 không?",
+          "answer": "Không. D-8-4 yêu cầu thành lập một pháp nhân MỚI. Mua lại một công ty có sẵn không đủ điều kiện cho lộ trình khởi nghiệp công nghệ."
+        },
+        {
+          "question": "Đơn đăng ký bằng sáng chế (chưa được cấp) có được tính không?",
+          "answer": "Có — bằng sáng chế, giải pháp hữu ích, hoặc quyền kiểu dáng đang chờ xử lý đều được tính cho D-8-4. Bạn không cần đợi đến khi đăng ký hoàn tất."
+        },
+        {
+          "question": "Lộ trình khuyến nghị cho người sáng lập là gì?",
+          "answer": "Bắt đầu bằng D-10-2 (chuẩn bị khởi nghiệp, 6 tháng đến tối đa 2 năm), tham gia chương trình OASIS và thành lập pháp nhân, sau đó chuyển sang D-8-4 (cấp mỗi lần 12 tháng)."
+        }
+      ],
+      "cautions": [
+        "Điểm số OASIS và bảng điểm không chính thức/chưa công bố và thay đổi hàng năm — đây là danh mục điều kiện, không phải công cụ tính điểm.",
+        "Đáp ứng các điều kiện không đảm bảo được chấp thuận; thực chất kinh doanh và nguồn gốc vốn được xem xét theo đánh giá của cán bộ thụ lý.",
+        "D-8-4 yêu cầu một pháp nhân MỚI; địa chỉ văn phòng ảo về cơ bản không được chấp nhận — cần có văn phòng thực tế.",
+        "Mức tối thiểu ₩100 triệu được quy định theo luật; con số ₩300 triệu mà một số nguồn nêu là ngưỡng quy tắc chuyển khoản, không phải mức tối thiểu cao hơn.",
+        "Luôn xác minh tại hikorea.go.kr, Trung tâm Liên lạc Xuất nhập cảnh (1345), hoặc Trung tâm Hỗ trợ Đầu tư Nước ngoài KOTRA."
+      ],
+      "related": [
+        {
+          "label": "Visa cư trú F-2-7",
+          "href": "/f2-residence-visa"
+        },
+        {
+          "label": "Theo dõi số ngày lưu trú",
+          "href": "/visa-days"
+        },
+        {
+          "label": "Thuế suất cố định cho người nước ngoài",
+          "href": "/foreign-flat-tax"
+        },
+        {
+          "label": "Bảo hiểm y tế (NHIS)",
+          "href": "/foreign-health-insurance"
+        }
+      ],
+      "lastReviewed": "2026-06-16"
+    },
+    "gift-money": {
+      "checklist": {
+        "title": "Danh mục nghi thức tiền mừng cưới & tiền phúng viếng ở Hàn Quốc",
+        "groups": [
+          {
+            "heading": "Tiền mừng cưới (축의금) — mức bao nhiêu",
+            "items": [
+              "Mức cơ bản là ₩50.000 (tối thiểu) và ₩100.000 (phổ biến nhất); mức trung bình năm 2024 khoảng ₩90.000.",
+              "Đồng nghiệp chỉ gặp ở công ty: ₩50.000; đồng nghiệp thân thiết ngoài công việc: ₩100.000 (đánh giá theo mức độ thân thiết, không theo chức vụ).",
+              "Bạn bè: ₩100.000 cho bạn thông thường, từ ₩150.000 trở lên cho bạn thân, từ ₩200.000 trở lên cho bạn thân nhất.",
+              "Họ hàng: ₩200.000–300.000 cho anh chị em họ/cô dì chú bác; từ ₩500.000 trở lên cho bố mẹ/anh chị em ruột.",
+              "Được mời nhưng không tham dự (không dự tiệc): thông thường là ₩50.000. Dùng số lẻ và tránh ₩40.000 (số 4 phát âm giống 'chết')."
+            ]
+          },
+          {
+            "heading": "Tiền phúng viếng tang lễ (부의금)",
+            "items": [
+              "Mức thông thường: ₩30.000 / ₩50.000 / ₩70.000 / ₩100.000 — số lẻ được xem là may mắn; tránh ₩90.000 và tuyệt đối không đưa ₩400.000.",
+              "₩50.000–100.000 cho đồng nghiệp; đưa nhiều hơn nếu có quan hệ thân thiết với người đã khuất hoặc gia đình tang quyến.",
+              "Khác với đám cưới, tiền cũ/đã qua sử dụng theo truyền thống được ưa chuộng hơn tiền mới phẳng phiu.",
+              "Mặc trang phục màu đen (hoặc xanh navy/xám trầm) — tránh màu sắc sặc sỡ, nước hoa nồng, hoặc phụ kiện lòe loẹt.",
+              "Tại bàn thờ, dâng nhang hoặc hoa cúc trắng, cúi lạy sâu hai lần, rồi cúi chào nửa người với người chủ tang; giữ lời nói ngắn gọn."
+            ]
+          },
+          {
+            "heading": "Cách viết phong bì trắng",
+            "items": [
+              "Dùng phong bì trắng trơn và bút mực đen (hoặc xanh đậm).",
+              "Mặt trước phong bì tang lễ (căn giữa, viết dọc): 賻儀 (Buui) hoặc 謹弔 (Geunjo); mặt trước phong bì cưới: 祝結婚 hoặc 祝華婚.",
+              "Viết tên bạn theo chiều dọc ở góc dưới bên trái MẶT SAU, kèm nơi công tác (công ty/bộ phận) ở phía trên bên phải.",
+              "Với quà tặng nhóm, chỉ viết tên tổ chức — ví dụ: 'Toàn thể nhân viên công ty OO'.",
+              "Khi chuyển khoản ngân hàng, ghi tên bạn cùng từ chỉ dịp lễ trong nội dung chuyển khoản — ví dụ: 'Hong Gildong phúng viếng'."
+            ]
+          },
+          {
+            "heading": "Các dịp khác & tập quán nơi công sở",
+            "items": [
+              "Tiệc thôi nôi (돌잔치): bạn bè khoảng ₩50.000–100.000 (thường ~₩70.000); đồng nghiệp/người quen khoảng ₩30.000–50.000.",
+              "Tân gia (집들이): mang theo quà khoảng ₩50.000 (một món đồ gia dụng) thay vì tiền mặt; đồng nghiệp thường góp chung.",
+              "Tiền mặt được ưa chuộng mạnh mẽ cho đám cưới và tang lễ; quà tặng phù hợp cho tiệc thôi nôi và tân gia.",
+              "Chuyển khoản ngân hàng phù hợp giữa bạn bè thân thiết, nhưng đưa tiền mặt trực tiếp lịch sự hơn với người lớn tuổi; phong bì góp chung theo nhóm phổ biến ở nơi làm việc."
+            ]
+          }
+        ]
+      },
+      "overview": "Máy tính tiền mừng ở Hàn Quốc gợi ý mức tiền mặt phù hợp cho đám cưới (축의금) và tang lễ (부의금) dựa trên mối quan hệ và việc có tham dự hay không. Không có quy tắc cố định, nhưng tồn tại các khoảng thông lệ theo mức độ thân thiết — người quen, đồng nghiệp, bạn bè, bạn thân, họ hàng — cùng với tập quán tăng thêm một bậc khi tham dự (để bù chi phí bữa tiệc) và ưa chuộng số lẻ.",
+      "useCases": [
+        "Khi không chắc nên mừng cưới bao nhiêu tiền",
+        "Kiểm tra mức tiền phúng viếng phù hợp",
+        "Xác định mức cơ bản cho sự kiện của đồng nghiệp",
+        "Xem sự khác biệt giữa việc tham dự và không tham dự",
+        "Hướng dẫn cho người nước ngoài mới làm quen với tập quán lễ nghi Hàn Quốc"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Chọn dịp lễ (cưới/tang).",
+          "Chọn mối quan hệ của bạn (người quen/đồng nghiệp/bạn bè/bạn thân/họ hàng).",
+          "Với đám cưới, kiểm tra việc tham dự — mức gợi ý sẽ điều chỉnh để bù chi phí bữa tiệc."
+        ]
+      },
+      "formula": {
+        "title": "Mức tiền gợi ý (theo tập quán)",
+        "body": "Đám cưới (đơn vị 10.000 KRW):\n  người quen 5 / đồng nghiệp 5-10 / bạn bè 5-10 / bạn thân 10-20 / họ hàng 10-30\nTang lễ:\n  người quen 3-5 / đồng nghiệp 5-10 / bạn bè 5-10 / bạn thân 10-20 / họ hàng 10-30\n\nTăng thêm một bậc khi tham dự (chi phí bữa tiệc).\nƯu tiên số lẻ (30/50/70/100 nghìn) — số chẵn ngụ ý 'chia cắt' (100 nghìn là ngoại lệ)."
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Đám cưới đồng nghiệp, có tham dự",
+            "body": "Mức cơ bản cho đồng nghiệp là 50 nghìn, nhưng khi tham dự (chi phí bữa ăn ~50 nghìn) nên đưa 100 nghìn. Tập quán là đưa nhiều hơn chi phí bữa tiệc."
+          },
+          {
+            "title": "Ví dụ 2: Đám cưới bạn thân",
+            "body": "Khoảng dành cho bạn thân là 100-200 nghìn. Quyết định dựa trên mối quan hệ bạn bè và việc đáp lễ trong tương lai tại đám cưới của chính bạn."
+          },
+          {
+            "title": "Ví dụ 3: Tang lễ bố mẹ của sếp",
+            "body": "Tiền phúng viếng cho đồng nghiệp/sếp là 50-100 nghìn. Đôi khi cả nhóm cùng góp chung. Việc tham dự quan trọng hơn số tiền."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Số tiền có nên là số lẻ không?",
+          "answer": "Hàn Quốc ưa chuộng số lẻ (30/50/70 nghìn). Số chẵn ngụ ý 'chia cắt (ly tán)' và thường bị tránh, nhưng 100 nghìn là ngoại lệ ('trọn vẹn'). Đây không phải quy tắc tuyệt đối."
+        },
+        {
+          "question": "Tôi có thể đưa ít hơn nếu không tham dự không?",
+          "answer": "Việc tham dự phát sinh chi phí bữa ăn (~50 nghìn), nên khi không tham dự, mức tiền trừ đi chi phí bữa ăn (ví dụ: đồng nghiệp 50 nghìn) là phù hợp. Khi tham dự, tập quán là đưa vượt quá chi phí bữa tiệc."
+        },
+        {
+          "question": "Tôi là người nước ngoài được mời đám cưới Hàn Quốc",
+          "answer": "50-100 nghìn là an toàn tùy theo mối quan hệ. Viết tên bạn lên phong bì và đưa tại bàn tiếp tân; dùng tiền mới phẳng phiu trong phong bì trắng. Tang lễ dùng phong bì trắng; đám cưới cũng dùng phong bì trắng/trơn."
+        },
+        {
+          "question": "Mức tiền cưới và tang lễ có khác nhau không?",
+          "answer": "Tương tự, nhưng tiền phúng viếng thường thấp hơn một chút. Với tang lễ, việc tham dự để chia sẻ nỗi đau quan trọng hơn số tiền."
+        },
+        {
+          "question": "Nếu công ty đã góp chung, tôi có cần đưa thêm không?",
+          "answer": "Khi một nhóm/bộ phận cùng gửi vòng hoa hoặc tiền phúng viếng chung, việc đưa thêm cá nhân là tùy chọn theo mức độ thân thiết. Những người thân thiết có thể đưa thêm một chút riêng."
+        },
+        {
+          "question": "Tôi nên viết gì trên phong bì?",
+          "answer": "Với đám cưới, viết 祝結婚/祝華婚 ở mặt trước; với tang lễ, viết 賻儀/謹弔, cùng tên và nơi công tác của bạn ở mặt sau. Viết bằng tiếng Hàn ('축 결혼' / lời chia buồn) cũng được."
+        }
+      ],
+      "cautions": [
+        "Không có quy tắc cố định — chỉ là mức tham khảo thay đổi theo mối quan hệ, khu vực, giá cả.",
+        "Tăng thêm một bậc khi tham dự (chi phí bữa tiệc).",
+        "Ưu tiên số lẻ, nhưng 100 nghìn là ngoại lệ.",
+        "Với tang lễ, việc tham dự quan trọng hơn số tiền.",
+        "Dùng tiền mới trong phong bì trắng/trơn."
+      ],
+      "related": [
+        {
+          "label": "Máy tính phần trăm",
+          "href": "/percent-calc"
+        },
+        {
+          "label": "Tuổi Hàn Quốc",
+          "href": "/korean-age"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "name-romanize": {
+      "overview": "Công cụ phiên âm La-tinh tên tiếng Hàn chuyển đổi tên chữ Hangul sang chữ La-tinh theo quy tắc Romanization hóa chính thức của tiếng Hàn (2000). Tên được phiên âm theo từng âm tiết mà không phản ánh các biến đổi âm thanh (Điều 4, Mục 3), và họ cũng hiển thị cách viết hộ chiếu thông dụng (Kim, Lee, Park). Nhận ngay cách viết chuẩn cho hộ chiếu, danh thiếp, giấy tờ học thuật, và tài liệu ở nước ngoài.",
+      "useCases": [
+        "Xác nhận cách viết tiếng Anh cho hộ chiếu",
+        "Viết tên đã phiên âm La-tinh trên danh thiếp và chữ ký email",
+        "Tên tác giả trên các bài báo và hồ sơ nộp ở nước ngoài",
+        "Chỉ cho bạn bè nước ngoài cách viết tên bạn",
+        "Tên tiếng Anh trên chuyển khoản và hợp đồng"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập tên tiếng Hàn (ví dụ: 홍길동). Kết quả chuyển đổi hiện ra ngay lập tức.",
+          "Họ và tên đệm/tên riêng được tách tự động; các họ ghép (남궁, 황보) được nhận diện.",
+          "Bạn nhận được ba dạng: chính thức, cách viết họ thông dụng, và có gạch nối. Hộ chiếu thường khuyến nghị dùng cách viết họ thông dụng."
+        ]
+      },
+      "formula": {
+        "title": "Nguyên tắc phiên âm La-tinh (Viện Ngôn ngữ Quốc gia Hàn Quốc - NIKL)",
+        "body": "Phân tách mỗi âm tiết thành phụ âm đầu/nguyên âm giữa/phụ âm cuối, sau đó phiên âm:\n  Phụ âm đầu ㄱg ㄴn ㄷd ㄹr ㅁm ㅂb ㅅs ㅇ(câm) ㅈj ㅊch ㅋk ㅌt ㅍp ㅎh ...\n  Nguyên âm giữa ㅏa ㅓeo ㅗo ㅜu ㅡeu ㅣi ㅐae ㅔe ...\n  Phụ âm cuối ㄱk ㄴn ㄹl ㅁm ㅂp ㅇng ...\n\nQuy tắc dành cho tên: không phản ánh biến đổi âm thanh (Điều 4, Mục 3)\n  홍길동 = Hong + Gil + dong → Hong Gildong\n\nCách viết họ thông dụng: dạng phổ biến nhất trên hộ chiếu\n  Kim, Lee, Park, Choi, Jung ..."
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: 홍길동 → Hong Gildong",
+            "body": "홍=Hong, 길동=Gildong. Cách viết chính thức trùng với cách viết thông dụng trong trường hợp này. Theo từng âm tiết, không biến đổi âm thanh."
+          },
+          {
+            "title": "Ví dụ 2: 김민수 → chính thức Gim Minsu / thông dụng Kim Minsu",
+            "body": "Về mặt chính thức, ㄱ chuyển thành g (Gim), nhưng hộ chiếu phần lớn dùng Kim. Công cụ hiển thị cả hai."
+          },
+          {
+            "title": "Ví dụ 3: Họ ghép 남궁민 → Namgung Min",
+            "body": "남궁 được tự động nhận diện là họ gồm hai âm tiết. Họ là Namgung, tên riêng là Min. Họ ghép được viết liền nhau."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Nên dùng cách viết chính thức hay thông dụng cho hộ chiếu?",
+          "answer": "Một khi đã ghi trên hộ chiếu thì rất khó thay đổi, vì vậy hãy quyết định cẩn thận. Nếu có sẵn cách viết của gia đình bạn (Kim, Lee), hãy dùng theo; nếu là cách viết mới, cách viết thông dụng là lựa chọn an toàn. Bộ khuyến nghị dùng cách viết chuẩn nhưng vẫn cho phép cách viết thông dụng."
+        },
+        {
+          "question": "Tôi có nên dùng gạch nối giữa các âm tiết của tên riêng không?",
+          "answer": "Hộ chiếu cho phép cả viết liền (Gildong) lẫn có gạch nối (Gil-dong). Hãy nhất quán khi đã chọn một cách. Viết liền tránh bị hiểu nhầm là hai từ riêng biệt khi ở nước ngoài."
+        },
+        {
+          "question": "Tại sao tên không phản ánh biến đổi âm thanh?",
+          "answer": "Quy tắc này cố ý bỏ qua các biến đổi ngữ âm trong tên để tránh nhầm lẫn và sai lệch danh tính. Mỗi âm tiết được viết nhất quán theo từng chữ cái."
+        },
+        {
+          "question": "Cách viết họ thông dụng được xác lập như thế nào?",
+          "answer": "Đó là cách viết đa số đã trở nên phổ biến qua nhiều thập kỷ sử dụng trên hộ chiếu và ở nước ngoài. Hơn 90% người họ Kim dùng 'Kim'; 'Lee' chiếm ưu thế cho họ I. Chúng được ưu tiên hơn dạng chính thức (Gim, I)."
+        },
+        {
+          "question": "Các họ ghép có được nhận diện không?",
+          "answer": "Có. Các họ ghép chính (남궁, 황보, 제갈, 선우, 독고, 사공, 서문, 동방) được tự động nhận diện là họ gồm hai âm tiết. Các họ khác dùng âm tiết đầu tiên làm họ."
+        },
+        {
+          "question": "Cách viết này có dùng cho thẻ đăng ký người nước ngoài hoặc visa không?",
+          "answer": "Công cụ này dùng để phiên âm La-tinh tên của công dân Hàn Quốc. Người nước ngoài dùng tên tiếng Anh trên hộ chiếu quốc gia của họ; việc chuyển tự sang Hangul là một quy trình riêng biệt."
+        }
+      ],
+      "cautions": [
+        "Dựa trên quy tắc Romanization hóa chính thức của tiếng Hàn (2000); tên không phản ánh biến đổi âm thanh.",
+        "Cách viết trên hộ chiếu rất khó thay đổi một khi đã ghi — hãy thống nhất với cách viết của gia đình.",
+        "Cách viết họ thông dụng (Kim, Lee) khác với cách viết chuẩn nhưng được chấp nhận rộng rãi.",
+        "Cách phát âm đặc biệt có thể theo nguyện vọng riêng của người đó."
+      ],
+      "related": [
+        {
+          "label": "Tuổi Hàn Quốc",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Chuyển đổi kích cỡ",
+          "href": "/size-convert"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "voltage-guide": {
+      "overview": "Hướng dẫn điện áp và phích cắm Hàn Quốc này cho bạn biết liệu bạn có cần biến áp và phích chuyển đổi ('phích cắm tròn Hàn Quốc') khi đi du lịch hoặc chuyển đến sinh sống tại Hàn Quốc hay không. Hàn Quốc sử dụng điện áp 220V/60Hz với loại phích cắm C/F. Chọn điện áp thiết bị của bạn (nhãn INPUT) và loại phích cắm ở quê nhà, công cụ sẽ cho biết ngay liệu bạn có cần biến áp hạ thế và bộ chuyển đổi phích cắm hay không. Hầu hết sạc laptop và điện thoại đều là điện áp kép, nên chỉ cần bộ chuyển đổi phích cắm.",
+      "useCases": [
+        "Kiểm tra nhu cầu biến áp/bộ chuyển đổi trước chuyến đi Hàn Quốc",
+        "Xem thiết bị 110V của Mỹ/Nhật có hoạt động được với điện áp 220V của Hàn Quốc không",
+        "Kiểm tra khả năng tương thích của thiết bị tỏa nhiệt (máy sấy tóc, máy là tóc)",
+        "Quyết định xem đồ gia dụng của người định cư có hoạt động được ở Hàn Quốc không",
+        "Hiểu rõ liệu laptop/sạc có phải điện áp kép hay không"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Đọc nhãn INPUT trên thiết bị của bạn và chọn mức điện áp phù hợp (kép / 120V / 100V / 220V).",
+          "Chọn loại phích cắm của quốc gia bạn (A/B/C/F/G/I, v.v.).",
+          "Kết quả hiển thị ngay liệu bạn có cần biến áp và có cần bộ chuyển đổi phích cắm (phích cắm tròn Hàn Quốc) hay không."
+        ]
+      },
+      "formula": {
+        "title": "Cơ sở đưa ra quyết định",
+        "body": "Tiêu chuẩn Hàn Quốc: 220V · 60Hz · loại phích cắm C / F\n\nCó cần biến áp không?\n  Thiết bị hỗ trợ 220V (kép 100–240V hoặc 220–240V) → không cần biến áp\n  Thiết bị chỉ dùng 110–120V (Mỹ) hoặc chỉ 100V (Nhật) → cần biến áp hạ thế/tăng thế\n\nCó cần bộ chuyển đổi phích cắm (phích cắm tròn Hàn Quốc) không?\n  Phích cắm loại C hoặc F → cắm trực tiếp vào ổ điện Hàn Quốc (không cần bộ chuyển đổi)\n  Loại khác (A/B/G/I, v.v.) → cần bộ chuyển đổi phích cắm\n\nBiến áp = thay đổi điện áp / Bộ chuyển đổi = thay đổi hình dạng phích cắm (hai thứ khác nhau)."
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: Máy sấy tóc của Mỹ (120V, phích cắm A)",
+            "body": "Chỉ dùng 120V nên cần biến áp hạ thế + phích cắm A cần bộ chuyển đổi. Thiết bị tỏa nhiệt tiêu thụ công suất cao, nên mua thiết bị 220V nội địa tại Hàn Quốc an toàn hơn."
+          },
+          {
+            "title": "Ví dụ 2: Sạc laptop (100–240V, phích cắm C)",
+            "body": "Điện áp kép nghĩa là không cần biến áp + phích cắm C cắm trực tiếp được ở Hàn Quốc. Không cần gì cả. Trường hợp này áp dụng cho hầu hết sạc laptop và điện thoại."
+          },
+          {
+            "title": "Ví dụ 3: Thiết bị điện Nhật Bản (100V, phích cắm A)",
+            "body": "Chỉ dùng 100V nên cần biến áp tăng thế + phích cắm A cần bộ chuyển đổi. Cần cẩn thận khi dùng thiết bị Nhật Bản tại Hàn Quốc."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "'Phích cắm tròn Hàn Quốc' là gì?",
+          "answer": "Đây là tên gọi thân mật trong tiếng Hàn cho bộ chuyển đổi hình dạng phích cắm. Được đặt tên vì trông giống mũi heo ('dwaeji-ko'), nó chỉ thay đổi hình dạng phích cắm để vừa với ổ điện Hàn Quốc (C/F) — nó không thay đổi điện áp."
+        },
+        {
+          "question": "Biến áp khác bộ chuyển đổi phích cắm như thế nào?",
+          "answer": "Biến áp thay đổi điện áp (ví dụ 220V→110V). Bộ chuyển đổi chỉ thay đổi hình dạng phích cắm. Để dùng thiết bị 110V của Mỹ tại Hàn Quốc, bạn có thể cần cả hai. Thiết bị điện áp kép chỉ cần bộ chuyển đổi."
+        },
+        {
+          "question": "Làm sao biết thiết bị của tôi có phải điện áp kép không?",
+          "answer": "Đọc nhãn INPUT trên thiết bị/sạc. Một khoảng như '100-240V' nghĩa là điện áp kép (không cần biến áp). Một giá trị đơn như '120V' hoặc '100V' nghĩa là điện áp đơn và có thể cần biến áp."
+        },
+        {
+          "question": "Sự khác biệt giữa loại phích cắm C và F của Hàn Quốc là gì?",
+          "answer": "Cả hai đều là loại tròn 2 chân và ổ điện Hàn Quốc chấp nhận cả hai. Loại F có tiếp đất (kẹp kim loại ở hai bên) trong khi loại C thì không. Chúng tương thích với hầu hết châu Âu."
+        },
+        {
+          "question": "Tôi có cần dùng biến áp cho máy sấy tóc không?",
+          "answer": "Không khuyến khích. Máy sấy tóc và máy là tóc tiêu thụ công suất cao, mà biến áp du lịch thường không xử lý an toàn được. Mua sản phẩm 220V nội địa tại Hàn Quốc an toàn hơn và rẻ hơn."
+        }
+      ],
+      "cautions": [
+        "Dựa trên tiêu chuẩn Hàn Quốc 220V/60Hz, phích cắm C/F.",
+        "Luôn tự kiểm tra nhãn INPUT trên thiết bị của bạn — kết quả dựa trên thông tin bạn nhập.",
+        "Thiết bị tỏa nhiệt công suất cao (máy sấy tóc, máy là tóc) không phù hợp với biến áp du lịch; hãy mua tại địa phương.",
+        "Sự khác biệt 60Hz↔50Hz có thể ảnh hưởng đến tốc độ của một số thiết bị có động cơ/đồng hồ.",
+        "Để biết về an toàn/chứng nhận (KC), hãy kiểm tra với nhà sản xuất và hướng dẫn chính thức."
+      ],
+      "related": [
+        {
+          "label": "Phiên âm La-tinh tiếng Hàn",
+          "href": "/text-romanize"
+        },
+        {
+          "label": "Máy tính tuổi Hàn Quốc",
+          "href": "/korean-age"
+        }
+      ],
+      "lastReviewed": "2026-06-06"
     }
   },
   "insuranceTool": {
@@ -4646,6 +7044,221 @@
     "lumber": {
       "title": "Lumber Conversion",
       "description": "Convert lumber dimensions and count into volume, board feet, sai, and weight."
+    }
+  },
+  "jsonCsvTool": {
+    "meta": {
+      "title": "Bộ chuyển đổi JSON ↔ CSV (hỗ trợ tiếng Hàn) | Workmate",
+      "description": "Chuyển đổi hai chiều JSON/CSV với BOM UTF-8 và CRLF để tương thích Excel tiếng Hàn. Chỉ xử lý phía trình duyệt."
+    },
+    "title": "Bộ chuyển đổi JSON ↔ CSV",
+    "subtitle": "Chuyển đổi CSV ↔ JSON với BOM UTF-8 + CRLF, không làm hỏng ký tự tiếng Hàn. Tương thích Excel tiếng Hàn. Chỉ xử lý phía trình duyệt (không tải lên máy chủ).",
+    "breadcrumb": {
+      "home": "Trang chủ"
+    },
+    "sections": {
+      "direction": "Hướng chuyển đổi",
+      "input": "Đầu vào",
+      "options": "Tùy chọn"
+    },
+    "options": {
+      "withBom": "Thêm BOM UTF-8 (tương thích Excel tiếng Hàn)",
+      "useCrlf": "Xuống dòng CRLF (tương thích Excel Windows)",
+      "hasHeader": "Hàng đầu tiên là tiêu đề",
+      "parseNumbers": "Tự động phân tích số"
+    },
+    "actions": {
+      "convert": "Chuyển đổi",
+      "reset": "Đặt lại",
+      "copy": "Sao chép",
+      "copied": "Đã sao chép",
+      "download": "Tải xuống"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Dán dữ liệu bên trái và nhấn Chuyển đổi.",
+      "rows": "Số hàng",
+      "cols": "Số cột",
+      "warnings": "Cảnh báo",
+      "note": "Dữ liệu chỉ được xử lý trong trình duyệt của bạn — không bao giờ được gửi đến máy chủ."
+    },
+    "errors": {
+      "unknown": "Chuyển đổi thất bại. Vui lòng kiểm tra định dạng dữ liệu nhập."
+    }
+  },
+  "vatTool": {
+    "meta": {
+      "title": "Máy tính thuế VAT Hàn Quốc — Tách & Tính toán",
+      "description": "Tách giá đã gồm thuế thành giá trị cung ứng + thuế VAT, cộng thuế VAT vào số tiền chưa gồm thuế, tính thuế kê khai cho người nộp thuế thông thường, và áp dụng tỷ lệ giá trị gia tăng theo ngành cho người nộp thuế đơn giản."
+    },
+    "eyebrow": "Luật Thuế Giá trị Gia tăng §30",
+    "heading": "Máy tính thuế VAT",
+    "intro": "Tách giá trị cung ứng và thuế VAT từ giá đã gồm thuế, hoặc tính thuế kê khai cho người nộp thuế Hàn Quốc thông thường / đơn giản — bao gồm cả tỷ lệ giá trị gia tăng theo ngành.",
+    "breadcrumb": {
+      "home": "Trang chủ"
+    },
+    "sections": {
+      "mode": "Chế độ",
+      "amount": "Số tiền"
+    },
+    "fields": {
+      "mode": "Chế độ",
+      "amount": {
+        "extract": "Tổng số tiền nhận (đã gồm thuế VAT)",
+        "add": "Giá trị cung ứng (chưa gồm thuế VAT)",
+        "general": "Doanh thu (đã gồm thuế VAT)",
+        "simple": "Doanh thu hàng năm (đã gồm thuế VAT)"
+      },
+      "purchaseAmount": "Giá trị cung ứng mua vào",
+      "industry": "Ngành nghề"
+    },
+    "hints": {
+      "mode": "Chọn tách / cộng / thông thường / đơn giản",
+      "amount": {
+        "extract": "Tổng số tiền đã nhận (ví dụ: 110.000)",
+        "add": "Giá trị cung ứng chưa gồm thuế VAT để cộng thêm thuế VAT",
+        "general": "Tổng doanh thu theo quý (đã gồm thuế VAT)",
+        "simple": "Doanh thu hàng năm (đã gồm thuế VAT)"
+      },
+      "purchaseAmount": "Giá trị cung ứng của các khoản mua vào (chưa gồm thuế VAT)",
+      "industry": "Tỷ lệ giá trị gia tăng theo ngành nghề"
+    },
+    "mode": {
+      "extract": "Đã gồm thuế → Tách",
+      "add": "Chưa gồm thuế → Cộng thêm",
+      "general": "Người nộp thuế thông thường",
+      "simple": "Người nộp thuế đơn giản"
+    },
+    "industry": {
+      "retail": "Bán lẻ / Ăn uống (15%)",
+      "manufacturing": "Sản xuất / Nông nghiệp (20%)",
+      "lodging": "Lưu trú (25%)",
+      "construction": "Xây dựng / Logistics / IT (30%)",
+      "finance": "Tài chính / Bất động sản / Dịch vụ (40%)"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "lines": {
+      "supply": "Giá trị cung ứng",
+      "vat": "Thuế VAT",
+      "total": "Tổng (đã gồm thuế VAT)",
+      "purchase-vat": "Thuế đầu vào",
+      "payable": "Số tiền phải nộp",
+      "added-value": "Giá trị gia tăng"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập số tiền và nhấn Tính toán.",
+      "vatLabel": "Thuế VAT",
+      "totalLabel": "Tổng",
+      "payableLabel": "Số tiền phải nộp",
+      "wonSuffix": " KRW"
+    },
+    "steps": {
+      "heading": "Các bước",
+      "extract": "Tổng {total} × 10/11 = giá trị cung ứng {supply}, thuế VAT {vat}",
+      "add": "Giá trị cung ứng {supply} × 10% = thuế VAT {vat}, tổng {total}",
+      "generalSales": "Doanh thu {total} → giá trị cung ứng {supply} + thuế VAT đầu ra {vat}",
+      "generalPurchase": "Mua vào {purchase} × 10% = thuế đầu vào {purchaseVat}",
+      "generalPayable": "Số tiền phải nộp = thuế VAT đầu ra {salesVat} - thuế đầu vào {purchaseVat} = {payable}",
+      "simple": "{industry} tỷ lệ {rate}% — {total} × {rate}% × 10% = {payable}"
+    },
+    "errors": {
+      "invalid": "Vui lòng kiểm tra lại giá trị đã nhập.",
+      "unknown": "Đã xảy ra lỗi trong quá trình tính toán."
+    },
+    "source": "Nguồn: Điều 30 Luật Thuế Giá trị Gia tăng (부가가치세법, thuế suất 10%), Điều 63 (thuế suất người nộp thuế đơn giản). Chỉ mang tính tham khảo — kê khai thực tế cần xác minh thuế đầu vào được khấu trừ và tách riêng doanh thu được miễn thuế.",
+    "ctx": {
+      "law": {
+        "title": "Luật Thuế Giá trị Gia tăng §30",
+        "body": "10% trên việc cung ứng hàng hóa và dịch vụ. Giá trị cung ứng = tổng số tiền ÷ 1,1. Doanh nghiệp kê khai bằng cách trừ thuế đầu vào khỏi thuế đầu ra trên doanh thu."
+      },
+      "simple": {
+        "title": "Người nộp thuế đơn giản",
+        "body": "Doanh thu năm trước dưới 104 triệu KRW. Tỷ lệ giá trị gia tăng theo ngành (15-40%) được áp dụng, sau đó tính thêm 10% thuế VAT. Không bắt buộc phát hành hóa đơn thuế."
+      },
+      "deadline": {
+        "title": "Thời hạn kê khai",
+        "body": "Người nộp thuế thông thường: nửa đầu năm (tháng 1-6) trước ngày 25 tháng 7, nửa cuối năm (tháng 7-12) trước ngày 25 tháng 1 năm sau. Người nộp thuế đơn giản: một lần một năm trước ngày 25 tháng 1. Kê khai tạm thời đến hạn hàng quý vào ngày 25."
+      }
+    },
+    "validation": {
+      "amountPositive": "Số tiền phải lớn hơn 0.",
+      "purchaseNegative": "Số tiền mua vào không được âm.",
+      "industryRequired": "Vui lòng chọn ngành nghề."
+    }
+  },
+  "foreignStockTaxTool": {
+    "meta": {
+      "title": "Thuế chuyển nhượng cổ phiếu nước ngoài | Workmate",
+      "description": "Thuế chuyển nhượng cổ phiếu nước ngoài cho cư dân Hàn Quốc với tỷ giá, khấu trừ 2,5 triệu KRW, thuế suất 22% (thuế thu nhập + thuế địa phương)."
+    },
+    "title": "Máy tính thuế chuyển nhượng cổ phiếu nước ngoài",
+    "subtitle": "Dành cho cư dân Hàn Quốc. Áp dụng tỷ giá mua/bán riêng biệt, khấu trừ hàng năm 2,5 triệu KRW, và thuế suất 22% (thuế thu nhập 20% + thuế địa phương 2%).",
+    "breadcrumb": {
+      "home": "Trang chủ"
+    },
+    "sections": {
+      "buy": "Mua",
+      "sell": "Bán",
+      "options": "Tùy chọn"
+    },
+    "fields": {
+      "buyPriceForeign": "Giá mua (ngoại tệ)",
+      "buyExchangeRate": "Tỷ giá ngày mua (KRW trên mỗi đơn vị ngoại tệ)",
+      "sellPriceForeign": "Giá bán (ngoại tệ)",
+      "sellExchangeRate": "Tỷ giá ngày bán (KRW trên mỗi đơn vị ngoại tệ)",
+      "transactionCostKrw": "Tổng chi phí giao dịch (KRW)",
+      "prevDeductionUsed": "Khấu trừ đã sử dụng trong năm nay (KRW)"
+    },
+    "hints": {
+      "foreignCurrency": "Số tiền theo đơn vị tiền tệ giao dịch (USD/EUR/JPY, v.v.)",
+      "exchangeRate": "Tỷ giá tham chiếu của Ngân hàng Trung ương Hàn Quốc vào ngày giao dịch",
+      "transactionCost": "Phí môi giới và các chi phí khác (không bao gồm thuế)",
+      "prevDeduction": "Khấu trừ đã sử dụng cho các giao dịch khác trong năm nay. Được trừ khỏi hạn mức 2,5 triệu KRW."
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "unit": {
+      "krw": "KRW"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập thông tin mua và bán rồi nhấn Tính toán.",
+      "tax": "Thuế phải nộp",
+      "capitalGain": "Lợi nhuận chuyển nhượng (KRW)",
+      "netProfit": "Lợi nhuận ròng sau thuế",
+      "taxableBase": "Cơ sở tính thuế",
+      "remainingDeduction": "Khấu trừ còn lại",
+      "steps": "Các bước tính toán",
+      "source": {
+        "line1": "Nguồn: Luật Thuế Thu nhập §118-2 (Thuế chuyển nhượng cổ phiếu nước ngoài) — 22% đã gồm thuế địa phương",
+        "line2": "Khấu trừ hàng năm: 2,5 triệu KRW / Áp dụng tỷ giá ngày giao dịch / Cho phép bù trừ lỗ (công cụ này: một giao dịch đơn lẻ)",
+        "line3": "Lưu ý: Kê khai vào tháng 5 năm sau. Công cụ này dùng để mô phỏng trước."
+      }
+    },
+    "steps": {
+      "buyKrw": "Bước 1: KRW mua — {foreign} × {rate} = {result} KRW",
+      "sellKrw": "Bước 2: KRW bán — {foreign} × {rate} = {result} KRW",
+      "gain": "Bước 3: Lợi nhuận chuyển nhượng — bán {sell} - mua {buy} - chi phí {cost} = {result} KRW",
+      "deduction": "Bước 4: Khấu trừ còn lại — hàng năm {annual} - đã dùng {used} = {remaining} KRW",
+      "taxableBase": "Bước 5: Cơ sở tính thuế — max(0, lợi nhuận {gain} - khấu trừ {deduction}) = {result} KRW",
+      "tax": "Bước 6: Thuế — {base} × {rate}% = {result} KRW",
+      "netProfit": "Bước 7: Lợi nhuận ròng — lợi nhuận {gain} - thuế {tax} = {result} KRW"
+    },
+    "validation": {
+      "buyPricePositive": "Giá mua không được âm",
+      "sellPricePositive": "Giá bán không được âm",
+      "exchangeRatePositive": "Tỷ giá phải lớn hơn 0",
+      "costNonNegative": "Chi phí giao dịch không được âm",
+      "deductionNonNegative": "Khấu trừ đã sử dụng không được âm"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
     }
   }
 }

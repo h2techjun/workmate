@@ -4,7 +4,7 @@ import { useState } from "react";
 import { decomposeHangul } from "@/lib/calculations/korean/hangulDecompose";
 
 interface HangulDecomposeFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -39,6 +39,22 @@ const T = {
     none: "—",
     empty: "Enter Korean text.",
     note: "Each syllable is split into initial, medial, and final jamo with roman sounds. Whether a syllable has a final consonant (batchim) matters for particle choice (은/는, 이/가). Roman is syllable-level transliteration.",
+  },
+  vi: {
+    label: "Nhập tiếng Hàn",
+    placeholder: "vd: 한글 받침",
+    result: "Phân tách âm tiết",
+    syllables: "Âm tiết",
+    jamoTotal: "Số lượng jamo",
+    cho: "Phụ âm đầu",
+    jung: "Nguyên âm",
+    jong: "Phụ âm cuối",
+    rom: "La-tinh hóa",
+    hasJong: "có patchim (받침)",
+    noJong: "không có phụ âm cuối",
+    none: "—",
+    empty: "Vui lòng nhập văn bản tiếng Hàn.",
+    note: "Mỗi âm tiết được phân tách thành phụ âm đầu, nguyên âm và phụ âm cuối kèm cách đọc La-tinh hóa. Việc âm tiết có phụ âm cuối (patchim) hay không rất quan trọng khi chọn trợ từ (은/는, 이/가). Chữ La-tinh chỉ là cách phiên âm ở cấp độ âm tiết (chưa phản ánh biến âm).",
   },
 } as const;
 

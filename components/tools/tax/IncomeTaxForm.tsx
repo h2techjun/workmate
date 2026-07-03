@@ -27,7 +27,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface IncomeTaxFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -95,6 +95,38 @@ const T = {
       "Local income tax = final tax × 10%.",
       "Wage earner credit (§59): 55% of tax up to ₩1.3M, then 30%, capped by gross income.",
       "Child / pension / medical credits are not included here.",
+    ],
+  },
+  vi: {
+    sectionIncome: "Cơ sở tính thuế",
+    sectionOptions: "Tùy chọn",
+    fieldTaxable: "Cơ sở tính thuế thu nhập tổng hợp (원)",
+    fieldTaxableHint: "Tổng thu nhập tổng hợp − Khấu trừ thu nhập tổng hợp = Cơ sở tính thuế",
+    fieldWageCredit: "Áp dụng khấu trừ thuế cho người lao động (nhân viên)",
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultHeading: "Kết quả tính thuế",
+    resultEmpty: "Vui lòng nhập cơ sở tính thuế.",
+    error: "Lỗi tính toán",
+    heroLabel: "Tổng gánh nặng thuế (thuế thu nhập + thuế địa phương)",
+    heroUnit: "원",
+    marginalRate: "Thuế suất biên",
+    calculatedTax: "Thuế thu nhập (tính toán)",
+    wageCredit: "Khấu trừ thuế người lao động",
+    finalTax: "Thuế quyết định",
+    localTax: "Thuế thu nhập địa phương (10%)",
+    effectiveRate: "Thuế suất thực tế",
+    bracketsHeading: "Bậc thuế thu nhập tổng hợp Hàn Quốc 2026",
+    colBracket: "Cơ sở tính thuế",
+    colRate: "Thuế suất",
+    colDeduction: "Khấu trừ lũy tiến",
+    sourceTitle: "Căn cứ pháp lý · giả định",
+    sourceLines: [
+      "Luật Thuế Thu nhập (소득세법) §55: thuế suất lũy tiến 8 bậc (6%·15%·24%·35%·38%·40%·42%·45%, sửa đổi 2023).",
+      "Thuế tính toán = Cơ sở tính thuế × Thuế suất biên − Khấu trừ lũy tiến.",
+      "Thuế thu nhập địa phương = Thuế quyết định × 10% (khai báo riêng nhưng được tự động tính ra).",
+      "Khấu trừ thuế người lao động (§59): 55% nếu thuế tính toán từ 1,3 triệu won trở xuống, 30% phần vượt + giới hạn theo tổng lương.",
+      "Các khoản khấu trừ thuế khác như con cái, tiết kiệm hưu trí, chi phí y tế được trừ riêng (công cụ này chưa bao gồm).",
     ],
   },
 } as const;

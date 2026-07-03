@@ -10,7 +10,7 @@ import { formatKoreanMoney } from "@/lib/utils/format";
 import { ResultShell } from "@/components/ui/calc-form";
 
 interface CapitalGainsFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -63,6 +63,30 @@ const T = {
     effectiveRate: "Effective rate",
     shortTermBadge: "Short-term (penalty rate)",
     note: "Simplified 2024 Income Tax Act calculation. Single-house exemption under KRW 1.2B and multi-house penalties not included. Consult a tax accountant for filing.",
+  },
+  vi: {
+    salePrice: "Giá chuyển nhượng (giá bán, 원)",
+    purchasePrice: "Giá mua vào (giá mua, 원)",
+    expenses: "Chi phí cần thiết (thuế mua, phí môi giới v.v., 원)",
+    holdingYears: "Thời gian sở hữu (năm)",
+    residingYears: "Thời gian cư trú (năm, hộ 1 nhà)",
+    assetType: "Loại tài sản",
+    house: "Nhà ở",
+    land: "Đất · khác",
+    oneHouse: "Hộ 1 nhà 1 căn (ưu đãi khấu trừ đặc biệt sở hữu dài hạn)",
+    result: "Thuế chuyển nhượng ước tính",
+    totalTax: "Tổng gánh nặng thuế (thuế thu nhập + thuế địa phương)",
+    unit: "원",
+    gain: "Lãi chuyển nhượng",
+    ltDeduction: "Khấu trừ đặc biệt sở hữu dài hạn",
+    taxBase: "Cơ sở tính thuế",
+    marginalRate: "Thuế suất áp dụng",
+    calcTax: "Thuế tính toán",
+    localTax: "Thuế thu nhập địa phương",
+    netProceeds: "Lãi sau thuế",
+    effectiveRate: "Thuế suất thực tế",
+    shortTermBadge: "Chuyển nhượng ngắn hạn (mức thuế nặng)",
+    note: "Tính toán đơn giản hóa theo Luật Thuế Thu nhập (소득세법) 2024. Chưa bao gồm miễn thuế hộ 1 nhà 1 căn dưới 1,2 tỷ won và mức thuế nặng cho sở hữu nhiều nhà. Nên tham khảo ý kiến chuyên viên thuế khi khai báo chính thức.",
   },
 } as const;
 

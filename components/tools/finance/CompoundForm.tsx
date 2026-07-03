@@ -30,7 +30,7 @@ import { cn } from "@/lib/utils/cn";
 import { NumberField } from "@/components/ui/NumberField";
 
 interface CompoundFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 type Mode = "basic" | "recurring";
@@ -145,6 +145,58 @@ const TEXT = {
       "Pre-tax nominal. Income tax (15.4%) and inflation excluded.",
     ],
   },
+  vi: {
+    tabBasic: "Một lần",
+    tabRecurring: "Tích lũy",
+    basicTitle: "Máy tính lãi kép",
+    fieldPrincipal: "Số tiền ban đầu (₩)",
+    fieldPeriods: "Số kỳ lãi kép",
+    fieldRate: "Lãi suất mỗi kỳ (%)",
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultEmpty: "Nhập số tiền, số kỳ và lãi suất rồi tính toán.",
+    error: "Đã xảy ra lỗi khi tính toán.",
+    totalProfit: "Tổng lợi nhuận",
+    finalAmount: "Số tiền cuối cùng",
+    colNo: "#",
+    colProfit: "Lợi nhuận (₩)",
+    colTotal: "Tổng số dư (₩)",
+    colRate: "Tỷ suất sinh lời",
+    truncated: "* Bảng chỉ hiển thị tối đa 600 kỳ (số tiền cuối cùng đã tính đầy đủ).",
+    basicSource: [
+      "Số tiền cuối cùng = Số tiền ban đầu × (1 + lãi suất)^số kỳ",
+      "Lãi suất áp dụng mỗi lần lãi kép. Lãi kép hàng tháng ở mức 5%/năm ≈ 0,42% mỗi kỳ × 120 kỳ (10 năm).",
+      "Chưa bao gồm thuế thu nhập từ lãi (15,4%) và lạm phát (số danh nghĩa trước thuế).",
+    ],
+    recurringTitle: "Máy tính lãi kép tích lũy",
+    fieldStart: "Số tiền khởi đầu (₩)",
+    fieldMonthly: "Số tiền tích lũy hàng tháng (₩)",
+    fieldMonthlyHint: "* Được cộng vào gốc kể từ tháng thứ hai.",
+    fieldPeriod: "Thời gian đầu tư",
+    fieldInterest: "Lãi suất",
+    unitYear: "năm",
+    unitMonth: "tháng",
+    rateYear: "/năm",
+    rateMonth: "/tháng",
+    fieldCompounding: "Phương thức lãi kép",
+    compAnnual: "Lãi kép theo năm",
+    compMonthly: "Lãi kép theo tháng",
+    totalInvested: "Tổng số tiền đầu tư",
+    viewYear: "Theo năm",
+    viewMonth: "Theo tháng",
+    colPeriodYear: "Năm",
+    colPeriodMonth: "Tháng",
+    colPrincipal: "Gốc (₩)",
+    colInterest: "Lợi nhuận (₩)",
+    colFinal: "Số tiền cuối cùng (₩)",
+    recurringEmpty: "Nhập số tiền khởi đầu, tích lũy hàng tháng, thời gian và lãi suất rồi tính toán.",
+    recurringSource: [
+      "Lãi kép theo năm: mỗi khoản tích lũy đầu tháng được tính lãi đơn cho số tháng còn lại trong năm, sau đó vốn hóa lãi kép vào cuối mỗi năm (phương thức tiền gửi tích lũy của Hàn Quốc).",
+      "Lãi kép theo tháng: số dư hàng tháng được áp dụng lãi kép theo (lãi suất năm ÷ 12).",
+      "Tổng số tiền đầu tư = Số tiền khởi đầu + Tích lũy hàng tháng × (số tháng − 1).",
+      "Chưa bao gồm thuế thu nhập từ lãi (15,4%) và lạm phát (số danh nghĩa trước thuế).",
+    ],
+  },
 } as const;
 
 /* ---------------------------------------------------------------- helpers */
@@ -221,7 +273,7 @@ const COMPOUND_DEFAULTS: CompoundInputResolved = {
   periodicContribution: 0,
 };
 
-function BasicTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
+function BasicTab({ locale }: { locale: "ko" | "en" | "vi" }): React.ReactElement {
   const T = TEXT[locale];
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<CompoundResult | null>(() => {
@@ -424,7 +476,7 @@ const RECURRING_DEFAULTS: RecurringInputResolved = {
   compounding: "annual",
 };
 
-function RecurringTab({ locale }: { locale: "ko" | "en" }): React.ReactElement {
+function RecurringTab({ locale }: { locale: "ko" | "en" | "vi" }): React.ReactElement {
   const T = TEXT[locale];
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<RecurringResult | null>(() => {

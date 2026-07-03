@@ -16,12 +16,17 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isVi = locale === "vi";
   const title = isKo
     ? "대출 이자 계산기 — 원리금균등·원금균등·만기일시 + 상환표"
-    : "Loan Calculator — equal payment/principal/balloon + schedule";
+    : isVi
+      ? "Máy tính lãi vay Hàn Quốc — trả góp đều gốc+lãi · trả đều gốc · trả cuối kỳ + bảng trả nợ"
+      : "Loan Calculator — equal payment/principal/balloon + schedule";
   const description = isKo
     ? "주택담보·신용·전세자금 대출 3가지 상환 방식 통합 계산. 원리금균등 매월 같은 금액, 원금균등 초반 ↑ 후반 ↓, 만기일시 이자만 매월 + 회차별 상환표."
-    : "Korean loan calculator with 3 repayment types: equal payment, equal principal, balloon. Monthly schedule included.";
+    : isVi
+      ? "Tính gộp 3 phương thức trả nợ cho vay thế chấp nhà, vay tín chấp, vay đặt cọc jeonse. Trả góp đều gốc+lãi: số tiền cố định hàng tháng; trả đều gốc: cao đầu kỳ ↓ thấp cuối kỳ; trả cuối kỳ: chỉ trả lãi hàng tháng + bảng trả nợ theo từng kỳ."
+      : "Korean loan calculator with 3 repayment types: equal payment, equal principal, balloon. Monthly schedule included.";
   const keywords = isKo
     ? [
         "대출 이자 계산",
@@ -37,7 +42,22 @@ export async function generateMetadata({
         "월 상환액",
         "이자 총액",
       ]
-    : [
+    : isVi
+      ? [
+          "tính lãi vay",
+          "máy tính vay Hàn Quốc",
+          "tính vay thế chấp nhà",
+          "tính trả góp đều gốc lãi",
+          "tính trả đều gốc",
+          "vay trả cuối kỳ",
+          "lãi vay tín chấp",
+          "vay đặt cọc jeonse",
+          "kế hoạch trả nợ vay",
+          "tính lãi hàng tháng",
+          "số tiền trả hàng tháng",
+          "tổng lãi vay",
+        ]
+      : [
         "loan calculator",
         "Korean mortgage calculator",
         "equal payment loan",
@@ -59,7 +79,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/loan-calc`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -73,7 +93,8 @@ export default async function LoanCalcPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey = isKo ? "ko" : "en";
+  const lang: "ko" | "en" | "vi" =
+    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -84,21 +105,27 @@ export default async function LoanCalcPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : "All tools"}
+            {isKo ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "대출 이자 계산기" : "Loan Calculator"}
+            {isKo
+              ? "대출 이자 계산기"
+              : lang === "vi"
+                ? "Máy tính lãi vay"
+                : "Loan Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "주담대·신용대출·전세자금 — 원리금균등/원금균등/만기일시 3가지 상환 방식 한 번에 비교. 회차별 원금·이자·잔금 상환표까지."
-              : "Compare 3 Korean loan repayment types in one place. Monthly schedule with principal, interest, and balance breakdown."}
+              : lang === "vi"
+                ? "Vay thế chấp nhà · vay tín chấp · vay đặt cọc jeonse — so sánh cùng lúc 3 phương thức trả nợ: trả góp đều gốc+lãi / trả đều gốc / trả cuối kỳ. Kèm bảng trả nợ chi tiết gốc, lãi, số dư theo từng kỳ."
+                : "Compare 3 Korean loan repayment types in one place. Monthly schedule with principal, interest, and balance breakdown."}
           </p>
         </header>
-        <LoanForm locale={localeKey} />
-        <ToolGuide toolKey="loan-calc" locale={localeKey} />
+        <LoanForm locale={lang} />
+        <ToolGuide toolKey="loan-calc" locale={lang} />
       </div>
     </main>
   );

@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface CarAnnualTaxFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -41,6 +41,20 @@ const T = {
     eduTax: "Local education tax (30%)",
     half: "Half-year (Jun/Dec)",
     note: "Non-commercial passenger. Per cc: ≤1000 80, ≤1600 140, >1600 200 KRW + 30% education tax. 5%/year reduction from year 3 (max 50%). ~7% extra discount for annual prepayment.",
+  },
+  vi: {
+    displacement: "Dung tích xi-lanh (cc)",
+    carAge: "Tuổi xe (năm)",
+    electric: "Xe điện (mức cố định 130.000 won)",
+    result: "Thuế ô tô hàng năm",
+    total: "Tổng số tiền hàng năm",
+    unit: "₩",
+    base: "Thuế ô tô (trước giảm trừ)",
+    ageDiscount: "Giảm trừ theo tuổi xe",
+    carTax: "Thuế ô tô",
+    eduTax: "Thuế giáo dục địa phương (30%)",
+    half: "Nộp theo nửa năm (tháng 6·12)",
+    note: "Áp dụng cho xe con phi thương mại. Theo cc: ≤1000 là 80, ≤1600 là 140, >1600 là 200 won + thuế giáo dục địa phương 30%. Giảm 5%/năm từ năm thứ 3 (tối đa 50%). Giảm thêm khoảng 7% khi nộp trước cả năm.",
   },
 } as const;
 

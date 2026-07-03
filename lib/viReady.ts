@@ -36,6 +36,35 @@ export const VI_READY_PATHS: readonly string[] = [
   "/biznum-check",
   "/labor-calc/annual-leave",
   "/labor-calc/weekly-rest-pay",
+  // 웨이브3 — 세금 11종 완역 (page+form+ToolGuide vi)
+  "/income-tax",
+  "/capital-gains-tax",
+  "/loan-calc",
+  "/compound-calc",
+  "/vat-calc",
+  "/freelancer-tax",
+  "/foreign-stock-tax",
+  "/gift-tax",
+  "/prepayment-penalty",
+  "/car-acquisition-tax",
+  "/car-tax",
+  // 웨이브3 — 변환·한국생활 10종 완역 (page+form+ToolGuide vi)
+  "/area-convert",
+  "/percent-calc",
+  "/distance-convert",
+  "/temp-convert",
+  "/json-csv",
+  "/school-grade",
+  "/due-date",
+  "/korean-number",
+  "/hangul-decompose",
+  "/text-romanize",
+  // 웨이브3 — 비자·이름·생활 5종 (page/form 기완료 + ToolGuide vi)
+  "/f2-residence-visa",
+  "/d8-startup-visa",
+  "/name-romanize",
+  "/gift-money",
+  "/voltage-guide",
 ];
 
 const SET = new Set(VI_READY_PATHS);

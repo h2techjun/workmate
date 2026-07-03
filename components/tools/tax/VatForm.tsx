@@ -45,7 +45,9 @@ const VAT_DEFAULTS: FormValues = {
 
 export function VatForm(): React.ReactElement {
   const t = useTranslations("vatTool");
-  const locale = useLocale() === "en" ? "en" : "ko";
+  const rawLocale = useLocale();
+  const locale =
+    rawLocale === "vi" ? "vi" : rawLocale === "ko" ? "ko" : "en";
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<VatResult | null>(() => {
     try {
@@ -274,17 +276,26 @@ export function VatForm(): React.ReactElement {
         heading={t("result.heading")}
         locale={locale}
         relatedLinks={
-          locale !== "ko"
+          locale === "ko"
             ? [
-                { label: "Freelancer Tax", href: "/freelancer-tax" },
-                { label: "Income Tax", href: "/income-tax" },
-                { label: "Business Number Check", href: "/biznum-check" },
-              ]
-            : [
                 { label: "프리랜서 세금 계산기", href: "/freelancer-tax" },
                 { label: "종합소득세 계산기", href: "/income-tax" },
                 { label: "사업자번호 조회", href: "/biznum-check" },
               ]
+            : locale === "vi"
+              ? [
+                  { label: "Thuế freelancer", href: "/freelancer-tax" },
+                  { label: "Thuế thu nhập", href: "/income-tax" },
+                  {
+                    label: "Tra cứu mã số doanh nghiệp",
+                    href: "/biznum-check",
+                  },
+                ]
+              : [
+                  { label: "Freelancer Tax", href: "/freelancer-tax" },
+                  { label: "Income Tax", href: "/income-tax" },
+                  { label: "Business Number Check", href: "/biznum-check" },
+                ]
         }
       >
         {calcError ? <ErrorBox message={calcError} /> : null}

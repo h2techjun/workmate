@@ -26,7 +26,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface LoanFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -110,6 +110,46 @@ const T = {
       "Balloon: monthly = P × r (interest only), balance + last month interest at maturity.",
       "Monthly rate r = annual / 12 (Korean standard simple-rate division).",
       "Prepayment fees, stamp duty, DSR limits not included.",
+    ],
+  },
+  vi: {
+    sectionPrincipal: "Số tiền gốc · thời hạn",
+    sectionType: "Phương thức trả nợ",
+    fieldPrincipal: "Số tiền vay gốc (원)",
+    fieldYears: "Thời hạn vay (năm)",
+    fieldRate: "Lãi suất hàng năm (%)",
+    fieldType: "Chọn phương thức trả nợ",
+    types: {
+      equalPayment: "Trả góp đều gốc+lãi — số tiền cố định hàng tháng",
+      equalPrincipal: "Trả đều gốc — cao đầu kỳ ↓ thấp cuối kỳ",
+      balloon: "Trả cuối kỳ — chỉ trả lãi hàng tháng, trả gốc khi đáo hạn",
+    } satisfies Record<LoanType, string>,
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultHeading: "Kế hoạch trả nợ",
+    resultEmpty: "Vui lòng nhập số tiền gốc, lãi suất và thời hạn.",
+    error: "Lỗi tính toán",
+    monthlyLabel: "Số tiền trả hàng tháng (kỳ đầu)",
+    monthlyUnit: "원",
+    firstPayment: "Kỳ đầu",
+    lastPayment: "Kỳ cuối",
+    totalPrincipal: "Tổng số tiền gốc",
+    totalInterest: "Tổng lãi",
+    totalPayment: "Tổng số tiền trả",
+    scheduleHeader: "Bảng trả nợ theo từng kỳ",
+    scheduleSampleNote: "Từ 60 kỳ trở lên hiển thị theo đơn vị 6 tháng",
+    colMonth: "Kỳ",
+    colPayment: "Số tiền trả",
+    colPrincipal: "Gốc",
+    colInterest: "Lãi",
+    colBalance: "Số dư",
+    sourceTitle: "Công thức · giả định",
+    sourceLines: [
+      "Trả góp đều gốc+lãi: M = P × r(1+r)^n / ((1+r)^n − 1). Số tiền cố định hàng tháng.",
+      "Trả đều gốc: gốc hàng tháng = P/n, lãi = số dư × r. Tổng lãi ít hơn khoảng 4-5% so với trả góp đều gốc+lãi.",
+      "Trả cuối kỳ: hàng tháng chỉ trả lãi P × r, trả gốc một lần khi đáo hạn. Phổ biến với vay tín chấp và vay đặt cọc jeonse tại Hàn Quốc.",
+      "Lãi suất hàng tháng r = lãi suất hàng năm / 12. Chuẩn tính lãi đơn của Hàn Quốc.",
+      "Chưa bao gồm phí trả nợ trước hạn, thuế tem, giới hạn DSR và các chi phí phát sinh khác.",
     ],
   },
 } as const;

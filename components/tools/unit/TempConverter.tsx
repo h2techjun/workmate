@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface TempConverterProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -30,13 +30,22 @@ const T = {
     presets: "Common temps",
     note: "°F = °C × 9/5 + 32, K = °C + 273.15. Korea uses Celsius; the US uses Fahrenheit.",
   },
+  vi: {
+    value: "Nhập giá trị",
+    unit: "Đơn vị",
+    units: { c: "Độ C (°C)", f: "Độ F (°F)", k: "Kelvin (K)" } as Record<TempUnit, string>,
+    result: "Kết quả quy đổi",
+    feels: { freezing: "🥶 Đóng băng", cold: "🧥 Lạnh", mild: "🌤️ Mát mẻ", warm: "☀️ Ấm áp", hot: "🔥 Nóng" },
+    presets: "Nhiệt độ thường dùng",
+    note: "°F = °C × 9/5 + 32, K = °C + 273,15. Hàn Quốc dùng độ C, Mỹ dùng độ F.",
+  },
 } as const;
 
-const PRESETS: Array<{ v: number; u: TempUnit; labelKo: string; labelEn: string }> = [
-  { v: 0, u: "c", labelKo: "어는점", labelEn: "Freezing" },
-  { v: 36.5, u: "c", labelKo: "체온", labelEn: "Body" },
-  { v: 100, u: "c", labelKo: "끓는점", labelEn: "Boiling" },
-  { v: 98.6, u: "f", labelKo: "체온(°F)", labelEn: "Body(°F)" },
+const PRESETS: Array<{ v: number; u: TempUnit; labelKo: string; labelEn: string; labelVi: string }> = [
+  { v: 0, u: "c", labelKo: "어는점", labelEn: "Freezing", labelVi: "Điểm đóng băng" },
+  { v: 36.5, u: "c", labelKo: "체온", labelEn: "Body", labelVi: "Thân nhiệt" },
+  { v: 100, u: "c", labelKo: "끓는점", labelEn: "Boiling", labelVi: "Điểm sôi" },
+  { v: 98.6, u: "f", labelKo: "체온(°F)", labelEn: "Body(°F)", labelVi: "Thân nhiệt(°F)" },
 ];
 
 export function TempConverter({ locale }: TempConverterProps): React.ReactElement {
@@ -77,7 +86,7 @@ export function TempConverter({ locale }: TempConverterProps): React.ReactElemen
             {PRESETS.map((p) => (
               <button key={p.labelEn} type="button" onClick={() => { setValue(p.v); setUnit(p.u); }}
                 className="rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] hover:border-orange-400 hover:text-[color:var(--color-text-primary)]">
-                {locale === "ko" ? p.labelKo : p.labelEn}
+                {locale === "ko" ? p.labelKo : locale === "vi" ? p.labelVi : p.labelEn}
               </button>
             ))}
           </div>

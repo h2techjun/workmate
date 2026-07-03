@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface KoreanNumberFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const T = {
@@ -39,6 +39,20 @@ const T = {
     presets: "Common numbers",
     invalid: "Enter an integer 0 or greater.",
     note: "Korean uses two number systems together. For time, the hour is Native (한 시) but minutes are Sino (십 분). Age can be either Native (스물한 살) or Sino (이십일 세).",
+  },
+  vi: {
+    label: "Nhập một số",
+    placeholder: "Ví dụ: 21",
+    sino: "Số Hán-Hàn",
+    sinoUse: "ngày tháng, tiền bạc, số điện thoại, tầng, phút, số hiệu",
+    native: "Số thuần Hàn",
+    nativeUse: "tuổi, đếm đồ vật, giờ, số người",
+    attr: "Dạng định ngữ (trước số lượng)",
+    attrUse: "Ví dụ: 스무 살 (20 tuổi), 세 개 (3 cái), 네 시 (4 giờ)",
+    nativeNone: "Số thuần Hàn chỉ dùng từ 1–99 — từ 100 trở lên dùng số Hán-Hàn.",
+    presets: "Số thường dùng",
+    invalid: "Nhập một số nguyên từ 0 trở lên.",
+    note: "Tiếng Hàn dùng song song hai hệ thống số. Về thời gian, 'giờ' dùng số thuần Hàn (한 시) nhưng 'phút' dùng số Hán-Hàn (십 분). Tuổi có thể dùng số thuần Hàn (스물한 살) hoặc số Hán-Hàn (이십일 세).",
   },
 } as const;
 

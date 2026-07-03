@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
 import { ForeignStockTaxForm } from "@/components/tools/tax/ForeignStockTaxForm";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -23,16 +24,13 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/foreign-stock-tax`,
-      languages: {
-        ko: "/ko/foreign-stock-tax",
-        en: "/en/foreign-stock-tax",
-      },
+      languages: buildLanguagesAlt("/foreign-stock-tax"),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
     },
   };
 }
@@ -66,7 +64,10 @@ export default async function ForeignStockTaxPage({
           </p>
         </header>
         <ForeignStockTaxForm />
-        <ToolGuide toolKey="foreign-stock-tax" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide
+          toolKey="foreign-stock-tax"
+          locale={locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en"}
+        />
       </div>
     </main>
   );

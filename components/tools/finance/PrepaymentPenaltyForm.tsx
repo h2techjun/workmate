@@ -25,7 +25,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface PrepaymentPenaltyFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -86,6 +86,34 @@ const T = {
       "Exemption period days = exemption years × 365.",
       "Elapsed days = elapsed months × 30.4 (simplified: 1 month = 30.4 days).",
       "Rates and exemption periods vary by bank, product, and origination date. Always verify with your bank.",
+    ],
+  },
+  vi: {
+    sectionLoan: "Thông tin khoản vay",
+    fieldPrincipal: "Số tiền gốc trả trước hạn (₩)",
+    fieldRate: "Tỷ lệ phí (%)",
+    fieldElapsed: "Thời gian đã trôi qua (tháng)",
+    fieldExemption: "Kỳ hạn miễn phí (năm)",
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultHeading: "Kết quả phí trả nợ trước hạn",
+    resultEmpty: "Nhập số tiền gốc, tỷ lệ phí và số tháng đã trôi qua.",
+    error: "Tính toán thất bại",
+    penaltyLabel: "Phí trả nợ trước hạn",
+    penaltyUnit: "₩",
+    exempt: "Miễn phí",
+    exemptBadge: "✅ Đã qua 3 năm — được miễn phí",
+    remainingDays: "Số ngày còn lại",
+    elapsedDays: "Số ngày đã trôi qua",
+    exemptionDays: "Kỳ hạn miễn phí (ngày)",
+    effectiveRate: "Tỷ lệ phí thực tế",
+    sourceTitle: "Công thức · giả định",
+    sourceLines: [
+      "Phí trả nợ trước hạn = số tiền gốc × tỷ lệ phí × (số ngày còn lại / số ngày của kỳ hạn miễn phí).",
+      "Số ngày còn lại = max(0, số ngày kỳ hạn miễn phí − số ngày đã trôi qua). 0 = được miễn phí.",
+      "Số ngày của kỳ hạn miễn phí = số năm miễn phí × 365.",
+      "Số ngày đã trôi qua = số tháng đã trôi qua × 30,4 (đơn giản hóa: 1 tháng = 30,4 ngày).",
+      "Tỷ lệ phí và kỳ hạn miễn phí khác nhau tùy ngân hàng, sản phẩm và ngày giải ngân. Luôn xác nhận với ngân hàng của bạn.",
     ],
   },
 } as const;
