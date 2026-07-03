@@ -65,6 +65,8 @@ export const VI_READY_PATHS: readonly string[] = [
   "/name-romanize",
   "/gift-money",
   "/voltage-guide",
+  // 웨이브4 — GEO/신뢰 데이터 레지스트리 (registry 12항목 vi + 페이지 3-locale)
+  "/data",
 ];
 
 const SET = new Set(VI_READY_PATHS);
