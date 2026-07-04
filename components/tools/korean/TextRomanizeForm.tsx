@@ -61,7 +61,7 @@ export function TextRomanizeForm({
         {r.syllableCount > 0 ? (
           <>
             <div className="rounded-xl bg-gradient-to-br from-indigo-500/15 to-purple-500/10 p-4 ring-1 ring-indigo-500/20">
-              <p className="break-words text-2xl font-bold text-[#eef0f5]">{r.romanized}</p>
+              <p className="break-words text-2xl font-bold text-[color:var(--color-text-hero)]">{r.romanized}</p>
               <p className="mt-2 text-xs text-[color:var(--color-text-tertiary)]">{t.syllables}: {r.syllableCount}</p>
             </div>
             <p className="text-[11px] leading-relaxed text-[color:var(--color-text-muted)]">{t.note}</p>

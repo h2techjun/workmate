@@ -26,7 +26,8 @@
       "groupCatalog": "둘러보기",
       "groupCompany": "회사",
       "groupLegal": "법령·정책"
-    }
+    },
+    "themeToggle": "라이트/다크 테마 전환"
   },
   "homeSearch": {
     "placeholder": "도구 검색 — 예: 전선, 단열, 4대보험, 사업자",

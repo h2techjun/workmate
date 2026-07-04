@@ -33,6 +33,45 @@ export function formatKrw(n: number): string {
 }
 
 /**
+ * 차트 축 라벨용 금액 축약 — 3-locale.
+ *
+ * 공간이 좁은 SVG 축에서 자릿수를 줄여 표기한다.
+ *  - ko: 1.5억 / 3,500만 / 9,000
+ *  - en: ₩1.5B / ₩350M / ₩12K
+ *  - vi: ₩1,5 tỷ / ₩350 tr / ₩12k  (tỷ=10⁹, tr=triệu 10⁶, 소수점=쉼표)
+ */
+export function formatAxisMoney(
+  n: number,
+  locale: "ko" | "en" | "vi",
+): string {
+  if (!Number.isFinite(n)) return "0";
+  const sign = n < 0 ? "-" : "";
+  const v = Math.abs(n);
+
+  const short = (x: number): string => {
+    const s = x.toFixed(1);
+    return s.endsWith(".0") ? s.slice(0, -2) : s;
+  };
+
+  if (locale === "ko") {
+    if (v >= 1e8) return `${sign}${short(v / 1e8)}억`;
+    if (v >= 1e4)
+      return `${sign}${Math.round(v / 1e4).toLocaleString(NUMBER_LOCALE)}만`;
+    return `${sign}${Math.round(v).toLocaleString(NUMBER_LOCALE)}`;
+  }
+  if (locale === "vi") {
+    if (v >= 1e9) return `${sign}₩${short(v / 1e9).replace(".", ",")} tỷ`;
+    if (v >= 1e6) return `${sign}₩${short(v / 1e6).replace(".", ",")} tr`;
+    if (v >= 1e3) return `${sign}₩${short(v / 1e3).replace(".", ",")}k`;
+    return `${sign}₩${Math.round(v)}`;
+  }
+  if (v >= 1e9) return `${sign}₩${short(v / 1e9)}B`;
+  if (v >= 1e6) return `${sign}₩${short(v / 1e6)}M`;
+  if (v >= 1e3) return `${sign}₩${short(v / 1e3)}K`;
+  return `${sign}₩${Math.round(v)}`;
+}
+
+/**
  * 한국식 금액 읽기 — 억·만 단위로 끊어 표기 (예: 12345000 → "1,234만 5,000원").
  *
  * 입력칸에 큰 숫자를 적을 때 백만·천만·억을 한눈에 구분하기 위한 보조 표시용.

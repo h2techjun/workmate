@@ -145,7 +145,7 @@ export function SchoolGradeForm({
         {result ? (
           <div className="animate-fade-up space-y-3">
             <div className="rounded-xl bg-gradient-to-br from-indigo-500/15 to-purple-500/10 p-4 text-center ring-1 ring-indigo-500/20">
-              <p className="text-3xl font-bold text-[#eef0f5]">
+              <p className="text-3xl font-bold text-[color:var(--color-text-hero)]">
                 {t.levels[result.level]}
                 {isStudent ? (
                   <span className="ml-2 tabular-nums">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { HeaderNav } from "./HeaderNav";
+import { ThemeToggle } from "./ThemeToggle";
 import type { Locale } from "@/i18n";
 
 interface HeaderProps {
@@ -35,6 +36,7 @@ export async function Header({
         </Link>
 
         <HeaderNav items={navItems} locale={locale}>
+          <ThemeToggle label={t("themeToggle")} />
           <LanguageSwitcher currentLocale={locale} />
         </HeaderNav>
       </div>

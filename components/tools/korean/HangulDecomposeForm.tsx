@@ -108,7 +108,7 @@ export function HangulDecomposeForm({
                 className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4"
               >
                 <div className="mb-3 flex items-baseline justify-between">
-                  <span className="text-3xl font-bold text-[#eef0f5]">
+                  <span className="text-3xl font-bold text-[color:var(--color-text-hero)]">
                     {s.syllable}
                   </span>
                   <span className="font-mono text-sm text-indigo-300">

@@ -24,7 +24,8 @@ import {
   Stat,
 } from "@/components/ui/calc-form";
 import { NumberField } from "@/components/ui/NumberField";
-import { formatKoreanMoney } from "@/lib/utils/format";
+import { BracketScale } from "@/components/ui/charts";
+import { formatAxisMoney, formatKoreanMoney } from "@/lib/utils/format";
 
 interface IncomeTaxFormProps {
   locale: "ko" | "en" | "vi";
@@ -53,6 +54,7 @@ const T = {
     localTax: "지방소득세 (10%)",
     effectiveRate: "실효세율",
     bracketsHeading: "2026 종합소득세 구간",
+    chartMarker: "과세표준",
     colBracket: "과세표준",
     colRate: "세율",
     colDeduction: "누진공제",
@@ -85,6 +87,7 @@ const T = {
     localTax: "Local income tax (10%)",
     effectiveRate: "Effective rate",
     bracketsHeading: "2026 Korean Tax Brackets",
+    chartMarker: "Taxable",
     colBracket: "Taxable income",
     colRate: "Rate",
     colDeduction: "Progressive deduction",
@@ -117,6 +120,7 @@ const T = {
     localTax: "Thuế thu nhập địa phương (10%)",
     effectiveRate: "Thuế suất thực tế",
     bracketsHeading: "Bậc thuế thu nhập tổng hợp Hàn Quốc 2026",
+    chartMarker: "TNCT",
     colBracket: "Cơ sở tính thuế",
     colRate: "Thuế suất",
     colDeduction: "Khấu trừ lũy tiến",
@@ -308,6 +312,14 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
               <h3 className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
                 {t.bracketsHeading}
               </h3>
+              <div className="mb-4">
+                <BracketScale
+                  brackets={BRACKETS_2026}
+                  value={result.taxableIncome}
+                  markerLabel={`${t.chartMarker} ${formatAxisMoney(result.taxableIncome, locale)}`}
+                  ariaLabel={t.bracketsHeading}
+                />
+              </div>
               <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)]">
                 <table className="w-full text-xs">
                   <thead>
@@ -328,7 +340,7 @@ export function IncomeTaxForm({ locale }: IncomeTaxFormProps): React.ReactElemen
                           key={i}
                           className={`border-b border-[color:var(--color-border-subtle)]/50 last:border-0 tabular-nums ${
                             isActive
-                              ? "bg-indigo-500/10 text-white"
+                              ? "bg-indigo-500/10 text-[color:var(--color-text-primary)]"
                               : "text-[color:var(--color-text-secondary)]"
                           }`}
                         >

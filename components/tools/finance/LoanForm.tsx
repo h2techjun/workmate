@@ -24,6 +24,8 @@ import {
   Stat,
 } from "@/components/ui/calc-form";
 import { NumberField } from "@/components/ui/NumberField";
+import { TrendChart } from "@/components/ui/charts";
+import { formatAxisMoney } from "@/lib/utils/format";
 
 interface LoanFormProps {
   locale: "ko" | "en" | "vi";
@@ -56,6 +58,8 @@ const T = {
     totalPrincipal: "총 원금",
     totalInterest: "총 이자",
     totalPayment: "총 상환액",
+    chartHeading: "잔금 추이",
+    chartMonthSuffix: "개월",
     scheduleHeader: "회차별 상환표",
     scheduleSampleNote: "60회 이상은 6개월 단위 표시",
     colMonth: "회차",
@@ -96,6 +100,8 @@ const T = {
     totalPrincipal: "Total principal",
     totalInterest: "Total interest",
     totalPayment: "Total payment",
+    chartHeading: "Balance over time",
+    chartMonthSuffix: " mo",
     scheduleHeader: "Schedule",
     scheduleSampleNote: "Long terms sampled every 6 months",
     colMonth: "Month",
@@ -136,6 +142,8 @@ const T = {
     totalPrincipal: "Tổng số tiền gốc",
     totalInterest: "Tổng lãi",
     totalPayment: "Tổng số tiền trả",
+    chartHeading: "Số dư còn lại theo thời gian",
+    chartMonthSuffix: " th",
     scheduleHeader: "Bảng trả nợ theo từng kỳ",
     scheduleSampleNote: "Từ 60 kỳ trở lên hiển thị theo đơn vị 6 tháng",
     colMonth: "Kỳ",
@@ -312,6 +320,31 @@ export function LoanForm({ locale }: LoanFormProps): React.ReactElement {
               <Stat label={t.totalInterest} value={`${won(result.totalInterest)} ${t.monthlyUnit}`} />
               <Stat label={t.totalPayment} value={`${won(result.totalPayment)} ${t.monthlyUnit}`} />
             </dl>
+
+            <div>
+              <h3 className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                {t.chartHeading}
+              </h3>
+              <TrendChart
+                series={[
+                  {
+                    name: t.colBalance,
+                    color: "var(--chart-1)",
+                    points: [
+                      { x: 0, y: result.totalPrincipal },
+                      ...result.schedule.map((row) => ({
+                        x: row.month,
+                        y: row.balance,
+                      })),
+                    ],
+                    fill: true,
+                  },
+                ]}
+                formatX={(m) => `${Math.round(m)}${t.chartMonthSuffix}`}
+                formatY={(y) => formatAxisMoney(y, locale)}
+                ariaLabel={t.chartHeading}
+              />
+            </div>
 
             <div>
               <div className="mb-2.5 flex items-baseline justify-between">

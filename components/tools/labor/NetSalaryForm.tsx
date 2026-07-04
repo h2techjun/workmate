@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { calculateNetSalary } from "@/lib/calculations/labor/netSalary";
 import { NumberField } from "@/components/ui/NumberField";
 import { ShareButton } from "@/components/ui/ShareButton";
+import { BreakdownBar } from "@/components/ui/charts";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface NetSalaryFormProps {
@@ -32,6 +33,7 @@ const T = {
     incomeTax: "소득세",
     localTax: "지방소득세",
     deductionRate: "공제율",
+    chartTitle: "월급 구성",
     note: "2026 4대보험 요율 + 근로소득세 간이 추정. 실제 원천징수는 국세청 간이세액표 기준이라 ±5% 차이 가능. 연말정산으로 정산.",
   },
   en: {
@@ -52,6 +54,7 @@ const T = {
     incomeTax: "Income tax",
     localTax: "Local income tax",
     deductionRate: "Deduction rate",
+    chartTitle: "Monthly breakdown",
     note: "2026 insurance rates + estimated withholding. Actual withholding follows the NTS simplified table (±5%). Reconciled at year-end settlement.",
   },
   vi: {
@@ -72,6 +75,7 @@ const T = {
     incomeTax: "Thuế thu nhập",
     localTax: "Thuế thu nhập địa phương",
     deductionRate: "Tỷ lệ khấu trừ",
+    chartTitle: "Cơ cấu lương tháng",
     note: "Theo tỷ lệ bảo hiểm 2026 + ước tính khấu trừ tại nguồn. Khấu trừ thực tế theo bảng thuế đơn giản của Cơ quan Thuế Quốc gia (NTS) (±5%). Được quyết toán vào cuối năm.",
   },
 } as const;
@@ -151,7 +155,7 @@ export function NetSalaryForm({
           <dt className="text-xs font-medium text-[color:var(--color-text-tertiary)]">
             {t.monthlyNet}
           </dt>
-          <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">
+          <dd className="mt-1 text-4xl font-bold tabular-nums text-[color:var(--color-text-hero)]">
             {won(r.monthlyNet)}
             <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
               {t.unit}
@@ -161,6 +165,25 @@ export function NetSalaryForm({
             {t.annualNet} {won(r.annualNet)} {t.unit} · {t.deductionRate}{" "}
             {(r.deductionRate * 100).toFixed(1)}%
           </p>
+        </div>
+
+        <div>
+          <h3 className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+            {t.chartTitle}
+          </h3>
+          <BreakdownBar
+            segments={[
+              { label: t.monthlyNet, value: r.monthlyNet, color: "var(--chart-2)" },
+              { label: t.pension, value: r.pension, color: "var(--chart-1)" },
+              { label: t.health, value: r.health, color: "var(--chart-5)" },
+              { label: t.longTerm, value: r.longTerm, color: "var(--chart-6)" },
+              { label: t.employment, value: r.employment, color: "var(--chart-3)" },
+              { label: t.incomeTax, value: r.incomeTax, color: "var(--chart-4)" },
+              { label: t.localTax, value: r.localTax, color: "var(--color-text-muted)" },
+            ]}
+            format={won}
+            ariaLabel={t.chartTitle}
+          />
         </div>
 
         <dl className="space-y-1.5 text-sm">

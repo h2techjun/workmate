@@ -162,7 +162,7 @@ export function DueDateForm({
               <dt className="text-xs font-medium text-[color:var(--color-text-tertiary)]">
                 {t.due}
               </dt>
-              <dd className="mt-1 text-3xl font-bold tabular-nums text-[#eef0f5]">
+              <dd className="mt-1 text-3xl font-bold tabular-nums text-[color:var(--color-text-hero)]">
                 {r.dueDate.year}-{String(r.dueDate.month).padStart(2, "0")}-
                 {String(r.dueDate.day).padStart(2, "0")}
               </dd>

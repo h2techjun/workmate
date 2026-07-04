@@ -26,7 +26,8 @@
       "groupCatalog": "Explore",
       "groupCompany": "Company",
       "groupLegal": "Legal"
-    }
+    },
+    "themeToggle": "Toggle light/dark theme"
   },
   "homeSearch": {
     "placeholder": "Search tools — e.g. wire, insulation, payroll, business",

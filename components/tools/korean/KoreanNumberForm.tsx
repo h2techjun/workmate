@@ -115,7 +115,7 @@ export function KoreanNumberForm({
               <p className="text-xs font-medium text-[color:var(--color-text-tertiary)]">
                 {t.sino}
               </p>
-              <p className="mt-1 break-words text-3xl font-bold text-[#eef0f5]">
+              <p className="mt-1 break-words text-3xl font-bold text-[color:var(--color-text-hero)]">
                 {r.sino}
               </p>
               <p className="mt-1 text-[11px] text-[color:var(--color-text-tertiary)]">

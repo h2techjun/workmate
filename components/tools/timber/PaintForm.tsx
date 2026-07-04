@@ -112,7 +112,7 @@ export function PaintForm({ locale }: PaintFormProps): React.ReactElement {
           <dt className="text-xs font-medium text-[color:var(--color-text-tertiary)]">
             {t.liters}
           </dt>
-          <dd className="mt-1 text-4xl font-bold tabular-nums text-[#eef0f5]">
+          <dd className="mt-1 text-4xl font-bold tabular-nums text-[color:var(--color-text-hero)]">
             {formatNumber(result.litersWithWaste)}
             <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
               {t.litersUnit}

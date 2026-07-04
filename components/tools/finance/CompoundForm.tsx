@@ -13,7 +13,12 @@ import {
   type RecurringInputResolved,
   type RecurringResult,
 } from "@/lib/calculations/finance/compound";
-import { formatKoreanMoney, formatNumber } from "@/lib/utils/format";
+import {
+  formatAxisMoney,
+  formatKoreanMoney,
+  formatNumber,
+} from "@/lib/utils/format";
+import { TrendChart } from "@/components/ui/charts";
 import {
   ActionRow,
   CalcLayout,
@@ -78,6 +83,10 @@ const TEXT = {
     compAnnual: "연복리",
     compMonthly: "월복리",
     totalInvested: "총 투자금",
+    chartHeading: "자산 성장 곡선",
+    chartTotal: "총액",
+    chartInvested: "투입 원금",
+    chartMonthSuffix: "개월",
     viewYear: "년",
     viewMonth: "월",
     colPeriodYear: "년",
@@ -130,6 +139,10 @@ const TEXT = {
     compAnnual: "Annual",
     compMonthly: "Monthly",
     totalInvested: "Total invested",
+    chartHeading: "Growth curve",
+    chartTotal: "Balance",
+    chartInvested: "Invested",
+    chartMonthSuffix: " mo",
     viewYear: "Yearly",
     viewMonth: "Monthly",
     colPeriodYear: "Year",
@@ -182,6 +195,10 @@ const TEXT = {
     compAnnual: "Lãi kép theo năm",
     compMonthly: "Lãi kép theo tháng",
     totalInvested: "Tổng số tiền đầu tư",
+    chartHeading: "Đường tăng trưởng tài sản",
+    chartTotal: "Tổng số dư",
+    chartInvested: "Vốn đã đầu tư",
+    chartMonthSuffix: " th",
     viewYear: "Theo năm",
     viewMonth: "Theo tháng",
     colPeriodYear: "Năm",
@@ -428,6 +445,40 @@ function BasicTab({ locale }: { locale: "ko" | "en" | "vi" }): React.ReactElemen
                 {formatNumber(result.totalReturnPercent, 2)}%
               </p>
             )}
+
+            <div>
+              <h3 className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                {T.chartHeading}
+              </h3>
+              <TrendChart
+                series={[
+                  {
+                    name: T.chartInvested,
+                    color: "var(--chart-2)",
+                    points: [
+                      { x: 0, y: result.principal },
+                      ...result.schedule.map((r) => ({
+                        x: r.period,
+                        // 투입 원금 = 총액 ÷ (1 + 누적수익률) — 결과값에서 역산
+                        y: r.total / (1 + r.cumulativeReturnPercent / 100),
+                      })),
+                    ],
+                  },
+                  {
+                    name: T.chartTotal,
+                    color: "var(--chart-1)",
+                    points: [
+                      { x: 0, y: result.principal },
+                      ...result.schedule.map((r) => ({ x: r.period, y: r.total })),
+                    ],
+                    fill: true,
+                  },
+                ]}
+                formatX={(x) => String(Math.round(x))}
+                formatY={(y) => formatAxisMoney(y, locale)}
+                ariaLabel={T.chartHeading}
+              />
+            </div>
 
             <DataTable head={[T.colNo, T.colProfit, T.colTotal, T.colRate]}>
               {result.schedule.map((r) => (
@@ -703,6 +754,39 @@ function RecurringTab({ locale }: { locale: "ko" | "en" | "vi" }): React.ReactEl
               value={`₩${won(result.totalInvested)}`}
               full
             />
+
+            <div>
+              <h3 className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                {T.chartHeading}
+              </h3>
+              <TrendChart
+                series={[
+                  {
+                    name: T.chartInvested,
+                    color: "var(--chart-2)",
+                    points: [
+                      { x: 0, y: 0 },
+                      ...result.monthly.map((r) => ({
+                        x: r.label,
+                        y: r.principal,
+                      })),
+                    ],
+                  },
+                  {
+                    name: T.chartTotal,
+                    color: "var(--chart-1)",
+                    points: [
+                      { x: 0, y: 0 },
+                      ...result.monthly.map((r) => ({ x: r.label, y: r.total })),
+                    ],
+                    fill: true,
+                  },
+                ]}
+                formatX={(m) => `${Math.round(m)}${T.chartMonthSuffix}`}
+                formatY={(y) => formatAxisMoney(y, locale)}
+                ariaLabel={T.chartHeading}
+              />
+            </div>
 
             <div className="flex items-center justify-end">
               <Segmented

@@ -26,7 +26,8 @@
       "groupCatalog": "Khám phá",
       "groupCompany": "Công ty",
       "groupLegal": "Pháp lý"
-    }
+    },
+    "themeToggle": "Chuyển giao diện sáng/tối"
   },
   "homeSearch": {
     "placeholder": "Tìm công cụ — vd: dây điện, cách nhiệt, lương, doanh nghiệp",

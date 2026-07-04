@@ -6,7 +6,7 @@ import { CountUp } from "@/components/home/CountUp";
 import { Reveal } from "@/components/home/Reveal";
 import { TOOL_GROUPS, TOOL_GROUP_ORDER } from "@/lib/toolsCatalog";
 import { BLOG_POSTS } from "@/lib/blogPosts";
-import type { Locale } from "@/i18n";
+import { locales, type Locale } from "@/i18n";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -524,7 +524,7 @@ function StatsSection({
   const stats = [
     { key: "statsTools", value: toolCount, suffix: "" },
     { key: "statsCategories", value: groupCount, suffix: "" },
-    { key: "statsLanguages", value: 2, suffix: "" },
+    { key: "statsLanguages", value: locales.length, suffix: "" },
     { key: "statsSources", value: 100, suffix: "%" },
   ] as const;
 

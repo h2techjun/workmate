@@ -17,8 +17,10 @@ interface LocaleLayoutProps {
 }
 
 export const viewport: Viewport = {
+  // colorScheme 메타는 넣지 않는다 — CSS 의 color-scheme(다크 기본,
+  // html[data-theme="light"] 시 light)이 담당. 메타로 고정하면 라이트
+  // 전환 시 브라우저 폼 컨트롤이 다크로 렌더되는 충돌이 생긴다.
   themeColor: "#07080b",
-  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -87,6 +89,9 @@ export async function generateMetadata({
         en: "/en",
         "x-default": "/ko",
       },
+      types: {
+        "application/rss+xml": "/rss.xml",
+      },
     },
     openGraph: {
       type: "website",
@@ -146,10 +151,16 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark">
+    // suppressHydrationWarning: theme-init.js 가 페인트 전에 html 에
+    // data-theme 속성을 넣을 수 있어 서버 HTML 과 달라진다.
+    <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
         <AdSenseScript />
         <GoogleAnalytics />
+        {/* 라이트 테마 FOUC 가드 — 의도적 동기 로드(페인트 전 실행 보장).
+            내용: public/theme-init.js (localStorage 'light' 일 때만 전환) */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/theme-init.js" />
       </head>
       <body>
         <SiteStructuredData
