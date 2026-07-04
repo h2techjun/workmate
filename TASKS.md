@@ -11,7 +11,7 @@
 
 - [ ] **트래픽 신호 검증** (담당: 마스터) — ⭐ 최우선
   - GSC URL 검사로 신규 외국인 도구·필러 블로그 색인 요청 (매일 5~10건)
-  - 영문 커뮤니티(reddit r/Living_in_Korea 등)에 필러 글 1회 노출 → 실제 유입 신호 확인
+  - 커뮤니티 게시: **[`docs/distribution-kit.md`](./docs/distribution-kit.md) 복붙 초안 준비 완료** (레딧 en 3종·페북 vi 2종·네이버 ko·HN)
   - 우선 URL: /en/blog/living-in-korea-foreigner-guide → 외국인 도구 9종
 
 ## 🟡 다음 주 (planned, D+1~7)

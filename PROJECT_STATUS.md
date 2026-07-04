@@ -1,7 +1,7 @@
 # Workmate 프로젝트 상태판
 
 > **단일 진실원** — 매 세션 시작 시 이 파일을 먼저 읽으세요.
-> 마지막 갱신: 2026-07-03 (vi 웨이브4 — /data 3-locale. **vi 색인 = 외국인 관련 전 도구 완료(49) + /data**. 미번역=electric 3·timber 19 = 한국 건설/전기 전문가 도구, 베트남 수요 0 → 의도적 보류)
+> 마지막 갱신: 2026-07-04 (라이트 모드 + 결과 시각화 차트 + RSS — 제품 완성도 마감. vi 색인 = 외국인 관련 전 도구 완료(49) + /data, electric 3·timber 19 의도적 보류)
 
 ## 🧭 글로벌·AX 전략 재설계 (2026-07-03) ⭐ 최신 방향
 
@@ -252,6 +252,7 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-07-04 | **라이트 모드 + 결과 시각화 + RSS** — ①라이트/다크 토글(`[data-theme]` 토큰 재정의·FOUC 가드 `theme-init.js`·원색 유틸 26종 재매핑·히어로 hex 22곳 변수화, 기본 다크 유지) ②`charts.tsx` 순수 SVG 3종(의존성 0, `--chart-*` 양테마) — net-salary 월급구성 바·income-tax 누진구간 스케일·loan 잔금 곡선·compound 성장 2곡선, ko/en/vi ③`/rss.xml`(BLOG_POSTS 단일진실원) ④결함 수정: 랜딩 언어수 2→`locales.length`(3)·AdSense raw script(data-nscript 경고 제거) ⑤`docs/distribution-kit.md` 유통 킷. 585테스트·audit·양테마 브라우저 QA·IndexNow 15URL | (본 커밋) |
 | 2026-06-29 | **수익 전략 전환 + 휴면 제휴 인프라** — GSC 실적(클릭39·순위12.4) 진단 → 정직한 3-Track 모델(AdSense 바닥·금융 제휴/CPA 주력·트래픽 병목) `docs/monetization-strategy.md`. 휴면 OfferSlot+`lib/offers.ts`(비어있음=비노출, AdSense 심사 무해, rel=sponsored 공시). AdSense+제휴 병행 허용 공식 확인 | `66b8767` |
 | 2026-06-25 | **GSC 색인 진단 + www→apex 301** — sitemap 164개 전부 200·canonical/hreflang 정상 확인. '중복 페이지(표준 없음) 35'는 www 본문 서빙 탓 → next.config host 리다이렉트로 www→apex 308 통합. 404/리디렉션 버킷은 과거 옛 URL(자연 소멸), 발견/크롤링-미색인은 신규 사이트 권위·시간 이슈(코드 무관) | `9553634` |
 | 2026-06-25 | **Google 공식 AdSense Site Approvals 6편 반영** — 자막 직접 분석 → 거절사유 #3/#6 갭 수정(labor 설명 '~예정/coming soon' 제거, 죽은 '준비 중' UI 전면 제거: labor-calc·electric-calc·ComingSoon.tsx). docs 정본 체크리스트 + 7대 거절사유 + CLAUDE 도그마 + audit [I.공식정책] 자동게이트. 기술셋업(ads.txt·GSC·AdSenseScript) 부합 확인 | `7a7b5ba` |
