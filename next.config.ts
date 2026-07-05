@@ -63,14 +63,24 @@ const nextConfig: NextConfig = {
    * 1) www → apex (301/308): 단일 표준 도메인 강제 → GSC "중복 페이지(표준 없음)" 해소.
    *    canonical 은 이미 apex 를 가리키지만, www 가 본문을 서빙하면 Google 이 중복으로
    *    잠시 잡는다. host 조건 리다이렉트로 www 가 아예 본문을 안 내보내게 한다.
+   *
+   *    ⚠️ 단, 루트 텍스트 파일(ads.txt·indexnow-key·llms.txt·llms-full.txt)은
+   *    negative-lookahead 로 리다이렉트에서 제외한다 — 이들은 전용 크롤러
+   *    (Google-Adstxt / IndexNow / AI 엔진)가 "정확한 URL 에서 직접 200"을 기대하는데,
+   *    www 로 크롤할 때 308 을 만나면 리다이렉트 본문("Redirecting...")을 파일 내용으로
+   *    오인하거나, 배포 중 apex/www alias 재설정 순간과 겹쳐 간헐적으로 "찾을 수 없음"이
+   *    된다 (AdSense ads.txt "됐다 안됐다" 사고 2026-07-06). 예외 시 apex/www 양쪽 항상 200.
+   *    robots.txt·sitemap.xml 은 검색 크롤러가 리다이렉트를 잘 따르고 통합이 오히려
+   *    바람직하므로 제외 대상에 넣지 않는다.
    * 2) 구 /projects URL → /games (308): 이전 백링크/색인 호환.
    */
   async redirects() {
     return [
       {
-        source: "/:path*",
+        source:
+          "/:path((?!ads\\.txt|indexnow-key|llms\\.txt|llms-full\\.txt).*)",
         has: [{ type: "host", value: "www.workmate.tools" }],
-        destination: "https://workmate.tools/:path*",
+        destination: "https://workmate.tools/:path",
         permanent: true,
       },
       {
