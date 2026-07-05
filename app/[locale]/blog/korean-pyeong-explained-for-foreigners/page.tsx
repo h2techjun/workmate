@@ -352,6 +352,18 @@ function EnContent({ locale }: { locale: string }): React.ReactElement {
         </Link>
         .
       </p>
+      <p className="leading-relaxed">
+        Pyeong is just one of the Korean units that trip up newcomers — for
+        Korean age, clothing and shoe sizes, distance, and temperature all in
+        one place, see the{" "}
+        <Link
+          href={`/${locale}/blog/korean-units-numbers-for-foreigners`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          complete guide to Korean units &amp; numbers for foreigners
+        </Link>
+        .
+      </p>
       <p className="text-sm text-[color:var(--color-text-tertiary)]">
         Conversions are based on Korean traditional units (1 ja = 10/33 m).
         Pyeong is unofficial in Korean law since 1961; only ㎡ has legal
@@ -567,6 +579,17 @@ function KoContent({ locale }: { locale: string }): React.ReactElement {
           임대료 5% 검증
         </Link>
         에서 같이 확인하세요.
+      </p>
+      <p className="leading-relaxed">
+        평은 외국인을 헷갈리게 하는 여러 한국 단위 중 하나일 뿐입니다. 만
+        나이, 옷·신발 사이즈, 거리, 온도까지 한 번에 정리한{" "}
+        <Link
+          href={`/${locale}/blog/korean-units-numbers-for-foreigners`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          외국인을 위한 한국 단위·숫자 완전 가이드
+        </Link>
+        도 함께 보세요.
       </p>
       <p className="text-sm text-[color:var(--color-text-tertiary)]">
         환산값은 전통 단위 (1자 = 10/33 m) 기준입니다. 평은 1961년 이후
