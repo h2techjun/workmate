@@ -262,6 +262,8 @@ npx vercel alias set <deployment-url> workmate.tools                       # ②
 npx vercel alias set <deployment-url> www.workmate.tools                   # ③ www 도메인 연결
 ```
 검증: `https://workmate.tools/<신규경로>` 가 200 인지 확인 (404 면 alias 누락).
+**+ ads.txt 회귀 체크**: `curl -sI https://www.workmate.tools/ads.txt` 가 **200** 이어야 함
+(308 이면 next.config www→apex lookahead 예외 회귀 = AdSense "찾을 수 없음" 간헐 재발. apex만 보지 말 것 — 크롤러는 www도 본다. 사고학습 2026-07-06).
 배포 후 IndexNow 색인: `$env:INDEXNOW_KEY=(irm https://workmate.tools/indexnow-key); node tool/submit_indexnow.mjs --new`
 
 ## 💬 Claude Code 커뮤니케이션 규칙
