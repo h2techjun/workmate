@@ -37,6 +37,12 @@ export interface ProjectEntry {
    * "/play/k-poker" 처럼 leading slash 포함, trailing slash 없이.
    */
   subpath?: string;
+  /**
+   * 로케일별 서브패스 오버라이드 — 한 앱이 방문자 언어에 따라 다른 진입점을
+   * 가리킬 때(Loopla: ko=영어학습 "/loopla", en·vi=한국어학습 "/loopla/korean").
+   * resolveProjectUrl(p, locale) 에서 subpath 보다 우선한다.
+   */
+  subpathByLocale?: Partial<Record<Locale, string>>;
   /** 외부 링크 URL — host가 external 일 때만. */
   externalUrl?: string;
   /** GitHub 리포 URL — 있으면 카드 모서리에 표시. */
@@ -56,9 +62,13 @@ export interface ProjectEntry {
 /**
  * 외부 링크나 internal 서브패스 어느 쪽이든 클릭 시 실제 이동할 URL 을 반환.
  */
-export function resolveProjectUrl(p: ProjectEntry): string {
+export function resolveProjectUrl(p: ProjectEntry, locale?: Locale): string {
   if (p.hostType === "external") {
     return p.externalUrl ?? "#";
+  }
+  const byLocale = locale ? p.subpathByLocale?.[locale] : undefined;
+  if (byLocale) {
+    return byLocale;
   }
   return p.subpath ?? "#";
 }
@@ -197,8 +207,11 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
   {
     id: "vibe-english",
     tab: "learn",
-    hostType: "external",
-    externalUrl: "https://h2techjun.github.io/vibe-english/",
+    // 정적 임베드 — public/loopla/ (workmate.tools 도메인에서 직접 서빙).
+    // ko(한국인)=영어학습 /loopla, en·vi(외국인)=한국어학습 /loopla/korean.
+    hostType: "internal-static",
+    subpath: "/loopla/korean",
+    subpathByLocale: { ko: "/loopla", en: "/loopla/korean", vi: "/loopla/korean" },
     githubUrl: "https://github.com/h2techjun/vibe-english",
     status: "live",
     order: 1,

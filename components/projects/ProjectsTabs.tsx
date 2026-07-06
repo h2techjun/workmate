@@ -126,7 +126,7 @@ function ProjectCard({
   labels,
 }: ProjectCardProps): React.ReactElement {
   const copy = project.i18n[localeKey];
-  const url = resolveProjectUrl(project);
+  const url = resolveProjectUrl(project, localeKey);
   const isExternal = project.hostType === "external";
   const showOpen = url !== "#";
 

@@ -24,6 +24,13 @@ const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // 정적 임베드 SPA(public/loopla, public/play/*)는 trailingSlash:true 로 빌드된
+  // 디렉토리/index.html 구조다. worktool 기본(trailingSlash:false)이 "/loopla/" 를
+  // "/loopla" 로 308 정규화하면 디렉토리 인덱스 매핑이 깨져 404 가 된다.
+  // 이 옵션으로 자동 trailing-slash 리다이렉트를 끄고 정적 파일서버가 index.html 을
+  // 직접 서빙하게 한다. worktool 도구 URL 은 canonical 로 slash 없는 버전에 통합돼
+  // 있으므로 SEO 영향 없음 (App Router 는 slash 유무 both 매칭).
+  skipTrailingSlashRedirect: true,
   async rewrites() {
     const proxies: Array<{ source: string; destination: string }> = [];
 
@@ -52,9 +59,19 @@ const nextConfig: NextConfig = {
       });
     }
 
+    // 정적 임베드 SPA 디렉토리 인덱스 매핑 — Next.js 는 public/loopla/index.html 을
+    // "/loopla/" 같은 디렉토리 URL 로 자동 서빙하지 않으므로 명시 rewrite 로 index.html
+    // 을 붙인다. afterFiles 라 실제 파일(_next 자산·정확 경로)이 항상 우선이고, 존재하지
+    // 않는 디렉토리 경로만 해당 index.html 로 fallback 된다.
+    const looplaRewrites = [
+      { source: "/loopla", destination: "/loopla/index.html" },
+      { source: "/loopla/", destination: "/loopla/index.html" },
+      { source: "/loopla/:path+", destination: "/loopla/:path+/index.html" },
+    ];
+
     return {
       beforeFiles: [],
-      afterFiles: proxies,
+      afterFiles: [...proxies, ...looplaRewrites],
       fallback: [],
     };
   },
@@ -87,6 +104,24 @@ const nextConfig: NextConfig = {
         source: "/:locale(ko|en)/projects",
         destination: "/:locale/games",
         permanent: true,
+      },
+      // 3) Loopla 정적 앱 루트 → locale 진입점.
+      //    vibe 루트 page 는 redirect(`/${defaultLocale}`) 인데 static export 라
+      //    basePath(/loopla)가 안 붙어 worktool 홈(/en)으로 튕긴다. 여기서 locale
+      //    진입점으로 직접 보내 그 버그 있는 루트 리다이렉트를 우회한다.
+      //    타겟 정합: 영어학습(Loopla English)=한국인→ko UI, 한국어학습(Loopla
+      //    Korean)=외국인→en UI. permanent:false — 기본 locale 은 조정 가능.
+      { source: "/loopla", destination: "/loopla/ko/", permanent: false },
+      { source: "/loopla/", destination: "/loopla/ko/", permanent: false },
+      {
+        source: "/loopla/korean",
+        destination: "/loopla/korean/en/",
+        permanent: false,
+      },
+      {
+        source: "/loopla/korean/",
+        destination: "/loopla/korean/en/",
+        permanent: false,
       },
     ];
   },
