@@ -27,13 +27,18 @@
 
 `lib/projectsCatalog.ts` 가 모든 프로젝트의 노출 상태를 결정. `/games`·`/tests` 허브 페이지·sitemap 모두 이 파일을 참조.
 
-| 프로젝트 폴더 | 탭 | 외부 URL |
+| 프로젝트 폴더 | 탭 | 호스팅 |
 |---|---|---|
 | `D:/02_PROJECT/01_Hakrew/` | 서비스 | hakrew21.github.io/hakrew-web/ |
 | `D:/02_PROJECT/03_6Hours/` | 체험 | github.com/h2techjun/6hours |
 | `D:/02_PROJECT/04_office-hunter/` | 체험 | github.com/h2techjun/office-hunter |
 | `D:/02_PROJECT/08_k-poker/` | 게임 | junhuimine.github.io/k-poker/ |
 | `D:/02_PROJECT/defense/` | 게임 | h2techjun.github.io/defense/ |
+| `D:/02_PROJECT/11_english/` | 학습 | **정적 임베드** workmate.tools/loopla (자사 도메인) |
+
+> ⚠️ **11_english(Loopla)만 external 이 아닌 정적 임베드** — `public/loopla/` 에 빌드 산출물을
+> 커밋해 workmate.tools 에서 직접 서빙(트래픽·SEO·수익화 통합). 재빌드=`tool/build-loopla.ps1`.
+> 아키텍처·함정: [`docs/loopla-integration.md`](./docs/loopla-integration.md). 소스는 11_english repo 단일 진실원.
 
 **제외된 프로젝트** (사용자 결정): doc-translator, 09_jeonju-sangkwon, 02_Trade, 06_strix.
 
@@ -197,6 +202,7 @@ node scripts/audit.mjs
 - **계산 함수 순수성**: `lib/calculations/` 안에 `process.env` 또는 `fetch` 호출 시 SSR 깨짐. 순수 함수 강제
 - **i18n 키 누락**: `ko.json` / `en.json` 키 개수 다르면 빌드 통과해도 런타임 NPE
 - **SEO metadata 누락**: `generateMetadata` 없으면 검색엔진 노출 0
+- **정적 SPA 임베드 3함정** (public/loopla·향후 게임 자사 서빙): ①Next.js 는 `public/x/index.html` 을 `/x/` 디렉토리 URL 로 자동 서빙 안 함 → `afterFiles` rewrite 로 `/x/:path+`→`/x/:path+/index.html` ②트래일링슬래시 불일치 → `skipTrailingSlashRedirect:true` ③서브앱 루트 `redirect()` 가 basePath 무시 → next.config redirect 로 locale 진입점 직행. 상세 [`docs/loopla-integration.md`](./docs/loopla-integration.md)
 
 ## 📋 작업 시작 전 체크리스트
 
