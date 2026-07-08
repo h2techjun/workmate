@@ -106,21 +106,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // 3) Loopla 정적 앱 루트 → locale 진입점.
-      //    vibe 루트 page 는 redirect(`/${defaultLocale}`) 인데 static export 라
-      //    basePath(/loopla)가 안 붙어 worktool 홈(/en)으로 튕긴다. 여기서 locale
-      //    진입점으로 직접 보내 그 버그 있는 루트 리다이렉트를 우회한다.
-      //    타겟 정합: 영어학습(Loopla English)=한국인→ko UI, 한국어학습(Loopla
-      //    Korean)=외국인→en UI. permanent:false — 기본 locale 은 조정 가능.
+      //    Loopla 는 단일 앱(런타임 코스 전환): 로케일 = 모국어 = 학습 코스.
+      //      /loopla/ko = 영어 학습 / /loopla/en = 한국어 학습 / /loopla/zh = 중국어→한국어
+      //    static export 라 루트 page 의 redirect 가 basePath(/loopla) 없이 튕기므로
+      //    여기서 locale 진입점으로 직접 보낸다. permanent:false — 기본 locale 조정 가능.
       { source: "/loopla", destination: "/loopla/ko/", permanent: false },
       { source: "/loopla/", destination: "/loopla/ko/", permanent: false },
+      // 구 이중빌드 한국어 URL(/loopla/korean/*) 보존 → 단일 앱 en 로케일(한국어 학습)로
       {
         source: "/loopla/korean",
-        destination: "/loopla/korean/en/",
+        destination: "/loopla/en/",
         permanent: false,
       },
       {
         source: "/loopla/korean/",
-        destination: "/loopla/korean/en/",
+        destination: "/loopla/en/",
+        permanent: false,
+      },
+      {
+        source: "/loopla/korean/:path*",
+        destination: "/loopla/en/",
         permanent: false,
       },
     ];

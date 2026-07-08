@@ -1,7 +1,7 @@
 {
-  "name": "Loopla English - 생활 영어 SRS 학습",
-  "short_name": "Loopla English",
-  "description": "기억력 곡선 기반 생활 영어 회화 학습. 매일 10분, 잊을 만할 때 다시 만나는 표현.",
+  "name": "Loopla - SRS Language Learning",
+  "short_name": "Loopla",
+  "description": "매일 10분 SRS 언어 학습 — 한국어 화자는 영어를, 영어·중국어 화자는 한국어를. 완전 로컬, 가입 불필요.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",

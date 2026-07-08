@@ -1,6 +1,0 @@
-1:"$Sreact.fragment"
-2:I[59046,["/loopla/korean/_next/static/chunks/0x.73w57rn4ou.js","/loopla/korean/_next/static/chunks/0i.l9589uvx0j.js","/loopla/korean/_next/static/chunks/15w~fuo5zw9ic.js","/loopla/korean/_next/static/chunks/14l_9ssp4zguv.js","/loopla/korean/_next/static/chunks/0u_rajq5_q770.js","/loopla/korean/_next/static/chunks/0e1551uipfamk.js","/loopla/korean/_next/static/chunks/0fi1_8lc16.p-.js","/loopla/korean/_next/static/chunks/0iop~2bm26mej.js","/loopla/korean/_next/static/chunks/0jhk25pqvzjdp.js","/loopla/korean/_next/static/chunks/0kcfhap0bpk3o.js","/loopla/korean/_next/static/chunks/06aii2-diinx4.js","/loopla/korean/_next/static/chunks/0y5xq3wc0g_~d.js"],"DecksList"]
-3:I[897367,["/loopla/korean/_next/static/chunks/0x.73w57rn4ou.js","/loopla/korean/_next/static/chunks/0i.l9589uvx0j.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/loopla/korean/_next/static/chunks/06aii2-diinx4.js","async":true}],["$","script","script-1",{"src":"/loopla/korean/_next/static/chunks/0y5xq3wc0g_~d.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"UR7q-TZtoKBvA4MEs5oiX"}
-5:null
