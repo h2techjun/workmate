@@ -14,13 +14,23 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isZh = locale === "zh";
+  const isVi = locale === "vi";
 
   const title = isKo
     ? `무료 게임·인터랙티브 스토리·심리테스트 모음 — ${SITE_BRAND}`
-    : `Free Games · Interactive Stories · Personality Tests — ${SITE_BRAND}`;
+    : isZh
+      ? `免费游戏·互动故事·心理测试合集 — ${SITE_BRAND}`
+      : isVi
+        ? `Bộ sưu tập Game · Truyện tương tác · Trắc nghiệm tính cách miễn phí — ${SITE_BRAND}`
+        : `Free Games · Interactive Stories · Personality Tests — ${SITE_BRAND}`;
   const description = isKo
     ? "브라우저에서 바로 즐기는 무료 게임(화투 로그라이크 K-Poker, 한국형 타워디펜스), 6시간 정치 텍스트 어드벤처, 직장 문화 심리테스트. 회원가입·결제 없이 즉시 플레이."
-    : "Free browser games (hwatu roguelike, Korean tower defense), 6-hour political text adventure, workplace culture personality test. Play instantly — no signup.";
+    : isZh
+      ? "浏览器直接畅玩的免费游戏(花斗Rogue-like K-Poker、韩式塔防)、6小时政治文字冒险、职场文化心理测试。无需注册，即刻开始。"
+      : isVi
+        ? "Game miễn phí chơi ngay trên trình duyệt (hwatu roguelike K-Poker, tháp phòng thủ kiểu Hàn), phiêu lưu chữ chính trị 6 giờ, trắc nghiệm tính cách văn hóa công sở. Chơi ngay — không cần đăng ký."
+        : "Free browser games (hwatu roguelike, Korean tower defense), 6-hour political text adventure, workplace culture personality test. Play instantly — no signup.";
   const keywords = isKo
     ? [
         "무료 게임",
@@ -38,19 +48,52 @@ export async function generateMetadata({
         "자가진단",
         "AI 심리분석",
       ]
-    : [
-        "free browser games",
-        "Korean indie games",
-        "hwatu game",
-        "tower defense",
-        "text adventure",
-        "interactive fiction",
-        "personality test",
-        "MBTI",
-        "workplace culture test",
-        "self assessment",
-        "AI personality analysis",
-      ];
+    : isZh
+      ? [
+          "免费游戏",
+          "网页游戏",
+          "韩国独立游戏",
+          "花斗游戏",
+          "花斗Rogue-like",
+          "塔防游戏",
+          "文字冒险",
+          "互动小说",
+          "政治惊悚",
+          "心理测试",
+          "MBTI",
+          "职场文化诊断",
+          "自我诊断",
+          "AI心理分析",
+        ]
+      : isVi
+        ? [
+            "game miễn phí",
+            "game trình duyệt",
+            "game indie Hàn Quốc",
+            "game hwatu",
+            "hwatu roguelike",
+            "tháp phòng thủ",
+            "phiêu lưu chữ",
+            "tiểu thuyết tương tác",
+            "trắc nghiệm tính cách",
+            "MBTI",
+            "chẩn đoán văn hóa công ty",
+            "tự đánh giá",
+            "phân tích tính cách AI",
+          ]
+        : [
+            "free browser games",
+            "Korean indie games",
+            "hwatu game",
+            "tower defense",
+            "text adventure",
+            "interactive fiction",
+            "personality test",
+            "MBTI",
+            "workplace culture test",
+            "self assessment",
+            "AI personality analysis",
+          ];
 
   return {
     title,
@@ -77,8 +120,9 @@ export default async function ProjectsPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
-  const localeKey = (isKo ? "ko" : "en") as Locale;
+  const localeKey = (
+    locale === "ko" || locale === "zh" || locale === "vi" ? locale : "en"
+  ) as Locale;
   const t = await getTranslations({ locale: localeKey, namespace: "projects" });
 
   const cardLabels = {

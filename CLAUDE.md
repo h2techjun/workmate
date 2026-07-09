@@ -50,7 +50,7 @@
 - Framework: Next.js 15 (App Router)
 - Language: TypeScript (strict mode, any 금지)
 - Styling: Tailwind CSS v4 + shadcn/ui
-- i18n: next-intl (URL 경로 방식: /ko, /en)
+- i18n: next-intl (URL 경로 4로케일: /ko, /en, /zh, /vi)
 - Form: React Hook Form + Zod
 - State: useState 우선, 복잡하면 Zustand
 - Deployment: Vercel
@@ -87,9 +87,11 @@ worktool/
 │   │   └── ksStandard.ts
 │   └── utils/                     # 공통 유틸
 │
-├── messages/                      # 번역 파일
+├── messages/                      # 번역 파일 (4로케일)
 │   ├── ko.json
-│   └── en.json
+│   ├── en.json
+│   ├── zh.json                    # 중국어 간체 (i18n.ts 가 en base deep merge)
+│   └── vi.json                    # 베트남어 (en base deep merge)
 │
 ├── docs/                          # 도구별 설계 문서
 │   └── electric-calc.md
@@ -154,12 +156,20 @@ worktool/
 - **내비 링크는 실제 콘텐츠로** (영상 5) — 죽은/기만 링크 금지(electric-calc 버그 재발 방지).
 - **가짜 트래픽 금지** (#2) — 봇·자동클릭·인센티브 유입 = 즉시 거절. 배포 유입은 진짜 사용자만.
 - **품질 > 양** (영상 4) — 적은 고품질 페이지가 많은 저품질보다 낫다.
+- **자동생성 near-duplicate 색인 금지 (사례, 2026-07-09)**: `salary/[amount]` 47개는 `getSalaryCommentary` 6구간 텍스트만 반복(8개씩 near-dup) → AdSense "가치 없는 콘텐츠"(사이트 전체 판정) → `robots:{index:false,follow:true}` noindex 처리(계산기 insurance-calc 가 색인 본체, salary 는 링크만 전달). `generateStaticParams` 대량 페이지는 각 페이지 고유 가치 없으면 noindex.
 
-### i18n
-- 한국어가 기본 언어 (`/ko/...`)
-- 영문은 한국 KS 표준을 영어로 설명하는 버전
-- 글로벌 표준(IEC/NEC)이 아닌 **한국 KS 표준만 다룸**
-- 도구 이름/UI 텍스트는 `messages/*.json`에서 관리
+### i18n (4로케일 ko/en/zh/vi — 2026-07-09 확장)
+- 한국어가 기본 언어 (`/ko/...`). **로케일 4개: ko(기본)·en·zh(중국어 간체)·vi(베트남어)**
+- en/zh/vi 는 한국 KS/실무 기준을 각 언어로 설명. 글로벌 표준(IEC/NEC) 아닌 **한국 기준만**.
+- **zh/vi 는 부분번역 로케일** — `i18n.ts` 가 en base deep merge(미번역 키=en 자동 폴백). 색인은 `lib/zhReady.ts`·`lib/viReady.ts` 의 완역 경로만(sitemap/hreflang/robots 3곳 게이트). **반쪽 번역 페이지 색인 금지**(=/en 중복콘텐츠, AdSense 부채).
+- 도구/UI 텍스트는 `messages/{ko,en,zh,vi}.json`. **4개 키 대칭 필수**(하나라도 키 누락 시 런타임 폴백/NPE).
+- **★신규 페이지는 4로케일 정합 필수** — `isKo ? ko : en` 2분기 금지. `localeKey`(`locale === "zh" ? "zh" : ...`) 또는 `COPY[locale]` 로 zh/vi 케이스 포함. **계산기 하단 ToolGuide/ResultShell/OfferSlot/CrossLinks 에 locale 전달 시 collapse(`=== "zh" ? "en"`, `localeKey` 가 zh→en) 금지** — 좁히면 zh 가이드가 en 으로 표시된다(tsc 통과해도 런타임 결함 → 라이브 검증 필수). 공유 컴포넌트 prop 은 `"ko"|"en"|"zh"|"vi"` 로 확장돼 있음.
+
+### 🔗 K-생태계 크로스링크 + 피드백 (2026-07-09)
+- Workmate = **"한국 생활 원스톱 K-생태계"**(한국 실무 툴 → 생활상식 blog/guide → 한국어 학습 Loopla → 게임). 계산기는 툴↔툴(`messages toolGuides.related` = ToolGuide 렌더) 외에 **학습/생활글 크로스링크**로 4콘텐츠를 잇는다.
+- `lib/crossLinks.ts`(툴키→{learn, reads}) + `components/tools/CrossLinks.tsx`(learn 카드 4로케일 + reads blog/guide ko/en) → `ToolGuide.tsx` 한 곳에 통합(71 계산기 자동 반영). **신규 계산기 = crossLinks 관련성 검토**(실제 관련만, 억지 링크 금지). learn=true 는 한글·한국생활 툴(한국어 학습 유도).
+- `app/[locale]/learn/page.tsx` = Loopla 진입점, `COPY[locale]` 4로케일(zh/vi=중국어/베트남어로 한국어 학습).
+- **문의·피드백** = `components/feedback/FeedbackForm.tsx`(유형+내용+선택이메일, 4로케일, Web3Forms 서버리스 전송 + `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` 미설정 시 mailto 폴백, honeypot) → `/contact`. 공개 게시판(투표형)은 필요 시 Supabase 확장.
 
 ### Git 커밋 메시지
 - 한국어로 작성

@@ -18,7 +18,24 @@ interface FlatTool {
   href: string;
   labelKo: string;
   labelEn: string;
+  labelZh: string;
+  labelVi: string;
   emoji: string;
+}
+
+interface LocalizedToolLabels {
+  labelKo: string;
+  labelEn: string;
+  labelZh: string;
+  labelVi: string;
+}
+
+/** 로케일별 도구 라벨 선택 — ko/zh/vi 는 전용 라벨, 그 외는 en 폴백 (FlatTool·ToolEntry 공용) */
+function toolLabel(tool: LocalizedToolLabels, locale: string): string {
+  if (locale === "ko") return tool.labelKo;
+  if (locale === "zh") return tool.labelZh;
+  if (locale === "vi") return tool.labelVi;
+  return tool.labelEn;
 }
 
 /** GSC 노출 + 한국 검색량 기반 인기 도구 — 라벨은 toolsCatalog 단일 진실원에서 조회 */
@@ -55,6 +72,8 @@ export default async function HomePage({
       href: tool.href,
       labelKo: tool.labelKo,
       labelEn: tool.labelEn,
+      labelZh: tool.labelZh,
+      labelVi: tool.labelVi,
       emoji: group.emoji,
     })),
   );
@@ -73,23 +92,20 @@ export default async function HomePage({
       <HeroSection
         t={t}
         locale={locale}
-        isKo={isKo}
         toolCount={toolCount}
         toolByHref={toolByHref}
       />
       <MarqueeSection
         t={t}
         locale={locale}
-        isKo={isKo}
         toolCount={toolCount}
         rowA={marqueeRowA}
         rowB={marqueeRowB}
       />
-      <PopularSection t={t} locale={locale} isKo={isKo} toolByHref={toolByHref} />
+      <PopularSection t={t} locale={locale} toolByHref={toolByHref} />
       <CategoriesSection
         t={t}
         locale={locale}
-        isKo={isKo}
         groups={groups}
         toolCount={toolCount}
       />
@@ -105,13 +121,11 @@ export default async function HomePage({
 function HeroSection({
   t,
   locale,
-  isKo,
   toolCount,
   toolByHref,
 }: {
   t: Tx;
   locale: string;
-  isKo: boolean;
   toolCount: number;
   toolByHref: ReadonlyMap<string, FlatTool>;
 }): React.ReactElement {
@@ -171,7 +185,7 @@ function HeroSection({
                     href={`/${locale}${item.href}`}
                     className="rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)]/70 px-3 py-1.5 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-400/50 hover:text-[color:var(--color-text-primary)]"
                   >
-                    {isKo ? tool.labelKo : tool.labelEn}
+                    {toolLabel(tool, locale)}
                   </Link>
                 );
               })}
@@ -280,14 +294,12 @@ function FloatingCards({
 function MarqueeSection({
   t,
   locale,
-  isKo,
   toolCount,
   rowA,
   rowB,
 }: {
   t: Tx;
   locale: string;
-  isKo: boolean;
   toolCount: number;
   rowA: ReadonlyArray<FlatTool>;
   rowB: ReadonlyArray<FlatTool>;
@@ -302,8 +314,8 @@ function MarqueeSection({
           className="marquee-track"
           style={{ "--marquee-duration": "85s" } as React.CSSProperties}
         >
-          <MarqueeRow tools={rowA} locale={locale} isKo={isKo} />
-          <MarqueeRow tools={rowA} locale={locale} isKo={isKo} decorative />
+          <MarqueeRow tools={rowA} locale={locale} />
+          <MarqueeRow tools={rowA} locale={locale} decorative />
         </div>
       </div>
       <div className="marquee mt-3">
@@ -311,8 +323,8 @@ function MarqueeSection({
           className="marquee-track marquee-track-reverse"
           style={{ "--marquee-duration": "70s" } as React.CSSProperties}
         >
-          <MarqueeRow tools={rowB} locale={locale} isKo={isKo} />
-          <MarqueeRow tools={rowB} locale={locale} isKo={isKo} decorative />
+          <MarqueeRow tools={rowB} locale={locale} />
+          <MarqueeRow tools={rowB} locale={locale} decorative />
         </div>
       </div>
     </section>
@@ -322,12 +334,10 @@ function MarqueeSection({
 function MarqueeRow({
   tools,
   locale,
-  isKo,
   decorative = false,
 }: {
   tools: ReadonlyArray<FlatTool>;
   locale: string;
-  isKo: boolean;
   decorative?: boolean;
 }): React.ReactElement {
   const chipClass =
@@ -339,7 +349,7 @@ function MarqueeRow({
       aria-hidden={decorative ? "true" : undefined}
     >
       {tools.map((tool) => {
-        const label = isKo ? tool.labelKo : tool.labelEn;
+        const label = toolLabel(tool, locale);
         return (
           <li key={tool.href} className="shrink-0">
             {decorative ? (
@@ -365,12 +375,10 @@ function MarqueeRow({
 function PopularSection({
   t,
   locale,
-  isKo,
   toolByHref,
 }: {
   t: Tx;
   locale: string;
-  isKo: boolean;
   toolByHref: ReadonlyMap<string, FlatTool>;
 }): React.ReactElement {
   return (
@@ -404,7 +412,7 @@ function PopularSection({
                   {item.emoji}
                 </span>
                 <h3 className="mt-3 text-lg font-bold text-[color:var(--color-text-primary)]">
-                  {isKo ? tool.labelKo : tool.labelEn}
+                  {toolLabel(tool, locale)}
                 </h3>
                 <p className="mt-1.5 flex-1 text-sm leading-relaxed text-[color:var(--color-text-secondary)]">
                   {t(`popular.${item.i18nKey}`)}
@@ -427,17 +435,18 @@ function PopularSection({
 function CategoriesSection({
   t,
   locale,
-  isKo,
   groups,
   toolCount,
 }: {
   t: Tx;
   locale: string;
-  isKo: boolean;
   groups: ReadonlyArray<(typeof TOOL_GROUPS)[number]>;
   toolCount: number;
 }): React.ReactElement {
-  const localeKey = (isKo ? "ko" : "en") as Locale;
+  const localeKey =
+    locale === "ko" || locale === "zh" || locale === "vi"
+      ? (locale as Locale)
+      : ("en" as Locale);
 
   return (
     <section className="mx-auto max-w-6xl px-4 pb-16 md:px-6 md:pb-24">
@@ -486,7 +495,7 @@ function CategoriesSection({
                       href={`/${locale}${tool.href}`}
                       className="rounded-md border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-400/50 hover:text-[color:var(--color-text-primary)]"
                     >
-                      {isKo ? tool.labelKo : tool.labelEn}
+                      {toolLabel(tool, locale)}
                     </Link>
                   ))}
                   {restCount > 0 && (

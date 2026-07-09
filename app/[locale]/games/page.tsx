@@ -9,51 +9,143 @@ interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
+function localeKeyOf(locale: string): Locale {
+  if (locale === "ko") return "ko";
+  if (locale === "zh") return "zh";
+  if (locale === "vi") return "vi";
+  return "en";
+}
+
+const COPY = {
+  ko: {
+    metaTitle: `무료 웹게임 모음 — ${SITE_BRAND}`,
+    metaDesc:
+      "회원가입·결제·설치 없이 브라우저에서 바로 플레이하는 무료 게임. 한국형 화투 로그라이크 K-Poker, 무협 타워디펜스 해원문, 6시간 정치 스릴러 텍스트 어드벤처.",
+    keywords: [
+      "무료 게임",
+      "웹게임",
+      "한국 인디 게임",
+      "화투 게임",
+      "화투 로그라이크",
+      "K-Poker",
+      "타워디펜스",
+      "텍스트 어드벤처",
+      "인터랙티브 픽션",
+      "정치 스릴러",
+    ],
+    eyebrow: "무료 게임",
+    h1: "브라우저에서 바로 플레이",
+    subtitle:
+      "회원가입·결제·설치 없이 클릭 한 번. 한국형 화투 로그라이크, 무협 타워디펜스, 6시간 정치 텍스트 어드벤처까지.",
+    section2Heading: "직접 만든 게임과 이야기",
+    section2Para:
+      "여기 있는 게임과 인터랙티브 스토리는 모두 Workmate를 만든 사람이 직접 개발해 운영하는 프로젝트입니다. 외부 광고용 임베드가 아니라, 같은 제작자가 만든 작품들을 한곳에 모았습니다.",
+    list: [
+      "게임 — 한국형 화투 로그라이크(K-Poker), 무협 타워디펜스. 브라우저에서 설치 없이 바로 플레이.",
+      "인터랙티브 스토리 — 6시간 정치 스릴러 텍스트 어드벤처 등 선택지로 전개되는 서사형 작품.",
+      "전부 무료·무가입. 모바일에서도 동작하며, 결제나 앱 설치가 필요 없습니다.",
+    ],
+  },
+  en: {
+    metaTitle: `Free Browser Games — ${SITE_BRAND}`,
+    metaDesc:
+      "Free browser games — no signup, no install. Korean hwatu roguelike, martial-arts tower defense, 6-hour political text adventure.",
+    keywords: [
+      "free browser games",
+      "Korean indie games",
+      "hwatu roguelike",
+      "tower defense",
+      "text adventure",
+      "interactive fiction",
+    ],
+    eyebrow: "Free Games",
+    h1: "Play Instantly in Browser",
+    subtitle:
+      "One click and you're in — no signup, no install. Korean hwatu roguelike, martial-arts tower defense, and a 6-hour political text adventure.",
+    section2Heading: "Built in-house, not embedded",
+    section2Para:
+      "Every game and interactive story here is built and operated by the same person who makes Workmate. These are not third-party ad embeds — they are the maker's own projects gathered in one place.",
+    list: [
+      "Games — a Korean hwatu (flower-card) roguelike (K-Poker) and a martial-arts tower defense, playable instantly in the browser.",
+      "Interactive stories — a 6-hour political-thriller text adventure and other choice-driven narrative pieces.",
+      "All free, no signup. They run on mobile, with no payment or app install.",
+    ],
+  },
+  zh: {
+    metaTitle: `免费网页游戏合集 — ${SITE_BRAND}`,
+    metaDesc:
+      "无需注册、付费或安装，浏览器直接畅玩的免费游戏。韩式花斗Rogue-like「K-Poker」、武侠塔防「海源门」、6小时政治惊悚文字冒险。",
+    keywords: [
+      "免费游戏",
+      "网页游戏",
+      "韩国独立游戏",
+      "花斗游戏",
+      "花斗Rogue-like",
+      "K-Poker",
+      "塔防游戏",
+      "文字冒险",
+      "互动小说",
+      "政治惊悚",
+    ],
+    eyebrow: "免费游戏",
+    h1: "浏览器直接畅玩",
+    subtitle:
+      "点击一下即可开始，无需注册、无需安装。韩式花斗Rogue-like、武侠塔防，还有6小时政治文字冒险。",
+    section2Heading: "亲手打造的游戏与故事",
+    section2Para:
+      "这里的游戏与互动故事，全部由Workmate的开发者亲自制作并运营。并非第三方广告嵌入，而是同一位创作者作品的集中展示。",
+    list: [
+      "游戏 — 韩式花斗(花牌)Rogue-like「K-Poker」、武侠塔防，浏览器无需安装即可畅玩。",
+      "互动故事 — 6小时政治惊悚文字冒险等由选项推动剧情的叙事作品。",
+      "全部免费、无需注册。支持手机端运行，无需付费或安装应用。",
+    ],
+  },
+  vi: {
+    metaTitle: `Bộ sưu tập game trình duyệt miễn phí — ${SITE_BRAND}`,
+    metaDesc:
+      "Game miễn phí chơi ngay trên trình duyệt — không cần đăng ký, không cần cài đặt. Hwatu roguelike kiểu Hàn K-Poker, tháp phòng thủ võ hiệp, phiêu lưu chữ chính trị 6 giờ.",
+    keywords: [
+      "game miễn phí",
+      "game trình duyệt",
+      "game indie Hàn Quốc",
+      "game hwatu",
+      "hwatu roguelike",
+      "tháp phòng thủ",
+      "phiêu lưu chữ",
+      "tiểu thuyết tương tác",
+    ],
+    eyebrow: "Game miễn phí",
+    h1: "Chơi ngay trên trình duyệt",
+    subtitle:
+      "Chỉ cần một cú nhấp — không đăng ký, không cài đặt. Hwatu roguelike kiểu Hàn, tháp phòng thủ võ hiệp, và phiêu lưu chữ chính trị 6 giờ.",
+    section2Heading: "Game và câu chuyện tự phát triển",
+    section2Para:
+      "Mọi game và câu chuyện tương tác ở đây đều do chính người tạo ra Workmate phát triển và vận hành. Đây không phải là nhúng quảng cáo bên thứ ba — mà là các dự án của cùng một người sáng tạo được tập hợp tại một nơi.",
+    list: [
+      "Game — Hwatu (bài hoa) roguelike kiểu Hàn (K-Poker) và tháp phòng thủ võ hiệp, chơi ngay trên trình duyệt không cần cài đặt.",
+      "Câu chuyện tương tác — phiêu lưu chữ chính trị-giật gân 6 giờ và các tác phẩm tường thuật dẫn dắt bằng lựa chọn khác.",
+      "Hoàn toàn miễn phí, không cần đăng ký. Chạy được trên di động, không cần thanh toán hay cài đặt ứng dụng.",
+    ],
+  },
+} as const;
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale === "ko";
-
-  const title = isKo
-    ? `무료 웹게임 모음 — ${SITE_BRAND}`
-    : `Free Browser Games — ${SITE_BRAND}`;
-  const description = isKo
-    ? "회원가입·결제·설치 없이 브라우저에서 바로 플레이하는 무료 게임. 한국형 화투 로그라이크 K-Poker, 무협 타워디펜스 해원문, 6시간 정치 스릴러 텍스트 어드벤처."
-    : "Free browser games — no signup, no install. Korean hwatu roguelike, martial-arts tower defense, 6-hour political text adventure.";
-  const keywords = isKo
-    ? [
-        "무료 게임",
-        "웹게임",
-        "한국 인디 게임",
-        "화투 게임",
-        "화투 로그라이크",
-        "K-Poker",
-        "타워디펜스",
-        "텍스트 어드벤처",
-        "인터랙티브 픽션",
-        "정치 스릴러",
-      ]
-    : [
-        "free browser games",
-        "Korean indie games",
-        "hwatu roguelike",
-        "tower defense",
-        "text adventure",
-        "interactive fiction",
-      ];
+  const c = COPY[localeKeyOf(locale)];
 
   return {
-    title,
-    description,
-    keywords,
+    title: c.metaTitle,
+    description: c.metaDesc,
+    keywords: [...c.keywords],
     alternates: {
       canonical: `/${locale}/games`,
       languages: buildLanguagesAlt("/games"),
     },
     openGraph: {
-      title,
-      description,
+      title: c.metaTitle,
+      description: c.metaDesc,
       url: `${SITE_URL}/${locale}/games`,
       type: "website",
     },
@@ -68,8 +160,8 @@ export default async function GamesHubPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
-  const localeKey = (isKo ? "ko" : "en") as Locale;
+  const localeKey = localeKeyOf(locale);
+  const c = COPY[localeKey];
   const t = await getTranslations({ locale: localeKey, namespace: "projects" });
 
   const labels = {
@@ -83,15 +175,13 @@ export default async function GamesHubPage({
       <div className="mx-auto max-w-6xl">
       <header className="mb-10 max-w-3xl animate-fade-up">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-rose-400">
-          {isKo ? "무료 게임" : "Free Games"}
+          {c.eyebrow}
         </p>
         <h1 className="text-4xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-5xl">
-          {isKo ? "브라우저에서 바로 플레이" : "Play Instantly in Browser"}
+          {c.h1}
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-[color:var(--color-text-secondary)]">
-          {isKo
-            ? "회원가입·결제·설치 없이 클릭 한 번. 한국형 화투 로그라이크, 무협 타워디펜스, 6시간 정치 텍스트 어드벤처까지."
-            : "One click and you're in — no signup, no install. Korean hwatu roguelike, martial-arts tower defense, and a 6-hour political text adventure."}
+          {c.subtitle}
         </p>
       </header>
 
@@ -103,26 +193,13 @@ export default async function GamesHubPage({
 
       <section className="mt-14 max-w-3xl space-y-6 border-t border-[color:var(--color-border-subtle)] pt-10">
         <h2 className="text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
-          {isKo ? "직접 만든 게임과 이야기" : "Built in-house, not embedded"}
+          {c.section2Heading}
         </h2>
         <p className="text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
-          {isKo
-            ? "여기 있는 게임과 인터랙티브 스토리는 모두 Workmate를 만든 사람이 직접 개발해 운영하는 프로젝트입니다. 외부 광고용 임베드가 아니라, 같은 제작자가 만든 작품들을 한곳에 모았습니다."
-            : "Every game and interactive story here is built and operated by the same person who makes Workmate. These are not third-party ad embeds — they are the maker's own projects gathered in one place."}
+          {c.section2Para}
         </p>
         <ul className="space-y-2.5 text-sm text-[color:var(--color-text-secondary)] md:text-base">
-          {(isKo
-            ? [
-                "게임 — 한국형 화투 로그라이크(K-Poker), 무협 타워디펜스. 브라우저에서 설치 없이 바로 플레이.",
-                "인터랙티브 스토리 — 6시간 정치 스릴러 텍스트 어드벤처 등 선택지로 전개되는 서사형 작품.",
-                "전부 무료·무가입. 모바일에서도 동작하며, 결제나 앱 설치가 필요 없습니다.",
-              ]
-            : [
-                "Games — a Korean hwatu (flower-card) roguelike (K-Poker) and a martial-arts tower defense, playable instantly in the browser.",
-                "Interactive stories — a 6-hour political-thriller text adventure and other choice-driven narrative pieces.",
-                "All free, no signup. They run on mobile, with no payment or app install.",
-              ]
-          ).map((item, i) => (
+          {c.list.map((item, i) => (
             <li key={i} className="flex gap-2.5">
               <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
               <span>{item}</span>

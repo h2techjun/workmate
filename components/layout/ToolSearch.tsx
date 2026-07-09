@@ -20,11 +20,13 @@ interface FlatTool {
   href: string;
   labelKo: string;
   labelEn: string;
+  labelZh: string;
   labelVi: string;
   keywordsKo: string;
   groupId: ToolGroupId;
   groupTitleKo: string;
   groupTitleEn: string;
+  groupTitleZh: string;
   groupTitleVi: string;
   emoji: string;
 }
@@ -49,11 +51,13 @@ const ALL_TOOLS: ReadonlyArray<FlatTool> = TOOL_GROUPS.flatMap((group) =>
     href: tool.href,
     labelKo: tool.labelKo,
     labelEn: tool.labelEn,
+    labelZh: tool.labelZh,
     labelVi: tool.labelVi,
     keywordsKo: tool.keywordsKo,
     groupId: group.id,
     groupTitleKo: group.i18n.ko.title,
     groupTitleEn: group.i18n.en.title,
+    groupTitleZh: group.i18n.zh.title,
     groupTitleVi: group.i18n.vi.title,
     emoji: group.emoji,
   })),
@@ -72,10 +76,10 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
     if (q === "") return [];
     return ALL_TOOLS.filter((tool) => {
       const labels =
-        `${tool.labelKo} ${tool.labelEn} ${tool.labelVi}`.toLowerCase();
+        `${tool.labelKo} ${tool.labelEn} ${tool.labelZh} ${tool.labelVi}`.toLowerCase();
       const keywords = tool.keywordsKo.toLowerCase();
       const group =
-        `${tool.groupTitleKo} ${tool.groupTitleEn} ${tool.groupTitleVi}`.toLowerCase();
+        `${tool.groupTitleKo} ${tool.groupTitleEn} ${tool.groupTitleZh} ${tool.groupTitleVi}`.toLowerCase();
       return (
         labels.includes(q) || keywords.includes(q) || group.includes(q)
       );
@@ -100,9 +104,11 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
     const groupTitle =
       locale === "ko"
         ? tool.groupTitleKo
-        : locale === "vi"
-          ? tool.groupTitleVi
-          : tool.groupTitleEn;
+        : locale === "zh"
+          ? tool.groupTitleZh
+          : locale === "vi"
+            ? tool.groupTitleVi
+            : tool.groupTitleEn;
     return (
       <li role="option" aria-selected={false} className="flex items-center gap-2">
         <Link
@@ -119,9 +125,11 @@ export function ToolSearch({ locale }: ToolSearchProps): React.ReactElement {
             <div className="truncate text-sm font-semibold text-[color:var(--color-text-primary)]">
               {locale === "ko"
                 ? tool.labelKo
-                : locale === "vi"
-                  ? tool.labelVi
-                  : tool.labelEn}
+                : locale === "zh"
+                  ? tool.labelZh
+                  : locale === "vi"
+                    ? tool.labelVi
+                    : tool.labelEn}
             </div>
           </div>
           <ArrowRight className="h-4 w-4 shrink-0 text-[color:var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5" />
