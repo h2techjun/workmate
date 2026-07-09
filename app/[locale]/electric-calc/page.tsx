@@ -16,11 +16,13 @@ export async function generateMetadata({
     ko: "산업용 전기 계산기 | Workmate",
     en: "Industrial Electric Calculator | Workmate",
     vi: "Industrial Electric Calculator | Workmate",
+    zh: "工业电气计算器 | Workmate",
   };
   const descriptions: Record<Locale, string> = {
     ko: "KS C IEC 60364 기반 전선 굵기, 차단기 용량, 전압강하 계산기. 전기공사 실무에 바로 사용 가능.",
     en: "KS C IEC 60364 wire size, breaker capacity, and voltage drop calculators for electrical professionals.",
     vi: "KS C IEC 60364 wire size, breaker capacity, and voltage drop calculators for electrical professionals.",
+    zh: "基于KS C IEC 60364标准的电线线径、断路器容量、电压降计算器。电气工程实务可直接使用。",
   };
   return {
     title: titles[locale as Locale] ?? titles.ko,

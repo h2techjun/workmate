@@ -38,12 +38,14 @@ export async function generateMetadata({
     ko: `${SITE_BRAND} — 한국 실무자가 매일 쓰는 무료 도구·계산기 모음`,
     en: `${SITE_BRAND} — Free Tools & Calculators for Korean Standards`,
     vi: `${SITE_BRAND} — Bộ công cụ và máy tính miễn phí theo tiêu chuẩn Hàn Quốc`,
+    zh: `${SITE_BRAND} — 韩国职场人每天使用的免费工具·计算器合集`,
   };
 
   const descriptions: Record<Locale, string> = {
     ko: "한국 실무자를 위한 무료 계산기 모음. 전기 KEC, 4대보험 2026, 사업자번호 검증, 목조 NDS, 연봉 실수령액.",
     en: "Korean calculators: wire (KEC), 4 insurances, biz number, timber NDS, salary.",
     vi: "Máy tính Hàn Quốc: dây điện (KEC), 4 loại bảo hiểm, mã số doanh nghiệp, nhà gỗ (NDS), lương thực nhận.",
+    zh: "面向韩国职场人的免费计算器合集。电气KEC、四大保险2026、事业者登记号验证、木结构NDS、年薪实领金额。",
   };
 
   const localeKey = (locales.includes(locale as Locale) ? locale : "ko") as Locale;

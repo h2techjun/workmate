@@ -9,6 +9,7 @@ const COPY: Record<Locale, { sub: string; headline: string }> = {
   ko: { sub: "무료 계산기 · workmate.tools", headline: "전세 월세 전환 계산기" },
   en: { sub: "Free calculator · workmate.tools", headline: "Jeonse–Wolse Converter" },
   vi: { sub: "Công cụ miễn phí · workmate.tools", headline: "Máy tính quy đổi Jeonse–Wolse" },
+  zh: { sub: "免费计算器 · workmate.tools", headline: "全租月租转换计算器" },
 };
 
 export default async function Image({

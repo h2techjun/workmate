@@ -27,11 +27,13 @@ export async function generateMetadata({
     ko: "목조 주택 계산기 | Workmate",
     en: "Timber Construction Calculator | Workmate",
     vi: "Timber Construction Calculator | Workmate",
+    zh: "木结构住宅计算器 | Workmate",
   };
   const descriptions: Record<Locale, string> = {
     ko: "부재 경간·단열 R/U값·자재 수량 등 KS 표준과 건축법에 준거한 목조 시공 계산기 모음.",
     en: "Span, R/U-value, material quantity, and more — timber construction calculators based on KS standards and Korean building code.",
     vi: "Span, R/U-value, material quantity, and more — timber construction calculators based on KS standards and Korean building code.",
+    zh: "构件跨距·隔热R/U值·建材数量等 — 符合KS标准与建筑法的木结构施工计算器合集。",
   };
   return {
     title: titles[locale as Locale] ?? titles.ko,

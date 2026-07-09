@@ -63,6 +63,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Lương · Lao động",
         tagline: "Lương thực nhận, phép năm, phụ cấp nghỉ hàng tuần, trợ cấp thôi việc",
       },
+      zh: {
+        title: "薪资 · 劳动",
+        tagline: "年薪实领金额·年假·周休津贴·离职金 — 基于《劳动基准法》",
+      },
     },
     tools: [
       { labelKo: "연봉 실수령액", labelEn: "Salary Take-Home", labelVi: "Lương thực nhận", href: "/net-salary", keywordsKo: "연봉 실수령액 월급 세후 4대보험 공제 계산기" },
@@ -90,6 +94,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       vi: {
         title: "Tài chính · Thuế",
         tagline: "Lãi suất kép, thuế VAT, thuế chuyển nhượng cổ phiếu nước ngoài",
+      },
+      zh: {
+        title: "财务 · 税务",
+        tagline: "复利计算器·增值税·海外股票转让税 — 财务模拟 + 韩国税务",
       },
     },
     tools: [
@@ -123,6 +131,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Điện (KEC)",
         tagline: "Tiết diện dây, cầu dao, sụt áp — theo tiêu chuẩn KEC/KS C IEC 60364",
       },
+      zh: {
+        title: "电气 (KEC)",
+        tagline: "电线线径·断路器·电压降 — 基于KEC/KS C IEC 60364标准",
+      },
     },
     tools: [
       { labelKo: "전선 굵기 계산", labelEn: "Wire Size", labelVi: "Tính tiết diện dây dẫn", href: "/electric-calc/wire-size", keywordsKo: "전선 굵기 단면적 KEC 232.5" },
@@ -147,6 +159,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       vi: {
         title: "Nhà gỗ · Vật liệu",
         tagline: "Xà mái, mái nhà, cầu thang, cách nhiệt, bê tông, vật liệu — theo tiêu chuẩn NDS",
+      },
+      zh: {
+        title: "木结构住宅 · 建材",
+        tagline: "椽子·屋顶·楼梯·隔热·混凝土·建材数量 — 基于NDS及建筑法",
       },
     },
     tools: [
@@ -187,6 +203,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       vi: {
         title: "Bất động sản · Cho thuê",
         tagline: "Kiểm tra giới hạn tăng tiền thuê 5% theo luật Hàn Quốc",
+      },
+      zh: {
+        title: "房地产 · 租赁",
+        tagline: "租金5%上涨上限·换算保证金 — 基于《住宅租赁保护法》",
       },
     },
     tools: [
@@ -244,6 +264,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Sống ở Hàn · Người nước ngoài",
         tagline: "Tuổi Hàn Quốc, phiên âm tên, quy đổi size — công cụ thiết yếu hàng ngày",
       },
+      zh: {
+        title: "韩国生活 · 外国人",
+        tagline: "韩式年龄·姓名罗马字·尺码换算 — 外国人生活必备",
+      },
     },
     tools: [
       { labelKo: "한국식 나이 계산", labelEn: "Korean Age", labelVi: "Tính tuổi Hàn Quốc", href: "/korean-age", keywordsKo: "한국 나이 만나이 세는나이 연나이" },
@@ -282,6 +306,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Ô tô · Thuế",
         tagline: "Thuế trước bạ và thuế ô tô hàng năm — chi phí sở hữu xe",
       },
+      zh: {
+        title: "汽车 · 税金",
+        tagline: "购置税·汽车税 — 购车及持有成本",
+      },
     },
     tools: [
       { labelKo: "자동차 취득세", labelEn: "Acquisition Tax", labelVi: "Thuế trước bạ ô tô", href: "/car-acquisition-tax", keywordsKo: "자동차 취득세 취등록세 차량 구매 세금" },
@@ -304,6 +332,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       vi: {
         title: "Hóa đơn tiện ích",
         tagline: "Tiền điện Hàn Quốc (biểu giá lũy tiến KEPCO)",
+      },
+      zh: {
+        title: "公共事业费 · 生活费用",
+        tagline: "电费阶梯电价 — 韩国电力公社住宅用标准",
       },
     },
     tools: [
@@ -328,6 +360,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
         title: "Doanh nghiệp",
         tagline: "Xác thực mã số đăng ký kinh doanh — checksum ngoại tuyến",
       },
+      zh: {
+        title: "事业者",
+        tagline: "事业者登记号验证 — 离线校验位算法",
+      },
     },
     tools: [
       { labelKo: "사업자등록번호 검증", labelEn: "Business Number Validation", labelVi: "Xác thực mã số đăng ký kinh doanh", href: "/biznum-check", keywordsKo: "사업자번호 체크섬 검증" },
@@ -349,6 +385,10 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       vi: {
         title: "Quy đổi · Hàng ngày",
         tagline: "Pyeong ↔ m² · phần trăm · JSON ↔ CSV — công cụ nhanh hàng ngày",
+      },
+      zh: {
+        title: "换算 · 日常计算",
+        tagline: "坪数 ↔ ㎡ · 百分比 · JSON↔CSV — 每天都会用到的简单工具",
       },
     },
     tools: [

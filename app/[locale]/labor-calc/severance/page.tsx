@@ -56,7 +56,8 @@ export default async function SeverancePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const localeKey = (locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en") as Locale;
+  const localeKey: "ko" | "en" | "vi" =
+    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
   const t = await getTranslations({
     locale: localeKey,
     namespace: "severanceTool",

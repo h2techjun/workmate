@@ -29,6 +29,11 @@ const COPY: Record<Locale, { sub: string; headline: string; chips: string[] }> =
     headline: "Bộ công cụ · máy tính miễn phí",
     chips: ["Điện KEC", "4 loại bảo hiểm", "Mã số DN", "Nhà gỗ NDS", "Lương thực nhận"],
   },
+  zh: {
+    sub: "韩国职场人每天使用的",
+    headline: "免费工具·计算器合集",
+    chips: ["电气KEC", "四大保险2026", "事业者登记号", "木结构NDS", "年薪实领"],
+  },
 };
 
 export default async function Image({

@@ -9,6 +9,7 @@ const COPY: Record<Locale, { sub: string; headline: string }> = {
   ko: { sub: "무료 계산기 · workmate.tools", headline: "복리 계산기" },
   en: { sub: "Free calculator · workmate.tools", headline: "Compound Interest Calculator" },
   vi: { sub: "Free calculator · workmate.tools", headline: "Compound Interest Calculator" },
+  zh: { sub: "免费计算器 · workmate.tools", headline: "复利计算器" },
 };
 
 export default async function Image({

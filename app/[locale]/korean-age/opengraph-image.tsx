@@ -9,6 +9,7 @@ const COPY: Record<Locale, { sub: string; headline: string }> = {
   ko: { sub: "무료 계산기 · workmate.tools", headline: "만 나이 계산기" },
   en: { sub: "Free calculator · workmate.tools", headline: "Korean Age Calculator" },
   vi: { sub: "Công cụ miễn phí · workmate.tools", headline: "Máy tính tuổi Hàn Quốc" },
+  zh: { sub: "免费计算器 · workmate.tools", headline: "周岁计算器" },
 };
 
 export default async function Image({

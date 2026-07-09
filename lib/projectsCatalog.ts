@@ -106,6 +106,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
         description:
           "A roguelike built on Korean card game rules (Go-Stop, Matgo). Seed-locked seeds, escalating bosses, deep deck-building. Play in browser.",
       },
+      zh: {
+        title: "K-Poker",
+        tagline: "花斗roguelike — 每局新套牌、新首领",
+        description:
+          "基于花斗(Go-Stop、Matgo)规则的卡牌roguelike游戏。种子锁定、连胜升级系统层层递进的韩式卡牌游戏，浏览器内即刻开玩。",
+      },
     },
   },
   {
@@ -136,6 +142,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
         tagline: "Korean martial-arts universe defense RPG",
         description:
           "Flame-engine TD. Character growth, gear upgrades, stage bosses — landscape-optimized mobile play. Hosted on a separate domain (large build).",
+      },
+      zh: {
+        title: "解冤门塔防",
+        tagline: "韩式武侠世界观防御RPG",
+        description:
+          "基于Flame引擎的塔防游戏。武侠角色成长·装备强化·关卡Boss战 — 针对移动端横屏模式优化。因构建体积较大，托管在独立域名。",
       },
     },
   },
@@ -169,6 +181,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
         description:
           "Self-audit your workplace on 8 axes, then compare anonymously. Vertex AI auto-scores answer credibility to filter low-quality posts.",
       },
+      zh: {
+        title: "Office Hunter",
+        tagline: "职场文化诊断 + 匿名社区",
+        description:
+          "在职员工可从8个维度自我诊断公司文化，并在匿名社区中与其他公司比较。Vertex AI自动评估回答可信度，减少低质量噪音内容。",
+      },
     },
   },
   {
@@ -200,6 +218,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
         description:
           "A political conspiracy with a 6-hour decision deadline. Branching tree, time pressure, multi-endings, choices compared globally.",
       },
+      zh: {
+        title: "6 Hours",
+        tagline: "政治惊悚文字冒险游戏",
+        description:
+          "必须在6小时内做出抉择的政治阴谋。分支剧情树 + 时间压力 + 多重结局，每个选择都会永久保存，并与其他玩家的选择进行比较。",
+      },
     },
   },
 
@@ -211,7 +235,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     // ko(한국인)=영어학습 /loopla, en·vi(외국인)=한국어학습 /loopla/korean.
     hostType: "internal-static",
     subpath: "/loopla/korean",
-    subpathByLocale: { ko: "/loopla", en: "/loopla/korean", vi: "/loopla/korean" },
+    subpathByLocale: { ko: "/loopla", en: "/loopla/korean", vi: "/loopla/korean", zh: "/loopla/korean" },
     githubUrl: "https://github.com/h2techjun/vibe-english",
     status: "live",
     order: 1,
@@ -236,6 +260,12 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
         description:
           "Learn everyday Korean with spaced repetition (FSRS) timed to the forgetting curve. 3,400+ cards A1–C2, Hangul + romanization, flashcards + cloze quiz. Fully local, no signup.",
       },
+      zh: {
+        title: "Loopla Korean",
+        tagline: "契合记忆曲线的日常韩语间隔重复(SRS)学习",
+        description:
+          "运用间隔重复算法(FSRS)贴合遗忘曲线，在快要忘记时复习日常韩语。收录A1~C2共3,400+张卡片，韩文+罗马音标注，闪卡+填空测验双模式。无需注册，完全本地运行。",
+      },
     },
   },
 
@@ -247,10 +277,10 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
  * 탭 표시 라벨 (UI).
  */
 export const TAB_LABEL: Record<ProjectTab, Record<Locale, string>> = {
-  games: { ko: "게임", en: "Games", vi: "Games" },
-  stories: { ko: "스토리", en: "Stories", vi: "Stories" },
-  tests: { ko: "심리테스트", en: "Tests", vi: "Tests" },
-  learn: { ko: "학습", en: "Learn", vi: "Learn" },
+  games: { ko: "게임", en: "Games", vi: "Games", zh: "游戏" },
+  stories: { ko: "스토리", en: "Stories", vi: "Stories", zh: "故事" },
+  tests: { ko: "심리테스트", en: "Tests", vi: "Tests", zh: "心理测试" },
+  learn: { ko: "학습", en: "Learn", vi: "Learn", zh: "学习" },
 };
 
 /**
@@ -261,21 +291,25 @@ export const TAB_TAGLINE: Record<ProjectTab, Record<Locale, string>> = {
     ko: "브라우저에서 바로 플레이하는 무료 캐주얼 게임",
     en: "Free casual games playable directly in your browser",
     vi: "Free casual games playable directly in your browser",
+    zh: "在浏览器中直接畅玩的免费休闲游戏",
   },
   stories: {
     ko: "선택이 결과를 바꾸는 인터랙티브 스토리·텍스트 어드벤처",
     en: "Interactive stories where every choice changes the ending",
     vi: "Interactive stories where every choice changes the ending",
+    zh: "选择决定结局的互动故事·文字冒险游戏",
   },
   tests: {
     ko: "직장 문화·자기 진단 — 익명 심리테스트 + AI 분석",
     en: "Workplace culture and self-discovery tests with AI scoring",
     vi: "Workplace culture and self-discovery tests with AI scoring",
+    zh: "职场文化·自我诊断 — 匿名心理测试 + AI分析",
   },
   learn: {
     ko: "기억력 곡선에 맞춘 간격 반복 학습 — 매일 꾸준히",
     en: "Spaced-repetition everyday Korean timed to your memory curve",
     vi: "Spaced-repetition everyday Korean timed to your memory curve",
+    zh: "契合记忆曲线的间隔重复学习 — 每天坚持一点点",
   },
 };
 
@@ -291,8 +325,8 @@ export const TAB_ORDER: ReadonlyArray<ProjectTab> = [
 ];
 
 export const STATUS_LABEL: Record<ProjectStatus, Record<Locale, string>> = {
-  live: { ko: "운영중", en: "Live", vi: "Live" },
-  beta: { ko: "베타", en: "Beta", vi: "Beta" },
-  wip: { ko: "개발중", en: "WIP", vi: "WIP" },
-  archived: { ko: "아카이브", en: "Archived", vi: "Archived" },
+  live: { ko: "운영중", en: "Live", vi: "Live", zh: "运行中" },
+  beta: { ko: "베타", en: "Beta", vi: "Beta", zh: "测试版" },
+  wip: { ko: "개발중", en: "WIP", vi: "WIP", zh: "开发中" },
+  archived: { ko: "아카이브", en: "Archived", vi: "Archived", zh: "已归档" },
 };
