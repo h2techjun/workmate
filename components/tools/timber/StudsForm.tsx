@@ -28,7 +28,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface StudsFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "zh";
 }
 
 const TEXT = {
@@ -100,6 +100,40 @@ const TEXT = {
       "Nails ≈ 8 per stud (4 toenails × 2 ends).",
     ],
   },
+  zh: {
+    sectionWall: "墙体信息",
+    sectionLumber: "方木·其他",
+    fieldWallLength: "墙长 (m)",
+    fieldWallLengthHint: "单面墙或多面墙合计长度",
+    fieldCeiling: "层高 (mm)",
+    fieldCeilingHint: "通常为2400~3000mm",
+    fieldSpacing: "墙骨柱间距",
+    fieldOpenings: "洞口 (窗/门) 数量",
+    fieldOpeningsHint: "每个洞口追加副柱·通长柱共4根 + 过梁2根",
+    fieldWaste: "损耗率 (%)",
+    fieldWasteHint: "裁切损耗·预留量，默认10%",
+    calculate: "计算",
+    reset: "重置",
+    resultHeading: "计算结果",
+    resultEmpty: "请输入墙长后计算。",
+    error: "计算过程中发生错误。",
+    studCount: "墙骨柱根数",
+    studCountUnit: "根",
+    studLength: "单根长度",
+    topPlate: "顶梁板总长度 (双层)",
+    solePlate: "底梁板总长度 (单层)",
+    headerCount: "过梁根数 (洞口上方)",
+    nailCount: "钉子估算数量",
+    spacing16: "16英寸 (406mm)",
+    spacing24: "24英寸 (610mm)",
+    sourceTitle: "出处与假设",
+    sourceLines: [
+      "IRC 2018第6章(墙体施工) — 美国标准，韩国木结构住宅施工普遍沿用。",
+      "方木 = 2×4 SPF (38×89mm)。双层顶梁板 + 单层底梁板 = 共3层38mm。",
+      "过梁 = 每个洞口2×10双过梁(2根) + 副柱·通长柱共4根。",
+      "钉子估算 = 每根8颗(两端各4颗斜钉)。",
+    ],
+  },
 } as const;
 
 export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
@@ -144,27 +178,39 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
       case "studCount":
         return locale === "ko"
           ? `벽 길이 ${formatNumber(s.wallLength)}m ÷ 간격 ${formatNumber(s.spacing)}mm = 기본 ${formatNumber(s.result)}본 (양 끝 포함)`
-          : `${formatNumber(s.wallLength)}m ÷ ${formatNumber(s.spacing)}mm = ${formatNumber(s.result)} studs (incl. both ends)`;
+          : locale === "zh"
+            ? `墙长 ${formatNumber(s.wallLength)}m ÷ 间距 ${formatNumber(s.spacing)}mm = 基本 ${formatNumber(s.result)}根 (含两端)`
+            : `${formatNumber(s.wallLength)}m ÷ ${formatNumber(s.spacing)}mm = ${formatNumber(s.result)} studs (incl. both ends)`;
       case "studLength":
         return locale === "ko"
           ? `층고 ${formatNumber(s.ceilingHeight)}mm − 플레이트 ${formatNumber(s.plates)}mm = 1본 길이 ${formatNumber(s.result)}mm`
-          : `Ceiling ${formatNumber(s.ceilingHeight)}mm − plates ${formatNumber(s.plates)}mm = stud length ${formatNumber(s.result)}mm`;
+          : locale === "zh"
+            ? `层高 ${formatNumber(s.ceilingHeight)}mm − 梁板 ${formatNumber(s.plates)}mm = 单根长度 ${formatNumber(s.result)}mm`
+            : `Ceiling ${formatNumber(s.ceilingHeight)}mm − plates ${formatNumber(s.plates)}mm = stud length ${formatNumber(s.result)}mm`;
       case "plateLength":
         return locale === "ko"
           ? `벽 길이 ${formatNumber(s.wallLength)}m × 3 (더블 탑 + 솔) = 총 ${formatNumber(s.result)}m`
-          : `${formatNumber(s.wallLength)}m × 3 (double top + sole) = ${formatNumber(s.result)}m total`;
+          : locale === "zh"
+            ? `墙长 ${formatNumber(s.wallLength)}m × 3 (双层顶梁板 + 底梁板) = 共 ${formatNumber(s.result)}m`
+            : `${formatNumber(s.wallLength)}m × 3 (double top + sole) = ${formatNumber(s.result)}m total`;
       case "headerCount":
         return locale === "ko"
           ? `개구부 ${formatNumber(s.openings)}개 × 2 (더블 헤더) = 헤더 ${formatNumber(s.result)}본`
-          : `${formatNumber(s.openings)} openings × 2 (double header) = ${formatNumber(s.result)} headers`;
+          : locale === "zh"
+            ? `洞口 ${formatNumber(s.openings)}个 × 2 (双过梁) = 过梁 ${formatNumber(s.result)}根`
+            : `${formatNumber(s.openings)} openings × 2 (double header) = ${formatNumber(s.result)} headers`;
       case "totalStuds":
         return locale === "ko"
           ? `기본 ${formatNumber(s.base)}본 × (1 + ${formatNumber(s.waste)}% 손실) = 총 ${formatNumber(s.result)}본`
-          : `Base ${formatNumber(s.base)} × (1 + ${formatNumber(s.waste)}% waste) = ${formatNumber(s.result)} total`;
+          : locale === "zh"
+            ? `基本 ${formatNumber(s.base)}根 × (1 + ${formatNumber(s.waste)}% 损耗) = 共 ${formatNumber(s.result)}根`
+            : `Base ${formatNumber(s.base)} × (1 + ${formatNumber(s.waste)}% waste) = ${formatNumber(s.result)} total`;
       case "nails":
         return locale === "ko"
           ? `스터드 ${formatNumber(s.studs)}본 × 본당 ${formatNumber(s.nailsPerStud)}못 = 총 ${formatNumber(s.result)}개`
-          : `${formatNumber(s.studs)} studs × ${formatNumber(s.nailsPerStud)} nails/stud = ${formatNumber(s.result)} nails`;
+          : locale === "zh"
+            ? `墙骨柱 ${formatNumber(s.studs)}根 × 每根 ${formatNumber(s.nailsPerStud)}颗钉 = 共 ${formatNumber(s.result)}颗`
+            : `${formatNumber(s.studs)} studs × ${formatNumber(s.nailsPerStud)} nails/stud = ${formatNumber(s.result)} nails`;
     }
   };
 
@@ -229,7 +275,7 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
                   thousands={false}
                   decimals={0}
                   min={0}
-                  suffix={locale === "ko" ? "개" : "pcs"}
+                  suffix={locale === "ko" ? "개" : locale === "zh" ? "个" : "pcs"}
                   aria-label={T.fieldOpenings}
                 />
               )}
@@ -306,11 +352,13 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
               />
               <Stat
                 label={T.nailCount}
-                value={`${formatNumber(result.nailCount)} ${locale === "ko" ? "개" : "pcs"}`}
+                value={`${formatNumber(result.nailCount)} ${locale === "ko" ? "개" : locale === "zh" ? "颗" : "pcs"}`}
               />
             </dl>
             <StepsBox
-              title={locale === "ko" ? "계산 과정" : "Steps"}
+              title={
+                locale === "ko" ? "계산 과정" : locale === "zh" ? "计算过程" : "Steps"
+              }
               items={result.steps.map((s) => renderStep(s))}
             />
             <SourceBox lines={[T.sourceTitle, ...T.sourceLines]} />

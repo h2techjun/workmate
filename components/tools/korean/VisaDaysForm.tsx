@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface VisaDaysFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
   today: { year: number; month: number; day: number };
 }
 
@@ -46,6 +46,23 @@ const T = {
     safe: "Valid stay",
     refLabel: "Reference date (today)",
     note: "Entry day counted as day 1 (immigration practice). May vary by visa type/extension — verify the exact expiry on HiKorea or your ARC.",
+  },
+  zh: {
+    entry: "入境日期",
+    year: "年",
+    month: "月",
+    day: "日",
+    allowed: "允许滞留天数",
+    presets: "常用期限",
+    result: "滞留现状",
+    daysStayed: "当前已滞留天数",
+    daysUnit: "天",
+    remaining: "距到期剩余天数",
+    expiry: "滞留到期日",
+    overstay: "超期滞留（非法）",
+    safe: "正常滞留",
+    refLabel: "基准日（今天）",
+    note: "计算时将入境日算作第1天（出入境惯例）。可能因签证种类·延期与否而不同，准确到期日请以HiKorea或外国人登录证确认为准。",
   },
   vi: {
     entry: "Ngày nhập cảnh",

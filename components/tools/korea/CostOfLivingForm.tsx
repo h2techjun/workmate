@@ -30,7 +30,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface CostOfLivingFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const TEXT = {
@@ -118,6 +118,49 @@ const TEXT = {
       "Rent varies by area and size; health insurance varies by income, assets, and scheme (employer vs local).",
       "USD conversion is omitted — exchange rates move and would mislead. KRW only.",
       "Representative mid-range estimates for 2026. Reference only — confirm with real contracts and bills.",
+    ],
+  },
+  zh: {
+    sectionProfile: "地区 · 家庭",
+    fieldRegion: "地区",
+    fieldHousehold: "家庭",
+    sectionItems: "月度项目（均可编辑）",
+    calculate: "重新计算",
+    reset: "恢复默认值",
+    heading: "月生活费估算",
+    heroLabel: "月总额（估算）",
+    won: "₩",
+    annual: "年度换算",
+    perPerson: "人均月度",
+    note: "各项目为按地区·家庭规模估算的一般中位数。请根据自身情况直接修改——总额即为你所输入数值的总和。",
+    regionOpt: {
+      seoulCore: "首尔市中心（江南·麻浦等）",
+      seoulOuter: "首尔外围",
+      gyeonggi: "京畿道（首都圈）",
+      metro: "广域市（釜山·大邱等）",
+      other: "地方中小城市",
+    } as Record<Region, string>,
+    householdOpt: {
+      single: "单身",
+      couple: "情侣（2人）",
+      family: "家庭（3~4人）",
+    } as Record<Household, string>,
+    lineLabel: {
+      rent: "房租",
+      utilities: "水电燃气费（电·燃气·水·管理费）",
+      food: "伙食费",
+      transport: "交通",
+      mobile: "通讯",
+      healthInsurance: "健康保险",
+      other: "其他（休闲·服装·杂费）",
+    } as Record<CostLineKey, string>,
+    sourceTitle: "依据 · 性质",
+    sourceLines: [
+      "总额 = 以上7个项目的简单加总（按输入值原样计算）。",
+      "选择地区·家庭只是填入可编辑的默认值，并非断言'韩国生活费是多少'。",
+      "房租因地区·专用面积而异，健康保险则因收入·财产·加入类型（职场/地区）而有很大差异。",
+      "由于汇率波动可能造成误解，本工具不换算美元，仅显示韩元金额。",
+      "以2026年为基准的一般估算区间代表值，仅供参考——请以实际合同·账单为准确认。",
     ],
   },
   vi: {

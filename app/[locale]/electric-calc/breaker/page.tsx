@@ -63,7 +63,7 @@ export default async function BreakerPage({
           </p>
         </header>
         <BreakerForm />
-        <ToolGuide toolKey="electric-breaker" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide toolKey="electric-breaker" locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

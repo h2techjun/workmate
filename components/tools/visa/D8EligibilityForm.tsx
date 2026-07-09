@@ -25,7 +25,7 @@ import {
 import { cn } from "@/lib/utils/cn";
 
 interface D8EligibilityFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 /** 유형별로 노출할 요건 체크박스 필드 */
@@ -205,6 +205,59 @@ const TEXT = {
       "Điểm số và bảng tính điểm OASIS không được công bố và có thể thay đổi bất cứ lúc nào — công cụ này không tính điểm.",
       "Đáp ứng yêu cầu không đảm bảo được chấp thuận. Tính thực chất của hoạt động kinh doanh, nguồn vốn, v.v. tùy theo thẩm quyền của từng cán bộ xét duyệt.",
       "Chỉ mang tính tham khảo. Hãy xác minh chính thức tại hikorea.go.kr / 1345 / KOTRA.",
+    ],
+  },
+  zh: {
+    sectionType: "申请类型",
+    fieldType: "您申请的是哪种D-8签证？",
+    types: {
+      none: "请选择 / 不确定",
+      corporateInvestment: "D-8-1 企业投资 — 新设/投资韩国法人",
+      individualInvestment: "D-8-3 个人投资 — 投资韩国人经营的法人",
+      techStartup: "D-8-4 技术创业 — 以自身技术设立新法人",
+    },
+    sectionReq: "要求核查",
+    req: {
+      meetsInvestment: "外国人投资金额1亿韩元(₩100M)以上",
+      meetsShares: "持有表决权股份10%以上(D-8-3含高管合同)",
+      corpRegistered: "已完成法人设立 + 事业者登记 + 外国人投资企业登记",
+      hasDegree: "已取得国内专科以上或海外学士以上学历",
+      hasIP: "专利·实用新型·外观设计权已登记或正在申请中",
+      newCorp: "设立新法人(非收购既有法人)",
+      oasisMandatory: "满足OASIS必备项目1项以上(知识产权·引进投资·政府支持等)",
+      goodConduct: "无犯罪记录 · 出入境违规不满4次 · 无欠税",
+    },
+    calculate: "确认资格",
+    reset: "重置",
+    resultHeading: "D-8基本资格核查",
+    resultEmpty: "请选择类型并勾选要求以确认资格。",
+    error: "核查过程中发生错误。",
+    eligibleTitle: "已满足基本申请资格要求",
+    notEligibleTitle: "尚未满足基本要求",
+    metLabel: "已满足",
+    blockerHeading: "需优先满足的项目",
+    blockers: {
+      type: "请先选择D-8申请类型",
+      investment: "需外国人投资金额1亿韩元以上",
+      shares: "需持有表决权股份10%以上",
+      corp: "需完成法人设立 + 事业者登记(投资型需另完成外国人投资企业登记)",
+      degree: "需国内专科以上或海外学士以上学历",
+      ip: "需专利·实用新型·外观设计权已登记或已申请",
+      newCorp: "需设立新法人(不可收购既有法人)",
+      oasis: "需至少满足1项OASIS必备项目",
+      conduct: "不可有犯罪记录·出入境违规·欠税等丧失资格事由",
+    },
+    nextHeading: "下一步",
+    nextNoteStartup:
+      "即使满足基本要求，D-8-4仍须通过OASIS积分制。官方最低分为300分中的60分，但不同来源给出80~120分不等，各项目具体分值属法务部内部指南(未公开) — 本工具不臆断具体分数。准确分数与资格请通过hikorea.go.kr或全球创业移民中心(OASIS)确认。",
+    nextNoteInvest:
+      "即使满足投资金额·持股·法人要求，移民厅仍会另行审查事业实质性(资金来源·实际办公地址·雇佣计划)。小额投资者将被列为重点审查对象。准确资格与所需文件请通过hikorea.go.kr或KOTRA外国人投资支持中心(02-3497-1741)确认。",
+    sourceTitle: "依据 · 局限",
+    sourceLines: [
+      "投资1亿韩元·持股10%依据《外国人投资促进法施行令》第2条第2项，学历·知识产权·新设法人·OASIS必备项目依据HiKorea技术创业移民指南。",
+      "OASIS分数及评分表未公开且随时可能变动 — 本工具不计算具体分数。",
+      "即使满足要求也不保证获批，事业实质性·资金来源等最终由审核官个别裁量决定。",
+      "仅供参考的核查清单。官方确认请至hikorea.go.kr / 1345 / KOTRA。",
     ],
   },
 } as const;

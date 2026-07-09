@@ -4,7 +4,7 @@ import { useState } from "react";
 import { decomposeHangul } from "@/lib/calculations/korean/hangulDecompose";
 
 interface HangulDecomposeFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const T = {
@@ -55,6 +55,22 @@ const T = {
     none: "—",
     empty: "Vui lòng nhập văn bản tiếng Hàn.",
     note: "Mỗi âm tiết được phân tách thành phụ âm đầu, nguyên âm và phụ âm cuối kèm cách đọc La-tinh hóa. Việc âm tiết có phụ âm cuối (patchim) hay không rất quan trọng khi chọn trợ từ (은/는, 이/가). Chữ La-tinh chỉ là cách phiên âm ở cấp độ âm tiết (chưa phản ánh biến âm).",
+  },
+  zh: {
+    label: "输入韩文",
+    placeholder: "例: 한글 받침",
+    result: "音节分解",
+    syllables: "音节数",
+    jamoTotal: "字母总数",
+    cho: "初声",
+    jung: "中声",
+    jong: "终声",
+    rom: "罗马字",
+    hasJong: "有收音",
+    noJong: "无收音",
+    none: "—",
+    empty: "请输入韩文。",
+    note: "将每个音节分解为初声·中声·终声，并显示各字母的罗马字读音。收音(终声)有无对助词(은/는, 이/가)的选择至关重要。罗马字为音节单位音译(未反映音变)。",
   },
 } as const;
 

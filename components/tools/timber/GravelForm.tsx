@@ -5,7 +5,7 @@ import { calculateGravel } from "@/lib/calculations/timber/gravel";
 import { NumberField } from "@/components/ui/NumberField";
 
 interface GravelFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "zh";
 }
 
 const T = {
@@ -42,6 +42,23 @@ const T = {
     count: "",
     density: "Density",
     note: "Area × depth = volume, × density = weight. Compaction reduces volume, so order includes an allowance (usually 20%). Density varies by material and moisture.",
+  },
+  zh: {
+    area: "面积 (m²)",
+    depth: "铺设厚度 (cm)",
+    material: "材料种类",
+    materials: { gravel: "砾石", sand: "沙子", crushed: "碎石", soil: "土壤", mixed: "混合" },
+    compaction: "压实余量 (%)",
+    result: "所需材料量",
+    volume: "发注体积",
+    volumeUnit: "m³",
+    weight: "重量",
+    weightUnit: "吨",
+    bags: "25kg包装",
+    tonBags: "1吨吨袋",
+    count: "个",
+    density: "密度",
+    note: "面积 × 厚度 = 体积，× 密度 = 重量。压实后体积会减少，发注时应包含压实余量(通常20%)。密度会因材料·含水率而有所不同。",
   },
 } as const;
 

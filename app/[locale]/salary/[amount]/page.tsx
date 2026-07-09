@@ -76,6 +76,9 @@ export async function generateMetadata({
     return {
       title: `Monthly KRW ${formatKrw(monthlyKrw)} take-home (Korean 2026 payroll insurance)`,
       description: `If your gross monthly salary is KRW ${formatKrw(monthlyKrw)}, here's the breakdown of Korean 4-major insurance deductions and your take-home pay (2026 rates).`,
+      // 급여별 자동생성 페이지는 near-duplicate → 색인 제외(AdSense low-value 방지),
+      // 링크는 따라가 4대보험 계산기로 가치 전달. 계산기(insurance-calc)가 색인 본체.
+      robots: { index: false, follow: true },
       alternates: {
         canonical: `${SITE_URL}/en/salary/${amount}`,
         languages: {
@@ -88,6 +91,8 @@ export async function generateMetadata({
   return {
     title: `월급 ${formatMan(amountMan)} 실수령액 (4대보험 2026 적용)`,
     description: `세전 월급 ${formatMan(amountMan)} 받으면 4대보험 차감 후 실수령액은 얼마? 국민연금·건강보험·고용보험을 항목별로 분해해 드립니다. 2026년 요율 기준.`,
+    // 급여별 자동생성 페이지는 near-duplicate → 색인 제외(AdSense low-value 방지).
+    robots: { index: false, follow: true },
     alternates: {
       canonical: `${SITE_URL}/ko/salary/${amount}`,
       languages: {

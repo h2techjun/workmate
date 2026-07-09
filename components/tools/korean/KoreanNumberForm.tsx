@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface KoreanNumberFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const T = {
@@ -53,6 +53,20 @@ const T = {
     presets: "Số thường dùng",
     invalid: "Nhập một số nguyên từ 0 trở lên.",
     note: "Tiếng Hàn dùng song song hai hệ thống số. Về thời gian, 'giờ' dùng số thuần Hàn (한 시) nhưng 'phút' dùng số Hán-Hàn (십 분). Tuổi có thể dùng số thuần Hàn (스물한 살) hoặc số Hán-Hàn (이십일 세).",
+  },
+  zh: {
+    label: "输入数字",
+    placeholder: "例: 21",
+    sino: "汉字词数词",
+    sinoUse: "日期·金额·电话号码·楼层·分钟·编号",
+    native: "固有词数词",
+    nativeUse: "年龄·数量·点(时)·人数",
+    attr: "冠形词形 (用于数量前)",
+    attrUse: "例: 스무 살(20岁), 세 개(3个), 네 시(4点)",
+    nativeNone: "固有词仅到99 — 100以上请使用汉字词。",
+    presets: "常用数字",
+    invalid: "请输入0以上的整数。",
+    note: "韩语同时使用两套数词体系。时间中'点'用固有词(한 시)，'分'用汉字词(십 분)。年龄可用固有词(스물한 살)或汉字词(이십일 세)。",
   },
 } as const;
 

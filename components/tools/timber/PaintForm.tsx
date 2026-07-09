@@ -6,7 +6,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface PaintFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "zh";
 }
 
 const T = {
@@ -45,6 +45,24 @@ const T = {
     cans1: "1L cans",
     cansUnit: "",
     note: "Standard deduction: door 2m², window 1.5m². Interior water-based paint ~10 m²/L per coat, 2 coats recommended. Adjust spread rate by surface and paint type.",
+  },
+  zh: {
+    wallArea: "墙面总面积 (㎡)",
+    doorCount: "门数量",
+    windowCount: "窗户数量",
+    coats: "涂刷次数",
+    spreadRate: "涂布率 (㎡/L)",
+    waste: "损耗余量 (%)",
+    result: "所需油漆",
+    liters: "所需量 (含损耗)",
+    litersUnit: "L",
+    netArea: "净涂装面积",
+    openingArea: "开口扣除",
+    totalArea: "总涂装面积",
+    cans4: "4L桶",
+    cans1: "1L桶",
+    cansUnit: "个",
+    note: "标准扣除：门2㎡·窗1.5㎡。一般内墙水性涂料涂布率约10㎡/L/次，建议涂刷2次。可根据表面状态·涂料种类调整涂布率。",
   },
 } as const;
 

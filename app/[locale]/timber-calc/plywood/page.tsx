@@ -16,12 +16,17 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isZh = locale === "zh";
   const title = isKo
     ? "합판 매수 계산기 — 면적 → 합판 매수 + 못 개수"
-    : "Plywood Sheet Calculator — area to sheets and nails";
+    : isZh
+      ? "合板张数计算器 — 面积 → 合板张数 + 钉子数量"
+      : "Plywood Sheet Calculator — area to sheets and nails";
   const description = isKo
     ? "벽·바닥·지붕 면적과 손실률만 입력하면 합판 매수와 못 개수까지 즉시. 4×8자(1.2×2.4m) 표준 18mm 합판 기준. 무료."
-    : "Calculate plywood sheets and nail count from area with waste factor. Standard 4×8ft (1.2×2.4m) 18mm plywood. Free.";
+    : isZh
+      ? "只需输入墙面·地面·屋顶面积与损耗率，即可立即算出合板张数与钉子数量。以4×8英尺(1.2×2.4m)标准18mm合板为基准。免费。"
+      : "Calculate plywood sheets and nail count from area with waste factor. Standard 4×8ft (1.2×2.4m) 18mm plywood. Free.";
   const keywords = isKo
     ? [
         "합판 계산",
@@ -35,7 +40,19 @@ export async function generateMetadata({
         "바닥 합판",
         "지붕 합판",
       ]
-    : ["plywood calculator", "plywood sheets", "4x8 plywood", "18mm plywood", "wall sheathing"];
+    : isZh
+      ? [
+          "合板计算",
+          "合板张数",
+          "合板计算器",
+          "12mm合板",
+          "18mm合板",
+          "4x8合板",
+          "墙面合板材料",
+          "地面合板",
+          "屋顶合板",
+        ]
+      : ["plywood calculator", "plywood sheets", "4x8 plywood", "18mm plywood", "wall sheathing"];
 
   return {
     title,
@@ -50,7 +67,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/timber-calc/plywood`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : isZh ? "zh_CN" : "en_US",
     },
   };
 }
@@ -64,7 +81,8 @@ export default async function PlywoodPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey = (isKo ? "ko" : "en") as Locale;
+  const isZh = locale === "zh";
+  const localeKey = (isKo ? "ko" : isZh ? "zh" : "en") as Locale;
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -75,21 +93,26 @@ export default async function PlywoodPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "목조 계산기" : "Timber Calculators"}
+            {isKo ? "목조 계산기" : isZh ? "木结构住宅计算器" : "Timber Calculators"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "합판 매수 계산기" : "Plywood Sheet Calculator"}
+            {isKo ? "합판 매수 계산기" : isZh ? "合板张数计算器" : "Plywood Sheet Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "벽·바닥·지붕 시공 면적을 입력하면 18mm 합판 매수와 못 개수까지 즉시. 4×8자 (1.2×2.4m) 표준 규격 기준."
-              : "Enter wall/floor/roof area — get 18mm plywood sheets and nail count. Standard 4×8ft (1.2×2.4m)."}
+              : isZh
+                ? "输入墙面·地面·屋顶施工面积，即可立即算出18mm合板张数与钉子数量。以4×8英尺(1.2×2.4m)标准规格为基准。"
+                : "Enter wall/floor/roof area — get 18mm plywood sheets and nail count. Standard 4×8ft (1.2×2.4m)."}
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="plywood18" />
-        <ToolGuide toolKey="timber-plywood" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide
+          toolKey="timber-plywood"
+          locale={isZh ? "zh" : locale !== "ko" ? "en" : "ko"}
+        />
       </div>
     </main>
   );

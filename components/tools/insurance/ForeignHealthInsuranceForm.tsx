@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/calc-form";
 
 interface ForeignHealthInsuranceFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const TEXT = {
@@ -92,6 +92,37 @@ const TEXT = {
       "Income/asset scoring not modeled; the average premium changes yearly — reference estimate. Verify with NHIS (1577-1000).",
     ],
   },
+  zh: {
+    section: "加入信息",
+    fieldType: "加入类型",
+    typeEmployee: "职场加入者（在职于公司）",
+    typeRegional: "地区加入者（自由职业·无业·留学生）",
+    fieldWage: "月薪（报酬月额，韩元）",
+    fieldWageHint: "税前月薪（职场加入者由公司与本人各承担一半）",
+    fieldStudent: "留学生（D-2）·中小学生（D-4）减免50%",
+    fieldStudentHint: "适用于年收入360万韩元以下且财产1.35亿韩元以下时",
+    calculate: "开始计算",
+    reset: "重置",
+    resultHeading: "月健康保险费估算",
+    resultEmpty: "请选择加入类型后进行计算。",
+    error: "计算过程中发生错误。",
+    monthly: "月保险费（本人承担部分）",
+    won: "₩",
+    annual: "年度换算",
+    health: "健康保险费",
+    longTermCare: "长期疗养保险费",
+    employer: "公司承担（月，参考）",
+    avgPremium: "外国人平均保险费",
+    studentApplied: "已适用留学生50%减免",
+    sourceTitle: "依据 · 假设条件（2026）",
+    sourceLines: [
+      "职场加入者 = 报酬月额 × 3.595%（劳动者部分）+ 长期疗养保险（健康保险费 × 13.14%）。公司承担相同金额。",
+      "地区加入者外国人按收入·财产评分制与平均保险费中较高者计算。多数人适用平均保险费（约158,640韩元）。",
+      "留学生（D-2）·中小学生（D-4）在满足收入·财产条件时可减免50%（约79,320韩元）。",
+      "入境满6个月后须强制加入地区保险（留学生为立即加入）。未缴纳保险费可能限制签证延期。",
+      "未反映地区加入者收入·财产评分制，平均保险费每年变动——仅供参考估算，请务必致电公团（1577-1000）确认。",
+    ],
+  },
   vi: {
     section: "Thông tin tham gia",
     fieldType: "Loại hình tham gia",
@@ -136,7 +167,7 @@ function MoneyField({
   name: "monthlyWage";
   label: string;
   hint: string;
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
 }): React.ReactElement {
   const won = locale === "ko" ? "원" : "₩";
   return (

@@ -9,7 +9,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface DeckFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "zh";
 }
 
 const T = {
@@ -64,6 +64,33 @@ const T = {
     result: "Materials needed",
     deckNote: "Effective board width = width + gap. Includes 10% waste. Joists calculated when side length is entered.",
     fenceNote: "Posts = sections + 1. Rails are 2 per section (top/bottom). Picket spacing 0 skips pickets.",
+  },
+  zh: {
+    mode: "计算类型",
+    deck: "露台木板",
+    fence: "围栏",
+    // deck
+    area: "露台面积 (m²)",
+    boardWidth: "木板宽度 (mm)",
+    boardLength: "木板长度 (m)",
+    gap: "木板间隔 (mm)",
+    deckLength: "露台单边长度 (m)",
+    joistSpacing: "搁栅间距 (mm)",
+    boardCount: "所需木板",
+    boardUnit: "张",
+    totalLength: "木板总长度",
+    joistCount: "搁栅数量",
+    // fence
+    length: "围栏长度 (m)",
+    postSpacing: "立柱间距 (m)",
+    picketSpacing: "竖栏条间距 (mm)",
+    postCount: "立柱",
+    railCount: "横栏",
+    picketCount: "竖栏条",
+    count: "个",
+    result: "所需材料",
+    deckNote: "木板有效宽度 = 板宽 + 间隔。含10%损耗。输入单边长度后自动计算搁栅数量。",
+    fenceNote: "立柱数 = 区间数 + 1。横栏每区间上下各1道，共2道。竖栏条间距为0时不计算栏条。",
   },
 } as const;
 

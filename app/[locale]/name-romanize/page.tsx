@@ -16,17 +16,22 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isZh = locale === "zh";
   const isVi = locale === "vi";
   const title = isKo
     ? "한글 이름 로마자 변환기 — 여권·국립국어원 표기"
-    : isVi
-      ? "Công cụ phiên âm La-tinh tên tiếng Hàn — Quy tắc chính thức & cách viết hộ chiếu"
-      : "Korean Name Romanizer — Revised Romanization & passport spelling";
+    : isZh
+      ? "韩文姓名罗马字转换器 — 护照·国立国语院标准拼写"
+      : isVi
+        ? "Công cụ phiên âm La-tinh tên tiếng Hàn — Quy tắc chính thức & cách viết hộ chiếu"
+        : "Korean Name Romanizer — Revised Romanization & passport spelling";
   const description = isKo
     ? "한글 이름을 국립국어원 로마자 표기법으로 변환. 정식 표기 + 여권 관습 표기(Kim·Lee·Park) + 하이픈 방식까지 한 번에. 가입 없이 브라우저에서."
-    : isVi
-      ? "Chuyển đổi tên tiếng Hàn sang chữ La-tinh theo quy tắc La-tinh hóa chính thức. Bao gồm cách viết chính thức + cách viết thông dụng trên hộ chiếu (Kim, Lee, Park) + dạng có gạch nối."
-      : "Convert Korean names to romanized spelling. Official Revised Romanization + conventional passport spellings (Kim, Lee, Park) + hyphenated form.";
+    : isZh
+      ? "按韩国国立国语院罗马字标记法将韩文姓名转换为罗马字。同时提供正式拼写 + 护照惯用拼写(Kim·Lee·Park) + 连字符拼写。无需注册，浏览器内直接完成。"
+      : isVi
+        ? "Chuyển đổi tên tiếng Hàn sang chữ La-tinh theo quy tắc La-tinh hóa chính thức. Bao gồm cách viết chính thức + cách viết thông dụng trên hộ chiếu (Kim, Lee, Park) + dạng có gạch nối."
+        : "Convert Korean names to romanized spelling. Official Revised Romanization + conventional passport spellings (Kim, Lee, Park) + hyphenated form.";
   const keywords = isKo
     ? [
         "한글 이름 로마자",
@@ -36,23 +41,32 @@ export async function generateMetadata({
         "한글 영문 변환",
         "이름 로마자 변환",
       ]
-    : isVi
+    : isZh
       ? [
-          "phiên âm tên tiếng Hàn",
-          "chuyển tên tiếng Hàn sang tiếng Anh",
-          "La-tinh hóa tên Hàn Quốc",
-          "cách viết tên Hàn Quốc",
-          "quy tắc La-tinh hóa sửa đổi",
-          "tên trên hộ chiếu Hàn Quốc",
+          "韩文姓名罗马字",
+          "姓名英文转换",
+          "护照英文姓名",
+          "罗马字标记法",
+          "韩文英文转换",
+          "姓名罗马字转换",
         ]
-      : [
-          "korean name romanizer",
-          "korean name to english",
-          "romanize korean name",
-          "korean name spelling",
-          "revised romanization korean",
-          "korean passport name",
-        ];
+      : isVi
+        ? [
+            "phiên âm tên tiếng Hàn",
+            "chuyển tên tiếng Hàn sang tiếng Anh",
+            "La-tinh hóa tên Hàn Quốc",
+            "cách viết tên Hàn Quốc",
+            "quy tắc La-tinh hóa sửa đổi",
+            "tên trên hộ chiếu Hàn Quốc",
+          ]
+        : [
+            "korean name romanizer",
+            "korean name to english",
+            "romanize korean name",
+            "korean name spelling",
+            "revised romanization korean",
+            "korean passport name",
+          ];
 
   return {
     title,
@@ -67,7 +81,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/name-romanize`,
-      locale: locale === "ko" ? "ko_KR" : isVi ? "vi_VN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : isZh ? "zh_CN" : isVi ? "vi_VN" : "en_US",
     },
   };
 }
@@ -80,7 +94,8 @@ export default async function NameRomanizePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const lang: "ko" | "en" | "vi" = locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -91,23 +106,33 @@ export default async function NameRomanizePage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {lang === "ko" ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
+            {lang === "ko"
+              ? "툴 모음"
+              : lang === "zh"
+                ? "全部工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {lang === "ko"
               ? "한글 이름 로마자 변환기"
-              : lang === "vi"
-                ? "Công cụ phiên âm La-tinh tên tiếng Hàn"
-                : "Korean Name Romanizer"}
+              : lang === "zh"
+                ? "韩文姓名罗马字转换器"
+                : lang === "vi"
+                  ? "Công cụ phiên âm La-tinh tên tiếng Hàn"
+                  : "Korean Name Romanizer"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {lang === "ko"
               ? "한글 이름을 국립국어원 정식 표기 + 여권 관습 표기로 즉시 변환. 성씨는 Kim·Lee·Park 같은 통용 표기도 함께 제시."
-              : lang === "vi"
-                ? "Chuyển đổi ngay tên tiếng Hàn sang cách viết chính thức của Viện Quốc ngữ Quốc gia + cách viết thông dụng trên hộ chiếu. Họ cũng hiển thị cách viết phổ biến như Kim·Lee·Park."
-                : "Convert any Korean name to official Revised Romanization plus conventional passport spellings (Kim, Lee, Park)."}
+              : lang === "zh"
+                ? "将韩文姓名即时转换为国立国语院正式拼写 + 护照惯用拼写。姓氏还会一并提供Kim·Lee·Park等通用拼写。"
+                : lang === "vi"
+                  ? "Chuyển đổi ngay tên tiếng Hàn sang cách viết chính thức của Viện Quốc ngữ Quốc gia + cách viết thông dụng trên hộ chiếu. Họ cũng hiển thị cách viết phổ biến như Kim·Lee·Park."
+                  : "Convert any Korean name to official Revised Romanization plus conventional passport spellings (Kim, Lee, Park)."}
           </p>
         </header>
         <NameRomanizeForm locale={lang} />

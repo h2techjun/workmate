@@ -66,7 +66,7 @@ export default async function VoltageDropPage({
           </p>
         </header>
         <VoltageDropForm />
-        <ToolGuide toolKey="electric-voltage-drop" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide toolKey="electric-voltage-drop" locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

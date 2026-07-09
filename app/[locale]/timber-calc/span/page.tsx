@@ -30,7 +30,7 @@ export async function generateMetadata({
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }
@@ -71,7 +71,10 @@ export default async function SpanPage({
           </p>
         </header>
         <SpanForm />
-        <ToolGuide toolKey="timber-span" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide
+          toolKey="timber-span"
+          locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"}
+        />
       </div>
     </main>
   );

@@ -27,7 +27,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface RemittanceFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const TEXT = {
@@ -85,6 +85,34 @@ const TEXT = {
       "The method choice only prefills representative ranges — it does not recommend or compare specific providers.",
       "Rules (annual limits, reporting, proof) — see the guide below and your bank / Bank of Korea.",
       "Reference estimate. The real cost is fixed by the quote (applied rate + fee) at the moment you send.",
+    ],
+  },
+  zh: {
+    sectionMethod: "汇款方式",
+    fieldMethod: "通过哪种途径汇款？",
+    methodBank: "银行柜台·App（通常差价·手续费较高）",
+    methodSpecialist: "专业汇款业者（通常差价·手续费较低）",
+    sectionAmount: "金额 · 成本（可编辑）",
+    fieldAmount: "汇款金额（韩元）",
+    fieldMargin: "汇率差价（点差）（%）",
+    fieldMarginHint: "中间汇率与实际适用汇率之间的差额。请替换为业者提供的实际数值。",
+    fieldFee: "每笔固定手续费（韩元）",
+    heading: "海外汇款成本估算",
+    empty: "请输入汇款金额。",
+    heroLabel: "实际成本率",
+    totalCost: "总成本",
+    fxCost: "汇率差价成本",
+    fixedFee: "固定手续费",
+    afterCost: "实际到账价值（韩元价值）",
+    won: "₩",
+    note: "'实际成本'是看得见的手续费加上隐藏汇率差价之和。差价率因业者而异，请替换为实际数值再比较。",
+    sourceTitle: "依据 · 性质",
+    sourceLines: [
+      "总成本 = 汇款金额 × 差价率 + 固定手续费；实际成本率 = 总成本 ÷ 汇款金额",
+      "本工具不提供实时汇率或特定业者费率（会变动）。差价与手续费均为用户输入的假设值。",
+      "选择汇款方式只会填入代表性区间值，并不推荐或比较特定业者。",
+      "相关规定（年度限额·申报·证明文件）请参考下方指南及银行·韩国银行官方说明确认。",
+      "仅供参考的估算。实际成本以汇款前业者提供的报价（适用汇率·手续费）为准。",
     ],
   },
   vi: {
@@ -240,17 +268,23 @@ export function RemittanceForm({
         heading={T.heading}
         locale={locale}
         relatedLinks={
-          locale !== "ko"
+          locale === "ko"
             ? [
-                { label: "Cost of Living in Korea", href: "/cost-of-living" },
-                { label: "Pension Refund", href: "/pension-refund" },
-                { label: "Foreign Flat Tax (19%)", href: "/foreign-flat-tax" },
-              ]
-            : [
                 { label: "한국 생활비 계산", href: "/cost-of-living" },
                 { label: "국민연금 반환일시금", href: "/pension-refund" },
                 { label: "외국인 단일세율", href: "/foreign-flat-tax" },
               ]
+            : locale === "zh"
+              ? [
+                  { label: "韩国生活费计算", href: "/cost-of-living" },
+                  { label: "国民年金退还一次性补偿金", href: "/pension-refund" },
+                  { label: "外国人单一税率（19%）", href: "/foreign-flat-tax" },
+                ]
+              : [
+                  { label: "Cost of Living in Korea", href: "/cost-of-living" },
+                  { label: "Pension Refund", href: "/pension-refund" },
+                  { label: "Foreign Flat Tax (19%)", href: "/foreign-flat-tax" },
+                ]
         }
       >
         {!result || !result.valid ? (

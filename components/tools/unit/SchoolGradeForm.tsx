@@ -9,7 +9,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface SchoolGradeFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
   /** 서버 주입 오늘 (KST) — hydration mismatch 방지 */
   today: { year: number; month: number };
 }
@@ -86,6 +86,30 @@ const T = {
     counting: "Tuổi đếm Hàn Quốc",
     invalid: "Vui lòng nhập năm sinh hợp lệ.",
     note: "Áp dụng từ năm 2009 — trẻ sinh cùng năm dương lịch học cùng một lớp. Năm học bắt đầu từ tháng 3; tháng 1–2 tính theo năm học trước đó. Lớp đại học giả định tiến trình học tập chuẩn (không tính lưu ban hay bảo lưu).",
+  },
+  zh: {
+    label: "出生年份",
+    yearPh: "例: 2012",
+    refLabel: "基准学年度",
+    result: "当前学年",
+    levels: {
+      preschool: "未就学",
+      elementary: "小学",
+      middle: "初中",
+      high: "高中",
+      university: "大学",
+      adult: "成年 (毕业以后)",
+    } as Record<SchoolLevel, string>,
+    gradeUnit: "年级",
+    gradeYear: "年级",
+    milestones: "主要入学·毕业时间 (3月入学 / 2月毕业)",
+    elem: "小学入学",
+    mid: "初中入学",
+    high: "高中入学",
+    grad: "高中毕业",
+    counting: "虚岁",
+    invalid: "请输入正确的出生年份。",
+    note: "以2009年以后为基准 — 同一年(1~12月)出生者为同一学年。学年度从3月开始，1~2月属于上一学年度。大学学年以正规升学为假设(未反映复读·休学)。",
   },
 } as const;
 
@@ -184,15 +208,15 @@ export function SchoolGradeForm({
   );
 }
 
-/** 로케일별 학년 표기: ko "2학년" / en "Grade 2" / vi "Lớp 2" (대학은 "Year 2"/"Năm 2") */
+/** 로케일별 학년 표기: ko "2학년" / zh "2年级" / en "Grade 2" / vi "Lớp 2" (대학은 "Year 2"/"Năm 2") */
 function gradePhrase(
-  t: (typeof T)["ko" | "en" | "vi"],
-  locale: "ko" | "en" | "vi",
+  t: (typeof T)["ko" | "en" | "vi" | "zh"],
+  locale: "ko" | "en" | "vi" | "zh",
   level: SchoolLevel,
   grade: number,
 ): string {
   const word = level === "university" ? t.gradeYear : t.gradeUnit;
-  return locale === "ko" ? `${grade}${word}` : `${word} ${grade}`;
+  return locale === "ko" || locale === "zh" ? `${grade}${word}` : `${word} ${grade}`;
 }
 
 function Milestone({

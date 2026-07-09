@@ -4,7 +4,7 @@ import { useState } from "react";
 import { romanizeText } from "@/lib/calculations/korean/textRomanize";
 
 interface TextRomanizeFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const T = {
@@ -31,6 +31,14 @@ const T = {
     syllables: "Số âm tiết",
     empty: "Vui lòng nhập văn bản tiếng Hàn.",
     note: "Phiên âm theo từng âm tiết dựa trên quy tắc phiên âm chính thức của Viện Ngôn ngữ Quốc gia Hàn Quốc. Các biến đổi âm (đồng hóa phụ âm...) không được phản ánh — ví dụ: 신라 → Sinra (không phải cách phát âm thực tế là Silla). Phù hợp để đọc biển hiệu, thực đơn, từ vựng.",
+  },
+  zh: {
+    label: "输入韩文文本",
+    placeholder: "例: 안녕하세요, 서울 시청",
+    result: "罗马字 (音译)",
+    syllables: "音节数",
+    empty: "请输入韩文。",
+    note: "依据国立国语院标记法按音节音译。不反映音变(辅音同化等) — 例: 신라 → Sinra(实际发音并非Silla)。适合阅读招牌·菜单·单词。",
   },
 } as const;
 

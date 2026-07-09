@@ -16,20 +16,27 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isZh = locale === "zh";
   const title = isKo
     ? "자갈·골재 계산기 — 부피·무게·포대 수량"
-    : "Gravel Calculator — volume, weight, bags";
+    : isZh
+      ? "砂石·骨料计算器 — 体积·重量·包数"
+      : "Gravel Calculator — volume, weight, bags";
   const description = isKo
     ? "면적과 두께로 자갈·모래·쇄석 부피(m³)와 무게(톤)를 즉시 계산. 다짐 여유 + 25kg 포대·1톤 톤백 개수까지. 조경·토목 발주에 바로."
-    : "Calculate gravel, sand, and crushed stone volume (m³) and weight (tons) from area and depth, with compaction allowance and bag counts.";
+    : isZh
+      ? "根据面积与厚度即时计算砂石·沙子·碎石体积(m³)与重量(吨)。含压实余量 + 25kg包装·1吨吨袋数量换算。可直接用于景观·土建发注。"
+      : "Calculate gravel, sand, and crushed stone volume (m³) and weight (tons) from area and depth, with compaction allowance and bag counts.";
   const keywords = isKo
     ? ["자갈 계산기", "골재 계산", "자갈 부피", "모래 무게", "쇄석 수량"]
-    : ["gravel calculator", "how much gravel do i need", "aggregate calculator", "gravel weight calculator"];
+    : isZh
+      ? ["砂石计算器", "骨料计算", "砂石体积", "沙子重量", "碎石数量"]
+      : ["gravel calculator", "how much gravel do i need", "aggregate calculator", "gravel weight calculator"];
 
   return {
     title, description, keywords,
     alternates: { canonical: `/${locale}/gravel-calc`, languages: buildLanguagesAlt("/gravel-calc") },
-    openGraph: { title, description, type: "website", url: `${SITE_URL}/${locale}/gravel-calc`, locale: locale === "ko" ? "ko_KR" : "en_US" },
+    openGraph: { title, description, type: "website", url: `${SITE_URL}/${locale}/gravel-calc`, locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US" },
   };
 }
 
@@ -42,7 +49,8 @@ export default async function GravelCalcPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey = isKo ? "ko" : "en";
+  const isZh = locale === "zh";
+  const localeKey: "ko" | "en" | "zh" = isKo ? "ko" : isZh ? "zh" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -50,17 +58,19 @@ export default async function GravelCalcPage({
         <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
           <Link href={`/${locale}/tools`} className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]">
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : "All tools"}
+            {isKo ? "툴 모음" : isZh ? "全部工具" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "자갈·골재 계산기" : "Gravel Calculator"}
+            {isKo ? "자갈·골재 계산기" : isZh ? "砂石·骨料计算器" : "Gravel Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "면적과 두께만 넣으면 자갈·모래·쇄석 부피·무게·포대 수량을 즉시 산출. 다짐 여유까지 포함."
-              : "Enter area and depth to get gravel, sand, or crushed stone volume, weight, and bag counts — with compaction allowance."}
+              : isZh
+                ? "只需输入面积和厚度，即可立即算出砂石·沙子·碎石的体积·重量·包装数量，含压实余量。"
+                : "Enter area and depth to get gravel, sand, or crushed stone volume, weight, and bag counts — with compaction allowance."}
           </p>
         </header>
         <GravelForm locale={localeKey} />

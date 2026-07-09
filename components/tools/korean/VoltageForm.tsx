@@ -4,7 +4,7 @@ import { useState } from "react";
 import { checkVoltage } from "@/lib/calculations/korean/voltage";
 
 interface VoltageFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const T = {
@@ -64,6 +64,25 @@ const T = {
     stepDown: "Biến áp hạ thế (220V → điện áp thiết bị)",
     koreaStd: "Tiêu chuẩn Hàn Quốc",
     note: "Hàn Quốc dùng điện áp 220V·60Hz, phích cắm loại C/F. Sạc laptop·điện thoại phần lớn là đa điện áp nên chỉ cần đầu chuyển phích cắm. Thiết bị tỏa nhiệt (máy sấy tóc, máy uốn tóc...) bắt buộc phải kiểm tra điện áp. 'Phích cắm tròn' là đầu chuyển hình dạng phích cắm.",
+  },
+  zh: {
+    preset: "设备电压 (查看标签 INPUT)",
+    presets: {
+      dual: "100~240V (全球通用电压)",
+      us: "仅120V (美国)",
+      jp: "仅100V (日本)",
+      kr: "220~240V (韩国·欧洲)",
+    },
+    plug: "所在国家插头类型",
+    plugs: { A: "A (美国·日本 扁平2孔)", B: "B (美国 3孔)", C: "C (欧洲 圆形2孔)", F: "F (德国 圆形2孔)", G: "G (英国 3孔)", I: "I (澳大利亚 八字形)", other: "其他" },
+    result: "在韩国需要准备的",
+    transformer: "变压器 (电压转换器)",
+    plugAdapter: "转换插头 (돼지코)",
+    needYes: "需要",
+    needNo: "不需要",
+    stepDown: "降压变压器 (220V → 设备电压)",
+    koreaStd: "韩国标准",
+    note: "韩国电压为220V·60Hz，插头类型为C/F。笔记本电脑·手机充电器大多是全球通用电压，仅需转换插头即可。吹风机·卷发棒等发热电器务必先确认电压。'돼지코'是形状转换插头的俗称(直译为'猪鼻子')。",
   },
 } as const;
 

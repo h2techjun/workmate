@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface DueDateFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
   today: { year: number; month: number; day: number };
 }
 
@@ -63,6 +63,23 @@ const T = {
     daysToGo: "Còn lại đến khi sinh",
     progress: "Tiến độ",
     note: "Tính theo quy tắc Naegele (LMP + 280 ngày). Chu kỳ khác 28 ngày sẽ được tự động hiệu chỉnh. Ngày sinh thực tế được xác định qua siêu âm; thai đủ tháng trải dài từ 37-42 tuần nên ngày dự sinh chỉ là ước tính.",
+  },
+  zh: {
+    lmp: "末次月经开始日 (LMP)",
+    year: "年",
+    month: "月",
+    day: "日",
+    cycle: "平均月经周期 (天)",
+    result: "预产期",
+    due: "预产期",
+    weeks: "当前孕周",
+    weeksUnit: "周",
+    daysUnit: "天",
+    trimester: "孕期阶段",
+    trimesterUnit: "期",
+    daysToGo: "距预产期",
+    progress: "孕期进度",
+    note: "以内格勒法则(LMP + 280天)为基准，非28天周期会自动修正。实际预产期以超声波检查结果为准，足月分娩分布于37~42周，故预产期仅为估算值。",
   },
 } as const;
 

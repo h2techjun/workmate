@@ -63,7 +63,7 @@ export default async function JsonCsvPage({
           </p>
         </header>
         <JsonCsvForm />
-        <ToolGuide toolKey="json-csv" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide toolKey="json-csv" locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"} />
       </div>
     </main>
   );

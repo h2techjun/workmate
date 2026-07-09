@@ -1,0 +1,595 @@
+{
+  "f2-residence-visa": {
+    "checklist": {
+      "title": "F-2-7 residence visa — application & document checklist",
+      "groups": [
+        {
+          "heading": "Confirm your eligibility category",
+          "items": [
+            "Professionals (E-1–E-7 / D-5–D-9) with 3+ years of continuous lawful residence (the 3-year rule is waived if annual income exceeds ₩40M).",
+            "Study-talent: a Korean master's degree or higher, employed in an eligible role within 5 years of graduation.",
+            "Listed-company employees (KOSPI/KOSDAQ) — the 3-year residence rule is waived.",
+            "Promising-industry workers (IT, bio, nano, etc.) at or above the GNI income threshold (verify — the multiple changes yearly).",
+            "Baseline: reach 80 of 170 points and have 1+ year of legal stay before applying (verify the current threshold)."
+          ]
+        },
+        {
+          "heading": "Gather point-evidence & screening documents",
+          "items": [
+            "Income proof: income-amount certificate (소득금액증명) and/or withholding receipt (원천징수영수증).",
+            "Employment proof: work contract or certificate of employment; degree certificate (apostilled if issued abroad).",
+            "Korean-ability proof: a TOPIK certificate or KIIP (Social Integration Program) completion certificate.",
+            "Submit only the documents for the points you actually claimed — full documentation of every category is not required.",
+            "National criminal-background check with apostille (issued within 6 months), plus a TB screening if you are from a designated country (verify)."
+          ]
+        },
+        {
+          "heading": "Core packet & filing",
+          "items": [
+            "Integrated application form (통합신청서), passport, ARC, a 3.5×4.5 cm photo, and your completed F-2-7 score table.",
+            "Proof of residence: a lease, a residence-confirmation form, or a dormitory certificate.",
+            "Apply online via HiKorea (status change → F-2-7) or in person at the immigration office for your address; HiKorea is often 1–2 weeks faster.",
+            "Fee around ₩130,000 for a status change (verify on HiKorea before paying); processing ~4–8 weeks, longer in peak months.",
+            "Track status on HiKorea, then collect the new Residence Card in person; call 1345 for case-specific rules."
+          ]
+        },
+        {
+          "heading": "Maintain status & the F-5 path",
+          "items": [
+            "At each extension, keep your score at 80+ and your income at or above the GNI threshold.",
+            "Hold F-2-7 continuously for 3 years to become eligible for F-5 permanent residence.",
+            "Spouse and children can hold dependent F-2 status and may work after approval (subject to your income meeting the condition — verify).",
+            "Keep updated income, tax, and residence records each year, and confirm current F-5 requirements separately (they change) (verify)."
+          ]
+        }
+      ]
+    },
+    "overview": "F-2-7 is Korea's points-based residence visa — a common step toward permanent residence (F-5). To apply you must (1) fall under one of five eligible categories, (2) meet core requirements (a 3-year continuous legal stay or ₩40M+ annual income, good conduct, public health), and (3) reach 80 of 170 points on a scoring test. This tool checks the categories and core requirements. It deliberately does NOT compute a point total, because the detailed scoring is an internal, unpublished Ministry of Justice manual that varies by source and changes without notice.",
+    "useCases": [
+      "Professionals (E-7, etc.) on a 3+ year stay checking if they can move to F-2-7",
+      "Graduates of Korean master's programs exploring the residence track",
+      "Anyone mapping the path from work visa → F-2-7 → F-5 permanent residence",
+      "Confirming core requirements before booking a hikorea consultation",
+      "Understanding what the 80-point test actually weighs"
+    ],
+    "howTo": {
+      "title": "How to use (4 steps)",
+      "steps": [
+        "Pick the applicant category that matches you (listed-company employee, growth-industry worker, 3-year professional, domestic master's graduate, or STEM talent).",
+        "Check the core requirements: 3-year continuous legal stay or ₩40M+ income, good conduct, and the public-health requirement.",
+        "See whether your core requirements are met and what is still missing.",
+        "Then confirm your actual point total and eligibility at hikorea.go.kr or 1345 — this tool won't guess your score."
+      ]
+    },
+    "formula": {
+      "title": "How the 80-point test works (informational)",
+      "body": "Pass mark: 80 of 170 points (130 core + up to 40 bonus).\nScored items: age, education level, Korean ability (TOPIK or KIIP), annual income, work/stay experience, plus bonuses (Korean degree, government recommendation, KIIP completion, volunteering) and deductions (immigration violations, criminal record).\n\n⚠️ Exact sub-scores are NOT published — they live in an internal MOJ manual and differ between unofficial sources, so this tool does not calculate a number. Income carries the most weight. Verify your real score at hikorea."
+    },
+    "examples": {
+      "title": "Typical scenarios",
+      "items": [
+        {
+          "title": "Professional on a 3-year E-7",
+          "body": "Meets the professional category and the 3-year requirement. Still needs 80 points (income and Korean ability usually decide it) plus good conduct. Check the score at hikorea."
+        },
+        {
+          "title": "Master's graduate from a Korean university",
+          "body": "Qualifies under the study-talent category; the 3-year stay can be waived with ₩40M+ income. Education and Korean ability tend to score well."
+        },
+        {
+          "title": "High earner in a growth industry",
+          "body": "The growth-industry category plus high income (the heaviest-weighted item) makes 80 points reachable — but the category itself requires income of at least 1.5× GNI."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the F-2-7 visa?",
+        "answer": "A points-based residence visa for skilled foreigners with broad work and residence rights. After holding it for 3 years in good standing you can pursue points-based permanent residence (F-5)."
+      },
+      {
+        "question": "What score do I need?",
+        "answer": "80 out of 170. But 80 alone isn't enough — you must also fit one of the eligible categories and pass the conduct and public-health checks."
+      },
+      {
+        "question": "Why doesn't this tool calculate my points?",
+        "answer": "The detailed scoring table is an unpublished internal MOJ manual, and unofficial sources disagree on the numbers (especially income and education). Asserting a wrong score could mislead your application, so we check the verifiable requirements and send you to the official source for the score."
+      },
+      {
+        "question": "Can the 3-year stay requirement be waived?",
+        "answer": "Yes — with ₩40M+ annual income, or via an approved STEM talent-attraction program with a government recommendation."
+      },
+      {
+        "question": "Does student (D-2) or job-seeker (D-10) time count toward the 3 years?",
+        "answer": "For the professional category, prior D-2/D-10 stay generally does not count (per an official advisory). Korean-degree graduates instead apply under the study-talent category."
+      },
+      {
+        "question": "What comes after F-2-7?",
+        "answer": "Hold it for 3+ years in good standing and you can apply for F-5 (permanent residence) on the points track."
+      }
+    ],
+    "cautions": [
+      "Sub-scores are unofficial and change without notice — this is a requirements checklist, not a score calculator.",
+      "Meeting 80 points does not guarantee approval; category, stay/income, conduct, and health must all be met.",
+      "Eligible categories and income thresholds (GNI-linked) shift yearly.",
+      "Decisions are case-by-case at officer discretion.",
+      "Always verify at hikorea.go.kr or the Immigration Contact Center (1345)."
+    ],
+    "related": [
+      {
+        "label": "Stay Days Tracker",
+        "href": "/visa-days"
+      },
+      {
+        "label": "Health Insurance (NHIS)",
+        "href": "/foreign-health-insurance"
+      },
+      {
+        "label": "Foreign Flat Tax",
+        "href": "/foreign-flat-tax"
+      },
+      {
+        "label": "Salary Take-Home",
+        "href": "/net-salary"
+      }
+    ],
+    "lastReviewed": "2026-06-15"
+  },
+  "d8-startup-visa": {
+    "checklist": {
+      "title": "D-8 incorporation & visa-application checklist",
+      "groups": [
+        {
+          "heading": "Pick your D-8 track",
+          "items": [
+            "D-8-1 (corporate investor): invest ₩100M+ in a Korean corporation and hold 10%+ of voting shares; grants up to 5 years.",
+            "D-8-3 (sole-proprietorship investor): invest ₩100M+ in a business with a Korean co-representative, holding 10%+ of capital; up to 5 years.",
+            "D-8-4 (technology startup): a founder with a degree plus intellectual property, via the OASIS program and a points test; 1 year, renewable.",
+            "Confirm a real, independent office — shared/virtual offices are not accepted for D-8-1/3 (a coworking desk can suffice for D-8-4)."
+          ]
+        },
+        {
+          "heading": "D-8-1/3 — four-step incorporation",
+          "items": [
+            "Step 1 — file a Foreign Investment Declaration (외국인투자신고) at a designated foreign-exchange bank or KOTRA.",
+            "Step 2 — remit ₩100M+ in foreign currency; the sender name must match the shareholder, with an MT103 SWIFT note 'sent on behalf of [investor]'.",
+            "Step 3 — complete corporation establishment registration (법인설립등기), then obtain the Business Registration Certificate (사업자등록증).",
+            "Step 4 — complete Foreign-Invested Company Registration (외국인투자기업 등록) at the bank/KOTRA.",
+            "Keep the full money trail: corporate bank-account history, proof of source of funds, and the ₩100M remittance record."
+          ]
+        },
+        {
+          "heading": "D-8-4 — technology-startup prerequisites (OASIS)",
+          "items": [
+            "Hold a bachelor's degree or higher; a foreign degree must be apostilled.",
+            "Secure IP tied to the business — a patent, utility model, or design application/registration (at least a filing is mandatory).",
+            "Establish a NEW Korean corporation with you as founder/key executive in a technology field.",
+            "Enroll in OASIS and collect course-completion certificates toward your points total.",
+            "Reach the required points (cited as 60, though some sources say 80 — verify) and secure a real office or a leased coworking desk."
+          ]
+        },
+        {
+          "heading": "Documents, filing & the D-10-2 path",
+          "items": [
+            "Prepare a detailed business plan (authenticity is closely reviewed), plus the application form, passport, photo, and fee.",
+            "D-8-1/3 add: investment proof, corporate registry extract, business registration certificate, and proof of fund use.",
+            "D-8-4 add: apostilled degree, OASIS certificate(s), IP filing certificate, points-calculation form, and a residence agreement.",
+            "Establish and register the company and pay in capital BEFORE applying; convert your entry to an ARC within 90 days of arrival.",
+            "Recommended route: enter on D-10-2 (startup-prep, up to 2 years), complete OASIS + file IP + register the company, then change to D-8-4."
+          ]
+        }
+      ]
+    },
+    "overview": "The D-8 is Korea's business-investment visa for foreigners who found or invest in a Korean company. It splits into three common types: D-8-1 (set up or invest in a corporation), D-8-3 (invest in a Korean-run company), and D-8-4 (technology startup — found a new company with your own intellectual property). This tool checks the verifiable core requirements for each type. For D-8-4 it deliberately does NOT compute an OASIS score: the official minimum is 60 of 300, but sources disagree (80–120) and the item-by-item table is an internal, unpublished Ministry of Justice manual that changes without notice.",
+    "useCases": [
+      "Foreign founders deciding between the investment route (D-8-1) and the startup route (D-8-4)",
+      "Entrepreneurs with a patent checking the D-8-4 technology-startup requirements",
+      "Investors confirming the ₩100M / 10%-share rule before wiring funds",
+      "D-10-2 (startup-prep) holders mapping the jump to D-8-4",
+      "Anyone preparing documents before a hikorea or KOTRA consultation"
+    ],
+    "howTo": {
+      "title": "How to use (4 steps)",
+      "steps": [
+        "Pick your D-8 type: D-8-1 corporate investment, D-8-3 individual investment, or D-8-4 technology startup.",
+        "Tick the core requirements shown for that type (investment & shares & corp registration, or degree & IP & new corp & an OASIS mandatory item).",
+        "Add the common conduct requirement: no criminal record, fewer than 4 immigration violations, no unpaid taxes.",
+        "See what's met and what's missing — then verify your exact eligibility (and, for D-8-4, your OASIS points) at hikorea.go.kr or the Global Startup Immigration Center."
+      ]
+    },
+    "formula": {
+      "title": "How the OASIS points test works (informational)",
+      "body": "OASIS (Overall Assistance for Startup Immigration System) scores D-8-4 applicants.\nOfficial pass mark: 60 of 300 — but unofficial sources cite 80–120 as the realistic bar.\nMandatory items (need at least one): a registered/pending IP right, government startup funding or OASIS-6/9 participation, ₩100M+ investment raised, or 3+ years as a professor (E-1)/researcher (E-3).\nOptional items add points: OASIS coursework (OASIS-1/2/4/5/8), TOPIK level, and master's/PhD degrees.\n\n⚠️ The full table is an internal, unpublished MOJ manual that changes yearly, so this tool checks the verifiable requirements only and does NOT assert a score."
+    },
+    "examples": {
+      "title": "Typical scenarios",
+      "items": [
+        {
+          "title": "Founder with a pending patent (D-8-4)",
+          "body": "Has an overseas bachelor's, a pending patent, and is forming a new corp — three core items met. Still needs at least one OASIS mandatory item and a clean conduct record. Confirm the points at the Global Startup Immigration Center."
+        },
+        {
+          "title": "Investor setting up a Korean corp (D-8-1)",
+          "body": "Wires ₩100M+, takes 10%+ of voting shares, and completes corp + foreign-investment-enterprise registration. Immigration still examines business substance and source of funds — small investors face closer scrutiny."
+        },
+        {
+          "title": "Investing in a Korean-run company (D-8-3)",
+          "body": "Same ₩100M / 10% rule plus an executive contract. D-8-3 grants the longest single stay among D-8 types (up to 5 years), but the minimum investment is still ₩100M, not ₩300M."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the D-8 visa?",
+        "answer": "Korea's business-investment visa for foreigners who run or invest in a Korean company. D-8-1/D-8-3 are investment-based; D-8-4 is for technology startups founded on your own IP."
+      },
+      {
+        "question": "How much do I need to invest?",
+        "answer": "For D-8-1 and D-8-3, the legal minimum is ₩100M (about US$73K) with 10%+ voting shares, under the Foreign Investment Promotion Act. D-8-4 has no fixed minimum capital in law, but immigration still expects realistic funding."
+      },
+      {
+        "question": "Why doesn't this tool calculate my OASIS score?",
+        "answer": "The official minimum is 60, but unofficial sources say 80–120, and the detailed point table is an unpublished MOJ manual that changes yearly. Asserting a wrong score could mislead your application, so we check the verifiable requirements and send you to the official source."
+      },
+      {
+        "question": "Can I buy an existing company and get a D-8-4?",
+        "answer": "No. D-8-4 requires founding a NEW corporation. Acquiring an existing company doesn't qualify for the technology-startup route."
+      },
+      {
+        "question": "Does a patent application (not yet granted) count?",
+        "answer": "Yes — a pending patent, utility model, or design right counts for D-8-4. You don't have to wait for registration to be completed."
+      },
+      {
+        "question": "What's the recommended path for founders?",
+        "answer": "Start on D-10-2 (startup-prep, 6 months up to 2 years), join the OASIS program and set up your corporation, then switch to D-8-4 (issued for 12 months at a time)."
+      }
+    ],
+    "cautions": [
+      "OASIS scores and the point table are unofficial/unpublished and change yearly — this is a requirements checklist, not a score calculator.",
+      "Meeting the requirements does not guarantee approval; business substance and source of funds are examined at officer discretion.",
+      "D-8-4 needs a NEW corporation; a virtual-office address is effectively not accepted — a real office is expected.",
+      "The ₩100M minimum is set by law; the ₩300M figure some sources cite is a remittance-rule threshold, not a higher minimum.",
+      "Always verify at hikorea.go.kr, the Immigration Contact Center (1345), or the KOTRA Foreign Investment Support Center."
+    ],
+    "related": [
+      {
+        "label": "F-2-7 Residence Visa",
+        "href": "/f2-residence-visa"
+      },
+      {
+        "label": "Stay Days Tracker",
+        "href": "/visa-days"
+      },
+      {
+        "label": "Foreign Flat Tax",
+        "href": "/foreign-flat-tax"
+      },
+      {
+        "label": "Health Insurance (NHIS)",
+        "href": "/foreign-health-insurance"
+      }
+    ],
+    "lastReviewed": "2026-06-16"
+  },
+  "name-romanize": {
+    "overview": "The Korean name romanizer converts Hangul names to roman letters using the official Revised Romanization of Korean (2000). Names are romanized syllable-by-syllable without reflecting sound changes (Section 3, Article 4), and surnames also show the conventional passport spellings (Kim, Lee, Park). Get the standard spelling instantly for passports, business cards, papers, and overseas documents.",
+    "useCases": [
+      "Confirm the English spelling for a passport",
+      "Write your romanized name on business cards and email signatures",
+      "Author name on papers and overseas submissions",
+      "Tell a foreign friend how to write your name",
+      "English name on remittances and contracts"
+    ],
+    "howTo": {
+      "title": "How to use",
+      "steps": [
+        "Enter a Korean name (e.g., 홍길동). It converts instantly.",
+        "Surname and given name split automatically; compound surnames (남궁, 황보) are detected.",
+        "You get three forms: official, conventional surname spelling, and hyphenated. Passports usually recommend the conventional surname spelling."
+      ]
+    },
+    "formula": {
+      "title": "Romanization principles (NIKL)",
+      "body": "Decompose each syllable into initial/medial/final, then romanize:\n  Initials ㄱg ㄴn ㄷd ㄹr ㅁm ㅂb ㅅs ㅇ(silent) ㅈj ㅊch ㅋk ㅌt ㅍp ㅎh ...\n  Medials ㅏa ㅓeo ㅗo ㅜu ㅡeu ㅣi ㅐae ㅔe ...\n  Finals ㄱk ㄴn ㄹl ㅁm ㅂp ㅇng ...\n\nName rule: do not reflect sound changes (Sec 3, Art 4)\n  홍길동 = Hong + Gil + dong → Hong Gildong\n\nConventional surname spelling: the most common passport form\n  Kim, Lee, Park, Choi, Jung ..."
+    },
+    "examples": {
+      "title": "Real examples",
+      "items": [
+        {
+          "title": "Example 1: 홍길동 → Hong Gildong",
+          "body": "홍=Hong, 길동=Gildong. The official spelling equals the conventional one here. Syllable-by-syllable, no sound change."
+        },
+        {
+          "title": "Example 2: 김민수 → official Gim Minsu / conventional Kim Minsu",
+          "body": "Officially ㄱ becomes g (Gim), but passports overwhelmingly use Kim. The tool shows both."
+        },
+        {
+          "title": "Example 3: Compound surname 남궁민 → Namgung Min",
+          "body": "남궁 is auto-detected as a two-syllable surname. Surname Namgung, given name Min. Compound surnames are written together."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "Official or conventional spelling for a passport?",
+        "answer": "Once set on a passport, it's hard to change, so decide carefully. Match your family's existing spelling (Kim, Lee) if any; for a new one, the conventional spelling is safe. The ministry recommends the standard but allows conventional spellings."
+      },
+      {
+        "question": "Do I hyphenate between given-name syllables?",
+        "answer": "Passports allow either joined (Gildong) or hyphenated (Gil-dong). Be consistent once chosen. Joined spelling avoids being misread as two separate words abroad."
+      },
+      {
+        "question": "Why don't names reflect sound changes?",
+        "answer": "The rule deliberately ignores phonetic changes in names to prevent confusion and identity mismatch. Each syllable is spelled consistently letter-by-letter."
+      },
+      {
+        "question": "How were the conventional surname spellings established?",
+        "answer": "They're the majority spellings entrenched through decades of passport and overseas use. 90%+ of Kims use 'Kim'; 'Lee' dominates for the I surname. They take precedence over the official forms (Gim, I)."
+      },
+      {
+        "question": "Are compound surnames recognized?",
+        "answer": "Yes. Major compound surnames (남궁, 황보, 제갈, 선우, 독고, 사공, 서문, 동방) are auto-detected as two-syllable surnames. Others use the first syllable as the surname."
+      },
+      {
+        "question": "Same spelling for the alien registration card or visa?",
+        "answer": "This tool is for romanizing Korean nationals' names. Foreigners use the English name on their home-country passport; transliterating into Hangul is a separate process."
+      }
+    ],
+    "cautions": [
+      "Based on the Revised Romanization of Korean (2000); names don't reflect sound changes.",
+      "Passport spelling is hard to change once set — align with family spellings.",
+      "Conventional surname spellings (Kim, Lee) differ from the standard but are widely accepted.",
+      "Special pronunciations may follow the person's preference."
+    ],
+    "related": [
+      {
+        "label": "Korean Age",
+        "href": "/korean-age"
+      },
+      {
+        "label": "Size Converter",
+        "href": "/size-convert"
+      }
+    ],
+    "lastReviewed": "2026-05-30"
+  },
+  "size-convert": {
+    "overview": "The Korean size converter maps Korean clothing and shoe sizes to US, EU, UK, and Japanese sizes at a glance. Shoes use mm (foot length); clothing uses chest-cm-based Korean labels (men 90/95/100, women 44/55/66) compared to international sizes. Reduce sizing mistakes when shopping K-fashion overseas or on Korean shopping sites.",
+    "useCases": [
+      "Find your size for K-fashion overseas shopping",
+      "Foreigners selecting sizes on Korean shopping sites",
+      "Convert sizes for gift clothing and shoes",
+      "Buy clothes or shoes while traveling in Korea",
+      "Cross-check US/EU sizes before ordering online"
+    ],
+    "howTo": {
+      "title": "How to use",
+      "steps": [
+        "Select a category (men's/women's shoes, men's/women's clothing).",
+        "Find your Korean size row in the table to see US, EU, UK, and JP sizes.",
+        "Note that shoes use mm (foot length) and clothing uses chest cm. Expect ±1 variation by brand."
+      ]
+    },
+    "formula": {
+      "title": "Size basis",
+      "body": "Shoes (mondopoint): Korea and Japan use foot length in mm.\n  260 = 26.0 cm. US ≈ (mm−180)/5; EU ≈ mm × 1.5 + 2 (approx).\n  Men's 260 ≈ US 8 / EU 41 / UK 7.5\n  Women's 240 ≈ US 7 / EU 37.5 / UK 4.5\n\nClothing (chest cm based):\n  Men's 90(S)=90cm chest, 95(M)=95cm, 100(L)=100cm\n  Women's 44(XS), 55(S), 66(M), 77(L), 88(XL) traditional labels\n  → mapped to US/EU standard labels"
+    },
+    "examples": {
+      "title": "Real examples",
+      "items": [
+        {
+          "title": "Example 1: Men's shoe 270 → US 9",
+          "body": "Korean 270mm = 27.0cm = US 9 / EU 42.5 / UK 8.5 / JP 27.0. Pick US 9 when buying Nike or Adidas."
+        },
+        {
+          "title": "Example 2: Women's clothing 55 → US 4",
+          "body": "Korean women's 55 = S = 85cm chest ≈ US 4 / EU 36 / UK 8. Choose S or US 4 on Zara or H&M."
+        },
+        {
+          "title": "Example 3: Men's clothing 100 → L",
+          "body": "Korean men's 100 = 100cm chest = US L / EU 50 / UK 40. American brand L or EU 50."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "Why are Korean shoe sizes numbers like 250, 260?",
+        "answer": "They are foot length in mm (mondopoint). 250 = 25.0 cm foot length. Japan uses the same (in cm). It's the most intuitive measure of the foot, used across Korea and Japan."
+      },
+      {
+        "question": "What do women's 44/55/66 mean?",
+        "answer": "Traditional labels from 1980s standard body measurements. 55 is the standard (S), 44 is smaller (XS), and 66/77/88 are larger. The numbers themselves don't carry literal meaning — they're entrenched labels."
+      },
+      {
+        "question": "Brands differ — is this chart accurate?",
+        "answer": "This chart uses KS standards + international references as general values. Actual fit varies ±1 size by brand and cut (slim/oversized). Cross-check the brand's cm measurements when possible."
+      },
+      {
+        "question": "Are US shoe sizes different for men and women?",
+        "answer": "Yes. For the same foot length, US labels differ by gender (women ~1.5 larger). This chart separates men and women, so use the right category. EU is unisex."
+      },
+      {
+        "question": "Are children's sizes included?",
+        "answer": "No, this chart is for adults. Children's sizing uses a separate system (foot mm is the same, but clothing is height/age-based)."
+      },
+      {
+        "question": "Any tips for sizing up/down when importing?",
+        "answer": "Shoes are usually true to size, but US brands sometimes run large — size down 0.5 for narrow feet. Clothing from US/EU runs larger than Asian fit, so consider sizing down. Reviews and cm measurements are safest."
+      }
+    ],
+    "cautions": [
+      "General values from KS standards + international charts. ±1 size variation by brand/fit.",
+      "Shoes use mm (foot length); clothing uses chest cm.",
+      "US shoe labels differ by gender — pick the right category.",
+      "For exact fit, cross-check the brand's cm measurements.",
+      "Children's sizes not included (adults only)."
+    ],
+    "related": [
+      {
+        "label": "Korean Age",
+        "href": "/korean-age"
+      },
+      {
+        "label": "Name Romanizer",
+        "href": "/name-romanize"
+      }
+    ],
+    "lastReviewed": "2026-05-30"
+  },
+  "text-romanize": {
+    "overview": "This Korean romanizer transliterates Hangul sentences and words using the Revised Romanization of Korean. When you want to read signs, menus, place names, or words in roman letters, it converts syllable by syllable while preserving spaces and punctuation. Great for Korean learners and for adding roman spellings to Korean content. (For a passport name, use the dedicated 'Korean Name Romanizer' instead.)",
+    "useCases": [
+      "Help foreigners read Korean signs, menus, and place names",
+      "Practice pronunciation and spelling for Korean learners",
+      "Add roman spellings beside Korean words in posts",
+      "Draft roman spellings of Korean place and business names",
+      "Check the transliteration of Korean lyrics or sentences"
+    ],
+    "howTo": {
+      "title": "How to use",
+      "steps": [
+        "Type the Korean sentence or word into the input box.",
+        "The romanized transliteration appears instantly as you type.",
+        "Spaces and punctuation are preserved and each word is capitalized. The syllable count is shown too."
+      ]
+    },
+    "formula": {
+      "title": "Spelling basis",
+      "body": "Based on the Revised Romanization of Korean (2000), each syllable is decomposed into initial, medial, and final jamo and transliterated.\n  Vowels: ㅏ=a, ㅓ=eo, ㅗ=o, ㅜ=u, ㅡ=eu, ㅣ=i, ㅐ=ae, ㅔ=e ...\n  Consonants: ㄱ=g/k, ㄷ=d/t, ㅂ=b/p, ㅈ=j, ㅊ=ch, ㄹ=r/l ...\n\nNote: this is syllable-by-syllable transliteration that does NOT apply sound changes (assimilation).\n  e.g. 신라 → Sinra (not the spoken Silla)\n  e.g. 종로 → Jongro (not the spoken Jongno)\nOfficial spellings reflect pronunciation changes, so treat results as a reference."
+    },
+    "examples": {
+      "title": "Worked examples",
+      "items": [
+        {
+          "title": "Example 1: 안녕하세요 → Annyeonghaseyo",
+          "body": "Syllables 안=an, 녕=nyeong, 하=ha, 세=se, 요=yo → Annyeonghaseyo. The most basic greeting, romanized."
+        },
+        {
+          "title": "Example 2: 서울 시청 → Seoul Sicheong",
+          "body": "The space is preserved into two words, each capitalized. Ideal for reading place and institution names."
+        },
+        {
+          "title": "Example 3: 김밥 → Gimbap",
+          "body": "Romanizes the menu item gimbap as Gimbap — for explaining a menu to foreign guests."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does it apply sound changes (assimilation)?",
+        "answer": "No. This is syllable-by-syllable transliteration, so phonological changes like consonant assimilation are not reflected — e.g. 신라 → Sinra (actually pronounced Silla). For accurate pronunciation spelling, check the official romanization."
+      },
+      {
+        "question": "Can I use this for my passport name?",
+        "answer": "Not recommended. Passport names should follow the official guidance and existing family spelling conventions, so use the dedicated 'Korean Name Romanizer' or the official guidance instead."
+      },
+      {
+        "question": "Why does ㅓ become 'eo' and ㅡ become 'eu'?",
+        "answer": "The Revised Romanization defines ㅓ=eo and ㅡ=eu. These two-letter combinations represent Korean vowels that have no single English-letter equivalent."
+      },
+      {
+        "question": "Are final consonants (batchim) converted?",
+        "answer": "Yes, final consonants are romanized as the syllable's final jamo. However, the real pronunciation where a batchim links or assimilates with the next syllable is not reflected (syllable-level processing)."
+      },
+      {
+        "question": "What about mixed English and numbers?",
+        "answer": "Non-Hangul characters (English, numbers, symbols, spaces) are preserved as-is. Only Hangul syllables are transliterated into roman letters."
+      }
+    ],
+    "cautions": [
+      "Syllable-level transliteration — sound changes (assimilation) are not applied.",
+      "e.g. 신라→Sinra, 종로→Jongro (may differ from spoken pronunciation).",
+      "For passport names, use the dedicated 'Korean Name Romanizer'.",
+      "May differ from official place-name/signage spellings — use as a reference."
+    ],
+    "related": [
+      {
+        "label": "Korean Name Romanizer",
+        "href": "/name-romanize"
+      },
+      {
+        "label": "Voltage & Plug Guide",
+        "href": "/voltage-guide"
+      }
+    ],
+    "lastReviewed": "2026-06-06"
+  },
+  "korean-number": {
+    "overview": "This Korean number reader converts an Arabic number into both Sino-Korean (il, i, sam) and Native Korean (hana, dul, set) at once. Korean picks the system by context: dates, money, phone numbers, and minutes use Sino-Korean, while age, counting things, the hour, and people use Native Korean. Native Korean exists only for 1–99; 100 and above use Sino-Korean. The attributive forms (han, du, se, seu-mu) used before counters are also shown.",
+    "useCases": [
+      "Understand Korea's two number systems as a learner",
+      "Practice saying age and counts (Native Korean)",
+      "Practice reading money, dates, phone numbers (Sino-Korean)",
+      "Tell time — hour (Native) + minute (Sino)",
+      "Read large amounts in Korean (man/eok/jo units)"
+    ],
+    "howTo": {
+      "title": "How to use",
+      "steps": [
+        "Enter a number (a non-negative integer).",
+        "Both Sino-Korean and Native Korean readings appear together.",
+        "If it is within Native range (1–99), the attributive form (used before a counter) is shown too. Use the presets for common numbers."
+      ]
+    },
+    "formula": {
+      "title": "The two systems",
+      "body": "Sino-Korean (unlimited): yeong·il·i·sam·sa·o·yuk·chil·pal·gu\n  places: sip(10)·baek(100)·cheon(1000) / big units: man·eok·jo\n  1 is dropped before 십/백/천 (천=1000, 백=100, 십=10)\n  a man-group of 1 is read '만' (not 일만); 억·조 keep '일억'·'일조'\n\nNative Korean (1–99): hana·dul·set·net·daseot·yeoseot·ilgop·yeodeol·ahop·yeol\n  tens: yeol·seumul·seoreun·maheun·swin·yesun·ilheun·yeodeun·aheun\n  attributive: hana→han, dul→du, set→se, net→ne, seumul→seumu\n  e.g. age 20 = 스무 살, 21 items = 스물한 개"
+    },
+    "examples": {
+      "title": "Worked examples",
+      "items": [
+        {
+          "title": "Example 1: 21 → 이십일 / 스물하나",
+          "body": "Sino '이십일' (IDs, money), Native '스물하나' (age, counting). For age you say the attributive '스물한 살'."
+        },
+        {
+          "title": "Example 2: 3:30",
+          "body": "The hour uses Native attributive '세 시', the minute uses Sino '삼십 분' → '세 시 삼십 분'. Time mixes both systems."
+        },
+        {
+          "title": "Example 3: 12,345 → 만이천삼백사십오",
+          "body": "The man-group of 1 drops '일' and starts with '만'. Being 100+, there is no Native form — Sino only."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "When do I use Sino vs Native Korean?",
+        "answer": "Sino-Korean (il, i, sam) for dates, money, phone numbers, floors, minutes, IDs, and age in '세'. Native Korean (hana, dul, set) for counting things, age in '살', the hour, and people. e.g. 3 items = 세 개 (Native), March = 삼월 (Sino)."
+      },
+      {
+        "question": "Why does Native Korean only go up to 99?",
+        "answer": "Native Korean numerals exist only through 아흔아홉 (99); 100 and above use Sino-Korean (백, 천, 만). There are no everyday Native words for 100+."
+      },
+      {
+        "question": "Why are '스무 살' and '스물한 살' different?",
+        "answer": "Before a counter, Native numbers take an attributive form. 20 alone is '스무' (스무 살), but 21 is '스물한' (스물한 살). hana/dul/set/net also become han/du/se/ne."
+      },
+      {
+        "question": "Why is 10000 '만' but 100000000 '일억'?",
+        "answer": "When the man-group is exactly 1, '일' is conventionally dropped, so it reads '만' (만 원). For 억 and 조, the standard keeps '일', reading '일억' and '일조'."
+      },
+      {
+        "question": "How do you read 0?",
+        "answer": "As Sino-Korean '영' or '공' (phone numbers usually use '공'). This tool shows '영'. Native Korean has no numeral for 0."
+      }
+    ],
+    "cautions": [
+      "Native Korean covers only 1–99 — use Sino-Korean for 100+.",
+      "Before a counter, Native takes the attributive form (han, du, se, seumu).",
+      "10000 reads '만' (drops 일); 억/조 keep '일억'/'일조'.",
+      "0 is '영/공' — this tool shows '영'."
+    ],
+    "related": [
+      {
+        "label": "Hangul Decomposer",
+        "href": "/hangul-decompose"
+      },
+      {
+        "label": "Korean Age Calculator",
+        "href": "/korean-age"
+      }
+    ],
+    "lastReviewed": "2026-06-06"
+  }
+}

@@ -28,7 +28,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface TileFormProps {
-  locale: "ko" | "en";
+  locale: "ko" | "en" | "zh";
 }
 
 import { formatNumber } from "@/lib/utils/format";
@@ -98,6 +98,37 @@ const TEXT = {
       "Results are material estimates — actual ±15% depending on pattern and joint detailing.",
     ],
   },
+  zh: {
+    sectionArea: "施工面积",
+    sectionTile: "瓷砖·缝隙",
+    fieldArea: "面积 (m²)",
+    fieldAreaHint: "墙面·地面施工面积 (已扣除洞口)",
+    fieldPreset: "选择标准尺寸",
+    fieldTileWidth: "瓷砖宽度 (mm)",
+    fieldTileHeight: "瓷砖高度 (mm)",
+    fieldGrout: "缝宽 (mm)",
+    fieldGroutHint: "瓷质砖通常2mm，陶质砖·大规格3~5mm",
+    fieldWaste: "损耗率 (%)",
+    fieldWasteHint: "裁切·破损预留，默认10%",
+    calculate: "计算",
+    reset: "重置",
+    resultHeading: "计算结果",
+    resultEmpty: "请输入面积与瓷砖尺寸后计算。",
+    error: "计算过程中发生错误。",
+    tileCount: "瓷砖张数",
+    tileCountUnit: "张",
+    footprint: "每张占用面积 (含缝隙)",
+    adjusted: "损耗率修正面积",
+    adhesive: "瓷砖胶估算",
+    grout: "填缝剂估算",
+    sourceTitle: "出处与假设",
+    sourceLines: [
+      "KS L 1001(陶瓷砖)·KS F 4904(水泥)。每张占用面积 = (宽+缝宽) × (高+缝宽)。",
+      "瓷砖胶：以4 kg/㎡为基准(一般水泥系粘合剂标准用量)。",
+      "填缝剂：瓷砖越小·缝宽越大，用量越高。范围0.1~0.6 kg/㎡。",
+      "结果仅供材料估算参考 — 实际施工会因铺贴图案·收边处理不同而有±15%差异。",
+    ],
+  },
 } as const;
 
 export function TileForm({ locale }: TileFormProps): React.ReactElement {
@@ -146,23 +177,33 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
       case "footprint":
         return locale === "ko"
           ? `타일 ${fmt(s.w)}×${fmt(s.h)}mm + 줄눈 ${s.grout}mm × 2 = 1매 점유 ${fmt(s.result, 4)} m²`
-          : `Tile ${fmt(s.w)}×${fmt(s.h)}mm + grout ${s.grout}mm × 2 = footprint ${fmt(s.result, 4)} m²`;
+          : locale === "zh"
+            ? `瓷砖 ${fmt(s.w)}×${fmt(s.h)}mm + 缝宽 ${s.grout}mm × 2 = 每张占用 ${fmt(s.result, 4)} m²`
+            : `Tile ${fmt(s.w)}×${fmt(s.h)}mm + grout ${s.grout}mm × 2 = footprint ${fmt(s.result, 4)} m²`;
       case "wasteArea":
         return locale === "ko"
           ? `면적 ${fmt(s.area)}m² × (1 + ${s.waste}% 손실) = ${fmt(s.result, 1)} m²`
-          : `Area ${fmt(s.area)}m² × (1 + ${s.waste}% waste) = ${fmt(s.result, 1)} m²`;
+          : locale === "zh"
+            ? `面积 ${fmt(s.area)}m² × (1 + ${s.waste}% 损耗) = ${fmt(s.result, 1)} m²`
+            : `Area ${fmt(s.area)}m² × (1 + ${s.waste}% waste) = ${fmt(s.result, 1)} m²`;
       case "count":
         return locale === "ko"
           ? `손실 적용 면적 ${fmt(s.wasteArea, 1)}m² ÷ 1매 ${fmt(s.footprint, 4)}m² = ${fmt(s.result, 0)}매`
-          : `Adjusted ${fmt(s.wasteArea, 1)}m² ÷ ${fmt(s.footprint, 4)}m²/tile = ${fmt(s.result, 0)} tiles`;
+          : locale === "zh"
+            ? `修正面积 ${fmt(s.wasteArea, 1)}m² ÷ 每张 ${fmt(s.footprint, 4)}m² = ${fmt(s.result, 0)}张`
+            : `Adjusted ${fmt(s.wasteArea, 1)}m² ÷ ${fmt(s.footprint, 4)}m²/tile = ${fmt(s.result, 0)} tiles`;
       case "adhesive":
         return locale === "ko"
           ? `면적 ${fmt(s.area)}m² × ${s.rate}kg/㎡ = 접착제 ${fmt(s.result, 1)}kg`
-          : `Area ${fmt(s.area)}m² × ${s.rate}kg/m² = ${fmt(s.result, 1)}kg adhesive`;
+          : locale === "zh"
+            ? `面积 ${fmt(s.area)}m² × ${s.rate}kg/㎡ = 瓷砖胶 ${fmt(s.result, 1)}kg`
+            : `Area ${fmt(s.area)}m² × ${s.rate}kg/m² = ${fmt(s.result, 1)}kg adhesive`;
       case "grout":
         return locale === "ko"
           ? `면적 ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/㎡ (타일/줄눈 비례) = 줄눈재 ${fmt(s.result, 2)}kg`
-          : `Area ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/m² (size-dependent) = ${fmt(s.result, 2)}kg grout`;
+          : locale === "zh"
+            ? `面积 ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/㎡ (依瓷砖·缝宽比例) = 填缝剂 ${fmt(s.result, 2)}kg`
+            : `Area ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/m² (size-dependent) = ${fmt(s.result, 2)}kg grout`;
     }
   };
 
@@ -314,7 +355,9 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
               <Stat label={T.grout} value={`${fmt(result.groutKg, 2)} kg`} />
             </dl>
             <StepsBox
-              title={locale === "ko" ? "계산 과정" : "Steps"}
+              title={
+                locale === "ko" ? "계산 과정" : locale === "zh" ? "计算过程" : "Steps"
+              }
               items={result.steps.map((s) => renderStep(s))}
             />
             <SourceBox lines={[T.sourceTitle, ...T.sourceLines]} />

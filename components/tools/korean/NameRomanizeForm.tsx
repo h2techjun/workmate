@@ -4,7 +4,7 @@ import { useState } from "react";
 import { romanizeKoreanName } from "@/lib/calculations/korean/romanize";
 
 interface NameRomanizeFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const T = {
@@ -43,6 +43,18 @@ const T = {
     given: "Tên",
     empty: "Vui lòng nhập tên tiếng Hàn.",
     note: "Dựa trên Quy tắc La-tinh hóa tiếng Hàn sửa đổi (2000). Tên được phiên âm theo từng âm tiết mà không phản ánh biến âm. Họ thường dùng cách viết thông dụng (Kim, Lee, Park...) trên hộ chiếu.",
+  },
+  zh: {
+    label: "输入韩文姓名",
+    placeholder: "例: 홍길동",
+    result: "罗马字标记",
+    revised: "正式标记 (国立国语院)",
+    conventional: "惯用标记 (护照通用)",
+    hyphen: "连字符方式",
+    surname: "姓",
+    given: "名",
+    empty: "请输入韩文姓名。",
+    note: "依据国立国语院罗马字标记法(2000)。姓名按音节标记，不反映音变。姓氏惯用标记(Kim·Lee·Park等)在护照上广泛使用。",
   },
 } as const;
 

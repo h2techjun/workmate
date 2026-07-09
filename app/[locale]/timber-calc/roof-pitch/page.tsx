@@ -23,13 +23,14 @@ export async function generateMetadata({
       languages: {
         ko: "/ko/timber-calc/roof-pitch",
         en: "/en/timber-calc/roof-pitch",
+        zh: "/zh/timber-calc/roof-pitch",
       },
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }
@@ -64,7 +65,10 @@ export default async function RoofPitchPage({
           </p>
         </header>
         <RoofPitchForm />
-        <ToolGuide toolKey="timber-roof-pitch" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide
+          toolKey="timber-roof-pitch"
+          locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"}
+        />
       </div>
     </main>
   );

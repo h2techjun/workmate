@@ -16,17 +16,22 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isZh = locale === "zh";
   const isVi = locale === "vi";
   const title = isKo
     ? "D-8 창업·투자 비자 자격 체크리스트 (외국인 가이드)"
-    : isVi
-      ? "Danh sách kiểm tra điều kiện visa khởi nghiệp·đầu tư D-8 (Hướng dẫn cho người nước ngoài)"
-      : "Korea D-8 Startup & Investment Visa Eligibility Checklist";
+    : isZh
+      ? "韩国D-8创业·投资签证资格清单 (外国人指南)"
+      : isVi
+        ? "Danh sách kiểm tra điều kiện visa khởi nghiệp·đầu tư D-8 (Hướng dẫn cho người nước ngoài)"
+        : "Korea D-8 Startup & Investment Visa Eligibility Checklist";
   const description = isKo
     ? "외국인이 한국에서 창업/투자해 D-8 비자(D-8-1 기업투자 · D-8-3 개인투자 · D-8-4 기술창업)를 받을 수 있는지 기본 자격을 체크. 최소 투자금 1억원·지분 10%, 학력·특허·OASIS 점수제까지 정확히 안내."
-    : isVi
-      ? "Kiểm tra xem bạn có đủ điều kiện xin visa D-8 khi khởi nghiệp/đầu tư tại Hàn Quốc hay không — D-8-1 đầu tư doanh nghiệp, D-8-3 đầu tư cá nhân, D-8-4 khởi nghiệp công nghệ. Hướng dẫn chính xác về quy định đầu tư tối thiểu 100 triệu won/10% cổ phần, trình độ học vấn, bằng sáng chế và chế độ tính điểm OASIS."
-      : "Check whether you qualify for Korea's D-8 visa as a foreign founder/investor — D-8-1 corporate investment, D-8-3 individual investment, D-8-4 technology startup. Covers the ₩100M / 10% rule, degree & patent requirements, and the OASIS points system.";
+    : isZh
+      ? "核对外国人在韩国创业/投资获得D-8签证(D-8-1企业投资·D-8-3个人投资·D-8-4技术创业)的基本资格。精准指南最低投资额1亿韩元·持股10%，以及学历·专利·OASIS积分制。"
+      : isVi
+        ? "Kiểm tra xem bạn có đủ điều kiện xin visa D-8 khi khởi nghiệp/đầu tư tại Hàn Quốc hay không — D-8-1 đầu tư doanh nghiệp, D-8-3 đầu tư cá nhân, D-8-4 khởi nghiệp công nghệ. Hướng dẫn chính xác về quy định đầu tư tối thiểu 100 triệu won/10% cổ phần, trình độ học vấn, bằng sáng chế và chế độ tính điểm OASIS."
+        : "Check whether you qualify for Korea's D-8 visa as a foreign founder/investor — D-8-1 corporate investment, D-8-3 individual investment, D-8-4 technology startup. Covers the ₩100M / 10% rule, degree & patent requirements, and the OASIS points system.";
   const keywords = isKo
     ? [
         "D-8 비자",
@@ -36,23 +41,32 @@ export async function generateMetadata({
         "외국인 투자 비자",
         "한국 창업 비자 자격",
       ]
-    : isVi
+    : isZh
       ? [
-          "visa D-8",
-          "visa khởi nghiệp công nghệ",
+          "D-8签证",
+          "技术创业签证",
           "D-8-4 OASIS",
-          "visa khởi nghiệp cho người nước ngoài",
-          "visa đầu tư cho người nước ngoài",
-          "điều kiện visa khởi nghiệp Hàn Quốc",
+          "外国人创业签证",
+          "外国人投资签证",
+          "韩国创业签证资格",
         ]
-      : [
-          "korea d-8 visa",
-          "korea startup visa",
-          "d-8-4 oasis visa",
-          "korea business investment visa",
-          "foreigner start company korea",
-          "korea tech startup visa requirements",
-        ];
+      : isVi
+        ? [
+            "visa D-8",
+            "visa khởi nghiệp công nghệ",
+            "D-8-4 OASIS",
+            "visa khởi nghiệp cho người nước ngoài",
+            "visa đầu tư cho người nước ngoài",
+            "điều kiện visa khởi nghiệp Hàn Quốc",
+          ]
+        : [
+            "korea d-8 visa",
+            "korea startup visa",
+            "d-8-4 oasis visa",
+            "korea business investment visa",
+            "foreigner start company korea",
+            "korea tech startup visa requirements",
+          ];
 
   return {
     title,
@@ -67,7 +81,14 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/d8-startup-visa`,
-      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }
@@ -80,7 +101,8 @@ export default async function D8StartupVisaPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const lang: "ko" | "en" | "vi" = locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -91,23 +113,33 @@ export default async function D8StartupVisaPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {lang === "ko" ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
+            {lang === "ko"
+              ? "툴 모음"
+              : lang === "zh"
+                ? "全部工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {lang === "ko"
               ? "D-8 창업·투자 비자 자격 체크리스트"
-              : lang === "vi"
-                ? "Danh sách kiểm tra điều kiện visa khởi nghiệp·đầu tư D-8"
-                : "Korea D-8 Startup & Investment Visa Eligibility"}
+              : lang === "zh"
+                ? "D-8创业·投资签证资格清单"
+                : lang === "vi"
+                  ? "Danh sách kiểm tra điều kiện visa khởi nghiệp·đầu tư D-8"
+                  : "Korea D-8 Startup & Investment Visa Eligibility"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {lang === "ko"
               ? "한국에서 창업하거나 투자해 D-8 비자를 받으려는 외국인을 위한 기본 자격 체크리스트입니다. 유형(D-8-1/3/4)을 고르고 요건을 확인하세요 — OASIS 점수는 비공개·변동이라 단정하지 않고 가이드로 안내합니다."
-              : lang === "vi"
-                ? "Đây là danh sách kiểm tra điều kiện cơ bản dành cho người nước ngoài muốn xin visa D-8 bằng cách khởi nghiệp hoặc đầu tư tại Hàn Quốc. Hãy chọn loại visa (D-8-1/3/4) và kiểm tra các yêu cầu — điểm OASIS không được công bố và có thể thay đổi nên công cụ này chỉ hướng dẫn chứ không khẳng định một con số cụ thể."
-                : "A basic eligibility checklist for foreigners who want a D-8 visa by founding or investing in a company in Korea. Pick your type (D-8-1/3/4) and check the requirements — the OASIS score is unpublished and variable, so this tool guides rather than asserts a number."}
+              : lang === "zh"
+                ? "为在韩国创业或投资以获得D-8签证的外国人准备的基本资格清单。请先选择类型(D-8-1/3/4)再核对要求 — OASIS分数未公开且会变动，本工具仅作指南，不臆断具体分数。"
+                : lang === "vi"
+                  ? "Đây là danh sách kiểm tra điều kiện cơ bản dành cho người nước ngoài muốn xin visa D-8 bằng cách khởi nghiệp hoặc đầu tư tại Hàn Quốc. Hãy chọn loại visa (D-8-1/3/4) và kiểm tra các yêu cầu — điểm OASIS không được công bố và có thể thay đổi nên công cụ này chỉ hướng dẫn chứ không khẳng định một con số cụ thể."
+                  : "A basic eligibility checklist for foreigners who want a D-8 visa by founding or investing in a company in Korea. Pick your type (D-8-1/3/4) and check the requirements — the OASIS score is unpublished and variable, so this tool guides rather than asserts a number."}
           </p>
         </header>
         <D8EligibilityForm locale={lang} />

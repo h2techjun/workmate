@@ -185,7 +185,7 @@ export function LumberForm(): React.ReactElement {
                   thousands={true}
                   decimals={0}
                   min={1}
-                  suffix={locale === "ko" ? "본" : "pcs"}
+                  suffix={locale === "ko" ? "본" : locale === "zh" ? "根" : "pcs"}
                   aria-label={t("fields.quantity")}
                 />
               )}

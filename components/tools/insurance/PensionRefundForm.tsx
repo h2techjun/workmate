@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/calc-form";
 
 interface PensionRefundFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const TEXT = {
@@ -94,6 +94,38 @@ const TEXT = {
       "Confirm eligibility and the exact amount at nps.or.kr / 1355.",
     ],
   },
+  zh: {
+    sectionInput: "缴纳记录",
+    fieldSalary: "基准收入月额（韩元）",
+    fieldSalaryHint: "月薪（上限6,370,000韩元）。以公司与本人合计9%为基准。",
+    fieldMonths: "缴纳月数",
+    fieldMonthsHint: "加入国民年金并缴纳保险费的总月数。",
+    fieldRate: "保险费率（%）",
+    fieldRateHint: "1998~2025年为9%。自2026年1月起为9.5%，此后每年上调0.5个百分点。",
+    fieldDeposit: "近似利率（%）",
+    fieldDepositHint: "3年期定期存款利率（逐年变动）。2025年约为2.6%。",
+    calculate: "计算预计退还金额",
+    reset: "重置",
+    resultHeading: "预计退还一次性补偿金",
+    resultEmpty: "请输入薪资与缴纳月数。",
+    error: "计算过程中发生错误。",
+    heroLabel: "预估退还总额",
+    won: "₩",
+    statPrincipal: "本金（总缴纳保险费）",
+    statInterest: "近似利息",
+    statBase: "适用基准收入月额",
+    cappedWarn: "⚠️ 输入薪资超过基准收入月额上限（6,370,000韩元），已按上限值计算。",
+    eligibilityWarn:
+      "💡 金额之外还需注意——外国人原则上不属于退还一次性补偿金的对象。只有满足以下条件之一才可领取：①本国承认对等原则，②社会保障协定中含有一次性补偿金条款，③持有E-9·H-2签证（雇佣许可制）。按国籍·签证划分的领取资格，请务必参考下方指南并致电NPS（免区号1355）确认。",
+    sourceTitle: "依据 · 局限",
+    sourceLines: [
+      "本结果为估算值——实际退还金额由NPS按月缴纳额 × 各年度定期存款利率进行复利累计计算。",
+      "职场加入者（上班族）即使本人只缴纳了4.5%，退还时也包含雇主承担部分在内的全部9%（《国民年金法》第77条）。",
+      "利息按平均积累期间（总期间÷2）以单利方式近似计算——可能与实际金额有差异。",
+      "2002年以后缴纳部分须代扣代缴退休所得税（死亡给付免税）。",
+      "领取资格与准确金额请通过nps.or.kr或1355确认。",
+    ],
+  },
   vi: {
     sectionInput: "Lịch sử đóng bảo hiểm",
     fieldSalary: "Mức thu nhập chuẩn tháng (원)",
@@ -137,7 +169,7 @@ function MoneyField({
   control: Control<PensionRefundInputResolved>;
   label: string;
   hint?: string;
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
 }): React.ReactElement {
   const won = locale === "ko" ? "원" : "₩";
   return (

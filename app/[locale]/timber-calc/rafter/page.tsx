@@ -23,13 +23,14 @@ export async function generateMetadata({
       languages: {
         ko: "/ko/timber-calc/rafter",
         en: "/en/timber-calc/rafter",
+        zh: "/zh/timber-calc/rafter",
       },
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }
@@ -64,7 +65,10 @@ export default async function RafterPage({
           </p>
         </header>
         <RafterForm />
-        <ToolGuide toolKey="timber-rafter" locale={locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide
+          toolKey="timber-rafter"
+          locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"}
+        />
       </div>
     </main>
   );

@@ -24,7 +24,7 @@ import {
 import { cn } from "@/lib/utils/cn";
 
 interface F2EligibilityFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const TEXT = {
@@ -149,6 +149,47 @@ const TEXT = {
       "Điểm chi tiết theo từng mục của chế độ tính điểm (tuổi, trình độ học vấn, thu nhập, v.v.) là hướng dẫn nội bộ của Bộ Tư pháp, không được công bố và có thể thay đổi bất cứ lúc nào — công cụ này không khẳng định điểm số.",
       "Đạt 80 điểm không đảm bảo được chấp thuận. Quyết định tùy theo thẩm quyền của từng cán bộ xét duyệt.",
       "Chỉ mang tính tham khảo. Hãy xác minh chính thức tại hikorea.go.kr / 1345.",
+    ],
+  },
+  zh: {
+    sectionType: "申请类型",
+    fieldType: "您属于哪种类型？",
+    types: {
+      listedCompany: "上市公司(KOSPI/KOSDAQ)从业人员",
+      growthIndustry: "有望产业从业人员(收入达GNI的1.5倍以上)",
+      professional: "专业人才(D-5~E-7)连续合法居留3年以上",
+      studyTalent: "国内硕士以上留学人才",
+      potentialTalent: "理工科硕·博士潜在优秀人才",
+      none: "以上均不符合 / 不确定",
+    },
+    sectionReq: "核心要求",
+    reqStayIncome: "连续合法居留3年以上或年收入4000万韩元以上",
+    reqConduct: "品行端正 · 无丧失资格事由(监禁以上刑罚等)",
+    reqHealth: "满足公共卫生要求(结核检查等)",
+    calculate: "确认资格",
+    reset: "重置",
+    resultHeading: "F-2-7基本资格核查",
+    resultEmpty: "请选择类型并勾选要求以确认资格。",
+    error: "核查过程中发生错误。",
+    eligibleTitle: "已满足基本申请资格要求",
+    notEligibleTitle: "尚未满足基本要求",
+    metLabel: "已满足",
+    blockerHeading: "需优先满足的项目",
+    blockers: {
+      type: "必须属于5种可申请类型之一",
+      stayIncome: "需连续合法居留3年以上或年收入4000万韩元以上",
+      conduct: "需满足品行端正·无丧失资格事由的要求",
+      health: "公共卫生要求(结核检查等)",
+    },
+    nextHeading: "下一步",
+    nextNote:
+      "即使满足基本要求，仍须另行达到积分制总分170分中的80分。评分项目请参考下方指南 — 但细项分值未公开，准确分数与资格请通过hikorea.go.kr或移民咨询中心1345确认。",
+    sourceTitle: "依据 · 局限",
+    sourceLines: [
+      "5种申请类型·连续居留3年(或年收入4000万)·品行·公共卫生均依据法务部签证导航标准。",
+      "积分制细项分值(年龄·学历·收入等)属法务部内部指南，未公开且随时可能变动 — 本工具不臆断具体分数。",
+      "即使达到80分也不保证获批，最终由审核官个别裁量决定。",
+      "仅供参考的核查清单。官方确认请至hikorea.go.kr / 1345。",
     ],
   },
 } as const;

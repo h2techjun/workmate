@@ -5,7 +5,7 @@ import { calculateGiftMoney } from "@/lib/calculations/korean/giftMoney";
 import { formatNumber } from "@/lib/utils/format";
 
 interface GiftMoneyFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const T = {
@@ -72,6 +72,27 @@ const T = {
     oddNote: "Người Hàn ưa chuộng số lẻ (30/50/70/100 nghìn KRW). Số chẵn mang ý nghĩa 'chia cắt' nên thường tránh, riêng 100 nghìn là ngoại lệ.",
     note: "Không có quy tắc cố định — tùy theo mối quan hệ, vùng miền và mức giá cả mà thay đổi. Công cụ này chỉ mang tính tham khảo dựa trên tập quán phổ biến.",
   },
+  zh: {
+    event: "场合",
+    wedding: "婚礼 (结婚礼金)",
+    funeral: "丧礼 (奠仪)",
+    relation: "关系",
+    relations: {
+      acquaintance: "泛泛之交 (偶尔联系)",
+      colleague: "同事 (常联系)",
+      friend: "朋友",
+      closeFriend: "挚友",
+      family: "亲戚",
+    },
+    attending: "亲自出席婚礼 (用餐)",
+    result: "推荐金额",
+    recommended: "推荐",
+    range: "常见范围",
+    manwon: "万韩元",
+    attendingNote: "若亲自出席，惯例是考虑餐费(通常约5万韩元)而多包一档金额。",
+    oddNote: "韩国人偏好奇数金额(3·5·7·10万)。偶数因带有'分开'之意而被避讳，但10万韩元是例外。",
+    note: "并无固定规则，会因关系·地区·物价而有所不同。本工具仅基于一般习俗提供参考。",
+  },
 } as const;
 
 export function GiftMoneyForm({
@@ -85,7 +106,7 @@ export function GiftMoneyForm({
   const [attending, setAttending] = useState(true);
 
   const r = calculateGiftMoney({ event, relation, attending });
-  const unit = locale === "ko" ? "만원" : "0,000 KRW";
+  const unit = locale === "ko" ? "만원" : locale === "zh" ? "万韩元" : "0,000 KRW";
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">

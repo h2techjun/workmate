@@ -74,7 +74,7 @@ export default async function InsuranceCalcPage({
         <InsuranceForm />
         <ToolGuide
           toolKey="insurance-calc"
-          locale={locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en"}
+          locale={locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en"}
         />
       </div>
     </main>
