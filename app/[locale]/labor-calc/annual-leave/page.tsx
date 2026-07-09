@@ -57,8 +57,8 @@ export default async function AnnualLeavePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const localeKey: "ko" | "en" | "vi" =
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   const t = await getTranslations({
     locale: localeKey,
     namespace: "annualLeaveTool",
@@ -111,7 +111,10 @@ export default async function AnnualLeavePage({
         </header>
 
         <AnnualLeaveForm />
-        <ToolGuide toolKey="labor-annual-leave" locale={localeKey} />
+        <ToolGuide
+          toolKey="labor-annual-leave"
+          locale={localeKey}
+        />
 
         <section className="mt-12 grid gap-4 text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:grid-cols-3">
           <ContextBlock title={t("ctx.law.title")} body={t("ctx.law.body")} />

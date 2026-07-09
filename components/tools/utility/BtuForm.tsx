@@ -5,7 +5,7 @@ import { calculateBtu } from "@/lib/calculations/utility/btu";
 import { NumberField } from "@/components/ui/NumberField";
 
 interface BtuFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const T = {
@@ -56,6 +56,22 @@ const T = {
     base: "Tải cơ bản",
     adjusted: "Sau điều chỉnh",
     note: "Tính theo diện tích × 600 BTU/m² cộng với điều chỉnh trần nhà·ánh nắng·số người·nhà bếp. Cũng quy đổi sang loại điều hòa Hàn Quốc theo 'pyeong' (1 pyeong ≈ 1.440 BTU). Có thể chênh lệch ±20% tùy cách nhiệt và kích thước cửa sổ.",
+  },
+  zh: {
+    area: "房间面积 (m²)",
+    ceiling: "天花板高度 (m)",
+    sun: "日照量",
+    suns: { low: "弱", normal: "一般", high: "强" },
+    occupants: "常住人数",
+    kitchen: "厨房 (烹饪热量 +4,000 BTU)",
+    result: "建议制冷量",
+    btu: "建议BTU",
+    pyeong: "韩国坪数",
+    pyeongUnit: "坪",
+    kw: "功率换算",
+    base: "基础负荷",
+    adjusted: "修正后",
+    note: "以面积 × 600 BTU/m² 为基准 + 天花板·日照·人数·厨房修正。同时换算为韩国空调'坪数'(1坪≈1,440 BTU)。因隔热·窗户大小不同，可能有±20%差异。",
   },
 } as const;
 

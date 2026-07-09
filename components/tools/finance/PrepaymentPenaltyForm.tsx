@@ -25,7 +25,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface PrepaymentPenaltyFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -114,6 +114,34 @@ const T = {
       "Số ngày của kỳ hạn miễn phí = số năm miễn phí × 365.",
       "Số ngày đã trôi qua = số tháng đã trôi qua × 30,4 (đơn giản hóa: 1 tháng = 30,4 ngày).",
       "Tỷ lệ phí và kỳ hạn miễn phí khác nhau tùy ngân hàng, sản phẩm và ngày giải ngân. Luôn xác nhận với ngân hàng của bạn.",
+    ],
+  },
+  zh: {
+    sectionLoan: "贷款信息",
+    fieldPrincipal: "提前还款本金 (韩元)",
+    fieldRate: "违约金费率 (%)",
+    fieldElapsed: "已过期间 (个月)",
+    fieldExemption: "免除标准期间 (年)",
+    calculate: "计算",
+    reset: "重置",
+    resultHeading: "提前还款违约金结果",
+    resultEmpty: "请输入提前还款本金·费率·已过期间。",
+    error: "计算出错",
+    penaltyLabel: "提前还款违约金",
+    penaltyUnit: "韩元",
+    exempt: "免除",
+    exemptBadge: "✅ 已满3年 — 免除违约金",
+    remainingDays: "剩余天数",
+    elapsedDays: "已过天数",
+    exemptionDays: "免除标准天数",
+    effectiveRate: "实际费率",
+    sourceTitle: "公式 · 假设条件",
+    sourceLines: [
+      "提前还款违约金 = 提前还款本金 × 费率 × (剩余天数 / 免除标准期间天数)。",
+      "剩余天数 = max(0, 免除标准期间天数 − 已过天数)。0以下即免除。",
+      "免除标准期间天数 = 免除标准期间(年) × 365。",
+      "已过天数 = 已过月数 × 30.4 (简化换算：1个月 = 30.4天)。",
+      "费率·免除期间·计算方式因银行·产品·放款时点而异，请务必确认相应银行条款。",
     ],
   },
 } as const;

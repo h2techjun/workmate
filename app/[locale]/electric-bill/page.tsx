@@ -16,17 +16,22 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isZh = locale === "zh";
   const isVi = locale === "vi";
   const title = isKo
     ? "전기요금 계산기 — 주택용 누진제 + 여름철 + 부가세"
-    : isVi
-      ? "Máy tính tiền điện Hàn Quốc — biểu giá lũy tiến"
-      : "Korean Electricity Bill Calculator — progressive tariff";
+    : isZh
+      ? "韩国电费计算器 — 住宅用累进电价 + 夏季优惠 + 增值税"
+      : isVi
+        ? "Máy tính tiền điện Hàn Quốc — biểu giá lũy tiến"
+        : "Korean Electricity Bill Calculator — progressive tariff";
   const description = isKo
     ? "월 사용량(kWh)으로 전기요금을 즉시 계산. 주택용 저압·고압 누진제 3단계 + 여름철 완화 + 기후환경요금 + 연료비조정 + 부가세 + 전력기금까지 한전 2024 기준."
-    : isVi
-      ? "Nhập lượng điện tiêu thụ hàng tháng (kWh) để tính ngay tiền điện. Biểu giá điện lũy tiến 3 bậc (áp thấp/áp cao) + giảm nhẹ mùa hè + phí khí hậu-môi trường + điều chỉnh nhiên liệu + VAT + quỹ điện lực, theo biểu giá KEPCO 2024."
-      : "Calculate your Korean residential electricity bill from monthly kWh. KEPCO progressive tariff (3 tiers), summer relaxation, climate/fuel charges, VAT.";
+    : isZh
+      ? "根据月用电量(kWh)即时计算电费。涵盖住宅用低压·高压累进电价3档 + 夏季缓和区间 + 气候环境费 + 燃料费调整 + 增值税 + 电力基金，以韩国电力公社(KEPCO)2024年标准为准。"
+      : isVi
+        ? "Nhập lượng điện tiêu thụ hàng tháng (kWh) để tính ngay tiền điện. Biểu giá điện lũy tiến 3 bậc (áp thấp/áp cao) + giảm nhẹ mùa hè + phí khí hậu-môi trường + điều chỉnh nhiên liệu + VAT + quỹ điện lực, theo biểu giá KEPCO 2024."
+        : "Calculate your Korean residential electricity bill from monthly kWh. KEPCO progressive tariff (3 tiers), summer relaxation, climate/fuel charges, VAT.";
   const keywords = isKo
     ? [
         "전기요금 계산기",
@@ -38,21 +43,32 @@ export async function generateMetadata({
         "전기요금 누진제",
         "kWh 요금",
       ]
-    : isVi
+    : isZh
       ? [
-          "máy tính tiền điện Hàn Quốc",
-          "biểu giá điện lũy tiến",
-          "tiền điện KEPCO",
-          "tính tiền điện mùa hè",
-          "giá điện theo kWh Hàn Quốc",
-          "hóa đơn tiền điện Hàn Quốc",
+          "电费计算器",
+          "电费计算",
+          "累进电价",
+          "住宅用电费",
+          "夏季电费",
+          "韩电电费",
+          "电费累进制",
+          "kWh电费",
         ]
-      : [
-          "korean electricity bill calculator",
-          "KEPCO bill",
-          "korea electricity tariff",
-          "progressive electricity rate korea",
-        ];
+      : isVi
+        ? [
+            "máy tính tiền điện Hàn Quốc",
+            "biểu giá điện lũy tiến",
+            "tiền điện KEPCO",
+            "tính tiền điện mùa hè",
+            "giá điện theo kWh Hàn Quốc",
+            "hóa đơn tiền điện Hàn Quốc",
+          ]
+        : [
+            "korean electricity bill calculator",
+            "KEPCO bill",
+            "korea electricity tariff",
+            "progressive electricity rate korea",
+          ];
 
   return {
     title,
@@ -81,7 +97,13 @@ export default async function ElectricBillPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey: "ko" | "en" | "vi" = isKo ? "ko" : locale === "vi" ? "vi" : "en";
+  const localeKey: "ko" | "en" | "vi" | "zh" = isKo
+    ? "ko"
+    : locale === "zh"
+      ? "zh"
+      : locale === "vi"
+        ? "vi"
+        : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -92,23 +114,27 @@ export default async function ElectricBillPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : localeKey === "vi" ? "Tất cả công cụ" : "All tools"}
+            {isKo ? "툴 모음" : localeKey === "zh" ? "全部工具" : localeKey === "vi" ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {isKo
               ? "전기요금 계산기"
-              : localeKey === "vi"
-                ? "Máy tính tiền điện Hàn Quốc"
-                : "Korean Electricity Bill Calculator"}
+              : localeKey === "zh"
+                ? "韩国电费计算器"
+                : localeKey === "vi"
+                  ? "Máy tính tiền điện Hàn Quốc"
+                  : "Korean Electricity Bill Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "월 사용량만 넣으면 누진제 3단계 + 여름철 완화 + 부가세·기금까지 청구금액을 즉시 산출. 한전 주택용 2024 기준."
-              : localeKey === "vi"
-                ? "Chỉ cần nhập lượng điện tiêu thụ hàng tháng, công cụ sẽ tính ngay tổng tiền điện: biểu giá lũy tiến 3 bậc + giảm nhẹ mùa hè + VAT và quỹ điện lực. Theo biểu giá điện sinh hoạt KEPCO 2024."
-                : "Enter monthly kWh to get the full bill: 3-tier progressive tariff, summer relaxation, VAT and power fund. KEPCO residential 2024 rates."}
+              : localeKey === "zh"
+                ? "只需输入月用电量，即可立即算出含累进电价3档 + 夏季缓和 + 增值税·电力基金的账单金额。以韩国电力公社住宅用2024年标准为准。"
+                : localeKey === "vi"
+                  ? "Chỉ cần nhập lượng điện tiêu thụ hàng tháng, công cụ sẽ tính ngay tổng tiền điện: biểu giá lũy tiến 3 bậc + giảm nhẹ mùa hè + VAT và quỹ điện lực. Theo biểu giá điện sinh hoạt KEPCO 2024."
+                  : "Enter monthly kWh to get the full bill: 3-tier progressive tariff, summer relaxation, VAT and power fund. KEPCO residential 2024 rates."}
           </p>
         </header>
         <ElectricBillForm locale={localeKey} />

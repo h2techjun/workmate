@@ -9,7 +9,7 @@ import { BreakdownBar } from "@/components/ui/charts";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface NetSalaryFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -56,6 +56,27 @@ const T = {
     deductionRate: "Deduction rate",
     chartTitle: "Monthly breakdown",
     note: "2026 insurance rates + estimated withholding. Actual withholding follows the NTS simplified table (±5%). Reconciled at year-end settlement.",
+  },
+  zh: {
+    annual: "年薪 (韩元)",
+    dependents: "受抚养人数 (含本人)",
+    children: "20岁以下子女数",
+    nonTax: "月免税额 (伙食费等，韩元)",
+    result: "月实领工资",
+    monthlyNet: "月实领工资",
+    annualNet: "年实领工资",
+    unit: "韩元",
+    gross: "月薪 (税前)",
+    insurance: "四大保险",
+    pension: "国民年金",
+    health: "健康保险",
+    longTerm: "长期疗养保险",
+    employment: "雇佣保险",
+    incomeTax: "所得税",
+    localTax: "地方所得税",
+    deductionRate: "扣除比例",
+    chartTitle: "月薪构成",
+    note: "按2026年四大保险费率与劳动所得税简易估算。实际代扣代缴以国税厅简易税额表为准，可能相差±5%。准确金额以年末结算为准。",
   },
   vi: {
     annual: "Lương năm (KRW)",
@@ -142,9 +163,11 @@ export function NetSalaryForm({
             text={
               locale === "ko"
                 ? `연봉 ${won(annual)}원 → 월 실수령액 ${won(r.monthlyNet)}원 (실수령률 ${((1 - r.deductionRate) * 100).toFixed(1)}%)`
-                : locale === "vi"
-                  ? `Lương năm ${won(annual)} KRW → lương thực nhận hàng tháng ${won(r.monthlyNet)} KRW`
-                  : `Annual ${won(annual)} KRW → monthly take-home ${won(r.monthlyNet)} KRW`
+                : locale === "zh"
+                  ? `年薪 ${won(annual)} 韩元 → 月实领工资 ${won(r.monthlyNet)} 韩元`
+                  : locale === "vi"
+                    ? `Lương năm ${won(annual)} KRW → lương thực nhận hàng tháng ${won(r.monthlyNet)} KRW`
+                    : `Annual ${won(annual)} KRW → monthly take-home ${won(r.monthlyNet)} KRW`
             }
             label={tShare("button")}
             copiedLabel={tShare("copied")}

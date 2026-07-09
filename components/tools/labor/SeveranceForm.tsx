@@ -43,7 +43,8 @@ const todayIso = (): string => new Date().toISOString().slice(0, 10);
 export function SeveranceForm(): React.ReactElement {
   const t = useTranslations("severanceTool");
   const rawLocale = useLocale();
-  const locale = rawLocale === "vi" ? "vi" : rawLocale === "en" ? "en" : "ko";
+  const locale =
+    rawLocale === "vi" ? "vi" : rawLocale === "zh" ? "zh" : rawLocale === "en" ? "en" : "ko";
   const won = locale === "ko" ? "원" : "₩";
   const [result, setResult] = useState<SeveranceResult | null>(null);
   const [calcError, setCalcError] = useState<string | null>(null);

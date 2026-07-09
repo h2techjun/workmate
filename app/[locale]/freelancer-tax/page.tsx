@@ -77,8 +77,8 @@ export default async function FreelancerTaxPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const lang: "ko" | "en" | "vi" =
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -89,23 +89,33 @@ export default async function FreelancerTaxPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {lang === "ko" ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
+            {lang === "ko"
+              ? "툴 모음"
+              : lang === "zh"
+                ? "所有工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {lang === "ko"
               ? "프리랜서 3.3% 계산기"
-              : lang === "vi"
-                ? "Máy tính thuế 3,3% cho freelancer"
-                : "Korean Freelancer 3.3% Calculator"}
+              : lang === "zh"
+                ? "自由职业者3.3%计算器"
+                : lang === "vi"
+                  ? "Máy tính thuế 3,3% cho freelancer"
+                  : "Korean Freelancer 3.3% Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {lang === "ko"
               ? "프리랜서 사업소득 3.3% 원천징수를 즉시 계산. 세전→세후, 실수령→세전 역산까지 양방향."
-              : lang === "vi"
-                ? "Tính ngay khoản khấu trừ tại nguồn 3,3% trên thu nhập kinh doanh của freelancer — hai chiều, từ trước thuế sang sau thuế và ngược lại."
-                : "Instantly calculate the 3.3% withholding on Korean freelance income — both gross-to-net and net-to-gross."}
+              : lang === "zh"
+                ? "即时计算自由职业者营业所得3.3%预扣税。支持税前→税后、实收→税前双向反算。"
+                : lang === "vi"
+                  ? "Tính ngay khoản khấu trừ tại nguồn 3,3% trên thu nhập kinh doanh của freelancer — hai chiều, từ trước thuế sang sau thuế và ngược lại."
+                  : "Instantly calculate the 3.3% withholding on Korean freelance income — both gross-to-net and net-to-gross."}
           </p>
         </header>
         <FreelancerTaxForm locale={lang} />

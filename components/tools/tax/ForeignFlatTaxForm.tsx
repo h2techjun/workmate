@@ -25,7 +25,7 @@ import {
 import { cn } from "@/lib/utils/cn";
 
 interface ForeignFlatTaxFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const TEXT = {
@@ -128,6 +128,39 @@ const TEXT = {
       "Chỉ là ước tính tham khảo trên cơ sở cư trú. Vui lòng xác nhận khai báo thực tế tại Hometax hoặc chuyên gia thuế.",
     ],
   },
+  zh: {
+    sectionIncome: "收入 · 扣除额",
+    fieldGross: "年总薪资 (韩元)",
+    fieldGrossHint: "税前年薪 (含奖金，扣除免税项前的总额)",
+    fieldDependents: "扶养家属人数 (不含本人)",
+    fieldDependentsHint: "配偶、子女等基本扣除对象 (每人人身扣除150万韩元)",
+    calculate: "比较计算",
+    reset: "重置",
+    resultHeading: "单一税率 vs 累进税比较",
+    resultEmpty: "输入年薪即可比较哪种方式更有利。",
+    error: "计算过程中发生错误。",
+    winnerFlat: "单一税率(19%)更有利",
+    winnerProg: "一般累进税更有利",
+    savingsLabel: "年度节税额",
+    flatTitle: "单一税率 (合计20.9%)",
+    progTitle: "一般累进税 (6~45%)",
+    totalTax: "总税额",
+    effectiveRate: "实际税率",
+    incomeTax: "所得税",
+    localTax: "地方所得税",
+    taxableIncome: "计税基数",
+    earnedDeduction: "工资薪金所得扣除",
+    wageCredit: "工资所得税额抵免",
+    won: "韩元",
+    sourceTitle: "依据 · 假设条件 (适用2026纳税年度)",
+    sourceLines: [
+      "单一税率 = 总薪资 × 19% + 地方税1.9% = 20.9% (《税收特例限制法》第18条之2)。不适用任何扣除项。",
+      "累进税 = (总薪资 − 工资薪金所得扣除 − 人身扣除) → 8级税率 − 工资所得税额抵免 + 地方所得税10%。",
+      "首次适用单一税率须在2026-12-31前于韩国境内首次开始工作(自首次工作日起可维持20年)。",
+      "未反映四大社会保险、特别税额抵免(医疗费·教育费等)、信用卡扣除 → 可扣除项越多，累进税越有利。",
+      "仅为居民身份下的参考估算。实际申报请通过Hometax或税务专家确认。",
+    ],
+  },
 } as const;
 
 /** 금액 입력 — 천단위 콤마 + (한국어) 한글 금액 보조 표기. */
@@ -142,7 +175,7 @@ function MoneyField({
   name: "grossSalary";
   label: string;
   hint: string;
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }): React.ReactElement {
   const suffix = locale === "ko" ? "원" : "₩";
   return (

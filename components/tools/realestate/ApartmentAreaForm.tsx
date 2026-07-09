@@ -26,7 +26,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface ApartmentAreaFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const TEXT = {
@@ -115,6 +115,35 @@ const TEXT = {
       "1 pyeong = 3,3058㎡. 84㎡ ≈ 25,4 pyeong (diện tích cung cấp); diện tích riêng 59㎡ ≈ 17,8 pyeong = 'diện tích tiêu chuẩn quốc dân'.",
       "Giá theo pyeong thường được tính theo diện tích cung cấp, nhưng giá trị thực tế chính xác hơn nếu tính theo diện tích riêng.",
       "Chỉ mang tính tham khảo — hãy xác nhận diện tích thực tế trên giấy đăng ký bất động sản và hợp đồng.",
+    ],
+  },
+  zh: {
+    section: "面积 · 价格",
+    fieldSupply: "供给面积（㎡）",
+    fieldSupplyHint: "房源广告标示的面积（例：84㎡）",
+    fieldExclusive: "专有面积（㎡）",
+    fieldExclusiveHint: "实际居住空间 — 房间·客厅·厨房·卫生间",
+    fieldPrice: "买卖价·全租价（韩元，可选）",
+    fieldPriceHint: "填写后可一并计算每坪价格",
+    calculate: "计算",
+    reset: "重置",
+    resultHeading: "面积 · 每坪价格分析",
+    resultEmpty: "请输入供给·专有面积后计算。",
+    error: "计算过程中发生错误。",
+    exclusiveHero: "实际居住（专有面积）",
+    pyeong: "坪",
+    won: "₩",
+    supplyPyeong: "供给面积",
+    exclusiveRate: "专有率",
+    perPyeongSupply: "每坪价格（按供给面积）",
+    perPyeongExclusive: "每坪价格（按专有面积）",
+    sourceTitle: "标准 · 定义",
+    sourceLines: [
+      "供给面积 = 专有面积 + 住宅公摊（楼梯·走廊）。房源广告的\"84㎡\"通常是供给面积。",
+      "专有面积 = 实际居住空间。专有率 = 专有 ÷ 供给（公寓70~80%，商住两用房50~60%）。",
+      "1坪 = 3.3058㎡。84㎡ ≈ 25.4坪（供给），专有59㎡ ≈ 17.8坪 = \"国民标准户型\"。",
+      "每坪价格通常按供给面积计算，但按专有面积计算更能反映实际价值。",
+      "仅供参考 — 请以房产登记簿·合同上的实际面积为准。",
     ],
   },
 } as const;

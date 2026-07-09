@@ -81,8 +81,8 @@ export default async function CapitalGainsTaxPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const lang: "ko" | "en" | "vi" =
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -93,23 +93,33 @@ export default async function CapitalGainsTaxPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
+            {isKo
+              ? "툴 모음"
+              : lang === "zh"
+                ? "所有工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {isKo
               ? "부동산 양도소득세 계산기"
-              : lang === "vi"
-                ? "Máy tính thuế chuyển nhượng bất động sản Hàn Quốc"
-                : "Korean Capital Gains Tax Calculator"}
+              : lang === "zh"
+                ? "房地产转让所得税计算器"
+                : lang === "vi"
+                  ? "Máy tính thuế chuyển nhượng bất động sản Hàn Quốc"
+                  : "Korean Capital Gains Tax Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "양도가·취득가·보유기간으로 양도소득세를 즉시 산출. 장기보유특별공제(최대 80%)·1세대1주택 우대·단기 중과까지 반영."
-              : lang === "vi"
-                ? "Tính ngay thuế chuyển nhượng từ giá bán, giá mua và thời gian sở hữu. Áp dụng khấu trừ đặc biệt sở hữu dài hạn (tối đa 80%), ưu đãi hộ 1 nhà 1 căn và mức thuế nặng cho chuyển nhượng ngắn hạn."
-                : "Estimate Korean real estate capital gains tax from sale price, purchase price, and holding period — with long-term deduction and short-term penalty."}
+              : lang === "zh"
+                ? "根据转让价、取得价、持有期限即时计算转让所得税。涵盖长期持有特别扣除(最高80%)、一世帯一住宅优惠、短期转让重课税率。"
+                : lang === "vi"
+                  ? "Tính ngay thuế chuyển nhượng từ giá bán, giá mua và thời gian sở hữu. Áp dụng khấu trừ đặc biệt sở hữu dài hạn (tối đa 80%), ưu đãi hộ 1 nhà 1 căn và mức thuế nặng cho chuyển nhượng ngắn hạn."
+                  : "Estimate Korean real estate capital gains tax from sale price, purchase price, and holding period — with long-term deduction and short-term penalty."}
           </p>
         </header>
         <CapitalGainsForm locale={lang} />

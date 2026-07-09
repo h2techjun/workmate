@@ -26,7 +26,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface JeonseWolseFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const TEXT = {
@@ -130,6 +130,40 @@ const TEXT = {
       "Mức trần pháp lý = min(10%, lãi suất cơ bản + 2%) = 4,5% (Luật Cho thuê Nhà ở §7-2, lãi suất cơ bản 2,5%)",
       "Mức trần chỉ áp dụng cho việc chuyển đổi trong thời gian thuê/khi gia hạn hợp đồng; hợp đồng mới và hàng tháng→jeonse chỉ mang tính tham khảo.",
       "Ước tính tham khảo. Xác minh với bản sao đăng ký BĐS (등기부등본), môi giới được cấp phép và chuyên gia.",
+    ],
+  },
+  zh: {
+    sectionMode: "换算方向",
+    fieldMode: "您要换算什么？",
+    modeToMonthly: "全租 → 月租（将部分保证金转为月租）",
+    modeToDeposit: "月租 → 全租（换算全租金）",
+    fieldJeonse: "全租保证金（韩元）",
+    fieldKeep: "转换为月租后保留的保证金（韩元）",
+    fieldKeepHint: "填0表示将全租金全部转换为月租",
+    fieldMonthlyDeposit: "月租保证金（韩元）",
+    fieldMonthlyRent: "月租（韩元）",
+    fieldRate: "全租转月租折算率（%）",
+    fieldRateHint: "法定上限4.5%（基准利率2.5% + 2%）。实际可协商 — 可直接修改。",
+    calculate: "换算",
+    reset: "重置",
+    resultHeading: "全租-月租换算结果",
+    resultEmpty: "请选择方向并输入金额后换算。",
+    error: "计算过程中发生错误。",
+    monthlyResult: "换算月租",
+    jeonseResult: "换算全租金",
+    won: "₩",
+    convertedDeposit: "转换为月租的保证金",
+    appliedRate: "适用折算率",
+    legalCap: "法定上限",
+    exceedWarn: "⚠️ 适用折算率超过法定上限（4.5%）。该上限适用于合同期内·续约时的全租→月租转换。",
+    newContractWarn: "提示：折算率上限仅适用于\"合同期内·续约时的全租→月租转换\"，不适用于一开始就以月租形式签订的新合同。",
+    sourceTitle: "公式 · 依据（2026）",
+    sourceLines: [
+      "全租→月租：月租 = (全租金 − 保留保证金) × 折算率 ÷ 12",
+      "月租→全租：全租金 = 月租保证金 + (月租 × 12) ÷ 折算率",
+      "法定上限 = min(10%, 基准利率+2%) = 4.5%（《住宅租赁保护法》第7条之2，基准利率2.5%）",
+      "上限仅适用于合同期内·续约时的转换，新签合同及月租→全租不强制适用（仅供参考）。",
+      "仅为参考估算。实际签约请核实房产登记簿并咨询持证经纪人·专业人士。",
     ],
   },
 } as const;
@@ -336,17 +370,23 @@ export function JeonseWolseForm({
         heading={T.resultHeading}
         locale={locale}
         relatedLinks={
-          locale !== "ko"
+          locale === "zh"
             ? [
-                { label: "Rent Cap Calculator", href: "/rent-cap" },
-                { label: "Apartment Area Convert", href: "/apartment-area" },
-                { label: "Renting in Korea guide", href: "/blog/renting-in-korea-jeonse-wolse-guide" },
+                { label: "租金5%上涨上限计算器", href: "/rent-cap" },
+                { label: "专有·供给面积换算", href: "/apartment-area" },
+                { label: "韩国租房指南", href: "/blog/renting-in-korea-jeonse-wolse-guide" },
               ]
-            : [
-                { label: "전월세 상한 계산기", href: "/rent-cap" },
-                { label: "아파트 평형 변환", href: "/apartment-area" },
-                { label: "전세·월세 가이드 블로그", href: "/blog/renting-in-korea-jeonse-wolse-guide" },
-              ]
+            : locale !== "ko"
+              ? [
+                  { label: "Rent Cap Calculator", href: "/rent-cap" },
+                  { label: "Apartment Area Convert", href: "/apartment-area" },
+                  { label: "Renting in Korea guide", href: "/blog/renting-in-korea-jeonse-wolse-guide" },
+                ]
+              : [
+                  { label: "전월세 상한 계산기", href: "/rent-cap" },
+                  { label: "아파트 평형 변환", href: "/apartment-area" },
+                  { label: "전세·월세 가이드 블로그", href: "/blog/renting-in-korea-jeonse-wolse-guide" },
+                ]
         }
       >
         {calcError && <ErrorBox message={calcError} />}

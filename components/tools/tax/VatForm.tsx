@@ -47,7 +47,13 @@ export function VatForm(): React.ReactElement {
   const t = useTranslations("vatTool");
   const rawLocale = useLocale();
   const locale =
-    rawLocale === "vi" ? "vi" : rawLocale === "ko" ? "ko" : "en";
+    rawLocale === "ko"
+      ? "ko"
+      : rawLocale === "zh"
+        ? "zh"
+        : rawLocale === "vi"
+          ? "vi"
+          : "en";
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<VatResult | null>(() => {
     try {
@@ -282,20 +288,26 @@ export function VatForm(): React.ReactElement {
                 { label: "종합소득세 계산기", href: "/income-tax" },
                 { label: "사업자번호 조회", href: "/biznum-check" },
               ]
-            : locale === "vi"
+            : locale === "zh"
               ? [
-                  { label: "Thuế freelancer", href: "/freelancer-tax" },
-                  { label: "Thuế thu nhập", href: "/income-tax" },
-                  {
-                    label: "Tra cứu mã số doanh nghiệp",
-                    href: "/biznum-check",
-                  },
+                  { label: "自由职业者3.3%计算器", href: "/freelancer-tax" },
+                  { label: "综合所得税计算器", href: "/income-tax" },
+                  { label: "工商注册号查询", href: "/biznum-check" },
                 ]
-              : [
-                  { label: "Freelancer Tax", href: "/freelancer-tax" },
-                  { label: "Income Tax", href: "/income-tax" },
-                  { label: "Business Number Check", href: "/biznum-check" },
-                ]
+              : locale === "vi"
+                ? [
+                    { label: "Thuế freelancer", href: "/freelancer-tax" },
+                    { label: "Thuế thu nhập", href: "/income-tax" },
+                    {
+                      label: "Tra cứu mã số doanh nghiệp",
+                      href: "/biznum-check",
+                    },
+                  ]
+                : [
+                    { label: "Freelancer Tax", href: "/freelancer-tax" },
+                    { label: "Income Tax", href: "/income-tax" },
+                    { label: "Business Number Check", href: "/biznum-check" },
+                  ]
         }
       >
         {calcError ? <ErrorBox message={calcError} /> : null}

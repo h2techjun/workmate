@@ -74,3 +74,4 @@ public/app/hakrew/
 .tmp_*
 tmp/
 tmp_i18n/
+messages/zh-guide-*.json

@@ -35,7 +35,7 @@ import { cn } from "@/lib/utils/cn";
 import { NumberField } from "@/components/ui/NumberField";
 
 interface CompoundFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 type Mode = "basic" | "recurring";
@@ -214,6 +214,64 @@ const TEXT = {
       "Chưa bao gồm thuế thu nhập từ lãi (15,4%) và lạm phát (số danh nghĩa trước thuế).",
     ],
   },
+  zh: {
+    tabBasic: "基本",
+    tabRecurring: "定投",
+    // basic
+    basicTitle: "复利计算器",
+    fieldPrincipal: "初始金额 (韩元)",
+    fieldPeriods: "复利次数 (期数)",
+    fieldRate: "每期收益率 (%)",
+    calculate: "计算",
+    reset: "重置",
+    resultEmpty: "请输入金额·复利次数·收益率后计算。",
+    error: "计算过程中发生错误。",
+    totalProfit: "总收益",
+    finalAmount: "最终金额",
+    colNo: "#",
+    colProfit: "收益 (韩元)",
+    colTotal: "总额 (韩元)",
+    colRate: "收益率",
+    truncated: "* 表格仅显示前600期 (最终金额已计入全部期数)。",
+    basicSource: [
+      "最终金额 = 初始金额 × (1 + 收益率)^期数",
+      "收益率按每次复利时适用。月复利年化5%约等于每期0.42% × 120期(10年)。",
+      "未反映利息所得税(15.4%)及通货膨胀 (税前名义值)。",
+    ],
+    // recurring
+    recurringTitle: "定投复利计算器",
+    fieldStart: "起始金额 (韩元)",
+    fieldMonthly: "每月定投金额 (韩元)",
+    fieldMonthlyHint: "* 从第二个月起计入本金。",
+    fieldPeriod: "投资期限",
+    fieldInterest: "利率",
+    unitYear: "年",
+    unitMonth: "个月",
+    rateYear: "年",
+    rateMonth: "月",
+    fieldCompounding: "复利方式",
+    compAnnual: "年复利",
+    compMonthly: "月复利",
+    totalInvested: "总投入金额",
+    chartHeading: "资产增长曲线",
+    chartTotal: "总额",
+    chartInvested: "投入本金",
+    chartMonthSuffix: "个月",
+    viewYear: "按年",
+    viewMonth: "按月",
+    colPeriodYear: "年",
+    colPeriodMonth: "月",
+    colPrincipal: "本金 (韩元)",
+    colInterest: "收益 (韩元)",
+    colFinal: "最终金额 (韩元)",
+    recurringEmpty: "请输入起始金额·每月定投·期限·利率后计算。",
+    recurringSource: [
+      "年复利：每月初存入的定投款按当年剩余月份计单利，于每年末一次性资本化复利 (韩国定期存款惯例)。",
+      "月复利：每月余额按(年利率 ÷ 12)复利计算。",
+      "总投入金额 = 起始金额 + 每月定投 × (月数 − 1)。",
+      "未反映利息所得税(15.4%)及通货膨胀 (税前名义值)。",
+    ],
+  },
 } as const;
 
 /* ---------------------------------------------------------------- helpers */
@@ -290,7 +348,7 @@ const COMPOUND_DEFAULTS: CompoundInputResolved = {
   periodicContribution: 0,
 };
 
-function BasicTab({ locale }: { locale: "ko" | "en" | "vi" }): React.ReactElement {
+function BasicTab({ locale }: { locale: "ko" | "en" | "vi" | "zh" }): React.ReactElement {
   const T = TEXT[locale];
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<CompoundResult | null>(() => {
@@ -527,7 +585,7 @@ const RECURRING_DEFAULTS: RecurringInputResolved = {
   compounding: "annual",
 };
 
-function RecurringTab({ locale }: { locale: "ko" | "en" | "vi" }): React.ReactElement {
+function RecurringTab({ locale }: { locale: "ko" | "en" | "vi" | "zh" }): React.ReactElement {
   const T = TEXT[locale];
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<RecurringResult | null>(() => {

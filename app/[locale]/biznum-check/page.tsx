@@ -25,23 +25,32 @@ export async function generateMetadata({
           "1-3-7 가중치",
           "가짜 사업자번호",
         ]
-      : locale === "vi"
+      : locale === "zh"
         ? [
-            "kiểm tra mã số đăng ký kinh doanh Hàn Quốc",
-            "xác minh mã số doanh nghiệp Hàn Quốc",
-            "thuật toán checksum 1-3-7",
-            "tra cứu mã số kinh doanh Hàn Quốc",
-            "trọng số 1-3-7 Hàn Quốc",
-            "mã số kinh doanh giả",
+            "事业者登记号验证",
+            "事业者号码真伪确认",
+            "校验位验算",
+            "事业者号码查询",
+            "1-3-7权重",
+            "假事业者登记号",
           ]
-        : [
-            "korean business registration number checksum algorithm",
-            "validate korean business number",
-            "korean company number check",
-            "1-3-7 checksum korea",
-            "korean biznum validator",
-            "verify korean business registration",
-          ];
+        : locale === "vi"
+          ? [
+              "kiểm tra mã số đăng ký kinh doanh Hàn Quốc",
+              "xác minh mã số doanh nghiệp Hàn Quốc",
+              "thuật toán checksum 1-3-7",
+              "tra cứu mã số kinh doanh Hàn Quốc",
+              "trọng số 1-3-7 Hàn Quốc",
+              "mã số kinh doanh giả",
+            ]
+          : [
+              "korean business registration number checksum algorithm",
+              "validate korean business number",
+              "korean company number check",
+              "1-3-7 checksum korea",
+              "korean biznum validator",
+              "verify korean business registration",
+            ];
   return {
     title: t("title"),
     description: t("description"),

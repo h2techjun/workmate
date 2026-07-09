@@ -26,7 +26,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface BrokerageFeeFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const TEXT = {
@@ -142,6 +142,44 @@ const TEXT = {
       "Quy đổi wolse: tiền đặt cọc + tiền thuê×100 (dùng ×70 nếu tổng dưới 50 triệu₩)",
       "Nguồn: Quy tắc thi hành Luật Môi giới bất động sản có chứng chỉ [Phụ lục 1], Bộ Đất đai, Hạ tầng và Giao thông (có hiệu lực từ 19/10/2021)",
       "Miễn trừ trách nhiệm: chỉ là mức trần theo luật; phí thực tế có thể thỏa thuận thấp hơn. Quy định địa phương có thể chia nhỏ các bậc giá. Nên xác nhận với môi giới có chứng chỉ.",
+    ],
+  },
+  zh: {
+    sectionType: "交易信息",
+    fieldType: "交易类型",
+    typeSale: "买卖",
+    typeJeonse: "全租",
+    typeMonthly: "月租",
+    fieldPrice: "买卖价（韩元）",
+    fieldJeonseDeposit: "全租保证金（韩元）",
+    fieldMonthlyDeposit: "月租保证金（韩元）",
+    fieldMonthlyRent: "月租（韩元/月）",
+    sectionOptions: "选项",
+    fieldVat: "含增值税（10%）",
+    vatHint: "若中介事务所为一般纳税人（年营业额8千万韩元以上），增值税另计",
+    calculate: "计算",
+    reset: "重置",
+    resultHeading: "中介费计算结果",
+    resultEmpty: "请输入交易类型和金额后计算。",
+    error: "计算过程中发生错误。",
+    feeLabel: "法定上限中介报酬",
+    won: "₩",
+    transactionAmount: "交易金额",
+    maxRate: "上限费率",
+    rateCap: "限额",
+    vat: "增值税",
+    totalFee: "合计（含增值税）",
+    monthlyMultiplier100: "月租折算交易金额 = 保证金 + 月租 × 100",
+    monthlyMultiplier70: "月租折算交易金额 = 保证金 + 月租 × 70（因折算额不足5千万韩元）",
+    cappedNotice: "已适用限额。（按上限费率计算超过限额）",
+    negotiableNotice: "以上金额为法定上限，实际中介报酬可通过协商降低。",
+    sourceTitle: "法律依据（自2021.10.19施行）",
+    sourceLines: [
+      "买卖·交换：5千万以上0.6%·限额25万 / 5千万~2亿0.5%·限额80万 / 2亿~9亿0.4% / 9亿~12亿0.5% / 12亿~15亿0.6% / 15亿以上0.7%",
+      "租赁：5千万以上0.5%·限额20万 / 5千万~1亿0.4%·限额30万 / 1亿~6亿0.3% / 6亿~12亿0.4% / 12亿~15亿0.5% / 15亿以上0.6%",
+      "月租折算：保证金 + 月租×100（不足5千万则×70）",
+      "来源：《房地产经纪人法施行规则》[附表1]，国土交通部（自2021.10.19施行）",
+      "免责声明：为法定上限，实际可协商。地方自治条例可细分区间。建议咨询专业人士确认。",
     ],
   },
 } as const;
@@ -359,17 +397,23 @@ export function BrokerageFeeForm({
                 { label: "아파트 평형 변환", href: "/apartment-area" },
                 { label: "양도소득세 계산기", href: "/capital-gains-tax" },
               ]
-            : locale === "vi"
+            : locale === "zh"
               ? [
-                  { label: "Quy đổi Jeonse ↔ Wolse", href: "/jeonse-wolse" },
-                  { label: "Diện tích & giá căn hộ", href: "/apartment-area" },
-                  { label: "Thuế thu nhập từ chuyển nhượng", href: "/capital-gains-tax" },
+                  { label: "全租↔月租换算器", href: "/jeonse-wolse" },
+                  { label: "公寓面积与价格", href: "/apartment-area" },
+                  { label: "转让所得税计算器", href: "/capital-gains-tax" },
                 ]
-              : [
-                  { label: "Jeonse ↔ Wolse Converter", href: "/jeonse-wolse" },
-                  { label: "Apartment Area & Price", href: "/apartment-area" },
-                  { label: "Capital Gains Tax", href: "/capital-gains-tax" },
-                ]
+              : locale === "vi"
+                ? [
+                    { label: "Quy đổi Jeonse ↔ Wolse", href: "/jeonse-wolse" },
+                    { label: "Diện tích & giá căn hộ", href: "/apartment-area" },
+                    { label: "Thuế thu nhập từ chuyển nhượng", href: "/capital-gains-tax" },
+                  ]
+                : [
+                    { label: "Jeonse ↔ Wolse Converter", href: "/jeonse-wolse" },
+                    { label: "Apartment Area & Price", href: "/apartment-area" },
+                    { label: "Capital Gains Tax", href: "/capital-gains-tax" },
+                  ]
         }
       >
         {calcError && <ErrorBox message={calcError} />}

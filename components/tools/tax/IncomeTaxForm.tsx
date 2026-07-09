@@ -28,7 +28,7 @@ import { BracketScale } from "@/components/ui/charts";
 import { formatAxisMoney, formatKoreanMoney } from "@/lib/utils/format";
 
 interface IncomeTaxFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -133,12 +133,45 @@ const T = {
       "Các khoản khấu trừ thuế khác như con cái, tiết kiệm hưu trí, chi phí y tế được trừ riêng (công cụ này chưa bao gồm).",
     ],
   },
+  zh: {
+    sectionIncome: "计税基数",
+    sectionOptions: "选项",
+    fieldTaxable: "综合所得计税基数 (韩元)",
+    fieldTaxableHint: "综合所得金额 − 综合所得扣除额 = 计税基数",
+    fieldWageCredit: "适用工资所得税额抵免 (工薪族)",
+    calculate: "计算",
+    reset: "重置",
+    resultHeading: "税额结果",
+    resultEmpty: "请输入计税基数。",
+    error: "计算出错",
+    heroLabel: "总税负 (所得税 + 地方所得税)",
+    heroUnit: "韩元",
+    marginalRate: "适用边际税率",
+    calculatedTax: "所得税 (应纳税额)",
+    wageCredit: "工资所得税额抵免",
+    finalTax: "最终确定税额",
+    localTax: "地方所得税 (10%)",
+    effectiveRate: "实际税率",
+    bracketsHeading: "2026年综合所得税税率表",
+    chartMarker: "计税基数",
+    colBracket: "计税基数",
+    colRate: "税率",
+    colDeduction: "累进扣除额",
+    sourceTitle: "法律依据 · 假设条件",
+    sourceLines: [
+      "《所得税法》第55条：8级累进税率 (6%·15%·24%·35%·38%·40%·42%·45%，2023年修订)。",
+      "应纳税额 = 计税基数 × 适用边际税率 − 累进扣除额。",
+      "地方所得税 = 最终确定税额 × 10% (单独申报，本工具自动算出)。",
+      "工资所得税额抵免 (第59条)：应纳税额130万韩元以下抵免55%，超出部分抵免30%，并按总薪资设上限。",
+      "子女、养老金储蓄、医疗费等税额抵免另行扣减 (本计算器未包含)。",
+    ],
+  },
 } as const;
 
 function formatBracket(
   upper: number | null,
   prev: number,
-  locale: "ko" | "en" | "vi",
+  locale: "ko" | "en" | "vi" | "zh",
 ): string {
   if (locale === "ko") {
     // 만/억 한글 단위 (1.4억·5,000만 등 자연스러운 표기)
@@ -148,6 +181,15 @@ function formatBracket(
         : `${(n / 10_000).toLocaleString("ko-KR")}만`;
     if (upper === null) return `${k(prev)}원 초과`;
     return prev === 0 ? `${k(upper)}원 이하` : `${k(prev)} ~ ${k(upper)}원`;
+  }
+  if (locale === "zh") {
+    // 万/亿 한자 단위 (한국어와 동일한 만진법 — formatAxisMoney 의 zh 표기와 통일)
+    const k = (n: number): string =>
+      n >= 100_000_000
+        ? `${(n / 100_000_000).toLocaleString("zh-CN")}亿`
+        : `${(n / 10_000).toLocaleString("zh-CN")}万`;
+    if (upper === null) return `超过${k(prev)}韩元`;
+    return prev === 0 ? `${k(upper)}韩元以下` : `${k(prev)} ~ ${k(upper)}韩元`;
   }
   // en / vi — 백만(M/triệu)·십억(B/tỷ) 국제 표기
   const um = locale === "vi" ? "tr" : "M";

@@ -81,7 +81,8 @@ export default async function ForeignFlatTaxPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const lang: "ko" | "en" | "vi" = locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -92,23 +93,33 @@ export default async function ForeignFlatTaxPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {lang === "ko" ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
+            {lang === "ko"
+              ? "툴 모음"
+              : lang === "zh"
+                ? "所有工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {lang === "ko"
               ? "외국인 단일세율 vs 누진세 비교"
-              : lang === "vi"
-                ? "So sánh thuế suất đơn nhất và thuế lũy tiến cho người nước ngoài"
-                : "Korea Foreign Flat Tax vs Progressive"}
+              : lang === "zh"
+                ? "外国人单一税率 vs 累进税比较"
+                : lang === "vi"
+                  ? "So sánh thuế suất đơn nhất và thuế lũy tiến cho người nước ngoài"
+                  : "Korea Foreign Flat Tax vs Progressive"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {lang === "ko"
               ? "한국에서 일하는 외국인은 19% 단일세율(지방세 포함 20.9%)과 일반 누진세 중 유리한 쪽을 고를 수 있습니다. 연봉을 넣으면 어느 쪽이 덜 내는지 바로 비교합니다. (2026 귀속 기준)"
-              : lang === "vi"
-                ? "Người nước ngoài làm việc tại Hàn Quốc có thể chọn giữa thuế suất đơn nhất 19% (bao gồm thuế địa phương là 20.9%) và thuế lũy tiến thông thường, tùy vào bên nào có lợi hơn. Nhập mức lương năm để so sánh ngay bên nào đóng ít thuế hơn. (Áp dụng năm thuế 2026)"
-                : "Foreign workers in Korea can choose between a 19% flat tax (20.9% incl. local tax) and the regular progressive rates. Enter your salary to see which one costs less. (2026 tax year)"}
+              : lang === "zh"
+                ? "在韩国工作的外国人可以在19%单一税率(含地方所得税共20.9%)和一般累进税率之间选择较有利的一种。输入年薪即可立即比较哪种方式缴税更少。(适用2026纳税年度)"
+                : lang === "vi"
+                  ? "Người nước ngoài làm việc tại Hàn Quốc có thể chọn giữa thuế suất đơn nhất 19% (bao gồm thuế địa phương là 20.9%) và thuế lũy tiến thông thường, tùy vào bên nào có lợi hơn. Nhập mức lương năm để so sánh ngay bên nào đóng ít thuế hơn. (Áp dụng năm thuế 2026)"
+                  : "Foreign workers in Korea can choose between a 19% flat tax (20.9% incl. local tax) and the regular progressive rates. Enter your salary to see which one costs less. (2026 tax year)"}
           </p>
         </header>
         <ForeignFlatTaxForm locale={lang} />

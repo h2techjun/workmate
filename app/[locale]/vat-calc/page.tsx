@@ -55,7 +55,7 @@ export default async function VatCalcPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const localeKey = (
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en"
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en"
   ) as Locale;
   const t = await getTranslations({ locale: localeKey, namespace: "vatTool" });
 

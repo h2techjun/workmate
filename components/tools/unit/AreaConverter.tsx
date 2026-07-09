@@ -5,7 +5,7 @@ import { convertArea, type AreaUnit } from "@/lib/calculations/unit/area";
 import { NumberField } from "@/components/ui/NumberField";
 
 interface AreaConverterProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const fmt = (n: number, d = 2): string =>
@@ -59,6 +59,29 @@ const T = {
       "1 pyeong = 6 ja × 6 ja = 36 ja² = 3600/1089 ≈ 3.30578 m²",
       "Real-estate ads round to 0.5 pyeong. Official deeds use ㎡ (mandatory since 2007).",
       "Exclusive area = contract area minus shared spaces (corridors, lobbies, etc.).",
+    ],
+  },
+  zh: {
+    inputLabel: "输入数值",
+    unitLabel: "选择单位",
+    units: { pyeong: "坪 (坪数)", sqm: "㎡ (平方米)", ja2: "尺² (平方尺)" } as Record<AreaUnit, string>,
+    result: "换算结果",
+    pyeongLabel: "坪",
+    pyeongRounded: "0.5坪为单位 (房产广告用)",
+    sqmLabel: "平方米 (㎡)",
+    ja2Label: "平方尺 (尺²)",
+    presetTitle: "常用面积",
+    presets: [
+      { value: 59, unit: "sqm" as AreaUnit, label: "59㎡ (小户型公寓)" },
+      { value: 84, unit: "sqm" as AreaUnit, label: "84㎡ (国民住宅标准)" },
+      { value: 114, unit: "sqm" as AreaUnit, label: "114㎡ (中型公寓)" },
+      { value: 30, unit: "pyeong" as AreaUnit, label: "30坪 (专有面积)" },
+      { value: 50, unit: "pyeong" as AreaUnit, label: "50坪 (大户型)" },
+    ],
+    notes: [
+      "1坪 = 6尺 × 6尺 = 36尺² = 3600/1089 ≈ 3.30578 ㎡",
+      "房产广告通常以0.5坪为单位四舍五入。产权登记·供应合同必须使用㎡ (2007年起)。",
+      "专有面积 = 合同面积中扣除公用部分后的实际使用面积。",
     ],
   },
   vi: {
@@ -166,11 +189,11 @@ export function AreaConverter({ locale }: AreaConverterProps): React.ReactElemen
             <dd className="mt-1 text-3xl font-bold tabular-nums text-[color:var(--color-text-primary)]">
               {fmt(result.pyeong)}
               <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
-                {locale === "ko" ? "평" : ""}
+                {locale === "ko" ? "평" : locale === "zh" ? "坪" : ""}
               </span>
             </dd>
             <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
-              {t.pyeongRounded}: <span className="font-semibold text-[color:var(--color-text-secondary)]">{fmt(result.pyeongRounded05, 1)}{locale === "ko" ? "평" : " pyeong"}</span>
+              {t.pyeongRounded}: <span className="font-semibold text-[color:var(--color-text-secondary)]">{fmt(result.pyeongRounded05, 1)}{locale === "ko" ? "평" : locale === "zh" ? "坪" : " pyeong"}</span>
             </p>
           </div>
 

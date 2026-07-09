@@ -53,7 +53,9 @@ export default async function LaborCalcHub({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const localeKey = (locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en") as Locale;
+  const localeKey = (
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en"
+  ) as Locale;
   const t = await getTranslations({
     locale: localeKey,
     namespace: "laborCalcHub",

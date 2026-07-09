@@ -90,8 +90,8 @@ export default async function IncomeTaxPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const lang: "ko" | "en" | "vi" =
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -102,23 +102,33 @@ export default async function IncomeTaxPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
+            {isKo
+              ? "툴 모음"
+              : lang === "zh"
+                ? "所有工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {isKo
               ? "종합소득세 계산기"
-              : lang === "vi"
-                ? "Máy tính thuế thu nhập tổng hợp Hàn Quốc"
-                : "Korean Income Tax Calculator"}
+              : lang === "zh"
+                ? "综合所得税计算器"
+                : lang === "vi"
+                  ? "Máy tính thuế thu nhập tổng hợp Hàn Quốc"
+                  : "Korean Income Tax Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "2026 종합소득세 8구간 누진세를 즉시 산출. 과세표준 → 산출세액 → 지방세 + 근로소득세액공제까지."
-              : lang === "vi"
-                ? "Tính ngay thuế thu nhập tổng hợp Hàn Quốc theo thuế suất lũy tiến 8 bậc (2026). Từ cơ sở tính thuế → thuế tính toán → thuế địa phương + khấu trừ thuế cho người lao động."
-                : "Calculate Korean comprehensive income tax with 8 progressive brackets (2026). Includes local income tax and wage earner credit."}
+              : lang === "zh"
+                ? "即时计算2026年韩国综合所得税8级累进税率。从计税基数 → 应纳税额 → 地方所得税 + 工资所得税额抵免，一站算清。"
+                : lang === "vi"
+                  ? "Tính ngay thuế thu nhập tổng hợp Hàn Quốc theo thuế suất lũy tiến 8 bậc (2026). Từ cơ sở tính thuế → thuế tính toán → thuế địa phương + khấu trừ thuế cho người lao động."
+                  : "Calculate Korean comprehensive income tax with 8 progressive brackets (2026). Includes local income tax and wage earner credit."}
           </p>
         </header>
         <IncomeTaxForm locale={lang} />

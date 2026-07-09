@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface ElectricBillFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -94,6 +94,33 @@ const T = {
     colRate: "Đơn giá",
     colAmount: "Tiền",
     note: "Theo biểu giá điện sinh hoạt KEPCO 2024. Giả định phí khí hậu 9 ₩ / điều chỉnh nhiên liệu 5 ₩ mỗi kWh. Chưa bao gồm các khoản giảm trừ đặc biệt (bảo đảm lượng dùng thiết yếu, siêu tiêu thụ...).",
+  },
+  zh: {
+    usage: "月用电量 (kWh)",
+    voltage: "供电方式",
+    low: "低压 (独栋·多户住宅)",
+    high: "高压 (大型公寓小区)",
+    summer: "适用夏季(7~8月)累进缓和",
+    result: "预计账单金额",
+    total: "最终账单金额",
+    unit: "韩元",
+    appliedTier: "适用累进档位",
+    tierUnit: "档",
+    base: "基本费",
+    energy: "电量费",
+    climate: "气候环境费",
+    fuel: "燃料费调整",
+    subtotal: "电费小计",
+    vat: "增值税 (10%)",
+    fund: "电力基金 (3.7%)",
+    avg: "平均单价",
+    avgUnit: "韩元/kWh",
+    tierTable: "分档电量费",
+    colTier: "档位",
+    colKwh: "用电量",
+    colRate: "单价",
+    colAmount: "费用",
+    note: "以韩国电力公社住宅用电2024年标准为准。假定气候环境费9韩元·燃料调整费5韩元/kWh。未反映必需用电量保障扣减·超高用电户等特例。",
   },
 } as const;
 

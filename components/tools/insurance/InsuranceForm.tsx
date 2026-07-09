@@ -38,7 +38,8 @@ const INSURANCE_DEFAULTS: InsuranceInputResolved = {
 export function InsuranceForm(): React.ReactElement {
   const t = useTranslations("insuranceTool");
   const locale = useLocale();
-  const localeKey = locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const localeKey =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   // 의미있는 기본값으로 마운트 시 즉시 결과 노출 (빈 화면 제거)
   const [result, setResult] = useState<InsuranceResult | null>(() => {
     try {

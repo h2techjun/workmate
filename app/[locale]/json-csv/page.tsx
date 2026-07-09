@@ -29,7 +29,7 @@ export async function generateMetadata({
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }

@@ -25,7 +25,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface RentCapFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -143,6 +143,44 @@ const T = {
       "Tỷ lệ chuyển đổi jeonse-wolse (Điều 9) = lãi suất cơ bản Ngân hàng Trung ương Hàn Quốc + 2%. Nhập trực tiếp nếu có thay đổi.",
       "Quy tắc 5% không áp dụng cho hợp đồng mới hoặc khi có lý do từ chối gia hạn hợp lệ (ví dụ: chủ nhà chuyển vào ở).",
       "Địa phương có thể quy định trần thấp hơn (ví dụ: 4% ở một số thành phố lớn) → cần kiểm tra quy định địa phương.",
+    ],
+  },
+  zh: {
+    sectionCurrent: "现有租赁条件",
+    sectionProposed: "房东提出的条件",
+    sectionParams: "折算率 · 上限",
+    fieldOldDeposit: "现有保证金（韩元）",
+    fieldOldMonthly: "现有月租（韩元）",
+    fieldNewDeposit: "新保证金（韩元）",
+    fieldNewMonthly: "新月租（韩元）",
+    fieldConversion: "全租转月租折算率（%）",
+    fieldCap: "涨幅上限（%）",
+    conversionHint: "《住宅租赁保护法》施行令第9条 = 基准利率 + 2%。截至2026-05约为5.0%。",
+    capHint: "《住宅租赁保护法》施行令第8条 = 5%上限（地方自治条例可能更低）。",
+    calculate: "验证",
+    reset: "重置",
+    resultHeading: "验证结果",
+    resultEmpty: "请输入现有/新条件。",
+    error: "计算出错",
+    heroLabelPass: "未超上限",
+    heroLabelFail: "超过上限",
+    heroUnit: "",
+    rateLabel: "提议涨幅",
+    oldEquiv: "现有换算保证金",
+    maxEquiv: "5%上限换算保证金",
+    proposedEquiv: "提议换算保证金",
+    overage: "超出金额",
+    remaining: "剩余额度",
+    recommendHeading: "推荐：上限内的最大涨幅",
+    recDepositOnly: "维持月租不变时的最高保证金",
+    recMonthlyOnly: "维持保证金不变时的最高月租",
+    sourceTitle: "法律依据 · 假设",
+    sourceLines: [
+      "《住宅租赁保护法》施行令第8条：行使续约请求权时的租金上调上限 = 5%。",
+      "换算保证金 = 保证金 + (月租 × 12 / 折算率)。将月租折算为保证金后的总额。",
+      "全租转月租折算率（施行令第9条）= 韩国银行基准利率 + 2%。如有变动请直接输入。",
+      "新签合同或房东有合法拒绝续约事由（如房东本人入住）时不适用5%规则。",
+      "地方自治条例可设定更低上限（如部分广域市为4%）→ 请确认所在地条例。",
     ],
   },
 } as const;

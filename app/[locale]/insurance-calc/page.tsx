@@ -23,6 +23,7 @@ export async function generateMetadata({
       languages: {
         ko: "/ko/insurance-calc",
         en: "/en/insurance-calc",
+        zh: "/zh/insurance-calc",
         vi: "/vi/insurance-calc",
       },
     },
@@ -30,7 +31,14 @@ export async function generateMetadata({
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }

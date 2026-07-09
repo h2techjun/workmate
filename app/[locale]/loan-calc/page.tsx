@@ -93,8 +93,8 @@ export default async function LoanCalcPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const lang: "ko" | "en" | "vi" =
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -105,23 +105,33 @@ export default async function LoanCalcPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
+            {isKo
+              ? "툴 모음"
+              : lang === "zh"
+                ? "所有工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {isKo
               ? "대출 이자 계산기"
-              : lang === "vi"
-                ? "Máy tính lãi vay"
-                : "Loan Calculator"}
+              : lang === "zh"
+                ? "贷款利息计算器"
+                : lang === "vi"
+                  ? "Máy tính lãi vay"
+                  : "Loan Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "주담대·신용대출·전세자금 — 원리금균등/원금균등/만기일시 3가지 상환 방식 한 번에 비교. 회차별 원금·이자·잔금 상환표까지."
-              : lang === "vi"
-                ? "Vay thế chấp nhà · vay tín chấp · vay đặt cọc jeonse — so sánh cùng lúc 3 phương thức trả nợ: trả góp đều gốc+lãi / trả đều gốc / trả cuối kỳ. Kèm bảng trả nợ chi tiết gốc, lãi, số dư theo từng kỳ."
-                : "Compare 3 Korean loan repayment types in one place. Monthly schedule with principal, interest, and balance breakdown."}
+              : lang === "zh"
+                ? "住房抵押贷款·信用贷款·传贳保证金贷款 — 等额本息/等额本金/到期还本付息 3种还款方式一站比较，附各期本金·利息·余额还款表。"
+                : lang === "vi"
+                  ? "Vay thế chấp nhà · vay tín chấp · vay đặt cọc jeonse — so sánh cùng lúc 3 phương thức trả nợ: trả góp đều gốc+lãi / trả đều gốc / trả cuối kỳ. Kèm bảng trả nợ chi tiết gốc, lãi, số dư theo từng kỳ."
+                  : "Compare 3 Korean loan repayment types in one place. Monthly schedule with principal, interest, and balance breakdown."}
           </p>
         </header>
         <LoanForm locale={lang} />

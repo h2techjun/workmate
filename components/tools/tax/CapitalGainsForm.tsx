@@ -10,7 +10,7 @@ import { formatKoreanMoney } from "@/lib/utils/format";
 import { ResultShell } from "@/components/ui/calc-form";
 
 interface CapitalGainsFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -87,6 +87,30 @@ const T = {
     effectiveRate: "Thuế suất thực tế",
     shortTermBadge: "Chuyển nhượng ngắn hạn (mức thuế nặng)",
     note: "Tính toán đơn giản hóa theo Luật Thuế Thu nhập (소득세법) 2024. Chưa bao gồm miễn thuế hộ 1 nhà 1 căn dưới 1,2 tỷ won và mức thuế nặng cho sở hữu nhiều nhà. Nên tham khảo ý kiến chuyên viên thuế khi khai báo chính thức.",
+  },
+  zh: {
+    salePrice: "转让价额 (卖出价，韩元)",
+    purchasePrice: "取得价额 (买入价，韩元)",
+    expenses: "必要经费 (取得税·中介费等，韩元)",
+    holdingYears: "持有期限 (年)",
+    residingYears: "居住期限 (年，一世帯一住宅适用)",
+    assetType: "资产类型",
+    house: "住宅",
+    land: "土地·其他",
+    oneHouse: "一世帯一住宅 (长期持有特别扣除优惠)",
+    result: "预估转让所得税",
+    totalTax: "总税负 (所得税+地方所得税)",
+    unit: "韩元",
+    gain: "转让差价",
+    ltDeduction: "长期持有特别扣除",
+    taxBase: "计税基数",
+    marginalRate: "适用税率",
+    calcTax: "应纳税额",
+    localTax: "地方所得税",
+    netProceeds: "税后净收益",
+    effectiveRate: "实际税率",
+    shortTermBadge: "短期转让 (重课税率)",
+    note: "基于2024年《所得税法》的简化计算。未反映一世帯一住宅12亿韩元以下免税、多住宅重课及减免特例。准确申报请咨询税务师。",
   },
 } as const;
 

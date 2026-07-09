@@ -83,8 +83,8 @@ export default async function GiftTaxPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const lang: "ko" | "en" | "vi" =
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -98,9 +98,11 @@ export default async function GiftTaxPage({
             <ChevronLeft className="h-4 w-4" />
             {lang === "ko"
               ? "툴 모음"
-              : lang === "vi"
-                ? "Tất cả công cụ"
-                : "All tools"}
+              : lang === "zh"
+                ? "所有工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
 
@@ -109,16 +111,20 @@ export default async function GiftTaxPage({
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {lang === "ko"
               ? "증여세 계산기"
-              : lang === "vi"
-                ? "Máy tính thuế tặng cho Hàn Quốc"
-                : "Korean Gift Tax Calculator"}
+              : lang === "zh"
+                ? "赠与税计算器"
+                : lang === "vi"
+                  ? "Máy tính thuế tặng cho Hàn Quốc"
+                  : "Korean Gift Tax Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {lang === "ko"
               ? "증여재산가액과 증여자 관계(배우자·성년 자녀·미성년 자녀·직계존속·기타)를 선택하면 증여재산공제·과세표준·산출세액·납부세액을 즉시 계산합니다. 상속세 및 증여세법 제53·56조 기준."
-              : lang === "vi"
-                ? "Chọn giá trị tài sản tặng cho và mối quan hệ với người tặng (vợ/chồng · con thành niên · con chưa thành niên · trực hệ tôn thuộc · khác) để tính ngay khấu trừ tài sản tặng cho, cơ sở tính thuế, thuế phải nộp và thuế thực nộp. Dựa trên Điều 53, 56 Luật Thuế Thừa kế và Thuế Tặng cho (상속세 및 증여세법)."
-                : "Enter the gift amount and your relationship to the donor to instantly calculate Korean gift tax — including deduction by relationship, progressive rate, and 3% self-report credit."}
+              : lang === "zh"
+                ? "输入赠与财产价值并选择与赠与人的关系(配偶·成年子女·未成年子女·直系尊亲属·其他)，即可即时计算赠与财产扣除额、计税基数、应纳税额与实纳税额。依据《继承税及赠与税法》第53、56条。"
+                : lang === "vi"
+                  ? "Chọn giá trị tài sản tặng cho và mối quan hệ với người tặng (vợ/chồng · con thành niên · con chưa thành niên · trực hệ tôn thuộc · khác) để tính ngay khấu trừ tài sản tặng cho, cơ sở tính thuế, thuế phải nộp và thuế thực nộp. Dựa trên Điều 53, 56 Luật Thuế Thừa kế và Thuế Tặng cho (상속세 및 증여세법)."
+                  : "Enter the gift amount and your relationship to the donor to instantly calculate Korean gift tax — including deduction by relationship, progressive rate, and 3% self-report credit."}
           </p>
         </header>
 

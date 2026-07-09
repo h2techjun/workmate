@@ -13,6 +13,50 @@
 
 export const ZH_READY_PATHS: readonly string[] = [
   "", // 홈 (공통 UI + home/layout 네임스페이스 zh 완역)
+  // 웨이브2 배치1 — 연봉·근로 (labor)
+  "/net-salary",
+  "/labor-calc/annual-leave",
+  "/labor-calc/weekly-rest-pay",
+  "/labor-calc/severance",
+  "/labor-calc/min-wage-monthly",
+  "/insurance-calc",
+  "/unemployment-benefit",
+  // 재무·세금 (tax)
+  "/income-tax",
+  "/foreign-flat-tax",
+  "/capital-gains-tax",
+  "/loan-calc",
+  "/compound-calc",
+  "/vat-calc",
+  "/freelancer-tax",
+  "/foreign-stock-tax",
+  "/gift-tax",
+  "/prepayment-penalty",
+  // 부동산·임대 (realestate)
+  "/rent-cap",
+  "/apartment-area",
+  "/jeonse-wolse",
+  "/deposit-risk",
+  "/brokerage-fee",
+  // 전기 (electric)
+  "/electric-calc",
+  "/electric-calc/wire-size",
+  "/electric-calc/breaker",
+  "/electric-calc/voltage-drop",
+  // 자동차 (car)
+  "/car-acquisition-tax",
+  "/car-tax",
+  // 공과금 (utility)
+  "/electric-bill",
+  "/btu-calc",
+  // 사업자 (business)
+  "/biznum-check",
+  // 변환 (convert)
+  "/area-convert",
+  "/distance-convert",
+  "/temp-convert",
+  "/percent-calc",
+  "/json-csv",
 ];
 
 const SET = new Set(ZH_READY_PATHS);

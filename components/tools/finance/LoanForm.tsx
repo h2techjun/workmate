@@ -28,7 +28,7 @@ import { TrendChart } from "@/components/ui/charts";
 import { formatAxisMoney } from "@/lib/utils/format";
 
 interface LoanFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -158,6 +158,48 @@ const T = {
       "Trả cuối kỳ: hàng tháng chỉ trả lãi P × r, trả gốc một lần khi đáo hạn. Phổ biến với vay tín chấp và vay đặt cọc jeonse tại Hàn Quốc.",
       "Lãi suất hàng tháng r = lãi suất hàng năm / 12. Chuẩn tính lãi đơn của Hàn Quốc.",
       "Chưa bao gồm phí trả nợ trước hạn, thuế tem, giới hạn DSR và các chi phí phát sinh khác.",
+    ],
+  },
+  zh: {
+    sectionPrincipal: "本金·期限",
+    sectionType: "还款方式",
+    fieldPrincipal: "贷款本金 (韩元)",
+    fieldYears: "贷款期限 (年)",
+    fieldRate: "年利率 (%)",
+    fieldType: "选择还款方式",
+    types: {
+      equalPayment: "等额本息 — 每月还款额相同",
+      equalPrincipal: "等额本金 — 前期多 ↑ 后期少 ↓",
+      balloon: "到期还本付息 — 每月只还利息，到期一次还本",
+    } satisfies Record<LoanType, string>,
+    calculate: "计算",
+    reset: "重置",
+    resultHeading: "还款计划",
+    resultEmpty: "请输入本金·利率·期限。",
+    error: "计算出错",
+    monthlyLabel: "月还款额 (首期)",
+    monthlyUnit: "韩元",
+    firstPayment: "首期",
+    lastPayment: "末期",
+    totalPrincipal: "本金总额",
+    totalInterest: "利息总额",
+    totalPayment: "还款总额",
+    chartHeading: "余额变化趋势",
+    chartMonthSuffix: "个月",
+    scheduleHeader: "分期还款表",
+    scheduleSampleNote: "超过60期时按6个月为单位显示",
+    colMonth: "期数",
+    colPayment: "还款额",
+    colPrincipal: "本金",
+    colInterest: "利息",
+    colBalance: "余额",
+    sourceTitle: "公式 · 假设条件",
+    sourceLines: [
+      "等额本息：M = P × r(1+r)^n / ((1+r)^n − 1)。每月还款额相同。",
+      "等额本金：每月本金 = P/n，利息 = 余额 × r。总利息比等额本息约少4~5%。",
+      "到期还本付息：每月只还利息 P × r，到期一次性还本。韩国信用贷款·传贳保证金贷款常见方式。",
+      "月利率 r = 年利率 ÷ 12 (韩国标准单利换算)。",
+      "未反映提前还款违约金·印花税·DSR限额等附加费用。",
     ],
   },
 } as const;

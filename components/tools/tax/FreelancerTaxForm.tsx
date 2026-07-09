@@ -6,7 +6,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface FreelancerTaxFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -62,6 +62,23 @@ const T = {
     annualGross: "Tổng trước thuế theo năm",
     annualWithholding: "Khấu trừ tại nguồn theo năm",
     note: "Thu nhập kinh doanh của freelancer/dịch vụ cá nhân bị khấu trừ tại nguồn 3,3% (thuế thu nhập 3% + thuế địa phương 0,3%) khi thanh toán. Được quyết toán qua kỳ khai thuế thu nhập tổng hợp vào tháng 5 năm sau; có thể được hoàn thuế nếu được công nhận chi phí.",
+  },
+  zh: {
+    amount: "金额 (韩元)",
+    basis: "输入基准",
+    gross: "税前支付额",
+    net: "实收金额",
+    result: "预扣结果",
+    grossLabel: "税前支付额",
+    incomeTax: "所得税 (3%)",
+    localTax: "地方所得税 (0.3%)",
+    withholding: "预扣合计 (3.3%)",
+    netLabel: "实收金额",
+    unit: "韩元",
+    annual: "按月支付假设下的年度换算",
+    annualGross: "年度税前",
+    annualWithholding: "年度预扣税额",
+    note: "自由职业者·个人劳务营业所得在支付时按3.3%(所得税3% + 地方所得税0.3%)预扣。次年5月综合所得税申报时统一结算，若认定必要经费可获退税。",
   },
 } as const;
 

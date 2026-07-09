@@ -92,8 +92,8 @@ export default async function CompoundCalcPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const lang: "ko" | "en" | "vi" =
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const lang: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -104,23 +104,33 @@ export default async function CompoundCalcPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {lang === "ko" ? "툴 모음" : lang === "vi" ? "Tất cả công cụ" : "All tools"}
+            {lang === "ko"
+              ? "툴 모음"
+              : lang === "zh"
+                ? "所有工具"
+                : lang === "vi"
+                  ? "Tất cả công cụ"
+                  : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {lang === "ko"
               ? "복리 계산기"
-              : lang === "vi"
-                ? "Máy tính lãi kép"
-                : "Compound Interest Calculator"}
+              : lang === "zh"
+                ? "复利计算器"
+                : lang === "vi"
+                  ? "Máy tính lãi kép"
+                  : "Compound Interest Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {lang === "ko"
               ? "기본(목돈 복리)과 적립식(매월 적립) 두 가지 모드. 회차별·연차별 상세표로 매 기간 수익·총액·수익률을 한눈에. 예금·적금·장기 투자 비교에."
-              : lang === "vi"
-                ? "Hai chế độ — một lần (lãi kép trên số tiền gốc) và tích lũy (gửi hàng tháng). Bảng chi tiết theo kỳ và theo năm hiển thị lợi nhuận, tổng số dư và tỷ suất sinh lời ở mỗi bước. Dùng để so sánh tiền gửi, tiết kiệm tích lũy và đầu tư dài hạn."
-                : "Two modes — lump-sum and recurring (monthly deposits). A period-by-period and year-by-year schedule shows the profit, balance, and return at every step."}
+              : lang === "zh"
+                ? "基本(整存复利)与定投(每月存入)两种模式。按期·按年详细表格一览每期收益、总额、收益率。适用于存款、定期存款、长期投资比较。"
+                : lang === "vi"
+                  ? "Hai chế độ — một lần (lãi kép trên số tiền gốc) và tích lũy (gửi hàng tháng). Bảng chi tiết theo kỳ và theo năm hiển thị lợi nhuận, tổng số dư và tỷ suất sinh lời ở mỗi bước. Dùng để so sánh tiền gửi, tiết kiệm tích lũy và đầu tư dài hạn."
+                  : "Two modes — lump-sum and recurring (monthly deposits). A period-by-period and year-by-year schedule shows the profit, balance, and return at every step."}
           </p>
         </header>
         <CompoundForm locale={lang} />

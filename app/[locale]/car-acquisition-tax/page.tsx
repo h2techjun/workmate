@@ -16,22 +16,29 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isZh = locale === "zh";
   const isVi = locale === "vi";
   const title = isKo
     ? "자동차 취득세 계산기 — 승용·경차·친환경차 7%·4%"
-    : isVi
-      ? "Máy tính thuế trước bạ ô tô — xe con·xe hạng nhẹ·xe thân thiện môi trường 7%·4%"
-      : "Korean Car Acquisition Tax Calculator";
+    : isZh
+      ? "韩国汽车购置税计算器 — 乘用车·小型车·新能源车 7%·4%"
+      : isVi
+        ? "Máy tính thuế trước bạ ô tô — xe con·xe hạng nhẹ·xe thân thiện môi trường 7%·4%"
+        : "Korean Car Acquisition Tax Calculator";
   const description = isKo
     ? "차량 취득가액으로 취득세를 즉시 계산. 승용 7%·경차 4%·승합화물 5% + 친환경차 최대 140만 감면. 신차·중고차 등록 전 세금 확인."
-    : isVi
-      ? "Tính ngay thuế trước bạ (취득세) từ giá trị mua xe. Xe con 7%·xe hạng nhẹ 4%·xe khách/tải 5% + giảm tối đa 1,4 triệu won cho xe thân thiện môi trường. Kiểm tra thuế trước khi đăng ký xe mới hoặc xe cũ."
-      : "Calculate Korean car acquisition tax: passenger 7%, light 4%, van/cargo 5%, with eco-car discount up to KRW 1.4M.";
+    : isZh
+      ? "根据车辆购置金额即时计算购置税。乘用车7%·小型车4%·客货车5% + 新能源车最高减免140万韩元。新车、二手车登记前先确认税额。"
+      : isVi
+        ? "Tính ngay thuế trước bạ (취득세) từ giá trị mua xe. Xe con 7%·xe hạng nhẹ 4%·xe khách/tải 5% + giảm tối đa 1,4 triệu won cho xe thân thiện môi trường. Kiểm tra thuế trước khi đăng ký xe mới hoặc xe cũ."
+        : "Calculate Korean car acquisition tax: passenger 7%, light 4%, van/cargo 5%, with eco-car discount up to KRW 1.4M.";
   const keywords = isKo
     ? ["자동차 취득세", "자동차 취등록세", "취득세 계산기", "차량 취득세", "중고차 취득세", "전기차 취득세"]
-    : isVi
-      ? ["thuế trước bạ ô tô", "thuế trước bạ xe hàn quốc", "máy tính thuế trước bạ", "thuế trước bạ xe cũ", "thuế trước bạ xe điện"]
-      : ["korean car acquisition tax", "korea vehicle registration tax", "car tax korea"];
+    : isZh
+      ? ["汽车购置税", "汽车购置登记税", "购置税计算器", "车辆购置税", "二手车购置税", "电动车购置税"]
+      : isVi
+        ? ["thuế trước bạ ô tô", "thuế trước bạ xe hàn quốc", "máy tính thuế trước bạ", "thuế trước bạ xe cũ", "thuế trước bạ xe điện"]
+        : ["korean car acquisition tax", "korea vehicle registration tax", "car tax korea"];
 
   return {
     title, description, keywords,
@@ -49,8 +56,8 @@ export default async function CarAcquisitionTaxPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   const isKo = locale === "ko";
-  const localeKey: "ko" | "en" | "vi" =
-    locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  const localeKey: "ko" | "en" | "vi" | "zh" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -58,23 +65,27 @@ export default async function CarAcquisitionTaxPage({
         <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
           <Link href={`/${locale}/tools`} className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]">
             <ChevronLeft className="h-4 w-4" />
-            {localeKey === "ko" ? "툴 모음" : localeKey === "vi" ? "Tất cả công cụ" : "All tools"}
+            {localeKey === "ko" ? "툴 모음" : localeKey === "zh" ? "全部工具" : localeKey === "vi" ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {isKo
               ? "자동차 취득세 계산기"
-              : localeKey === "vi"
-                ? "Thuế trước bạ ô tô Hàn Quốc"
-                : "Korean Car Acquisition Tax"}
+              : localeKey === "zh"
+                ? "韩国汽车购置税计算器"
+                : localeKey === "vi"
+                  ? "Thuế trước bạ ô tô Hàn Quốc"
+                  : "Korean Car Acquisition Tax"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "차량 취득가액으로 취득세를 즉시 산출. 승용 7%·경차 4%·친환경차 감면까지 반영해 등록 전 세금 확인."
-              : localeKey === "vi"
-                ? "Tính ngay thuế trước bạ từ giá mua xe — xe con 7%, xe hạng nhẹ 4%, đã áp dụng giảm trừ cho xe thân thiện môi trường."
-                : "Estimate Korean car acquisition tax from the purchase price — passenger 7%, light 4%, eco-car discount."}
+              : localeKey === "zh"
+                ? "根据车辆购置金额即时算出购置税，已反映乘用车7%·小型车4%·新能源车减免，登记前先确认税额。"
+                : localeKey === "vi"
+                  ? "Tính ngay thuế trước bạ từ giá mua xe — xe con 7%, xe hạng nhẹ 4%, đã áp dụng giảm trừ cho xe thân thiện môi trường."
+                  : "Estimate Korean car acquisition tax from the purchase price — passenger 7%, light 4%, eco-car discount."}
           </p>
         </header>
         <CarAcquisitionForm locale={localeKey} />

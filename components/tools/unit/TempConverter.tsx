@@ -8,7 +8,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface TempConverterProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const T = {
@@ -30,6 +30,15 @@ const T = {
     presets: "Common temps",
     note: "°F = °C × 9/5 + 32, K = °C + 273.15. Korea uses Celsius; the US uses Fahrenheit.",
   },
+  zh: {
+    value: "输入数值",
+    unit: "单位",
+    units: { c: "摄氏度 (°C)", f: "华氏度 (°F)", k: "开尔文 (K)" } as Record<TempUnit, string>,
+    result: "换算结果",
+    feels: { freezing: "🥶 零下·结冰", cold: "🧥 微凉", mild: "🌤️ 舒适宜人", warm: "☀️ 温暖", hot: "🔥 炎热" },
+    presets: "常用温度",
+    note: "°F = °C × 9/5 + 32，K = °C + 273.15。韩国使用摄氏度，美国使用华氏度。",
+  },
   vi: {
     value: "Nhập giá trị",
     unit: "Đơn vị",
@@ -41,11 +50,11 @@ const T = {
   },
 } as const;
 
-const PRESETS: Array<{ v: number; u: TempUnit; labelKo: string; labelEn: string; labelVi: string }> = [
-  { v: 0, u: "c", labelKo: "어는점", labelEn: "Freezing", labelVi: "Điểm đóng băng" },
-  { v: 36.5, u: "c", labelKo: "체온", labelEn: "Body", labelVi: "Thân nhiệt" },
-  { v: 100, u: "c", labelKo: "끓는점", labelEn: "Boiling", labelVi: "Điểm sôi" },
-  { v: 98.6, u: "f", labelKo: "체온(°F)", labelEn: "Body(°F)", labelVi: "Thân nhiệt(°F)" },
+const PRESETS: Array<{ v: number; u: TempUnit; labelKo: string; labelEn: string; labelVi: string; labelZh: string }> = [
+  { v: 0, u: "c", labelKo: "어는점", labelEn: "Freezing", labelVi: "Điểm đóng băng", labelZh: "冰点" },
+  { v: 36.5, u: "c", labelKo: "체온", labelEn: "Body", labelVi: "Thân nhiệt", labelZh: "体温" },
+  { v: 100, u: "c", labelKo: "끓는점", labelEn: "Boiling", labelVi: "Điểm sôi", labelZh: "沸点" },
+  { v: 98.6, u: "f", labelKo: "체온(°F)", labelEn: "Body(°F)", labelVi: "Thân nhiệt(°F)", labelZh: "体温(°F)" },
 ];
 
 export function TempConverter({ locale }: TempConverterProps): React.ReactElement {
@@ -86,7 +95,7 @@ export function TempConverter({ locale }: TempConverterProps): React.ReactElemen
             {PRESETS.map((p) => (
               <button key={p.labelEn} type="button" onClick={() => { setValue(p.v); setUnit(p.u); }}
                 className="rounded-md border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] hover:border-orange-400 hover:text-[color:var(--color-text-primary)]">
-                {locale === "ko" ? p.labelKo : locale === "vi" ? p.labelVi : p.labelEn}
+                {locale === "ko" ? p.labelKo : locale === "zh" ? p.labelZh : locale === "vi" ? p.labelVi : p.labelEn}
               </button>
             ))}
           </div>

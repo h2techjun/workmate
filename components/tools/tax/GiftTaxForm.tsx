@@ -12,7 +12,7 @@ import { formatKoreanMoney } from "@/lib/utils/format";
 import { ResultShell } from "@/components/ui/calc-form";
 
 interface GiftTaxFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -89,6 +89,30 @@ const T = {
       "lineal-ancestor": "Trực hệ ti thuộc → trực hệ tôn thuộc (khấu trừ 50 triệu KRW)",
       "other-relative": "Họ hàng khác (khấu trừ 10 triệu KRW)",
       other: "Người không có quan hệ họ hàng (không khấu trừ)",
+    } satisfies Record<DonorRelation, string>,
+  },
+  zh: {
+    giftAmount: "赠与财产价值 (韩元)",
+    donorRelation: "与赠与人关系",
+    priorGifts: "10年内已受赠合计额 (韩元，可选)",
+    priorGiftsHint: "10年内从同一赠与人处已收到的赠与金额合计",
+    selfReport: "适用自主申报税额抵免3%",
+    unit: "韩元",
+    result: "预估应纳赠与税",
+    finalTax: "实纳税额",
+    deduction: "赠与财产扣除额",
+    taxBase: "计税基数",
+    calcTax: "应纳税额",
+    reportDiscount: "申报税额抵免 (3%)",
+    marginalRate: "适用税率",
+    note: "基于《继承税及赠与税法》第53、56条的简化计算。未反映财产评估、隔代赠与加征(30%)及加算税。实际申报请咨询税务师或使用国税厅Hometax。",
+    donorRelationOptions: {
+      spouse: "配偶 (扣除6亿韩元)",
+      "lineal-adult": "直系尊亲属 → 成年直系卑亲属 (扣除5千万韩元)",
+      "lineal-minor": "直系尊亲属 → 未成年直系卑亲属 (扣除2千万韩元)",
+      "lineal-ancestor": "直系卑亲属 → 直系尊亲属 (扣除5千万韩元)",
+      "other-relative": "其他亲属 (扣除1千万韩元)",
+      other: "非亲属 (无扣除)",
     } satisfies Record<DonorRelation, string>,
   },
 } as const;

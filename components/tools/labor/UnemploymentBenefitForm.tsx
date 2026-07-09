@@ -13,7 +13,7 @@ import { ShareButton } from "@/components/ui/ShareButton";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface UnemploymentBenefitFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -69,6 +69,31 @@ const T = {
     note: "Estimate based on Employment Insurance Act Art. 46·50. Actual eligibility, amount, and benefit days are determined by the local employment center. Separation reason, job-seeking activity requirements apply separately. Based on 2025 minimum wage and daily cap — subject to annual revision.",
     shareText: (total: number, days: number) =>
       `Estimated unemployment benefit: ${won(total)} KRW (${days} days)`,
+  },
+  zh: {
+    inputModeLabel: "平均工资输入方式",
+    modeDaily: "直接输入日平均工资",
+    modeMonthly: "按月平均工资计算",
+    dailyWageLabel: "日平均工资 (韩元)",
+    dailyWageHint: "离职前3个月工资总额 ÷ 该期间总天数",
+    monthlyWageLabel: "月平均工资 (韩元)",
+    monthlyWageHint: "日平均工资 = 月平均工资 ÷ 30",
+    insuranceYearsLabel: "雇佣保险加入期间 (年)",
+    insuranceYearsHint: "例：2年6个月请输入2.5",
+    ageAbove50Label: "满50周岁以上或残疾人士",
+    result: "预计领取金额",
+    totalBenefit: "总预计领取金额",
+    dailyBenefit: "每日求职津贴",
+    benefitDays: "规定给付天数",
+    cap: "已适用上限",
+    floor: "已适用下限",
+    unit: "韩元",
+    days: "天",
+    capNote: `已适用上限 (每日限额${won(DAILY_BENEFIT_CAP)}韩元)`,
+    floorNote: `已适用下限 (每日保障${won(DAILY_BENEFIT_FLOOR)}韩元)`,
+    note: "依据《雇佣保险法》第46·50条的估算值。实际领取资格·金额·规定给付天数由居住地雇佣中心最终决定。需另行满足离职事由·求职活动等领取条件。基于2025年最低工资·上限额，可能逐年变动。",
+    shareText: (total: number, days: number) =>
+      `失业津贴预计领取金额：${won(total)}韩元 (${days}天)`,
   },
   vi: {
     inputModeLabel: "Cách nhập mức lương bình quân",

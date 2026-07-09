@@ -148,7 +148,7 @@ export function ResultShell({
   /** 맥락 제휴 오퍼 키 (lib/offers.ts). 오퍼 없으면 미노출(휴면) */
   toolKey?: string;
   /** relatedLinks href prefix·라벨 로케일. 기본 ko */
-  locale?: "ko" | "en" | "vi";
+  locale?: "ko" | "en" | "vi" | "zh";
   children: ReactNode;
 }): React.ReactElement {
   const t = useTranslations("share");
@@ -174,7 +174,11 @@ export function ResultShell({
         {relatedLinks && relatedLinks.length > 0 && (
           <div className="mt-6 border-t border-[color:var(--color-border-subtle)] pt-4">
             <p className="mb-2.5 text-xs font-semibold tracking-wide text-[color:var(--color-text-tertiary)]">
-              {locale !== "ko" ? "Related tools" : "함께 보면 좋아요"}
+              {locale === "zh"
+                ? "相关工具"
+                : locale !== "ko"
+                  ? "Related tools"
+                  : "함께 보면 좋아요"}
             </p>
             <div className="flex flex-wrap gap-2">
               {relatedLinks.map((l) => (

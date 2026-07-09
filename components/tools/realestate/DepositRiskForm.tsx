@@ -28,7 +28,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface DepositRiskFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const LEVEL_TONE: Record<RiskLevel, StatTone> = {
@@ -178,6 +178,50 @@ const TEXT = {
       "Tỷ lệ thu hồi khi đấu giá là giả định theo từng bất động sản. Chỉ mang tính tham khảo — xác minh bản sao đăng ký BĐS, HUG và chuyên gia.",
     ],
   },
+  zh: {
+    section: "房屋·合同信息",
+    fieldMarket: "买卖市价（韩元）",
+    fieldMarketHint: "以国土交通部实际交易价·市价网站为准，不是挂牌报价。",
+    fieldSenior: "优先债权额（韩元）",
+    fieldSeniorHint: "房产登记簿\"乙区\"记载的抵押权设定额等 — 拍卖时先于我受偿的金额。",
+    fieldDeposit: "我的租赁保证金（韩元）",
+    fieldRecovery: "拍卖成交价率假设（%）",
+    fieldRecoveryHint: "因房源而异（大致70~90%）。建议保守调低后模拟。",
+    calculate: "诊断风险",
+    reset: "重置",
+    heading: "保证金风险诊断",
+    empty: "请输入市价·优先债权·保证金后诊断。",
+    error: "计算过程中发生错误。",
+    invalid: "请输入买卖市价（须大于0）。",
+    heroLabel: "负债比率 (优先债权+保证金)÷市价",
+    levelLabel: {
+      safe: "相对安全",
+      caution: "需注意",
+      danger: "危险",
+      critical: "非常危险",
+    } as Record<RiskLevel, string>,
+    levelMsg: {
+      safe: "处于常见安全线（负债比率70%以下）内，但请务必亲自核实房产登记簿与市价。",
+      caution: "负债比率处于70~80%区间。若房价下跌，保证金可能部分损失 — 建议投保保证保险。",
+      danger: "负债比率高达80~90%。拍卖时保证金能否收回存在不确定性。必须重新审视合同并投保保证保险。",
+      critical: "负债比率超过90%。属于典型的\"空壳全租\"风险 — 若为此条件，强烈建议重新考虑是否签约。",
+    } as Record<RiskLevel, string>,
+    jeonseRatio: "全租价比 (保证金÷市价)",
+    recoverable: "拍卖时预计回收金额",
+    shortfall: "预计损失",
+    recoveryPct: "保证金回收比例",
+    won: "₩",
+    noLoss: "预计无损失",
+    checklistCta: "签约前分步防范清单 →",
+    sourceTitle: "指标 · 标准",
+    sourceLines: [
+      "全租价比 = 我的保证金 ÷ 买卖市价",
+      "负债比率 = (优先债权 + 我的保证金) ÷ 买卖市价  ← 判定空壳全租的核心指标",
+      "拍卖回收 = max(0, 市价 × 成交价率 − 优先债权)，损失 = 保证金 − 回收金额",
+      "70/80/90%的界线是业内及HUG通用的经验值，并非法定标准。",
+      "成交价率是因房源而异的假设值。结果仅供参考 — 务必核实房产登记簿·HUG·专业人士意见。",
+    ],
+  },
 } as const;
 
 const DEFAULTS: DepositRiskInputResolved = {
@@ -305,17 +349,23 @@ export function DepositRiskForm({
         heading={T.heading}
         locale={locale}
         relatedLinks={
-          locale !== "ko"
+          locale === "zh"
             ? [
-                { label: "Jeonse scam checklist", href: "/jeonse-wolse" },
-                { label: "Apartment area & price", href: "/apartment-area" },
-                { label: "Rent Cap (5%)", href: "/rent-cap" },
+                { label: "全租诈骗防范清单", href: "/jeonse-wolse" },
+                { label: "专有·供给面积/每坪价格", href: "/apartment-area" },
+                { label: "租金5%上限", href: "/rent-cap" },
               ]
-            : [
-                { label: "전세사기 방지 체크리스트", href: "/jeonse-wolse" },
-                { label: "전용·공급면적/평당가", href: "/apartment-area" },
-                { label: "임대료 5% 상한", href: "/rent-cap" },
-              ]
+            : locale !== "ko"
+              ? [
+                  { label: "Jeonse scam checklist", href: "/jeonse-wolse" },
+                  { label: "Apartment area & price", href: "/apartment-area" },
+                  { label: "Rent Cap (5%)", href: "/rent-cap" },
+                ]
+              : [
+                  { label: "전세사기 방지 체크리스트", href: "/jeonse-wolse" },
+                  { label: "전용·공급면적/평당가", href: "/apartment-area" },
+                  { label: "임대료 5% 상한", href: "/rent-cap" },
+                ]
         }
       >
         {calcError && <ErrorBox message={calcError} />}

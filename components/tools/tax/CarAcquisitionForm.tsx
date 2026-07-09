@@ -9,7 +9,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface CarAcquisitionFormProps {
-  locale: "ko" | "en" | "vi";
+  locale: "ko" | "en" | "vi" | "zh";
 }
 
 const won = (n: number): string => Math.round(n).toLocaleString("ko-KR");
@@ -65,6 +65,23 @@ const T = {
     tax: "Thuế trước bạ (trước giảm trừ)",
     discount: "Giảm trừ xe thân thiện môi trường",
     note: "Theo Luật Thuế địa phương. Xe mới dùng giá xuất xưởng (chưa gồm VAT); xe cũ lấy giá trị cao hơn giữa giá giao dịch thực tế/giá trị đánh giá. Phí mua trái phiếu và phí đăng ký tính riêng.",
+  },
+  zh: {
+    price: "购置金额 (不含增值税，韩元)",
+    carType: "车型",
+    types: {
+      passenger: "乘用车 (7%)",
+      light: "小型车 (4%)",
+      eco: "新能源车",
+      commercial: "客货车 (5%)",
+    },
+    result: "购置税",
+    total: "应缴购置税",
+    unit: "韩元",
+    rate: "税率",
+    tax: "购置税 (减免前)",
+    discount: "新能源车减免",
+    note: "依据《地方税法》。新车以不含增值税的出厂价为准，二手车以实际交易价与计税基准价中较高者为准。公债购买费·登记附加费用另计。未反映2025年多子女减免(3名子女免征)。",
   },
 } as const;
 
