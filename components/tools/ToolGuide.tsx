@@ -16,6 +16,7 @@ import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Script from "next/script";
 import { ChevronDown } from "lucide-react";
+import { CrossLinks } from "@/components/tools/CrossLinks";
 
 interface ToolGuideProps {
   /** messages/<locale>.json 의 toolGuides.<toolKey> 와 매칭 */
@@ -323,6 +324,9 @@ export async function ToolGuide({
           </div>
         </div>
       )}
+
+      {/* K-생태계 크로스링크 — 한국어 학습(Loopla) + 생활 가이드·글 */}
+      <CrossLinks toolKey={toolKey} locale={locale} />
 
       {/* Last reviewed (E-A-T 신뢰성 시그널) */}
       <p className="text-xs text-[color:var(--color-text-tertiary)]">
