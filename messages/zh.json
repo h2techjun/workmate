@@ -1,0 +1,1901 @@
+{
+  "share": {
+    "button": "分享",
+    "copied": "链接已复制"
+  },
+  "layout": {
+    "electric": "电气",
+    "timber": "木结构",
+    "projects": "创客",
+    "tools": "工具",
+    "games": "游戏",
+    "tests": "心理测试",
+    "learn": "学习",
+    "open": "使用",
+    "nav": {
+      "about": "关于",
+      "blog": "现场笔记",
+      "privacy": "隐私政策",
+      "terms": "使用条款",
+      "contact": "联系方式"
+    },
+    "footer": {
+      "copyright": "© 2026 Workmate — 韩国实务人士的免费工具",
+      "disclaimer": "本网站的计算器仅供参考，内容参照相关法令与标准编写。税务、劳务、施工等实际申报、签约、设计事项，请务必经相关机构或专业资格人士确认。",
+      "tagline": "精准贴合韩国标准的实务计算器 + 现场笔记。",
+      "groupCatalog": "浏览",
+      "groupCompany": "公司",
+      "groupLegal": "法令·政策"
+    },
+    "themeToggle": "切换浅色/深色主题"
+  },
+  "homeSearch": {
+    "placeholder": "搜索工具 — 例如：电线、隔热、四大保险、事业者",
+    "noResults": "未找到与 \"{query}\" 匹配的工具。",
+    "favorites": "收藏",
+    "addFavorite": "加入收藏",
+    "removeFavorite": "取消收藏",
+    "category": {
+      "electric": "电气",
+      "timber": "木结构",
+      "finance": "财务",
+      "util": "实用工具",
+      "business": "事业者"
+    },
+    "tools": {
+      "wireSize": {
+        "title": "电线线径计算",
+        "description": "基于KEC自动计算截面积",
+        "keywords": "wire size cable cross-section 전선 케이블 단면적 KEC 232.5 电线 电缆 截面积"
+      },
+      "breaker": {
+        "title": "断路器容量",
+        "description": "自动选定MCB/MCCB额定值",
+        "keywords": "breaker MCB MCCB 차단기 ELB 누전 용량 안전율 断路器 漏电 容量 安全系数"
+      },
+      "voltageDrop": {
+        "title": "电压降",
+        "description": "自动判定是否符合内线规程",
+        "keywords": "voltage drop 전압강하 내선규정 1410-1 电压降 内线规程"
+      },
+      "span": {
+        "title": "构件跨距",
+        "description": "检查桁条·椽子·横梁弯曲+挠度",
+        "keywords": "span joist rafter header 장선 서까래 보 헤더 경간 휨 처짐 NDS KDS 跨距 弯曲 挠度"
+      },
+      "insulation": {
+        "title": "隔热R/U值",
+        "description": "自动判定是否符合节能设计标准",
+        "keywords": "insulation R-value U-value 단열 열관류율 에너지절약 별표1 PHIKO 隔热 保温 传热系数"
+      },
+      "materialQuantity": {
+        "title": "建材数量",
+        "description": "OSB·合板·石膏板·护墙板张数+钉子估算",
+        "keywords": "material quantity OSB plywood gypsum 자재 수량 견적 못 스크류 建材 数量 石膏板"
+      },
+      "stairs": {
+        "title": "楼梯",
+        "description": "建筑法+Blondel安全验证",
+        "keywords": "stairs riser tread 계단 단높이 단너비 Blondel 건축법 楼梯 踏步 踢面"
+      },
+      "rafter": {
+        "title": "椽子长度",
+        "description": "由水平距离·垂直高度算出切割长度",
+        "keywords": "rafter 서까래 지붕 처마 run rise 椽子 屋顶 屋檐"
+      },
+      "roofPitch": {
+        "title": "屋顶坡度换算",
+        "description": "角度↔坡度↔斜率双向换算",
+        "keywords": "roof pitch slope 지붕 경사 구배 屋顶 坡度 斜率"
+      },
+      "roofArea": {
+        "title": "屋顶面积",
+        "description": "斜面面积+屋檐面积",
+        "keywords": "roof area 지붕 면적 sec 屋顶 面积"
+      },
+      "concrete": {
+        "title": "混凝土体积",
+        "description": "基础+钢筋+预拌混凝土车",
+        "keywords": "concrete 콘크리트 줄기초 매트기초 레미콘 철근 混凝土 基础 钢筋"
+      },
+      "lumber": {
+        "title": "木材换算",
+        "description": "m³·才·BF换算",
+        "keywords": "lumber 목재 才 재 board feet BF 木材 换算"
+      },
+      "insurance": {
+        "title": "四大保险",
+        "description": "2026年费率+实领金额",
+        "keywords": "insurance pension health employment 4대보험 국민연금 건강 고용 산재 급여 四大保险 国民年金 健康保险"
+      },
+      "foreignStockTax": {
+        "title": "海外股票转让税",
+        "description": "汇率·扣除·22%税金",
+        "keywords": "foreign stock tax 해외주식 양도세 22% 250만원 공제 海外股票 转让税"
+      },
+      "jsonCsv": {
+        "title": "JSON ↔ CSV",
+        "description": "韩文BOM+Excel兼容",
+        "keywords": "JSON CSV 변환 한글 BOM Excel UTF-8 转换"
+      },
+      "bizNumber": {
+        "title": "事业者登记号验证",
+        "description": "校验位算法即时验证",
+        "keywords": "biz business number 사업자등록 사업자번호 체크섬 검증 事业者登记号 校验"
+      }
+    }
+  },
+  "laborCalcHub": {
+    "meta": {
+      "title": "劳动基准法计算器 — Workmate",
+      "description": "年假、周休津贴、离职金、最低时薪等基于韩国劳动基准法的计算器合集。附精确法条依据，逐步展示实领金额与发生天数。"
+    },
+    "eyebrow": "劳动基准法计算器",
+    "heading": "工龄·年假·津贴 一站计算",
+    "intro": "依据《劳动基准法》第55条、第60条及《劳动者离职金保障法》，逐步计算年假发生天数、周休津贴、离职金、最低时薪换算。输入值与计算过程完整展示。",
+    "tools": {
+      "annual-leave": {
+        "title": "年假计算器",
+        "description": "输入工龄 → 自动算出发生年假天数+未使用年假津贴。从不满1年每月累积到1年以上加算，均逐步展示。"
+      },
+      "weekly-rest-pay": {
+        "title": "周休津贴计算器",
+        "description": "按时薪与每周工作时长，计算每周工作15小时以上劳动者的周休津贴。"
+      },
+      "severance": {
+        "title": "离职金计算器",
+        "description": "工龄满1年以上的离职金 = 平均工资30天份 × 工龄年数。以最近3个月工资计算平均工资。"
+      },
+      "min-wage-monthly": {
+        "title": "最低时薪 → 月薪换算",
+        "description": "将2026年最低时薪按209小时基准换算为月薪，并可比较年薪与实领金额。"
+      }
+    }
+  },
+  "severanceTool": {
+    "meta": {
+      "title": "离职金计算器 — 自动比较平均工资·通常工资",
+      "description": "输入入职·离职日期与最近3个月工资 → 自动算出平均工资 + 比较通常工资 → 自动计算离职金。可加算年度奖金·年假津贴。"
+    },
+    "eyebrow": "《劳动者离职金保障法》第8条",
+    "heading": "离职金计算器",
+    "intro": "最近3个月平均工资 × 30 × (工龄天数 / 365)。若通常工资高于平均工资，则自动改用通常工资计算。可选加算年度奖金·年假津贴的3/12。",
+    "breadcrumb": {
+      "home": "首页",
+      "labor": "劳动基准法计算器"
+    },
+    "sections": {
+      "tenure": "工龄期间",
+      "wage": "工资信息"
+    },
+    "fields": {
+      "hireDate": "入职日",
+      "resignDate": "离职日",
+      "recentThreeMonthsSalary": "最近3个月工资合计",
+      "annualBonus": "年度定期奖金（可选）",
+      "annualLeavePay": "最近1年年假津贴（可选）",
+      "monthlyOrdinaryWage": "月通常工资（可选）"
+    },
+    "hints": {
+      "hireDate": "劳动合同开始日",
+      "resignDate": "离职确定后最后工作日的次日",
+      "recentThreeMonthsSalary": "基本工资+固定津贴的最近3个月合计",
+      "annualBonus": "仅限定期、确定发放的奖金（加算3/12）",
+      "annualLeavePay": "最近1年未使用年假津贴（加算3/12）",
+      "monthlyOrdinaryWage": "当通常工资高于平均工资时自动适用"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入入职日、离职日与工资。",
+      "severanceLabel": "离职金",
+      "tenureLabel": "工龄期间",
+      "tenureValue": "{years}年{months}个月",
+      "totalDaysLabel": "总工龄天数",
+      "appliedDailyLabel": "适用日工资",
+      "averageDailyLabel": "平均工资（日）",
+      "wonSuffix": "韩元",
+      "notQualifiedTitle": "未发生离职金",
+      "notQualifiedBody": "工龄{days}天 — 不满1年(365天)不发生离职金(《劳动者离职金保障法》第4条)。"
+    },
+    "steps": {
+      "heading": "计算过程",
+      "tenure": "工龄{years}年{months}个月{days}天 = 共{totalDays}天",
+      "notQualified": "工龄{totalDays}天 — 不满365天不发生离职金",
+      "averageWage": "平均工资 = (3个月工资{threeMonthSalary} + 奖金3/12 {bonusPortion} + 年假津贴3/12 {leavePayPortion}) ÷ 90天 = 日工资{averageDailyWage}韩元",
+      "ordinaryWage": "通常工资换算 — 月{monthlyOrdinary} ÷ 209 × 8 = 日工资{ordinaryDailyWage}韩元",
+      "ordinaryApplied": "通常工资{ordinaryDailyWage}韩元 > 平均工资{averageDailyWage}韩元 → 适用通常工资",
+      "severance": "日工资{appliedDailyWage}韩元 × 30 × ({serviceDays} ÷ 365) = 离职金{severance}韩元"
+    },
+    "errors": {
+      "invalid": "请确认输入值。",
+      "unknown": "计算过程中发生错误。"
+    },
+    "source": "《劳动者离职金保障法》第8条(离职金制度)。平均工资的计算可能因公司、行业而异，不满1年的劳动者也可能依团体协约、就业规则获得支付。",
+    "ctx": {
+      "law": {
+        "title": "离职金发生条件",
+        "body": "连续工作满1年以上 + 4周平均每周工作15小时以上。无论自愿离职或被解雇，只要工作满1年即发生。未满5人的事业场同样适用(适用于2010年12月1日以后的工作部分)。"
+      },
+      "average": {
+        "title": "平均工资计算",
+        "body": "离职前3个月工资总额 ÷ 该期间天数(通常90天)。定期奖金按1年额度 × 3/12，年假津贴按最近1年发生额 × 3/12加算。"
+      },
+      "dc": {
+        "title": "DC型 vs DB型",
+        "body": "DC型(确定缴费型)：每年缴纳1/12(1个月工资) — 本计算器以DB型(确定给付型)为基准。DC型的实际领取金额因运用收益而异。"
+      }
+    },
+    "validation": {
+      "hireDateRequired": "请输入入职日。",
+      "resignDateRequired": "请输入离职日。",
+      "salaryPositive": "请输入最近3个月工资。",
+      "hireBeforeResign": "入职日必须早于离职日。"
+    }
+  },
+  "weeklyRestPayTool": {
+    "meta": {
+      "title": "周休津贴计算器 — 自动算出周·月·年金额",
+      "description": "输入时薪或月薪 → 自动算出每周周休津贴、月换算额、年度合计。自动按比例适用于短时劳动者(每周15·20·30小时)。"
+    },
+    "eyebrow": "《劳动基准法》第55条",
+    "heading": "周休津贴计算器",
+    "intro": "每周约定工作日全勤时发生的周休津贴。每周不满15小时不发生，短时工作按比例计算。可输入时薪或月薪。",
+    "breadcrumb": {
+      "home": "首页",
+      "labor": "劳动基准法计算器"
+    },
+    "sections": {
+      "wage": "工资",
+      "hours": "工作时间"
+    },
+    "fields": {
+      "wageMode": "输入方式",
+      "hourlyWage": "时薪",
+      "monthlySalary": "月通常工资",
+      "weeklyHours": "每周约定工作时间"
+    },
+    "hints": {
+      "wageMode": "请选择时薪或月薪其中一种",
+      "hourlyWage": "以通常工资为基准的时薪",
+      "monthlySalary": "月薪制将按209小时基准换算为时薪",
+      "weeklyHours": "每周5天、每天8小时=40小时。短时工作请输入实际时间。"
+    },
+    "wageMode": {
+      "hourly": "按时薪",
+      "monthly": "按月薪"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入工资与工作时间。",
+      "weeklyLabel": "每周周休津贴",
+      "monthlyLabel": "月周休津贴(4.345周)",
+      "annualLabel": "年周休津贴",
+      "restHoursLabel": "周休时间",
+      "hourlyLabel": "适用时薪",
+      "wonSuffix": "韩元",
+      "hoursSuffix": "小时",
+      "notQualifiedTitle": "未发生周休津贴",
+      "notQualifiedBody": "每周{hours}小时 — 每周不满15小时不发生周休津贴(《劳动基准法施行令》第30条)。"
+    },
+    "steps": {
+      "heading": "计算过程",
+      "deriveHourly": "月通常工资{monthlySalary}韩元 ÷ 209小时 = 时薪{hourlyWage}韩元",
+      "notQualified": "每周{weeklyHours}小时 — 不满15小时 → 不发生周休津贴",
+      "fullTime": "每周{weeklyHours}小时(正常工作) → 周休{restHours}小时",
+      "partTime": "每周{weeklyHours}小时 → ({weeklyHours}/40) × 8 = 周休{restHours}小时(上限8小时)",
+      "weeklyAmount": "周休{restHours}小时 × 时薪{hourlyWage}韩元 = 每周{weeklyAmount}韩元",
+      "monthlyAmount": "每周{weeklyAmount}韩元 × 月均4.345周 = 每月{monthlyAmount}韩元",
+      "annualAmount": "每月{monthlyAmount}韩元 × 12个月 = 每年{annualAmount}韩元"
+    },
+    "errors": {
+      "invalid": "请确认输入值。",
+      "unknown": "计算过程中发生错误。"
+    },
+    "source": "《劳动基准法》第55条(周休假日)、施行令第30条。可能因公司规定、团体协约而异。",
+    "ctx": {
+      "law": {
+        "title": "《劳动基准法》第55条",
+        "body": "一周内全勤约定工作日的劳动者，可获得1天的带薪假日。全勤指无缺勤记录的出勤状态。休息日、法定假日不计入缺勤。"
+      },
+      "formula": {
+        "title": "短时工作按比例计算",
+        "body": "短时劳动者的周休津贴 = (约定工作时间 ÷ 40) × 8小时 × 时薪，上限8小时。每周30小时=6小时份，每周20小时=4小时份。"
+      },
+      "exception": {
+        "title": "不发生周休津贴的情形",
+        "body": "每周不满15小时的短时劳动者、未全勤的周、日结劳动者(原则上)。未满5人的事业场同样适用。因雇主原因导致的缺勤可能视为全勤。"
+      }
+    },
+    "validation": {
+      "wageRequired": "请输入时薪或月薪。",
+      "weeklyHoursPositive": "每周工作时间必须大于0。"
+    }
+  },
+  "minWageTool": {
+    "meta": {
+      "title": "最低时薪 → 月薪换算器(2025/2026 含周休)",
+      "description": "输入时薪后，自动按每周40小时、含周休共209小时基准换算月薪·年薪。并分别显示短时劳动者的比例工时与周休部分。"
+    },
+    "eyebrow": "最低时薪换算",
+    "heading": "时薪 → 月薪 / 年薪",
+    "intro": "以每周40小时、含周休共209小时为基准，将时薪换算为月薪·年薪。短时工作(每周15·20·30小时)也自动按比例计算。",
+    "breadcrumb": {
+      "home": "首页",
+      "labor": "劳动基准法计算器"
+    },
+    "sections": {
+      "wage": "时薪",
+      "hours": "工作时间"
+    },
+    "fields": {
+      "year": "基准年度",
+      "hourlyWage": "时薪",
+      "weeklyHours": "每周约定工作时间",
+      "includeWeeklyRest": "含周休津贴"
+    },
+    "hints": {
+      "year": "最低时薪的默认基准",
+      "tbd": "确定为10,320韩元",
+      "hourlyWage": "输入0时使用该年度最低时薪",
+      "weeklyHours": "每周5天、每天8小时=40小时。短时工作请自行修改。",
+      "includeWeeklyRest": "每周工作15小时以上的劳动者会发生周休津贴 — 通常计入月薪"
+    },
+    "actions": {
+      "calculate": "换算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "换算结果",
+      "empty": "请输入时薪、工作时间后进行换算。",
+      "monthlyLabel": "月薪",
+      "annualLabel": "年薪",
+      "monthlyHoursLabel": "月通常工作时间",
+      "weeklyRestLabel": "周休津贴(月)",
+      "hourlyLabel": "适用时薪",
+      "wonSuffix": "韩元",
+      "hoursSuffix": "小时"
+    },
+    "steps": {
+      "heading": "计算过程",
+      "input": "时薪{hourlyWage}韩元，每周{weeklyHours}小时，{year}年基准",
+      "monthlyHoursWithRest": "每周{weeklyHours}小时 + 周休时间合计后按月均4.345周换算 = 每月{monthlyHours}小时",
+      "monthlyHoursNoRest": "每周{weeklyHours}小时 × 月均4.345周 = 每月{monthlyHours}小时(不含周休)",
+      "monthlySalary": "时薪{hourlyWage}韩元 × 月{monthlyHours}小时 = 月薪{monthlySalary}韩元",
+      "annualSalary": "月薪{monthlySalary}韩元 × 12个月 = 年薪{annualSalary}韩元"
+    },
+    "errors": {
+      "unknown": "换算过程中发生错误。"
+    },
+    "source": "《劳动基准法》第55条(周休假日)，依行政解释月通常工作时间为209小时基准。可能因公司工资规定、年薪协商而异。",
+    "ctx": {
+      "formula": {
+        "title": "月209小时从何而来",
+        "body": "每周工作40小时 + 周休8小时 = 每周48小时。一年52周 ÷ 12个月 ≈ 4.345周。48 × 4.345 ≈ 208.56小时 → 行政解释统一为209小时。"
+      },
+      "partTime": {
+        "title": "短时劳动者比例计算",
+        "body": "每周不满15小时不发生周休津贴。15~40小时发生(每周工作时间/5)天份的周休津贴 — 上限8小时。"
+      },
+      "minWage": {
+        "title": "最低工资的确定",
+        "body": "每年8月5日前公告次年最低工资。2025年=10,030韩元 / 2026年=10,320韩元(+2.9%，雇佣劳动部公告第2025-47号)。"
+      }
+    }
+  },
+  "vatTool": {
+    "meta": {
+      "title": "增值税计算器 — 即时分离供应价额·税额",
+      "description": "从含税总额中自动分离供应价额与增值税，可外加税额、计算一般纳税人申报税额，以及按行业增值率计算简易纳税人税额，一站完成。"
+    },
+    "eyebrow": "《增值税法》第30条",
+    "heading": "增值税计算器",
+    "intro": "从含增值税价格中即时分离供应价额与税额。输入销售额、进货额可算出一般纳税人应纳税额；简易纳税人则自动按行业增值率计算。",
+    "breadcrumb": {
+      "home": "首页"
+    },
+    "sections": {
+      "mode": "计算方式",
+      "amount": "金额输入"
+    },
+    "fields": {
+      "mode": "方式",
+      "amount": {
+        "extract": "供应对价(含增值税)",
+        "add": "供应价额(增值税另计)",
+        "general": "销售供应对价",
+        "simple": "销售供应对价"
+      },
+      "purchaseAmount": "进货供应价额",
+      "industry": "行业"
+    },
+    "hints": {
+      "mode": "请在分离·合计·一般纳税·简易纳税中选择",
+      "amount": {
+        "extract": "实收总金额(如110,000韩元)",
+        "add": "需加算增值税的纯供应价额",
+        "general": "本季度销售合计(含增值税)",
+        "simple": "年销售额(含增值税)"
+      },
+      "purchaseAmount": "取得税金计算书的进货供应价额(不含增值税)",
+      "industry": "简易纳税人按行业适用增值率"
+    },
+    "mode": {
+      "extract": "含税 → 分离",
+      "add": "另计 → 合计",
+      "general": "一般纳税人申报",
+      "simple": "简易纳税人申报"
+    },
+    "industry": {
+      "retail": "零售业·餐饮业(15%)",
+      "manufacturing": "制造业·农林渔业(20%)",
+      "lodging": "住宿业(25%)",
+      "construction": "建筑·运输仓储·信息通信(30%)",
+      "finance": "金融保险·不动产租赁·其他服务(40%)"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "lines": {
+      "supply": "供应价额",
+      "vat": "增值税",
+      "total": "供应对价(合计)",
+      "purchase-vat": "进项税额",
+      "payable": "应纳税额",
+      "added-value": "增值额(简易)"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入金额后计算。",
+      "vatLabel": "增值税",
+      "totalLabel": "供应对价(合计)",
+      "payableLabel": "应纳税额",
+      "wonSuffix": "韩元"
+    },
+    "steps": {
+      "heading": "计算过程",
+      "extract": "供应对价{total}韩元 × 10/11 = 供应价额{supply}韩元，增值税{vat}韩元",
+      "add": "供应价额{supply}韩元 × 10% = 增值税{vat}韩元，合计{total}韩元",
+      "generalSales": "销售供应对价{total}韩元 → 供应价额{supply}韩元 + 销项税额{vat}韩元",
+      "generalPurchase": "进货供应价额{purchase}韩元 × 10% = 进项税额{purchaseVat}韩元",
+      "generalPayable": "应纳税额 = 销项税额{salesVat} - 进项税额{purchaseVat} = {payable}韩元",
+      "simple": "{industry}增值率{rate}% — {total}韩元 × {rate}% × 10% = {payable}韩元"
+    },
+    "errors": {
+      "invalid": "请确认输入值。",
+      "unknown": "计算过程中发生错误。"
+    },
+    "source": "出处：《增值税法》第30条(税率10%)、第63条(简易纳税人增值率)。本结果仅供参考，实际申报时需另行核实可抵扣进项、免税销售额分离等事项。",
+    "ctx": {
+      "law": {
+        "title": "《增值税法》第30条",
+        "body": "对货物、服务的供应课征10%。供应价额 = 供应对价 ÷ 1.1。经营者从销项税额中扣减进项税额后申报纳税。"
+      },
+      "simple": {
+        "title": "简易纳税人",
+        "body": "上年度销售额低于1.04亿韩元的经营者。按行业增值率(15~40%)乘以销售额后再课征10%。无强制开具税金计算书的义务。"
+      },
+      "deadline": {
+        "title": "申报·缴纳期限",
+        "body": "一般纳税人：第1期(1~6月)7月25日前，第2期(7~12月)次年1月25日前。简易纳税人：每年1次，于次年1月25日前。预定申报按季度25日截止。"
+      }
+    },
+    "validation": {
+      "amountPositive": "请输入大于0的金额。",
+      "purchaseNegative": "进货供应价额必须大于等于0。",
+      "industryRequired": "请选择行业。"
+    }
+  },
+  "annualLeaveTool": {
+    "meta": {
+      "title": "年假计算器 — 发生天数+未使用津贴",
+      "description": "只需输入入职日与月薪，即可依《劳动基准法》第60条自动计算年假发生天数与未使用年假津贴。从不满1年每月累积1天到上限25天，逐步展示。"
+    },
+    "eyebrow": "《劳动基准法》第60条",
+    "heading": "年假计算器",
+    "intro": "只需输入入职日、月薪、未使用天数，即可一次算出发生年假与未使用津贴。不满1年每月累积1天，第3年起每2年加算1天，均自动反映。",
+    "breadcrumb": {
+      "home": "首页",
+      "labor": "劳动基准法计算器"
+    },
+    "sections": {
+      "tenure": "工龄信息",
+      "compensation": "工资 · 未使用津贴"
+    },
+    "fields": {
+      "hireDate": "入职日",
+      "referenceDate": "基准日(可选)",
+      "attendanceOver80": "出勤率80%以上",
+      "wageMode": "通常工资输入方式",
+      "monthlySalary": "月通常工资(月薪)",
+      "dailyOrdinaryWage": "日通常工资",
+      "unusedDays": "未使用年假天数"
+    },
+    "hints": {
+      "hireDate": "计算工龄年数的基准",
+      "referenceDate": "默认=今天。可模拟未来时点。",
+      "attendanceOver80": "1年内出勤率80%以上(默认开启)",
+      "wageMode": "输入月薪时自动换算为日工资(月薪 ÷ 209 × 8)",
+      "monthlySalary": "以通常工资为基准的月薪(基本工资+固定津贴)",
+      "dailyOrdinaryWage": "直接输入计算好的日通常工资",
+      "unusedDays": "需换算为津贴的天数(0则仅计算发生天数)"
+    },
+    "wageMode": {
+      "monthly": "按月薪",
+      "daily": "按日薪"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入入职日后计算。",
+      "daysLabel": "今年发生年假",
+      "daysSuffix": "天",
+      "daysHint": "工龄{years}年({months}个月)",
+      "nextLabel": "下次年假(1年后)",
+      "compensationLabel": "未使用年假津贴",
+      "compensationEmpty": "—",
+      "wonSuffix": "韩元"
+    },
+    "steps": {
+      "heading": "计算过程",
+      "tenure": "自入职日起工龄{years}年({totalMonths}个月)",
+      "monthlyAccrual": "不满1年 — 每月累积1天：{totalMonths}个月 → {daysAccrued}天(上限{cap}天)",
+      "annualBase": "第{years}年满1年以上 → 基本{base}天",
+      "annualIncrement": "第{years}年加算 — 每{interval}年+1天，共适用{increments}次 → 合计{total}天",
+      "capApplied": "适用法定上限{cap}天",
+      "wageDerive": "月通常工资{monthly}韩元 ÷ 209 × 8 = 日通常工资{daily}韩元",
+      "compensation": "未使用{unused}天 × 日工资{daily}韩元 = {total}韩元",
+      "lowAttendance": "出勤率不满80% — 仅按全勤月每月1天计算发生(第60条第2项)"
+    },
+    "warnings": {
+      "heading": "参考事项",
+      "futureHireDate": "入职日为未来时点，结果仅供模拟参考。",
+      "lowAttendance": "出勤率不满80%仅按全勤月每月1天计算发生，准确天数请向公司人事部门确认。",
+      "missingWage": "请输入月薪或日薪以计算津贴。",
+      "negativeUnused": "未使用天数必须大于等于0。"
+    },
+    "errors": {
+      "invalid": "请确认输入值。",
+      "unknown": "计算过程中发生错误。"
+    },
+    "source": "出处：《劳动基准法》第60条(年假带薪休假)。通常工资依行政解释以月209小时为基准，日工资 = 月薪 ÷ 209 × 8。本结果仅供参考，具体以各事业场团体协约、就业规则为准。",
+    "ctx": {
+      "law": {
+        "title": "《劳动基准法》第60条",
+        "body": "1年内出勤率80%以上的劳动者可获得15天带薪假。不满1年或出勤率不满80%时，每满勤1个月发生1天。满3年起每2年加算1天，上限25天。"
+      },
+      "compensation": {
+        "title": "未使用年假津贴",
+        "body": "年假未使用时，按日通常工资 × 未使用天数支付津贴。通常工资 = 基本工资+固定津贴，月薪制按月薪 ÷ 209 × 8换算。"
+      },
+      "exception": {
+        "title": "未满5人的事业场",
+        "body": "经常雇用未满5人的事业场不适用年假规定(《劳动基准法》第11条)。但团体协约、就业规则另有约定的从其约定。"
+      }
+    },
+    "validation": {
+      "hireDateRequired": "请输入入职日。",
+      "hireDateInvalid": "入职日格式不正确。",
+      "referenceDateInvalid": "基准日格式不正确。",
+      "hireAfterReference": "入职日不能晚于基准日。",
+      "unusedDaysNegative": "未使用天数必须大于等于0。"
+    }
+  },
+  "projects": {
+    "eyebrow": "免费游戏·故事·心理测试",
+    "heading": "游戏 · 故事 · 心理测试",
+    "intro": "无需注册、付费或安装应用，浏览器直接畅玩的免费内容 — 韩式花斗Rogue-like、武侠塔防、6小时政治文字冒险、AI职场文化诊断，应有尽有。点击一下即可开始。",
+    "cardOpen": "打开",
+    "cardCurrent": "当前网站",
+    "cardExternal": "外部链接",
+    "cardComingSoon": "即将上线"
+  },
+  "home": {
+    "badge": "{tools}款工具 · 全部免费 · 无需安装",
+    "heroLine1": "复杂的韩式计算，",
+    "heroRoll1": "年薪实领金额",
+    "heroRoll2": "坪数 ↔ 平方米",
+    "heroRoll3": "电费阶梯电价",
+    "heroRoll4": "离职金",
+    "heroRoll5": "增值税",
+    "heroLine2End": "— 3秒搞定。",
+    "heroSubtitle": "{tools}款免费计算器，均标明劳动基准法、KS标准、税法等出处。无需注册，搜索即得答案。",
+    "popularChipsLabel": "热门",
+    "floatAreaLabel": "坪数换算",
+    "floatAreaExpr": "84㎡是多少坪？",
+    "floatAreaResult": "= 25.4坪",
+    "floatVatLabel": "增值税分离",
+    "floatVatExpr": "11,000韩元 (含增值税)",
+    "floatVatResult": "= 10,000 + 1,000",
+    "floatSalaryLabel": "年薪实领金额",
+    "floatSalaryExpr": "年薪5,000万韩元的话",
+    "floatSalaryQuestion": "每月能拿多少？",
+    "floatSalaryCta": "立即计算",
+    "marqueeLabel": "全部工具共{tools}款 — 点击即可使用",
+    "popularHeading": "当前最常用的工具",
+    "popularSub": "搜索热度榜",
+    "popular": {
+      "netSalary": "从年薪中扣除四大保险与所得税后，实际入账的金额",
+      "areaConvert": "1秒得知84㎡等于多少坪 — 内附房产标示面积预设值",
+      "percentCalc": "折扣率、涨幅、反推计算 — 容易搞混的百分比计算全部一屏搞定",
+      "biznumCheck": "交易前用校验位算法即时验证事业者登记号真伪",
+      "electricBill": "查看我家用电落在哪个阶梯区间 — 韩国电力公社住宅用电费计算",
+      "koreanAge": "周岁、虚岁、年龄 — 容易搞混的韩式年龄一次理清"
+    },
+    "openTool": "使用",
+    "categoriesHeading": "您需要的计算，这里全都有",
+    "categoriesSub": "{groups}个分类 · {tools}款工具 — 所有计算均标明法令、标准出处",
+    "moreTools": "+{count}",
+    "statsTools": "免费工具",
+    "statsCategories": "分类",
+    "statsLanguages": "支持语言",
+    "statsSources": "标明出处",
+    "notesHeading": "现场笔记",
+    "notesSub": "计算器背后的实务故事",
+    "notesAll": "查看全部",
+    "readMinutes": "阅读需{minutes}分钟",
+    "readPost": "阅读",
+    "makerEyebrow": "MAKER LAB",
+    "makerTitle": "本站创客的其他实验项目",
+    "makerDesc": "游戏 · 心理测试 · 服务 — 汇集了独自开发运营的各类项目。",
+    "makerCta": "逛逛创客中心",
+    "ctaTitle": "没有找到您需要的计算器？",
+    "ctaButton": "建议新增工具"
+  },
+  "electricCalc": {
+    "title": "工业用电气计算器",
+    "subtitle": "基于KS C IEC 60364标准，免费提供精确的电气设计计算。",
+    "breadcrumb": {
+      "home": "首页",
+      "current": "工业用电气计算器"
+    },
+    "hub": {
+      "tools": "可用工具"
+    },
+    "wireSize": {
+      "title": "电线线径计算",
+      "description": "输入电流、距离、允许电压降，即可算出合适的电线截面积。",
+      "available": true
+    },
+    "breaker": {
+      "title": "断路器容量计算",
+      "description": "综合负载电流与安全系数，自动选定MCB/MCCB额定电流。",
+      "available": true
+    },
+    "voltageDrop": {
+      "title": "电压降计算",
+      "description": "根据电线距离与截面积计算电压降率与末端电压，并判定是否符合内线规程。",
+      "available": true
+    }
+  },
+  "breakerTool": {
+    "meta": {
+      "title": "断路器容量计算器 | Workmate",
+      "description": "综合负载电流与安全系数，自动选定MCB/MCCB额定电流，并提示变频器+ELB风险。"
+    },
+    "title": "断路器容量计算器",
+    "subtitle": "负载电流 × 安全系数 → 自动选定KS标准额定值中满足安全要求的最小规格。同时提示变频器回路使用ELB的风险。",
+    "breadcrumb": {
+      "parent": "工业用电气计算器",
+      "current": "断路器"
+    },
+    "sections": {
+      "load": "负载信息"
+    },
+    "fields": {
+      "loadCurrent": "负载电流 (A)",
+      "loadType": "负载种类",
+      "customSafetyFactor": "自定义安全系数 (可选)",
+      "useElb": "是否使用ELB"
+    },
+    "hints": {
+      "loadType": "默认安全系数：一般1.25 / 电机直接启动1.5 / Y-Δ启动2.0 / 变频器1.25 / 电焊机3.0",
+      "customSafetyFactor": "留空则按负载种类适用默认值",
+      "customSafetyFactorPlaceholder": "使用默认值",
+      "useElb": "使用ELB(漏电断路器)时 — 若与变频器负载并用，可能因漏电流导致跳闸"
+    },
+    "loadType": {
+      "general": "一般照明·插座",
+      "motorDirect": "电机直接启动",
+      "motorYDelta": "电机Y-Δ启动",
+      "inverter": "变频器负载",
+      "welder": "电焊机 (间歇负载)"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入负载电流与种类后点击计算。",
+      "recommendedRating": "推荐断路器",
+      "appliedSafetyFactor": "适用安全系数",
+      "calculatedMinRating": "最小所需额定值",
+      "safetyMargin": "安全余量率",
+      "warnings": "注意事项",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：KS C 8324(配线用断路器) + KS C 8453(漏电断路器)",
+        "line2": "注：变频器+30mA ELB易因漏电流频繁跳闸，建议使用MCB/MCCB。"
+      }
+    },
+    "steps": {
+      "minRating": "第1步：最小额定值 — {loadCurrent}A × {safetyFactor} = {result}A",
+      "selectRating": "第2步：选定KS标准规格 — 满足≥{minRating}A的最小{breakerType}额定值 = {result}A",
+      "safetyMargin": "第3步：安全余量率 — ({rating} - {loadCurrent}) / {rating} × 100 = {result}%"
+    },
+    "warnings": {
+      "inverterWithElb": "变频器负载+ELB组合易因Y电容漏电流导致30mA ELB频繁跳闸，建议使用MCB/MCCB。",
+      "marginLow": "安全余量率低于{threshold}%，请考虑选用大一档的额定值。",
+      "highCurrentMcb": "已接近MCB最大额定值(63A)，负载再增大将切换为MCCB。"
+    },
+    "validation": {
+      "loadCurrentPositive": "负载电流必须大于0",
+      "loadCurrentMax": "负载电流必须小于等于5000A"
+    },
+    "errors": {
+      "noStandardMatch": "所需额定值超出KS标准范围。",
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "voltageDropTool": {
+    "meta": {
+      "title": "电压降计算器 | Workmate",
+      "description": "根据电线截面积、距离、电流计算电压降，并自动判定是否符合内线规程允许值。"
+    },
+    "title": "电压降计算器",
+    "subtitle": "依内线规程1410-1公式 e = (系数 × L × I) / (1000 × A) 计算电压降，并自动比较各距离段允许降幅率(3~7%)。",
+    "breadcrumb": {
+      "parent": "工业用电气计算器",
+      "current": "电压降"
+    },
+    "sections": {
+      "circuit": "回路信息",
+      "cable": "电缆"
+    },
+    "fields": {
+      "voltage": "送电端电压 (V)",
+      "current": "负载电流 (A)",
+      "distance": "单程距离 (m)",
+      "phaseType": "相别种类",
+      "crossSection": "电线截面积 (mm²)",
+      "material": "导体材质"
+    },
+    "phase": {
+      "single-2wire": "单相2线式 (系数35.6)",
+      "single-3wire": "单相3线式 (系数17.8)",
+      "three-3wire": "三相3线式 (系数30.8)",
+      "three-4wire": "三相4线式 (系数17.8)"
+    },
+    "material": {
+      "copper": "铜(Copper)",
+      "aluminum": "铝(×1.6)"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "status": {
+      "pass": "通过",
+      "fail": "超标 (NG)"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入回路信息后点击计算。",
+      "dropPercent": "电压降率",
+      "dropV": "电压降",
+      "receivingVoltage": "末端电压",
+      "limitPercent": "允许上限",
+      "status": "判定",
+      "margin": "余量",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：内线规程1410-1(电压降公式·各距离段允许值)",
+        "line2": "注：60m以下3% / 120m以下5% / 200m以下6% / 超过200m为7%"
+      }
+    },
+    "steps": {
+      "coefficient": "第1步：确定系数 — 基准{base}({material}) → 适用系数{result}",
+      "drop": "第2步：电压降 — ({coefficient} × {distance} × {current}) / (1000 × {crossSection}) = {result}V",
+      "dropPercent": "第3步：电压降率 — {drop} / {voltage} × 100 = {result}%",
+      "receivingVoltage": "第4步：末端电压 — {voltage} - {drop} = {result}V",
+      "limitCheck": "第5步：比较允许值 — {distance}m距离上限{limitPercent}% vs 实际{actualPercent}% → {status}"
+    },
+    "validation": {
+      "voltagePositive": "电压必须大于0",
+      "currentPositive": "电流必须大于0",
+      "distancePositive": "距离必须大于0",
+      "distanceMax": "距离必须小于等于2000m",
+      "crossSectionPositive": "截面积必须大于0",
+      "crossSectionStandard": "非KS标准截面积 (1.5/2.5/4/6/10/16/25/35/50/70/95/120/150/185/240/300/400/500/630)"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "insuranceTool": {
+    "meta": {
+      "title": "四大保险计算器 (2026) | Workmate",
+      "description": "根据月薪资自动计算国民年金、健康保险、长期疗养保险、雇佣保险、工伤保险的负担金额。2026年费率。"
+    },
+    "title": "四大保险计算器",
+    "subtitle": "以2026年费率为准，一次算出劳动者负担、雇主负担与实领金额。工伤保险费率可按行业调整。",
+    "breadcrumb": {
+      "home": "首页"
+    },
+    "sections": {
+      "salary": "薪资信息"
+    },
+    "fields": {
+      "monthlySalary": "月薪资 (报酬月额，韩元)",
+      "industrialAccidentRate": "工伤保险费率 (小数，默认0.0086)"
+    },
+    "hints": {
+      "monthlySalary": "税前月薪资(报酬月额)，不含免税伙食费、车辆维护费等。",
+      "industrialAccidentRate": "全行业平均为0.86%(0.0086)，可按行业调整。"
+    },
+    "lines": {
+      "nationalPension": "国民年金",
+      "healthInsurance": "健康保险",
+      "longTermCare": "长期疗养保险",
+      "employmentUnemployment": "雇佣保险 (失业津贴)",
+      "employmentExtra": "雇佣保险 (稳定·能力开发)",
+      "industrialAccident": "工伤保险"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "unit": {
+      "krw": "韩元"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入月薪资后点击计算。",
+      "netSalary": "劳动者实领金额",
+      "totalEmployee": "劳动者负担合计",
+      "totalEmployer": "雇主负担合计",
+      "totalCost": "雇主总人工成本 (月薪+雇主负担)",
+      "breakdown": "各险种明细",
+      "warnings": "注意事项",
+      "col": {
+        "item": "险种",
+        "employee": "劳动者",
+        "employer": "雇主",
+        "total": "合计"
+      },
+      "source": {
+        "line1": "出处：国民年金公团·国民健康保险公团·劳动福祉公团·雇佣保险 (2026年费率)",
+        "line2": "长期疗养：健康保险费 × 13.14% / 稳定雇佣·能力开发：仅雇主负担0.25%(未满150人标准)",
+        "line3": "注：工伤保险费率按行业分为0.6~30%不等，准确费率请向劳动福祉公团确认。"
+      }
+    },
+    "warnings": {
+      "pensionCapped": "月薪资超过国民年金标准收入月额上限({cap}韩元)，将按上限标准计算。",
+      "pensionFloored": "月薪资低于国民年金标准收入月额下限({floor}韩元)，将按下限标准计算。"
+    },
+    "validation": {
+      "salaryMin": "月薪资必须大于等于100,000韩元",
+      "salaryMax": "月薪资必须小于等于1亿韩元"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "foreignStockTaxTool": {
+    "meta": {
+      "title": "海外股票转让税计算器 | Workmate",
+      "description": "根据汇率与买入·卖出价，自动计算转让差价、250万韩元基本扣除额与22%转让税。"
+    },
+    "title": "海外股票转让税计算器",
+    "subtitle": "精确计算韩国居民卖出海外股票时应缴的转让税。买入、卖出汇率分别适用，年度扣除250万韩元，税率22%。",
+    "breadcrumb": {
+      "home": "首页"
+    },
+    "sections": {
+      "buy": "买入信息",
+      "sell": "卖出信息",
+      "options": "选项"
+    },
+    "fields": {
+      "buyPriceForeign": "买入价 (外币)",
+      "buyExchangeRate": "买入日汇率 (KRW/外币)",
+      "sellPriceForeign": "卖出价 (外币)",
+      "sellExchangeRate": "卖出日汇率 (KRW/外币)",
+      "transactionCostKrw": "交易费用合计 (韩元，含手续费等)",
+      "prevDeductionUsed": "今年已使用的扣除额 (韩元)"
+    },
+    "hints": {
+      "foreignCurrency": "交易的外币金额 (USD/EUR/JPY等)",
+      "exchangeRate": "韩国银行公告基准汇率 (交易当日)",
+      "transactionCost": "买卖手续费+转让税以外的附加费用",
+      "prevDeduction": "同一年度内已在其他交易中使用的基本扣除额，将从250万韩元中扣减。"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "unit": {
+      "krw": "韩元"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入买入、卖出信息后点击计算。",
+      "tax": "应缴转让税",
+      "capitalGain": "转让差价 (折合韩元)",
+      "netProfit": "税后净利润",
+      "taxableBase": "计税基数",
+      "remainingDeduction": "剩余基本扣除额",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：《所得税法》第118条之2(海外股票转让所得税) — 22%(含地方所得税)",
+        "line2": "基本扣除：年度250万韩元 / 适用转让时点汇率 / 可损益合并计算(本工具仅计算单笔交易)",
+        "line3": "注：实际申报于次年5月综合所得税申报时进行，本工具仅供事先模拟。"
+      }
+    },
+    "steps": {
+      "buyKrw": "第1步：买入折合韩元 — {foreign} × {rate} = {result}韩元",
+      "sellKrw": "第2步：卖出折合韩元 — {foreign} × {rate} = {result}韩元",
+      "gain": "第3步：转让差价 — 卖出{sell} - 买入{buy} - 交易费用{cost} = {result}韩元",
+      "deduction": "第4步：剩余扣除额 — 年度{annual} - 已用{used} = {remaining}韩元",
+      "taxableBase": "第5步：计税基数 — max(0, 转让差价{gain} - 扣除{deduction}) = {result}韩元",
+      "tax": "第6步：转让税 — {base} × {rate}% = {result}韩元",
+      "netProfit": "第7步：税后净利润 — 转让差价{gain} - 税金{tax} = {result}韩元"
+    },
+    "validation": {
+      "buyPricePositive": "买入价必须大于等于0",
+      "sellPricePositive": "卖出价必须大于等于0",
+      "exchangeRatePositive": "汇率必须大于0",
+      "costNonNegative": "交易费用必须大于等于0",
+      "deductionNonNegative": "已使用扣除额必须大于等于0"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "jsonCsvTool": {
+    "meta": {
+      "title": "JSON ↔ CSV 转换器 (兼容韩文) | Workmate",
+      "description": "UTF-8 BOM CSV ↔ JSON双向转换，韩文不乱码，支持Excel兼容的CRLF选项。"
+    },
+    "title": "JSON ↔ CSV 转换器",
+    "subtitle": "在韩文环境下不乱码的UTF-8 BOM + CRLF CSV双向转换，自动兼容Excel韩语版。数据在客户端处理，不会上传至服务器。",
+    "breadcrumb": {
+      "home": "首页"
+    },
+    "sections": {
+      "direction": "转换方向",
+      "input": "输入",
+      "options": "选项"
+    },
+    "options": {
+      "withBom": "添加UTF-8 BOM (兼容Excel韩文)",
+      "useCrlf": "使用CRLF换行 (兼容Windows Excel)",
+      "hasHeader": "首行作为表头",
+      "parseNumbers": "自动转换数字"
+    },
+    "actions": {
+      "convert": "转换",
+      "reset": "重置",
+      "copy": "复制",
+      "copied": "已复制",
+      "download": "下载"
+    },
+    "result": {
+      "heading": "转换结果",
+      "empty": "请在左侧粘贴数据后点击转换。",
+      "rows": "行数",
+      "cols": "列数",
+      "warnings": "警告",
+      "note": "数据仅在浏览器中处理，不会上传至服务器。"
+    },
+    "errors": {
+      "unknown": "转换过程中发生错误，请检查输入格式。"
+    }
+  },
+  "bizNumberTool": {
+    "meta": {
+      "title": "事业者登记号验证器 — 1-3-7校验位确认真伪",
+      "description": "即时验证10位事业者登记号的真伪。采用1-3-7-1-3-7-1-3-5加权校验位算法，在交易、汇款前筛查虚假或输入错误的号码。"
+    },
+    "title": "事业者登记号验证",
+    "subtitle": "依国税厅标准校验位算法即时验证格式与有效性，并根据中间2位数字自动判定事业者种类(个人/法人等)。停业、歇业状态需另行通过API查询。",
+    "breadcrumb": {
+      "home": "首页"
+    },
+    "sections": {
+      "input": "输入事业者登记号"
+    },
+    "fields": {
+      "number": "事业者登记号"
+    },
+    "hints": {
+      "number": "10位数字，自动去除连字符(-)与空格。例：220-81-62517"
+    },
+    "actions": {
+      "calculate": "验证",
+      "reset": "重置"
+    },
+    "status": {
+      "valid": "格式有效",
+      "invalid": "无效",
+      "match": "一致",
+      "noMatch": "不一致"
+    },
+    "personType": {
+      "individualGeneral": "个人事业者 — 一般纳税人",
+      "individualNonProfit": "个人事业者 — 非营利法人总部",
+      "individualNontaxable": "个人事业者 — 非事业者",
+      "individualPersonal": "个人事业者 — 增值税免税",
+      "corporationCommercial": "法人 — 营利法人总部",
+      "corporationBranch": "法人 — 营利法人分支机构",
+      "corporationNonProfit": "法人 — 非营利法人总部·分支机构",
+      "corporationStateOwned": "法人 — 国家·地方自治团体",
+      "corporationCustom": "法人 — 外国法人总部·分支机构·联络处",
+      "unknown": "未知"
+    },
+    "result": {
+      "heading": "验证结果",
+      "empty": "请输入事业者登记号后点击验证。",
+      "status": "最终判定",
+      "formatValid": "格式验证 (10位)",
+      "checksumValid": "校验位验证",
+      "personType": "事业者种类",
+      "warnings": "注意事项",
+      "steps": "验证过程",
+      "source": {
+        "line1": "出处：国税厅事业者登记号验证算法(权重1·3·7·1·3·7·1·3·5)",
+        "line2": "第9位需额外加上×5结果的十位数。",
+        "line3": "注：格式与校验位仅为初步验证，实际营业状态需另行通过国税厅Hometax API查询。"
+      }
+    },
+    "steps": {
+      "normalize": "第1步：格式化 — 输入 \"{raw}\" → \"{result}\"",
+      "format": "第2步：显示格式 — {result}",
+      "weightedSum": "第3步：加权求和 — 各位数字 [{digits}] × [{weights}] = {sum}",
+      "extraAdd": "第4步：第9位修正 — 加上{ninth}×5结果的十位数{extra} = {newSum}",
+      "checksum": "第5步：比较校验位 — (10 - {sum}%10)%10 = {computed} vs 末位{actual} → {status}",
+      "personType": "第6步：事业者种类 — 中间代码{middle} → {result}"
+    },
+    "warnings": {
+      "formatInvalid": "不是10位数字格式。",
+      "checksumFailed": "校验位不一致 — 计算值{expected} vs 输入值{actual}，可能存在输入错误。",
+      "needsExternalApi": "校验位已通过，但实际营业、停业、歇业状态需另行通过国税厅Hometax API查询确认。"
+    },
+    "validation": {
+      "empty": "请输入事业者登记号",
+      "tooLong": "输入内容过长"
+    },
+    "errors": {
+      "unknown": "验证过程中发生错误。"
+    }
+  },
+  "wireSizeTool": {
+    "meta": {
+      "title": "电线线径计算器 | Workmate",
+      "description": "基于KS C IEC 60364-5-52的电线截面积计算器。综合电压、电流、距离、允许电压降、周围温度、回路捆扎数、绝缘种类，自动算出最佳KS标准截面积。"
+    },
+    "title": "电线线径计算器",
+    "subtitle": "综合电压降+允许电流+周围温度修正(Ct)+回路捆扎修正(Cg)+绝缘种类(PVC/XLPE)，自动算出KS标准电线截面积。",
+    "breadcrumb": {
+      "home": "首页",
+      "parent": "工业用电气计算器",
+      "current": "电线线径"
+    },
+    "sections": {
+      "load": "负载条件",
+      "cable": "电缆规格",
+      "environment": "安装环境"
+    },
+    "fields": {
+      "voltage": "电压 (V)",
+      "current": "负载电流 (A)",
+      "distance": "单程距离 (m)",
+      "phaseType": "相别种类",
+      "material": "导体材质",
+      "insulation": "绝缘种类",
+      "allowedDropPercent": "允许电压降率 (%)",
+      "ambientTemperature": "周围温度 (°C)",
+      "numberOfCircuits": "同时使用回路数"
+    },
+    "hints": {
+      "insulation": "PVC = 导体70°C / XLPE·EPR = 导体90°C (XLPE的允许电流约为PVC的1.25倍)",
+      "ambientTemperature": "默认30°C。锅炉房、户外配电箱等高温环境请输入实测值，按KS表B.52.14自动修正。",
+      "numberOfCircuits": "同一线管、桥架内共同敷设的负载回路数(含自身回路)，按KS表B.52.17自动修正。"
+    },
+    "phase": {
+      "single-2wire": "单相2线式",
+      "single-3wire": "单相3线式",
+      "three-3wire": "三相3线式",
+      "three-4wire": "三相4线式"
+    },
+    "material": {
+      "copper": "铜(Copper)",
+      "aluminum": "铝(Aluminum)"
+    },
+    "insulation": {
+      "PVC": "PVC (70°C)",
+      "XLPE": "XLPE·EPR (90°C)"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请填写输入值后点击计算。",
+      "recommended": "推荐截面积",
+      "baseAmpacity": "表定允许电流",
+      "effectiveAmpacity": "有效允许电流 (修正后)",
+      "deratingFactors": "修正系数",
+      "actualDrop": "实际电压降",
+      "safetyMargin": "安全余量率",
+      "warnings": "注意事项",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：内线规程1410-1(电压降公式)",
+        "line2": "出处：KS C IEC 60364-5-52附录B(允许电流·A1方式)",
+        "line3": "出处：KS C IEC 60364-5-52表B.52.14(周围温度修正)、表B.52.17(回路捆扎修正)"
+      }
+    },
+    "steps": {
+      "allowedDrop": "第1步：允许电压降 — {voltage}V × {percent}% = {drop}V",
+      "minSection": "第2步：按电压降基准的最小截面积 — A_min = ({coefficient} × {distance} × {current}) / (1000 × {drop}) = {result}mm²",
+      "derating": "第3步：计算修正系数 — 绝缘{insulation}，周围温度{ambient}°C → Ct={ct}，回路{circuits}路 → Cg={cg} (总修正{total})",
+      "requiredAmpacity": "第4步：修正后所需基准允许电流 — I_req = {current}A / {total} = {result}A",
+      "selected": "第5步：选定KS标准截面积 — 同时满足电压降条件(≥{minSection}mm²)与允许电流条件(基准≥{requiredAmpacity}A) → {chosen}mm² ({material} {insulation}基准{baseAmpacity}A)",
+      "effectiveAmpacity": "第6步：有效允许电流 — {baseAmpacity}A × {total} = {effective}A (相对负载{current}A余量{margin}%)",
+      "verify": "第7步：验证实际电压降 — e = ({coefficient} × {distance} × {current}) / (1000 × {chosen}) = {drop}V ({percent}%)"
+    },
+    "warnings": {
+      "aluminumMinSize": "铝导体通常不建议使用小于{min}mm²的规格(KEC)，请考虑改用铜线。",
+      "safetyMarginLow": "安全余量率低于{threshold}%，请考虑未来负载增加的可能性，选用大一档的截面积。",
+      "parallelRecommended": "截面积{chosen}mm²难以用单根电缆施工，请考虑采用并联回路(2并联以上)。"
+    },
+    "errors": {
+      "noStandardMatch": "没有同时满足允许电流或电压降条件的KS标准截面积。请检查输入值(周围温度/回路数/导体)，或考虑采用并联回路。",
+      "unknown": "计算过程中发生未知错误。"
+    },
+    "validation": {
+      "voltage": "电压必须大于0",
+      "current": "电流必须大于0",
+      "distance": "距离必须大于0",
+      "allowedDropMin": "允许电压降率必须大于等于0.5%",
+      "allowedDropMax": "允许电压降率必须小于等于10%",
+      "ambientMin": "周围温度必须大于等于-10°C",
+      "ambientMax": "周围温度必须小于等于80°C",
+      "circuitsInt": "回路数必须为整数",
+      "circuitsMin": "回路数必须大于等于1",
+      "circuitsMax": "回路数必须小于等于20"
+    }
+  },
+  "timberCalc": {
+    "title": "木结构住宅计算器",
+    "subtitle": "从构件跨距、隔热R/U值、建材数量，到椽子、楼梯、基础，依据KS标准与建筑法的木结构施工计算。",
+    "breadcrumb": {
+      "home": "首页",
+      "current": "木结构住宅计算器",
+      "back": "返回木结构计算器列表"
+    },
+    "hub": {
+      "tier1": "结构·隔热·数量 (核心)",
+      "tier2": "屋顶·楼梯·基础"
+    },
+    "span": {
+      "title": "构件跨距计算",
+      "description": "通过桁条、椽子、横梁的弯曲应力+挠度检查，算出最大允许跨距。"
+    },
+    "insulation": {
+      "title": "隔热R/U值计算",
+      "description": "计算多层墙体综合R值与U值，自动判定是否符合韩国节能设计标准。"
+    },
+    "materialQuantity": {
+      "title": "建材数量计算",
+      "description": "根据面积与损耗率，估算OSB、合板、石膏板、护墙板张数及钉子/螺丝数量。"
+    },
+    "roofArea": {
+      "title": "屋顶面积计算",
+      "description": "根据平面面积与坡度角度，算出实际屋顶面积与屋檐面积。"
+    },
+    "concrete": {
+      "title": "混凝土体积",
+      "description": "计算条形基础、筏形基础的混凝土体积、钢筋重量与预拌混凝土车数量。"
+    },
+    "rafter": {
+      "title": "椽子计算",
+      "description": "根据水平距离(Run)、垂直高度(Rise)算出椽子切割长度、角度、坡度率。"
+    },
+    "roofPitch": {
+      "title": "屋顶坡度换算",
+      "description": "在角度、坡度率(%)、坡度比(rise/12)三种表示方式之间双向换算。"
+    },
+    "stairs": {
+      "title": "楼梯计算",
+      "description": "根据总高度，依建筑法标准算出级数、踢面高度、踏面宽度。"
+    },
+    "lumber": {
+      "title": "木材简易换算",
+      "description": "根据构件尺寸与数量，换算体积、才、板英尺、重量。"
+    }
+  },
+  "rafterTool": {
+    "meta": {
+      "title": "椽子计算器 | Workmate",
+      "description": "根据水平距离(Run)、垂直高度(Rise)、屋檐长度，自动算出椽子切割长度、角度、坡度率、坡度比。"
+    },
+    "title": "椽子计算器",
+    "subtitle": "根据屋顶的水平距离(Run)与垂直高度(Rise)，同时算出应切割的椽子长度、角度、坡度率。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "椽子"
+    },
+    "sections": {
+      "geometry": "屋顶几何",
+      "eave": "屋檐"
+    },
+    "fields": {
+      "run": "水平距离 (Run，mm) — 屋脊至外墙的水平距离",
+      "rise": "垂直高度 (Rise，mm) — 外墙至屋脊的垂直高度",
+      "eaveOverhang": "屋檐长度 (mm)"
+    },
+    "hints": {
+      "run": "山墙宽度的1/2。例：宽8000mm的住宅 → Run为4000",
+      "rise": "屋脊高度－外墙顶部高度",
+      "eaveOverhang": "建议0~2000mm。韩国独栋住宅通常在600mm左右"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入Run、Rise值后点击计算。",
+      "totalLength": "椽子总长度",
+      "baseLength": "基本长度 (外墙至屋脊)",
+      "eaveDiagonal": "屋檐斜边长度",
+      "angle": "坡度角",
+      "slope": "坡度率",
+      "pitch": "坡度比 (rise/12)",
+      "secCorrection": "面积修正 (sec θ)",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：直角三角形勾股定理"
+      }
+    },
+    "steps": {
+      "baseLength": "第1步：基本长度 — √({run}² + {rise}²) = {result}mm",
+      "angle": "第2步：角度 — atan({rise} / {run}) = {result}°",
+      "slope": "第3步：坡度率 — ({rise} / {run}) × 100 = {result}%",
+      "secCorrection": "第4步：面积修正sec(θ) — 1 / cos({angle}°) = {result}",
+      "eaveDiagonal": "第5步：屋檐斜边 — {eave} × sec({angle}°) = {result}mm",
+      "totalLength": "第6步：总长度 — {base} + {eaveDiagonal} = {result}mm"
+    },
+    "validation": {
+      "runPositive": "Run必须大于0",
+      "risePositive": "Rise必须大于0",
+      "eaveNonNegative": "屋檐长度必须大于等于0",
+      "eaveMax": "屋檐长度必须小于等于2000mm"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "roofPitchTool": {
+    "meta": {
+      "title": "屋顶坡度换算器 | Workmate",
+      "description": "在角度、坡度率(%)、坡度比(rise/12)三种表示方式之间双向换算，并算出面积修正系数。"
+    },
+    "title": "屋顶坡度换算器",
+    "subtitle": "输入角度(°)、坡度率(%)、坡度比(rise/12)中任意一项，即可即时换算其余表示方式与面积修正系数。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "屋顶坡度"
+    },
+    "fields": {
+      "mode": "输入方式",
+      "angle": "角度 (°)",
+      "slope": "坡度率 (%)",
+      "rise": "坡度比 (rise/12)"
+    },
+    "modes": {
+      "angle": "角度 (°)",
+      "slope": "坡度率 (%)",
+      "ratio": "坡度比 (rise/12)"
+    },
+    "categories": {
+      "flat": "平屋顶 (≤10°) — 建议做防水收边",
+      "lowSlope": "低坡度 (10~30°) — 沥青瓦、金属屋面",
+      "mediumSlope": "中坡度 (30~45°) — 粘土瓦、瓦片、金属屋面",
+      "steepSlope": "陡坡度 (45~60°) — 粘土瓦、天然石材",
+      "extremeSlope": "超陡坡度 (>60°) — 装饰·特殊收边"
+    },
+    "actions": {
+      "calculate": "换算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "换算结果",
+      "empty": "请选择输入方式并输入数值。",
+      "angle": "角度",
+      "slope": "坡度率",
+      "pitch": "坡度比",
+      "secCorrection": "面积修正 (sec θ)",
+      "category": "分类",
+      "source": {
+        "line1": "出处：韩国建筑惯例 + AIK木结构设计标准"
+      }
+    },
+    "errors": {
+      "unknown": "换算过程中发生未知错误。"
+    },
+    "validation": {
+      "modeMissingValue": "请输入与所选输入方式相符的数值"
+    }
+  },
+  "stairsTool": {
+    "meta": {
+      "title": "楼梯计算器 | Workmate",
+      "description": "根据总高度与建议踢面高度，依建筑法标准自动算出级数、踢面高度、踏面宽度、楼梯长度与角度。"
+    },
+    "title": "楼梯计算器",
+    "subtitle": "输入总高度与建议踢面高度，即可依《建筑法施行令》+Blondel公式自动算出安全的楼梯级数与尺寸。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "楼梯"
+    },
+    "sections": {
+      "geometry": "几何输入",
+      "options": "选项"
+    },
+    "fields": {
+      "totalRise": "总高度 (mm) — 1层完工面至2层完工面",
+      "totalRun": "总水平距离 (mm，可选)",
+      "preferredRiser": "建议踢面高度 (mm)",
+      "useType": "用途"
+    },
+    "hints": {
+      "totalRun": "留空则依Blondel公式自动推荐踏面宽度",
+      "preferredRiser": "住宅用通常为170~180mm，公用为150~170mm"
+    },
+    "useType": {
+      "residential": "住宅用 (独栋·户内)",
+      "public": "公用 (集合住宅公共区域·公共设施)"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入总高度与建议踢面高度。",
+      "numSteps": "级数",
+      "actualRiser": "实际踢面高度",
+      "tread": "踏面宽度",
+      "stairLength": "楼梯斜边长度",
+      "angle": "楼梯角度",
+      "blondel": "Blondel (2R+T)",
+      "warningsTitle": "注意事项",
+      "stepsTitle": "计算过程",
+      "source": {
+        "line1": "出处：《建筑法施行令》第48条(楼梯设置标准)",
+        "line2": "出处：《疏散·防火构造规则》第15条(踢面高度·踏面宽度限值)",
+        "line3": "出处：Blondel公式 (2R + T = 600~640mm) — 符合人体工学的步幅"
+      }
+    },
+    "steps": {
+      "numSteps": "第1步：级数 — round({totalRise} / {preferred}) = {result}级",
+      "actualRiser": "第2步：实际踢面高度 — {totalRise} / {steps} = {result}mm",
+      "treadFromRun": "第3步：踏面宽度 — {totalRun} / ({stepsMinus1}) = {result}mm",
+      "treadFromBlondel": "第3步：踏面宽度 (Blondel推荐) — {target} - 2 × {riser} = {result}mm",
+      "stairLength": "第4步：斜边长度 — √({totalRise}² + {runDist}²) = {result}mm",
+      "angle": "第5步：角度 — atan({riser} / {tread}) = {result}°",
+      "blondel": "第6步：Blondel验证 — 2 × {riser} + {tread} = {result}mm (建议{min}~{max}mm)"
+    },
+    "warnings": {
+      "riserTooHigh": "实际踢面高度{actual}mm超过安全标准最大值{max}mm，请增加级数。",
+      "treadTooSmall": "踏面宽度{actual}mm小于最小值{min}mm，请增加水平距离。",
+      "blondelOutOfRange": "Blondel值{value}mm超出建议范围{min}~{max}mm，可能导致步行不便。",
+      "preferredRiserExceedsLimit": "输入的建议踢面高度{preferred}mm超过安全标准最大值{max}mm。"
+    },
+    "validation": {
+      "totalRiseMin": "总高度必须大于等于100mm",
+      "totalRiseMax": "总高度必须小于等于10000mm",
+      "totalRunNonNegative": "总水平距离必须大于等于0",
+      "totalRunMax": "总水平距离必须小于等于20000mm",
+      "preferredRiserMin": "建议踢面高度必须大于等于80mm",
+      "preferredRiserMax": "建议踢面高度必须小于等于250mm"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "spanTool": {
+    "meta": {
+      "title": "构件跨距计算器 | Workmate",
+      "description": "通过桁条、椽子、横梁的弯曲应力 + 挠度检查，算出最大允许跨距。基于KDS 41 33 02 + Canada Wood标准。"
+    },
+    "title": "构件跨距计算器",
+    "subtitle": "综合截面(2x4~2x12) × 间距(400/450/600mm) × 树种 + 韩国积雪荷载，算出同时满足弯曲与挠度条件的最大跨距。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "构件跨距"
+    },
+    "sections": {
+      "member": "构件信息",
+      "snow": "积雪荷载 (椽子)"
+    },
+    "fields": {
+      "memberType": "构件种类",
+      "lumberSize": "截面规格",
+      "spacingMM": "构件间距 (mm)",
+      "grade": "树种·等级",
+      "snowRegion": "积雪荷载地区"
+    },
+    "hints": {
+      "spacing": "标准值：400 / 450 / 600mm，其他数值将显示警告。",
+      "snowRegion": "依KDS 41 10 15附录B标准。江原岭东·郁陵岛高达3.0 kN/m²，荷载非常大。"
+    },
+    "memberType": {
+      "floorJoist": "楼板桁条 (Floor Joist)",
+      "ceilingJoist": "天花桁条 (Ceiling Joist)",
+      "rafter": "椽子 (Rafter)",
+      "header": "过梁 (Header)"
+    },
+    "grade": {
+      "larch2": "落叶松 #2 (韩国产)"
+    },
+    "snowRegion": {
+      "seoulMetro": "首尔·京畿·仁川 (0.5 kN/m²)",
+      "gangwonYeongdong": "江原岭东 (3.0 kN/m²)",
+      "gangwonYeongseo": "江原岭西 (0.5 kN/m²)",
+      "chungcheong": "忠清 (0.5 kN/m²)",
+      "jeolla": "全罗 (0.5 kN/m²)",
+      "gyeongsang": "庆尚 (0.5 kN/m²)",
+      "jeju": "济州 (0.5 kN/m²)",
+      "ulleung": "郁陵岛 (3.0 kN/m²)"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入构件信息后点击计算。",
+      "maxSpan": "最大允许跨距",
+      "bendingSpan": "弯曲极限跨距",
+      "deflectionSpan": "挠度极限跨距",
+      "governing": "控制条件",
+      "totalLoad": "总荷载",
+      "lineLoad": "线荷载",
+      "section": "截面特性",
+      "warnings": "注意事项",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：KDS 41 33 02(木结构设计标准)",
+        "line2": "出处：KDS 41 10 15(设计荷载) + NDS 2018",
+        "line3": "注：本工具仅供住宅规划参考，实际施工前必须经结构工程师审核。"
+      }
+    },
+    "governing": {
+      "bending": "弯曲 (Bending)",
+      "deflection": "挠度 (Deflection)"
+    },
+    "steps": {
+      "loads": "第1步：荷载计算 — 活荷载{live} + 自重{dead} + 积雪{snow} = {total} kN/m²",
+      "lineLoad": "第2步：线荷载 — {total} kN/m² × {spacing}mm = {result} N/mm",
+      "section": "第3步：截面特性 — {b}×{d}mm → I = {I} mm⁴，S = {S} mm³",
+      "fbAdjusted": "第4步：允许弯曲应力 — Fb {base} MPa × Cr {cr} = {result} MPa",
+      "bendingSpan": "第5步：弯曲极限 — L = √(8 × {fb} × {S} / {w}) = {result} mm",
+      "deflectionSpan": "第6步：挠度极限 — L = ∛(384 × {E} × {I} / (5 × {w} × {k})) = {result} mm",
+      "governing": "第7步：控制条件 — 弯曲{bending}mm vs 挠度{deflection}mm → {result}mm ({check}控制)"
+    },
+    "warnings": {
+      "spacingUnusual": "间距{actual}mm不是标准值(400/450/600)，请另行确认是否适用。",
+      "rafterNeedsSnow": "椽子的情况下，地区积雪荷载具有决定性影响，请确认是否选择了正确的地区。",
+      "lumberNotFound": "找不到{size}截面数据。"
+    },
+    "validation": {
+      "spacingMin": "构件间距必须大于等于150mm",
+      "spacingMax": "构件间距必须小于等于1200mm"
+    },
+    "errors": {
+      "noLumberData": "找不到所选截面规格的数据。",
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "insulationTool": {
+    "meta": {
+      "title": "隔热R/U值计算器 | Workmate",
+      "description": "计算多层墙体的综合R值与U值，自动判定是否符合韩国节能设计标准(附表1)。"
+    },
+    "title": "隔热R/U值计算器",
+    "subtitle": "根据地区(中部1·中部2·南部·济州) × 部位(外墙/屋顶/地面) × 多层建材构成，算出综合R值与U值 → 自动判定是否符合法规。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "隔热"
+    },
+    "sections": {
+      "environment": "地区·部位",
+      "layers": "墙体构成 (由室内至室外顺序)"
+    },
+    "fields": {
+      "region": "气候地区",
+      "element": "部位"
+    },
+    "region": {
+      "central1": "中部1 (江原·京畿北部)",
+      "central2": "中部2 (首尔·仁川·京畿大部分地区)",
+      "south": "南部 (大田·釜山·全罗·庆尚等)",
+      "jeju": "济州"
+    },
+    "element": {
+      "exteriorWallDirect": "外墙 — 直接外气·居室",
+      "exteriorWallIndirect": "外墙 — 间接外气·非居室",
+      "roof": "屋顶",
+      "floorDirect": "最底层地面 — 直接外气",
+      "floorIndirect": "最底层地面 — 间接外气"
+    },
+    "materials": {
+      "glasswool24": "玻璃棉 24K (λ=0.038)",
+      "glasswool48": "玻璃棉 48K (λ=0.034)",
+      "mineralwool": "矿棉 (λ=0.040)",
+      "eps1": "EPS珠粒法1种 (λ=0.040)",
+      "eps2": "EPS珠粒法2种 (λ=0.034)",
+      "xps": "XPS挤塑法 (λ=0.029)",
+      "pirFoam": "PIR泡沫 (λ=0.022)",
+      "puFoam": "PU喷涂泡沫 (λ=0.024)",
+      "cellulose": "纤维素 (λ=0.040)",
+      "phenolic": "酚醛泡沫 (λ=0.020)",
+      "osb11": "OSB板 (λ=0.13)",
+      "osb18": "OSB结构用板 (λ=0.13)",
+      "plywood12": "合板 (λ=0.13)",
+      "gypsum9": "石膏板 9.5mm (λ=0.18)",
+      "gypsum12": "石膏板 12.5mm (λ=0.18)",
+      "fiberCement": "纤维水泥护墙板 (λ=0.30)",
+      "brick": "红砖 (λ=0.81)",
+      "concrete": "混凝土 (λ=1.6)",
+      "airSpace": "空气层 (R=0.18固定)"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置",
+      "addLayer": "添加层"
+    },
+    "status": {
+      "pass": "通过",
+      "fail": "未达标"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入地区、部位、构成后点击计算。",
+      "uValue": "U值",
+      "totalR": "总R值",
+      "uLimit": "法规U值上限",
+      "status": "法规判定",
+      "surplusOrDeficit": "R值余量/不足",
+      "layerBreakdown": "各层R值",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：《建筑物节能设计标准》附表1(各地区U值上限)",
+        "line2": "出处：KS L 9016(隔热材导热系数) / 韩国被动式建筑协会",
+        "line3": "注：未计入热桥影响，实际效果可能因施工质量而异。"
+      }
+    },
+    "steps": {
+      "layerSum": "第1步：各层R值合计 — {count}层合计 = {sum} m²·K/W",
+      "surfaceR": "第2步：表面热阻 — 室内{interior} + 室外{exterior} = {total} m²·K/W",
+      "totalR": "第3步：总R值 — 各层{layers} + 表面{surface} = {result} m²·K/W",
+      "uValue": "第4步：U值 — 1 / {totalR} = {result} W/m²·K",
+      "compare": "第5步：法规比较 — U值{uValue} ≤ 上限{limit} → {status}"
+    },
+    "validation": {
+      "thicknessMin": "厚度必须大于等于1mm",
+      "thicknessMax": "厚度必须小于等于1000mm",
+      "layersMin": "至少需要1层",
+      "layersMax": "最多可添加15层"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "materialQuantityTool": {
+    "meta": {
+      "title": "建材数量计算器 | Workmate",
+      "description": "根据施工面积与损耗率，自动算出OSB、合板、石膏板、护墙板张数及钉子/螺丝数量。"
+    },
+    "title": "建材数量计算器",
+    "subtitle": "墙面、屋顶、地面施工面积 × (1 + 损耗率) ÷ 每张面积 → 建材张数 + 钉子/螺丝估算。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "建材数量"
+    },
+    "sections": {
+      "material": "建材·面积"
+    },
+    "fields": {
+      "material": "建材种类",
+      "areaM2": "施工面积 (m²)",
+      "wasteFactorPercent": "损耗率 (%)",
+      "estimateFasteners": "估算钉子/螺丝"
+    },
+    "hints": {
+      "area": "墙面、屋顶、地面等的纯施工面积",
+      "waste": "通常为5~15%，施工复杂时应取更大值。",
+      "estimateFasteners": "估算板材边缘+中间的钉子数量"
+    },
+    "materials": {
+      "osb11": "OSB 11mm (1220×2440mm)",
+      "osb18": "OSB 18mm结构用 (1220×2440mm)",
+      "plywood12": "合板 12mm (1220×2440mm)",
+      "plywood18": "合板 18mm (1220×2440mm)",
+      "gypsum9": "石膏板 9.5mm (900×1800mm)",
+      "gypsum12": "石膏板 12.5mm (900×1800mm)",
+      "cementBoard": "水泥板 (900×1800mm)",
+      "fiberCementSiding": "纤维水泥护墙板 (200×3600mm)",
+      "vinylSiding": "乙烯基护墙板 (250×3700mm)",
+      "asphaltShingle": "沥青瓦 (1捆 ≈ 3.1m²)",
+      "battInsulationR19": "玻璃棉 R-19卷材 (600×2400mm)"
+    },
+    "unit": {
+      "sheet": "张",
+      "bundle": "捆",
+      "batt": "卷"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入建材种类与面积。",
+      "sheetsRequired": "所需张数",
+      "adjustedArea": "修正后面积",
+      "sheetArea": "每张面积",
+      "totalWeight": "总重量",
+      "nails": "钉子数量 (估算)",
+      "screws": "螺丝数量 (估算)",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：韩国流通标准规格 + IRC R602.3钉接标准",
+        "line2": "注：钉子/螺丝数量按标准间距(边缘150mm、中间300mm)估算。"
+      }
+    },
+    "steps": {
+      "wasteAdjusted": "第1步：损耗率修正 — {area}m² × (1 + {waste}%) = {result}m²",
+      "sheetCount": "第2步：张数计算 — {adjustedArea}m² ÷ {sheetArea}m² (向上取整) = {result}张",
+      "totalWeight": "第3步：总重量 — {sheets}张 × {perSheet}kg = {result}kg",
+      "fasteners": "第4步：钉子/螺丝估算 — {sheets}张 × {perSheet}个/张 = {result}个"
+    },
+    "validation": {
+      "areaMin": "面积必须大于等于0.1m²",
+      "areaMax": "面积必须小于等于10000m²",
+      "wasteMin": "损耗率必须大于等于0%",
+      "wasteMax": "损耗率必须小于等于30%"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "roofAreaTool": {
+    "meta": {
+      "title": "屋顶面积计算器 | Workmate",
+      "description": "根据平面面积与坡度角度，算出实际屋顶面积与屋檐面积。"
+    },
+    "title": "屋顶面积计算器",
+    "subtitle": "建筑平面面积 × sec(坡度角) → 实际屋顶面积。加入屋檐周长与长度后，还可合计屋檐面积。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "屋顶面积"
+    },
+    "sections": {
+      "geometry": "屋顶几何",
+      "eave": "屋檐 (可选)"
+    },
+    "fields": {
+      "planAreaM2": "平面面积 (m²)",
+      "angleDegrees": "屋顶坡度角 (°)",
+      "perimeterM": "屋檐周长 (m)",
+      "eaveOverhangMM": "屋檐长度 (mm)"
+    },
+    "hints": {
+      "planArea": "以建筑外轮廓线为准的单层平面面积(屋顶覆盖区域)",
+      "perimeter": "屋檐施工外轮廓线长度，为0时不计算屋檐面积。"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入平面面积与坡度角度。",
+      "totalArea": "屋顶总面积",
+      "slopeArea": "斜面面积",
+      "eaveArea": "屋檐面积",
+      "secCorrection": "面积修正系数 (sec θ)",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：直角三角形sec(θ)修正(平面面积 → 斜面面积)"
+      }
+    },
+    "steps": {
+      "secCorrection": "第1步：sec(θ) — 1 / cos({angle}°) = {result}",
+      "slopeArea": "第2步：斜面面积 — {planArea}m² × sec(θ) {sec} = {result}m²",
+      "eaveArea": "第3步：屋檐面积 — 周长{perimeter}m × 屋檐{eaveOverhang}mm × sec(θ) {sec} = {result}m²",
+      "totalArea": "第4步：总面积 — {slope}m² + {eave}m² = {result}m²"
+    },
+    "validation": {
+      "planAreaMin": "平面面积必须大于等于1m²",
+      "planAreaMax": "平面面积必须小于等于10000m²",
+      "perimeterMin": "周长必须大于等于0",
+      "perimeterMax": "周长必须小于等于1000m",
+      "angleMin": "角度必须大于等于0",
+      "angleMax": "角度必须小于90°",
+      "eaveMin": "屋檐长度必须大于等于0",
+      "eaveMax": "屋檐长度必须小于等于2000mm"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "concreteTool": {
+    "meta": {
+      "title": "混凝土体积计算器 | Workmate",
+      "description": "自动算出条形基础、筏形基础的混凝土体积、钢筋重量与预拌混凝土车数量。"
+    },
+    "title": "混凝土体积计算器",
+    "subtitle": "基础形式 × 尺寸 + 损耗率 → 算出混凝土体积 + 钢筋重量 + 预拌混凝土车数量。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "混凝土"
+    },
+    "sections": {
+      "foundation": "基础尺寸",
+      "options": "修正选项"
+    },
+    "fields": {
+      "type": "基础形式",
+      "widthM": "宽度 (m)",
+      "depth": "深度 (m)",
+      "thickness": "厚度 (m)",
+      "lengthM": "长度 (m)",
+      "rebarDensity": "钢筋密度 (kg/m³)",
+      "wasteFactorPercent": "损耗率 (%)"
+    },
+    "hints": {
+      "rebar": "住宅用条形基础平均80~100 kg/m³，筏形基础为60~80 kg/m³"
+    },
+    "type": {
+      "stripFooting": "条形基础 (Strip Footing)",
+      "matSlab": "筏形基础 (Mat Slab)"
+    },
+    "unit": {
+      "trucks": "车"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入基础尺寸。",
+      "adjustedVolume": "所需混凝土体积",
+      "rawVolume": "基本体积 (修正前)",
+      "rebar": "钢筋重量 (估算)",
+      "remicon": "预拌混凝土车数量 (以6m³为准)",
+      "steps": "计算过程",
+      "source": {
+        "line1": "出处：KDS 14 20(混凝土结构设计标准) + 韩国预拌混凝土标准 (6m³/车)",
+        "line2": "注：钢筋估算值为一般住宅平均值，准确数量需依据结构图纸计算。"
+      }
+    },
+    "steps": {
+      "rawVolume": "第1步：基本体积 — {width}m × {depth}m × {length}m = {result}m³",
+      "wasteAdjusted": "第2步：损耗率修正 — {raw}m³ × (1 + {waste}%) = {result}m³",
+      "rebar": "第3步：钢筋重量 — {volume}m³ × {density}kg/m³ = {result}kg",
+      "remicon": "第4步：预拌混凝土车 — {volume}m³ ÷ 6m³ = {result}车"
+    },
+    "validation": {
+      "widthMin": "宽度必须大于等于0.1m",
+      "widthMax": "宽度必须小于等于50m",
+      "depthMin": "深度/厚度必须大于等于0.05m",
+      "depthMax": "深度/厚度必须小于等于5m",
+      "lengthMin": "长度必须大于等于0.1m",
+      "lengthMax": "长度必须小于等于500m",
+      "rebarMin": "钢筋密度必须大于等于0",
+      "rebarMax": "钢筋密度必须小于等于300 kg/m³",
+      "wasteMin": "损耗率必须大于等于0%",
+      "wasteMax": "损耗率必须小于等于30%"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  },
+  "lumberTool": {
+    "meta": {
+      "title": "木材简易换算 | Workmate",
+      "description": "根据构件尺寸与数量，自动换算体积(m³)、板英尺(BF)、才、估算重量。"
+    },
+    "title": "木材简易换算",
+    "subtitle": "根据构件截面(宽×厚) × 长度 × 数量 × 树种，一次算出m³、才、板英尺(BF)、估算重量。",
+    "breadcrumb": {
+      "parent": "木结构住宅计算器",
+      "current": "木材数量"
+    },
+    "sections": {
+      "dimension": "构件尺寸",
+      "type": "树种"
+    },
+    "fields": {
+      "widthMM": "宽度 (mm)",
+      "thicknessMM": "厚度 (mm)",
+      "lengthMM": "长度 (mm)",
+      "quantity": "数量 (根)",
+      "species": "树种"
+    },
+    "hints": {
+      "widthMM": "例：2x4 SPF的宽度为89mm",
+      "thicknessMM": "例：2x4 SPF的厚度为38mm",
+      "lengthMM": "韩国标准长度：3600 / 4200mm等"
+    },
+    "species": {
+      "pine": "松木 (500 kg/m³)",
+      "larch": "落叶松 (540 kg/m³)",
+      "cedar": "杉木 (380 kg/m³)",
+      "spf": "SPF (460 kg/m³)",
+      "douglasFir": "花旗松 (530 kg/m³)",
+      "oak": "橡木 (750 kg/m³)"
+    },
+    "actions": {
+      "calculate": "计算",
+      "reset": "重置"
+    },
+    "result": {
+      "heading": "计算结果",
+      "empty": "请输入构件尺寸与数量。",
+      "totalVolume": "总体积",
+      "perPiece": "单根体积",
+      "boardFeet": "板英尺 (BF)",
+      "sai": "才",
+      "weight": "估算重量",
+      "density": "密度",
+      "stepsTitle": "计算过程",
+      "source": {
+        "line1": "出处：KS F 3020(木材截面尺寸)",
+        "line2": "出处：1才 = 1寸 × 1寸 × 12尺 ≈ 0.003342 m³",
+        "line3": "密度为含水率12%气干状态下的平均值(可能与实测值有差异)"
+      }
+    },
+    "steps": {
+      "perPieceVolume": "第1步：单根体积 — ({width} × {thickness} × {length}) / 10⁹ = {result} m³",
+      "totalVolume": "第2步：总体积 — {perPiece} × {quantity}根 = {result} m³",
+      "boardFeet": "第3步：板英尺 — {volumeM3} m³ ÷ 0.002360 = {result} BF",
+      "sai": "第4步：才 — {volumeM3} m³ ÷ 0.003342 = {result} 才",
+      "weight": "第5步：重量 — {volumeM3} m³ × {density}({species}) = {result} kg"
+    },
+    "validation": {
+      "widthMin": "宽度必须大于等于10mm",
+      "widthMax": "宽度必须小于等于1000mm",
+      "thicknessMin": "厚度必须大于等于10mm",
+      "thicknessMax": "厚度必须小于等于1000mm",
+      "lengthMin": "长度必须大于等于100mm",
+      "lengthMax": "长度必须小于等于20000mm",
+      "quantityInt": "数量必须为整数",
+      "quantityMin": "数量必须大于等于1",
+      "quantityMax": "数量必须小于等于10000"
+    },
+    "errors": {
+      "unknown": "计算过程中发生未知错误。"
+    }
+  }
+}

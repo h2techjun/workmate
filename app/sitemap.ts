@@ -3,6 +3,7 @@ import { locales } from "@/i18n";
 import { SITE_URL } from "@/lib/siteConfig";
 import { BLOG_POSTS } from "@/lib/blogPosts";
 import { isViReady } from "@/lib/viReady";
+import { isZhReady } from "@/lib/zhReady";
 
 const TOOL_PATHS = [
   "",
@@ -89,9 +90,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
   for (const path of TOOL_PATHS) {
-    // vi 는 완역(VI_READY) 경로만 sitemap 에 포함 (부분 번역 색인 방지)
+    // vi·zh 는 완역 경로만 sitemap 에 포함 (부분 번역 색인 방지)
     const pathLocales = locales.filter(
-      (l) => l !== "vi" || isViReady(path),
+      (l) =>
+        (l !== "vi" || isViReady(path)) && (l !== "zh" || isZhReady(path)),
     );
     for (const locale of pathLocales) {
       entries.push({
@@ -107,8 +109,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
   }
-  // 블로그 글 — vi 번역 전이므로 ko/en 만 (publishedAt = lastModified)
-  const blogLocales = locales.filter((l) => l !== "vi");
+  // 블로그 글 — vi·zh 번역 전이므로 ko/en 만 (publishedAt = lastModified)
+  const blogLocales = locales.filter((l) => l !== "vi" && l !== "zh");
   for (const post of BLOG_POSTS) {
     const path = `/blog/${post.slug}`;
     for (const locale of blogLocales) {

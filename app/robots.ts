@@ -1,20 +1,22 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/siteConfig";
 import { VI_READY_PATHS } from "@/lib/viReady";
+import { ZH_READY_PATHS } from "@/lib/zhReady";
 
 /**
- * vi 는 부분 번역 로케일 — 완역(VI_READY) 경로만 크롤 허용하고 /vi/ 나머지는
+ * vi·zh 는 부분 번역 로케일 — 완역 경로만 크롤 허용하고 /vi/·/zh/ 나머지는
  * 차단해 "영어 폴백 페이지 = /en 중복 콘텐츠" 색인을 방지한다.
  * (Google/Bing 은 더 구체적인 규칙(Allow)이 Disallow 를 이긴다.)
  */
 export default function robots(): MetadataRoute.Robots {
   const viAllow = VI_READY_PATHS.map((p) => (p === "" ? "/vi$" : `/vi${p}`));
+  const zhAllow = ZH_READY_PATHS.map((p) => (p === "" ? "/zh$" : `/zh${p}`));
   return {
     rules: [
       {
         userAgent: "*",
-        allow: ["/", ...viAllow],
-        disallow: ["/api/", "/vi/"],
+        allow: ["/", ...viAllow, ...zhAllow],
+        disallow: ["/api/", "/vi/", "/zh/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

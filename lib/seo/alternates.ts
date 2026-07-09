@@ -20,6 +20,7 @@
 
 import { locales, defaultLocale } from "@/i18n";
 import { isViReady } from "@/lib/viReady";
+import { isZhReady } from "@/lib/zhReady";
 
 /**
  * @param path - locale prefix 를 제외한 절대 경로 (예: "/income-tax", "/timber-calc/studs")
@@ -29,7 +30,9 @@ import { isViReady } from "@/lib/viReady";
 export function buildLanguagesAlt(path: string): Record<string, string> {
   const normalized = path.startsWith("/") || path === "" ? path : `/${path}`;
   const included = locales.filter(
-    (l) => l !== "vi" || isViReady(normalized),
+    (l) =>
+      (l !== "vi" || isViReady(normalized)) &&
+      (l !== "zh" || isZhReady(normalized)),
   );
   const map = Object.fromEntries(
     included.map((l) => [l, `/${l}${normalized}`]),

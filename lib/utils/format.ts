@@ -38,11 +38,12 @@ export function formatKrw(n: number): string {
  * 공간이 좁은 SVG 축에서 자릿수를 줄여 표기한다.
  *  - ko: 1.5억 / 3,500만 / 9,000
  *  - en: ₩1.5B / ₩350M / ₩12K
+ *  - zh: 1.5亿 / 3,500万 / 9,000  (亿=10⁸, 万=10⁴)
  *  - vi: ₩1,5 tỷ / ₩350 tr / ₩12k  (tỷ=10⁹, tr=triệu 10⁶, 소수점=쉼표)
  */
 export function formatAxisMoney(
   n: number,
-  locale: "ko" | "en" | "vi",
+  locale: "ko" | "en" | "zh" | "vi",
 ): string {
   if (!Number.isFinite(n)) return "0";
   const sign = n < 0 ? "-" : "";
@@ -57,6 +58,12 @@ export function formatAxisMoney(
     if (v >= 1e8) return `${sign}${short(v / 1e8)}억`;
     if (v >= 1e4)
       return `${sign}${Math.round(v / 1e4).toLocaleString(NUMBER_LOCALE)}만`;
+    return `${sign}${Math.round(v).toLocaleString(NUMBER_LOCALE)}`;
+  }
+  if (locale === "zh") {
+    if (v >= 1e8) return `${sign}${short(v / 1e8)}亿`;
+    if (v >= 1e4)
+      return `${sign}${Math.round(v / 1e4).toLocaleString(NUMBER_LOCALE)}万`;
     return `${sign}${Math.round(v).toLocaleString(NUMBER_LOCALE)}`;
   }
   if (locale === "vi") {
