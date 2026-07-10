@@ -11,14 +11,20 @@ import {
   type RegistryCategory,
 } from "@/lib/dataRegistry";
 
-type Lang = "ko" | "en" | "vi";
+type Lang = "ko" | "en" | "zh" | "vi";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
 const toLang = (locale: string): Lang =>
-  locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en";
+  locale === "ko"
+    ? "ko"
+    : locale === "zh"
+      ? "zh"
+      : locale === "vi"
+        ? "vi"
+        : "en";
 
 export async function generateMetadata({
   params,
@@ -28,11 +34,13 @@ export async function generateMetadata({
   const title = {
     ko: "한국 기준 수치 레지스트리 — 최저임금·4대보험·기준금리·세율 (검증일 명시)",
     en: "Korean Rates & Thresholds Registry — Minimum Wage, Insurance, Base Rate (with verification dates)",
+    zh: "韩国标准数值查询表 — 最低工资·四大保险·基准利率·税率（附验证日期）",
     vi: "Bảng tra cứu số liệu chuẩn Hàn Quốc — lương tối thiểu, 4 loại bảo hiểm, lãi suất (kèm ngày xác minh)",
   }[lang];
   const description = {
     ko: "Workmate의 모든 계산기가 실제로 사용하는 변동 수치를 한 페이지에 공개합니다. 최저임금·국민연금 상한·건강보험 요율·기준금리·실업급여 상하한 등 각 항목의 근거 법령·고시, 적용 기간, 최종 검증일까지. 계산기와 같은 상수를 직접 참조하므로 표시값이 어긋날 수 없습니다.",
     en: "Every variable figure Workmate's calculators actually use, on one page: minimum wage, pension income cap, health-insurance rates, BOK base rate, unemployment-benefit caps — each with its legal basis, effective period, and last-verified date. The page reads the same constants as the calculators, so it can never drift.",
+    zh: "本页公开 Workmate 所有计算器实际使用的变动数值：最低工资、国民年金收入上限、健康保险费率、韩国银行基准利率、失业津贴上下限等，每项均附有法律依据·官方公告、适用期间及最终验证日期。本页与计算器读取相同的常量，因此显示数值绝不会产生偏差。",
     vi: "Mọi con số biến động mà các công cụ Workmate thực sự sử dụng, trên một trang: lương tối thiểu, trần thu nhập NPS, tỷ lệ BHYT, lãi suất cơ bản BOK, trần trợ cấp thất nghiệp — mỗi mục kèm căn cứ pháp lý, thời gian áp dụng và ngày xác minh gần nhất. Trang đọc cùng hằng số với các công cụ nên giá trị không thể sai lệch.",
   }[lang];
   const keywords = {
@@ -52,6 +60,14 @@ export async function generateMetadata({
       "korea unemployment benefit cap",
       "korean tax rates registry",
     ],
+    zh: [
+      "2026韩国最低工资",
+      "韩国国民年金收入上限",
+      "2026韩国健康保险费率",
+      "韩国银行基准利率",
+      "韩国失业津贴上限",
+      "韩国税率查询表",
+    ],
     vi: [
       "lương tối thiểu Hàn Quốc 2026",
       "trần thu nhập NPS Hàn Quốc",
@@ -60,6 +76,12 @@ export async function generateMetadata({
       "trợ cấp thất nghiệp Hàn Quốc",
       "bảng thuế suất Hàn Quốc",
     ],
+  }[lang];
+  const ogLocale = {
+    ko: "ko_KR",
+    en: "en_US",
+    zh: "zh_CN",
+    vi: "vi_VN",
   }[lang];
   return {
     title,
@@ -74,7 +96,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/data`,
-      locale: lang === "ko" ? "ko_KR" : lang === "vi" ? "vi_VN" : "en_US",
+      locale: ogLocale,
     },
   };
 }
@@ -92,21 +114,24 @@ const CATEGORY_ORDER: readonly RegistryCategory[] = [
 ];
 
 const CATEGORY_LABEL: Record<RegistryCategory, Record<Lang, string>> = {
-  labor: { ko: "근로", en: "Labor", vi: "Lao động" },
+  labor: { ko: "근로", en: "Labor", zh: "劳动", vi: "Lao động" },
   insurance: {
     ko: "4대보험",
     en: "Social insurance",
+    zh: "四大保险",
     vi: "Bảo hiểm xã hội",
   },
-  tax: { ko: "세금", en: "Tax", vi: "Thuế" },
+  tax: { ko: "세금", en: "Tax", zh: "税务", vi: "Thuế" },
   realestate: {
     ko: "부동산 · 금리",
     en: "Real estate · rates",
+    zh: "房地产 · 利率",
     vi: "Bất động sản · lãi suất",
   },
   convention: {
     ko: "경험칙 (법정 아님)",
     en: "Rules of thumb (not statutory)",
+    zh: "经验值（非法定）",
     vi: "Kinh nghiệm (không phải luật)",
   },
 };
@@ -116,19 +141,20 @@ const KIND_BADGE: Record<
   { label: Record<Lang, string>; cls: string }
 > = {
   statutory: {
-    label: { ko: "법령", en: "Statute", vi: "Luật định" },
+    label: { ko: "법령", en: "Statute", zh: "法令", vi: "Luật định" },
     cls: "border-emerald-500/40 text-emerald-300",
   },
   official: {
     label: {
       ko: "고시·결정",
       en: "Official notice",
+      zh: "公告·决定",
       vi: "Thông báo chính thức",
     },
     cls: "border-sky-500/40 text-sky-300",
   },
   convention: {
-    label: { ko: "경험칙", en: "Rule of thumb", vi: "Kinh nghiệm" },
+    label: { ko: "경험칙", en: "Rule of thumb", zh: "经验值", vi: "Kinh nghiệm" },
     cls: "border-amber-500/40 text-amber-300",
   },
 };
@@ -164,6 +190,21 @@ const UI = {
     m3: "• The 'rule of thumb' badge marks non-statutory, industry-convention figures. Before real decisions (contracts, filings), always confirm the primary source — the National Law Information Center, MOEL, NPS, NHIS, Bank of Korea, or HUG.",
     m4: "• This page is informational and not legal or tax advice.",
   },
+  zh: {
+    allTools: "全部工具",
+    h1: "韩国标准数值查询表",
+    intro:
+      "本页如实公开 Workmate 计算器实际使用的变动数值。显示值直接读取与计算器相同的常量文件，因此两者绝不会出现偏差；每个项目都附有法律依据·官方公告、适用期间与最终验证日期。我们认为，对于一个处理最低工资、费率等逐年变化数值的网站而言，这是应尽的最基本责任。",
+    colItem: "项目",
+    colValue: "当前数值",
+    colBasis: "依据 · 适用",
+    colVerified: "验证日期",
+    methodH2: "验证方法与局限",
+    m1: `• 每个数值只存在于代码中唯一的常量文件中，本页面与计算器 import 的是同一个常量。验证日期超过 ${FRESHNESS_LIMIT_DAYS} 天时，内部自动检查会发出警告。`,
+    m2: "• '公告·决定'类项目有固定的发布周期（最低工资每年8月、国民年金上下限每年7月、基准利率每年8次会议等），我们会在公布后立即更新。实证案例：在2026-07-03构建本登记表时，发现并当场修正了最低工资、年金上下限、失业津贴上下限共3项过期数值。",
+    m3: "• '经验值'标签代表的是行业通用数值，并非法定标准。在签约、申报等实际决策之前，请务必到相关机构（法制处国家法令信息中心、雇佣劳动部、NPS、NHIS、韩国银行、HUG）核实原文。",
+    m4: "• 本页面仅供信息参考，不构成法律或税务建议。",
+  },
   vi: {
     allTools: "Tất cả công cụ",
     h1: "Bảng tra cứu số liệu chuẩn Hàn Quốc",
@@ -189,13 +230,37 @@ export default async function DataRegistryPage({
   const t = UI[lang];
 
   const nameOf = (e: DataRegistryEntry): string =>
-    lang === "ko" ? e.nameKo : lang === "vi" ? e.nameVi : e.nameEn;
+    lang === "ko"
+      ? e.nameKo
+      : lang === "zh"
+        ? e.nameZh
+        : lang === "vi"
+          ? e.nameVi
+          : e.nameEn;
   const valueOf = (e: DataRegistryEntry): string =>
-    lang === "ko" ? e.valueKo : lang === "vi" ? e.valueVi : e.valueEn;
+    lang === "ko"
+      ? e.valueKo
+      : lang === "zh"
+        ? e.valueZh
+        : lang === "vi"
+          ? e.valueVi
+          : e.valueEn;
   const basisOf = (e: DataRegistryEntry): string =>
-    lang === "ko" ? e.basisKo : lang === "vi" ? e.basisVi : e.basisEn;
+    lang === "ko"
+      ? e.basisKo
+      : lang === "zh"
+        ? e.basisZh
+        : lang === "vi"
+          ? e.basisVi
+          : e.basisEn;
   const effectiveOf = (e: DataRegistryEntry): string =>
-    lang === "ko" ? e.effectiveKo : lang === "vi" ? e.effectiveVi : e.effectiveEn;
+    lang === "ko"
+      ? e.effectiveKo
+      : lang === "zh"
+        ? e.effectiveZh
+        : lang === "vi"
+          ? e.effectiveVi
+          : e.effectiveEn;
 
   const grouped = CATEGORY_ORDER.map((cat) => ({
     cat,

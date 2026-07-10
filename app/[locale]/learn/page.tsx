@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import { ArrowRight, Gamepad2, Spade, Swords } from "lucide-react";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
 import { ProjectsTabs } from "@/components/projects/ProjectsTabs";
+import {
+  PROJECTS_CATALOG,
+  resolveProjectUrl,
+  type ProjectEntry,
+} from "@/lib/projectsCatalog";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -93,6 +100,74 @@ const COPY = {
   },
 } as const;
 
+/**
+ * learn 하단 "게임으로 익히기" 유도 — K-생태계 마지막 고리(한국어 학습 → 한국 게임).
+ * 게임 카피는 lib/projectsCatalog.ts(단일 진실원)의 i18n 필드를 그대로 재사용하고,
+ * 여기서는 섹션 헤딩/CTA 문구만 관리한다.
+ */
+const GAMES_COPY = {
+  ko: {
+    heading: "한국어 익혔으니, 이번엔 게임으로 한국 문화를",
+    body: "화투, 무협 세계관 — 한국 문화가 담긴 게임을 브라우저에서 바로 즐겨보세요. 회원가입도 설치도 필요 없습니다.",
+    cta: "무료 게임 전체 보기",
+  },
+  en: {
+    heading: "Now play with the culture you just learned",
+    body: "Hwatu card games, a martial-arts world — Korean culture, playable instantly in your browser. No signup, no install.",
+    cta: "See all free games",
+  },
+  zh: {
+    heading: "学完韩语，换个方式感受韩国文化",
+    body: "花斗纸牌、武侠世界观——韩国文化融入的游戏，浏览器里直接畅玩。无需注册，无需安装。",
+    cta: "查看全部免费游戏",
+  },
+  vi: {
+    heading: "Học tiếng Hàn xong, khám phá văn hóa Hàn qua game",
+    body: "Bài hoa Hwatu, thế giới võ hiệp — văn hóa Hàn Quốc gói trong những tựa game chơi ngay trên trình duyệt. Không cần đăng ký, không cần cài đặt.",
+    cta: "Xem tất cả game miễn phí",
+  },
+} as const;
+
+const GAME_ICON: Record<string, typeof Gamepad2> = {
+  "k-poker": Spade,
+  defense: Swords,
+};
+
+function GamePreviewCard({
+  project,
+  localeKey,
+}: {
+  project: ProjectEntry;
+  localeKey: Locale;
+}): React.ReactElement {
+  const copy = project.i18n[localeKey];
+  const url = resolveProjectUrl(project, localeKey);
+  const Icon = GAME_ICON[project.id] ?? Gamepad2;
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="group flex items-start gap-3 rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] p-4 transition-colors hover:border-rose-400/50"
+    >
+      <span
+        className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-gradient-to-br ${project.accent} text-white`}
+      >
+        <Icon className="h-5 w-5" />
+      </span>
+      <span className="min-w-0">
+        <span className="block text-sm font-semibold text-[color:var(--color-text-primary)]">
+          {copy.title}
+        </span>
+        <span className="mt-0.5 block text-xs leading-relaxed text-[color:var(--color-text-tertiary)]">
+          {copy.tagline}
+        </span>
+      </span>
+    </a>
+  );
+}
+
 function localeKeyOf(locale: string): "ko" | "en" | "zh" | "vi" {
   if (locale === "ko") return "ko";
   if (locale === "zh") return "zh";
@@ -132,6 +207,10 @@ export default async function LearnHubPage({
   const { locale } = await params;
   const localeKey = localeKeyOf(locale);
   const c = COPY[localeKey];
+  const gamesCopy = GAMES_COPY[localeKey];
+  const gameProjects = PROJECTS_CATALOG.filter((p) => p.tab === "games").sort(
+    (a, b) => a.order - b.order,
+  );
   const t = await getTranslations({
     locale: localeKey as Locale,
     namespace: "projects",
@@ -163,6 +242,33 @@ export default async function LearnHubPage({
           labels={labels}
           visibleTabs={["learn"]}
         />
+
+        <section className="mt-14 max-w-3xl border-t border-[color:var(--color-border-subtle)] pt-10">
+          <h2 className="text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+            {gamesCopy.heading}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
+            {gamesCopy.body}
+          </p>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {gameProjects.map((project) => (
+              <GamePreviewCard
+                key={project.id}
+                project={project}
+                localeKey={localeKey as Locale}
+              />
+            ))}
+          </div>
+
+          <Link
+            href={`/${locale}/games`}
+            className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-rose-400 transition-colors hover:text-rose-300"
+          >
+            {gamesCopy.cta}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </section>
       </div>
     </main>
   );
