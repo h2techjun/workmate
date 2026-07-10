@@ -33,6 +33,7 @@ export const VI_READY_PATHS: readonly string[] = [
   "/electric-bill",
   "/btu-calc",
   "/insurance-calc",
+  "/guide/four-insurance",
   "/biznum-check",
   "/labor-calc/annual-leave",
   "/labor-calc/weekly-rest-pay",
@@ -67,6 +68,23 @@ export const VI_READY_PATHS: readonly string[] = [
   "/voltage-guide",
   // 웨이브4 — GEO/신뢰 데이터 레지스트리 (registry 12항목 vi + 페이지 3-locale)
   "/data",
+  // 웨이브5 — 전기 현장 가이드 (page 4-locale 완역)
+  "/guide/wire-size",
+  // blog/guide vi 4로케일 완성 (2026-07-10) — 허브 + blog 9 + guide 3 (four-insurance 기등록)
+  "/blog",
+  "/blog/korean-units-numbers-for-foreigners",
+  "/blog/renting-in-korea-jeonse-wolse-guide",
+  "/blog/living-in-korea-foreigner-guide",
+  "/blog/essential-apps-korea-foreigners",
+  "/blog/loan-30-vs-15-years",
+  "/blog/income-tax-progressive-trap",
+  "/blog/korean-pyeong-explained-for-foreigners",
+  "/blog/korean-business-number-checksum",
+  "/blog/rent-cap-tenant-checklist",
+  "/guide",
+  "/guide/biz-number",
+  "/guide/insulation",
+  "/guide/span",
 ];
 
 const SET = new Set(VI_READY_PATHS);

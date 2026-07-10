@@ -14,18 +14,41 @@ interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
+/** locale 값으로 4개 언어 중 하나 선택 (ko/zh/vi 외 locale 은 en fallback) */
+function pickLang(
+  locale: string,
+  ko: string,
+  en: string,
+  zh: string,
+  vi: string,
+): string {
+  if (locale === "ko") return ko;
+  if (locale === "zh") return zh;
+  if (locale === "vi") return vi;
+  return en;
+}
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale === "ko";
   const post = findPost(SLUG)!;
-  const title = isKo ? post.titleKo : post.titleEn;
-  const description = isKo ? post.summaryKo : post.summaryEn;
-  return {
-    title: `${title} — Workmate`,
-    description,
-    keywords: isKo
+  const title = pickLang(
+    locale,
+    post.titleKo,
+    post.titleEn,
+    post.titleZh,
+    post.titleVi,
+  );
+  const description = pickLang(
+    locale,
+    post.summaryKo,
+    post.summaryEn,
+    post.summaryZh,
+    post.summaryVi,
+  );
+  const keywords =
+    locale === "ko"
       ? [
           "한국 외국인 필수 앱",
           "외국인 카카오톡 가입",
@@ -33,15 +56,37 @@ export async function generateMetadata({
           "외국인 토스 가입",
           "외국인 배민 외국카드",
         ]
-      : [
-          "essential apps korea foreigners",
-          "best apps for living in korea",
-          "kakaotalk foreign number",
-          "korea apps without ARC",
-          "korean identity verification foreigner",
-          "toss app foreigner",
-          "baemin foreign card",
-        ],
+      : locale === "zh"
+        ? [
+            "在韩外国人必备App",
+            "外国人KakaoTalk注册",
+            "韩国实名认证外国人",
+            "外国人Toss护照注册",
+            "外国人Baemin外国卡",
+            "PASS认证外国人",
+          ]
+        : locale === "vi"
+          ? [
+              "ứng dụng thiết yếu Hàn Quốc người nước ngoài",
+              "đăng ký KakaoTalk số nước ngoài",
+              "xác thực danh tính người nước ngoài Hàn Quốc",
+              "đăng ký Toss bằng hộ chiếu",
+              "Baemin thẻ nước ngoài",
+              "xác thực PASS Hàn Quốc",
+            ]
+          : [
+              "essential apps korea foreigners",
+              "best apps for living in korea",
+              "kakaotalk foreign number",
+              "korea apps without ARC",
+              "korean identity verification foreigner",
+              "toss app foreigner",
+              "baemin foreign card",
+            ];
+  return {
+    title: `${title} — Workmate`,
+    description,
+    keywords,
     alternates: {
       canonical: `/${locale}/blog/${SLUG}`,
       languages: buildLanguagesAlt(`/blog/${SLUG}`),
@@ -51,7 +96,14 @@ export async function generateMetadata({
       description,
       type: "article",
       url: `${SITE_URL}/${locale}/blog/${SLUG}`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
       publishedTime: post.publishedAt,
     },
   };
@@ -65,7 +117,6 @@ export default async function BlogPostPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -76,41 +127,125 @@ export default async function BlogPostPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "현장 노트" : "Field Notes"}
+            {pickLang(
+              locale,
+              "현장 노트",
+              "Field Notes",
+              "实地笔记",
+              "Ghi chép thực tế",
+            )}
           </Link>
         </nav>
-        {isKo ? <ContentKo locale={locale} /> : <ContentEn locale={locale} />}
+        {locale === "ko" ? (
+          <ContentKo locale={locale} />
+        ) : locale === "zh" ? (
+          <ContentZh locale={locale} />
+        ) : locale === "vi" ? (
+          <ContentVi locale={locale} />
+        ) : (
+          <ContentEn locale={locale} />
+        )}
       </div>
     </main>
   );
 }
 
 /** ARC 전에 바로 되는 앱 vs ARC/한국번호 필요한 앱 — 글의 핵심 표 */
-function VerificationTable({ isKo }: { isKo: boolean }): React.ReactElement {
-  const rows: Array<{ app: string; before: "yes" | "partial" | "no"; note: string; noteEn: string }> = [
-    { app: "KakaoTalk", before: "yes", note: "외국 번호로 가입 OK (KakaoPay만 한국번호+ARC)", noteEn: "Sign up with a foreign number (only KakaoPay needs Korean number + ARC)" },
-    { app: "Naver Map · Subway Korea", before: "yes", note: "가입 없이 사용", noteEn: "No sign-up needed" },
-    { app: "Papago", before: "yes", note: "가입 없이 사용", noteEn: "No sign-up needed" },
-    { app: "Toss", before: "partial", note: "여권으로 가입 가능, 송금 등 full 기능은 ARC+한국폰", noteEn: "Sign up with passport; full features need ARC + Korean phone" },
-    { app: "Uber (UT)", before: "yes", note: "외국 카드 자동결제 OK", noteEn: "Foreign-card auto-pay works" },
-    { app: "Shuttle (배달)", before: "yes", note: "번호·계좌 불필요, PayPal·외국카드", noteEn: "No number/account; PayPal & foreign cards" },
-    { app: "Baemin (배민)", before: "no", note: "통상 한국 인증 필요 (2026.2~ 외국카드·영어 지원)", noteEn: "Usually needs Korean verification (foreign cards & English since Feb 2026)" },
-    { app: "Toss뱅크 · KakaoPay · 당근페이", before: "no", note: "본인명의 한국폰 + ARC 필요", noteEn: "Need Korean phone in your name + ARC" },
-    { app: "정부24 · 홈택스", before: "no", note: "한국폰 인증 또는 기관 방문", noteEn: "Korean-phone verification or in-person" },
+function VerificationTable({ locale }: { locale: string }): React.ReactElement {
+  const rows: Array<{
+    app: string;
+    before: "yes" | "partial" | "no";
+    noteKo: string;
+    noteEn: string;
+    noteZh: string;
+    noteVi: string;
+  }> = [
+    {
+      app: "KakaoTalk",
+      before: "yes",
+      noteKo: "외국 번호로 가입 OK (KakaoPay만 한국번호+ARC)",
+      noteEn: "Sign up with a foreign number (only KakaoPay needs Korean number + ARC)",
+      noteZh: "可用外国号码注册(仅KakaoPay需韩国号码+ARC)",
+      noteVi: "Đăng ký bằng số nước ngoài OK (chỉ KakaoPay cần số Hàn + ARC)",
+    },
+    {
+      app: "Naver Map · Subway Korea",
+      before: "yes",
+      noteKo: "가입 없이 사용",
+      noteEn: "No sign-up needed",
+      noteZh: "无需注册即可使用",
+      noteVi: "Dùng không cần đăng ký",
+    },
+    {
+      app: "Papago",
+      before: "yes",
+      noteKo: "가입 없이 사용",
+      noteEn: "No sign-up needed",
+      noteZh: "无需注册即可使用",
+      noteVi: "Dùng không cần đăng ký",
+    },
+    {
+      app: "Toss",
+      before: "partial",
+      noteKo: "여권으로 가입 가능, 송금 등 full 기능은 ARC+한국폰",
+      noteEn: "Sign up with passport; full features need ARC + Korean phone",
+      noteZh: "可用护照注册,转账等完整功能需ARC+韩国手机",
+      noteVi: "Đăng ký được bằng hộ chiếu; đầy đủ tính năng như chuyển tiền cần ARC + điện thoại Hàn",
+    },
+    {
+      app: "Uber (UT)",
+      before: "yes",
+      noteKo: "외국 카드 자동결제 OK",
+      noteEn: "Foreign-card auto-pay works",
+      noteZh: "外国卡自动扣款可用",
+      noteVi: "Tự động thanh toán bằng thẻ nước ngoài OK",
+    },
+    {
+      app: "Shuttle (배달)",
+      before: "yes",
+      noteKo: "번호·계좌 불필요, PayPal·외국카드",
+      noteEn: "No number/account; PayPal & foreign cards",
+      noteZh: "无需号码·账户,支持PayPal·外国卡",
+      noteVi: "Không cần số/tài khoản; dùng PayPal · thẻ nước ngoài",
+    },
+    {
+      app: "Baemin (배민)",
+      before: "no",
+      noteKo: "통상 한국 인증 필요 (2026.2~ 외국카드·영어 지원)",
+      noteEn: "Usually needs Korean verification (foreign cards & English since Feb 2026)",
+      noteZh: "通常需韩国认证(2026年2月起支持外国卡·英文)",
+      noteVi: "Thường cần xác thực Hàn Quốc (hỗ trợ thẻ nước ngoài · tiếng Anh từ tháng 2/2026)",
+    },
+    {
+      app: "Toss뱅크 · KakaoPay · 당근페이",
+      before: "no",
+      noteKo: "본인명의 한국폰 + ARC 필요",
+      noteEn: "Need Korean phone in your name + ARC",
+      noteZh: "需本人名下韩国手机 + ARC",
+      noteVi: "Cần điện thoại Hàn đứng tên bạn + ARC",
+    },
+    {
+      app: "정부24 · 홈택스",
+      before: "no",
+      noteKo: "한국폰 인증 또는 기관 방문",
+      noteEn: "Korean-phone verification or in-person",
+      noteZh: "需韩国手机认证或亲自到机构办理",
+      noteVi: "Xác thực bằng điện thoại Hàn hoặc đến tận nơi",
+    },
   ];
   const badge = {
-    yes: { ko: "✅ ARC 전 OK", en: "✅ before ARC", cls: "text-emerald-300" },
-    partial: { ko: "⚠️ 일부", en: "⚠️ partial", cls: "text-amber-300" },
-    no: { ko: "❌ ARC 필요", en: "❌ needs ARC", cls: "text-rose-300" },
+    yes: { ko: "✅ ARC 전 OK", en: "✅ before ARC", zh: "✅ ARC 前可用", vi: "✅ dùng trước ARC", cls: "text-emerald-300" },
+    partial: { ko: "⚠️ 일부", en: "⚠️ partial", zh: "⚠️ 部分", vi: "⚠️ một phần", cls: "text-amber-300" },
+    no: { ko: "❌ ARC 필요", en: "❌ needs ARC", zh: "❌ 需要ARC", vi: "❌ cần ARC", cls: "text-rose-300" },
   };
   return (
     <div className="overflow-hidden rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)]">
       <table className="w-full text-sm">
         <thead className="text-xs uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
           <tr>
-            <th className="px-4 py-2 text-left font-medium">{isKo ? "앱" : "App"}</th>
-            <th className="px-4 py-2 text-left font-medium">{isKo ? "ARC 전 사용" : "Before ARC"}</th>
-            <th className="px-4 py-2 text-left font-medium">{isKo ? "메모" : "Note"}</th>
+            <th className="px-4 py-2 text-left font-medium">{pickLang(locale, "앱", "App", "应用", "Ứng dụng")}</th>
+            <th className="px-4 py-2 text-left font-medium">{pickLang(locale, "ARC 전 사용", "Before ARC", "ARC 前使用", "Dùng trước ARC")}</th>
+            <th className="px-4 py-2 text-left font-medium">{pickLang(locale, "메모", "Note", "备注", "Ghi chú")}</th>
           </tr>
         </thead>
         <tbody className="text-[color:var(--color-text-secondary)]">
@@ -118,9 +253,9 @@ function VerificationTable({ isKo }: { isKo: boolean }): React.ReactElement {
             <tr key={r.app} className="border-t border-[color:var(--color-border-subtle)] align-top">
               <td className="px-4 py-2 font-medium text-[color:var(--color-text-primary)]">{r.app}</td>
               <td className={`px-4 py-2 whitespace-nowrap ${badge[r.before].cls}`}>
-                {isKo ? badge[r.before].ko : badge[r.before].en}
+                {pickLang(locale, badge[r.before].ko, badge[r.before].en, badge[r.before].zh, badge[r.before].vi)}
               </td>
-              <td className="px-4 py-2 text-xs leading-relaxed">{isKo ? r.note : r.noteEn}</td>
+              <td className="px-4 py-2 text-xs leading-relaxed">{pickLang(locale, r.noteKo, r.noteEn, r.noteZh, r.noteVi)}</td>
             </tr>
           ))}
         </tbody>
@@ -129,12 +264,12 @@ function VerificationTable({ isKo }: { isKo: boolean }): React.ReactElement {
   );
 }
 
-function RelatedTools({ locale, isKo }: { locale: string; isKo: boolean }): React.ReactElement {
+function RelatedTools({ locale }: { locale: string }): React.ReactElement {
   const tools = [
-    { href: "/foreign-flat-tax", ko: "외국인 단일세율 vs 누진세", en: "Foreign Flat Tax" },
-    { href: "/foreign-health-insurance", ko: "외국인 건강보험료", en: "Health Insurance (NHIS)" },
-    { href: "/apartment-area", ko: "전용·공급면적 / 평당가", en: "Apartment Area & Price" },
-    { href: "/f2-residence-visa", ko: "F-2-7 거주비자 자격", en: "F-2-7 Residence Visa" },
+    { href: "/foreign-flat-tax", ko: "외국인 단일세율 vs 누진세", en: "Foreign Flat Tax", zh: "外国人单一税率 vs 累进税", vi: "Thuế suất cố định vs lũy tiến cho người nước ngoài" },
+    { href: "/foreign-health-insurance", ko: "외국인 건강보험료", en: "Health Insurance (NHIS)", zh: "外国人健康保险费", vi: "Phí bảo hiểm y tế cho người nước ngoài" },
+    { href: "/apartment-area", ko: "전용·공급면적 / 평당가", en: "Apartment Area & Price", zh: "专用·供给面积 / 每坪价", vi: "Diện tích sử dụng riêng · cung cấp / giá mỗi pyeong" },
+    { href: "/f2-residence-visa", ko: "F-2-7 거주비자 자격", en: "F-2-7 Residence Visa", zh: "F-2-7 居住签证资格", vi: "Điều kiện visa cư trú F-2-7" },
   ];
   return (
     <div className="flex flex-wrap gap-2">
@@ -144,7 +279,7 @@ function RelatedTools({ locale, isKo }: { locale: string; isKo: boolean }): Reac
           href={`/${locale}${t.href}`}
           className="inline-flex items-center rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] px-3.5 py-1.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-500/40 hover:bg-indigo-500/5 hover:text-indigo-300"
         >
-          {isKo ? t.ko : t.en}
+          {pickLang(locale, t.ko, t.en, t.zh, t.vi)}
         </Link>
       ))}
     </div>
@@ -203,7 +338,7 @@ function ContentEn({ locale }: { locale: string }): React.ReactElement {
           </li>
         </ul>
         <p>So the practical question for every app is: <em>does it work before my ARC, or not?</em></p>
-        <VerificationTable isKo={false} />
+        <VerificationTable locale={locale} />
       </section>
 
       <section className="space-y-4">
@@ -295,7 +430,7 @@ function ContentEn({ locale }: { locale: string }): React.ReactElement {
           Apps get you through daily life; these free Workmate tools handle the numbers behind it —
           your tax, health insurance, rent, and visa:
         </p>
-        <RelatedTools locale={locale} isKo={false} />
+        <RelatedTools locale={locale} />
       </section>
       <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
     </article>
@@ -349,7 +484,7 @@ function ContentKo({ locale }: { locale: string }): React.ReactElement {
           </li>
         </ul>
         <p>그래서 모든 앱의 실질 질문은: <em>내 ARC 전에 되나, 안 되나?</em></p>
-        <VerificationTable isKo={true} />
+        <VerificationTable locale={locale} />
       </section>
 
       <section className="space-y-4">
@@ -410,9 +545,225 @@ function ContentKo({ locale }: { locale: string }): React.ReactElement {
         <p>
           앱이 일상을 해결한다면, 그 뒤의 숫자(세금·건강보험·집·비자)는 아래 무료 Workmate 도구가 처리합니다:
         </p>
-        <RelatedTools locale={locale} isKo={true} />
+        <RelatedTools locale={locale} />
       </section>
       <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
+    </article>
+  );
+}
+
+function ContentZh({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-8 leading-relaxed text-[color:var(--color-text-secondary)]">
+      <header>
+        <p className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+          韩国生活·外国人
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          在韩国生活的外国人必备App——从实名认证门槛到注册技巧
+        </h1>
+        <p className="mt-4 text-sm text-[color:var(--color-text-tertiary)]">
+          截至2026年6月。App政策会变动，注册前请在App内确认最新政策。
+        </p>
+      </header>
+
+      <section className="space-y-4">
+        <p>
+          抵韩第一天，你打开Google地图想找路——却发现几乎用不了(韩国限制地图数据外传，逐步导航被封锁)。这就是第一个信号：问题不在App本身，而在于<em>如何进入这些App</em>，真正的门槛是韩国式实名认证体系。本文梳理哪些App能立刻使用，哪些必须先有外国人登录证(ARC)。
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          实名认证门槛(请先阅读)
+        </h2>
+        <p>
+          韩国大多数服务——银行、购物、政府、部分外卖——都要求通过<strong>PASS App</strong>或实名认证来核对运营商的实名记录。新来的外国人最常被卡住的陷阱：
+        </p>
+        <ul className="list-inside list-disc space-y-1.5">
+          <li>
+            <strong>用护照开通的预付费USIM通常无法通过实名认证。</strong>必须是<strong>用ARC登记的后付费套餐</strong>才行。在ARC下发之前(约一个月)，你会被困在"数字候机室"里。
+          </li>
+          <li>
+            <strong>自2025年1月起，ARC成为认证基准(system of record)</strong>——仅凭护照的登记方式已在多个系统中被取消。
+          </li>
+          <li>
+            姓名在护照、运营商、App上必须<strong>完全一致</strong>——包括大小写、空格、连字符、中间名。不一致是认证失败的头号原因。建议<strong>全部大写、不留空格</strong>。
+          </li>
+        </ul>
+        <p>所以每个App的实际问题都是：<em>在我拿到ARC之前，它能不能用？</em></p>
+        <VerificationTable locale={locale} />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          抵达第一天就该装的TOP 5
+        </h2>
+        <p>无论有没有ARC都能立刻使用，按顺序：</p>
+        <ol className="list-inside list-decimal space-y-1.5">
+          <li><strong>KakaoTalk</strong>——用本国号码注册。韩国生活90%的沟通都靠它。</li>
+          <li><strong>Naver地图</strong>(+ <strong>Subway Korea 地铁神器</strong>)——Google地图无法导航。对英语最友好的首选。</li>
+          <li><strong>Papago</strong>——翻译菜单、标识、合同。无需注册。</li>
+          <li><strong>Toss</strong>——唯一能仅凭护照就开始使用的金融App，支持10种语言。</li>
+          <li><strong>Uber(UT)</strong>或<strong>Kakao T</strong>——打车。外国卡自动扣款用Uber更稳，普及度则是Kakao T更高。</li>
+        </ol>
+        <p className="text-sm text-[color:var(--color-text-tertiary)]">短期访问、没有ARC时的加分项：<strong>Shuttle</strong>——全英文外卖 + PayPal。</p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">分类别看</h2>
+        <p><strong>即时通讯：</strong> KakaoTalk是必装。基本聊天用外国号码就行，只有KakaoPay和国内实名认证才需要韩国号码+ARC。</p>
+        <p><strong>地图、交通：</strong> Naver地图的英文和实时公交/地铁信息(几号出口、第几节车厢)最好。KakaoMap擅长找餐厅，Subway Korea则是免费、翻译完善的地铁专用App。Google地图在韩国无法逐步导航。</p>
+        <p><strong>打车：</strong> Kakao T排第一，但没有韩国号码时外国卡自动扣款时好时坏——没有号码的话，Uber(通过SKT TMAP合作重返韩国)更稳妥。</p>
+        <p><strong>金融：</strong> Toss对外国人最友好(护照注册、10种语言)，但转账等功能需要ARC+本人名下的韩国手机。Toss Bank支持非面对面的外国人开户。</p>
+        <p><strong>汇款回国：</strong> Wise(透明的中间汇率)和SentBe(固定₩2,500，东南亚方向有优势)。外国人有<strong>每年5000万韩元的汇款限额</strong>，超过则需带上护照+ARC+收入证明前往指定银行。</p>
+        <p><strong>外卖：</strong> 重大变化——<strong>2026年2月Baemin新增了英语、中文、日语 + 外国信用卡</strong>，并于<strong>6月2日支持海外卡Apple Pay</strong>(韩国外卖App首例)。"外国人用不了Baemin"这种说法已经过时。没有ARC的话就用<strong>Shuttle</strong>(全英文、PayPal)。</p>
+        <p><strong>购物：</strong> Coupang(设置里有英文测试版，外国卡现在可用，但没有ARC则最低下单额₩19,800、且不能用Rocket Wow火箭会员)。Karrot(당근마켓)用于同城二手直接交易——注册需要韩国010号码。</p>
+        <p><strong>行政：</strong> HiKorea(签证)、Gov24、Hometax(税务)是网页版，部分支持英文——复杂表单会切回韩语，需要手机认证或亲自到场。</p>
+      </section>
+
+      <section className="space-y-3 rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-5">
+        <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">注册小贴士</h2>
+        <ul className="list-inside list-disc space-y-1.5 text-sm">
+          <li>KakaoTalk<strong>先用本国号码注册</strong>，等有了韩国号码再补上实名认证。</li>
+          <li>姓名要<strong>全部大写，注意空格、连字符</strong>——必须和运营商登记名100%一致，PASS才能通过。</li>
+          <li>预付费USIM ≠ 实名认证。要真正用上各种App，就得<strong>用ARC办后付费套餐</strong>(外国人专门门店提供多语言服务)。</li>
+          <li><strong>Toss在拿到ARC前先用护照注册</strong> → ARC下发后扫描它即可解锁全部功能。</li>
+          <li>外国卡支付要在刚到韩国时用小额订单、短途打车提前测试(每个App的支付网关都不同)。</li>
+        </ul>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          外国人最常卡住的地方(及解决办法)
+        </h2>
+        <ol className="list-inside list-decimal space-y-1.5">
+          <li><strong>实名认证门槛</strong>——没有ARC + 后付费手机，大多数App都无法注册。</li>
+          <li><strong>预付费 vs 后付费USIM</strong>——预付费无法通过PASS认证。</li>
+          <li><strong>姓名不一致</strong>——一个空格、一个中间名就会导致认证反复失败。</li>
+          <li><strong>外国卡时灵时不灵</strong>——同一个App的说法都相互矛盾，取决于有没有ARC/韩国号码。</li>
+          <li><strong>Google地图无法导航</strong>——改用Naver地图/Subway Korea。</li>
+        </ol>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          装好App之后——把钱的事也理清楚
+        </h2>
+        <p>
+          如果说App解决的是日常生活，那么背后的数字(税务、健康保险、住房、签证)就交给下面这些免费的Workmate工具：
+        </p>
+        <RelatedTools locale={locale} />
+      </section>
+      <PostTags tags={findPost(SLUG)!.tags.zh} isKo={false} />
+    </article>
+  );
+}
+
+function ContentVi({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-8 leading-relaxed text-[color:var(--color-text-secondary)]">
+      <header>
+        <p className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+          Cuộc sống tại Hàn Quốc · Người nước ngoài
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          Ứng dụng thiết yếu cho người nước ngoài sống tại Hàn Quốc — từ rào cản xác thực danh tính đến mẹo đăng ký
+        </h1>
+        <p className="mt-4 text-sm text-[color:var(--color-text-tertiary)]">
+          Tính đến tháng 6 năm 2026. Chính sách ứng dụng có thể thay đổi, hãy kiểm tra chính sách mới nhất ngay trong ứng dụng trước khi đăng ký.
+        </p>
+      </header>
+
+      <section className="space-y-4">
+        <p>
+          Ngày đầu tiên ở Hàn Quốc, bạn mở Google Maps để tìm đường — và thấy nó gần như không dùng được (Hàn Quốc hạn chế xuất dữ liệu bản đồ nên chỉ đường từng chặng bị chặn). Đó là dấu hiệu đầu tiên: vấn đề không nằm ở bản thân ứng dụng, mà ở <em>việc vào được ứng dụng</em>, và rào cản thực sự là hệ thống xác thực danh tính kiểu Hàn Quốc. Bài viết này tổng hợp ứng dụng nào dùng được ngay, và ứng dụng nào bắt buộc phải có thẻ đăng ký người nước ngoài (ARC) trước.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          Rào cản xác thực danh tính (hãy đọc phần này trước)
+        </h2>
+        <p>
+          Phần lớn dịch vụ ở Hàn Quốc — ngân hàng, mua sắm, hành chính, thậm chí một số dịch vụ giao đồ ăn — đều yêu cầu <strong>ứng dụng PASS</strong> hoặc xác thực danh tính để đối chiếu với hồ sơ tên thật tại nhà mạng. Cạm bẫy mà người nước ngoài mới đến hay mắc nhất:
+        </p>
+        <ul className="list-inside list-disc space-y-1.5">
+          <li>
+            <strong>USIM trả trước đăng ký bằng hộ chiếu thường không qua được xác thực danh tính.</strong> Bạn cần <strong>gói cước trả sau đăng ký bằng ARC</strong> mới được. Cho đến khi ARC được cấp (khoảng một tháng), bạn bị mắc kẹt trong "phòng chờ kỹ thuật số".
+          </li>
+          <li>
+            <strong>Từ tháng 1 năm 2025, ARC trở thành căn cứ chuẩn (system of record)</strong> — việc chỉ đăng ký bằng hộ chiếu đã bị bỏ ở nhiều hệ thống.
+          </li>
+          <li>
+            Tên của bạn phải <strong>trùng khớp chính xác</strong> trên hộ chiếu, nhà mạng và ứng dụng — chữ hoa/thường, dấu cách, dấu gạch nối, tên đệm. Sai lệch là nguyên nhân số 1 khiến xác thực thất bại. Nên dùng <strong>toàn bộ chữ IN HOA, không có dấu cách</strong>.
+          </li>
+        </ul>
+        <p>Vì vậy câu hỏi thực tế cho mọi ứng dụng là: <em>nó có dùng được trước khi tôi có ARC không?</em></p>
+        <VerificationTable locale={locale} />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          TOP 5 nên cài ngay ngày đầu tiên
+        </h2>
+        <p>Dùng được ngay bất kể có ARC hay không, theo thứ tự:</p>
+        <ol className="list-inside list-decimal space-y-1.5">
+          <li><strong>KakaoTalk</strong> — đăng ký bằng số điện thoại nước bạn. 90% giao tiếp trong đời sống ở Hàn Quốc.</li>
+          <li><strong>Naver Map</strong> (+ <strong>Subway Korea</strong>) — Google Maps không chỉ đường được. Lựa chọn thân thiện với tiếng Anh số một.</li>
+          <li><strong>Papago</strong> — dịch thực đơn, biển báo, hợp đồng. Không cần đăng ký.</li>
+          <li><strong>Toss</strong> — ứng dụng tài chính duy nhất có thể bắt đầu chỉ với hộ chiếu, hỗ trợ 10 ngôn ngữ.</li>
+          <li><strong>Uber (UT)</strong> hoặc <strong>Kakao T</strong> — gọi taxi. Tự động thanh toán bằng thẻ nước ngoài thì Uber an toàn hơn, còn độ phổ biến thì Kakao T hơn.</li>
+        </ol>
+        <p className="text-sm text-[color:var(--color-text-tertiary)]">Điểm cộng cho chuyến đi ngắn ngày, chưa có ARC: <strong>Shuttle</strong> — giao đồ ăn hoàn toàn bằng tiếng Anh + PayPal.</p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">Theo từng nhóm</h2>
+        <p><strong>Nhắn tin:</strong> KakaoTalk là bắt buộc. Trò chuyện cơ bản dùng được với số nước ngoài; chỉ KakaoPay và xác thực danh tính trong nước mới cần số Hàn Quốc + ARC.</p>
+        <p><strong>Bản đồ & giao thông:</strong> Naver Map có tiếng Anh và thông tin xe buýt/tàu điện ngầm theo thời gian thực (cửa ra số mấy, toa tàu thứ mấy) tốt nhất. KakaoMap mạnh về tìm quán ăn, còn Subway Korea là ứng dụng chuyên tàu điện ngầm miễn phí và dịch hoàn hảo. Google Maps không chỉ đường từng chặng được ở Hàn Quốc.</p>
+        <p><strong>Taxi:</strong> Kakao T đứng số một, nhưng nếu không có số Hàn Quốc thì tự động thanh toán bằng thẻ nước ngoài lúc được lúc không — không có số thì Uber (quay lại nhờ hợp tác với SKT TMAP) là lựa chọn an toàn hơn.</p>
+        <p><strong>Tài chính:</strong> Toss thân thiện với người nước ngoài nhất (đăng ký bằng hộ chiếu, 10 ngôn ngữ), nhưng chuyển tiền thì cần ARC + số điện thoại Hàn Quốc đứng tên bạn. Toss Bank hỗ trợ mở tài khoản cho người nước ngoài từ xa.</p>
+        <p><strong>Gửi tiền về nước:</strong> Wise (tỷ giá trung bình minh bạch) và SentBe (phí cố định ₩2,500, mạnh ở khu vực Đông Nam Á). Người nước ngoài có <strong>hạn mức chuyển tiền 50 triệu won mỗi năm</strong>, vượt hạn mức thì mang hộ chiếu + ARC + chứng minh thu nhập đến ngân hàng chỉ định.</p>
+        <p><strong>Giao đồ ăn:</strong> Thay đổi lớn — <strong>tháng 2 năm 2026, Baemin đã thêm tiếng Anh, tiếng Trung, tiếng Nhật + thẻ tín dụng nước ngoài</strong>, và <strong>Apple Pay với thẻ nước ngoài từ ngày 2 tháng 6</strong> (lần đầu tiên với ứng dụng giao đồ ăn Hàn Quốc). Câu nói "người nước ngoài không dùng được Baemin" đã lỗi thời. Nếu chưa có ARC thì dùng <strong>Shuttle</strong> (hoàn toàn tiếng Anh, PayPal).</p>
+        <p><strong>Mua sắm:</strong> Coupang (có bản beta tiếng Anh trong phần cài đặt; thẻ nước ngoài giờ đã dùng được, nhưng không có ARC thì đơn tối thiểu ₩19,800 và không có Rocket Wow). Karrot (당근마켓) để mua bán đồ cũ trong khu vực — cần số 010 của Hàn Quốc để đăng ký.</p>
+        <p><strong>Hành chính:</strong> HiKorea (visa), Gov24 và Hometax (thuế) là các dịch vụ trên nền web có một phần tiếng Anh — nhưng các biểu mẫu phức tạp sẽ quay về tiếng Hàn và cần xác thực bằng điện thoại hoặc đến tận nơi.</p>
+      </section>
+
+      <section className="space-y-3 rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-5">
+        <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">Mẹo đăng ký</h2>
+        <ul className="list-inside list-disc space-y-1.5 text-sm">
+          <li>Đăng ký KakaoTalk <strong>bằng số điện thoại nước bạn trước</strong>, khi có số Hàn Quốc thì bổ sung xác thực danh tính sau.</li>
+          <li>Nhập tên <strong>toàn bộ chữ IN HOA, để ý dấu cách/gạch nối</strong> — phải khớp 100% với tên đăng ký ở nhà mạng thì PASS mới qua.</li>
+          <li>USIM trả trước ≠ xác thực danh tính. Muốn thực sự dùng được ứng dụng, hãy <strong>đăng ký gói cước trả sau bằng ARC</strong> (các cửa hàng chuyên phục vụ người nước ngoài có hỗ trợ đa ngôn ngữ).</li>
+          <li><strong>Cài Toss bằng hộ chiếu trước khi có ARC</strong> → khi ARC được cấp thì quét nó để mở khóa toàn bộ tính năng.</li>
+          <li>Hãy thử thanh toán bằng thẻ nước ngoài sớm bằng một đơn hàng nhỏ hoặc chuyến xe ngắn (mỗi ứng dụng dùng một cổng thanh toán khác nhau).</li>
+        </ul>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          Những chỗ người nước ngoài hay mắc kẹt (và cách xử lý)
+        </h2>
+        <ol className="list-inside list-decimal space-y-1.5">
+          <li><strong>Rào cản xác thực danh tính</strong> — không có ARC + điện thoại trả sau thì hầu hết ứng dụng không cho đăng ký.</li>
+          <li><strong>USIM trả trước vs trả sau</strong> — trả trước không qua được xác thực PASS.</li>
+          <li><strong>Tên không khớp</strong> — chỉ một dấu cách hay một tên đệm cũng khiến xác thực thất bại liên tục.</li>
+          <li><strong>Thẻ nước ngoài lúc được lúc không</strong> — cùng một ứng dụng mà thông tin lại mâu thuẫn; tùy vào việc có ARC/số Hàn Quốc hay không.</li>
+          <li><strong>Google Maps không chỉ đường được</strong> — chuyển sang Naver Map/Subway Korea.</li>
+        </ol>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          Khi đã cài xong ứng dụng — hãy giải quyết luôn chuyện tiền bạc
+        </h2>
+        <p>
+          Ứng dụng lo cho cuộc sống hằng ngày, còn những con số phía sau (thuế, bảo hiểm y tế, nhà ở, visa) thì các công cụ Workmate miễn phí dưới đây sẽ xử lý:
+        </p>
+        <RelatedTools locale={locale} />
+      </section>
+      <PostTags tags={findPost(SLUG)!.tags.vi} isKo={false} />
     </article>
   );
 }

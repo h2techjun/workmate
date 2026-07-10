@@ -18,13 +18,47 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale === "ko";
   const post = findPost(SLUG)!;
-  const title = isKo ? post.titleKo : post.titleEn;
-  const description = isKo ? post.summaryKo : post.summaryEn;
+
+  let title = post.titleEn;
+  let description = post.summaryEn;
+  let ogLocale = "en_US";
+  let keywords: string[] | undefined;
+
+  if (locale === "ko") {
+    title = post.titleKo;
+    description = post.summaryKo;
+    ogLocale = "ko_KR";
+  } else if (locale === "zh") {
+    title = post.titleZh;
+    description = post.summaryZh;
+    ogLocale = "zh_CN";
+    keywords = [
+      "综合所得税",
+      "累进税制",
+      "超额累进",
+      "累进扣除额",
+      "课税标准",
+      "有效税率",
+    ];
+  } else if (locale === "vi") {
+    title = post.titleVi;
+    description = post.summaryVi;
+    ogLocale = "vi_VN";
+    keywords = [
+      "thuế thu nhập tổng hợp",
+      "thuế lũy tiến",
+      "khấu trừ lũy tiến",
+      "cơ sở tính thuế",
+      "thuế suất biên",
+      "thuế suất thực tế",
+    ];
+  }
+
   return {
     title: `${title} — Workmate`,
     description,
+    ...(keywords ? { keywords } : {}),
     alternates: {
       canonical: `/${locale}/blog/${SLUG}`,
       languages: buildLanguagesAlt(`/blog/${SLUG}`),
@@ -34,7 +68,7 @@ export async function generateMetadata({
       description,
       type: "article",
       url: `${SITE_URL}/${locale}/blog/${SLUG}`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: ogLocale,
       publishedTime: post.publishedAt,
     },
   };
@@ -48,7 +82,6 @@ export default async function BlogPostPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -59,11 +92,25 @@ export default async function BlogPostPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "현장 노트" : "Field Notes"}
+            {locale === "ko"
+              ? "현장 노트"
+              : locale === "zh"
+                ? "实地笔记"
+                : locale === "vi"
+                  ? "Ghi chép thực tế"
+                  : "Field Notes"}
           </Link>
         </nav>
 
-        {isKo ? <KoContent locale={locale} /> : <EnContent locale={locale} />}
+        {locale === "ko" ? (
+          <KoContent locale={locale} />
+        ) : locale === "zh" ? (
+          <ZhContent locale={locale} />
+        ) : locale === "vi" ? (
+          <ViContent locale={locale} />
+        ) : (
+          <EnContent locale={locale} />
+        )}
       </div>
     </main>
   );
@@ -375,6 +422,306 @@ function EnContent({ locale }: { locale: string }): React.ReactElement {
         Hometax's filing assistant or a tax accountant.
       </p>
       <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
+    </article>
+  );
+}
+
+function ZhContent({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-6 text-[color:var(--color-text-secondary)]">
+      <header className="mb-2">
+        <p className="mb-3 text-sm text-[color:var(--color-text-tertiary)]">
+          2026-05-23 · 约 7 分钟
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          综合所得税累进税制最容易搞混的 5 件事
+        </h1>
+      </header>
+
+      <p className="leading-relaxed">
+        每年一到 5 月，同样的问题就反复出现。"听说跨过税率区间反而吃亏，是真的吗？"
+        "累进扣除额是一种退税吗？" "自由职业者哪怕只多拿一点收入，不就要多交税了吗？"
+        然而这些问题的答案几乎都是 "不是"。下面一个一个来拆解。实际的数字，可以在{" "}
+        <Link
+          href={`/${locale}/income-tax`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          综合所得税计算器
+        </Link>
+        里直接确认。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        1. "跨过区间就吃亏" —— 这是彻头彻尾的误解
+      </h2>
+      <p className="leading-relaxed">
+        这是最常见的误解。从 5,000 万韩元区间（15%）迈入 5,001 万韩元（24% 区间），只是多赚了 1 万韩元，并不会突然对整整 1 万韩元全额按 24% 征税。韩国的综合所得税是 <strong>超额累进税</strong>，只有超过各区间门槛的那一部分，才适用更高的税率。
+      </p>
+      <p className="leading-relaxed">
+        具体来说：
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>0 ~ 1,400 万韩元：6%</li>
+        <li>1,400 万 ~ 5,000 万韩元：15%</li>
+        <li>5,000 万 ~ 8,800 万韩元：24%</li>
+        <li>再往上分 8 个档次，最高到 45%</li>
+      </ul>
+      <p className="leading-relaxed">
+        5,001 万韩元的应纳税额为 (1,400 万 × 6%) + (3,600 万 × 15%) + (1 万 × 24%) =
+        84 万 + 540 万 + 0.24 万 = <strong>624.24 万韩元</strong>。多赚 1 万韩元，额外要交的税只有 2,400 韩元。所谓 "跨过区间就吃亏" 的说法并不属实。
+      </p>
+      <p className="leading-relaxed text-sm text-[color:var(--color-text-tertiary)]">
+        不过，四大保险和健康保险在进入某些区间时，负担可能会超出比例地增加，那才是真正 "区间陷阱" 的根源。综合所得税本身并不存在这样的陷阱。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        2. 累进扣除额不是退税，只是一种简化的算法
+      </h2>
+      <p className="leading-relaxed">
+        因为 "累进扣除" 这个词，很多人会以为 "扣除之后税就变少了"，但它其实只是一个让计算变简单的技巧而已。
+      </p>
+      <p className="leading-relaxed">
+        再看一遍上面 5,001 万韩元的例子。按区间逐段相乘再相加当然准确，但每次都这么算太麻烦。于是就改成：先用总额乘以 24%，再减去一个固定金额。5,001 万 × 24% =
+        1,200.24 万，再减去累进扣除额 576 万，就得到 624.24 万。结果完全一样。
+      </p>
+      <p className="leading-relaxed">
+        也就是说，累进扣除额 576 万韩元，只是把 "对 5,000 万韩元以下区间适用较低税率所产生的效果" 简化成一个数字而已。它并不是另外退给你的钱，只是一个计算税额的工具。如果税务局的工作人员说 "给您减去累进扣除额 576 万"，那本来就是这么算的，并不是额外的优惠。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        3. 为什么有效税率总是低于边际税率
+      </h2>
+      <p className="leading-relaxed">
+        课税标准为 1 亿韩元时，边际税率是 35%，但实际交的税并不是 1 亿的 35%。应纳税额为 (1 亿 × 35%) − 1,544 万 = 1,956 万韩元，占 1 亿的 19.56%。这就是有效税率。
+      </p>
+      <p className="leading-relaxed">
+        边际税率是 "适用于下一个 1 万韩元的税率"，有效税率是 "对全部收入平均适用的税率"。两者并不相等，而且有效税率总是更低。在节税规划里，区分这两个概念很重要 —— 追加收入的税负要看边际税率，整体税负则要看有效税率。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        4. 年薪、收入和课税标准是不同的概念
+      </h2>
+      <p className="leading-relaxed">
+        年薪 5,000 万韩元的上班族，如果把 5,000 万直接填进综合所得税计算器，得到的结果是错的。韩国税法里的 "课税标准"，是按下面这样逐项扣减之后剩下的数值。
+      </p>
+      <div className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 text-sm leading-relaxed">
+        年薪（税前总工资） − 劳动所得扣除 − 人员扣除 − 养老保险费扣除 −
+        特别扣除（住房、捐款等） = 课税标准
+      </div>
+      <p className="leading-relaxed">
+        年薪 5,000 万韩元的一般课税标准大约在 3,000 万韩元左右，适用的是 15% 区间的税率。所以年薪 5,000 万的人，并不属于 24% 区间，而是 15% 区间。综合所得税计算器里有 "课税标准" 这一栏，把年末结算收据上的那个数值照搬进去就行。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        5. 分离课税 vs 综合课税 —— 分离并不总是更划算
+      </h2>
+      <p className="leading-relaxed">
+        金融所得（利息、股息）每年在 2,000 万韩元以下的部分，自动按 14% 分离课税（含地方税为 15.4%）。超过 2,000 万韩元起就成为综合课税对象，需合并计算并适用累进税率。不过，被纳入综合课税并不一定就吃亏。
+      </p>
+      <p className="leading-relaxed">
+        如果课税标准在 1,400 万韩元以下（例如退休后其他收入不多的情况），综合课税适用 6%，反而可能比分离课税的 14% 更划算。反过来，如果上班族光靠年薪就已经在 24% 区间以上，那维持分离课税会更好。
+      </p>
+      <p className="leading-relaxed text-sm text-[color:var(--color-text-tertiary)]">
+        实际上还有一种叫 "比较课税" 的制度：在申报综合课税时，会与假定按分离课税算出的税额做比较，取较少的一方适用，所以大多数情况下并不会吃亏。只是申报这一步还是得做。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        结语
+      </h2>
+      <p className="leading-relaxed">
+        综合所得税是一个 "看起来复杂、但规则很精确" 的领域。误解通常都源于对累进税运作原理的不理解。先准确掌握自己的课税标准，再把它填进{" "}
+        <Link
+          href={`/${locale}/income-tax`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          综合所得税计算器
+        </Link>
+        ，边际税率、有效税率和应纳税额就能一次看清。在 5 月申报之前先算一遍，就能提前估算出预计税额和退税额。
+      </p>
+      <p className="text-sm text-[color:var(--color-text-tertiary)]">
+        本文仅用于说明一般原理，子女税额扣除、捐款扣除、医疗费扣除等具体项目需另行适用。准确的申报，请通过 Hometax（홈택스）的 "申报帮助服务" 或咨询税务师办理。
+      </p>
+      <PostTags tags={findPost(SLUG)!.tags.zh} isKo={false} />
+    </article>
+  );
+}
+
+function ViContent({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-6 text-[color:var(--color-text-secondary)]">
+      <header className="mb-2">
+        <p className="mb-3 text-sm text-[color:var(--color-text-tertiary)]">
+          2026-05-23 · khoảng 7 phút
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          5 hiểu lầm phổ biến nhất về thuế thu nhập lũy tiến ở Hàn Quốc
+        </h1>
+      </header>
+
+      <p className="leading-relaxed">
+        Cứ đến tháng 5 hằng năm, những câu hỏi giống nhau lại lặp lại. "Nghe nói
+        vượt qua một bậc thuế là bị thiệt, có thật không?" "Khoản khấu trừ lũy
+        tiến có phải là tiền hoàn thuế không?" "Người làm tự do (freelancer) chỉ
+        cần kiếm thêm một chút thôi thì có phải đóng thuế nhiều hơn không?" Thế
+        nhưng câu trả lời cho hầu hết những câu hỏi này đều là 'không'. Hãy cùng
+        gỡ rối từng cái một. Các con số thực tế, bạn có thể tự kiểm tra ngay
+        trong{" "}
+        <Link
+          href={`/${locale}/income-tax`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          công cụ tính thuế thu nhập tổng hợp
+        </Link>
+        .
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        1. "Vượt bậc thuế là bị thiệt" — đây là hiểu lầm hoàn toàn
+      </h2>
+      <p className="leading-relaxed">
+        Đây là hiểu lầm phổ biến nhất. Việc từ mức 50 triệu won (bậc 15%) bước
+        sang 50,01 triệu won (bậc 24%), tức chỉ kiếm thêm 10.000 won, hoàn toàn
+        không khiến cả 10.000 won đó bị đánh thuế 24%. Thuế thu nhập tổng hợp của
+        Hàn Quốc là <strong>thuế lũy tiến từng phần</strong>: chỉ riêng phần vượt
+        qua ngưỡng của mỗi bậc mới bị áp mức thuế suất cao hơn.
+      </p>
+      <p className="leading-relaxed">
+        Cụ thể:
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>0 ~ 14 triệu won: 6%</li>
+        <li>14 triệu ~ 50 triệu won: 15%</li>
+        <li>50 triệu ~ 88 triệu won: 24%</li>
+        <li>cao hơn nữa thì chia thành 8 bậc, lên tới 45%</li>
+      </ul>
+      <p className="leading-relaxed">
+        Số thuế tính ra cho 50,01 triệu won = (14 triệu × 6%) + (36 triệu × 15%)
+        + (10.000 × 24%) = 840.000 + 5,4 triệu + 2.400 = <strong>6.242.400
+        won</strong>. Kiếm thêm 10.000 won thì chỉ phải đóng thêm 2.400 won tiền
+        thuế. Câu nói 'vượt bậc thuế là bị thiệt' không đúng với sự thật.
+      </p>
+      <p className="leading-relaxed text-sm text-[color:var(--color-text-tertiary)]">
+        Tuy nhiên, bốn loại bảo hiểm bắt buộc và bảo hiểm y tế có thể khiến gánh
+        nặng tăng nhiều hơn mức tương ứng khi bước vào một số bậc nhất định, và
+        đó mới thật sự là nguyên nhân của cái gọi là 'bẫy bậc thuế'. Bản thân
+        thuế thu nhập tổng hợp thì không hề có cái bẫy nào như vậy.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        2. Khấu trừ lũy tiến không phải tiền hoàn thuế, chỉ là một cách tính đơn
+        giản hóa
+      </h2>
+      <p className="leading-relaxed">
+        Vì cụm từ 'khấu trừ lũy tiến' (누진공제), nhiều người có ấn tượng rằng
+        'được khấu trừ nên thuế giảm đi', nhưng thực ra nó chỉ là một mẹo giúp
+        việc tính toán trở nên đơn giản hơn.
+      </p>
+      <p className="leading-relaxed">
+        Hãy xem lại ví dụ 50,01 triệu won ở trên. Nhân theo từng bậc rồi cộng lại
+        thì chính xác, nhưng tính kiểu đó mỗi lần khá phiền. Vì vậy người ta đổi
+        sang cách: nhân toàn bộ với 24% rồi trừ đi một số tiền cố định. 50,01
+        triệu × 24% = 12,0024 triệu, trừ đi khoản khấu trừ lũy tiến 5,76 triệu
+        thì còn 6,2424 triệu. Kết quả y hệt.
+      </p>
+      <p className="leading-relaxed">
+        Nói cách khác, khoản khấu trừ lũy tiến 5,76 triệu won chỉ là con số 'đơn
+        giản hóa hiệu quả của việc áp thuế suất thấp cho các bậc từ 50 triệu won
+        trở xuống'. Nó không phải là tiền được hoàn lại riêng, mà chỉ là một công
+        cụ để tính số thuế. Nếu nhân viên cơ quan thuế nói 'tôi sẽ trừ cho
+        anh/chị 5,76 triệu won khấu trừ lũy tiến', thì đó vốn dĩ là cách tính như
+        vậy, chứ không phải một ưu đãi thêm.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        3. Vì sao thuế suất thực tế luôn thấp hơn thuế suất biên
+      </h2>
+      <p className="leading-relaxed">
+        Với cơ sở tính thuế 100 triệu won, thuế suất biên là 35%, nhưng số thuế
+        thực đóng không phải là 35% của 100 triệu. Số thuế tính ra = (100 triệu ×
+        35%) − 15,44 triệu = 19,56 triệu won, tức 19,56% của 100 triệu. Đó chính
+        là thuế suất thực tế.
+      </p>
+      <p className="leading-relaxed">
+        Thuế suất biên là 'thuế suất áp cho 10.000 won tiếp theo', còn thuế suất
+        thực tế là 'thuế suất áp bình quân trên toàn bộ thu nhập'. Hai con số này
+        không bằng nhau, và thuế suất thực tế luôn thấp hơn. Trong việc lập kế
+        hoạch tiết kiệm thuế, phân biệt hai khái niệm này rất quan trọng — gánh
+        nặng thuế của phần thu nhập tăng thêm phải nhìn theo thuế suất biên, còn
+        gánh nặng tổng thể thì nhìn theo thuế suất thực tế.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        4. Lương năm và thu nhập khác với cơ sở tính thuế
+      </h2>
+      <p className="leading-relaxed">
+        Một nhân viên có lương năm 50 triệu won mà điền thẳng 50 triệu vào công
+        cụ tính thuế thu nhập tổng hợp thì sẽ ra kết quả sai. "Cơ sở tính thuế"
+        (과세표준) trong luật thuế Hàn Quốc là giá trị còn lại sau khi trừ đi các
+        khoản như sau.
+      </p>
+      <div className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 text-sm leading-relaxed">
+        Lương năm (tổng lương) − khấu trừ thu nhập từ tiền lương − khấu trừ nhân
+        thân − khấu trừ phí bảo hiểm hưu trí − khấu trừ đặc biệt (nhà ở, tiền
+        quyên góp, v.v.) = cơ sở tính thuế
+      </div>
+      <p className="leading-relaxed">
+        Cơ sở tính thuế thông thường của mức lương năm 50 triệu won vào khoảng 30
+        triệu won, và mức này áp thuế suất bậc 15%. Vì vậy người có lương năm 50
+        triệu won không thuộc bậc 24% mà là bậc 15%. Công cụ tính thuế thu nhập
+        tổng hợp có ô "cơ sở tính thuế", bạn chỉ cần lấy đúng con số đó trên biên
+        lai quyết toán thuế cuối năm điền vào là được.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        5. Đánh thuế riêng vs đánh thuế tổng hợp — riêng không phải lúc nào cũng
+        lợi hơn
+      </h2>
+      <p className="leading-relaxed">
+        Thu nhập tài chính (lãi, cổ tức) từ 20 triệu won/năm trở xuống được tự
+        động đánh thuế riêng ở mức 14% (gồm cả thuế địa phương là 15,4%). Từ mức
+        trên 20 triệu won thì thuộc diện đánh thuế tổng hợp, phải cộng gộp và áp
+        thuế lũy tiến. Nhưng bị đánh thuế tổng hợp không nhất thiết là bị thiệt.
+      </p>
+      <p className="leading-relaxed">
+        Nếu cơ sở tính thuế từ 14 triệu won trở xuống (ví dụ sau khi nghỉ hưu và
+        có ít nguồn thu nhập khác), thì khi đánh thuế tổng hợp sẽ áp mức 6%, có
+        thể lợi hơn so với mức 14% của đánh thuế riêng. Ngược lại, nếu một nhân
+        viên đã ở bậc 24% trở lên chỉ nhờ lương năm, thì giữ nguyên đánh thuế
+        riêng sẽ tốt hơn.
+      </p>
+      <p className="leading-relaxed text-sm text-[color:var(--color-text-tertiary)]">
+        Trên thực tế còn có chế độ gọi là 'đánh thuế so sánh': khi khai báo thuế
+        tổng hợp, cơ quan thuế sẽ so với số thuế tính theo giả định đánh thuế
+        riêng và áp dụng bên nào ít hơn, nên đa số trường hợp sẽ không bị thiệt.
+        Chỉ có điều bạn vẫn phải khai báo.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Kết lại
+      </h2>
+      <p className="leading-relaxed">
+        Thuế thu nhập tổng hợp là lĩnh vực 'trông thì phức tạp nhưng quy tắc lại
+        rất chính xác'. Hiểu lầm thường bắt đầu từ nguyên lý vận hành của thuế
+        lũy tiến. Sau khi nắm chính xác cơ sở tính thuế của mình, hãy nhập nó
+        vào{" "}
+        <Link
+          href={`/${locale}/income-tax`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          công cụ tính thuế thu nhập tổng hợp
+        </Link>
+        , bạn sẽ thấy ngay thuế suất biên, thuế suất thực tế và số thuế tính ra
+        cùng một lúc. Chạy thử một lần trước kỳ khai báo tháng 5, bạn có thể ước
+        lượng trước số thuế dự kiến và số tiền được hoàn.
+      </p>
+      <p className="text-sm text-[color:var(--color-text-tertiary)]">
+        Bài viết này chỉ nhằm giải thích nguyên lý chung; các mục chi tiết như
+        khấu trừ thuế cho con cái, khấu trừ tiền quyên góp, khấu trừ chi phí y
+        tế, v.v. cần được áp dụng riêng. Để khai báo chính xác, hãy thực hiện qua
+        'dịch vụ hỗ trợ khai báo' của Hometax (홈택스) hoặc tư vấn với chuyên
+        viên thuế (세무사).
+      </p>
+      <PostTags tags={findPost(SLUG)!.tags.vi} isKo={false} />
     </article>
   );
 }

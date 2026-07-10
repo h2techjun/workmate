@@ -84,6 +84,11 @@ const TOOL_PATHS = [
   "/learn",
   "/blog",
   "/guide",
+  "/guide/wire-size",
+  "/guide/four-insurance",
+  "/guide/span",
+  "/guide/insulation",
+  "/guide/biz-number",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -109,11 +114,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
   }
-  // 블로그 글 — vi·zh 번역 전이므로 ko/en 만 (publishedAt = lastModified)
-  const blogLocales = locales.filter((l) => l !== "vi" && l !== "zh");
+  // 블로그 글 — zh/vi 는 완역 경로만 포함 (zhReady/viReady 게이트, 부분 번역 색인 방지)
   for (const post of BLOG_POSTS) {
     const path = `/blog/${post.slug}`;
-    for (const locale of blogLocales) {
+    const postLocales = locales.filter(
+      (l) => (l !== "vi" || isViReady(path)) && (l !== "zh" || isZhReady(path)),
+    );
+    for (const locale of postLocales) {
       entries.push({
         url: `${SITE_URL}/${locale}${path}`,
         lastModified: new Date(post.publishedAt),
@@ -121,7 +128,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
         alternates: {
           languages: Object.fromEntries(
-            blogLocales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
+            postLocales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
           ),
         },
       });

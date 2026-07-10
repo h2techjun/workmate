@@ -20,6 +20,7 @@ export const ZH_READY_PATHS: readonly string[] = [
   "/labor-calc/severance",
   "/labor-calc/min-wage-monthly",
   "/insurance-calc",
+  "/guide/four-insurance",
   "/unemployment-benefit",
   // 재무·세금 (tax)
   "/income-tax",
@@ -43,6 +44,7 @@ export const ZH_READY_PATHS: readonly string[] = [
   "/electric-calc/wire-size",
   "/electric-calc/breaker",
   "/electric-calc/voltage-drop",
+  "/guide/wire-size",
   // 자동차 (car)
   "/car-acquisition-tax",
   "/car-tax",
@@ -96,6 +98,21 @@ export const ZH_READY_PATHS: readonly string[] = [
   "/gravel-calc",
   "/deck-calc",
   "/timber-calc/lumber",
+  // blog/guide zh 4로케일 완성 (2026-07-10) — 허브 + blog 9 + guide 3 (wire-size·four-insurance 기등록)
+  "/blog",
+  "/blog/korean-units-numbers-for-foreigners",
+  "/blog/renting-in-korea-jeonse-wolse-guide",
+  "/blog/living-in-korea-foreigner-guide",
+  "/blog/essential-apps-korea-foreigners",
+  "/blog/loan-30-vs-15-years",
+  "/blog/income-tax-progressive-trap",
+  "/blog/korean-pyeong-explained-for-foreigners",
+  "/blog/korean-business-number-checksum",
+  "/blog/rent-cap-tenant-checklist",
+  "/guide",
+  "/guide/biz-number",
+  "/guide/insulation",
+  "/guide/span",
 ];
 
 const SET = new Set(ZH_READY_PATHS);

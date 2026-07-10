@@ -19,12 +19,45 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const isZh = locale === "zh";
+  const isVi = locale === "vi";
   const post = findPost(SLUG)!;
-  const title = isKo ? post.titleKo : post.titleEn;
-  const description = isKo ? post.summaryKo : post.summaryEn;
+  const title = isKo
+    ? post.titleKo
+    : isZh
+      ? post.titleZh
+      : isVi
+        ? post.titleVi
+        : post.titleEn;
+  const description = isKo
+    ? post.summaryKo
+    : isZh
+      ? post.summaryZh
+      : isVi
+        ? post.summaryVi
+        : post.summaryEn;
   return {
     title: `${title} — Workmate`,
     description,
+    keywords: isZh
+      ? [
+          "韩国涨租超过5%",
+          "租金上限5%",
+          "合同续签请求权",
+          "内容证明邮件",
+          "住宅租赁保护法",
+          "租赁纠纷调解委员会",
+        ]
+      : isVi
+        ? [
+            "tăng tiền thuê vượt 5% Hàn Quốc",
+            "trần tăng tiền thuê 5%",
+            "quyền yêu cầu gia hạn hợp đồng",
+            "thư bảo đảm nội dung",
+            "Luật Bảo vệ Thuê nhà ở Hàn Quốc",
+            "Ủy ban Hòa giải Tranh chấp Thuê nhà",
+          ]
+        : undefined,
     alternates: {
       canonical: `/${locale}/blog/${SLUG}`,
       languages: buildLanguagesAlt(`/blog/${SLUG}`),
@@ -34,7 +67,13 @@ export async function generateMetadata({
       description,
       type: "article",
       url: `${SITE_URL}/${locale}/blog/${SLUG}`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: isKo
+        ? "ko_KR"
+        : isZh
+          ? "zh_CN"
+          : isVi
+            ? "vi_VN"
+            : "en_US",
       publishedTime: post.publishedAt,
     },
   };
@@ -48,7 +87,6 @@ export default async function BlogPostPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -59,11 +97,25 @@ export default async function BlogPostPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "현장 노트" : "Field Notes"}
+            {locale === "ko"
+              ? "현장 노트"
+              : locale === "zh"
+                ? "实地笔记"
+                : locale === "vi"
+                  ? "Ghi chép thực tế"
+                  : "Field Notes"}
           </Link>
         </nav>
 
-        {isKo ? <KoContent locale={locale} /> : <EnContent locale={locale} />}
+        {locale === "ko" ? (
+          <KoContent locale={locale} />
+        ) : locale === "zh" ? (
+          <ZhContent locale={locale} />
+        ) : locale === "vi" ? (
+          <ViContent locale={locale} />
+        ) : (
+          <EnContent locale={locale} />
+        )}
       </div>
     </main>
   );
@@ -416,6 +468,365 @@ function EnContent({ locale }: { locale: string }): React.ReactElement {
         set a stricter cap than 5%.
       </p>
       <PostTags tags={findPost(SLUG)!.tags.en} isKo={false} />
+    </article>
+  );
+}
+
+function ZhContent({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-6 text-[color:var(--color-text-secondary)]">
+      <header className="mb-2">
+        <p className="mb-3 text-sm text-[color:var(--color-text-tertiary)]">
+          2026-05-23 · 约 6 分钟
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          收到超过5%涨租通知时，必须马上做的7件事
+        </h1>
+      </header>
+
+      <p className="leading-relaxed">
+        一条短信突然发来：&ldquo;续约时希望能把保证金上调6%。&rdquo;如果你是听说过韩国《住宅租赁保护法》5%规则的租客，脑子里立刻会冒出一堆疑问——&lsquo;6%不是已经超过上限了吗？拒绝的话会不会被赶走？还是干脆接受算了？&rsquo;答案很明确：&lsquo;不要直接接受，按法定程序一步步来&rsquo;。下面把顺序整理给你。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        1. 先按换算保证金准确计算
+      </h2>
+      <p className="leading-relaxed">
+        如果只是保证金上涨，或者只是月租(Wolse)上涨，计算很简单。但如果像半全租(半Jeonse)那样，是保证金加月租的混合合同，就必须按&lsquo;换算保证金&rsquo;计算。公式如下：
+      </p>
+      <div className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 text-sm leading-relaxed">
+        换算保证金 = 保证金 + (月租 × 12 / 全租转月租折算率)
+      </div>
+      <p className="leading-relaxed">
+        全租转月租折算率 = 韩国银行基准利率 + 2%，截至2026-05约为5.0%。想比较自己合同的5%上限和房东提出的方案，把两组数字都输入
+        <Link
+          href={`/${locale}/rent-cap`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          租金5%涨幅上限验证
+        </Link>
+        ，超没超上限、超出多少金额马上就能看到。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        2. 先确认自己是否有资格行使续签请求权
+      </h2>
+      <p className="leading-relaxed">
+        5%规则只适用于租客<strong>已行使续签请求权</strong>的情况。条件是：
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>在租期届满<strong>前6个月至前1个月</strong>之间提出续约要求</li>
+        <li>此前从未行使过续签请求权(仅可行使一次)</li>
+        <li>房东未主张任何正当的拒绝续约理由</li>
+      </ul>
+      <p className="leading-relaxed">
+        三个条件同时满足时，租客可以要求在5%上限内续约，房东不能在没有正当理由的情况下拒绝。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        3. 用书面(内容证明)通知对方行使续签请求权
+      </h2>
+      <p className="leading-relaxed">
+        只靠短信或聊天软件沟通，日后很难举证。请通过内容证明(存证信函)邮寄，写明以下内容：
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>本人依据《住宅租赁保护法》行使续签请求权</li>
+        <li>房东提出的条件超过了5%上限(《住宅租赁保护法》施行令第8条)</li>
+        <li>本人可以接受5%上限以内的金额(注明具体数额)</li>
+        <li>要求房东在14天内答复</li>
+      </ul>
+      <p className="leading-relaxed text-sm text-[color:var(--color-text-tertiary)]">
+        内容证明可以在邮局以约3,000韩元寄出，本人、房东、邮局各留存一份，法律证据效力很强。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        4. 如果房东拒绝，就向纠纷调解委员会申请调解
+      </h2>
+      <p className="leading-relaxed">
+        如果房东摆出&ldquo;内容证明我收到了，但不接受6%就不续约&rdquo;的态度，请立即向<strong>住宅租赁纠纷调解委员会</strong>或<strong>租赁纠纷调解委员会</strong>申请调解。申请费通常免费，或在1万韩元左右，一般60天以内就能拿到调解结果。
+      </p>
+      <p className="leading-relaxed">
+        调解过程中，委员会会听取双方意见，并判断是否适用5%上限。大多数情况下租客会胜出——因为法律规定很明确。如果房东拒绝调解方案，租客可以正式提起诉讼(依据《住宅租赁保护法》主张自身权益)，法院通常也会得出相同结论。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        5. 房东的&lsquo;本人自住&rsquo;理由 — 先确认是不是真的
+      </h2>
+      <p className="leading-relaxed">
+        房东可以合法拒绝续约的理由中，最常见的就是&lsquo;房东本人或其直系亲属要入住&rsquo;。一旦房东搬出这张牌，租客就无法行使续签请求权。
+      </p>
+      <p className="leading-relaxed">
+        但如果房东谎称要自住把租客赶走，却在2年内又把房子租给了别人，租客可以要求损害赔偿。赔偿金额通常按一年租金，或按新租客租金的一定比例计算。如果觉得可疑，建议在几个月后查询不动产登记簿誊本、迁入住户信息、邮件收件地址等加以确认，比较保险。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        6. 也可以只协商保证金或只协商月租的涨幅
+      </h2>
+      <p className="leading-relaxed">
+        因为5%上限是按&lsquo;换算保证金口径的5%&rsquo;计算的，所以也可以只上调保证金，或者只上调月租来谈判。
+        <Link
+          href={`/${locale}/rent-cap`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          租金5%验证工具
+        </Link>
+        的结果会显示&lsquo;维持月租不变时的最高保证金&rsquo;、&lsquo;维持保证金不变时的最高月租&rsquo;等推荐值。可以根据房东更看重保证金还是月租，把它当作谈判筹码来用。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        7. 续约2年到期之后会怎样
+      </h2>
+      <p className="leading-relaxed">
+        续签请求权<strong>在最初合同签订后只能行使一次</strong>。也就是说，最初2年加续约2年，总共4年是法定保障期限。4年之后必须签订新合同，届时5%规则将不再适用(新合同按市场价格签订)。
+      </p>
+      <p className="leading-relaxed">
+        所以建议在续约的这2年里，提前准备好下一个住处和下一份合同的条件。默示续约(房东和租客都没有明确表示、合同自动延长的情况)不算作已行使续签请求权，因此在默示续约之后，某些情况下仍可单独行使续签请求权——由于相关判例存在分歧，建议向纠纷调解委员会咨询确认。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        结语
+      </h2>
+      <p className="leading-relaxed">
+        房租5%上限是为保护租客而设立的法律规定。收到通知也不要无条件接受，先确认自己的权利。需要计算的话，用
+        <Link
+          href={`/${locale}/rent-cap`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          租金5%涨幅上限验证
+        </Link>
+        ，5秒就能得到答案。比较租金差额时，换算成坪数会更直观，建议一并参考
+        <Link
+          href={`/${locale}/area-convert`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          坪数 ↔ ㎡ 换算
+        </Link>
+        。
+      </p>
+      <p className="text-sm text-[color:var(--color-text-tertiary)]">
+        本文仅为一般性说明。具体案件的准确判断，建议咨询法务士、律师或纠纷调解委员会。如果地方自治条例规定了更低的上限，以该条例为准。
+      </p>
+      <PostTags tags={findPost(SLUG)!.tags.zh} isKo={false} />
+    </article>
+  );
+}
+
+function ViContent({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-6 text-[color:var(--color-text-secondary)]">
+      <header className="mb-2">
+        <p className="mb-3 text-sm text-[color:var(--color-text-tertiary)]">
+          2026-05-23 · ~6 phút đọc
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          Nhận thông báo tăng tiền thuê nhà vượt 5% ở Hàn Quốc? 7 việc cần làm
+          ngay
+        </h1>
+      </header>
+
+      <p className="leading-relaxed">
+        Một tin nhắn bất chợt gửi đến: &ldquo;Mong anh/chị đồng ý tăng tiền
+        đặt cọc 6% khi gia hạn hợp đồng.&rdquo; Nếu bạn là người thuê nhà đã
+        từng nghe về quy tắc trần tăng 5% theo Luật Bảo vệ Thuê nhà, trong đầu
+        chắc chắn sẽ nảy ra một loạt câu hỏi. &lsquo;6% chẳng phải đã vượt
+        trần rồi sao? Nếu từ chối thì có bị đuổi đi không? Hay cứ chấp nhận
+        cho xong?&rsquo; Câu trả lời rất rõ ràng: &lsquo;đừng vội chấp nhận,
+        hãy làm theo đúng quy trình&rsquo;. Dưới đây là thứ tự các bước cần
+        làm.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        1. Trước tiên hãy tính chính xác theo tiền đặt cọc quy đổi
+      </h2>
+      <p className="leading-relaxed">
+        Nếu chỉ tăng tiền đặt cọc, hoặc chỉ tăng tiền thuê hàng tháng (Wolse),
+        thì việc tính khá đơn giản. Nhưng nếu là hợp đồng kết hợp cả tiền đặt
+        cọc và tiền thuê hàng tháng như kiểu bán-Jeonse (반전세), bạn phải
+        tính theo &lsquo;tiền đặt cọc quy đổi&rsquo;. Công thức như sau:
+      </p>
+      <div className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 text-sm leading-relaxed">
+        Tiền đặt cọc quy đổi = tiền đặt cọc + (tiền thuê hàng tháng × 12 / tỷ
+        lệ chuyển đổi jeonse-wolse)
+      </div>
+      <p className="leading-relaxed">
+        Tỷ lệ chuyển đổi jeonse-wolse = lãi suất cơ bản của Ngân hàng Trung
+        ương Hàn Quốc + 2%, tính đến 05/2026 khoảng 5,0%. Để so sánh trần 5%
+        của hợp đồng bạn với đề xuất của chủ nhà, hãy nhập cả hai trường hợp
+        vào{" "}
+        <Link
+          href={`/${locale}/rent-cap`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          công cụ kiểm tra trần tăng tiền thuê 5%
+        </Link>{" "}
+        — kết quả sẽ hiện ngay: mức tăng đề xuất, có vượt trần hay không, và
+        vượt bao nhiêu.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        2. Xác nhận bạn có quyền thực hiện quyền yêu cầu gia hạn hợp đồng hay
+        không
+      </h2>
+      <p className="leading-relaxed">
+        Quy tắc 5% chỉ áp dụng khi người thuê{" "}
+        <strong>đã thực hiện quyền yêu cầu gia hạn hợp đồng</strong>. Điều
+        kiện gồm:
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>
+          Đưa ra yêu cầu gia hạn trong khoảng{" "}
+          <strong>từ 6 tháng đến 1 tháng trước</strong> khi hợp đồng kết thúc
+        </li>
+        <li>
+          Trước đó chưa từng thực hiện quyền yêu cầu gia hạn hợp đồng (chỉ
+          được thực hiện một lần)
+        </li>
+        <li>Chủ nhà không có lý do từ chối gia hạn hợp pháp nào đang áp dụng</li>
+      </ul>
+      <p className="leading-relaxed">
+        Nếu cả ba điều kiện trên đều thỏa mãn, người thuê có thể yêu cầu gia
+        hạn trong giới hạn tăng 5%, và chủ nhà không thể từ chối nếu không có
+        lý do chính đáng.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        3. Thông báo bằng văn bản (thư xác nhận nội dung) về việc thực hiện
+        quyền yêu cầu gia hạn
+      </h2>
+      <p className="leading-relaxed">
+        Chỉ trao đổi qua tin nhắn hay ứng dụng chat thì sau này rất khó chứng
+        minh. Hãy gửi thư xác nhận nội dung (내용증명) ghi rõ các nội dung
+        sau:
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>Tôi thực hiện quyền yêu cầu gia hạn hợp đồng theo Luật Bảo vệ Thuê nhà</li>
+        <li>
+          Điều kiện chủ nhà đề xuất vượt quá trần 5% (Điều 8 Nghị định thi
+          hành Luật Bảo vệ Thuê nhà)
+        </li>
+        <li>Tôi có thể chấp nhận mức tăng trong giới hạn 5% (ghi rõ số tiền cụ thể)</li>
+        <li>Yêu cầu chủ nhà phản hồi trong vòng 14 ngày</li>
+      </ul>
+      <p className="leading-relaxed text-sm text-[color:var(--color-text-tertiary)]">
+        Thư xác nhận nội dung có thể gửi tại bưu điện với chi phí khoảng
+        3.000 won, được lưu thành 3 bản (bạn, chủ nhà, bưu điện) nên có giá
+        trị chứng cứ pháp lý rất mạnh.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        4. Nếu chủ nhà từ chối, hãy nộp đơn lên ủy ban hòa giải tranh chấp
+      </h2>
+      <p className="leading-relaxed">
+        Nếu chủ nhà tỏ thái độ kiểu &ldquo;tôi nhận được thư xác nhận nội
+        dung rồi, nhưng không được 6% thì không gia hạn&rdquo;, hãy lập tức
+        nộp đơn xin hòa giải lên{" "}
+        <strong>Ủy ban Hòa giải Tranh chấp Thuê nhà ở</strong> hoặc{" "}
+        <strong>Ủy ban Hòa giải Tranh chấp Thuê nhà</strong>. Phí hòa giải
+        thường miễn phí hoặc khoảng 10.000 won, và thường có kết quả trong
+        vòng 60 ngày.
+      </p>
+      <p className="leading-relaxed">
+        Trong quá trình hòa giải, ủy ban sẽ lắng nghe ý kiến của cả hai bên và
+        phán quyết xem trần 5% có được áp dụng hay không. Phần lớn trường hợp
+        người thuê sẽ thắng, vì quy định pháp luật rất rõ ràng. Nếu chủ nhà từ
+        chối phương án hòa giải, người thuê có thể khởi kiện chính thức (dựa
+        trên Luật Bảo vệ Thuê nhà để yêu cầu bảo vệ quyền lợi), và tòa án
+        thường cũng đưa ra kết luận tương tự.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        5. Lý do &lsquo;chủ nhà vào ở trực tiếp&rsquo; — hãy xác minh xem có
+        thật hay không
+      </h2>
+      <p className="leading-relaxed">
+        Trong số các lý do hợp pháp mà chủ nhà có thể dùng để từ chối gia hạn,
+        phổ biến nhất là &lsquo;chủ nhà hoặc người thân trực hệ của chủ nhà sẽ
+        vào ở&rsquo;. Nếu chủ nhà đưa ra lý do này, người thuê sẽ không thể
+        thực hiện quyền yêu cầu gia hạn hợp đồng.
+      </p>
+      <p className="leading-relaxed">
+        Tuy nhiên, nếu chủ nhà nói dối về lý do vào ở để đuổi người thuê đi,
+        rồi trong vòng 2 năm lại cho người thuê khác vào ở, người thuê ban đầu
+        có thể yêu cầu bồi thường thiệt hại. Mức bồi thường thường được tính
+        bằng tiền thuê một năm, hoặc theo một tỷ lệ nhất định so với tiền thuê
+        của người thuê mới. Nếu nghi ngờ, nên kiểm tra lại sau vài tháng bằng
+        cách xem sổ đăng ký bất động sản, tra cứu hộ khẩu chuyển đến, và địa
+        chỉ nhận thư, để đảm bảo an toàn.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        6. Cũng có thể thương lượng chỉ tăng tiền đặt cọc hoặc chỉ tăng tiền
+        thuê hàng tháng
+      </h2>
+      <p className="leading-relaxed">
+        Vì trần 5% được tính theo &lsquo;tiền đặt cọc quy đổi&rsquo;, nên bạn
+        cũng có thể thương lượng chỉ tăng riêng tiền đặt cọc, hoặc chỉ tăng
+        riêng tiền thuê hàng tháng. Hãy xem kết quả của{" "}
+        <Link
+          href={`/${locale}/rent-cap`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          công cụ kiểm tra trần tăng 5%
+        </Link>{" "}
+        để thấy các mức đề xuất như &lsquo;tiền đặt cọc tối đa nếu giữ nguyên
+        tiền thuê&rsquo;, &lsquo;tiền thuê tối đa nếu giữ nguyên tiền đặt
+        cọc&rsquo;. Tùy theo việc chủ nhà thích tăng tiền đặt cọc hay tiền
+        thuê hàng tháng hơn, bạn có thể dùng con số này làm quân bài thương
+        lượng.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        7. Sau khi hết 2 năm gia hạn thì sao
+      </h2>
+      <p className="leading-relaxed">
+        Quyền yêu cầu gia hạn hợp đồng{" "}
+        <strong>chỉ được thực hiện một lần sau hợp đồng đầu tiên</strong>. Tức
+        là 2 năm ban đầu cộng 2 năm gia hạn, tổng cộng 4 năm là thời hạn được
+        pháp luật bảo đảm. Sau 4 năm, bạn phải ký hợp đồng mới, và lúc đó quy
+        tắc 5% sẽ không còn áp dụng nữa (hợp đồng mới tính theo giá thị
+        trường).
+      </p>
+      <p className="leading-relaxed">
+        Vì vậy, trong 2 năm gia hạn, bạn nên chuẩn bị trước nơi ở tiếp theo và
+        điều kiện hợp đồng tiếp theo. Gia hạn mặc nhiên (cả chủ nhà và người
+        thuê đều không có ý kiến gì và hợp đồng tự động kéo dài) không được
+        coi là đã thực hiện quyền yêu cầu gia hạn hợp đồng, nên trong một số
+        trường hợp, người thuê vẫn có thể thực hiện quyền này riêng sau khi đã
+        gia hạn mặc nhiên — vì án lệ vẫn còn chưa thống nhất, nên tốt nhất hãy
+        tham khảo ý kiến của ủy ban hòa giải tranh chấp.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Kết luận
+      </h2>
+      <p className="leading-relaxed">
+        Trần tăng giá thuê 5% là quy định pháp luật được đặt ra để bảo vệ
+        người thuê nhà. Đừng chấp nhận ngay chỉ vì nhận được thông báo — hãy
+        xác nhận quyền lợi của mình trước. Nếu cần tính toán, hãy dùng{" "}
+        <Link
+          href={`/${locale}/rent-cap`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          công cụ kiểm tra trần tăng tiền thuê 5%
+        </Link>{" "}
+        — câu trả lời sẽ có trong 5 giây. Khi so sánh chênh lệch tiền thuê,
+        quy đổi sang diện tích pyeong sẽ giúp bạn thấy rõ giá trị hơn, hãy
+        tham khảo thêm{" "}
+        <Link
+          href={`/${locale}/area-convert`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          công cụ quy đổi pyeong ↔ m²
+        </Link>
+        .
+      </p>
+      <p className="text-sm text-[color:var(--color-text-tertiary)]">
+        Bài viết này chỉ mang tính tổng quát. Để có phán đoán chính xác cho
+        từng trường hợp cụ thể, nên tham khảo ý kiến luật sư, chuyên gia pháp
+        lý hoặc ủy ban hòa giải tranh chấp. Nếu quy định của địa phương đặt ra
+        mức trần thấp hơn, quy định đó sẽ được ưu tiên áp dụng.
+      </p>
+      <PostTags tags={findPost(SLUG)!.tags.vi} isKo={false} />
     </article>
   );
 }

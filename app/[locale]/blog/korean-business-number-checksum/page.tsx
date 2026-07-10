@@ -18,29 +18,68 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale === "ko";
   const post = findPost(SLUG)!;
-  const title = isKo ? post.titleKo : post.titleEn;
-  const description = isKo ? post.summaryKo : post.summaryEn;
+  const title =
+    locale === "ko"
+      ? post.titleKo
+      : locale === "zh"
+        ? post.titleZh
+        : locale === "vi"
+          ? post.titleVi
+          : post.titleEn;
+  const description =
+    locale === "ko"
+      ? post.summaryKo
+      : locale === "zh"
+        ? post.summaryZh
+        : locale === "vi"
+          ? post.summaryVi
+          : post.summaryEn;
+  const keywordsByLocale: Record<string, string[]> = {
+    ko: [
+      "사업자등록번호 체크섬",
+      "사업자번호 검증",
+      "1-3-7 가중치",
+      "국세청 알고리즘",
+      "가짜 사업자번호",
+    ],
+    en: [
+      "korean business registration number",
+      "checksum algorithm",
+      "business number validation Korea",
+      "1-3-7 weights",
+      "Korean NTS algorithm",
+      "fake business number",
+    ],
+    zh: [
+      "营业执照号校验码",
+      "营业执照号验证",
+      "1-3-7 加权校验",
+      "韩国国税厅算法",
+      "假营业执照号",
+      "Hometax 查询",
+    ],
+    vi: [
+      "mã số doanh nghiệp Hàn Quốc",
+      "thuật toán số kiểm tra",
+      "xác minh mã số doanh nghiệp",
+      "trọng số 1-3-7",
+      "thuật toán Cục Thuế Hàn Quốc",
+      "mã số doanh nghiệp giả",
+    ],
+  };
+  const ogLocale =
+    locale === "ko"
+      ? "ko_KR"
+      : locale === "zh"
+        ? "zh_CN"
+        : locale === "vi"
+          ? "vi_VN"
+          : "en_US";
   return {
     title: `${title} — Workmate`,
     description,
-    keywords: isKo
-      ? [
-          "사업자등록번호 체크섬",
-          "사업자번호 검증",
-          "1-3-7 가중치",
-          "국세청 알고리즘",
-          "가짜 사업자번호",
-        ]
-      : [
-          "korean business registration number",
-          "checksum algorithm",
-          "business number validation Korea",
-          "1-3-7 weights",
-          "Korean NTS algorithm",
-          "fake business number",
-        ],
+    keywords: keywordsByLocale[locale] ?? keywordsByLocale.en,
     alternates: {
       canonical: `/${locale}/blog/${SLUG}`,
       languages: buildLanguagesAlt(`/blog/${SLUG}`),
@@ -50,7 +89,7 @@ export async function generateMetadata({
       description,
       type: "article",
       url: `${SITE_URL}/${locale}/blog/${SLUG}`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: ogLocale,
       publishedTime: post.publishedAt,
     },
   };
@@ -64,7 +103,14 @@ export default async function BlogPostPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
+  const navLabel =
+    locale === "ko"
+      ? "현장 노트"
+      : locale === "zh"
+        ? "实地笔记"
+        : locale === "vi"
+          ? "Ghi chép thực tế"
+          : "Field Notes";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -75,11 +121,19 @@ export default async function BlogPostPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "현장 노트" : "Field Notes"}
+            {navLabel}
           </Link>
         </nav>
 
-        {isKo ? <KoContent locale={locale} /> : <EnContent locale={locale} />}
+        {locale === "ko" ? (
+          <KoContent locale={locale} />
+        ) : locale === "zh" ? (
+          <ZhContent locale={locale} />
+        ) : locale === "vi" ? (
+          <ViContent locale={locale} />
+        ) : (
+          <EnContent locale={locale} />
+        )}
       </div>
     </main>
   );
@@ -571,6 +625,465 @@ function KoContent({ locale }: { locale: string }): React.ReactElement {
         교차 확인하세요.
       </p>
       <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
+    </article>
+  );
+}
+
+function ZhContent({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-6 text-[color:var(--color-text-secondary)]">
+      <header className="mb-2">
+        <p className="mb-3 text-sm text-[color:var(--color-text-tertiary)]">
+          2026-05-30 · 约 6 分钟
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          营业执照号校验码 — 交易前 1 秒验证法
+        </h1>
+      </header>
+
+      <p className="leading-relaxed">
+        您正准备汇出 3,000 万韩元。交易明细单上写着一个 10 位的营业执照号（사업자등록번호），它是真的吗？会不会是打错了，或者是有人为了行骗而编造出来的假号码？所幸这 10 位数字内部装有自我验证机制，不用打一个电话，1 秒钟就能确认。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        先看格式
+      </h2>
+      <p className="leading-relaxed">
+        韩国的营业执照号为 10 位数字，通常用两个连字符分隔。
+      </p>
+      <div className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 font-mono text-sm leading-relaxed">
+        XXX - XX - XXXXX
+        <br />
+        <span className="text-xs text-[color:var(--color-text-tertiary)]">
+          三位 — 两位 — 五位
+        </span>
+      </div>
+      <p className="leading-relaxed">
+        中间两位是业主类型代码。最后一位（第 10 位）是根据前 9 位计算得出的校验位。如果有人随意编造号码，最后一位恰好蒙对的概率只有十分之一。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        校验码算法
+      </h2>
+      <p className="leading-relaxed">
+        韩国国税厅（National Tax Service）公开的算法如下。将 10 位数字记为 d1、d2、...、d10：
+      </p>
+      <ol className="ml-1 list-decimal space-y-2 pl-5 leading-relaxed">
+        <li>
+          把前 9 位分别乘以权重{" "}
+          <strong>[1, 3, 7, 1, 3, 7, 1, 3, 5]</strong> 后求和
+        </li>
+        <li>
+          再加上 (d9 × 5) 的十位数字 — 这是部分实现会遗漏的校正步骤
+        </li>
+        <li>
+          校验位 = <strong>(10 − sum % 10) % 10</strong>
+        </li>
+        <li>校验位 == d10 则通过</li>
+      </ol>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        实际计算：123-45-67890
+      </h2>
+      <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 font-mono text-xs leading-relaxed">
+        d1..d9   : 1  2  3  4  5  6  7  8  9
+        <br />
+        weights  : 1  3  7  1  3  7  1  3  5
+        <br />
+        products : 1  6 21  4 15 42  7 24 45  → sum = 165
+        <br />
+        d9 × 5 = 45  → 十位数 = 4  → sum = 169
+        <br />
+        校验位 = (10 − 169 % 10) % 10 = (10 − 9) % 10 = 1
+        <br />
+        d10 = 0  ≠  1  →  格式错误
+      </div>
+      <p className="leading-relaxed">
+        123-45-67890 无法通过。最后一位本应是 1，却是 0。打错字和随意编造正是这样被抓出来的。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        权重为何这样设定
+      </h2>
+      <p className="leading-relaxed">
+        1-3-5-7 模式是 ISO 7064 的变体，国税厅于 1976 年采用。效果：
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>单个数字的打错几乎 100% 会被发现</li>
+        <li>相邻两位互换（例如 d2↔d3）也几乎都能抓出</li>
+        <li>随便凑一个 10 位数字，通过率约为 10% — 假号码有 90% 会被拦下</li>
+      </ul>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        中间两位的解读方法
+      </h2>
+      <p className="leading-relaxed">
+        第 4、5 位是业主类型代码。它不参与校验码计算，但能让您一眼看出交易对方的类型。
+      </p>
+      <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)]">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-[color:var(--color-border-subtle)] text-[color:var(--color-text-tertiary)]">
+              <th className="px-4 py-2 text-left font-medium">中间两位</th>
+              <th className="px-4 py-2 text-left font-medium">业主类型</th>
+            </tr>
+          </thead>
+          <tbody className="tabular-nums">
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">01 ~ 79</td>
+              <td className="px-4 py-2">个人事业者（个体户）</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">80</td>
+              <td className="px-4 py-2">多层次传销个人</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">81, 86, 87, 88</td>
+              <td className="px-4 py-2">营利法人</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">82</td>
+              <td className="px-4 py-2">非营利法人</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">83</td>
+              <td className="px-4 py-2">国家·地方自治团体</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">84</td>
+              <td className="px-4 py-2">外国法人</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2">89</td>
+              <td className="px-4 py-2">营利法人总公司</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        校验码无法告诉您的事
+      </h2>
+      <p className="leading-relaxed">
+        通过只代表格式有效，以下信息无从得知：
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>是否为实际已登记的营业主体</li>
+        <li>是否处于停业·注销状态</li>
+        <li>是否拖欠税款</li>
+        <li>地址·法定代表人是否已变更</li>
+      </ul>
+      <p className="leading-relaxed">
+        实时的登记状态可在国税厅 Hometax{" "}
+        <a
+          href="https://teht.hometax.go.kr/websquare/websquare.html?w2xPath=/ui/ab/a/a/UTEABAAA13.xml"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          营业执照状态查询
+        </a>{" "}
+        中确认（无需公认认证书）。校验码是第一道过滤，Hometax 才是最终判定。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        汇款前的实战步骤
+      </h2>
+      <ol className="ml-1 list-decimal space-y-2 pl-5 leading-relaxed">
+        <li>
+          在{" "}
+          <Link
+            href={`/${locale}/biznum-check`}
+            className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+          >
+            营业执照号验证器
+          </Link>{" "}
+          中输入号码 — 立即得出通过/失败
+        </li>
+        <li>
+          核对中间两位 — 是否与对方所称的业主类型一致（例如：对方说是 '咨询法人'，号码却是 01 号段，就值得怀疑）
+        </li>
+        <li>在 Hometax 查询登记状态 — 是否为实际经营中的营业主体</li>
+        <li>将交易明细单上的公司名称与 Hometax 登记信息比对</li>
+      </ol>
+      <p className="leading-relaxed">
+        第 1、2 步用不了 10 秒，第 3 步也在 1 分钟内。加起来 1 分 30 秒，就能在汇款前抓出几乎所有的打错、假号码和虚假标示。
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        小结
+      </h2>
+      <p className="leading-relaxed">
+        营业执照号内部装有自我验证机制，只要知道算法，1 秒就能验证。快速验证请用{" "}
+        <Link
+          href={`/${locale}/biznum-check`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          营业执照号验证器
+        </Link>
+        。搭配使用的实用工具还有{" "}
+        <Link
+          href={`/${locale}/income-tax`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          综合所得税计算器
+        </Link>{" "}
+        和{" "}
+        <Link
+          href={`/${locale}/vat-calc`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          增值税计算器
+        </Link>
+        。
+      </p>
+      <p className="text-sm text-[color:var(--color-text-tertiary)]">
+        算法以国税厅公开的规范为准。实际经营状态请务必用 Hometax 交叉核对。
+      </p>
+      <PostTags tags={findPost(SLUG)!.tags.zh} isKo={false} />
+    </article>
+  );
+}
+
+function ViContent({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-6 text-[color:var(--color-text-secondary)]">
+      <header className="mb-2">
+        <p className="mb-3 text-sm text-[color:var(--color-text-tertiary)]">
+          2026-05-30 · khoảng 6 phút
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          Số kiểm tra mã số doanh nghiệp Hàn Quốc — Cách xác minh trong 1 giây trước giao dịch
+        </h1>
+      </header>
+
+      <p className="leading-relaxed">
+        Bạn sắp chuyển khoản 30 triệu KRW cho một nhà cung cấp Hàn Quốc. Trên
+        bảng kê giao dịch có ghi một mã số doanh nghiệp (사업자등록번호) gồm 10
+        chữ số — liệu nó có thật không? Hay là gõ sai, hoặc tệ hơn, một con số
+        giả do ai đó bịa ra để lừa đảo? May mắn thay, bên trong 10 chữ số đã cài
+        sẵn cơ chế tự kiểm tra, nên bạn có thể xác nhận trong 1 giây mà không cần
+        gọi một cuộc điện thoại nào.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Trước tiên, hãy xem định dạng
+      </h2>
+      <p className="leading-relaxed">
+        Mã số doanh nghiệp Hàn Quốc gồm 10 chữ số, thường được ngăn cách bằng
+        hai dấu gạch nối.
+      </p>
+      <div className="rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 font-mono text-sm leading-relaxed">
+        XXX - XX - XXXXX
+        <br />
+        <span className="text-xs text-[color:var(--color-text-tertiary)]">
+          Ba chữ số — hai chữ số — năm chữ số
+        </span>
+      </div>
+      <p className="leading-relaxed">
+        Hai chữ số ở giữa là mã loại hình doanh nghiệp. Chữ số cuối (thứ 10) là
+        chữ số kiểm tra được tính từ 9 chữ số trước đó. Nếu ai đó bịa số một cách
+        tùy tiện, xác suất đoán trúng chữ số cuối chỉ là 1 trên 10.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Thuật toán số kiểm tra
+      </h2>
+      <p className="leading-relaxed">
+        Thuật toán do Cục Thuế Quốc gia Hàn Quốc (National Tax Service) công bố
+        như sau. Gọi 10 chữ số là d1, d2, ..., d10:
+      </p>
+      <ol className="ml-1 list-decimal space-y-2 pl-5 leading-relaxed">
+        <li>
+          Nhân 9 chữ số đầu với vector trọng số{" "}
+          <strong>[1, 3, 7, 1, 3, 7, 1, 3, 5]</strong> rồi cộng lại
+        </li>
+        <li>
+          Cộng thêm chữ số hàng chục của (d9 × 5) — đây là bước hiệu chỉnh mà một
+          số cách triển khai bỏ sót
+        </li>
+        <li>
+          Chữ số kiểm tra = <strong>(10 − sum % 10) % 10</strong>
+        </li>
+        <li>Nếu chữ số kiểm tra == d10 thì hợp lệ</li>
+      </ol>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Tính thử thực tế: 123-45-67890
+      </h2>
+      <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-4 font-mono text-xs leading-relaxed">
+        d1..d9   : 1  2  3  4  5  6  7  8  9
+        <br />
+        weights  : 1  3  7  1  3  7  1  3  5
+        <br />
+        products : 1  6 21  4 15 42  7 24 45  → sum = 165
+        <br />
+        d9 × 5 = 45  → chữ số hàng chục = 4  → sum = 169
+        <br />
+        số kiểm tra = (10 − 169 % 10) % 10 = (10 − 9) % 10 = 1
+        <br />
+        d10 = 0  ≠  1  →  LỖI ĐỊNH DẠNG
+      </div>
+      <p className="leading-relaxed">
+        123-45-67890 không qua được. Chữ số cuối lẽ ra phải là 1 nhưng lại là 0.
+        Lỗi gõ sai và bịa số bị bắt đúng theo cách này.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Vì sao trọng số được đặt như vậy
+      </h2>
+      <p className="leading-relaxed">
+        Mẫu 1-3-5-7 là một biến thể của ISO 7064, được Cục Thuế Quốc gia áp dụng
+        từ năm 1976. Hiệu quả:
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>Lỗi gõ sai một chữ số bị phát hiện gần như 100%</li>
+        <li>Việc hoán đổi hai chữ số liền kề (ví dụ d2↔d3) cũng gần như luôn bị bắt</li>
+        <li>Ghép đại một dãy 10 chữ số thì tỷ lệ qua được chỉ khoảng 10% — số giả bị chặn 90%</li>
+      </ul>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Cách đọc hai chữ số ở giữa
+      </h2>
+      <p className="leading-relaxed">
+        Chữ số thứ 4 và 5 là mã loại hình doanh nghiệp. Nó không dùng trong số
+        kiểm tra, nhưng cho bạn thấy ngay loại hình của đối tác giao dịch.
+      </p>
+      <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)]">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-[color:var(--color-border-subtle)] text-[color:var(--color-text-tertiary)]">
+              <th className="px-4 py-2 text-left font-medium">Hai chữ số ở giữa</th>
+              <th className="px-4 py-2 text-left font-medium">Loại hình doanh nghiệp</th>
+            </tr>
+          </thead>
+          <tbody className="tabular-nums">
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">01 ~ 79</td>
+              <td className="px-4 py-2">Hộ kinh doanh cá thể</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">80</td>
+              <td className="px-4 py-2">Cá nhân bán hàng đa cấp</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">81, 86, 87, 88</td>
+              <td className="px-4 py-2">Pháp nhân vì lợi nhuận</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">82</td>
+              <td className="px-4 py-2">Pháp nhân phi lợi nhuận</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">83</td>
+              <td className="px-4 py-2">Nhà nước / chính quyền địa phương</td>
+            </tr>
+            <tr className="border-b border-[color:var(--color-border-subtle)]/50">
+              <td className="px-4 py-2">84</td>
+              <td className="px-4 py-2">Pháp nhân nước ngoài</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-2">89</td>
+              <td className="px-4 py-2">Trụ sở chính pháp nhân vì lợi nhuận</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Điều mà số kiểm tra không thể cho bạn biết
+      </h2>
+      <p className="leading-relaxed">
+        Qua được chỉ có nghĩa là định dạng hợp lệ, còn những điều sau thì không
+        thể biết:
+      </p>
+      <ul className="ml-1 list-disc space-y-1.5 pl-5 leading-relaxed text-sm">
+        <li>Có phải là doanh nghiệp thực sự đã đăng ký hay không</li>
+        <li>Có đang trong tình trạng tạm ngừng hoặc đã đóng cửa hay không</li>
+        <li>Có nợ thuế hay không</li>
+        <li>Địa chỉ hoặc người đại diện đã thay đổi hay chưa</li>
+      </ul>
+      <p className="leading-relaxed">
+        Trạng thái đăng ký theo thời gian thực có thể kiểm tra tại{" "}
+        <a
+          href="https://teht.hometax.go.kr/websquare/websquare.html?w2xPath=/ui/ab/a/a/UTEABAAA13.xml"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          Tra cứu trạng thái đăng ký doanh nghiệp
+        </a>{" "}
+        trên Hometax của Cục Thuế Quốc gia (không cần chứng thư số). Số kiểm tra
+        là bộ lọc đầu tiên, còn Hometax mới là phán quyết cuối cùng.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Quy trình thực tế trước khi chuyển tiền
+      </h2>
+      <ol className="ml-1 list-decimal space-y-2 pl-5 leading-relaxed">
+        <li>
+          Nhập số vào{" "}
+          <Link
+            href={`/${locale}/biznum-check`}
+            className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+          >
+            công cụ xác minh mã số doanh nghiệp
+          </Link>{" "}
+          — cho ngay kết quả đạt/không đạt
+        </li>
+        <li>
+          Kiểm tra hai chữ số ở giữa — có khớp với loại hình mà đối tác đã nói
+          không (ví dụ: họ nói là 'công ty tư vấn' nhưng số lại thuộc dải 01 thì
+          nên nghi ngờ)
+        </li>
+        <li>
+          Tra cứu trạng thái đăng ký trên Hometax — có phải doanh nghiệp đang
+          thực sự hoạt động không
+        </li>
+        <li>
+          Đối chiếu tên công ty trên bảng kê giao dịch với thông tin đăng ký trên
+          Hometax
+        </li>
+      </ol>
+      <p className="leading-relaxed">
+        Bước 1 và 2 chưa tới 10 giây. Bước 3 cũng trong vòng 1 phút. Cộng lại 1
+        phút 30 giây là bắt được gần như toàn bộ lỗi gõ sai, số giả và khai báo
+        gian dối trước khi tiền được chuyển đi.
+      </p>
+
+      <h2 className="pt-2 text-xl font-bold text-[color:var(--color-text-primary)] md:text-2xl">
+        Kết luận
+      </h2>
+      <p className="leading-relaxed">
+        Mã số doanh nghiệp đã có sẵn cơ chế tự kiểm tra, chỉ cần biết thuật toán
+        là có thể xác minh trong 1 giây. Để kiểm tra nhanh, hãy dùng{" "}
+        <Link
+          href={`/${locale}/biznum-check`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          công cụ xác minh mã số doanh nghiệp
+        </Link>
+        . Những công cụ nên xem cùng là{" "}
+        <Link
+          href={`/${locale}/income-tax`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          máy tính thuế thu nhập tổng hợp
+        </Link>{" "}
+        và{" "}
+        <Link
+          href={`/${locale}/vat-calc`}
+          className="text-indigo-300 underline underline-offset-2 hover:text-indigo-200"
+        >
+          máy tính thuế GTGT
+        </Link>
+        .
+      </p>
+      <p className="text-sm text-[color:var(--color-text-tertiary)]">
+        Thuật toán dựa trên bản đặc tả do Cục Thuế Quốc gia công bố. Tình trạng
+        kinh doanh thực tế luôn cần đối chiếu chéo qua Hometax.
+      </p>
+      <PostTags tags={findPost(SLUG)!.tags.vi} isKo={false} />
     </article>
   );
 }

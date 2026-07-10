@@ -18,14 +18,25 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale === "ko";
   const post = findPost(SLUG)!;
-  const title = isKo ? post.titleKo : post.titleEn;
-  const description = isKo ? post.summaryKo : post.summaryEn;
-  return {
-    title: `${title} — Workmate`,
-    description,
-    keywords: isKo
+  const title =
+    locale === "ko"
+      ? post.titleKo
+      : locale === "zh"
+        ? post.titleZh
+        : locale === "vi"
+          ? post.titleVi
+          : post.titleEn;
+  const description =
+    locale === "ko"
+      ? post.summaryKo
+      : locale === "zh"
+        ? post.summaryZh
+        : locale === "vi"
+          ? post.summaryVi
+          : post.summaryEn;
+  const keywords =
+    locale === "ko"
       ? [
           "한국 단위 변환",
           "평 제곱미터",
@@ -34,14 +45,44 @@ export async function generateMetadata({
           "리 킬로미터",
           "외국인 한국생활",
         ]
-      : [
-          "korean units for foreigners",
-          "what is a pyeong",
-          "korean age calculator",
-          "us to korea size",
-          "korean shoe size",
-          "living in korea guide",
-        ],
+      : locale === "zh"
+        ? [
+            "韩国单位换算",
+            "坪是多少平方米",
+            "韩国周岁计算",
+            "美码转韩码",
+            "韩国鞋码",
+            "外国人韩国生活指南",
+          ]
+        : locale === "vi"
+          ? [
+              "quy đổi đơn vị Hàn Quốc",
+              "pyeong là bao nhiêu mét vuông",
+              "tính tuổi thật Hàn Quốc",
+              "size Mỹ sang Hàn",
+              "size giày Hàn Quốc",
+              "hướng dẫn sống ở Hàn Quốc",
+            ]
+          : [
+              "korean units for foreigners",
+              "what is a pyeong",
+              "korean age calculator",
+              "us to korea size",
+              "korean shoe size",
+              "living in korea guide",
+            ];
+  const ogLocale =
+    locale === "ko"
+      ? "ko_KR"
+      : locale === "zh"
+        ? "zh_CN"
+        : locale === "vi"
+          ? "vi_VN"
+          : "en_US";
+  return {
+    title: `${title} — Workmate`,
+    description,
+    keywords,
     alternates: {
       canonical: `/${locale}/blog/${SLUG}`,
       languages: buildLanguagesAlt(`/blog/${SLUG}`),
@@ -51,7 +92,7 @@ export async function generateMetadata({
       description,
       type: "article",
       url: `${SITE_URL}/${locale}/blog/${SLUG}`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: ogLocale,
       publishedTime: post.publishedAt,
     },
   };
@@ -72,7 +113,14 @@ export default async function BlogPostPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
+  const navLabel =
+    locale === "ko"
+      ? "현장 노트"
+      : locale === "zh"
+        ? "实地笔记"
+        : locale === "vi"
+          ? "Ghi chép thực tế"
+          : "Field Notes";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -83,11 +131,19 @@ export default async function BlogPostPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "현장 노트" : "Field Notes"}
+            {navLabel}
           </Link>
         </nav>
 
-        {isKo ? <KoContent locale={locale} /> : <EnContent locale={locale} />}
+        {locale === "ko" ? (
+          <KoContent locale={locale} />
+        ) : locale === "zh" ? (
+          <ZhContent locale={locale} />
+        ) : locale === "vi" ? (
+          <ViContent locale={locale} />
+        ) : (
+          <EnContent locale={locale} />
+        )}
       </div>
     </main>
   );
@@ -383,6 +439,212 @@ function KoContent({ locale }: { locale: string }): React.ReactElement {
       </p>
 
       <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
+    </article>
+  );
+}
+
+function ZhContent({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-6 text-[color:var(--color-text-secondary)]">
+      <header className="mb-2">
+        <p className="mb-3 text-sm text-[color:var(--color-text-tertiary)]">
+          2026-06-30 · 约10分钟
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          外国人韩国单位数字完全指南——坪数·周岁·尺码·距离·温度
+        </h1>
+      </header>
+
+      <p className="leading-relaxed">
+        来韩国生活后，总有几套数字体系会悄悄绊住你的脚步：用坪标示的公寓面积、一夜之间变化一两岁的年龄、和本国对不上的衣服·鞋子尺码，还有以"里"为单位的距离。只要理清一次就不难，这里把它们汇总在一处，并为每一项都配上免费的换算工具。
+      </p>
+
+      <h2 className={H2}>1. 坪 — 读懂公寓面积</h2>
+      <p className="leading-relaxed">
+        韩国房产标示面积时会同时写出㎡和坪。精确比例是1坪 = 3.30579㎡(不是常说的"3.3")，所以84㎡约等于25.4坪。更大的陷阱在于供给面积(你实际付钱的部分，含公共空间)和专用面积(实际居住空间)混在一起——"84㎡"通常指专用84㎡。用
+        <Link href={`/${locale}/area-convert`} className={LINK}>
+          坪数换算器
+        </Link>
+        换算数字，用
+        <Link href={`/${locale}/apartment-area`} className={LINK}>
+          专用·供给面积 / 每坪单价计算器
+        </Link>
+        识破这个陷阱。
+      </p>
+
+      <h2 className={H2}>2. 年龄 — 虚岁·周岁与2023年的变化</h2>
+      <p className="leading-relaxed">
+        自2023年6月起，<strong>周岁(国际年龄)已成为法定·行政标准</strong>，但日常对话中仍常用虚岁，两者都了解会更方便。用
+        <Link href={`/${locale}/korean-age`} className={LINK}>
+          周岁计算器
+        </Link>
+        一次看懂三种算法；如果家里有孩子，
+        <Link href={`/${locale}/school-grade`} className={LINK}>
+          韩国年级
+        </Link>
+        是按出生年份而非年龄决定的，也一并确认一下。
+      </p>
+
+      <h2 className={H2}>3. 衣服·鞋子尺码 / 4. 距离·温度</h2>
+      <p className="leading-relaxed">
+        韩国鞋子用mm标示(US 9 ≈ 270mm)，衣服则是85·90·95·100这样的数字体系，都和本国尺码不同——用
+        <Link href={`/${locale}/size-convert`} className={LINK}>
+          尺码换算器
+        </Link>
+        确认。距离虽以km为标准，但"里"仍留在惯用语·地名中(1里 ≈ 0.393km)，用
+        <Link href={`/${locale}/distance-convert`} className={LINK}>
+          距离换算器
+        </Link>
+        和
+        <Link href={`/${locale}/temp-convert`} className={LINK}>
+          温度换算器
+        </Link>
+        (韩国只用摄氏)可以换算英里·华氏度。
+      </p>
+
+      <h2 className={H2}>5. 事业者登记号 + 6. 其他常见项目</h2>
+      <p className="leading-relaxed">
+        交易·自由职业·租房时经常见到的10位事业者登记号内置了1-3-7加权校验码，用
+        <Link href={`/${locale}/biznum-check`} className={LINK}>
+          事业者登记号验证器
+        </Link>
+        可以在汇款前1秒确认真伪。护照用的姓名可以用
+        <Link href={`/${locale}/name-romanize`} className={LINK}>
+          姓名罗马字转换器
+        </Link>
+        处理，韩国生活的完整历程请接着看
+        <Link
+          href={`/${locale}/blog/living-in-korea-foreigner-guide`}
+          className={LINK}
+        >
+          在韩外国人完全生活指南
+        </Link>
+        。
+      </p>
+
+      <p className="leading-relaxed text-sm text-[color:var(--color-text-tertiary)]">
+        所有工具都免费·无需注册·支持手机使用。把常用的(坪数换算·年龄计算)收藏起来吧。
+      </p>
+
+      <PostTags tags={findPost(SLUG)!.tags.zh} isKo={false} />
+    </article>
+  );
+}
+
+function ViContent({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-6 text-[color:var(--color-text-secondary)]">
+      <header className="mb-2">
+        <p className="mb-3 text-sm text-[color:var(--color-text-tertiary)]">
+          2026-06-30 · khoảng 10 phút
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          Hướng dẫn đầy đủ về đơn vị và số của Hàn Quốc cho người nước ngoài:
+          Pyeong, tuổi thật, kích cỡ, khoảng cách
+        </h1>
+      </header>
+
+      <p className="leading-relaxed">
+        Đến Hàn Quốc sinh sống, có vài hệ thống con số âm thầm gây khó dễ cho
+        người mới: diện tích căn hộ tính bằng pyeong, tuổi tăng thêm một hai
+        tuổi chỉ sau một đêm, kích cỡ quần áo và giày không khớp với quê nhà,
+        và cả khoảng cách tính theo đơn vị "ri". Chỉ cần nắm rõ một lần là
+        không khó — bài viết này tổng hợp tất cả vào một chỗ, kèm theo một
+        công cụ quy đổi miễn phí cho từng mục.
+      </p>
+
+      <h2 className={H2}>1. Pyeong — Cách đọc diện tích căn hộ</h2>
+      <p className="leading-relaxed">
+        Tin đăng bất động sản Hàn Quốc luôn ghi diện tích bằng cả ㎡ và{" "}
+        <strong>pyeong</strong>. Tỷ lệ chính xác là 1 pyeong = 3,30579 ㎡
+        (không phải "3,3" như thường nghe), nên căn hộ 84 ㎡ tương đương
+        khoảng 25,4 pyeong. Cạm bẫy lớn hơn là diện tích cung cấp (phần bạn
+        thực sự phải trả tiền, gồm cả không gian chung) và diện tích chuyên
+        dụng (phần bạn thực sự sinh sống) bị trộn lẫn với nhau — "84 ㎡"
+        thường có nghĩa là 84 ㎡ diện tích chuyên dụng. Hãy quy đổi con số
+        với{" "}
+        <Link href={`/${locale}/area-convert`} className={LINK}>
+          công cụ quy đổi pyeong
+        </Link>
+        , và gỡ cạm bẫy diện tích chuyên dụng/cung cấp với{" "}
+        <Link href={`/${locale}/apartment-area`} className={LINK}>
+          công cụ tính diện tích chuyên dụng·cung cấp / giá mỗi pyeong
+        </Link>
+        .
+      </p>
+
+      <h2 className={H2}>
+        2. Tuổi — tuổi đếm, tuổi thật và thay đổi năm 2023
+      </h2>
+      <p className="leading-relaxed">
+        Kể từ tháng 6 năm 2023,{" "}
+        <strong>
+          tuổi thật (tuổi quốc tế) đã trở thành chuẩn pháp lý và hành chính
+        </strong>
+        , nhưng tuổi đếm vẫn còn xuất hiện trong giao tiếp hằng ngày, nên biết
+        cả hai sẽ tiện hơn. Hãy xem cả ba cách tính cùng lúc với{" "}
+        <Link href={`/${locale}/korean-age`} className={LINK}>
+          công cụ tính tuổi thật
+        </Link>
+        , và nếu có con nhỏ, khối lớp ở Hàn Quốc được xác định theo năm sinh
+        chứ không phải tuổi — hãy kiểm tra với{" "}
+        <Link href={`/${locale}/school-grade`} className={LINK}>
+          công cụ tính khối lớp Hàn Quốc
+        </Link>
+        .
+      </p>
+
+      <h2 className={H2}>
+        3. Kích cỡ quần áo·giày / 4. Khoảng cách·nhiệt độ
+      </h2>
+      <p className="leading-relaxed">
+        Giày Hàn Quốc ghi theo mm (US 9 ≈ 270 mm), còn quần áo dùng hệ số
+        85·90·95·100 — khác với size ở quê nhà, nên hãy kiểm tra với{" "}
+        <Link href={`/${locale}/size-convert`} className={LINK}>
+          công cụ quy đổi size
+        </Link>
+        . Khoảng cách dùng km làm chuẩn, nhưng đơn vị "ri" vẫn còn trong thành
+        ngữ và tên địa danh (1 ri ≈ 0,393 km) — hãy quy đổi dặm và độ F với{" "}
+        <Link href={`/${locale}/distance-convert`} className={LINK}>
+          công cụ quy đổi khoảng cách
+        </Link>{" "}
+        và{" "}
+        <Link href={`/${locale}/temp-convert`} className={LINK}>
+          công cụ quy đổi nhiệt độ
+        </Link>{" "}
+        (Hàn Quốc chỉ dùng độ C).
+      </p>
+
+      <h2 className={H2}>5. Mã số doanh nghiệp + 6. Vài điều khác</h2>
+      <p className="leading-relaxed">
+        Mã số doanh nghiệp 10 chữ số mà bạn thường thấy khi giao dịch, làm
+        freelance hay thuê nhà có tích hợp sẵn số kiểm tra theo trọng số
+        1-3-7 — hãy dùng{" "}
+        <Link href={`/${locale}/biznum-check`} className={LINK}>
+          công cụ xác minh mã số doanh nghiệp
+        </Link>{" "}
+        để xác minh thật giả chỉ trong 1 giây trước khi chuyển tiền. Tên dùng
+        cho hộ chiếu có thể xử lý bằng{" "}
+        <Link href={`/${locale}/name-romanize`} className={LINK}>
+          công cụ chuyển tên sang chữ La-tinh
+        </Link>
+        , còn hành trình sống trọn vẹn ở Hàn Quốc thì hãy đọc tiếp tại{" "}
+        <Link
+          href={`/${locale}/blog/living-in-korea-foreigner-guide`}
+          className={LINK}
+        >
+          hướng dẫn đầy đủ về cuộc sống ở Hàn Quốc cho người nước ngoài
+        </Link>
+        .
+      </p>
+
+      <p className="leading-relaxed text-sm text-[color:var(--color-text-tertiary)]">
+        Tất cả công cụ đều miễn phí, không cần đăng ký, dùng tốt trên điện
+        thoại. Hãy lưu lại những công cụ bạn hay dùng (quy đổi pyeong, tính
+        tuổi) để dùng dần.
+      </p>
+
+      <PostTags tags={findPost(SLUG)!.tags.vi} isKo={false} />
     </article>
   );
 }

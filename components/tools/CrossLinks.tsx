@@ -18,6 +18,8 @@ const LEARN_COPY = {
 const READS_HEADING = {
   ko: "함께 보면 좋은 글",
   en: "Related reads",
+  zh: "延伸阅读",
+  vi: "Bài viết liên quan",
 } as const;
 
 export function CrossLinks({
@@ -31,12 +33,9 @@ export function CrossLinks({
   if (!entry) return null;
 
   const learnCopy = LEARN_COPY[locale];
-  const readsLang = locale === "ko" ? "ko" : "en";
-  // blog/guide 는 ko/en 콘텐츠 → ko/en 방문자에게만 노출
-  const showReads =
-    (locale === "ko" || locale === "en") &&
-    entry.reads !== undefined &&
-    entry.reads.length > 0;
+  // blog/guide 는 4로케일 콘텐츠 → 방문자 로케일 그대로 노출
+  const readsLang = locale;
+  const showReads = entry.reads !== undefined && entry.reads.length > 0;
 
   if (!entry.learn && !showReads) return null;
 

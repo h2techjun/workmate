@@ -398,7 +398,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       },
     },
     tools: [
-      { labelKo: "평수 ↔ ㎡ ↔ 자²", labelEn: "Pyeong ↔ m²", labelZh: "坪数 ↔ ㎡ ↔ 尺²", labelVi: "Pyeong ↔ m² ↔ 자²", href: "/area-convert", keywordsKo: "평수 계산 평 제곱미터 환산 부동산 면적" },
+      { labelKo: "평수 ↔ ㎡ ↔ 자²", labelEn: "Pyeong ↔ m²", labelZh: "坪数 ↔ ㎡ ↔ 尺²", labelVi: "Pyeong ↔ m² ↔ thước²", href: "/area-convert", keywordsKo: "평수 계산 평 제곱미터 환산 부동산 면적" },
       { labelKo: "거리·길이 변환", labelEn: "Distance Converter", labelZh: "距离·长度换算", labelVi: "Quy đổi khoảng cách·độ dài", href: "/distance-convert", keywordsKo: "거리 길이 변환 미터 마일 자 리 보 km" },
       { labelKo: "온도 변환 (°C↔°F)", labelEn: "Temperature", labelZh: "温度换算 (°C↔°F)", labelVi: "Quy đổi nhiệt độ (°C↔°F)", href: "/temp-convert", keywordsKo: "온도 변환 섭씨 화씨 켈빈 °C °F" },
       { labelKo: "퍼센트 계산", labelEn: "Percent", labelZh: "百分比计算", labelVi: "Tính phần trăm", href: "/percent-calc", keywordsKo: "퍼센트 할인 인상 변화율 마진" },

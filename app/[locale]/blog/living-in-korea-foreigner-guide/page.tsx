@@ -18,14 +18,25 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const isKo = locale === "ko";
   const post = findPost(SLUG)!;
-  const title = isKo ? post.titleKo : post.titleEn;
-  const description = isKo ? post.summaryKo : post.summaryEn;
-  return {
-    title: `${title} — Workmate`,
-    description,
-    keywords: isKo
+  const title =
+    locale === "ko"
+      ? post.titleKo
+      : locale === "zh"
+        ? post.titleZh
+        : locale === "vi"
+          ? post.titleVi
+          : post.titleEn;
+  const description =
+    locale === "ko"
+      ? post.summaryKo
+      : locale === "zh"
+        ? post.summaryZh
+        : locale === "vi"
+          ? post.summaryVi
+          : post.summaryEn;
+  const keywords =
+    locale === "ko"
       ? [
           "한국 외국인 가이드",
           "외국인 한국 정착",
@@ -35,15 +46,45 @@ export async function generateMetadata({
           "F-2-7 비자",
           "외국인 연말정산",
         ]
-      : [
-          "living in korea foreigner guide",
-          "moving to korea checklist",
-          "korea pension refund foreigner",
-          "korea health insurance foreigner",
-          "korea jeonse wolse foreigner",
-          "korea f-2-7 visa",
-          "korea year-end tax foreigner",
-        ],
+      : locale === "zh"
+        ? [
+            "在韩外国人生活指南",
+            "外国人韩国定居",
+            "外国人国民年金返还",
+            "外国人健康保险",
+            "全租房月租",
+            "F-2-7居留签证",
+          ]
+        : locale === "vi"
+          ? [
+              "sống ở Hàn Quốc cho người nước ngoài",
+              "định cư tại Hàn Quốc",
+              "hoàn trả lương hưu quốc dân",
+              "bảo hiểm y tế người nước ngoài",
+              "Jeonse Wolse Hàn Quốc",
+              "visa F-2-7",
+            ]
+          : [
+              "living in korea foreigner guide",
+              "moving to korea checklist",
+              "korea pension refund foreigner",
+              "korea health insurance foreigner",
+              "korea jeonse wolse foreigner",
+              "korea f-2-7 visa",
+              "korea year-end tax foreigner",
+            ];
+  const ogLocale =
+    locale === "ko"
+      ? "ko_KR"
+      : locale === "zh"
+        ? "zh_CN"
+        : locale === "vi"
+          ? "vi_VN"
+          : "en_US";
+  return {
+    title: `${title} — Workmate`,
+    description,
+    keywords,
     alternates: {
       canonical: `/${locale}/blog/${SLUG}`,
       languages: buildLanguagesAlt(`/blog/${SLUG}`),
@@ -53,7 +94,7 @@ export async function generateMetadata({
       description,
       type: "article",
       url: `${SITE_URL}/${locale}/blog/${SLUG}`,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale: ogLocale,
       publishedTime: post.publishedAt,
     },
   };
@@ -67,7 +108,6 @@ export default async function BlogPostPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const isKo = locale === "ko";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -78,10 +118,24 @@ export default async function BlogPostPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "현장 노트" : "Field Notes"}
+            {locale === "ko"
+              ? "현장 노트"
+              : locale === "zh"
+                ? "实地笔记"
+                : locale === "vi"
+                  ? "Ghi chép thực tế"
+                  : "Field Notes"}
           </Link>
         </nav>
-        {isKo ? <ContentKo locale={locale} /> : <ContentEn locale={locale} />}
+        {locale === "ko" ? (
+          <ContentKo locale={locale} />
+        ) : locale === "zh" ? (
+          <ContentZh locale={locale} />
+        ) : locale === "vi" ? (
+          <ContentVi locale={locale} />
+        ) : (
+          <ContentEn locale={locale} />
+        )}
       </div>
     </main>
   );
@@ -630,6 +684,449 @@ function ContentKo({ locale }: { locale: string }): React.ReactElement {
         <AllTools locale={locale} isKo={true} />
       </section>
       <PostTags tags={findPost(SLUG)!.tags.ko} isKo={true} />
+    </article>
+  );
+}
+
+function ContentZh({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-8 leading-relaxed text-[color:var(--color-text-secondary)]">
+      <header>
+        <p className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+          韩国生活 · 外国人
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          在韩外国人完全生活指南 — 从入境到离境的金钱·签证·行政
+        </h1>
+        <p className="mt-4 text-sm text-[color:var(--color-text-tertiary)]">
+          截至2026年6月。签证·税务·年金规定会变动——此处数字仅供参考，实际办理前请向相关机构确认。
+        </p>
+      </header>
+
+      <section className="space-y-4">
+        <p>
+          在韩国生活遵循一条可预见的轨迹：你<strong>入境</strong>后与实名认证的高墙搏斗，在住房与医疗系统中<strong>安顿</strong>下来，<strong>工作并纳税</strong>，其中一部分人靠居留或创业签证<strong>长期停留</strong>，而最终大多数人会<strong>离境</strong>——并想把交过的年金拿回来。本文走完这整段旅程，并在每一步为你指引一个免费计算器。把它收藏起来吧，不同时期你会回到不同的章节。
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          1. 最初的90天
+        </h2>
+        <p>
+          有两个期限决定了你的起点。如果打算停留超过90天，请在入境后<strong>90天内办理外国人登录证(ARC)</strong>。搬家后，请到出入境或区厅<strong>在14天内办理居留地变更申报</strong>。申报逾期会有罚款，而更棘手的是：ARC几乎是其他一切的关口——像样的手机套餐、银行账户，乃至韩国式实名认证。
+        </p>
+        <p>
+          那道实名认证的高墙才是真正的第一道坎(预付费USIM通常无法通过认证，必须使用以ARC登记的后付费套餐)。哪些应用在拿到ARC之前能用，我们整理成了一篇
+          <Link
+            href={`/${locale}/blog/essential-apps-korea-foreigners`}
+            className="text-indigo-300 underline-offset-2 hover:underline"
+          >
+            单独的指南
+          </Link>
+          。而在此期间，你唯一绝不能弄丢的数字就是——你已经待了多少天。
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/visa-days"
+          title="停留天数(90天签证)追踪器"
+          desc="查询免签·签证停留天数和精确到期日——哪怕只超一天也算逾期滞留。"
+        />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          2. 找房子(以及守住押金)
+        </h2>
+        <p>
+          韩国有两种租赁模式。<strong>全租房(Jeonse)</strong>是一大笔押金、没有月租；<strong>月租(Wolse)</strong>是较小的押金加每月租金。两者按法定上限4.5%的转换率相互换算。可怕的是押金：<strong>2022~2023年的全租房诈骗</strong>让包括外国人在内的数万名租客血本无归、押金全失。
+        </p>
+        <p>
+          外国人最常踩的陷阱：韩国人凭迁入申报就能获得对抗力与优先受偿权，而外国人必须依《出入境管理法》办理<strong>居留地变更申报</strong>才能取得同等效力——单纯的"居所登记"是不够的。请在同一天一并领取确定日期(확정일자)。
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/jeonse-wolse"
+          title="全租房↔月租换算器 + 全租房诈骗防范"
+          desc="双向换算 + 签约前分步诈骗防范核查清单。"
+        />
+        <p>
+          续约时押金或月租最多上涨<strong>5%</strong>，而且你有一次要求延长两年的权利。还有，别被面积骗了：房源通常标注的是更大的供给面积(공급면적)，而不是你实际居住的专用面积(전용면적)。
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <ToolCallout
+            locale={locale}
+            href="/rent-cap"
+            title="租金5%涨幅上限"
+            desc="验证续约涨幅是否在法定上限之内。"
+          />
+          <ToolCallout
+            locale={locale}
+            href="/apartment-area"
+            title="专用·供给面积 / 每坪单价"
+            desc="专用面积与供给面积之别，以及真实的每坪单价。"
+          />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          3. 健康保险(强制加入)
+        </h2>
+        <p>
+          停留满6个月以上的外国人会作为地区加入者自动加入国民健康保险(NHIS)——自2019年7月起属于强制。若在有参保的公司就职，则改为职场加入者，与雇主各承担一半保费。<strong>D-2/D-4留学生</strong>可享地区保费减免(常被引用为50%——请确认现行比率)。关键陷阱：一旦拖欠保费，所有给付都会停止，<em>签证延期</em>也会受阻，所以请设置自动扣款。
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/foreign-health-insurance"
+          title="外国人健康保险费计算器"
+          desc="按职场·地区加入者分别估算月保费 + 加入·使用核查清单。"
+        />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          4. 拿薪水——以及纳税
+        </h2>
+        <p>
+          税前工资不会原封不动地进到你的账户：四大保险(年金·健康·长期护理·雇佣)与所得税会先被扣掉。2026年国民年金费率上调至<strong>9.5%</strong>(本人4.75% + 公司4.75%)。
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/net-salary"
+          title="工资实发金额"
+          desc="扣除2026年四大保险与所得税后的实际月到手金额。"
+        />
+        <p>
+          外国人特有的重大决定是所得税计税方式。每年你可以在韩国的<strong>累进税率</strong>和对全部劳动所得征收的<strong>19%单一税率</strong>之间选择——但选择单一税率，就会放弃<em>所有</em>扣除与税额抵免。高收入·扣除项少→单一税率划算，低收入·扣除项多→累进税率划算，这是通行看法。年末结算(연말정산)在2月进行，部分国家出身的教师·教授可依租税协定免税。
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/foreign-flat-tax"
+          title="外国人单一税率(19%) vs 累进税率"
+          desc="两种方式对比 + 年末结算核查清单。"
+        />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          5. 停留更久——居留与创业
+        </h2>
+        <p>
+          当韩国成为你安身立命之地，两条路会打开。<strong>F-2-7居留(积分制)签证</strong>是通往永住(F-5)的常见一步：你需符合五种类型之一并攒够80分。若你更想创造点什么，<strong>D-8签证</strong>是为创业者·投资者准备的路——D-8-1/3对应1亿韩元以上投资，D-8-4是通过OASIS项目的技术创业。
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <ToolCallout
+            locale={locale}
+            href="/f2-residence-visa"
+            title="F-2-7居留签证资格"
+            desc="类型·核心要件 + 申请材料核查清单。"
+          />
+          <ToolCallout
+            locale={locale}
+            href="/d8-startup-visa"
+            title="D-8创业·投资签证"
+            desc="D-8-1/3/4要件 + 法人设立核查清单。"
+          />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          6. 离开韩国——把交过的钱拿回来
+        </h2>
+        <p>
+          永久离境时，你或许能以<strong>返还一次金</strong>的形式取回交进国民年金的钱——如果是职场加入者，拿回的是包含公司负担部分在内的整整约9%(而不只是你看到被扣的那4.75%)。能否领取取决于你的国籍与签证：E-9/H-2持有者无论国籍都可以，互惠主义·社会保障协定国(美国·加拿大·菲律宾·印度等)的国民也能领。
+        </p>
+        <p>
+          顺序很重要：在离职金发放、年金申请办完之前，<strong>不要交回你的ARC</strong>——这两件事都需要它。可从离境前一个月起申请，或在离境当天于仁川机场NPS柜台办理。
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/pension-refund"
+          title="国民年金返还一次金"
+          desc="估算返还额 + 离境前结算核查清单全套。"
+        />
+      </section>
+
+      <section className="space-y-3 rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
+        <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+          关于准确性
+        </h2>
+        <p className="text-sm">
+          签证·税务·年金·租赁都是数字弄错就会损失惨重的领域。这里所有数字都取自官方来源——NPS·NTS·NHIS·Hi Korea·国土部及相关法令——仅供参考。凡来源之间有出入或数值未公开的，工具会如实说明而非臆测；因国籍·签证而异的项目则标注为"(verify)"。在实际申报·签约前，请务必经相关机构或专业人士确认。
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          所有工具汇聚一处
+        </h2>
+        <AllTools locale={locale} isKo={false} />
+      </section>
+      <PostTags tags={findPost(SLUG)!.tags.zh} isKo={false} />
+    </article>
+  );
+}
+
+function ContentVi({ locale }: { locale: string }): React.ReactElement {
+  return (
+    <article className="space-y-8 leading-relaxed text-[color:var(--color-text-secondary)]">
+      <header>
+        <p className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+          Cuộc sống tại Hàn Quốc · Người nước ngoài
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          Sống ở Hàn Quốc với tư cách người nước ngoài — Hướng dẫn đầy đủ về
+          tiền bạc, visa & thủ tục hành chính
+        </h1>
+        <p className="mt-4 text-sm text-[color:var(--color-text-tertiary)]">
+          Cập nhật đến tháng 6 năm 2026. Quy định về visa, thuế và lương hưu có
+          thể thay đổi — các con số ở đây chỉ mang tính tham khảo; hãy xác nhận
+          với cơ quan liên quan trước khi thực hiện.
+        </p>
+      </header>
+
+      <section className="space-y-4">
+        <p>
+          Cuộc sống ở Hàn Quốc diễn ra theo một trình tự dễ đoán: bạn{" "}
+          <strong>nhập cảnh</strong> và vật lộn với bức tường xác thực danh tính,
+          bạn <strong>ổn định</strong> với chỗ ở và hệ thống y tế, bạn{" "}
+          <strong>làm việc và nộp thuế</strong>, một số người{" "}
+          <strong>ở lại</strong> bằng visa cư trú hoặc khởi nghiệp, và cuối cùng
+          phần lớn <strong>rời đi</strong> — và muốn lấy lại khoản lương hưu đã
+          đóng. Bài viết này đi qua toàn bộ hành trình đó và ở mỗi bước sẽ chỉ cho
+          bạn một công cụ tính toán miễn phí. Hãy đánh dấu trang này; bạn sẽ quay
+          lại những phần khác nhau vào những thời điểm khác nhau.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          1. 90 ngày đầu tiên
+        </h2>
+        <p>
+          Hai mốc thời hạn định hình khởi đầu của bạn. Nếu ở lại quá 90 ngày, hãy{" "}
+          <strong>
+            đăng ký Thẻ đăng ký người nước ngoài (ARC) trong vòng 90 ngày
+          </strong>{" "}
+          kể từ khi nhập cảnh. Sau khi dọn vào ở, hãy{" "}
+          <strong>khai báo thay đổi nơi cư trú trong vòng 14 ngày</strong> tại cơ
+          quan xuất nhập cảnh hoặc văn phòng quận. Khai báo trễ sẽ bị phạt, và —
+          đau hơn nữa — ARC là cửa ngõ của gần như mọi thứ khác: một gói cước điện
+          thoại đàng hoàng, một tài khoản ngân hàng, và xác thực danh tính kiểu
+          Hàn Quốc.
+        </p>
+        <p>
+          Bức tường xác thực danh tính đó mới là ải đầu tiên thực sự (SIM trả
+          trước thường không qua được xác thực; bạn cần gói trả sau đăng ký bằng
+          chính ARC của mình). Ứng dụng nào dùng được trước khi có ARC thì chúng
+          tôi đã tổng hợp trong một{" "}
+          <Link
+            href={`/${locale}/blog/essential-apps-korea-foreigners`}
+            className="text-indigo-300 underline-offset-2 hover:underline"
+          >
+            hướng dẫn riêng
+          </Link>
+          . Trong khi đó, con số duy nhất bạn tuyệt đối không được để lạc mất là —
+          bạn đã ở đây bao nhiêu ngày.
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/visa-days"
+          title="Trình theo dõi số ngày lưu trú (visa 90 ngày)"
+          desc="Đếm số ngày lưu trú 90 ngày / theo visa và xem chính xác ngày hết hạn — quá hạn dù chỉ một ngày cũng có hậu quả."
+        />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          2. Tìm nhà (và bảo vệ tiền đặt cọc của bạn)
+        </h2>
+        <p>
+          Hàn Quốc có hai mô hình thuê nhà. <strong>Jeonse</strong> là một khoản
+          đặt cọc lớn trọn gói, không có tiền thuê hàng tháng;{" "}
+          <strong>Wolse</strong> là khoản đặt cọc nhỏ hơn cộng tiền thuê hàng
+          tháng. Hai loại quy đổi qua lại theo tỷ lệ chuyển đổi có trần luật định
+          4,5%. Điều đáng sợ chính là tiền đặt cọc:{" "}
+          <strong>làn sóng lừa đảo Jeonse năm 2022~2023</strong> đã khiến hàng vạn
+          người thuê nhà — kể cả người nước ngoài — mất trắng toàn bộ tiền cọc.
+        </p>
+        <p>
+          Cạm bẫy đặc thù với người nước ngoài mà nhiều người mắc phải: người Hàn
+          được bảo vệ pháp lý (hiệu lực đối kháng + quyền ưu tiên nhận lại tiền)
+          nhờ khai báo chuyển vào ở, nhưng là người nước ngoài, bạn phải nộp{" "}
+          <strong>khai báo thay đổi nơi cư trú</strong> theo Luật Quản lý Xuất
+          nhập cảnh mới có hiệu lực tương đương — chỉ "đăng ký nơi cư trú" thông
+          thường là chưa đủ. Hãy làm kèm dấu xác nhận ngày (ngày xác định /
+          확정일자) ngay trong cùng ngày.
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/jeonse-wolse"
+          title="Công cụ quy đổi Jeonse ↔ Wolse + Danh sách phòng chống lừa đảo"
+          desc="Quy đổi cả hai chiều + chạy danh sách kiểm tra phòng chống lừa đảo tiền cọc từng bước trước khi ký."
+        />
+        <p>
+          Khi gia hạn, tiền đặt cọc hoặc tiền thuê của bạn chỉ được tăng tối đa{" "}
+          <strong>5%</strong>, và bạn có quyền gia hạn thêm hai năm một lần. Và
+          đừng để bị đánh lừa bởi diện tích: tin đăng thường ghi diện tích cung
+          cấp (공급면적) lớn hơn, chứ không phải diện tích chuyên dụng (전용면적) —
+          phần bạn thực sự sinh sống.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <ToolCallout
+            locale={locale}
+            href="/rent-cap"
+            title="Giới hạn tăng giá thuê (5%)"
+            desc="Kiểm tra xem mức tăng khi gia hạn có nằm trong giới hạn luật định không."
+          />
+          <ToolCallout
+            locale={locale}
+            href="/apartment-area"
+            title="Diện tích & giá căn hộ"
+            desc="Diện tích chuyên dụng và cung cấp, cùng giá thực trên mỗi pyeong."
+          />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          3. Bảo hiểm y tế (bắt buộc)
+        </h2>
+        <p>
+          Bất kỳ người nước ngoài nào lưu trú từ 6 tháng trở lên đều tự động được
+          ghi danh vào Bảo hiểm Y tế Quốc dân (NHIS) với tư cách người tham gia
+          theo khu vực — điều này bắt buộc kể từ tháng 7 năm 2019. Nếu làm việc cho
+          một công ty có bảo hiểm, bạn trở thành người tham gia theo nơi làm việc
+          và chia đôi phí bảo hiểm 50/50 với chủ lao động.{" "}
+          <strong>Du học sinh D-2/D-4</strong> được giảm phí bảo hiểm khu vực
+          (thường được dẫn là 50% — hãy xác nhận mức hiện hành). Cạm bẫy then chốt:
+          nếu chậm đóng phí, mọi quyền lợi sẽ bị đình chỉ và{" "}
+          <em>việc gia hạn visa</em> cũng bị chặn, vậy nên hãy cài đặt tự động
+          trích nợ.
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/foreign-health-insurance"
+          title="Máy tính phí bảo hiểm y tế người nước ngoài"
+          desc="Ước tính phí bảo hiểm hàng tháng với tư cách người tham gia theo nơi làm việc hoặc khu vực, kèm danh sách kiểm tra ghi danh & sử dụng."
+        />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          4. Nhận lương — và bị đánh thuế
+        </h2>
+        <p>
+          Lương gộp không phải là số tiền vào tài khoản của bạn: bốn loại bảo hiểm
+          (lương hưu, y tế, chăm sóc dài hạn, việc làm) cùng thuế thu nhập bị trừ
+          trước. Năm 2026, tỷ lệ Lương hưu Quốc dân đã tăng lên{" "}
+          <strong>9,5%</strong> (4,75% từ bạn, 4,75% từ chủ lao động).
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/net-salary"
+          title="Lương thực nhận"
+          desc="Xem lương thực nhận hàng tháng thực tế sau khi trừ bốn loại bảo hiểm và thuế thu nhập năm 2026."
+        />
+        <p>
+          Quyết định lớn chỉ dành cho người nước ngoài là phương pháp tính thuế
+          thu nhập. Mỗi năm bạn có thể chọn giữa{" "}
+          <strong>thuế suất lũy tiến</strong> của Hàn Quốc và mức{" "}
+          <strong>19% cố định</strong> trên tổng thu nhập tiền lương — nhưng thuế
+          suất cố định thì từ bỏ <em>mọi</em> khoản khấu trừ và giảm trừ. Người
+          thu nhập cao với ít khoản khấu trừ thường có lợi với thuế suất cố định;
+          người thu nhập thấp với nhiều khoản khấu trừ thường có lợi với thuế lũy
+          tiến. Quyết toán cuối năm (연말정산) diễn ra vào tháng 2, và giáo
+          viên/giáo sư từ một số quốc gia có thể được miễn thuế theo hiệp định.
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/foreign-flat-tax"
+          title="Thuế suất cố định người nước ngoài (19%) vs Lũy tiến"
+          desc="So sánh hai phương pháp cạnh nhau, kèm danh sách kiểm tra quyết toán cuối năm."
+        />
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          5. Ở lại lâu hơn — cư trú & kinh doanh
+        </h2>
+        <p>
+          Nếu Hàn Quốc trở thành nhà, hai con đường mở ra.{" "}
+          <strong>Visa cư trú theo điểm F-2-7</strong> là một bước phổ biến tiến
+          tới thường trú (F-5): bạn cần thuộc một trong năm loại và đạt 80 điểm.
+          Nếu bạn muốn xây dựng điều gì đó, <strong>visa D-8</strong> dành cho nhà
+          sáng lập và nhà đầu tư — D-8-1/3 cho khoản đầu tư từ 100 triệu won trở
+          lên, D-8-4 cho khởi nghiệp công nghệ qua chương trình OASIS.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <ToolCallout
+            locale={locale}
+            href="/f2-residence-visa"
+            title="Visa cư trú F-2-7"
+            desc="Kiểm tra các loại và yêu cầu cốt lõi + danh sách hồ sơ."
+          />
+          <ToolCallout
+            locale={locale}
+            href="/d8-startup-visa"
+            title="Visa khởi nghiệp & đầu tư D-8"
+            desc="Yêu cầu D-8-1/3/4 + danh sách kiểm tra thành lập pháp nhân."
+          />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          6. Rời Hàn Quốc — lấy lại tiền của bạn
+        </h2>
+        <p>
+          Khi rời đi vĩnh viễn, bạn có thể lấy lại toàn bộ số tiền đã đóng vào
+          Lương hưu Quốc dân dưới dạng <strong>khoản hoàn trả một lần</strong> — và
+          với người tham gia theo nơi làm việc, khoản đó bao gồm cả phần một nửa
+          của chủ lao động, trọn khoảng 9%, không chỉ 4,75% bạn thấy bị trừ. Việc
+          bạn có được yêu cầu hay không tùy thuộc vào quốc tịch và visa: người giữ
+          E-9/H-2 đủ điều kiện bất kể quốc gia nào, và công dân các nước có đi có
+          lại hoặc có hiệp định an sinh xã hội (Mỹ, Canada, Philippines, Ấn Độ và
+          các nước khác) cũng vậy.
+        </p>
+        <p>
+          Thứ tự rất quan trọng: <strong>đừng trả lại ARC</strong> cho đến khi
+          tiền trợ cấp thôi việc được chi trả và hồ sơ yêu cầu lương hưu đã nộp —
+          bạn cần nó cho cả hai. Hãy nộp đơn từ một tháng trước khi khởi hành, hoặc
+          tại quầy NPS ở sân bay Incheon vào đúng ngày bạn bay.
+        </p>
+        <ToolCallout
+          locale={locale}
+          href="/pension-refund"
+          title="Khoản hoàn trả một lần Lương hưu Quốc dân"
+          desc="Ước tính khoản hoàn trả + toàn bộ danh sách kiểm tra thanh toán & xuất cảnh trước khi rời đi."
+        />
+      </section>
+
+      <section className="space-y-3 rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
+        <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+          Về tính chính xác
+        </h2>
+        <p className="text-sm">
+          Visa, thuế, lương hưu và thuê nhà là những lĩnh vực mà một con số sai sẽ
+          khiến bạn thiệt hại. Mọi con số ở đây đều lấy từ nguồn chính thức — NPS,
+          NTS, NHIS, HiKorea, MOLIT và các văn bản luật — và chỉ mang tính tham
+          khảo. Ở những chỗ các nguồn không thống nhất hoặc một con số chưa được
+          công bố, các công cụ sẽ nói rõ như vậy thay vì đoán, và những mục thay
+          đổi theo quốc tịch hoặc visa được đánh dấu "(verify)". Luôn xác nhận với
+          cơ quan hoặc chuyên gia trước khi thực sự khai báo hay ký hợp đồng.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          Tất cả công cụ ở một nơi
+        </h2>
+        <AllTools locale={locale} isKo={false} />
+      </section>
+      <PostTags tags={findPost(SLUG)!.tags.vi} isKo={false} />
     </article>
   );
 }

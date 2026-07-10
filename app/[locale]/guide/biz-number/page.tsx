@@ -10,17 +10,31 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "ko") {
+  if (locale === "ko") {
     return {
-      title: "Korean business numbers — what the middle two digits mean",
+      title: "사업자등록번호 가운데 두 자리, 무슨 의미인가요? | 검증 알고리즘",
       description:
-        "Why 81 means a corporation HQ, what 89 actually is, and how the NTS checksum tells you a number is fake before you call.",
+        "104-81-XXXXX와 104-50-XXXXX 차이. 가운데 두 자리로 사업자 종류를 알아보는 법, 그리고 가짜 번호를 전화 안 걸고 잡아내는 체크섬 검증.",
+    };
+  }
+  if (locale === "zh") {
+    return {
+      title: "事业者登记号中间两位数字是什么意思？| 校验位算法",
+      description:
+        "104-81-XXXXX与104-50-XXXXX的区别。教你用中间两位数字判断事业者种类，以及不打电话也能靠校验位识破假号码的方法。",
+    };
+  }
+  if (locale === "vi") {
+    return {
+      title: "Hai chữ số giữa mã số đăng ký kinh doanh Hàn Quốc có ý nghĩa gì?",
+      description:
+        "Vì sao 81 là trụ sở pháp nhân, 89 thực chất là gì, và cách checksum của NTS giúp bạn phát hiện mã số giả mà không cần gọi điện xác minh.",
     };
   }
   return {
-    title: "사업자등록번호 가운데 두 자리, 무슨 의미인가요? | 검증 알고리즘",
+    title: "Korean business numbers — what the middle two digits mean",
     description:
-      "104-81-XXXXX와 104-50-XXXXX 차이. 가운데 두 자리로 사업자 종류를 알아보는 법, 그리고 가짜 번호를 전화 안 걸고 잡아내는 체크섬 검증.",
+      "Why 81 means a corporation HQ, what 89 actually is, and how the NTS checksum tells you a number is fake before you call.",
   };
 }
 
@@ -37,10 +51,24 @@ export default async function BizNumberGuidePage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {locale === "ko" ? "사업자등록번호 검증으로" : "To the validator"}
+            {locale === "ko"
+              ? "사업자등록번호 검증으로"
+              : locale === "zh"
+                ? "返回事业者登记号验证"
+                : locale === "vi"
+                  ? "Về trang xác thực mã số đăng ký kinh doanh"
+                  : "To the validator"}
           </Link>
         </nav>
-        {locale === "ko" ? <ContentKo /> : <ContentEn />}
+        {locale === "ko" ? (
+          <ContentKo />
+        ) : locale === "zh" ? (
+          <ContentZh />
+        ) : locale === "vi" ? (
+          <ContentVi />
+        ) : (
+          <ContentEn />
+        )}
       </div>
     </main>
   );
@@ -290,6 +318,372 @@ function ContentEn(): React.ReactElement {
             validator
           </Link>{" "}
           first, then check Hometax for active status.
+        </p>
+      </section>
+    </article>
+  );
+}
+
+function ContentZh(): React.ReactElement {
+  return (
+    <article className="space-y-8 leading-relaxed text-[color:var(--color-text-secondary)]">
+      <header>
+        <p className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+          事业者 · Q&amp;A
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          事业者登记号中间两位数字，是什么意思？
+        </h1>
+        <p className="mt-4 text-sm text-[color:var(--color-text-tertiary)]">
+          最后更新 2026-04-28。
+        </p>
+      </header>
+
+      <section className="space-y-4">
+        <p>
+          做生意时经常需要拿到交易对象的事业者登记号，但有时会因为记错
+          一两个数字、没有察觉就直接开具税务发票，结果被退回。在那之前，
+          其实有办法仅凭号码本身做第一道验证。
+        </p>
+        <p>本文以常见问答的形式整理。</p>
+      </section>
+
+      <section className="space-y-5">
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q1. 中间两位数字是什么意思？
+          </h2>
+          <p className="mt-3 text-sm">
+            是<strong>事业者种类代码</strong>。国税厅按事业者种类划分
+            号码段并分配。
+          </p>
+          <ul className="mt-3 list-inside list-disc space-y-1 text-sm">
+            <li>01~79: 个人事业者(一般纳税人)</li>
+            <li>80: 非营利法人总部(个人代表)</li>
+            <li>81·86·87·88: 营利法人总部</li>
+            <li>82: 非营利法人总部·分支机构</li>
+            <li>83: 国家·地方自治团体</li>
+            <li>84: 外国法人总部·分支机构·联络处</li>
+            <li>85: 营利法人分支机构</li>
+            <li>89: 非事业者</li>
+            <li>90~99: 增值税免税个人事业者</li>
+          </ul>
+          <p className="mt-3 text-sm">
+            例如 <code>104-81-12345</code> 是营利法人总部，
+            <code>104-50-12345</code> 是普通个人事业者。只看号码就能
+            分辨周边店铺是个人还是法人。
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q2. 最后一位数字是怎么决定的？
+          </h2>
+          <p className="mt-3 text-sm">
+            是<strong>校验位</strong>。由前9位数字分别乘以对应权重后
+            相加，自动计算得出。
+          </p>
+          <p className="mt-2 text-sm">
+            权重为 <code>1, 3, 7, 1, 3, 7, 1, 3, 5</code>。第9位数字
+            比较特殊——需要额外加上其×5结果的十位数(略微特殊的一步)。
+          </p>
+          <p className="mt-2 text-sm">
+            计算方法：将合计sum除以10所得的余数，再用10减去该余数。
+            <br />
+            <code>checksum = (10 - sum % 10) % 10</code>
+          </p>
+          <p className="mt-2 text-sm text-[color:var(--color-text-tertiary)]">
+            计算结果与最后一位数字一致，则格式有效。
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q3. 只要通过校验位，就是真实存在的事业者吗？
+          </h2>
+          <p className="mt-3 text-sm">
+            不是的。校验位只是<strong>格式验证</strong>而已。该事业者
+            是否实际登记、正在营业，还是已经停业·歇业，需要另行通过
+            国税厅Hometax API查询。
+          </p>
+          <p className="mt-2 text-sm">
+            即便如此，它依然有价值，原因如下：
+          </p>
+          <ul className="mt-2 list-inside list-disc space-y-1 text-sm">
+            <li>立即抓出打字错误(实际输入错误中90%在格式阶段就能被拦下)</li>
+            <li>拦截随意编造的虚假号码</li>
+            <li>作为调用停业·歇业查询API前的第一道筛选，节省成本</li>
+          </ul>
+          <p className="mt-3 text-sm">
+            示例：<code>123-45-67890</code> — 格式看起来没问题，但
+            实际计算校验位后，最后一位应该是1。也就是说这是一个
+            伪造号码。
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q4. 停业·歇业信息在哪里查询？
+          </h2>
+          <p className="mt-3 text-sm">
+            可在国税厅Hometax{" "}
+            <a
+              href="https://www.hometax.go.kr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-300 underline-offset-2 hover:underline"
+            >
+              hometax.go.kr
+            </a>{" "}
+            免费查询。不过每天限查100件，如需大量验证，须使用合作
+            机构API(NICE、KCB等)。
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q5. 与外国人登录号有什么区别？
+          </h2>
+          <p className="mt-3 text-sm">
+            外国人登录号为13位，事业者登记号为10位。而且外国人登录号
+            的第一位数字是5~6，事业者登记号则按地区使用不同号码段。
+          </p>
+          <p className="mt-2 text-sm text-[color:var(--color-text-tertiary)]">
+            再补充一点：居民登记号码(13位)与事业者登记号(10位)本身
+            位数就不同。
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q6. 本站验证工具 vs Hometax，该用哪一个？
+          </h2>
+          <p className="mt-3 text-sm">
+            用途不同。
+          </p>
+          <ul className="mt-2 list-inside list-disc space-y-1 text-sm">
+            <li>
+              <strong>本站</strong>：即时格式验证，可离线使用，且
+              没有每日次数限制。缺点是无法得知是否在营业。
+            </li>
+            <li>
+              <strong>Hometax</strong>：可查询营业·停业状态。缺点是
+              每日限100件，无法批量自动化。
+            </li>
+          </ul>
+          <p className="mt-3 text-sm">
+            验证大量交易对象名单时，最有效率的做法是：先用本站做
+            第一道格式筛选 → 剩下的号码再到Hometax查询是否在营业。
+          </p>
+        </div>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          结语
+        </h2>
+        <p>
+          总结。中间两位代表事业者种类，最后一位是校验位。通过
+          校验位 = 格式没问题，不代表事业者正在营业。请先用本站的
+          <Link
+            href="/zh/biznum-check"
+            className="text-indigo-300 underline-offset-2 hover:underline"
+          >
+            事业者登记号验证
+          </Link>
+          做格式筛选，再到Hometax确认是否在营业。
+        </p>
+      </section>
+    </article>
+  );
+}
+
+function ContentVi(): React.ReactElement {
+  return (
+    <article className="space-y-8 leading-relaxed text-[color:var(--color-text-secondary)]">
+      <header>
+        <p className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+          Doanh nghiệp · Q&amp;A
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">
+          Hai chữ số ở giữa mã số đăng ký kinh doanh có ý nghĩa gì?
+        </h1>
+        <p className="mt-4 text-sm text-[color:var(--color-text-tertiary)]">
+          Cập nhật lần cuối 2026-04-28.
+        </p>
+      </header>
+
+      <section className="space-y-4">
+        <p>
+          Khi kinh doanh, việc nhận mã số đăng ký kinh doanh từ đối tác
+          là chuyện thường xuyên, nhưng đôi khi ghi nhầm một hai chữ số
+          mà không phát hiện, đến khi phát hành hóa đơn thuế xong mới bị
+          trả về. Trước khi điều đó xảy ra, có một cách kiểm tra sơ bộ
+          chỉ bằng chính dãy số đó.
+        </p>
+        <p>Bài viết này được trình bày theo dạng hỏi đáp thường gặp.</p>
+      </section>
+
+      <section className="space-y-5">
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q1. Hai chữ số ở giữa có ý nghĩa gì?
+          </h2>
+          <p className="mt-3 text-sm">
+            Đó là <strong>mã loại hình doanh nghiệp</strong>. Cơ quan
+            Thuế Quốc gia (NTS) chia dải số theo từng loại hình doanh
+            nghiệp rồi cấp phát.
+          </p>
+          <ul className="mt-3 list-inside list-disc space-y-1 text-sm">
+            <li>01~79: Cá nhân kinh doanh (người nộp thuế thông thường)</li>
+            <li>80: Trụ sở phi lợi nhuận (đại diện cá nhân)</li>
+            <li>81, 86, 87, 88: Trụ sở pháp nhân vì lợi nhuận</li>
+            <li>82: Trụ sở/chi nhánh pháp nhân phi lợi nhuận</li>
+            <li>83: Cơ quan Nhà nước/địa phương</li>
+            <li>84: Trụ sở/chi nhánh/văn phòng đại diện pháp nhân nước ngoài</li>
+            <li>85: Chi nhánh pháp nhân vì lợi nhuận</li>
+            <li>89: Không kinh doanh</li>
+            <li>90~99: Cá nhân kinh doanh miễn thuế GTGT</li>
+          </ul>
+          <p className="mt-3 text-sm">
+            Ví dụ, <code>104-81-12345</code> là trụ sở pháp nhân vì lợi
+            nhuận, còn <code>104-50-12345</code> là cá nhân kinh doanh
+            thông thường. Chỉ cần nhìn mã số là phân biệt được cửa hàng
+            xung quanh là cá nhân hay pháp nhân.
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q2. Chữ số cuối cùng được xác định như thế nào?
+          </h2>
+          <p className="mt-3 text-sm">
+            Đó là <strong>chữ số kiểm tra (checksum)</strong>. Được
+            tính tự động từ tổng của 9 chữ số đầu nhân với trọng số
+            tương ứng.
+          </p>
+          <p className="mt-2 text-sm">
+            Trọng số là <code>1, 3, 7, 1, 3, 7, 1, 3, 5</code>. Chữ số
+            thứ 9 hơi đặc biệt — chỉ cộng thêm hàng chục của kết quả
+            ×5 (phần này hơi khác thường).
+          </p>
+          <p className="mt-2 text-sm">
+            Cách tính: lấy 10 trừ đi số dư của phép chia tổng sum cho 10.
+            <br />
+            <code>checksum = (10 - sum % 10) % 10</code>
+          </p>
+          <p className="mt-2 text-sm text-[color:var(--color-text-tertiary)]">
+            Nếu kết quả trùng với chữ số cuối, định dạng hợp lệ.
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q3. Chỉ cần vượt qua checksum là doanh nghiệp có thật?
+          </h2>
+          <p className="mt-3 text-sm">
+            Không. Checksum chỉ là <strong>kiểm tra định dạng</strong>.
+            Muốn biết doanh nghiệp có đang hoạt động hay đã tạm ngưng,
+            đóng cửa, phải tra cứu riêng qua API Hometax của NTS.
+          </p>
+          <p className="mt-2 text-sm">
+            Dù vậy, nó vẫn có giá trị vì:
+          </p>
+          <ul className="mt-2 list-inside list-disc space-y-1 text-sm">
+            <li>Phát hiện lỗi gõ ngay lập tức (90% lỗi nhập liệu thực tế bị chặn ngay từ bước định dạng)</li>
+            <li>Chặn các mã số giả được tạo tùy tiện</li>
+            <li>Là bộ lọc bước đầu giúp tiết kiệm chi phí trước khi gọi API tra cứu tình trạng tạm ngưng/đóng cửa</li>
+          </ul>
+          <p className="mt-3 text-sm">
+            Ví dụ: <code>123-45-67890</code> — định dạng có vẻ đúng,
+            nhưng khi tính checksum thì chữ số cuối phải là 1. Tức là
+            mã số giả.
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q4. Tra cứu tình trạng tạm ngưng/đóng cửa ở đâu?
+          </h2>
+          <p className="mt-3 text-sm">
+            Có thể tra cứu miễn phí tại Hometax của NTS{" "}
+            <a
+              href="https://www.hometax.go.kr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-300 underline-offset-2 hover:underline"
+            >
+              hometax.go.kr
+            </a>
+            . Tuy nhiên giới hạn 100 lượt/ngày, nên nếu cần xác minh số
+            lượng lớn phải dùng API của các đơn vị liên kết (NICE, KCB,
+            v.v.).
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q5. Phân biệt với số đăng ký người nước ngoài như thế nào?
+          </h2>
+          <p className="mt-3 text-sm">
+            Số đăng ký người nước ngoài có 13 chữ số, còn mã số đăng
+            ký kinh doanh có 10 chữ số. Ngoài ra, chữ số đầu tiên của
+            số đăng ký người nước ngoài là 5~6, còn mã số kinh doanh
+            dùng các dải số khác nhau theo từng khu vực.
+          </p>
+          <p className="mt-2 text-sm text-[color:var(--color-text-tertiary)]">
+            Thêm một điều nữa: số đăng ký cư trú (13 chữ số) và mã số
+            đăng ký kinh doanh (10 chữ số) vốn đã khác nhau về số chữ
+            số.
+          </p>
+        </div>
+
+        <div className="surface-elevated p-5">
+          <h2 className="text-xl font-semibold text-[color:var(--color-text-primary)]">
+            Q6. Công cụ kiểm tra của trang này so với Hometax, nên
+            dùng cái nào?
+          </h2>
+          <p className="mt-3 text-sm">
+            Mục đích khác nhau.
+          </p>
+          <ul className="mt-2 list-inside list-disc space-y-1 text-sm">
+            <li>
+              <strong>Trang này</strong>: kiểm tra định dạng tức thì,
+              dùng được ngoại tuyến, không giới hạn số lần mỗi ngày.
+              Nhược điểm là không biết doanh nghiệp có đang hoạt động
+              hay không.
+            </li>
+            <li>
+              <strong>Hometax</strong>: tra cứu được tình trạng hoạt
+              động/tạm ngưng/đóng cửa. Nhược điểm là giới hạn 100
+              lượt/ngày, không thể tự động hóa hàng loạt.
+            </li>
+          </ul>
+          <p className="mt-3 text-sm">
+            Khi cần xác minh danh sách đối tác số lượng lớn, cách hiệu
+            quả nhất là: lọc định dạng bước đầu bằng trang này → chỉ
+            những mã số còn lại mới tra cứu tình trạng hoạt động trên
+            Hometax.
+          </p>
+        </div>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-2xl font-semibold text-[color:var(--color-text-primary)]">
+          Kết luận
+        </h2>
+        <p>
+          Tóm lại. Hai chữ số ở giữa là loại hình doanh nghiệp, chữ số
+          cuối là checksum. Vượt qua checksum = định dạng ổn, không có
+          nghĩa là doanh nghiệp đang hoạt động. Hãy lọc định dạng
+          trước bằng{" "}
+          <Link
+            href="/vi/biznum-check"
+            className="text-indigo-300 underline-offset-2 hover:underline"
+          >
+            công cụ xác thực mã số đăng ký kinh doanh
+          </Link>{" "}
+          của trang này, rồi kiểm tra tình trạng hoạt động tại Hometax.
         </p>
       </section>
     </article>
