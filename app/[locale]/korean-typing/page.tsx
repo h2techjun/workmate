@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Home } from "lucide-react";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
@@ -22,6 +22,14 @@ function localeKeyOf(locale: string): Locale {
   if (locale === "vi") return "vi";
   return "en";
 }
+
+/** 게임 랜딩 상단 네비 라벨 (홈·게임 목록) */
+const NAV_LABEL: Record<Locale, { home: string; games: string }> = {
+  ko: { home: "홈", games: "게임 목록" },
+  en: { home: "Home", games: "All games" },
+  zh: { home: "首页", games: "所有游戏" },
+  vi: { home: "Trang chủ", games: "Tất cả game" },
+};
 
 export async function generateMetadata({
   params,
@@ -53,7 +61,8 @@ export default async function KoreanTypingPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
-  const c = KOREAN_TYPING_COPY[localeKeyOf(locale)];
+  const lk = localeKeyOf(locale);
+  const c = KOREAN_TYPING_COPY[lk];
 
   const faqJsonLd = JSON.stringify({
     "@context": "https://schema.org",
@@ -76,6 +85,22 @@ export default async function KoreanTypingPage({
       </Script>
 
       <div className="mx-auto max-w-4xl">
+        <nav className="mb-6 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
+          <Link
+            href={`/${locale}`}
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-[color:var(--color-text-primary)]"
+          >
+            <Home className="h-4 w-4" />
+            {NAV_LABEL[lk].home}
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link
+            href={`/${locale}/games`}
+            className="transition-colors hover:text-[color:var(--color-text-primary)]"
+          >
+            {NAV_LABEL[lk].games}
+          </Link>
+        </nav>
         <header className="mb-8 animate-fade-up">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-violet-400">
             {c.eyebrow}
