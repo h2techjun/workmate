@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { calculateNetSalary } from "@/lib/calculations/labor/netSalary";
 import { NumberField } from "@/components/ui/NumberField";
-import { ShareButton } from "@/components/ui/ShareButton";
+import { ShareResultCard } from "@/components/ui/ShareResultCard";
 import { BreakdownBar } from "@/components/ui/charts";
+import { segmentBar, buildShareText } from "@/lib/share/emojiBar";
 import { formatKoreanMoney } from "@/lib/utils/format";
 
 interface NetSalaryFormProps {
@@ -32,7 +33,9 @@ const T = {
     employment: "고용보험",
     incomeTax: "소득세",
     localTax: "지방소득세",
+    taxTotal: "세금",
     deductionRate: "공제율",
+    takeHomeRate: "실수령률",
     chartTitle: "월급 구성",
     note: "2026 4대보험 요율 + 근로소득세 간이 추정. 실제 원천징수는 국세청 간이세액표 기준이라 ±5% 차이 가능. 연말정산으로 정산.",
   },
@@ -53,7 +56,9 @@ const T = {
     employment: "Employment ins.",
     incomeTax: "Income tax",
     localTax: "Local income tax",
+    taxTotal: "Tax",
     deductionRate: "Deduction rate",
+    takeHomeRate: "Take-home rate",
     chartTitle: "Monthly breakdown",
     note: "2026 insurance rates + estimated withholding. Actual withholding follows the NTS simplified table (±5%). Reconciled at year-end settlement.",
   },
@@ -74,7 +79,9 @@ const T = {
     employment: "雇佣保险",
     incomeTax: "所得税",
     localTax: "地方所得税",
+    taxTotal: "税金",
     deductionRate: "扣除比例",
+    takeHomeRate: "实领比例",
     chartTitle: "月薪构成",
     note: "按2026年四大保险费率与劳动所得税简易估算。实际代扣代缴以国税厅简易税额表为准，可能相差±5%。准确金额以年末结算为准。",
   },
@@ -95,11 +102,24 @@ const T = {
     employment: "Bảo hiểm việc làm",
     incomeTax: "Thuế thu nhập",
     localTax: "Thuế thu nhập địa phương",
+    taxTotal: "Thuế",
     deductionRate: "Tỷ lệ khấu trừ",
+    takeHomeRate: "Tỷ lệ thực nhận",
     chartTitle: "Cơ cấu lương tháng",
     note: "Theo tỷ lệ bảo hiểm 2026 + ước tính khấu trừ tại nguồn. Khấu trừ thực tế theo bảng thuế đơn giản của Cơ quan Thuế Quốc gia (NTS) (±5%). Được quyết toán vào cuối năm.",
   },
 } as const;
+
+/** 결과 요약 headline — 로케일별 단위 간격(ko 는 붙여쓰기) 반영 */
+function buildHeadline(
+  locale: NetSalaryFormProps["locale"],
+  label: string,
+  net: string,
+  unit: string,
+): string {
+  const money = locale === "ko" ? `${net}${unit}` : `${net} ${unit}`;
+  return `💰 ${label} ${money}`;
+}
 
 export function NetSalaryForm({
   locale,
@@ -116,6 +136,19 @@ export function NetSalaryForm({
     dependents,
     childrenUnder20: children,
     monthlyNonTax: nonTax,
+  });
+
+  const takeHomeRate = (1 - r.deductionRate) * 100;
+  const bar = segmentBar([
+    { value: r.monthlyNet, color: "green" },
+    { value: r.totalInsurance, color: "blue" },
+    { value: r.totalTax, color: "red" },
+  ]);
+  const rateText = `${t.takeHomeRate} ${takeHomeRate.toFixed(1)}%`;
+  const shareText = buildShareText({
+    headline: buildHeadline(locale, t.monthlyNet, won(r.monthlyNet), t.unit),
+    bar,
+    detail: rateText,
   });
 
   const field = (
@@ -154,100 +187,93 @@ export function NetSalaryForm({
         {field(t.nonTax, nonTax, setNonTax, { money: true })}
       </section>
 
-      <section className="surface-card space-y-4 p-5 md:p-7">
-        <div className="flex items-center justify-between gap-3">
-          <h2 className="text-lg font-semibold text-[color:var(--color-text-primary)]">
-            {t.result}
-          </h2>
-          <ShareButton
-            text={
-              locale === "ko"
-                ? `연봉 ${won(annual)}원 → 월 실수령액 ${won(r.monthlyNet)}원 (실수령률 ${((1 - r.deductionRate) * 100).toFixed(1)}%)`
-                : locale === "zh"
-                  ? `年薪 ${won(annual)} 韩元 → 月实领工资 ${won(r.monthlyNet)} 韩元`
-                  : locale === "vi"
-                    ? `Lương năm ${won(annual)} KRW → lương thực nhận hàng tháng ${won(r.monthlyNet)} KRW`
-                    : `Annual ${won(annual)} KRW → monthly take-home ${won(r.monthlyNet)} KRW`
-            }
-            label={tShare("button")}
-            copiedLabel={tShare("copied")}
-          />
-        </div>
+      <div className="space-y-4">
+        {/* 아케이드 결과 카드 — 타일 리빌 + 실수령률 배지 + 이모지 공유 */}
+        <ShareResultCard
+          key={won(r.monthlyNet)}
+          label={t.monthlyNet}
+          value={won(r.monthlyNet)}
+          unit={t.unit}
+          bar={bar}
+          barLabel={t.chartTitle}
+          badges={[{ text: rateText, tone: "success" }]}
+          shareText={shareText}
+          shareLabel={tShare("button")}
+          copiedLabel={tShare("copied")}
+          accent="emerald"
+        />
 
-        <div className="rounded-xl bg-gradient-to-br from-emerald-500/15 to-teal-500/10 p-4 ring-1 ring-emerald-500/20">
-          <dt className="text-xs font-medium text-[color:var(--color-text-tertiary)]">
-            {t.monthlyNet}
-          </dt>
-          <dd className="mt-1 text-4xl font-bold tabular-nums text-[color:var(--color-text-hero)]">
-            {won(r.monthlyNet)}
-            <span className="ml-1 text-base font-medium text-[color:var(--color-text-secondary)]">
-              {t.unit}
-            </span>
-          </dd>
-          <p className="mt-1 text-xs text-[color:var(--color-text-tertiary)]">
-            {t.annualNet} {won(r.annualNet)} {t.unit} · {t.deductionRate}{" "}
-            {(r.deductionRate * 100).toFixed(1)}%
+        {/* 상세 분석 카드 — 연 실수령 + 구성 차트 + 공제 내역 */}
+        <section className="surface-card space-y-4 p-5 md:p-6">
+          <p className="text-sm text-[color:var(--color-text-secondary)]">
+            {t.annualNet}{" "}
+            <span className="font-semibold tabular-nums text-[color:var(--color-text-primary)]">
+              {won(r.annualNet)} {t.unit}
+            </span>{" "}
+            · {t.deductionRate} {(r.deductionRate * 100).toFixed(1)}%
           </p>
-        </div>
 
-        <div>
-          <h3 className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
-            {t.chartTitle}
-          </h3>
-          <BreakdownBar
-            segments={[
-              { label: t.monthlyNet, value: r.monthlyNet, color: "var(--chart-2)" },
-              { label: t.pension, value: r.pension, color: "var(--chart-1)" },
-              { label: t.health, value: r.health, color: "var(--chart-5)" },
-              { label: t.longTerm, value: r.longTerm, color: "var(--chart-6)" },
-              { label: t.employment, value: r.employment, color: "var(--chart-3)" },
-              { label: t.incomeTax, value: r.incomeTax, color: "var(--chart-4)" },
-              { label: t.localTax, value: r.localTax, color: "var(--color-text-muted)" },
-            ]}
-            format={won}
-            ariaLabel={t.chartTitle}
-          />
-        </div>
-
-        <dl className="space-y-1.5 text-sm">
-          <div className="flex justify-between font-semibold">
-            <dt className="text-[color:var(--color-text-secondary)]">{t.gross}</dt>
-            <dd className="tabular-nums text-[color:var(--color-text-primary)]">
-              {won(r.monthlyGross)} {t.unit}
-            </dd>
-          </div>
-          <div className="flex justify-between text-[color:var(--color-text-tertiary)]">
-            <dt>{t.insurance}</dt>
-            <dd className="tabular-nums">−{won(r.totalInsurance)}</dd>
-          </div>
-          {[
-            [t.pension, r.pension],
-            [t.health, r.health],
-            [t.longTerm, r.longTerm],
-            [t.employment, r.employment],
-          ].map(([label, val]) => (
-            <div
-              key={label as string}
-              className="flex justify-between pl-3 text-xs text-[color:var(--color-text-muted)]"
-            >
-              <dt>{label}</dt>
-              <dd className="tabular-nums">{won(val as number)}</dd>
+          <div>
+            <div className="mb-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[color:var(--color-text-tertiary)]">
+              <span>🟩 {t.monthlyNet}</span>
+              <span>🟦 {t.insurance}</span>
+              <span>🟥 {t.taxTotal}</span>
             </div>
-          ))}
-          <div className="flex justify-between text-[color:var(--color-text-tertiary)]">
-            <dt>{t.incomeTax}</dt>
-            <dd className="tabular-nums">−{won(r.incomeTax)}</dd>
+            <BreakdownBar
+              segments={[
+                { label: t.monthlyNet, value: r.monthlyNet, color: "var(--chart-2)" },
+                { label: t.pension, value: r.pension, color: "var(--chart-1)" },
+                { label: t.health, value: r.health, color: "var(--chart-5)" },
+                { label: t.longTerm, value: r.longTerm, color: "var(--chart-6)" },
+                { label: t.employment, value: r.employment, color: "var(--chart-3)" },
+                { label: t.incomeTax, value: r.incomeTax, color: "var(--chart-4)" },
+                { label: t.localTax, value: r.localTax, color: "var(--color-text-muted)" },
+              ]}
+              format={won}
+              ariaLabel={t.chartTitle}
+            />
           </div>
-          <div className="flex justify-between text-[color:var(--color-text-tertiary)]">
-            <dt>{t.localTax}</dt>
-            <dd className="tabular-nums">−{won(r.localTax)}</dd>
-          </div>
-        </dl>
 
-        <p className="text-[11px] leading-relaxed text-[color:var(--color-text-muted)]">
-          {t.note}
-        </p>
-      </section>
+          <dl className="space-y-1.5 text-sm">
+            <div className="flex justify-between font-semibold">
+              <dt className="text-[color:var(--color-text-secondary)]">{t.gross}</dt>
+              <dd className="tabular-nums text-[color:var(--color-text-primary)]">
+                {won(r.monthlyGross)} {t.unit}
+              </dd>
+            </div>
+            <div className="flex justify-between text-[color:var(--color-text-tertiary)]">
+              <dt>{t.insurance}</dt>
+              <dd className="tabular-nums">−{won(r.totalInsurance)}</dd>
+            </div>
+            {[
+              [t.pension, r.pension],
+              [t.health, r.health],
+              [t.longTerm, r.longTerm],
+              [t.employment, r.employment],
+            ].map(([label, val]) => (
+              <div
+                key={label as string}
+                className="flex justify-between pl-3 text-xs text-[color:var(--color-text-muted)]"
+              >
+                <dt>{label}</dt>
+                <dd className="tabular-nums">{won(val as number)}</dd>
+              </div>
+            ))}
+            <div className="flex justify-between text-[color:var(--color-text-tertiary)]">
+              <dt>{t.incomeTax}</dt>
+              <dd className="tabular-nums">−{won(r.incomeTax)}</dd>
+            </div>
+            <div className="flex justify-between text-[color:var(--color-text-tertiary)]">
+              <dt>{t.localTax}</dt>
+              <dd className="tabular-nums">−{won(r.localTax)}</dd>
+            </div>
+          </dl>
+
+          <p className="text-[11px] leading-relaxed text-[color:var(--color-text-muted)]">
+            {t.note}
+          </p>
+        </section>
+      </div>
     </div>
   );
 }

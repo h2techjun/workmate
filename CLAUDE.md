@@ -240,8 +240,22 @@ Claude Code는 작업 시작 전 반드시 확인:
 - **모바일 우선**: 현장에서 폰으로 쓰는 경우 많음
 - **계산 과정 표시**: SEO + 교육 효과
 - **출처 명시**: KS C IEC 60364, KS C 8431 등 명시
-- **PDF/이미지 다운로드**: 결재용 자료로 활용 가능
+- **결과 공유 카드**: Wordle식 이모지 타일 + 수치 원탭 공유 (카톡·커뮤니티 유입 루프). ※PDF/인쇄 export 는 사용자 결정으로 미지원 — 되살리지 말 것
 - **광고 위치**: 결과 하단 (사용자 경험 우선)
+
+### 🕹️ 다크 아케이드 퍼즐 디자인 시스템 (2026-07-11 — 전 페이지 톤 기준)
+> 글로벌 CLAUDE.md "🎨 디자인 언어" 의 Workmate 구현체. **신규·수정 페이지는 이 톤이 기본.**
+> 다크 배경(실무 신뢰) + 캐주얼 퍼즐게임 요소(놀이·공유). 실무 정확성/AdSense 가치는 그대로 유지.
+
+- **토큰·유틸 단일 진실원 = [`app/globals.css`](./app/globals.css)**. 게임 톤은 유틸로만 확장(페이지에 인라인 재현 금지):
+  - `arcade-card` — 통통 라운드(20px+) + 하드 섀도우 + 두꺼운 테두리. 결과·핵심 카드용.
+  - `arcade-tile` — 수치 한 자리를 담는 퍼즐 블록 타일. 결과 숫자 리빌에 사용.
+  - `game-badge` — 성취 배지 칩(실수령률·등급 등). tone(success/warning/accent) 변형.
+  - 리빌 애니메이션 `animate-tile-pop`(순차 등장)·`animate-pop-in`(카드 튀어오름) — **반드시 `prefers-reduced-motion` 에서 무효화**.
+- **결과 컴포넌트 = [`components/ui/calc-form.tsx`](./components/ui/calc-form.tsx) 공통(`HeroResult`/`Stat`/`ResultShell`)**. 여기 톤을 바꾸면 다수 계산기 자동 반영 → 개별 폼에서 결과 카드 재발명 금지.
+- **공유 = `components/ui/ShareResultCard.tsx` + `lib/share/emojiBar.ts`**. 결과 = Wordle식 이모지 바 + 수치 + URL 텍스트. 기존 `ShareButton`(Web Share+클립보드)·[`lib/og/toolCard.tsx`](./lib/og/toolCard.tsx)(OG 이미지) 재사용.
+- **4로케일 대칭** — 게임 톤 신규 문구도 ko/en/zh/vi 4키 대칭(기존 i18n 규칙 그대로).
+- **AdSense 무저촉** — 게임 톤은 **시각 레이어일 뿐**. ToolGuide 본문·출처·가치 게이트 유지, 리빌 애니메이션이 콘텐츠를 가리거나 CLS 유발 금지.
 
 ## ⛔ 완료 게이트 — 브라우저 전수검사 (예외 없음)
 

@@ -113,6 +113,8 @@ export const ZH_READY_PATHS: readonly string[] = [
   "/guide/biz-number",
   "/guide/insulation",
   "/guide/span",
+  // 한글 타자 게임 랜딩 (4로케일 완역)
+  "/korean-typing",
 ];
 
 const SET = new Set(ZH_READY_PATHS);

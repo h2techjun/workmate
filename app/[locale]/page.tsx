@@ -48,6 +48,16 @@ const POPULAR_TOOLS = [
   { href: "/korean-age", i18nKey: "koreanAge", emoji: "🎂" },
 ] as const;
 
+/** 인기 카드 상단 컬러 바 — 절제된 캔디 팔레트(indigo·emerald·amber·rose·cyan·violet) 순환 */
+const POPULAR_ACCENTS = [
+  "#818cf8",
+  "#34d399",
+  "#fbbf24",
+  "#fb7185",
+  "#22d3ee",
+  "#a78bfa",
+] as const;
+
 const ROLL_KEYS = [
   "heroRoll1",
   "heroRoll2",
@@ -400,8 +410,15 @@ function PopularSection({
             <Reveal key={item.href} delayMs={(i % 3) * 80} className="h-full">
               <Link
                 href={`/${locale}${item.href}`}
-                className="surface-card group relative flex h-full flex-col overflow-hidden p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[color:var(--color-border-strong)] hover:bg-[color:var(--color-bg-card-hover)]"
+                className="arcade-card-interactive group relative flex h-full flex-col overflow-hidden p-6 hover:bg-[color:var(--color-bg-card-hover)]"
               >
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-1"
+                  style={{
+                    background: `linear-gradient(90deg, ${POPULAR_ACCENTS[i % POPULAR_ACCENTS.length]}, transparent)`,
+                  }}
+                />
                 <span
                   aria-hidden="true"
                   className="pointer-events-none absolute -top-4 right-2 select-none text-[88px] font-black leading-none text-white/[0.04] transition-colors duration-300 group-hover:text-indigo-400/15"
@@ -468,7 +485,7 @@ function CategoriesSection({
 
           return (
             <Reveal key={group.id} delayMs={(i % 3) * 80} className="h-full">
-              <article className="surface-card group relative h-full overflow-hidden p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-[color:var(--color-border-strong)]">
+              <article className="arcade-card group relative h-full overflow-hidden p-6 transition-transform duration-200 hover:-translate-y-0.5">
                 <div
                   aria-hidden="true"
                   className={`pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${group.accent} opacity-60 transition-opacity group-hover:opacity-100`}
@@ -603,7 +620,7 @@ function NotesSection({
           <Reveal key={post.slug} delayMs={i * 80} className="h-full">
             <Link
               href={`/${locale}/blog/${post.slug}`}
-              className="surface-card group flex h-full flex-col p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[color:var(--color-border-strong)] hover:bg-[color:var(--color-bg-card-hover)]"
+              className="arcade-card-interactive group flex h-full flex-col p-6 hover:bg-[color:var(--color-bg-card-hover)]"
             >
               <div className="flex items-center gap-2 text-xs text-[color:var(--color-text-tertiary)]">
                 <time dateTime={post.publishedAt}>

@@ -160,6 +160,8 @@ if (existsSync(messagesDir)) {
     "electric-calc", "timber-calc", "labor-calc",
     // 데이터 레지스트리 — 자체 본문(표+방법론) 보유, 계산기 아님
     "data",
+    // 한글 타자 게임 랜딩 — 자체 본문(가이드+FAQ ≥800자)+게임 임베드, 계산기 아님
+    "korean-typing",
   ]);
   const thin = [];
   const walkPages = (dir, rel = "") => {

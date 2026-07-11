@@ -16,7 +16,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: ["/", ...viAllow, ...zhAllow],
-        disallow: ["/api/", "/vi/", "/zh/"],
+        // /ktype = 게임 SPA(콘텐츠 title 뿐, thin) → 색인 제외. 색인 본체는 /korean-typing 랜딩.
+        disallow: ["/api/", "/ktype", "/vi/", "/zh/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

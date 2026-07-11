@@ -2,12 +2,14 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import { AdSlot } from "@/components/seo/AdSlot";
 import { ShareButton } from "@/components/ui/ShareButton";
 import { OfferSlot } from "@/components/seo/OfferSlot";
+import { accentFromPath, ACCENT_HEX } from "@/lib/arcadeAccent";
 
 /** 결과 직후 노출할 관련 도구·글 링크 (전환·체류 강화) */
 export interface RelatedLink {
@@ -89,14 +91,14 @@ export function Stat({
   return (
     <div
       className={cn(
-        "rounded-xl border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-3.5",
+        "rounded-2xl border-2 border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] p-3.5",
         full && "col-span-2",
       )}
     >
-      <dt className="text-xs font-medium tracking-wide text-[color:var(--color-text-tertiary)]">
+      <dt className="text-xs font-semibold tracking-wide text-[color:var(--color-text-tertiary)]">
         {label}
       </dt>
-      <dd className={cn("mt-1 text-lg font-semibold tabular-nums", toneClass)}>
+      <dd className={cn("mt-1 text-lg font-bold tabular-nums", toneClass)}>
         {value}
       </dd>
     </div>
@@ -114,16 +116,25 @@ export function HeroResult({
   unit?: string;
 }): React.ReactElement {
   return (
-    <div className="rounded-xl bg-gradient-to-br from-indigo-500/15 via-indigo-500/5 to-transparent p-5 ring-1 ring-indigo-500/20">
-      <p className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+    <div
+      className="animate-pop-in rounded-2xl border-2 p-5"
+      style={{
+        borderColor:
+          "color-mix(in srgb, var(--card-accent, #818cf8) 30%, var(--color-border-subtle))",
+        background:
+          "linear-gradient(160deg, color-mix(in srgb, var(--card-accent, #818cf8) 15%, transparent), transparent)",
+        boxShadow: "0 0 30px -14px var(--card-accent, #818cf8)",
+      }}
+    >
+      <p className="text-xs font-bold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
         {label}
       </p>
       <p className="mt-1 flex items-baseline gap-1.5">
-        <span className="text-4xl font-bold tracking-tight text-[color:var(--color-text-hero)] tabular-nums md:text-5xl">
+        <span className="text-4xl font-extrabold tracking-tight text-[color:var(--color-text-hero)] tabular-nums md:text-5xl">
           {value}
         </span>
         {unit && (
-          <span className="text-xl font-semibold text-[color:var(--color-text-primary)] opacity-75 md:text-2xl">
+          <span className="text-xl font-bold text-[color:var(--color-text-primary)] opacity-75 md:text-2xl">
             {unit}
           </span>
         )}
@@ -152,15 +163,25 @@ export function ResultShell({
   children: ReactNode;
 }): React.ReactElement {
   const t = useTranslations("share");
+  const hex = ACCENT_HEX[accentFromPath(usePathname())];
   return (
     <>
       <section
         aria-live="polite"
-        className="surface-card overflow-hidden p-5 md:p-7"
+        style={{ ["--card-accent" as string]: hex }}
+        className="arcade-card animate-pop-in overflow-hidden p-5 md:p-7"
       >
+        <span
+          aria-hidden="true"
+          className="mb-4 block h-1.5 w-16 rounded-full"
+          style={{ background: `linear-gradient(90deg, ${hex}, transparent)` }}
+        />
         <div className="mb-5 flex items-center justify-between gap-3">
-          <h2 className="flex min-w-0 items-center gap-2 text-xl font-bold text-[color:var(--color-text-primary)]">
-            <span className="h-2 w-2 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
+          <h2 className="flex min-w-0 items-center gap-2 text-xl font-extrabold text-[color:var(--color-text-primary)]">
+            <span
+              className="h-2.5 w-2.5 shrink-0 rounded-full"
+              style={{ background: hex }}
+            />
             <span className="truncate">{heading}</span>
           </h2>
           <ShareButton

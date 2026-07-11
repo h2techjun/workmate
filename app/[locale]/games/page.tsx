@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
@@ -16,6 +17,14 @@ function localeKeyOf(locale: string): Locale {
   return "en";
 }
 
+/** 한글 타자 랜딩 유도 문구 (내부링크 — 게임 허브 → /korean-typing) */
+const TYPING_CTA: Record<Locale, string> = {
+  ko: "한글 타자 연습 해보기",
+  en: "Try Korean typing practice",
+  zh: "试试韩语打字练习",
+  vi: "Thử luyện gõ tiếng Hàn",
+};
+
 const COPY = {
   ko: {
     metaTitle: `무료 웹게임 모음 — ${SITE_BRAND}`,
@@ -32,6 +41,9 @@ const COPY = {
       "텍스트 어드벤처",
       "인터랙티브 픽션",
       "정치 스릴러",
+      "한글 타자",
+      "타자 연습",
+      "타자 게임",
     ],
     eyebrow: "무료 게임",
     h1: "브라우저에서 바로 플레이",
@@ -57,6 +69,8 @@ const COPY = {
       "tower defense",
       "text adventure",
       "interactive fiction",
+      "korean typing practice",
+      "hangul typing",
     ],
     eyebrow: "Free Games",
     h1: "Play Instantly in Browser",
@@ -86,6 +100,8 @@ const COPY = {
       "文字冒险",
       "互动小说",
       "政治惊悚",
+      "韩语打字",
+      "打字练习",
     ],
     eyebrow: "免费游戏",
     h1: "浏览器直接畅玩",
@@ -113,6 +129,8 @@ const COPY = {
       "tháp phòng thủ",
       "phiêu lưu chữ",
       "tiểu thuyết tương tác",
+      "gõ tiếng Hàn",
+      "luyện gõ tiếng Hàn",
     ],
     eyebrow: "Game miễn phí",
     h1: "Chơi ngay trên trình duyệt",
@@ -206,6 +224,13 @@ export default async function GamesHubPage({
             </li>
           ))}
         </ul>
+        <Link
+          href={`/${locale}/korean-typing`}
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-violet-400 transition-colors hover:text-violet-300"
+        >
+          {TYPING_CTA[localeKey]}
+          <span aria-hidden="true">→</span>
+        </Link>
       </section>
       </div>
     </main>
