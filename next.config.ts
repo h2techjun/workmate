@@ -69,9 +69,18 @@ const nextConfig: NextConfig = {
       { source: "/loopla/:path+", destination: "/loopla/:path+/index.html" },
     ];
 
+    // ktype = Vite SPA(단일 index.html). loopla(Next static export, 디렉토리별 index)와 달리
+    // 모든 하위 경로를 하나의 /ktype/index.html 로 보낸다. afterFiles 라 /ktype/assets/* 실제
+    // 자산이 항상 우선이고, 존재하지 않는 경로만 SPA 진입점으로 fallback 된다.
+    const ktypeRewrites = [
+      { source: "/ktype", destination: "/ktype/index.html" },
+      { source: "/ktype/", destination: "/ktype/index.html" },
+      { source: "/ktype/:path+", destination: "/ktype/index.html" },
+    ];
+
     return {
       beforeFiles: [],
-      afterFiles: [...proxies, ...looplaRewrites],
+      afterFiles: [...proxies, ...looplaRewrites, ...ktypeRewrites],
       fallback: [],
     };
   },

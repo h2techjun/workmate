@@ -151,6 +151,43 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
       },
     },
   },
+  {
+    id: "ktype",
+    tab: "games",
+    // 정적 임베드 — public/ktype/ (workmate.tools 도메인에서 직접 서빙).
+    hostType: "internal-static",
+    subpath: "/ktype",
+    status: "beta",
+    order: 3,
+    accent: "from-indigo-500 to-violet-500",
+    techStack: ["Vite", "React 19", "TypeScript", "Hangul IME"],
+    i18n: {
+      ko: {
+        title: "한글 타자",
+        tagline: "두벌식 타자 연습 — 자모부터 문장까지",
+        description:
+          "초성·중성·종성이 한 음절로 합쳐지는 과정을 보며 두벌식 한글 타자를 연습. 실시간 타수·정확도·콤보, 자모→단어→문장 단계별 학습. 초급 학습자와 한국인 모두를 위한 브라우저 게임.",
+      },
+      en: {
+        title: "K-Type",
+        tagline: "Korean dubeolsik typing trainer",
+        description:
+          "Practice Korean typing with live jamo-assembly visualization — watch initial, medial, and final consonants combine into a syllable. Real-time speed, accuracy, and combo across jamo, words, and sentences.",
+      },
+      vi: {
+        title: "K-Type",
+        tagline: "Korean dubeolsik typing trainer",
+        description:
+          "Practice Korean typing with live jamo-assembly visualization — watch initial, medial, and final consonants combine into a syllable. Real-time speed, accuracy, and combo across jamo, words, and sentences.",
+      },
+      zh: {
+        title: "韩语打字",
+        tagline: "韩语标准键盘打字练习 — 从字母到句子",
+        description:
+          "通过实时字母组合可视化练习韩语打字 — 观看初声·中声·终声如何合成一个音节。实时速度·准确率·连击，涵盖字母、单词、句子三个阶段。面向初学者与母语者的浏览器游戏。",
+      },
+    },
+  },
 
   // ─────────────────── 체험형 ───────────────────
   {
