@@ -103,7 +103,7 @@ export default async function BizNumberPage({
         <BizNumberForm />
         <ToolGuide
           toolKey="biznum-check"
-          locale={locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en"}
+          locale={locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en"}
         />
       </div>
     </main>

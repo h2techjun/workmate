@@ -26,6 +26,8 @@ const T = {
     cans4: "4L 통",
     cans1: "1L 통",
     cansUnit: "개",
+    countUnit: "개",
+    coatsUnit: "회",
     note: "문 2㎡·창 1.5㎡ 표준 차감. 일반 내벽 수성 도포율 약 10㎡/L/회, 2회 도장 권장. 표면 상태·도료 종류로 도포율 조정.",
   },
   en: {
@@ -44,6 +46,8 @@ const T = {
     cans4: "4L cans",
     cans1: "1L cans",
     cansUnit: "",
+    countUnit: "",
+    coatsUnit: "",
     note: "Standard deduction: door 2m², window 1.5m². Interior water-based paint ~10 m²/L per coat, 2 coats recommended. Adjust spread rate by surface and paint type.",
   },
   zh: {
@@ -62,6 +66,8 @@ const T = {
     cans4: "4L桶",
     cans1: "1L桶",
     cansUnit: "个",
+    countUnit: "个",
+    coatsUnit: "次",
     note: "标准扣除：门2㎡·窗1.5㎡。一般内墙水性涂料涂布率约10㎡/L/次，建议涂刷2次。可根据表面状态·涂料种类调整涂布率。",
   },
 } as const;
@@ -111,11 +117,11 @@ export function PaintForm({ locale }: PaintFormProps): React.ReactElement {
       <section className="surface-card space-y-4 p-5 md:p-7">
         {field(t.wallArea, wallArea, setWallArea, { decimals: 2, suffix: "㎡" })}
         <div className="grid grid-cols-2 gap-3">
-          {field(t.doorCount, doorCount, setDoorCount, { decimals: 0, suffix: "개" })}
-          {field(t.windowCount, windowCount, setWindowCount, { decimals: 0, suffix: "개" })}
+          {field(t.doorCount, doorCount, setDoorCount, { decimals: 0, suffix: t.countUnit })}
+          {field(t.windowCount, windowCount, setWindowCount, { decimals: 0, suffix: t.countUnit })}
         </div>
         <div className="grid grid-cols-3 gap-3">
-          {field(t.coats, coats, setCoats, { decimals: 0, suffix: "회" })}
+          {field(t.coats, coats, setCoats, { decimals: 0, suffix: t.coatsUnit })}
           {field(t.spreadRate, spreadRate, setSpreadRate, { decimals: 1, suffix: "㎡/L" })}
           {field(t.waste, waste, setWaste, { decimals: 0, suffix: "%" })}
         </div>

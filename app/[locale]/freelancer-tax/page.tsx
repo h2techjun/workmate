@@ -17,16 +17,21 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isVi = locale === "vi";
+  const isZh = locale === "zh";
   const title = isKo
     ? "프리랜서 3.3% 계산기 — 세전·세후 원천징수"
     : isVi
       ? "Máy tính thuế 3,3% cho freelancer tại Hàn Quốc — khấu trừ trước và sau thuế"
-      : "Korean Freelancer 3.3% Tax Calculator";
+      : isZh
+        ? "自由职业者3.3%计算器 — 税前·税后代扣代缴"
+        : "Korean Freelancer 3.3% Tax Calculator";
   const description = isKo
     ? "프리랜서 사업소득 3.3%(소득세 3% + 지방세 0.3%) 원천징수를 즉시 계산. 세전→세후, 실수령→세전 역산, 연 환산까지. 5월 종합소득세 신고 정산 안내."
     : isVi
       ? "Tính ngay khoản khấu trừ tại nguồn 3,3% (thuế thu nhập 3% + thuế địa phương 0,3%) trên thu nhập kinh doanh của freelancer. Từ trước thuế sang sau thuế, tính ngược từ thực nhận sang trước thuế, và quy đổi theo năm. Kèm hướng dẫn quyết toán thuế thu nhập tổng hợp vào tháng 5."
-      : "Calculate Korean freelancer 3.3% withholding (3% income + 0.3% local). Gross to net and net to gross, with annual figures and filing notes.";
+      : isZh
+        ? "即时计算自由职业者营业所得3.3%(所得税3% + 地方税0.3%)代扣代缴。税前→税后、实领→税前反算、按年换算。附5月综合所得税申报指南。"
+        : "Calculate Korean freelancer 3.3% withholding (3% income + 0.3% local). Gross to net and net to gross, with annual figures and filing notes.";
   const keywords = isKo
     ? [
         "프리랜서 3.3",
@@ -45,7 +50,16 @@ export async function generateMetadata({
           "thu nhập kinh doanh 3,3%",
           "thực nhận của freelancer",
         ]
-      : [
+      : isZh
+        ? [
+            "自由职业者3.3%",
+            "3.3%计算器",
+            "自由职业者税金",
+            "代扣代缴计算",
+            "营业所得3.3%",
+            "自由职业者实领",
+          ]
+        : [
         "korean freelancer tax",
         "korea 3.3 percent tax",
         "freelance withholding korea",
@@ -64,7 +78,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/freelancer-tax`,
-      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }

@@ -1,0 +1,2 @@
+- [공유 브라우저 탭 불안정](worktool-shared-browser-env.md) — 다단계 상호작용은 browser_run_code + newPage()로 단일 호출 처리, 개별 navigate/click 지양
+- [production 서버 세션 중 다운 사례](worktool-preview-server-instability.md) — 인터랙션 이상 징후 전 curl 헬스체크 먼저, 서버탓인지 코드탓인지 구분

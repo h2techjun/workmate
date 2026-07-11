@@ -30,7 +30,7 @@ export async function generateMetadata({
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }
@@ -66,7 +66,15 @@ export default async function ForeignStockTaxPage({
         <ForeignStockTaxForm />
         <ToolGuide
           toolKey="foreign-stock-tax"
-          locale={locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en"}
+          locale={
+            locale === "ko"
+              ? "ko"
+              : locale === "zh"
+                ? "zh"
+                : locale === "vi"
+                  ? "vi"
+                  : "en"
+          }
         />
       </div>
     </main>

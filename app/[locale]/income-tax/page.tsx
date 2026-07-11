@@ -17,16 +17,21 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isVi = locale === "vi";
+  const isZh = locale === "zh";
   const title = isKo
     ? "종합소득세 계산기 — 8구간 누진세 + 누진공제 + 지방세"
     : isVi
       ? "Máy tính thuế thu nhập tổng hợp Hàn Quốc — thuế suất lũy tiến 8 bậc + khấu trừ lũy tiến + thuế địa phương"
-      : "Korean Income Tax Calculator — 8 progressive brackets";
+      : isZh
+        ? "综合所得税计算器 — 8级累进税率 + 累进扣除 + 地方税"
+        : "Korean Income Tax Calculator — 8 progressive brackets";
   const description = isKo
     ? "2026 종합소득세 8구간 누진세율 즉시 계산. 과세표준 → 산출세액 → 결정세액 → 지방소득세 + 근로소득세액공제. 6%·15%·24%·35%·38%·40%·42%·45% 구간별 시각화."
     : isVi
       ? "Tính ngay thuế thu nhập tổng hợp Hàn Quốc theo thuế suất lũy tiến 8 bậc năm 2026. Cơ sở tính thuế → thuế tính toán → thuế quyết định → thuế thu nhập địa phương + khấu trừ thuế cho người lao động. Trực quan hóa từng bậc 6%·15%·24%·35%·38%·40%·42%·45%."
-      : "Korean comprehensive income tax with 2026 8-bracket progressive rates (6% to 45%), wage earner credit, local income tax breakdown.";
+      : isZh
+        ? "即时计算2026年韩国综合所得税8级累进税率。计税基数 → 应纳税额 → 决定税额 → 地方所得税 + 工资所得税额抵免。可视化6%·15%·24%·35%·38%·40%·42%·45%各级税率。"
+        : "Korean comprehensive income tax with 2026 8-bracket progressive rates (6% to 45%), wage earner credit, local income tax breakdown.";
   const keywords = isKo
     ? [
         "종합소득세 계산",
@@ -55,7 +60,21 @@ export async function generateMetadata({
           "thuế thu nhập tổng hợp freelancer",
           "thuế thu nhập tổng hợp hộ kinh doanh",
         ]
-      : [
+      : isZh
+        ? [
+            "综合所得税计算",
+            "所得税计算器",
+            "综合所得税率表",
+            "累进税计算",
+            "累进扣除",
+            "工资所得税额抵免",
+            "地方所得税",
+            "所得税级距",
+            "8级税率",
+            "自由职业者综合所得税",
+            "个体户综合所得税",
+          ]
+        : [
         "Korean income tax calculator",
         "Korean tax brackets 2026",
         "progressive tax Korea",
@@ -76,7 +95,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/income-tax`,
-      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }

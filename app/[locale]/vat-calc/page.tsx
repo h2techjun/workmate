@@ -93,7 +93,15 @@ export default async function VatCalcPage({
         <VatForm />
         <ToolGuide
           toolKey="vat-calc"
-          locale={locale === "ko" ? "ko" : locale === "vi" ? "vi" : "en"}
+          locale={
+            locale === "ko"
+              ? "ko"
+              : locale === "zh"
+                ? "zh"
+                : locale === "vi"
+                  ? "vi"
+                  : "en"
+          }
         />
 
         <section className="mt-12 grid gap-4 text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:grid-cols-3">

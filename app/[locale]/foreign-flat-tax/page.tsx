@@ -17,16 +17,21 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isVi = locale === "vi";
+  const isZh = locale === "zh";
   const title = isKo
     ? "외국인 단일세율(19%) vs 누진세 비교 계산기 — 어느 쪽이 유리?"
     : isVi
       ? "So sánh thuế suất đơn nhất (19%) và thuế lũy tiến cho người nước ngoài — Bên nào có lợi hơn?"
-      : "Korea Foreign Flat Tax (19%) vs Progressive — Which Saves More?";
+      : isZh
+        ? "外国人单一税率(19%) vs 累进税比较计算器 — 哪种更有利？"
+        : "Korea Foreign Flat Tax (19%) vs Progressive — Which Saves More?";
   const description = isKo
     ? "한국 거주 외국인 근로자의 19% 단일세율(지방세 포함 20.9%)과 일반 누진세를 연봉 기준으로 즉시 비교. 손익분기·실효세율·근로소득공제 반영. 2026 귀속 기준."
     : isVi
       ? "So sánh ngay thuế suất đơn nhất 19% (bao gồm thuế địa phương là 20.9%) và thuế lũy tiến thông thường dành cho người lao động nước ngoài tại Hàn Quốc, dựa trên mức lương năm. Phản ánh điểm hòa vốn, thuế suất thực tế, khấu trừ thu nhập từ lao động. Áp dụng năm thuế 2026."
-      : "Compare Korea's 19% flat tax (20.9% incl. local) vs progressive income tax for foreign workers by salary. Breakeven, effective rate, deductions — 2026 basis.";
+      : isZh
+        ? "根据年薪即时比较居住在韩国的外国劳动者的19%单一税率(含地方税共20.9%)与一般累进税。反映损益平衡点、实际税率、劳动所得扣除。适用2026纳税年度。"
+        : "Compare Korea's 19% flat tax (20.9% incl. local) vs progressive income tax for foreign workers by salary. Breakeven, effective rate, deductions — 2026 basis.";
   const keywords = isKo
     ? [
         "외국인 단일세율",
@@ -45,7 +50,16 @@ export async function generateMetadata({
           "so sánh thuế đơn nhất và thuế lũy tiến",
           "thuế người lao động nước ngoài",
         ]
-      : [
+      : isZh
+        ? [
+            "外国人单一税率",
+            "外国人所得税",
+            "外国人19%税率",
+            "外国人年末结算",
+            "单一税率累进税比较",
+            "外国劳动者税金",
+          ]
+        : [
           "korea flat tax",
           "korea 19 percent flat tax",
           "foreign worker tax korea",
@@ -68,7 +82,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/foreign-flat-tax`,
-      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }
