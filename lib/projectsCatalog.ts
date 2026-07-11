@@ -188,6 +188,43 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
       },
     },
   },
+  {
+    id: "kword",
+    tab: "games",
+    // 정적 임베드 — public/kword/ (workmate.tools 도메인에서 직접 서빙).
+    hostType: "internal-static",
+    subpath: "/kword",
+    status: "beta",
+    order: 4,
+    accent: "from-lime-400 to-cyan-500",
+    techStack: ["Vite", "React 19", "Zustand", "Crossword"],
+    i18n: {
+      ko: {
+        title: "한글 빈칸",
+        tagline: "교차 낱말로 배우는 한국어",
+        description:
+          "가로세로 열쇠를 보고 빈칸을 채우는 한국어 십자말풀이. CEFR A1~C2 6단계 700+ 단어, 초급은 음절 선택·중급 이상은 자모 키보드로 입력. 스테이지·데일리·무한 모드, 완성하면 발음·예문 학습. 가입 없이 로컬 저장.",
+      },
+      en: {
+        title: "Korean Blanks",
+        tagline: "Learn Korean by crossing words",
+        description:
+          "A Korean crossword: read the across/down clues, fill the intersecting blanks. 700+ words across CEFR A1–C2, syllable-pick for beginners and a Hangul jamo keyboard for higher levels. Stage, daily, and infinite modes with pronunciation and example learning. No signup, local save.",
+      },
+      vi: {
+        title: "Ô chữ Hàn",
+        tagline: "Học tiếng Hàn qua ô chữ",
+        description:
+          "Trò chơi ô chữ tiếng Hàn: đọc gợi ý ngang/dọc, điền vào các ô giao nhau. 700+ từ vựng CEFR A1–C2, chọn âm tiết cho người mới và bàn phím jamo cho cấp cao. Chế độ màn chơi, hằng ngày, vô hạn kèm học phát âm và ví dụ.",
+      },
+      zh: {
+        title: "韩语填空",
+        tagline: "用交叉填字学韩语",
+        description:
+          "韩语填字游戏：看横向/纵向提示，填入交叉的空格。CEFR A1~C2共700+词，初级点选音节，高级用韩文字母键盘。关卡·每日·无限模式，完成后有发音与例句学习。免注册，本地存档。",
+      },
+    },
+  },
 
   // ─────────────────── 체험형 ───────────────────
   {

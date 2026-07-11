@@ -78,9 +78,16 @@ const nextConfig: NextConfig = {
       { source: "/ktype/:path+", destination: "/ktype/index.html" },
     ];
 
+    // kword = 한글 빈칸(크로스워드) Vite SPA. ktype 과 동일 패턴 — 단일 index.html.
+    const kwordRewrites = [
+      { source: "/kword", destination: "/kword/index.html" },
+      { source: "/kword/", destination: "/kword/index.html" },
+      { source: "/kword/:path+", destination: "/kword/index.html" },
+    ];
+
     return {
       beforeFiles: [],
-      afterFiles: [...proxies, ...looplaRewrites, ...ktypeRewrites],
+      afterFiles: [...proxies, ...looplaRewrites, ...ktypeRewrites, ...kwordRewrites],
       fallback: [],
     };
   },

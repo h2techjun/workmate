@@ -36,6 +36,6 @@ export default createMiddleware({
  */
 export const config = {
   matcher: [
-    "/((?!api|_next|_vercel|play|app|lab|loopla|ktype|icon|apple-icon|opengraph-image|twitter-image|favicon|ads\\.txt|indexnow-key|llms\\.txt|llms-full\\.txt|.*\\..*).*)",
+    "/((?!api|_next|_vercel|play|app|lab|loopla|ktype|kword|icon|apple-icon|opengraph-image|twitter-image|favicon|ads\\.txt|indexnow-key|llms\\.txt|llms-full\\.txt|.*\\..*).*)",
   ],
 };
