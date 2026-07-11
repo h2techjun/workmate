@@ -83,6 +83,7 @@ const TOOL_PATHS = [
   "/tests",
   "/learn",
   "/korean-typing",
+  "/korean-crossword",
   "/blog",
   "/guide",
   "/guide/wire-size",

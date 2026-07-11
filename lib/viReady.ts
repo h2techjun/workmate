@@ -87,6 +87,8 @@ export const VI_READY_PATHS: readonly string[] = [
   "/guide/span",
   // 한글 타자 게임 랜딩 (4로케일 완역)
   "/korean-typing",
+  // 가로세로 낱말퀴즈 게임 랜딩 (4로케일 완역)
+  "/korean-crossword",
 ];
 
 const SET = new Set(VI_READY_PATHS);

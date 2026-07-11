@@ -163,26 +163,26 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     techStack: ["Vite", "React 19", "TypeScript", "Hangul IME"],
     i18n: {
       ko: {
-        title: "한글 타자",
-        tagline: "두벌식 타자 연습 — 자모부터 문장까지",
+        title: "타자 연습 게임",
+        tagline: "무료 온라인 한글 타자연습 — 두벌식 타수·정확도",
         description:
           "초성·중성·종성이 한 음절로 합쳐지는 과정을 보며 두벌식 한글 타자를 연습. 실시간 타수·정확도·콤보, 자모→단어→문장 단계별 학습. 초급 학습자와 한국인 모두를 위한 브라우저 게임.",
       },
       en: {
-        title: "K-Type",
-        tagline: "Korean dubeolsik typing trainer",
+        title: "Typing Practice Game",
+        tagline: "Free online Korean typing game (dubeolsik)",
         description:
           "Practice Korean typing with live jamo-assembly visualization — watch initial, medial, and final consonants combine into a syllable. Real-time speed, accuracy, and combo across jamo, words, and sentences.",
       },
       vi: {
-        title: "K-Type",
-        tagline: "Korean dubeolsik typing trainer",
+        title: "Game luyện gõ phím",
+        tagline: "Game luyện gõ tiếng Hàn miễn phí (dubeolsik)",
         description:
           "Practice Korean typing with live jamo-assembly visualization — watch initial, medial, and final consonants combine into a syllable. Real-time speed, accuracy, and combo across jamo, words, and sentences.",
       },
       zh: {
-        title: "韩语打字",
-        tagline: "韩语标准键盘打字练习 — 从字母到句子",
+        title: "打字练习游戏",
+        tagline: "免费在线韩语打字练习 — 标准键盘",
         description:
           "通过实时字母组合可视化练习韩语打字 — 观看初声·中声·终声如何合成一个音节。实时速度·准确率·连击，涵盖字母、单词、句子三个阶段。面向初学者与母语者的浏览器游戏。",
       },
@@ -200,25 +200,25 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     techStack: ["Vite", "React 19", "Zustand", "Crossword"],
     i18n: {
       ko: {
-        title: "한글 빈칸",
-        tagline: "교차 낱말로 배우는 한국어",
+        title: "가로세로 낱말퀴즈",
+        tagline: "한국어 십자말풀이 — 무료 온라인 낱말퀴즈",
         description:
           "가로세로 열쇠를 보고 빈칸을 채우는 한국어 십자말풀이. CEFR A1~C2 6단계 700+ 단어, 초급은 음절 선택·중급 이상은 자모 키보드로 입력. 스테이지·데일리·무한 모드, 완성하면 발음·예문 학습. 가입 없이 로컬 저장.",
       },
       en: {
-        title: "Korean Blanks",
+        title: "Korean Crossword",
         tagline: "Learn Korean by crossing words",
         description:
           "A Korean crossword: read the across/down clues, fill the intersecting blanks. 700+ words across CEFR A1–C2, syllable-pick for beginners and a Hangul jamo keyboard for higher levels. Stage, daily, and infinite modes with pronunciation and example learning. No signup, local save.",
       },
       vi: {
-        title: "Ô chữ Hàn",
+        title: "Ô chữ tiếng Hàn",
         tagline: "Học tiếng Hàn qua ô chữ",
         description:
           "Trò chơi ô chữ tiếng Hàn: đọc gợi ý ngang/dọc, điền vào các ô giao nhau. 700+ từ vựng CEFR A1–C2, chọn âm tiết cho người mới và bàn phím jamo cho cấp cao. Chế độ màn chơi, hằng ngày, vô hạn kèm học phát âm và ví dụ.",
       },
       zh: {
-        title: "韩语填空",
+        title: "韩语填字游戏",
         tagline: "用交叉填字学韩语",
         description:
           "韩语填字游戏：看横向/纵向提示，填入交叉的空格。CEFR A1~C2共700+词，初级点选音节，高级用韩文字母键盘。关卡·每日·无限模式，完成后有发音与例句学习。免注册，本地存档。",
