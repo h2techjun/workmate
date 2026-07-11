@@ -38,6 +38,12 @@ export interface ProjectEntry {
    */
   subpath?: string;
   /**
+   * SEO 랜딩 경로 — Next 로케일 페이지(홈 네비 有). 있으면 카드가 게임 SPA 직행 대신
+   * 이 랜딩(/korean-typing 등, iframe 임베드)으로 이동 → 게임 후 홈으로 돌아갈 동선 확보.
+   * leading slash 포함, locale 제외. resolveProjectUrl 에서 최우선.
+   */
+  landingPath?: string;
+  /**
    * 로케일별 서브패스 오버라이드 — 한 앱이 방문자 언어에 따라 다른 진입점을
    * 가리킬 때(Loopla: ko=영어학습 "/loopla", en·vi=한국어학습 "/loopla/korean").
    * resolveProjectUrl(p, locale) 에서 subpath 보다 우선한다.
@@ -65,6 +71,10 @@ export interface ProjectEntry {
 export function resolveProjectUrl(p: ProjectEntry, locale?: Locale): string {
   if (p.hostType === "external") {
     return p.externalUrl ?? "#";
+  }
+  // SEO 랜딩(홈 네비 有) 경유 — 게임 SPA 직행 대신 랜딩 iframe 으로 유도
+  if (p.landingPath && locale) {
+    return `/${locale}${p.landingPath}`;
   }
   const byLocale = locale ? p.subpathByLocale?.[locale] : undefined;
   if (byLocale) {
@@ -157,6 +167,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     // 정적 임베드 — public/ktype/ (workmate.tools 도메인에서 직접 서빙).
     hostType: "internal-static",
     subpath: "/ktype",
+    landingPath: "/korean-typing",
     status: "beta",
     order: 3,
     accent: "from-indigo-500 to-violet-500",
@@ -194,6 +205,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     // 정적 임베드 — public/kword/ (workmate.tools 도메인에서 직접 서빙).
     hostType: "internal-static",
     subpath: "/kword",
+    landingPath: "/korean-crossword",
     status: "beta",
     order: 4,
     accent: "from-lime-400 to-cyan-500",
