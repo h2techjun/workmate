@@ -85,6 +85,12 @@ export const VI_READY_PATHS: readonly string[] = [
   "/guide/biz-number",
   "/guide/insulation",
   "/guide/span",
+  // Phase 2 — 외국인 취업비자 국가별 허브 + 제도 심층 2종 (4로케일 완역)
+  "/guide/foreign-work-visa-korea",
+  "/guide/eps-e9-work-visa",
+  "/guide/e7-professional-visa",
+  // 한국인 해외여행 — 한국 여권 무비자/비자 국가별 (4로케일 완역)
+  "/guide/korea-passport-visa-free",
   // 한글 타자 게임 랜딩 (4로케일 완역)
   "/korean-typing",
   // 가로세로 낱말퀴즈 게임 랜딩 (4로케일 완역)

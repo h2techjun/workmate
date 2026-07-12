@@ -24,11 +24,15 @@
   - 배선: 패턴A 14페이지(ToolGuide vi collapse 제거·buildLanguagesAlt·OG vi_VN) + 패턴B 10페이지 인라인 isVi 분기 + locale-prop 폼 5종(Studs·Tile·Paint·Gravel·Deck) vi TEXT + timber 허브 인라인 titles Record vi 실번역.
   - 검증: 585 테스트·tsc 0·audit·build 611/611·브라우저 QA(콘솔 0·studs 계산 e2e·ko/en 회귀·모바일 375)·hreflang 4로케일+x-default·robots Allow 25.
 
-### Phase 2 — 인도 국가별 비자/제도 콘텐츠 (마스터 지침 핵심)
-- [ ] **마스터 지침**: 비자/제도를 **국가별로 분류·설명** — "인도인 → 어떤 비자·어떤 제도", "베트남인 → 어떤 제도" 식으로 명확히.
-- 소재: E-9 고용허가제(EPS-TOPIK 송출 16개국), 유학 D-2/D-4, 전문직 E-7, 재외동포 F-4.
-- 구조: 제도별 허브(예: /guide/eps-topik) + 국가별 섹션/필터. AdSense ToolGuide급 고유 본문 필수.
-- 로케일: 영어 중심(인도·동남아 영어권) + zh/vi.
+### Phase 2 — 국가별 비자/제도 콘텐츠 (마스터 지침 핵심) ✅ 완료 (2026-07-12)
+- [x] **국가별 허브 `/guide/foreign-work-visa-korea`** (외국인→한국, 마스터 지침 "어느 나라인→어떤 비자" 정면 반영): 비자유형 요약표(E-9/E-7/E-8/F-4/D-2·D-4/E-2/Top-Tier) + 7개 국가군 상세(인도=E-7/Top-Tier·EPS비대상 / 중국=조선족 F-4 2026.2 H-2통합 / 베트남=EPS+E-8+유학 / 동남아·남아시아 EPS 11국 / 중앙아+고려인 F-4 / 몽골 / 영어권=E-7·E-2). 데이터주도 4로케일 + Breadcrumb·FAQPage JSON-LD.
+- [x] **제도 심층 `/guide/eps-e9-work-visa`**: EPS 개요·송출국 17개국(2025.10 타지키스탄 17번째)·인도 비대상 콜아웃·EPS-TOPIK 선발·4년10개월→9년8개월·2026 쿼터 8만·E-7-4 전환. 병렬 에이전트 작성→사실검수(수치·번역 placeholder 0).
+- [x] **제도 심층 `/guide/e7-professional-visa`**: 4개 서브카테고리·2026 임금기준(E-7-1 3,112만/E-7-2·3 2,589만, 2.1발효)·GNI·20%룰·Top-Tier(F-5 3년)·F-2-7 전환. 병렬 에이전트→검수(3,112/2,589/33,000 4로케일 정확).
+- 배선: guide 허브 GUIDES(3+1 앞줄)·sitemap·viReady/zhReady 4로케일 색인 게이트·재사용 `FaqJsonLd` 컴포넌트 신설.
+- 검증: 585 테스트·tsc0·lint·audit·build·프로덕션 build+start 브라우저 QA(13경로 4로케일 HTTP 200+마커·콘솔0·zh/vi collapse 없음·sitemap 4로케일 20 loc·robots allow).
+
+### Phase 2.5 — 한국인 해외비자 (마스터 추가 지시 2026-07-12) ✅ 완료
+- [x] **`/guide/korea-passport-visa-free`** (한국인→해외, 반대 방향): 한국 여권 무비자국 개요 + 미국(ESTA)·유럽(셰겐 90/180, ETIAS 2026 미시행 정황)·일본(90)·중국(한시 30, 2026.12.31)·베트남(45, 2028까지)·태국(90 비자면제협정+TDAC)·인도(e-비자 필수). 상태배지(무비자/전자허가/비자필요) + 요약표 + 공통체크 + Breadcrumb·FAQPage JSON-LD. 데이터주도 4로케일. 웹검증 후 작성(변동성 큰 항목 기준일·공식확인 명시). visa-days 도구 상호링크.
 
 ### Phase 3 — K-생태계 흐름 정합
 - [ ] **크로스링크 로케일 학습축 버그 수정** (2026-07-12 진단): `components/tools/CrossLinks.tsx:11` LEARN_COPY 가 전 로케일 "한국어 학습"인데 /ko/learn=영어학습(Loopla English) → 불일치. `app/[locale]/learn/page.tsx` GAMES_COPY ko "한국어 익혔으니"도 영어 문맥 아님.

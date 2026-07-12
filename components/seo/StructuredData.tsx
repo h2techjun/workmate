@@ -111,6 +111,39 @@ export function BreadcrumbJsonLd({
   );
 }
 
+interface FaqJsonLdProps {
+  items: ReadonlyArray<{ question: string; answer: string }>;
+  /** unique id suffix */
+  id: string;
+}
+
+/**
+ * Schema.org FAQPage JSON-LD — 가이드/블로그의 FAQ 섹션용.
+ * Google FAQ 리치 결과 후보. 페이지에 실제로 보이는 Q&A 와 1:1 일치해야 함.
+ */
+export function FaqJsonLd({
+  items,
+  id,
+}: FaqJsonLdProps): React.ReactElement {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: it.answer,
+      },
+    })),
+  };
+  return (
+    <Script id={`faq-${id}`} type="application/ld+json" strategy="afterInteractive">
+      {JSON.stringify(data)}
+    </Script>
+  );
+}
+
 interface OrganizationJsonLdProps {
   url: string;
 }
