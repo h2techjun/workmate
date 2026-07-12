@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
-import { ArrowRight, Home } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
 import { AdSlot } from "@/components/seo/AdSlot";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { KOREAN_CROSSWORD_COPY } from "@/lib/koreanCrosswordCopy";
 
 interface PageProps {
@@ -85,22 +86,15 @@ export default async function KoreanCrosswordPage({
       </Script>
 
       <div className="mx-auto max-w-4xl">
-        <nav className="mb-6 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}`}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <Home className="h-4 w-4" />
-            {NAV_LABEL[lk].home}
-          </Link>
-          <span aria-hidden="true">/</span>
-          <Link
-            href={`/${locale}/games`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {NAV_LABEL[lk].games}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          locale={lk}
+          id="korean-crossword"
+          trail={[
+            { name: NAV_LABEL[lk].home, url: `${SITE_URL}/${lk}` },
+            { name: NAV_LABEL[lk].games, url: `${SITE_URL}/${lk}/games` },
+            { name: c.h1, url: `${SITE_URL}/${lk}/korean-crossword` },
+          ]}
+        />
         <header className="mb-8 animate-fade-up">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-400">
             {c.eyebrow}

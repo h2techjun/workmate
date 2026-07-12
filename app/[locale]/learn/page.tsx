@@ -18,6 +18,7 @@ import {
   resolveProjectUrl,
   type ProjectEntry,
 } from "@/lib/projectsCatalog";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -247,6 +248,7 @@ export default async function LearnHubPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
+        <Breadcrumbs path="/learn" locale={localeKey} id="learn-hub" />
         <header className="mb-10 max-w-3xl animate-fade-up">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-400">
             {c.eyebrow}

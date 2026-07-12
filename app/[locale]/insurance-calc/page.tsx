@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { ToolGuide } from "@/components/tools/ToolGuide";
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { ChevronLeft } from "lucide-react";
 import { InsuranceForm } from "@/components/tools/insurance/InsuranceForm";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import type { Locale } from "@/i18n";
 
 interface PageProps {
@@ -47,6 +46,8 @@ export default async function InsuranceCalcPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   const t = await getTranslations({
     locale: locale as Locale,
     namespace: "insuranceTool",
@@ -54,15 +55,7 @@ export default async function InsuranceCalcPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {t("breadcrumb.home")}
-          </Link>
-        </nav>
+        <Breadcrumbs path="/insurance-calc" locale={localeKey} id="insurance-calc" />
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {t("title")}

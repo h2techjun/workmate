@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
 const PATH = "/guide/e7-professional-visa";
+
+const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
+  ko: "E-7 전문직 비자 완전 가이드 2026 (임금기준·유형·점수제)",
+  en: "Korea E-7 Professional Work Visa: 2026 Guide (Salary, Types, Points)",
+  zh: "韩国E-7专业工作签证完全指南2026(薪资标准·类型·积分制)",
+  vi: "Visa lao động chuyên môn E-7 Hàn Quốc: Hướng dẫn 2026 (Lương, Loại, Điểm)",
+};
 
 export async function generateMetadata({
   params,
@@ -69,24 +76,17 @@ export default async function E7ProfessionalVisaGuidePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/f2-residence-visa`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {locale === "ko"
-              ? "F-2-7 거주비자 점수제로"
-              : locale === "zh"
-                ? "前往F-2-7居住签证积分制"
-                : locale === "vi"
-                  ? "Đến điểm số visa cư trú F-2-7"
-                  : "To the F-2-7 residence points"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path={PATH}
+          locale={localeKey}
+          id="guide-e7-professional-visa"
+          currentName={TITLE[localeKey]}
+        />
         {locale === "ko" ? (
           <ContentKo locale={locale} />
         ) : locale === "zh" ? (

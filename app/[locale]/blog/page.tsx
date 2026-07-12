@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft, ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { postsByCategory, CATEGORY_LABELS } from "@/lib/blogPosts";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -116,15 +117,7 @@ export default async function BlogIndexPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {p.home}
-          </Link>
-        </nav>
+        <Breadcrumbs path="/blog" locale={lk} id="blog-index" />
 
         <header className="mb-10">
           <h1 className="text-3xl font-bold tracking-tight text-[color:var(--color-text-primary)] md:text-4xl">

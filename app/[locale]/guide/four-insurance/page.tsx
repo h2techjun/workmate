@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
+
+const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
+  ko: "월급 300만원이면 실수령 얼마? 4대보험 완전 분해",
+  en: "Korean 4-major insurance demystified (2026)",
+  zh: "月薪300万韩元实领多少？四大保险完全拆解",
+  vi: "Lương 3 triệu won thực nhận bao nhiêu? Giải mã đầy đủ 4 bảo hiểm bắt buộc",
+};
 
 export async function generateMetadata({
   params,
@@ -42,24 +49,17 @@ export default async function FourInsuranceGuidePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/insurance-calc`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {locale === "ko"
-              ? "4대보험 계산기로"
-              : locale === "zh"
-                ? "前往四大保险计算器"
-                : locale === "vi"
-                  ? "Đến máy tính 4 bảo hiểm bắt buộc"
-                  : "To the calculator"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/guide/four-insurance"
+          locale={localeKey}
+          id="guide-four-insurance"
+          currentName={TITLE[localeKey]}
+        />
         {locale === "ko" ? (
           <ContentKo />
         ) : locale === "zh" ? (

@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
+
+const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
+  ko: "2x10 SPF 장선, 몇 미터 갈 수 있나요?",
+  en: "How far can a 2x10 SPF span?",
+  zh: "2x10 SPF 搁栅(joist)能跨多远？",
+  vi: "Dầm sàn (joist) 2x10 SPF vượt được nhịp bao xa?",
+};
 
 export async function generateMetadata({
   params,
@@ -43,24 +50,17 @@ export default async function SpanGuidePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/timber-calc/span`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {locale === "ko"
-              ? "부재 경간 계산기로"
-              : locale === "zh"
-                ? "前往构件跨度计算器"
-                : locale === "vi"
-                  ? "Đến máy tính nhịp cấu kiện"
-                  : "To the calculator"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/guide/span"
+          locale={localeKey}
+          id="guide-span"
+          currentName={TITLE[localeKey]}
+        />
         {locale === "ko" ? (
           <ContentKo />
         ) : locale === "zh" ? (

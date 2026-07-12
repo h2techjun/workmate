@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { DueDateForm } from "@/components/tools/korean/DueDateForm";
 import { ToolGuide } from "@/components/tools/ToolGuide";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
@@ -70,12 +69,7 @@ export default async function DueDatePage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link href={`/${locale}/tools`} className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]">
-            <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : localeKey === "zh" ? "全部工具" : localeKey === "vi" ? "Tất cả công cụ" : "All tools"}
-          </Link>
-        </nav>
+        <Breadcrumbs path="/due-date" locale={localeKey} id="due-date" />
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {isKo

@@ -5,10 +5,8 @@ import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { VatForm } from "@/components/tools/tax/VatForm";
-import {
-  CalculatorJsonLd,
-  BreadcrumbJsonLd,
-} from "@/components/seo/StructuredData";
+import { CalculatorJsonLd } from "@/components/seo/StructuredData";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -69,15 +67,8 @@ export default async function VatCalcPage({
         url={url}
         applicationCategory="FinanceApplication"
       />
-      <BreadcrumbJsonLd
-        id="vat-calc"
-        items={[
-          { name: t("breadcrumb.home"), url: `${SITE_URL}/${localeKey}` },
-          { name: t("meta.title"), url },
-        ]}
-      />
-
       <main className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+        <Breadcrumbs path="/vat-calc" locale={localeKey} id="vat-calc" />
         <header className="mb-8 max-w-3xl animate-fade-up">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
             {t("eyebrow")}

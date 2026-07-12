@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ToolGuide } from "@/components/tools/ToolGuide";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CompoundForm } from "@/components/tools/finance/CompoundForm";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
@@ -98,21 +97,7 @@ export default async function CompoundCalcPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/tools`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {lang === "ko"
-              ? "툴 모음"
-              : lang === "zh"
-                ? "所有工具"
-                : lang === "vi"
-                  ? "Tất cả công cụ"
-                  : "All tools"}
-          </Link>
-        </nav>
+        <Breadcrumbs path="/compound-calc" locale={lang} id="compound-calc" />
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {lang === "ko"

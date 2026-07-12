@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft, ArrowRight, Globe } from "lucide-react";
+import { ArrowRight, Globe } from "lucide-react";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
-import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/StructuredData";
+import { FaqJsonLd } from "@/components/seo/StructuredData";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -642,15 +643,6 @@ export default async function ForeignWorkVisaKoreaPage({
   const localeKey = localeKeyOf(locale);
   const c = COPY[localeKey];
 
-  const breadcrumbItems = [
-    { name: c.breadcrumbHome, url: `${SITE_URL}/${locale}` },
-    { name: c.breadcrumbGuide, url: `${SITE_URL}/${locale}/guide` },
-    {
-      name: c.breadcrumbThis,
-      url: `${SITE_URL}/${locale}/guide/foreign-work-visa-korea`,
-    },
-  ];
-
   const faqItems = FAQS.map((f) => ({
     question: f.q[localeKey],
     answer: f.a[localeKey],
@@ -658,18 +650,14 @@ export default async function ForeignWorkVisaKoreaPage({
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
-      <BreadcrumbJsonLd items={breadcrumbItems} id="foreign-work-visa-korea" />
       <FaqJsonLd items={faqItems} id="foreign-work-visa-korea" />
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/guide`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {c.backToGuides}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/guide/foreign-work-visa-korea"
+          locale={localeKey}
+          id="guide-foreign-work-visa-korea"
+          currentName={c.h1}
+        />
 
         <article className="space-y-8 leading-relaxed text-[color:var(--color-text-secondary)]">
           <header>

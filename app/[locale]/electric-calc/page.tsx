@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowRight, Cable, ShieldCheck, Activity } from "lucide-react";
 import type { Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -54,6 +55,8 @@ export default async function ElectricCalcPage({
     locale: locale as Locale,
     namespace: "layout",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   const calcs: ReadonlyArray<CalcEntry> = [
     {
@@ -82,18 +85,7 @@ export default async function ElectricCalcPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("breadcrumb.home")}
-          </Link>
-          <span className="text-[color:var(--color-text-muted)]">/</span>
-          <span className="text-[color:var(--color-text-primary)]">
-            {t("breadcrumb.current")}
-          </span>
-        </nav>
+        <Breadcrumbs path="/electric-calc" locale={localeKey} id="electric-hub" />
 
         <header className="mb-10">
           <h1 className="text-3xl font-bold tracking-tight md:text-4xl">

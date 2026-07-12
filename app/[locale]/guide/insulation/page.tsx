@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
+
+const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
+  ko: "단열, 중부2 외벽 0.17 통과시키는 현실적 조합",
+  en: "Korean insulation code in plain English",
+  zh: "隔热，让中部2外墙通过0.17的现实组合",
+  vi: "Cách nhiệt, tổ hợp thực tế để tường ngoài Trung tâm-2 đạt chuẩn 0.17",
+};
 
 export async function generateMetadata({
   params,
@@ -43,24 +50,17 @@ export default async function InsulationGuidePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/timber-calc/insulation`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {locale === "ko"
-              ? "단열 계산기로"
-              : locale === "zh"
-                ? "前往隔热计算器"
-                : locale === "vi"
-                  ? "Đến máy tính cách nhiệt"
-                  : "To the calculator"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/guide/insulation"
+          locale={localeKey}
+          id="guide-insulation"
+          currentName={TITLE[localeKey]}
+        />
         {locale === "ko" ? (
           <ContentKo />
         ) : locale === "zh" ? (

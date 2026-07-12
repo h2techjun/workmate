@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -64,6 +65,7 @@ export default async function LaborCalcHub({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
+      <Breadcrumbs path="/labor-calc" locale={localeKey} id="labor-hub" />
       <header className="mb-8 max-w-3xl animate-fade-up">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
           {t("eyebrow")}

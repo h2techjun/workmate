@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { WireSizeForm } from "@/components/tools/electric-calc/WireSizeForm";
 import { ToolGuide } from "@/components/tools/ToolGuide";
 import { CalculatorJsonLd } from "@/components/seo/StructuredData";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { SITE_URL } from "@/lib/siteConfig";
 import type { Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
@@ -120,15 +119,11 @@ export default async function WireSizePage({
         ]}
       />
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/electric-calc`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {t("breadcrumb.parent")}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/electric-calc/wire-size"
+          locale={localeKey}
+          id="electric-wire-size"
+        />
 
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">

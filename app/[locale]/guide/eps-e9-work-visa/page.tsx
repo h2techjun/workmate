@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { locales } from "@/i18n";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
+
+const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
+  ko: "고용허가제 E-9 비자 완전 가이드 (2026)",
+  en: "Korea EPS (E-9) Work Visa: Full Guide for 2026",
+  zh: "韩国雇佣许可制(E-9)工作签证完全指南(2026)",
+  vi: "Visa lao động EPS (E-9) Hàn Quốc: Hướng dẫn đầy đủ 2026",
+};
 
 const OG_LOCALE: Record<string, string> = {
   ko: "ko_KR",
@@ -68,24 +75,17 @@ export default async function EpsE9WorkVisaGuidePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/visa-days`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {locale === "ko"
-              ? "체류일수 계산기로"
-              : locale === "zh"
-                ? "前往居留天数计算器"
-                : locale === "vi"
-                  ? "Đến máy tính số ngày lưu trú"
-                  : "To the stay-days calculator"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/guide/eps-e9-work-visa"
+          locale={localeKey}
+          id="guide-eps-e9-work-visa"
+          currentName={TITLE[localeKey]}
+        />
         {locale === "ko" ? (
           <ContentKo />
         ) : locale === "zh" ? (

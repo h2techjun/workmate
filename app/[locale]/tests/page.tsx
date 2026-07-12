@@ -4,6 +4,7 @@ import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
 import { ProjectsTabs } from "@/components/projects/ProjectsTabs";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -174,6 +175,7 @@ export default async function TestsHubPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
+      <Breadcrumbs path="/tests" locale={localeKey} id="tests-hub" />
       <header className="mb-10 max-w-3xl animate-fade-up">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-fuchsia-400">
           {c.eyebrow}

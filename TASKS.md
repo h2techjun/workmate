@@ -39,11 +39,13 @@
 - 동선: 외국인(en/zh/vi)=한국어학습→한국어게임(kword/ktype), 한국인(ko)=영어학습→게임. 유입→체류→재방문 루프.
 - 검증: tsc0·lint0·585 테스트·build 성공·프로덕션 build+start 4로케일 라이브 QA(/learn·/korean-age ×4 = 200, ko=영어학습CTA·en/zh/vi=각 언어 한국어학습CTA, 게임 동선 4로케일 정합, 한국어학습CTA-BUG 마커 0).
 
-### SEO 기술 — breadcrumb 구조화 데이터 전 페이지 일관화 (2026-07-12 발견)
-- [ ] **문제**: `BreadcrumbList` JSON-LD가 **5개 페이지만** 적용(vat-calc + labor-calc 하위 4). net-salary(최인기)·게임랜딩(korean-typing/crossword)·변환·전기·목조 계산기·허브(tools/games/tests/learn)·블로그9·가이드5 등 **~85페이지 누락** → 검색결과 breadcrumb rich result 못 받음(CTR·SEO 손해).
-- 컴포넌트: `components/seo/StructuredData.tsx` 의 `BreadcrumbJsonLd` 는 이미 Google 요구사항(itemListElement 2+·position·name·item) 충족 → **적용(배선)만 하면 됨**.
-- 방법: 공통 breadcrumb 컴포넌트(UI nav + BreadcrumbList JSON-LD 동시 방출) 신설 → 경로 기반 자동 계층(홈›카테고리›도구). `PageHeader`(UI만 있음)·게임 랜딩 네비 통합.
-- 근거: [Google breadcrumb 문서](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) — rich result는 데스크톱, 오류 0 유지, Search Console 리치결과 보고서 모니터링.
+### Phase 4 — SEO breadcrumb 전 페이지 일관화 ✅ 완료 (2026-07-12)
+- [x] **~93페이지 배선 완료** (5페이지 → 전체): 계산기 64·그룹허브 3(labor/electric/timber)·게임랜딩 2·허브 4(tools/games/tests/learn)·블로그 10·가이드 9. `BreadcrumbList` JSON-LD + 시각 nav 동시 방출.
+- **인프라**: `lib/seo/breadcrumbs.ts`(경로→계층 자동 생성, toolsCatalog/blogPosts 단일 진실원 참조로 드리프트 0) + `components/seo/Breadcrumbs.tsx`(시각 nav aria + JSON-LD, 자동/currentName/trail 3형태). 각 페이지는 `<Breadcrumbs path=... />` 한 줄.
+- **배선**: 병렬 에이전트 5기(tax·labor·korea·timber·content) + 게임랜딩·대표 직접. 기존 back nav·`BreadcrumbJsonLd` 중복 제거·미사용 import 정리.
+- **JSON-LD 방식**: 기존 사이트 전체 패턴(afterInteractive) 유지 — 일관성 + Google JS 렌더 인식. 인라인 전환은 사이트 전 JSON-LD 통일 시 별도(범위 밖).
+- 검증: tsc0·585 테스트·클린 build 성공·라이브 브라우저 QA(net-salary 3단계·guide currentName·게임랜딩 trail 각 nav+JSON-LD itemListElement 정확·콘솔0).
+- 근거: [Google breadcrumb 문서](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb). 배포 후 Search Console 리치결과 보고서 모니터링 권장(마스터).
 
 ## 🟡 다음 주 (planned, D+1~7)
 

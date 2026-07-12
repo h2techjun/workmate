@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import type { Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -65,6 +66,8 @@ export default async function TimberCalcPage({
     locale: locale as Locale,
     namespace: "layout",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   // Tier 1 — 핵심 (구조·단열·수량)
   const tier1: CalcEntry[] = [
@@ -169,18 +172,7 @@ export default async function TimberCalcPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}`}
-            className="transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            {t("breadcrumb.home")}
-          </Link>
-          <span className="text-[color:var(--color-text-muted)]">/</span>
-          <span className="text-[color:var(--color-text-primary)]">
-            {t("breadcrumb.current")}
-          </span>
-        </nav>
+        <Breadcrumbs path="/timber-calc" locale={localeKey} id="timber-hub" />
 
         <header className="mb-10">
           <h1 className="text-3xl font-bold tracking-tight md:text-4xl">

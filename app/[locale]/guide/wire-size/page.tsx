@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
+
+const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
+  ko: "전선 굵기, 이렇게 정해야 후회 없습니다",
+  en: "Sizing wires under KEC 232.5 — a field guide",
+  zh: "电线粗细，这样选才不会后悔",
+  vi: "Cách chọn tiết diện dây dẫn để không phải hối hận",
+};
 
 export async function generateMetadata({
   params,
@@ -43,24 +50,17 @@ export default async function WireSizeGuidePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/electric-calc/wire-size`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {locale === "ko"
-              ? "전선 굵기 계산기로"
-              : locale === "zh"
-                ? "返回电线粗细计算器"
-                : locale === "vi"
-                  ? "Quay lại công cụ tính tiết diện dây dẫn"
-                  : "To the calculator"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/guide/wire-size"
+          locale={localeKey}
+          id="guide-wire-size"
+          currentName={TITLE[localeKey]}
+        />
 
         {locale === "ko" ? (
           <ContentKo />

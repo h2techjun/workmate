@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { findPost } from "@/lib/blogPosts";
 import PostTags from "@/components/ui/PostTags";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 const SLUG = "income-tax-progressive-trap";
 
@@ -82,25 +82,17 @@ export default async function BlogPostPage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/blog`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {locale === "ko"
-              ? "현장 노트"
-              : locale === "zh"
-                ? "实地笔记"
-                : locale === "vi"
-                  ? "Ghi chép thực tế"
-                  : "Field Notes"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path={`/blog/${SLUG}`}
+          locale={localeKey}
+          id={`blog-${SLUG}`}
+        />
 
         {locale === "ko" ? (
           <KoContent locale={locale} />

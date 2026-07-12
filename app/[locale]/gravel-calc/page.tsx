@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { GravelForm } from "@/components/tools/timber/GravelForm";
 import { ToolGuide } from "@/components/tools/ToolGuide";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -63,12 +62,7 @@ export default async function GravelCalcPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link href={`/${locale}/tools`} className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]">
-            <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : isZh ? "全部工具" : isVi ? "Tất cả công cụ" : "All tools"}
-          </Link>
-        </nav>
+        <Breadcrumbs path="/gravel-calc" locale={localeKey} id="gravel-calc" />
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {isKo ? "자갈·골재 계산기" : isZh ? "砂石·骨料计算器" : isVi ? "Máy tính đá dăm·sỏi" : "Gravel Calculator"}

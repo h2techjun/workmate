@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { ToolGuide } from "@/components/tools/ToolGuide";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { MaterialQuantityForm } from "@/components/tools/timber/MaterialQuantityForm";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -101,15 +100,11 @@ export default async function SidingPage({
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${localeKey}/timber-calc`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {isKo ? "목조 계산기" : isZh ? "木结构住宅计算器" : isVi ? "Máy tính kết cấu gỗ" : "Timber Calculators"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/timber-calc/siding"
+          locale={localeKey}
+          id="timber-siding"
+        />
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
             {isKo ? "사이딩 매수 계산기" : isZh ? "护墙板张数计算器" : isVi ? "Máy tính số tấm ốp ngoại thất" : "Siding Calculator"}

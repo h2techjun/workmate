@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
+
+const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
+  ko: "사업자등록번호 가운데 두 자리, 무슨 의미인가요?",
+  en: "What the middle digits in a Korean business number mean",
+  zh: "事业者登记号中间两位数字，是什么意思？",
+  vi: "Hai chữ số ở giữa mã số đăng ký kinh doanh có ý nghĩa gì?",
+};
 
 export async function generateMetadata({
   params,
@@ -42,24 +49,17 @@ export default async function BizNumberGuidePage({
   params,
 }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-3xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link
-            href={`/${locale}/biznum-check`}
-            className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {locale === "ko"
-              ? "사업자등록번호 검증으로"
-              : locale === "zh"
-                ? "返回事业者登记号验证"
-                : locale === "vi"
-                  ? "Về trang xác thực mã số đăng ký kinh doanh"
-                  : "To the validator"}
-          </Link>
-        </nav>
+        <Breadcrumbs
+          path="/guide/biz-number"
+          locale={localeKey}
+          id="guide-biz-number"
+          currentName={TITLE[localeKey]}
+        />
         {locale === "ko" ? (
           <ContentKo />
         ) : locale === "zh" ? (

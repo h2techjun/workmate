@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { DistanceConverter } from "@/components/tools/unit/DistanceConverter";
 import { ToolGuide } from "@/components/tools/ToolGuide";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
@@ -49,9 +48,7 @@ export default async function DistanceConvertPage({ params }: PageProps): Promis
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
       <div className="mx-auto max-w-6xl">
-        <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
-          <Link href={`/${locale}/tools`} className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"><ChevronLeft className="h-4 w-4" />{isKo ? "툴 모음" : isZh ? "全部工具" : isVi ? "Tất cả công cụ" : "All tools"}</Link>
-        </nav>
+        <Breadcrumbs path="/distance-convert" locale={lang} id="distance-convert" />
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">{isKo ? "거리 단위 변환 (리·자)" : isZh ? "距离单位换算 (里·尺)" : isVi ? "Chuyển đổi khoảng cách (ri·ja)" : "Korean Distance Converter"}</h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">{isKo ? "한국 전통 거리 단위(리·자·보)를 km·미터·마일로 즉시 변환. 십리가 몇 km인지 한 번에." : isZh ? "韩国传统距离单位(里·尺·步)即时换算为km·米·英里。一次看懂十里等于多少km。" : isVi ? "Chuyển đổi đơn vị khoảng cách truyền thống Hàn Quốc (ri, ja, bo) sang km, mét và dặm tức thì. Xem ngay mười ri là bao nhiêu km." : "Convert Korean traditional distance units to km, meters, and miles in one place."}</p>
