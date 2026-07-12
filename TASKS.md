@@ -34,9 +34,10 @@
 ### Phase 2.5 — 한국인 해외비자 (마스터 추가 지시 2026-07-12) ✅ 완료
 - [x] **`/guide/korea-passport-visa-free`** (한국인→해외, 반대 방향): 한국 여권 무비자국 개요 + 미국(ESTA)·유럽(셰겐 90/180, ETIAS 2026 미시행 정황)·일본(90)·중국(한시 30, 2026.12.31)·베트남(45, 2028까지)·태국(90 비자면제협정+TDAC)·인도(e-비자 필수). 상태배지(무비자/전자허가/비자필요) + 요약표 + 공통체크 + Breadcrumb·FAQPage JSON-LD. 데이터주도 4로케일. 웹검증 후 작성(변동성 큰 항목 기준일·공식확인 명시). visa-days 도구 상호링크.
 
-### Phase 3 — K-생태계 흐름 정합
-- [ ] **크로스링크 로케일 학습축 버그 수정** (2026-07-12 진단): `components/tools/CrossLinks.tsx:11` LEARN_COPY 가 전 로케일 "한국어 학습"인데 /ko/learn=영어학습(Loopla English) → 불일치. `app/[locale]/learn/page.tsx` GAMES_COPY ko "한국어 익혔으니"도 영어 문맥 아님.
-- 동선: 외국인(en/zh/vi)=한국어학습→한국어게임(kword/ktype), 한국인(ko)=영어학습→영어게임. 유입→체류→재방문 루프.
+### Phase 3 — K-생태계 흐름 정합 ✅ 완료 (2026-07-12, `0bd7911`)
+- [x] **크로스링크 로케일 학습축 버그 수정**: `CrossLinks.tsx` LEARN_COPY ko="한국어 학습"→**영어 학습**(Loopla English) 교정, en/zh/vi=한국어 학습 유지. `learn/page.tsx` GAMES_COPY 4로케일 학습축 정합(ko=영어 공부 쉬는 시간 게임 / en·zh·vi=배운 한국어 게임으로 연습). 외국인 로케일은 게임 노출 순서도 한국어 연습 게임(kword 십자말·ktype 타자) 우선 재정렬 + 아이콘(Puzzle/Keyboard) 추가. crossLinks.ts·ToolGuide.tsx 주석도 축 반영.
+- 동선: 외국인(en/zh/vi)=한국어학습→한국어게임(kword/ktype), 한국인(ko)=영어학습→게임. 유입→체류→재방문 루프.
+- 검증: tsc0·lint0·585 테스트·build 성공·프로덕션 build+start 4로케일 라이브 QA(/learn·/korean-age ×4 = 200, ko=영어학습CTA·en/zh/vi=각 언어 한국어학습CTA, 게임 동선 4로케일 정합, 한국어학습CTA-BUG 마커 0).
 
 ### SEO 기술 — breadcrumb 구조화 데이터 전 페이지 일관화 (2026-07-12 발견)
 - [ ] **문제**: `BreadcrumbList` JSON-LD가 **5개 페이지만** 적용(vat-calc + labor-calc 하위 4). net-salary(최인기)·게임랜딩(korean-typing/crossword)·변환·전기·목조 계산기·허브(tools/games/tests/learn)·블로그9·가이드5 등 **~85페이지 누락** → 검색결과 breadcrumb rich result 못 받음(CTR·SEO 손해).

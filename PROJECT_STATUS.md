@@ -1,12 +1,12 @@
 # Workmate 프로젝트 상태판
 
 > **단일 진실원** — 매 세션 시작 시 이 파일을 먼저 읽으세요.
-> 마지막 갱신: 2026-07-12 (외국인 유입 Phase 1 — 베트남어 완역 25경로: 전기 4·목조 17·자재 3·size-convert. vi 색인 67→92, `4cd98f1`. 이전: Loopla 정적 임베드 통합)
+> 마지막 갱신: 2026-07-12 (외국인 유입 3-Phase 완주 — P3 K-생태계 크로스링크 학습축 로케일 정합 `0bd7911`. P1 vi 완역 25경로 + P2 국가별 비자 가이드 4종 선행 완료. 이전: Loopla 정적 임베드 통합)
 
-## 🌏 외국인 유입 3-Phase (2026-07-12 착수) — Phase 1 완료
+## 🌏 외국인 유입 3-Phase (2026-07-12 착수) — ✅ 3-Phase 완주
 - **P1 vi 완역 ✅ (2026-07-12, `4cd98f1`)**: electric-calc·timber-calc·paint/gravel/deck·size-convert 25경로 완역 색인. vi.json 네임스페이스 14종(~800키)+가이드 4종. **발견**: "사전번역 병합" 기록됐던 timber-lumber·paint·gravel·deck 가이드가 실제로는 영어 원문(vi==en 전수검사로 검출·실번역). IndexNow 25 URL 제출 완료. 남은 마스터 액션: GSC vi URL 색인 요청 + FB 베트남 커뮤니티 유통(distribution-kit).
-- **P2 인도 국가별 비자/제도** (다음 세션): E-9 EPS 16개국·D-2/D-4·E-7 국가별 분류 허브.
-- **P3 K-생태계 흐름 정합**: 별도 세션에서 병행 진행 중(CrossLinks 학습축).
+- **P2 국가별 비자/제도 ✅ (2026-07-12, `1a50afe`)**: `/guide/foreign-work-visa-korea`(국가군 7개 상세·"어느 나라인→어떤 비자") + `/guide/eps-e9-work-visa`(EPS 송출 17국) + `/guide/e7-professional-visa`(2026 임금기준) + `/guide/korea-passport-visa-free`(한국여권 무비자국, 반대 방향). 데이터주도 4로케일 + Breadcrumb·FAQPage JSON-LD.
+- **P3 K-생태계 흐름 정합 ✅ (2026-07-12, `0bd7911`)**: CrossLinks 학습축 로케일 버그 수정 — ko="한국어 학습"→영어 학습(Loopla English), en/zh/vi=한국어 학습 유지. learn 페이지 GAMES_COPY 4로케일 학습·게임 동선 정합 + 외국인 로케일 한국어 연습게임(kword·ktype) 우선 노출. 프로덕션 build+start 4로케일 라이브 QA 통과.
 
 ## 🧭 글로벌·AX 전략 재설계 (2026-07-03) ⭐ 최신 방향
 
@@ -257,6 +257,9 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-07-12 | **외국인 유입 3-Phase 완주 (P3 학습축 정합)** — K-생태계 크로스링크 로케일 학습축 버그 수정: `CrossLinks.tsx` LEARN_COPY ko="한국어 학습"→영어 학습(Loopla English), en/zh/vi=한국어 학습 유지. `learn/page.tsx` GAMES_COPY 4로케일 학습·게임 동선 정합(ko=영어 공부 쉬는 시간 게임 / 외국인=배운 한국어 게임으로 연습) + 외국인 로케일 게임 노출 순서 한국어 연습게임(kword·ktype) 우선 재정렬 + 아이콘. 방문자 로케일 축이 projectsCatalog subpathByLocale·/learn 랜딩과 일치. tsc0·585 테스트·build·프로덕션 build+start 4로케일 라이브 QA(learn·korean-age ×4=200, 학습축 마커 정합) | `0bd7911` |
+| 2026-07-12 | **P2 국가별 비자 가이드 4종** — `/guide/foreign-work-visa-korea`(국가군 7개) · `/guide/eps-e9-work-visa`(EPS 송출 17국) · `/guide/e7-professional-visa`(2026 임금기준) · `/guide/korea-passport-visa-free`(한국여권 무비자국). 데이터주도 4로케일 + Breadcrumb·FAQPage JSON-LD | `1a50afe` |
+| 2026-07-12 | **P1 vi 완역 25경로** — electric·timber·자재 계산기 vi 색인 확대(67→92). 영어 placeholder 가이드 4종 실번역(vi==en 전수검사로 발견) | `4cd98f1` |
 | 2026-07-06 | **Loopla 학습앱 통합 (정적 임베드)** — vibe-english(Next16/next-intl4) SRS 학습앱을 소스 병합 대신 정적 임베드로 workmate.tools/loopla 서빙(코어 메이저 버전 충돌·AdSense 심사 리스크 회피). `public/loopla/`(영어)+`/korean/`(한국어) 8.8MB, basePath=/loopla. next.config 함정 3개 해결(skipTrailingSlashRedirect·afterFiles rewrite 디렉토리인덱스·루트 locale redirect). projectsCatalog vibe external→internal-static + subpathByLocale(ko=영어학습·en·vi=한국어학습). `tool/build-loopla.ps1` 재현. 라이브 200 검증·IndexNow | `f5d155b` |
 | 2026-07-06 | **ads.txt www 200 회귀 수정** — www→apex 308이 ads.txt까지 리다이렉트해 AdSense "찾을 수 없음" 간헐 발생 → 루트 텍스트(ads.txt·indexnow-key·llms.txt) lookahead 예외로 apex/www 양쪽 200 | `d9408fd` |
 | 2026-07-04 | **라이트 모드 + 결과 시각화 + RSS** — ①라이트/다크 토글(`[data-theme]` 토큰 재정의·FOUC 가드 `theme-init.js`·원색 유틸 26종 재매핑·히어로 hex 22곳 변수화, 기본 다크 유지) ②`charts.tsx` 순수 SVG 3종(의존성 0, `--chart-*` 양테마) — net-salary 월급구성 바·income-tax 누진구간 스케일·loan 잔금 곡선·compound 성장 2곡선, ko/en/vi ③`/rss.xml`(BLOG_POSTS 단일진실원) ④결함 수정: 랜딩 언어수 2→`locales.length`(3)·AdSense raw script(data-nscript 경고 제거) ⑤`docs/distribution-kit.md` 유통 킷. 585테스트·audit·양테마 브라우저 QA·IndexNow 15URL | (본 커밋) |
