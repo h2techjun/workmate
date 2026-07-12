@@ -28,7 +28,7 @@ import {
 import { NumberField } from "@/components/ui/NumberField";
 
 interface TileFormProps {
-  locale: "ko" | "en" | "zh";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 import { formatNumber } from "@/lib/utils/format";
@@ -129,6 +129,37 @@ const TEXT = {
       "结果仅供材料估算参考 — 实际施工会因铺贴图案·收边处理不同而有±15%差异。",
     ],
   },
+  vi: {
+    sectionArea: "Diện tích thi công",
+    sectionTile: "Gạch · mạch vữa",
+    fieldArea: "Diện tích (m²)",
+    fieldAreaHint: "Diện tích thi công tường/sàn (sau khi trừ lỗ mở)",
+    fieldPreset: "Chọn kích thước tiêu chuẩn",
+    fieldTileWidth: "Chiều rộng gạch (mm)",
+    fieldTileHeight: "Chiều cao gạch (mm)",
+    fieldGrout: "Độ rộng mạch vữa (mm)",
+    fieldGroutHint: "Gạch porcelain thường 2mm, gạch ceramic/khổ lớn 3~5mm",
+    fieldWaste: "Hệ số hao hụt (%)",
+    fieldWasteHint: "Dự phòng cắt · vỡ, mặc định 10%",
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultHeading: "Kết quả",
+    resultEmpty: "Nhập diện tích và kích thước gạch rồi tính toán.",
+    error: "Đã xảy ra lỗi khi tính toán.",
+    tileCount: "Số lượng gạch",
+    tileCountUnit: "viên",
+    footprint: "Diện tích chiếm chỗ 1 viên (gồm mạch vữa)",
+    adjusted: "Diện tích đã áp dụng hao hụt",
+    adhesive: "Keo dán ước tính",
+    grout: "Vữa chít mạch ước tính",
+    sourceTitle: "Nguồn · giả định",
+    sourceLines: [
+      "KS L 1001 (gạch gốm sứ) · KS F 4904 (xi măng). Diện tích chiếm chỗ 1 viên = (rộng+mạch vữa) × (cao+mạch vữa).",
+      "Keo dán: tiêu chuẩn 4 kg/㎡ (định mức keo dán gốc xi măng thông thường).",
+      "Vữa chít mạch: gạch càng nhỏ · mạch càng rộng thì lượng dùng càng tăng. Phạm vi 0.1~0.6 kg/㎡.",
+      "Kết quả chỉ là giá trị tham khảo cho báo giá vật liệu — thi công thực tế có thể chênh lệch ±15% tùy theo kiểu lát và cách xử lý mạch vữa.",
+    ],
+  },
 } as const;
 
 export function TileForm({ locale }: TileFormProps): React.ReactElement {
@@ -179,31 +210,41 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
           ? `타일 ${fmt(s.w)}×${fmt(s.h)}mm + 줄눈 ${s.grout}mm × 2 = 1매 점유 ${fmt(s.result, 4)} m²`
           : locale === "zh"
             ? `瓷砖 ${fmt(s.w)}×${fmt(s.h)}mm + 缝宽 ${s.grout}mm × 2 = 每张占用 ${fmt(s.result, 4)} m²`
-            : `Tile ${fmt(s.w)}×${fmt(s.h)}mm + grout ${s.grout}mm × 2 = footprint ${fmt(s.result, 4)} m²`;
+            : locale === "vi"
+              ? `Gạch ${fmt(s.w)}×${fmt(s.h)}mm + mạch vữa ${s.grout}mm × 2 = diện tích chiếm chỗ 1 viên ${fmt(s.result, 4)} m²`
+              : `Tile ${fmt(s.w)}×${fmt(s.h)}mm + grout ${s.grout}mm × 2 = footprint ${fmt(s.result, 4)} m²`;
       case "wasteArea":
         return locale === "ko"
           ? `면적 ${fmt(s.area)}m² × (1 + ${s.waste}% 손실) = ${fmt(s.result, 1)} m²`
           : locale === "zh"
             ? `面积 ${fmt(s.area)}m² × (1 + ${s.waste}% 损耗) = ${fmt(s.result, 1)} m²`
-            : `Area ${fmt(s.area)}m² × (1 + ${s.waste}% waste) = ${fmt(s.result, 1)} m²`;
+            : locale === "vi"
+              ? `Diện tích ${fmt(s.area)}m² × (1 + ${s.waste}% hao hụt) = ${fmt(s.result, 1)} m²`
+              : `Area ${fmt(s.area)}m² × (1 + ${s.waste}% waste) = ${fmt(s.result, 1)} m²`;
       case "count":
         return locale === "ko"
           ? `손실 적용 면적 ${fmt(s.wasteArea, 1)}m² ÷ 1매 ${fmt(s.footprint, 4)}m² = ${fmt(s.result, 0)}매`
           : locale === "zh"
             ? `修正面积 ${fmt(s.wasteArea, 1)}m² ÷ 每张 ${fmt(s.footprint, 4)}m² = ${fmt(s.result, 0)}张`
-            : `Adjusted ${fmt(s.wasteArea, 1)}m² ÷ ${fmt(s.footprint, 4)}m²/tile = ${fmt(s.result, 0)} tiles`;
+            : locale === "vi"
+              ? `Diện tích đã áp dụng hao hụt ${fmt(s.wasteArea, 1)}m² ÷ 1 viên ${fmt(s.footprint, 4)}m² = ${fmt(s.result, 0)} viên`
+              : `Adjusted ${fmt(s.wasteArea, 1)}m² ÷ ${fmt(s.footprint, 4)}m²/tile = ${fmt(s.result, 0)} tiles`;
       case "adhesive":
         return locale === "ko"
           ? `면적 ${fmt(s.area)}m² × ${s.rate}kg/㎡ = 접착제 ${fmt(s.result, 1)}kg`
           : locale === "zh"
             ? `面积 ${fmt(s.area)}m² × ${s.rate}kg/㎡ = 瓷砖胶 ${fmt(s.result, 1)}kg`
-            : `Area ${fmt(s.area)}m² × ${s.rate}kg/m² = ${fmt(s.result, 1)}kg adhesive`;
+            : locale === "vi"
+              ? `Diện tích ${fmt(s.area)}m² × ${s.rate}kg/㎡ = keo dán ${fmt(s.result, 1)}kg`
+              : `Area ${fmt(s.area)}m² × ${s.rate}kg/m² = ${fmt(s.result, 1)}kg adhesive`;
       case "grout":
         return locale === "ko"
           ? `면적 ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/㎡ (타일/줄눈 비례) = 줄눈재 ${fmt(s.result, 2)}kg`
           : locale === "zh"
             ? `面积 ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/㎡ (依瓷砖·缝宽比例) = 填缝剂 ${fmt(s.result, 2)}kg`
-            : `Area ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/m² (size-dependent) = ${fmt(s.result, 2)}kg grout`;
+            : locale === "vi"
+              ? `Diện tích ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/㎡ (tỷ lệ theo gạch/mạch vữa) = vữa chít mạch ${fmt(s.result, 2)}kg`
+              : `Area ${fmt(s.area)}m² × ${fmt(s.rate, 2)}kg/m² (size-dependent) = ${fmt(s.result, 2)}kg grout`;
     }
   };
 
@@ -356,7 +397,7 @@ export function TileForm({ locale }: TileFormProps): React.ReactElement {
             </dl>
             <StepsBox
               title={
-                locale === "ko" ? "계산 과정" : locale === "zh" ? "计算过程" : "Steps"
+                locale === "ko" ? "계산 과정" : locale === "zh" ? "计算过程" : locale === "vi" ? "Các bước tính toán" : "Steps"
               }
               items={result.steps.map((s) => renderStep(s))}
             />

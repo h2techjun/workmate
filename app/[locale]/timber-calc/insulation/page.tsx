@@ -5,6 +5,7 @@ import { ChevronLeft } from "lucide-react";
 import { InsulationForm } from "@/components/tools/timber/InsulationForm";
 import { ToolGuide } from "@/components/tools/ToolGuide";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,16 +21,20 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/timber-calc/insulation`,
-      languages: {
-        ko: "/ko/timber-calc/insulation",
-        en: "/en/timber-calc/insulation",
-      },
+      languages: buildLanguagesAlt("/timber-calc/insulation"),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }
@@ -42,6 +47,8 @@ export default async function InsulationPage({
     locale: locale as Locale,
     namespace: "insulationTool",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -64,10 +71,7 @@ export default async function InsulationPage({
           </p>
         </header>
         <InsulationForm />
-        <ToolGuide
-          toolKey="timber-insulation"
-          locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"}
-        />
+        <ToolGuide toolKey="timber-insulation" locale={localeKey} />
       </div>
     </main>
   );

@@ -6,6 +6,7 @@ import { ChevronLeft } from "lucide-react";
 import { SpanForm } from "@/components/tools/timber/SpanForm";
 import { AutoCalculatorJsonLd } from "@/components/seo/AutoCalculatorJsonLd";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -21,16 +22,20 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/timber-calc/span`,
-      languages: {
-        ko: "/ko/timber-calc/span",
-        en: "/en/timber-calc/span",
-      },
+      languages: buildLanguagesAlt("/timber-calc/span"),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }
@@ -43,6 +48,8 @@ export default async function SpanPage({
     locale: locale as Locale,
     namespace: "spanTool",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -71,10 +78,7 @@ export default async function SpanPage({
           </p>
         </header>
         <SpanForm />
-        <ToolGuide
-          toolKey="timber-span"
-          locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"}
-        />
+        <ToolGuide toolKey="timber-span" locale={localeKey} />
       </div>
     </main>
   );

@@ -5,6 +5,7 @@ import { ChevronLeft } from "lucide-react";
 import { BreakerForm } from "@/components/tools/electric-calc/BreakerForm";
 import { ToolGuide } from "@/components/tools/ToolGuide";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,16 +21,20 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/electric-calc/breaker`,
-      languages: {
-        ko: "/ko/electric-calc/breaker",
-        en: "/en/electric-calc/breaker",
-      },
+      languages: buildLanguagesAlt("/electric-calc/breaker"),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }
@@ -42,6 +47,8 @@ export default async function BreakerPage({
     locale: locale as Locale,
     namespace: "breakerTool",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
       <div className="mx-auto max-w-6xl">
@@ -63,7 +70,7 @@ export default async function BreakerPage({
           </p>
         </header>
         <BreakerForm />
-        <ToolGuide toolKey="electric-breaker" locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide toolKey="electric-breaker" locale={localeKey} />
       </div>
     </main>
   );

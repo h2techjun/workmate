@@ -3907,165 +3907,165 @@
       "lastReviewed": "2026-06-17"
     },
     "timber-lumber": {
-      "overview": "The Lumber Board Feet Calculator converts width, thickness, length, and quantity into total volume (m³), Japanese/Korean Sai (才), North American Board Feet (BF), and weight (kg) by species — all in a single calculation. It is built for mixed-unit job sites where import SPF or Douglas Fir invoices are quoted in board feet while domestic lumber dealers still price in Sai, eliminating the unit conversion errors that inflate material costs.",
+      "overview": "Máy tính Board Feet Gỗ xẻ quy đổi chiều rộng, độ dày, chiều dài, và số lượng thành tổng thể tích (m³), Sai (才) kiểu Nhật/Hàn, Board Feet (BF) kiểu Bắc Mỹ, và trọng lượng (kg) theo từng loại gỗ — tất cả trong một lần tính. Công cụ được xây dựng cho công trường dùng nhiều đơn vị đo khác nhau, nơi hóa đơn gỗ SPF hoặc Douglas Fir nhập khẩu được báo giá theo board feet trong khi các đại lý gỗ trong nước vẫn tính giá theo Sai, giúp loại bỏ sai số quy đổi đơn vị vốn làm đội chi phí vật liệu.",
       "useCases": [
-        "Total cost check for SPF 2×4 or 2×6 rafter stock purchased at a board-foot price",
-        "Sai-unit quantity and cost for domestic larch or pine sourced from a Korean lumber yard",
-        "Pre-delivery weight check to stay within truck payload limits",
-        "Comparing cost-per-volume between Douglas Fir and SPF at current market prices",
-        "Verifying a supplier's quoted board-foot count against your own dimensions"
+        "Kiểm tra tổng chi phí gỗ rui mè SPF 2×4 hoặc 2×6 mua theo giá board-foot",
+        "Tính số lượng và chi phí theo Sai cho gỗ thông hoặc gỗ larch trong nước mua tại xưởng gỗ Hàn Quốc",
+        "Kiểm tra trọng lượng trước khi giao hàng để không vượt quá tải trọng cho phép của xe tải",
+        "So sánh chi phí trên mỗi đơn vị thể tích giữa Douglas Fir và SPF theo giá thị trường hiện tại",
+        "Đối chiếu số lượng board feet nhà cung cấp báo giá với kích thước gỗ thực tế của bạn"
       ],
       "howTo": {
-        "title": "How to Use (3 Steps)",
+        "title": "Cách sử dụng (3 bước)",
         "steps": [
-          "Enter width (mm), thickness (mm), length (mm), and quantity. Note that nominal dimensions differ from actual (dressed) dimensions — a 2×4 is actually 38 mm × 89 mm after drying and planing.",
-          "Select wood species: SPF (Spruce-Pine-Fir mix), Larch, Pine, Cedar, Douglas Fir, or Oak. The density value for your chosen species (at 12% moisture content) is applied to calculate weight.",
-          "Read the results: total volume (m³), Sai, Board Feet, and weight (kg). Multiply by your unit price (per Sai or per BF) to get a material cost estimate."
+          "Nhập chiều rộng (mm), độ dày (mm), chiều dài (mm), và số lượng. Lưu ý kích thước danh nghĩa khác với kích thước thực tế (đã bào) — gỗ 2×4 thực tế là 38 mm × 89 mm sau khi sấy và bào.",
+          "Chọn loại gỗ: SPF (hỗn hợp Vân sam-Thông-Linh sam), Larch (thông rụng lá), Pine (thông), Cedar (tuyết tùng), Douglas Fir, hoặc Oak (sồi). Giá trị tỷ trọng của loại gỗ đã chọn (ở độ ẩm 12%) được áp dụng để tính trọng lượng.",
+          "Xem kết quả: tổng thể tích (m³), Sai, Board Feet, và trọng lượng (kg). Nhân với đơn giá của bạn (theo Sai hoặc theo BF) để ước tính chi phí vật liệu."
         ]
       },
       "formula": {
-        "title": "Formulas & References",
-        "body": "■ Volume per piece\n  V_per = (width mm × thickness mm × length mm) ÷ 1,000,000,000  [m³]\n\n■ Total volume\n  V_total = V_per × quantity\n\n■ Sai (才) conversion\n  Sai = V_total ÷ 0.003342\n  (1 才 = 1 Sun × 1 Sun × 12 Shaku ≈ 30.303 mm × 30.303 mm × 3,636.4 mm ≈ 0.003342 m³)\n\n■ Board Feet (BF) conversion\n  BF = V_total ÷ 0.002359737\n  (1 BF = 1 ft × 1 ft × 1 in = 144 in³ ≈ 2,359.737 cm³)\n\n■ Weight (air-dry, 12% moisture content)\n  W = V_total × species density [kg/m³]\n  SPF: 460 / Pine: 500 / Larch: 540 / Cedar: 380 / Douglas Fir: 530 / Oak: 750"
+        "title": "Công thức & tài liệu tham khảo",
+        "body": "■ Thể tích mỗi thanh\n  V_mỗi thanh = (chiều rộng mm × độ dày mm × chiều dài mm) ÷ 1.000.000.000  [m³]\n\n■ Tổng thể tích\n  V_tổng = V_mỗi thanh × số lượng\n\n■ Quy đổi Sai (才)\n  Sai = V_tổng ÷ 0,003342\n  (1 才 = 1 Sun × 1 Sun × 12 Shaku ≈ 30,303 mm × 30,303 mm × 3.636,4 mm ≈ 0,003342 m³)\n\n■ Quy đổi Board Feet (BF)\n  BF = V_tổng ÷ 0,002359737\n  (1 BF = 1 ft × 1 ft × 1 in = 144 in³ ≈ 2.359,737 cm³)\n\n■ Trọng lượng (khô tự nhiên, độ ẩm 12%)\n  W = V_tổng × tỷ trọng theo loại gỗ [kg/m³]\n  SPF: 460 / Pine: 500 / Larch: 540 / Cedar: 380 / Douglas Fir: 530 / Oak: 750"
       },
       "examples": {
-        "title": "Worked Examples",
+        "title": "Ví dụ thực tế",
         "items": [
           {
-            "title": "Example 1: 30 pieces of 2×6 SPF rafter stock (3,600 mm)",
-            "body": "Width 140 mm, thickness 38 mm, length 3,600 mm, qty 30, species SPF. Volume per piece ≈ 0.019152 m³. Total volume ≈ 0.5746 m³. Sai ≈ 172 才. Board Feet ≈ 243.5 BF. Weight ≈ 264 kg (460 kg/m³ × 0.5746)."
+            "title": "Ví dụ 1: 30 thanh rui mè SPF 2×6 (dài 3.600 mm)",
+            "body": "Chiều rộng 140 mm, độ dày 38 mm, chiều dài 3.600 mm, số lượng 30, loại gỗ SPF. Thể tích mỗi thanh ≈ 0,019152 m³. Tổng thể tích ≈ 0,5746 m³. Sai ≈ 172 才. Board Feet ≈ 243,5 BF. Trọng lượng ≈ 264 kg (460 kg/m³ × 0,5746)."
           },
           {
-            "title": "Example 2: 10 pieces of larch 4×4 post (3,000 mm)",
-            "body": "Width 89 mm, thickness 89 mm, length 3,000 mm, qty 10, species Larch. Total volume ≈ 0.2376 m³. Sai ≈ 71 才. BF ≈ 100.7. Larch density 540 kg/m³ → weight ≈ 128 kg. Comfortably fits on a 1-ton pickup."
+            "title": "Ví dụ 2: 10 cột gỗ larch 4×4 (dài 3.000 mm)",
+            "body": "Chiều rộng 89 mm, độ dày 89 mm, chiều dài 3.000 mm, số lượng 10, loại gỗ Larch. Tổng thể tích ≈ 0,2376 m³. Sai ≈ 71 才. BF ≈ 100,7. Tỷ trọng Larch 540 kg/m³ → trọng lượng ≈ 128 kg. Chở thoải mái trên một xe bán tải 1 tấn."
           },
           {
-            "title": "Example 3: 5 oak slabs for a dining table (400 × 50 × 2,000 mm)",
-            "body": "Total volume = (400 × 50 × 2000 / 1,000,000,000) × 5 = 0.2 m³. Sai ≈ 60 才. Weight ≈ 150 kg (750 kg/m³). Oak is dense — 50 pieces of this size would weigh 1.5 tonnes. Plan lifting equipment accordingly."
+            "title": "Ví dụ 3: 5 tấm gỗ sồi (oak) làm mặt bàn ăn (400 × 50 × 2.000 mm)",
+            "body": "Tổng thể tích = (400 × 50 × 2.000 / 1.000.000.000) × 5 = 0,2 m³. Sai ≈ 60 才. Trọng lượng ≈ 150 kg (750 kg/m³). Gỗ sồi rất nặng — 50 tấm cùng kích thước này sẽ nặng tới 1,5 tấn. Hãy chuẩn bị thiết bị nâng phù hợp."
           }
         ]
       },
       "faq": [
         {
-          "question": "Why is a 2×4 actually 38 mm × 89 mm?",
-          "answer": "North American dimensional lumber is sold by its nominal (rough-sawn) size of 2 in × 4 in (50.8 × 101.6 mm). After kiln drying and planing (S4S — Surfaced Four Sides), the lumber shrinks to its actual dressed size of 38 mm × 89 mm. Korea's KS F 3020 adopts these same North American dressed dimensions. Always input the actual (dressed) dimension, not the nominal label."
+          "question": "Vì sao gỗ 2×4 thực tế lại là 38 mm × 89 mm?",
+          "answer": "Gỗ xẻ kích thước tiêu chuẩn Bắc Mỹ được bán theo kích thước danh nghĩa (xẻ thô) là 2 in × 4 in (50,8 × 101,6 mm). Sau khi sấy lò và bào (S4S — Surfaced Four Sides, bào 4 mặt), gỗ co lại còn kích thước thực tế (đã bào) là 38 mm × 89 mm. Tiêu chuẩn KS F 3020 của Hàn Quốc cũng áp dụng đúng kích thước đã bào theo chuẩn Bắc Mỹ này. Luôn nhập kích thước thực tế (đã bào), không nhập theo nhãn danh nghĩa."
         },
         {
-          "question": "What is the difference between Sai (才) and Board Feet (BF)?",
-          "answer": "Sai is the traditional Korean and Japanese lumber unit: 1 才 ≈ 0.003342 m³ (one Sun square by 12 Shaku long). Board Feet is the North American unit: 1 BF ≈ 0.002360 m³ (one foot square by one inch thick). For the same volume: 1 m³ ≈ 299 Sai ≈ 424 BF. Korean lumber yards typically quote per Sai; imported lumber invoices use BF."
+          "question": "Sự khác biệt giữa Sai (才) và Board Feet (BF) là gì?",
+          "answer": "Sai là đơn vị gỗ truyền thống của Hàn Quốc và Nhật Bản: 1 才 ≈ 0,003342 m³ (tiết diện 1 Sun vuông, dài 12 Shaku). Board Feet là đơn vị Bắc Mỹ: 1 BF ≈ 0,002360 m³ (tiết diện 1 foot vuông, dày 1 inch). Cùng một thể tích: 1 m³ ≈ 299 Sai ≈ 424 BF. Xưởng gỗ Hàn Quốc thường báo giá theo Sai; hóa đơn gỗ nhập khẩu dùng BF."
         },
         {
-          "question": "Does moisture content affect the weight result?",
-          "answer": "Yes. This tool uses air-dry density at 12% moisture content (MC), which is typical of kiln-dried (KD) structural lumber. Green lumber (fresh-sawn, MC 30–60%) is 30–60% heavier. If you are unsure of the actual MC, weigh a sample board and scale proportionally."
+          "question": "Độ ẩm gỗ có ảnh hưởng đến kết quả trọng lượng không?",
+          "answer": "Có. Công cụ này dùng tỷ trọng khô tự nhiên ở độ ẩm 12% (MC), là mức điển hình của gỗ kết cấu đã sấy lò (KD — kiln-dried). Gỗ tươi (mới xẻ, MC 30–60%) nặng hơn 30–60%. Nếu không chắc về độ ẩm thực tế, hãy cân thử một thanh mẫu rồi quy đổi theo tỷ lệ."
         },
         {
-          "question": "What exactly is SPF?",
-          "answer": "SPF stands for Spruce-Pine-Fir, a combined species designation for Canadian structural lumber that groups White Spruce, Red Pine, and Balsam Fir. It is the dominant import species for light-frame (stick-frame) construction due to its low density (≈ 460 kg/m³), ease of working, and wide availability. All three species have similar mechanical properties and are grouped for grading and pricing."
+          "question": "SPF chính xác là gì?",
+          "answer": "SPF là viết tắt của Spruce-Pine-Fir (Vân sam-Thông-Linh sam), tên gọi chung cho nhóm gỗ kết cấu Canada gồm Vân sam trắng (White Spruce), Thông đỏ (Red Pine), và Linh sam bang (Balsam Fir). Đây là loại gỗ nhập khẩu chủ lực cho kết cấu khung nhẹ (stick-frame) nhờ tỷ trọng thấp (≈ 460 kg/m³), dễ gia công, và nguồn cung dồi dào. Cả ba loại gỗ có tính chất cơ học tương tự nên được gộp chung khi phân cấp và định giá."
         },
         {
-          "question": "How do I enter dimensions in Shaku (尺) or feet?",
-          "answer": "This tool uses millimetres. Conversion: 1 Shaku (尺) = 303.03 mm. A standard 12-Shaku board (≈ 4.8 m) = 3,636 mm. One foot = 304.8 mm, so 12 ft = 3,658 mm. Enter the converted value in the length field."
+          "question": "Làm sao nhập kích thước theo Shaku (尺) hoặc feet?",
+          "answer": "Công cụ này dùng đơn vị milimét. Quy đổi: 1 Shaku (尺) = 303,03 mm. Một thanh gỗ tiêu chuẩn 12-Shaku (≈ 4,8 m) = 3.636 mm. Một foot = 304,8 mm, vậy 12 ft = 3.658 mm. Nhập giá trị đã quy đổi vào ô chiều dài."
         }
       ],
       "cautions": [
-        "Weight is calculated at 12% moisture content (air-dry). Green or high-MC lumber can be 30–60% heavier in practice.",
-        "Always enter actual (dressed) dimensions, not nominal dimensions. A 2×4 is 38 × 89 mm, not 50 × 100 mm.",
-        "This tool outputs quantities only — it does not provide market prices per Sai or per BF.",
-        "Volume and weight calculations are for procurement planning only and do not assess structural load capacity or span adequacy."
+        "Trọng lượng được tính ở độ ẩm 12% (khô tự nhiên). Gỗ tươi hoặc độ ẩm cao trong thực tế có thể nặng hơn 30–60%.",
+        "Luôn nhập kích thước thực tế (đã bào), không nhập kích thước danh nghĩa. Gỗ 2×4 là 38 × 89 mm, không phải 50 × 100 mm.",
+        "Công cụ này chỉ tính khối lượng — không cung cấp giá thị trường theo Sai hay theo BF.",
+        "Kết quả thể tích và trọng lượng chỉ phục vụ lập kế hoạch mua sắm vật liệu, không đánh giá khả năng chịu tải kết cấu hay độ đủ khẩu độ."
       ],
       "related": [
         {
-          "label": "Stud Count Calculator",
+          "label": "Máy tính số lượng thanh đứng",
           "href": "/timber-calc/studs"
         },
         {
-          "label": "Concrete Volume Calculator",
+          "label": "Máy tính khối lượng bê tông",
           "href": "/timber-calc/concrete"
         },
         {
-          "label": "Plywood Sheet Calculator",
+          "label": "Máy tính tấm ván ép",
           "href": "/timber-calc/plywood"
         },
         {
-          "label": "OSB Sheathing Calculator",
+          "label": "Máy tính tấm OSB",
           "href": "/timber-calc/osb"
         }
       ],
       "lastReviewed": "2026-06-17"
     },
     "paint-calc": {
-      "overview": "The paint calculator estimates the liters of paint needed from wall area and number of coats. It auto-deducts doors and windows, applies the spread rate (m²/L) and a waste allowance, and tells you how many 4L and 1L cans to buy. Avoid buying too little or too much for DIY painting or quote checks.",
+      "overview": "Máy tính sơn ước tính số lít sơn cần dùng dựa trên diện tích tường và số lớp sơn. Công cụ tự động trừ diện tích cửa đi và cửa sổ, áp dụng định mức phủ (m²/L) và hệ số hao hụt, rồi cho biết cần mua bao nhiêu lon 4L và 1L. Giúp tránh mua thiếu hoặc mua thừa khi sơn nhà DIY hoặc khi kiểm tra báo giá.",
       "useCases": [
-        "Estimate paint to buy before DIY wall painting",
-        "Cans needed per room or living area",
-        "Total for a 2-coat (primer + finish) job",
-        "Verify a painting quote",
-        "Estimate material for exterior walls or ceilings"
+        "Ước tính lượng sơn cần mua trước khi tự sơn tường (DIY)",
+        "Số lon sơn cần cho từng phòng hoặc khu vực sinh hoạt",
+        "Tổng lượng sơn cho công việc 2 lớp (lót + hoàn thiện)",
+        "Kiểm tra báo giá thi công sơn",
+        "Ước tính vật liệu cho tường ngoại thất hoặc trần nhà"
       ],
       "howTo": {
-        "title": "How to use",
+        "title": "Cách sử dụng",
         "steps": [
-          "Enter total wall area (m²). Compute as perimeter × height or use a direct measurement.",
-          "Enter the number of doors and windows; standard areas (door 2 m², window 1.5 m²) are deducted automatically.",
-          "Adjust coats (usually 2), spread rate (interior water-based ~10 m²/L), and waste (10%) to get liters and cans."
+          "Nhập tổng diện tích tường (m²). Tính bằng chu vi × chiều cao hoặc dùng số đo thực tế.",
+          "Nhập số lượng cửa đi và cửa sổ; diện tích tiêu chuẩn (cửa đi 2 m², cửa sổ 1,5 m²) sẽ được tự động trừ ra.",
+          "Điều chỉnh số lớp sơn (thường là 2), định mức phủ (sơn nước nội thất ~10 m²/L), và hệ số hao hụt (10%) để tính ra số lít và số lon."
         ]
       },
       "formula": {
-        "title": "Paint quantity formula",
-        "body": "Net paint area = wall area − (doors × 2 m² + windows × 1.5 m²)\nTotal coat area = net area × number of coats\nPaint (L) = total coat area ÷ spread rate (m²/L)\nWith waste = paint × (1 + waste rate)\n\nSpread rate (per coat):\n  interior water-based ~10 m²/L, exterior ~8, rough surface ~6\n4L cans = ceil(with-waste ÷ 4)"
+        "title": "Công thức tính lượng sơn",
+        "body": "Diện tích sơn thực = diện tích tường − (số cửa đi × 2 m² + số cửa sổ × 1,5 m²)\nTổng diện tích sơn (các lớp) = diện tích thực × số lớp sơn\nLượng sơn (L) = tổng diện tích sơn ÷ định mức phủ (m²/L)\nCó hao hụt = lượng sơn × (1 + tỷ lệ hao hụt)\n\nĐịnh mức phủ (mỗi lớp):\n  sơn nước nội thất ~10 m²/L, ngoại thất ~8, bề mặt gồ ghề ~6\nSố lon 4L = ceil(lượng có hao hụt ÷ 4)"
       },
       "examples": {
-        "title": "Real examples",
+        "title": "Ví dụ thực tế",
         "items": [
           {
-            "title": "Example 1: Room walls 50 m², 1 door + 2 windows, 2 coats",
-            "body": "Openings = 2 + 3 = 5 m². Net 45 m². Total coat 90 m². At spread 10 → 9 L; +10% waste → 9.9 L. Buy three 4L cans."
+            "title": "Ví dụ 1: Tường phòng 50 m², 1 cửa đi + 2 cửa sổ, 2 lớp sơn",
+            "body": "Diện tích lỗ mở = 2 + 3 = 5 m². Diện tích thực 45 m². Tổng diện tích sơn 90 m². Với định mức phủ 10 → 9 L; +10% hao hụt → 9,9 L. Mua ba lon 4L."
           },
           {
-            "title": "Example 2: Living room 100 m², 2 coats (no openings)",
-            "body": "Total coat 200 m² ÷ 10 = 20 L. +10% = 22 L. Six 4L cans. Buy at once to avoid color batch variation."
+            "title": "Ví dụ 2: Phòng khách 100 m², 2 lớp sơn (không có lỗ mở)",
+            "body": "Tổng diện tích sơn 200 m² ÷ 10 = 20 L. +10% = 22 L. Sáu lon 4L. Nên mua một lần để tránh chênh lệch màu giữa các lô sản xuất."
           },
           {
-            "title": "Example 3: Rough exterior surface",
-            "body": "Lower spread rate to 6 m²/L. The same area needs ~1.7× more paint than interior — rougher surfaces absorb more."
+            "title": "Ví dụ 3: Bề mặt ngoại thất gồ ghề",
+            "body": "Giảm định mức phủ xuống 6 m²/L. Cùng một diện tích nhưng cần lượng sơn nhiều hơn ~1,7 lần so với nội thất — bề mặt càng gồ ghề càng hút sơn nhiều hơn."
           }
         ]
       },
       "faq": [
         {
-          "question": "How many coats should I apply?",
-          "answer": "Two coats (primer + finish) is standard. Use three when covering a dark color with light, or for heavy stains. A same-color refresh can be one coat. A single coat often shows streaks and bleed-through."
+          "question": "Nên sơn bao nhiêu lớp?",
+          "answer": "Hai lớp (lót + hoàn thiện) là tiêu chuẩn. Dùng ba lớp khi sơn màu sáng đè lên màu tối, hoặc khi có vết ố nặng. Sơn lại cùng màu có thể chỉ cần một lớp. Sơn một lớp thường bị loang màu và lộ lớp nền bên dưới."
         },
         {
-          "question": "How do I choose the spread rate?",
-          "answer": "It's printed on the product label as m²/L. Interior water-based paint is ~8-12 m²/L per coat; exterior and rough surfaces are 6-8. Rougher, more absorbent surfaces have a lower spread rate (need more paint)."
+          "question": "Chọn định mức phủ như thế nào?",
+          "answer": "Định mức phủ được in trên nhãn sản phẩm theo đơn vị m²/L. Sơn nước nội thất khoảng 8-12 m²/L mỗi lớp; ngoại thất và bề mặt gồ ghề khoảng 6-8. Bề mặt càng gồ ghề, càng hút nước thì định mức phủ càng thấp (cần nhiều sơn hơn)."
         },
         {
-          "question": "Why deduct doors and windows?",
-          "answer": "They aren't painted wall, so they're excluded from net area. The calculator deducts standard sizes (door 0.9×2.1≈2 m², window 1.2×1.2≈1.5 m²); adjust the area directly if yours differ greatly."
+          "question": "Vì sao phải trừ diện tích cửa đi và cửa sổ?",
+          "answer": "Vì đây không phải là bề mặt tường được sơn, nên cần loại khỏi diện tích thực. Máy tính trừ theo kích thước tiêu chuẩn (cửa đi 0,9×2,1≈2 m², cửa sổ 1,2×1,2≈1,5 m²); nếu kích thước thực tế của bạn khác biệt nhiều, hãy điều chỉnh trực tiếp diện tích đầu vào."
         },
         {
-          "question": "Why a waste allowance?",
-          "answer": "Paint absorbed by rollers/brushes, drips, touch-ups, and can residue typically warrant a 10% allowance. For complex shapes or beginners, 15-20% is recommended."
+          "question": "Vì sao cần hệ số hao hụt?",
+          "answer": "Sơn bị con lăn/cọ hút, nhỏ giọt, sơn dặm lại, và sơn còn sót trong lon thường cần một khoản hao hụt 10%. Với hình dạng phức tạp hoặc người mới sơn lần đầu, nên dùng 15-20%."
         },
         {
-          "question": "How do I find wall area?",
-          "answer": "Perimeter (width+depth)×2 × ceiling height. E.g., a 3m×4m room at 2.4m → 14m × 2.4 = 33.6 m². Add the ceiling (width×depth = 12 m²) if painting it too."
+          "question": "Làm sao tính diện tích tường?",
+          "answer": "Chu vi (chiều rộng + chiều sâu) × 2 × chiều cao trần. Ví dụ, phòng 3m×4m cao 2,4m → 14m × 2,4 = 33,6 m². Cộng thêm diện tích trần (chiều rộng × chiều sâu = 12 m²) nếu bạn cũng sơn trần."
         },
         {
-          "question": "Is primer calculated separately?",
-          "answer": "New drywall or painting over a dark color needs primer. Calculate primer with the same area and spread rate separately, or include it as an extra coat in this tool."
+          "question": "Sơn lót có được tính riêng không?",
+          "answer": "Tường thạch cao mới hoặc sơn đè lên màu tối cần dùng sơn lót. Hãy tính sơn lót riêng với cùng diện tích và định mức phủ, hoặc cộng thêm như một lớp sơn phụ trong công cụ này."
         }
       ],
       "cautions": [
-        "Standard deduction: door 2 m², window 1.5 m². Adjust wall area if your sizes differ.",
-        "Spread rate varies by product/surface (interior ~10, exterior ~8, rough ~6 m²/L).",
-        "10% waste is the default; complex shapes or beginners 15-20%.",
-        "Primer must be calculated separately.",
-        "Re-verify final quantity against the product label's spread rate."
+        "Mức trừ tiêu chuẩn: cửa đi 2 m², cửa sổ 1,5 m². Điều chỉnh diện tích tường nếu kích thước thực tế khác biệt.",
+        "Định mức phủ thay đổi theo sản phẩm/bề mặt (nội thất ~10, ngoại thất ~8, bề mặt gồ ghề ~6 m²/L).",
+        "Hệ số hao hụt mặc định là 10%; hình dạng phức tạp hoặc người mới sơn lần đầu nên dùng 15-20%.",
+        "Sơn lót phải được tính riêng.",
+        "Hãy đối chiếu lại số lượng cuối cùng với định mức phủ ghi trên nhãn sản phẩm."
       ],
       "related": [
         {
-          "label": "Tile Calculator",
+          "label": "Máy tính gạch ốp lát",
           "href": "/timber-calc/tile"
         },
         {
@@ -4073,173 +4073,173 @@
           "href": "/area-convert"
         },
         {
-          "label": "Drywall Calculator",
+          "label": "Máy tính tấm thạch cao",
           "href": "/timber-calc/drywall"
         }
       ],
       "lastReviewed": "2026-05-30"
     },
     "gravel-calc": {
-      "overview": "The gravel calculator computes the volume (m³) and weight (tons) of gravel, sand, or crushed stone from area and depth. It applies per-material unit weights, includes a compaction allowance, and tells you the number of 25kg bags and 1-ton bulk bags to order. Use it for driveways, parking, drainage layers, and landscaping.",
+      "overview": "Máy tính đá sỏi tính thể tích (m³) và trọng lượng (tấn) của sỏi, cát, hoặc đá dăm dựa trên diện tích và độ dày lớp rải. Công cụ áp dụng tỷ trọng riêng theo từng loại vật liệu, cộng thêm hệ số lún khi đầm nén, và cho biết cần đặt bao nhiêu bao 25kg và bao jumbo 1 tấn. Dùng cho lối vào xe, bãi đỗ xe, lớp thoát nước, và cảnh quan sân vườn.",
       "useCases": [
-        "Estimate gravel for yard/driveway paving",
-        "Aggregate for drainage and base layers",
-        "Landscaping gravel/decomposed-granite order",
-        "Crushed-stone base before concrete",
-        "Garden sand/gravel purchase amount"
+        "Ước tính sỏi đá cho lát sân/lối vào xe",
+        "Vật liệu cốt liệu cho lớp thoát nước và lớp nền",
+        "Đặt sỏi cảnh quan/đá granite phong hóa cho sân vườn",
+        "Lớp nền đá dăm trước khi đổ bê tông",
+        "Xác định lượng cát/sỏi cần mua cho sân vườn"
       ],
       "howTo": {
-        "title": "How to use",
+        "title": "Cách sử dụng",
         "steps": [
-          "Enter the area (m²) to cover, computed as length × width.",
-          "Enter depth (cm). Gravel paving 5-10cm, compacted base 10-20cm is typical.",
-          "Select material and compaction allowance (usually 20%) to see volume, weight, and bag counts."
+          "Nhập diện tích cần rải (m²), tính bằng chiều dài × chiều rộng.",
+          "Nhập độ dày lớp rải (cm). Lát sỏi thường 5-10cm, lớp nền đầm nén thường 10-20cm.",
+          "Chọn loại vật liệu và hệ số lún khi đầm nén (thường 20%) để xem thể tích, trọng lượng, và số bao cần mua."
         ]
       },
       "formula": {
-        "title": "Volume & weight formula",
-        "body": "Volume (m³) = area (m²) × depth (m)\nOrder volume = volume × (1 + compaction)\nWeight (tons) = order volume × unit weight\n\nUnit weight (t/m³, loose):\n  gravel 1.5, sand 1.6, crushed 1.5, soil 1.4, mixed 1.55\n\n25kg bags = weight(kg) / 25\n1-ton bulk bags = ceil(weight in tons)"
+        "title": "Công thức thể tích & trọng lượng",
+        "body": "Thể tích (m³) = diện tích (m²) × độ dày (m)\nThể tích cần đặt = thể tích × (1 + hệ số lún khi đầm nén)\nTrọng lượng (tấn) = thể tích cần đặt × tỷ trọng\n\nTỷ trọng (tấn/m³, dạng rời):\n  sỏi 1,5, cát 1,6, đá dăm 1,5, đất 1,4, hỗn hợp 1,55\n\nSố bao 25kg = trọng lượng (kg) / 25\nSố bao jumbo 1 tấn = ceil(trọng lượng tính theo tấn)"
       },
       "examples": {
-        "title": "Real examples",
+        "title": "Ví dụ thực tế",
         "items": [
           {
-            "title": "Example 1: Yard 20m² × 10cm gravel",
-            "body": "Volume 2m³, +20% compaction → 2.4m³. Weight 2.4 × 1.5 = 3.6 tons. 144 25kg bags or 4 bulk bags."
+            "title": "Ví dụ 1: Sân 20m² × sỏi dày 10cm",
+            "body": "Thể tích 2m³, +20% hệ số lún → 2,4m³. Trọng lượng 2,4 × 1,5 = 3,6 tấn. 144 bao 25kg hoặc 4 bao jumbo."
           },
           {
-            "title": "Example 2: Driveway drainage 30m² × 15cm crushed",
-            "body": "Volume 4.5m³ × 1.2 = 5.4m³. Crushed 1.5 → 8.1 tons. Compacted bases need to be laid thicker."
+            "title": "Ví dụ 2: Thoát nước lối vào xe 30m² × đá dăm dày 15cm",
+            "body": "Thể tích 4,5m³ × 1,2 = 5,4m³. Đá dăm 1,5 → 8,1 tấn. Lớp nền đầm nén cần rải dày hơn."
           },
           {
-            "title": "Example 3: Garden sand 10m² × 5cm",
-            "body": "Volume 0.5m³ × 1.2 = 0.6m³. Sand 1.6 → 0.96 tons. About 39 bags."
+            "title": "Ví dụ 3: Cát sân vườn 10m² × dày 5cm",
+            "body": "Thể tích 0,5m³ × 1,2 = 0,6m³. Cát 1,6 → 0,96 tấn. Khoảng 39 bao."
           }
         ]
       },
       "faq": [
         {
-          "question": "Why a compaction allowance?",
-          "answer": "Gravel/aggregate loses ~20-30% volume when compacted. To reach the target depth after compaction, you must order extra, so a compaction allowance (default 20%) is added."
+          "question": "Vì sao cần hệ số lún khi đầm nén?",
+          "answer": "Sỏi/cốt liệu bị giảm ~20-30% thể tích khi đầm nén. Để đạt độ dày mục tiêu sau khi đầm nén, bạn phải đặt thêm vật liệu, vì vậy cần cộng thêm hệ số lún khi đầm nén (mặc định 20%)."
         },
         {
-          "question": "How is unit weight determined?",
-          "answer": "It varies by material and moisture. This tool uses general loose-dry values (gravel 1.5, sand 1.6 t/m³). Wet sand is heavier and may differ from the estimate."
+          "question": "Tỷ trọng được xác định như thế nào?",
+          "answer": "Tỷ trọng thay đổi theo loại vật liệu và độ ẩm. Công cụ này dùng giá trị chung ở dạng khô rời (sỏi 1,5, cát 1,6 tấn/m³). Cát ướt sẽ nặng hơn và có thể khác với ước tính này."
         },
         {
-          "question": "Bags or bulk bags?",
-          "answer": "Small amounts (under 1 ton) are easy in 25kg bags; large amounts are cheaper per unit in 1-ton bulk bags. The tool shows both — choose based on transport and storage."
+          "question": "Nên mua bao thường hay bao jumbo?",
+          "answer": "Số lượng nhỏ (dưới 1 tấn) tiện dùng bao 25kg; số lượng lớn thì bao jumbo 1 tấn rẻ hơn tính theo đơn vị. Công cụ hiển thị cả hai — hãy chọn dựa theo điều kiện vận chuyển và lưu kho."
         },
         {
-          "question": "What depth is right for gravel?",
-          "answer": "Decorative finish 3-5cm, walkways 5-8cm, vehicle driveways 8-10cm, compacted base 10-20cm. Heavier loads need thicker layers."
+          "question": "Độ dày sỏi phù hợp là bao nhiêu?",
+          "answer": "Trang trí bề mặt 3-5cm, lối đi bộ 5-8cm, lối vào xe 8-10cm, lớp nền đầm nén 10-20cm. Tải trọng càng lớn thì lớp rải càng cần dày hơn."
         },
         {
-          "question": "Rubble vs crushed stone?",
-          "answer": "Rubble is broken natural stone (uneven sizes); crushed stone is aggregate crushed to a set size. Bases mix rubble + crushed; finishes use uniform crushed/gravel."
+          "question": "Đá hộc và đá dăm khác nhau ra sao?",
+          "answer": "Đá hộc là đá tự nhiên đập vỡ (kích thước không đều); đá dăm là cốt liệu được nghiền theo kích thước cố định. Lớp nền thường trộn đá hộc + đá dăm; lớp hoàn thiện dùng đá dăm/sỏi đồng đều."
         },
         {
-          "question": "Is geotextile separate?",
-          "answer": "Yes. Weed-barrier/separation geotextile under gravel is calculated by area (m²) separately. This tool computes aggregate only."
+          "question": "Vải địa kỹ thuật có tính riêng không?",
+          "answer": "Có. Vải địa kỹ thuật chống cỏ dại/phân cách bên dưới lớp sỏi được tính riêng theo diện tích (m²). Công cụ này chỉ tính cốt liệu."
         }
       ],
       "cautions": [
-        "Unit weights are loose-dry general values — vary with moisture.",
-        "20% compaction is the default; adjust for compaction strength.",
-        "Wet sand/aggregate is heavier.",
-        "Geotextile and edging are separate.",
-        "Verify unit weight with the supplier for accurate ordering."
+        "Tỷ trọng là giá trị chung ở dạng khô rời — thay đổi theo độ ẩm.",
+        "Hệ số lún khi đầm nén mặc định là 20%; hãy điều chỉnh theo mức độ đầm nén thực tế.",
+        "Cát/cốt liệu ướt sẽ nặng hơn.",
+        "Vải địa kỹ thuật và viền chặn được tính riêng.",
+        "Hãy xác nhận tỷ trọng với nhà cung cấp để đặt hàng chính xác."
       ],
       "related": [
         {
-          "label": "Concrete Volume",
+          "label": "Thể tích bê tông",
           "href": "/timber-calc/concrete"
         },
         {
-          "label": "Tile Calculator",
+          "label": "Máy tính gạch ốp lát",
           "href": "/timber-calc/tile"
         }
       ],
       "lastReviewed": "2026-05-30"
     },
     "deck-calc": {
-      "overview": "The deck and fence calculator computes deck board count and joists from area, and fence posts, rails, and pickets from length. It reflects construction variables like board gap and joist spacing and includes a waste allowance, ready for woodworking and landscaping DIY orders.",
+      "overview": "Máy tính sàn gỗ ngoài trời và hàng rào tính số lượng ván sàn và dầm sàn dựa trên diện tích, cùng số cọc, thanh ngang, và thanh nan rào dựa trên chiều dài hàng rào. Công cụ phản ánh các biến số thi công như khe hở giữa ván và khoảng cách dầm sàn, kèm hệ số hao hụt, sẵn sàng cho việc đặt vật liệu mộc và cảnh quan sân vườn theo hình thức DIY.",
       "useCases": [
-        "Estimate deck boards for a build",
-        "Calculate joist count",
-        "Garden fence posts and pickets",
-        "Fence material quote",
-        "Woodworking DIY ordering"
+        "Ước tính số ván sàn cần cho công trình",
+        "Tính số lượng dầm sàn",
+        "Cọc và thanh nan hàng rào sân vườn",
+        "Báo giá vật liệu hàng rào",
+        "Đặt vật liệu cho công việc mộc DIY"
       ],
       "howTo": {
-        "title": "How to use",
+        "title": "Cách sử dụng",
         "steps": [
-          "Choose the calculation type (deck/fence).",
-          "For deck: area, board width/length, gap. For fence: length, post spacing, picket spacing.",
-          "See the boards/posts needed and joists/rails/pickets. Includes 10% waste."
+          "Chọn loại tính toán (sàn gỗ/hàng rào).",
+          "Với sàn gỗ: diện tích, chiều rộng/chiều dài ván, khe hở. Với hàng rào: chiều dài, khoảng cách cọc, khoảng cách thanh nan.",
+          "Xem số ván/cọc cần dùng và số dầm sàn/thanh ngang/thanh nan. Đã bao gồm 10% hao hụt."
         ]
       },
       "formula": {
-        "title": "Material quantity formula",
-        "body": "[Deck]\nEffective board width = width + gap\nBoards = area / (effective width × length) × (1 + waste)\nJoists = deck side length / joist spacing + 1\n\n[Fence]\nPosts = ceil(length / post spacing) + 1\nRails = sections × 2 (top/bottom)\nPickets = length / picket spacing"
+        "title": "Công thức tính khối lượng vật liệu",
+        "body": "[Sàn gỗ]\nChiều rộng hiệu dụng của ván = chiều rộng + khe hở\nSố ván = diện tích / (chiều rộng hiệu dụng × chiều dài) × (1 + hao hụt)\nSố dầm sàn = chiều dài cạnh sàn / khoảng cách dầm sàn + 1\n\n[Hàng rào]\nSố cọc = ceil(chiều dài / khoảng cách cọc) + 1\nSố thanh ngang = số đoạn × 2 (trên/dưới)\nSố thanh nan = chiều dài / khoảng cách thanh nan"
       },
       "examples": {
-        "title": "Real examples",
+        "title": "Ví dụ thực tế",
         "items": [
           {
-            "title": "Example 1: 20m² deck, 140mm board 3.6m",
-            "body": "Effective width 145mm, 0.522m² per board. 20/0.522 = 38.3 × 1.1 = 43 boards. Joists: 5m side at 400mm = 14."
+            "title": "Ví dụ 1: Sàn gỗ 20m², ván 140mm dài 3,6m",
+            "body": "Chiều rộng hiệu dụng 145mm, 0,522m² mỗi ván. 20/0,522 = 38,3 × 1,1 = 43 ván. Dầm sàn: cạnh 5m với khoảng cách 400mm = 14."
           },
           {
-            "title": "Example 2: 20m fence, 2m post spacing",
-            "body": "10 sections + 1 = 11 posts. 20 rails (2 per section). At 100mm picket spacing, 200 pickets."
+            "title": "Ví dụ 2: Hàng rào dài 20m, khoảng cách cọc 2m",
+            "body": "10 đoạn + 1 = 11 cọc. 20 thanh ngang (2 mỗi đoạn). Với khoảng cách thanh nan 100mm, cần 200 thanh nan."
           },
           {
-            "title": "Example 3: Narrow boards (90mm)",
-            "body": "Narrower effective width needs more boards for the same area — denser look and higher cost."
+            "title": "Ví dụ 3: Ván hẹp (90mm)",
+            "body": "Chiều rộng hiệu dụng hẹp hơn cần nhiều ván hơn cho cùng diện tích — tạo vẻ ngoài dày khít hơn và chi phí cao hơn."
           }
         ]
       },
       "faq": [
         {
-          "question": "Why a board gap?",
-          "answer": "Wood expands/contracts with moisture and needs drainage/ventilation, so leave a 3-6mm gap between boards. The gap adds to effective width, affecting board count."
+          "question": "Vì sao cần khe hở giữa các ván?",
+          "answer": "Gỗ giãn nở/co lại theo độ ẩm và cần thoát nước/thông gió, vì vậy nên chừa khe hở 3-6mm giữa các ván. Khe hở này cộng vào chiều rộng hiệu dụng, ảnh hưởng đến số lượng ván cần dùng."
         },
         {
-          "question": "What joist spacing is right?",
-          "answer": "Standard deck boards use 400mm (16in) joist spacing; heavy loads or thin boards use 300mm. Tighter spacing is stronger but needs more joists."
+          "question": "Khoảng cách dầm sàn phù hợp là bao nhiêu?",
+          "answer": "Ván sàn tiêu chuẩn dùng khoảng cách dầm sàn 400mm (16in); tải trọng nặng hoặc ván mỏng dùng 300mm. Khoảng cách càng gần thì kết cấu càng chắc nhưng cần nhiều dầm sàn hơn."
         },
         {
-          "question": "Is 10% waste enough?",
-          "answer": "Enough for simple rectangular decks; diagonals, stairs, and complex shapes warrant 15-20%. It covers cutting loss and defective boards."
+          "question": "Hệ số hao hụt 10% có đủ không?",
+          "answer": "Đủ cho sàn gỗ hình chữ nhật đơn giản; sàn có đường chéo, bậc thang, hoặc hình dạng phức tạp nên dùng 15-20%. Hệ số này bù cho phần hao hụt khi cắt và ván bị lỗi."
         },
         {
-          "question": "Why posts = sections + 1?",
-          "answer": "Each gap between posts is a section, and you need posts at both ends, so one more than the section count. A 10-section fence needs 11 posts. Corners and gates may need extra posts."
+          "question": "Vì sao số cọc = số đoạn + 1?",
+          "answer": "Mỗi khoảng cách giữa hai cọc là một đoạn, và bạn cần cọc ở cả hai đầu, nên số cọc luôn nhiều hơn số đoạn 1 đơn vị. Hàng rào 10 đoạn cần 11 cọc. Góc rào và cổng có thể cần thêm cọc phụ."
         },
         {
-          "question": "Pressure-treated vs composite (WPC)?",
-          "answer": "Pressure-treated is cheaper but needs periodic oiling; composite (WPC) is pricier with less maintenance. The count is the same but board dimensions may differ."
+          "question": "Gỗ tẩm áp lực và gỗ nhựa composite (WPC) khác nhau ra sao?",
+          "answer": "Gỗ tẩm áp lực rẻ hơn nhưng cần quét dầu bảo dưỡng định kỳ; gỗ nhựa composite (WPC) đắt hơn nhưng ít cần bảo trì. Cách tính số lượng giống nhau nhưng kích thước ván có thể khác nhau."
         },
         {
-          "question": "Are deck footings calculated?",
-          "answer": "This tool computes boards, joists, and fence materials only. Deck footings (concrete piers, posts) require separate design based on area and load."
+          "question": "Móng đỡ sàn gỗ có được tính không?",
+          "answer": "Công cụ này chỉ tính ván, dầm sàn, và vật liệu hàng rào. Móng đỡ sàn gỗ (trụ bê tông, cột đỡ) cần được thiết kế riêng dựa trên diện tích và tải trọng."
         }
       ],
       "cautions": [
-        "10% waste default — complex shapes 15-20%.",
-        "Standard joist spacing 400mm; thin boards 300mm.",
-        "Board gap affects the count.",
-        "Deck footings (piers, posts) require separate design.",
-        "Check pressure-treated vs composite board dimensions."
+        "Hệ số hao hụt mặc định 10% — hình dạng phức tạp nên dùng 15-20%.",
+        "Khoảng cách dầm sàn tiêu chuẩn 400mm; ván mỏng dùng 300mm.",
+        "Khe hở giữa ván ảnh hưởng đến số lượng cần tính.",
+        "Móng đỡ sàn gỗ (trụ, cột đỡ) cần được thiết kế riêng.",
+        "Kiểm tra kích thước ván giữa gỗ tẩm áp lực và gỗ composite."
       ],
       "related": [
         {
-          "label": "Lumber Conversion",
+          "label": "Máy tính board feet gỗ xẻ",
           "href": "/timber-calc/lumber"
         },
         {
-          "label": "Studs Calculator",
+          "label": "Máy tính số lượng thanh đứng",
           "href": "/timber-calc/studs"
         }
       ],
@@ -6642,6 +6642,353 @@
         }
       ],
       "lastReviewed": "2026-06-06"
+    },
+    "electric-wire-size": {
+      "overview": "Máy tính cỡ dây điện xác định tiết diện (sq) phù hợp dựa trên dòng tải, chiều dài đường dây và độ sụt áp cho phép. Dựa trên KEC 232.5 (quy định chọn cỡ dây) và bảng dòng điện cho phép KS C IEC 60364, công cụ đưa ra tiết diện nhỏ nhất thỏa mãn đồng thời điều kiện chống quá nhiệt (dòng điện cho phép) và sụt áp. Dùng để thiết kế điện, lập báo giá và ôn thi chứng chỉ KEC.",
+      "useCases": [
+        "Thiết kế mạch nhánh: chọn cỡ dây phù hợp theo tải",
+        "Đường dây dài: tăng cỡ dây để bù sụt áp",
+        "Mạch động cơ: chọn cáp có xét đến dòng khởi động",
+        "Điện mặt trời / Sạc xe điện: chọn cỡ mạch dòng cao kèm tính sụt áp",
+        "Chứng chỉ KEC: luyện tập quy tắc chọn cỡ dây"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập dòng tải (A). Nếu chỉ biết công suất (kW), hãy quy đổi qua điện áp và hệ số công suất trước (I = P/(V×pf), nhân thêm √3 với mạch 3 pha).",
+          "Nhập chiều dài đường dây một chiều (m). Sụt áp được tính cho cả đường đi và về, nên chỉ cần nhập khoảng cách một chiều.",
+          "Chọn độ sụt áp cho phép (%). Theo quy chuẩn nội tuyến KEC: 3% cho đường dây cấp nguồn, tổng cộng 5% khi tính cả mạch nhánh.",
+          "Nhấn Tính toán. Bạn sẽ thấy ① tiết diện tối thiểu theo dòng điện cho phép, ② tiết diện tối thiểu theo sụt áp, ③ giá trị lớn hơn (kết quả cuối cùng)."
+        ]
+      },
+      "formula": {
+        "title": "Công thức chọn cỡ dây (KEC 232.5)",
+        "body": "Chọn tiết diện tối thiểu thỏa mãn đồng thời:\n\n① Dòng điện cho phép: dòng điện cho phép của dây ≥ dòng tải × hệ số an toàn\n   Đối chiếu bảng KS C IEC 60364 (VD: 2,5sq IV ≈ 27A)\n\n② Sụt áp:\n   1 pha: e = 35,6 × L × I / (1000 × A)\n   3 pha: e = 30,8 × L × I / (1000 × A)\n   (e=điện áp sụt V, L=khoảng cách một chiều m, I=dòng điện A, A=tiết diện sq)\n   → A ≥ 35,6 × L × I / (1000 × điện áp sụt cho phép V)\n\nKết quả cuối = max(kết quả ①, kết quả ②)\n\nCỡ dây tiêu chuẩn (sq): 1,5, 2,5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: 1 pha 220V, 16A, 20m, sụt áp 3%",
+            "body": "① Dòng điện cho phép: 16A → 2,5sq (27A) đủ dùng. ② Sụt áp: cho phép 6,6V, A ≥ 35,6×20×16/(1000×6,6) = 1,73sq → 2,5sq đủ dùng. Kết quả cuối 2,5sq."
+          },
+          {
+            "title": "Ví dụ 2: Cùng tải, 80m (đường dây dài)",
+            "body": "① Dòng điện cho phép: 2,5sq vẫn đủ dùng. ② Sụt áp: A ≥ 35,6×80×16/(1000×6,6) = 6,9sq → cần 10sq. Khoảng cách xa khiến sụt áp trở thành yếu tố quyết định. Kết quả cuối 10sq."
+          },
+          {
+            "title": "Ví dụ 3: 3 pha 380V 30A, 50m, sụt áp 3%",
+            "body": "① Dòng điện cho phép: 30A → 4sq (36A) hoặc 6sq. ② Sụt áp: cho phép 11,4V, A ≥ 30,8×50×30/(1000×11,4) = 4,05sq → 6sq. Kết quả cuối 6sq."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao phải kiểm tra cả dòng điện cho phép lẫn sụt áp?",
+          "answer": "Chỉ dựa vào dòng điện cho phép mới ngăn được quá nhiệt (nguy cơ cháy), nhưng đường dây dài lại gây sụt áp khiến thiết bị hoạt động kém hiệu quả. Đường dây ngắn thường bị chi phối bởi dòng điện cho phép, đường dây dài bị chi phối bởi sụt áp. Luôn chọn giá trị lớn hơn để đảm bảo an toàn."
+        },
+        {
+          "question": "Giới hạn sụt áp 3% / 5% xuất phát từ đâu?",
+          "answer": "Quy chuẩn nội tuyến Hàn Quốc: đường dây cấp nguồn ≤3%, cấp nguồn + nhánh ≤5% (với đường dây ≤60m). Trên 60m áp dụng quy định nới lỏng hơn. Sụt áp quá mức làm đèn mờ, giảm mô-men động cơ và tăng sinh nhiệt."
+        },
+        {
+          "question": "Dây IV, HIV, CV có dòng điện cho phép khác nhau không?",
+          "answer": "Có — nhiệt độ chịu đựng của lớp cách điện khác nhau. IV (60°C) < HIV (75°C) < CV/XLPE (90°C). Với cùng một cỡ dây, CV chịu được dòng điện lớn hơn. Công cụ này dùng bảng chuẩn IV/HIV; với CV cần tra bảng riêng."
+        },
+        {
+          "question": "Làm sao để khớp cỡ dây với định mức aptomat?",
+          "answer": "Dòng điện cho phép của dây ≥ định mức aptomat. VD: aptomat 20A → dòng điện cho phép ≥ 25A (2,5-4sq). Aptomat phải ngắt trước khi dây bị quá nhiệt. Hãy dùng kèm máy tính aptomat trên trang này."
+        },
+        {
+          "question": "Có cần hiệu chỉnh khi đi nhiều dây chung ống luồn không?",
+          "answer": "Có. Nhiều mạch chung một ống luồn làm giảm khả năng tản nhiệt, kéo theo dòng điện cho phép giảm. Áp dụng hệ số như 0,7 cho ≤3 mạch, 0,6 cho 4-6 mạch. Công cụ này giả định chỉ có một mạch, nên cần tăng cỡ dây khi đi chung bó."
+        },
+        {
+          "question": "Đồng so với nhôm?",
+          "answer": "Độ dẫn điện của nhôm chỉ bằng khoảng 61% của đồng, nên cần tiết diện lớn hơn khoảng 1,6 lần để tải cùng một dòng điện. Công cụ này dùng dây đồng (Cu). Nếu dùng nhôm, hãy tăng ít nhất một cấp tiết diện."
+        }
+      ],
+      "cautions": [
+        "Sử dụng dây đồng, mạch đơn, cách điện IV/HIV. Nhôm, đi dây chung bó, CV cần hiệu chỉnh riêng.",
+        "Nhiều mạch chung ống luồn cần áp dụng hệ số hiệu chỉnh dòng điện cho phép.",
+        "Nhiệt độ môi trường trên 30°C cần hiệu chỉnh thêm.",
+        "Phải khớp với định mức aptomat (dòng điện cho phép ≥ định mức aptomat).",
+        "Thiết kế cuối cùng cần được kỹ sư điện có chứng chỉ rà soát theo KEC."
+      ],
+      "related": [
+        {
+          "label": "Dung Lượng Aptomat",
+          "href": "/electric-calc/breaker"
+        },
+        {
+          "label": "Sụt Áp",
+          "href": "/electric-calc/voltage-drop"
+        },
+        {
+          "label": "Trang Điện",
+          "href": "/electric-calc"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "electric-breaker": {
+      "overview": "Máy tính chọn aptomat Hàn Quốc tính dòng định mức MCB/MCCB từ dòng tải, áp dụng KEC 212.6 (quy tắc chọn aptomat theo Quy chuẩn Điện Hàn Quốc) và hệ số an toàn tiêu chuẩn 1,25. Công cụ xử lý tải thông thường, động cơ và tải inverter/VVVF với các hiệu chỉnh riêng. Dùng để thiết kế tủ điện dân dụng và thương mại, chọn khởi động từ động cơ, và ôn thi chứng chỉ KEC.",
+      "useCases": [
+        "Thiết kế tủ điện dân dụng / thương mại: chọn aptomat cho từng mạch nhánh",
+        "Tải động cơ: chọn định mức aptomat chịu được dòng khởi động 6-8 lần dòng định mức",
+        "Inverter / VVVF: chọn ELB loại B để tránh ngắt nhầm do dòng rò tần số cao",
+        "Lập báo giá: xác định chính xác định mức aptomat trước khi báo giá",
+        "Ôn thi chứng chỉ KEC: luyện tập quy tắc chọn aptomat tiêu chuẩn"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Chọn loại tải: thông thường (chiếu sáng/ổ cắm), động cơ, hoặc inverter/VVVF. Mỗi loại áp dụng hệ số an toàn và lưu ý bổ sung khác nhau.",
+          "Nhập dòng tải (A) hoặc công suất tải (kW/kVA). Công cụ tự động quy đổi công suất sang dòng điện dựa trên điện áp, hệ số công suất và số pha.",
+          "Chọn điện áp (1 pha 220V / 3 pha 380V) và số pha. Mặc định theo tiêu chuẩn điện hạ áp Hàn Quốc.",
+          "Nhấn Tính toán. Bạn sẽ thấy định mức aptomat đề xuất, loại (MCB/MCCB/ELB) và căn cứ KEC liên quan."
+        ]
+      },
+      "formula": {
+        "title": "Công thức tính định mức aptomat (KEC 212.6)",
+        "body": "Tải thông thường: định mức aptomat ≥ dòng tải × 1,25 (hệ số an toàn)\n  Ví dụ: tải 12A → 12 × 1,25 = 15A → chọn định mức tiêu chuẩn kế tiếp 20A\n\nTải động cơ: xét dòng khởi động 6-8 lần; áp dụng 1,25 cho dòng định mức toàn tải,\n  sau đó dùng ELCB (có khả năng chịu quá dòng) thay vì ELB\n\nQuy đổi dòng điện 3 pha:\n  I = P / (√3 × V × pf)\n  Ví dụ: 7,5kW 380V pf 0,85 → 7.500 / (1,732 × 380 × 0,85) = 13,4A\n\nĐịnh mức tiêu chuẩn (KEC):\n  MCB: 6, 10, 15, 16, 20, 25, 30, 32, 40, 50, 63A\n  MCCB: 50, 60, 75, 100, 125, 150, 175, 200, 225, 250, 300, 400, 500, 600, 800A"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Tủ điện dân dụng — đèn phòng khách + ổ cắm (tải thông thường 12A)",
+            "body": "12A × 1,25 = 15A. Định mức tiêu chuẩn kế tiếp là MCB 20A. KEC 212.6.2 khuyến nghị 16A hoặc 20A cho mạch ổ cắm, nên thường dùng MCB 16A hoặc 20A."
+          },
+          {
+            "title": "Ví dụ 2: Động cơ 3 pha 380V 7,5kW",
+            "body": "Dòng điện = 7.500 / (√3 × 380 × 0,85) = 13,4A. 13,4 × 1,25 = 16,75A. Chọn MCCB 20A kèm rơ-le nhiệt bảo vệ quá tải. Dùng đường cong D để chịu được dòng khởi động khoảng 80A."
+          },
+          {
+            "title": "Ví dụ 3: Tải inverter — tránh ngắt nhầm ELB",
+            "body": "Inverter tạo ra dòng rò tần số cao khiến ELB tiêu chuẩn bị ngắt nhầm. Hãy dùng ELCB (có định mức quá dòng) hoặc ELB loại B tương thích inverter. Cách tính định mức vẫn giống nhau (dòng điện × 1,25)."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "MCB, MCCB và ELB khác nhau như thế nào?",
+          "answer": "MCB (Miniature Circuit Breaker) = aptomat cỡ nhỏ, dân dụng 6-63A. MCCB (Molded Case) = công nghiệp 50-800A. ELB (Earth Leakage Breaker) = bảo vệ chống giật điện. Mạch nhánh tiêu chuẩn thường kết hợp MCB + ELB."
+        },
+        {
+          "question": "Tại sao dùng hệ số an toàn 1,25?",
+          "answer": "KEC 212.6.4 quy định 'định mức aptomat ≥ dòng tải × 1,25'. Tỷ lệ 1,25 đảm bảo aptomat ngắt trước khi dây bị quá nhiệt — tạo biên độ an toàn giữa dòng điện cho phép của dây và định mức aptomat."
+        },
+        {
+          "question": "Tại sao tải động cơ được tính khác đi?",
+          "answer": "Dòng khởi động của động cơ gấp 6-8 lần dòng định mức toàn tải. Chỉ dùng hệ số 1,25 sẽ khiến aptomat ngắt ngay lúc khởi động. Hãy chọn định mức aptomat theo dòng toàn tải nhân 1,25, nhưng dùng đường cong D hoặc aptomat bảo vệ động cơ có khả năng chịu được dòng khởi động."
+        },
+        {
+          "question": "Độ nhạy của ELB có nghĩa là gì?",
+          "answer": "ELB có định mức riêng cho ngắt quá dòng và độ nhạy phát hiện sự cố chạm đất. Để bảo vệ chống giật điện, dùng 30mA / 0,03s. Để phòng cháy, dùng 100-300mA. Mạch nhánh: 30mA; mạch chính: 200mA."
+        },
+        {
+          "question": "Có thể chọn định mức không theo tiêu chuẩn không?",
+          "answer": "Không. KEC 212.6.5 yêu cầu chỉ được dùng định mức tiêu chuẩn KS C 8321. Hãy làm tròn lên định mức tiêu chuẩn kế tiếp."
+        },
+        {
+          "question": "Làm sao để khớp định mức aptomat với cỡ dây?",
+          "answer": "Dòng điện cho phép của dây ≥ định mức aptomat. Ví dụ: aptomat 20A → dòng điện cho phép của dây ≥ 25A (VD: 2,5sq IV hoặc 4sq THHN). Tham khảo bảng cỡ dây KEC 232.5, hoặc dùng máy tính cỡ dây điện trên trang này."
+        },
+        {
+          "question": "Tại sao ELB liên tục ngắt nhầm với tải inverter?",
+          "answer": "Đầu ra PWM của inverter tạo ra dòng rò tần số kHz khiến ELB chỉ phát hiện AC (50/60Hz) hoạt động sai. Cách khắc phục: dùng ELB loại B (tương thích inverter) hoặc aptomat chuyên dụng cho inverter; hoặc lắp thêm biến áp cách ly."
+        }
+      ],
+      "cautions": [
+        "Công cụ này tuân theo KEC 212.6 để chọn aptomat cho tải thông thường. Các tải đặc biệt (máy hàn, UPS, SMPS) cần rà soát riêng.",
+        "Hệ số 1,25 chỉ là mức sàn — với tải biến động hoặc dự phòng tăng trưởng trong tương lai, nên dùng 1,5 đến 2,0.",
+        "Luôn làm tròn lên định mức tiêu chuẩn kế tiếp, không bao giờ làm tròn xuống (sẽ gây ngắt nhầm).",
+        "Độ nhạy ELB (30mA, v.v.) được quyết định riêng theo loại tải. Công cụ này chỉ tính định mức quá dòng.",
+        "Lựa chọn aptomat cuối cùng cần được kỹ sư điện có chứng chỉ rà soát theo KEC."
+      ],
+      "related": [
+        {
+          "label": "Máy Tính Cỡ Dây Điện",
+          "href": "/electric-calc/wire-size"
+        },
+        {
+          "label": "Sụt Áp",
+          "href": "/electric-calc/voltage-drop"
+        },
+        {
+          "label": "Trang Điện",
+          "href": "/electric-calc"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
+    },
+    "electric-voltage-drop": {
+      "overview": "Máy Tính Sụt Áp lấy tiết diện dây dẫn, dòng điện, chiều dài đường dây và loại pha, sau đó tính độ sụt áp (V) và tỷ lệ sụt áp (%), rồi so sánh với giới hạn cho phép theo khoảng cách trong tiêu chuẩn đi dây KEC của Hàn Quốc (trước đây là quy chuẩn Nội tuyến). Công cụ hỗ trợ cả dây dẫn đồng và nhôm, áp dụng đúng hệ số cho mạch 1 pha 2 dây, 1 pha 3 dây, 3 pha 3 dây và 3 pha 4 dây. Dùng để xác nhận cỡ dây có phù hợp với khoảng cách đi dây hay không và điện áp ở đầu cuối có nằm trong dung sai của thiết bị hay không.",
+      "useCases": [
+        "Kiểm tra độ sụt áp có vượt giới hạn khi tải ở xa tủ phân phối",
+        "Quyết định có cần tăng cỡ dây do sụt áp quá mức hay không",
+        "So sánh độ sụt áp giữa phương án đi dây 1 pha và 3 pha",
+        "Đánh giá mức sụt áp tăng thêm khi dùng dây nhôm thay vì dây đồng",
+        "Học công thức tính sụt áp để ôn thi chứng chỉ thợ điện Hàn Quốc"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng (4 bước)",
+        "steps": [
+          "Nhập điện áp đường dây (hoặc điện áp pha) (V) và dòng tải (A) — ví dụ: 220V 1 pha, 380V 3 pha.",
+          "Nhập chiều dài đường dây (m, một chiều) — chiều dài dây thực tế từ tủ điện đến tải.",
+          "Chọn tiết diện dây dẫn (㎟) trong các cỡ tiêu chuẩn KS, vật liệu dây dẫn (đồng/nhôm) và loại pha (1 pha 2 dây, 1 pha 3 dây, 3 pha 3 dây, 3 pha 4 dây).",
+          "Xem độ sụt áp (V), tỷ lệ sụt áp (%), giới hạn theo khoảng cách và kết quả đạt/không đạt. Nếu không đạt, hãy tăng tiết diện hoặc rút ngắn khoảng cách đi dây."
+        ]
+      },
+      "formula": {
+        "title": "Công thức & căn cứ (KEC / quy chuẩn Nội tuyến trước đây)",
+        "body": "■ Sụt áp\n  e = (hệ số × L × I) ÷ (1000 × A)\n    L = chiều dài đường dây (m, một chiều), I = dòng điện (A), A = tiết diện (㎟)\n\n■ Hệ số theo loại pha (dây đồng)\n  1 pha 2 dây        35,6\n  3 pha 3 dây             30,8\n  1 pha 3 dây / 3 pha 4 dây  17,8\n  Dây dẫn nhôm: hệ số × 1,6\n\n■ Tỷ lệ sụt áp\n  e(%) = (e ÷ V) × 100\n\n■ Sụt áp cho phép theo khoảng cách (tổng cấp nguồn + nhánh)\n  ≤ 60m — 3% / ≤ 120m — 5% / ≤ 200m — 6% / > 200m — 7%"
+      },
+      "examples": {
+        "title": "Ví dụ minh họa",
+        "items": [
+          {
+            "title": "Ví dụ 1: 1 pha 220V, 20A, 50m, dây đồng 4㎟",
+            "body": "e = (35,6 × 50 × 20) ÷ (1000 × 4) = 8,9V. Tỷ lệ sụt áp = 8,9 ÷ 220 × 100 ≈ 4,05%. Giới hạn cho ≤60m là 3%, nên trường hợp này không đạt. Tăng lên 6㎟ trở lên sẽ giảm xuống còn khoảng 2,7% và đạt yêu cầu."
+          },
+          {
+            "title": "Ví dụ 2: 3 pha 3 dây 380V, 30A, 80m, dây đồng 10㎟",
+            "body": "e = (30,8 × 80 × 30) ÷ (1000 × 10) = 7,39V. Tỷ lệ sụt áp = 7,39 ÷ 380 × 100 ≈ 1,95%. Nằm trong giới hạn 5% cho ≤120m, nên đạt yêu cầu."
+          },
+          {
+            "title": "Ví dụ 3: chuyển từ dây đồng sang dây nhôm",
+            "body": "Giống Ví dụ 1 nhưng dùng dây nhôm: hệ số 35,6 × 1,6 = 56,96 → e ≈ 14,24V, tỷ lệ sụt áp ≈ 6,47%. Độ dẫn điện thấp hơn của nhôm làm tăng sụt áp khoảng 60% ở cùng một cỡ dây — bạn phải tăng ít nhất một cấp tiết diện."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Chiều dài đường dây là một chiều hay khứ hồi?",
+          "answer": "Nhập chiều dài một chiều (từ tủ điện đến tải). Đường dẫn dòng điện chiều về đã được tính sẵn trong các hệ số theo pha (35,6, 30,8, 17,8), nên không cần nhân đôi khoảng cách."
+        },
+        {
+          "question": "Giới hạn cho phép 3% / 5% dựa trên cơ sở nào?",
+          "answer": "Các giới hạn này xuất phát từ tiêu chuẩn đi dây KEC của Hàn Quốc (trước đây là quy chuẩn Nội tuyến): 3% cho đường dây ≤60m, 5% cho ≤120m, 6% cho ≤200m, 7% cho trên 200m. Đây là giá trị tại điểm cuối đường dây, tính gộp cả cấp nguồn và nhánh, nhằm giữ điện áp hoạt động của chiếu sáng và thiết bị trong phạm vi bình thường."
+        },
+        {
+          "question": "Nên làm gì nếu độ sụt áp vượt giới hạn?",
+          "answer": "Có thể (1) tăng tiết diện dây dẫn, (2) rút ngắn khoảng cách bằng cách di dời tủ điện, hoặc (3) chuyển từ 1 pha sang 3 pha (hệ số thấp hơn). Tăng cỡ dây là cách khắc phục phổ biến nhất."
+        },
+        {
+          "question": "Tại sao dây nhôm có độ sụt áp lớn hơn?",
+          "answer": "Độ dẫn điện của nhôm chỉ bằng khoảng 61% của đồng, nên ở cùng một tiết diện, điện trở — và độ sụt áp — cao hơn khoảng 1,6 lần. Công cụ này tự động áp dụng hệ số ×1,6 khi chọn nhôm. Để đạt độ sụt áp tương đương dây đồng, cần tăng dây nhôm lên một hoặc hai cấp tiết diện."
+        },
+        {
+          "question": "Công cụ có tính đến điện một chiều (DC) hoặc hệ số công suất không?",
+          "answer": "Đây là phép tính AC đơn giản hóa, giả định hệ số công suất bằng 1 và bỏ qua điện kháng đường dây (cảm kháng). Các mạch dài, dòng cao hoặc hệ số công suất thấp bị ảnh hưởng nhiều hơn bởi điện kháng — hãy nhờ kỹ sư có chứng chỉ hoặc phần mềm thiết kế chuyên dụng để tính chính xác."
+        }
+      ],
+      "cautions": [
+        "Phép tính AC đơn giản hóa, giả định hệ số công suất 1 và bỏ qua điện kháng. Thiết kế chính xác cần tính đầy đủ trở kháng đường dây.",
+        "Nhập chiều dài một chiều; đường dẫn khứ hồi đã được tính sẵn trong hệ số theo pha.",
+        "Giới hạn cho phép theo các mốc khoảng cách của KEC; thiết kế thực tế còn phụ thuộc vào cách phân bổ cấp nguồn/nhánh và đặc tính thiết bị.",
+        "Chỉ mang tính tham khảo. Hãy nhờ người quản lý an toàn điện hoặc kỹ sư có chuyên môn rà soát lắp đặt thực tế.",
+        "Tiết diện phải là cỡ tiêu chuẩn KS."
+      ],
+      "related": [
+        {
+          "label": "Máy Tính Cỡ Dây Điện",
+          "href": "/electric-calc/wire-size"
+        },
+        {
+          "label": "Máy Tính Dung Lượng Aptomat",
+          "href": "/electric-calc/breaker"
+        },
+        {
+          "label": "Máy Tính Điện Công Nghiệp",
+          "href": "/electric-calc"
+        }
+      ],
+      "lastReviewed": "2026-06-17"
+    },
+    "size-convert": {
+      "overview": "Công cụ chuyển đổi size Hàn Quốc giúp đối chiếu nhanh size quần áo và giày Hàn Quốc sang size Mỹ, châu Âu, Anh và Nhật Bản. Giày dùng đơn vị mm (chiều dài bàn chân); quần áo dùng ký hiệu Hàn Quốc theo số đo vòng ngực cm (nam 90/95/100, nữ 44/55/66) đối chiếu với size quốc tế. Giúp giảm sai sót khi mua sắm thời trang Hàn Quốc (K-fashion) ở nước ngoài hoặc trên các trang mua sắm Hàn Quốc.",
+      "useCases": [
+        "Tìm đúng size khi mua sắm thời trang Hàn Quốc từ nước ngoài",
+        "Người nước ngoài chọn size trên các trang mua sắm Hàn Quốc",
+        "Chuyển đổi size khi mua quần áo, giày làm quà tặng",
+        "Mua quần áo hoặc giày khi du lịch tại Hàn Quốc",
+        "Đối chiếu size Mỹ/châu Âu trước khi đặt hàng online"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Chọn danh mục (giày nam/nữ, quần áo nam/nữ).",
+          "Tìm hàng có size Hàn Quốc của bạn trong bảng để xem size Mỹ, châu Âu, Anh và Nhật Bản.",
+          "Lưu ý giày dùng mm (chiều dài bàn chân) còn quần áo dùng vòng ngực cm. Có thể chênh lệch ±1 size tùy thương hiệu."
+        ]
+      },
+      "formula": {
+        "title": "Cơ sở quy đổi size",
+        "body": "Giày (hệ mondopoint): Hàn Quốc và Nhật Bản dùng chiều dài bàn chân theo mm.\n  260 = 26,0 cm. US ≈ (mm−180)/5; EU ≈ mm × 1,5 + 2 (xấp xỉ).\n  Nam 260 ≈ US 8 / EU 41 / UK 7,5\n  Nữ 240 ≈ US 7 / EU 37,5 / UK 4,5\n\nQuần áo (theo vòng ngực cm):\n  Nam 90(S)=vòng ngực 90cm, 95(M)=95cm, 100(L)=100cm\n  Nữ 44(XS), 55(S), 66(M), 77(L), 88(XL) là ký hiệu truyền thống\n  → được đối chiếu sang ký hiệu chuẩn US/EU"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Giày nam 270 → US 9",
+            "body": "Size Hàn Quốc 270mm = 27,0cm = US 9 / EU 42,5 / UK 8,5 / JP 27,0. Chọn US 9 khi mua giày Nike hoặc Adidas."
+          },
+          {
+            "title": "Ví dụ 2: Quần áo nữ 55 → US 4",
+            "body": "Size nữ Hàn Quốc 55 = S = vòng ngực 85cm ≈ US 4 / EU 36 / UK 8. Chọn S hoặc US 4 khi mua ở Zara hoặc H&M."
+          },
+          {
+            "title": "Ví dụ 3: Quần áo nam 100 → L",
+            "body": "Size nam Hàn Quốc 100 = vòng ngực 100cm = US L / EU 50 / UK 40. Chọn size L của thương hiệu Mỹ hoặc EU 50."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Tại sao size giày Hàn Quốc là các số như 250, 260?",
+          "answer": "Đó là chiều dài bàn chân theo mm (hệ mondopoint). 250 = chiều dài bàn chân 25,0 cm. Nhật Bản cũng dùng cách đo tương tự (theo cm). Đây là cách đo bàn chân trực quan nhất, được dùng phổ biến ở Hàn Quốc và Nhật Bản."
+        },
+        {
+          "question": "Size nữ 44/55/66 có nghĩa là gì?",
+          "answer": "Đây là ký hiệu truyền thống bắt nguồn từ số đo cơ thể chuẩn thập niên 1980. 55 là size chuẩn (S), 44 nhỏ hơn (XS), còn 66/77/88 lớn hơn. Bản thân các con số này không mang ý nghĩa cụ thể — chỉ là ký hiệu đã trở thành thông lệ."
+        },
+        {
+          "question": "Các thương hiệu khác nhau — bảng này có chính xác không?",
+          "answer": "Bảng này dùng tiêu chuẩn KS kết hợp tham chiếu quốc tế làm giá trị tổng quát. Độ vừa vặn thực tế có thể chênh lệch ±1 size tùy thương hiệu và kiểu dáng (ôm sát/rộng). Nếu có thể, hãy đối chiếu số đo cm của từng thương hiệu."
+        },
+        {
+          "question": "Size giày US có khác nhau giữa nam và nữ không?",
+          "answer": "Có. Với cùng chiều dài bàn chân, ký hiệu size US khác nhau theo giới tính (nữ lớn hơn khoảng 1,5 size). Bảng này tách riêng nam và nữ, nên hãy chọn đúng danh mục. Size EU thì dùng chung cho cả hai giới."
+        },
+        {
+          "question": "Có bao gồm size trẻ em không?",
+          "answer": "Không, bảng này chỉ dành cho người lớn. Size trẻ em dùng hệ thống riêng (giày vẫn đo bằng mm bàn chân, nhưng quần áo dựa trên chiều cao/độ tuổi)."
+        },
+        {
+          "question": "Có mẹo nào khi chọn tăng/giảm size lúc mua hàng nước ngoài không?",
+          "answer": "Giày thường đúng size, nhưng thương hiệu Mỹ đôi khi rộng hơn — nên chọn giảm 0,5 size nếu bàn chân hẹp. Quần áo từ Mỹ/châu Âu thường rộng hơn so với form châu Á, nên cân nhắc chọn size nhỏ hơn. Cách an toàn nhất là xem đánh giá và đối chiếu số đo cm."
+        }
+      ],
+      "cautions": [
+        "Giá trị tổng quát từ tiêu chuẩn KS kết hợp bảng quốc tế. Có thể chênh lệch ±1 size tùy thương hiệu/form dáng.",
+        "Giày dùng mm (chiều dài bàn chân); quần áo dùng vòng ngực cm.",
+        "Ký hiệu size giày US khác nhau theo giới tính — hãy chọn đúng danh mục.",
+        "Để vừa vặn chính xác, hãy đối chiếu số đo cm của thương hiệu.",
+        "Không bao gồm size trẻ em (chỉ dành cho người lớn)."
+      ],
+      "related": [
+        {
+          "label": "Tuổi Hàn Quốc",
+          "href": "/korean-age"
+        },
+        {
+          "label": "Phiên Âm Tên",
+          "href": "/name-romanize"
+        }
+      ],
+      "lastReviewed": "2026-05-30"
     }
   },
   "insuranceTool": {
@@ -6999,52 +7346,52 @@
     }
   },
   "timberCalc": {
-    "title": "Timber Construction Calculator",
-    "subtitle": "Span tables, insulation R/U-value, material quantity, plus rafter, stairs, and footings — based on KS standards and Korean building code.",
+    "title": "Máy tính kết cấu gỗ",
+    "subtitle": "Bảng khẩu độ, hệ số cách nhiệt R/U, khối lượng vật liệu, cùng rui mè, cầu thang, và móng — dựa trên tiêu chuẩn KS và quy chuẩn xây dựng Hàn Quốc.",
     "breadcrumb": {
-      "home": "Home",
-      "current": "Timber Calculator",
-      "back": "Back to Timber Calculators"
+      "home": "Trang chủ",
+      "current": "Máy tính Gỗ",
+      "back": "Quay lại Máy tính Gỗ"
     },
     "hub": {
-      "tier1": "Structural · Insulation · Quantity (Core)",
-      "tier2": "Roof · Stairs · Foundation"
+      "tier1": "Kết cấu · Cách nhiệt · Khối lượng vật liệu (Cốt lõi)",
+      "tier2": "Mái · Cầu thang · Móng"
     },
     "span": {
-      "title": "Span Calculator",
-      "description": "Maximum allowable span for joists, rafters, and headers via bending + deflection check."
+      "title": "Máy tính khẩu độ",
+      "description": "Khẩu độ cho phép tối đa cho xà gồ, rui mè, và dầm đỡ qua kiểm tra ứng suất uốn + độ võng."
     },
     "insulation": {
-      "title": "Insulation R/U-value",
-      "description": "Multi-layer wall composite R-value and U-value with auto pass/fail per Korean energy code."
+      "title": "Hệ số cách nhiệt R/U",
+      "description": "Giá trị R và U tổng hợp của tường nhiều lớp, tự động đánh giá đạt/không đạt theo quy chuẩn năng lượng Hàn Quốc."
     },
     "materialQuantity": {
-      "title": "Material Quantity",
-      "description": "Sheets of OSB, plywood, gypsum, siding from area and waste factor + nail/screw estimate."
+      "title": "Khối lượng vật liệu",
+      "description": "Số tấm OSB, ván ép, thạch cao, tấm ốp ngoài tính từ diện tích và hệ số hao hụt, kèm ước tính đinh/vít."
     },
     "roofArea": {
-      "title": "Roof Area",
-      "description": "Plan area + slope angle → actual roof slope area + eave area."
+      "title": "Diện tích mái",
+      "description": "Diện tích mặt bằng + góc dốc → diện tích mái thực theo độ dốc + diện tích mái hiên."
     },
     "concrete": {
-      "title": "Concrete Volume",
-      "description": "Strip footing or mat slab concrete volume + rebar weight + remicon truck count."
+      "title": "Thể tích bê tông",
+      "description": "Thể tích bê tông móng băng hoặc móng bè + trọng lượng cốt thép + số xe bê tông tươi (remicon)."
     },
     "rafter": {
-      "title": "Rafter Calculator",
-      "description": "Compute rafter cut length, angle, and slope from run and rise."
+      "title": "Máy tính chiều dài rui mè",
+      "description": "Tính chiều dài cắt, góc, và độ dốc của rui mè từ khoảng chạy ngang (run) và độ cao (rise)."
     },
     "roofPitch": {
-      "title": "Roof Pitch Converter",
-      "description": "Convert between angle, slope (%), and pitch (rise/12) representations."
+      "title": "Bộ chuyển đổi độ dốc mái",
+      "description": "Chuyển đổi qua lại giữa góc nghiêng, độ dốc (%), và độ dốc mái (rise/12)."
     },
     "stairs": {
-      "title": "Stair Calculator",
-      "description": "Compute number of steps, riser height, and tread depth per Korean building code."
+      "title": "Máy tính bậc cầu thang",
+      "description": "Tính số bậc, chiều cao bậc (riser), và chiều rộng bậc (tread) theo quy chuẩn xây dựng Hàn Quốc."
     },
     "lumber": {
-      "title": "Lumber Conversion",
-      "description": "Convert lumber dimensions and count into volume, board feet, sai, and weight."
+      "title": "Máy tính board feet gỗ xẻ",
+      "description": "Quy đổi kích thước và số lượng gỗ xẻ thành thể tích, board feet, sai (才), và trọng lượng."
     }
   },
   "jsonCsvTool": {
@@ -7257,6 +7604,945 @@
       "exchangeRatePositive": "Tỷ giá phải lớn hơn 0",
       "costNonNegative": "Chi phí giao dịch không được âm",
       "deductionNonNegative": "Khấu trừ đã sử dụng không được âm"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "electricCalc": {
+    "title": "Máy Tính Điện Công Nghiệp",
+    "subtitle": "Tính toán thiết kế điện miễn phí dựa trên tiêu chuẩn KS C IEC 60364 của Hàn Quốc.",
+    "breadcrumb": {
+      "home": "Trang chủ",
+      "current": "Máy Tính Điện"
+    },
+    "hub": {
+      "tools": "Các Công Cụ Tính Toán"
+    },
+    "wireSize": {
+      "title": "Máy Tính Cỡ Dây Điện",
+      "description": "Tính tiết diện dây điện phù hợp dựa trên dòng điện, khoảng cách và độ sụt áp cho phép.",
+      "available": true
+    },
+    "breaker": {
+      "title": "Dung Lượng Aptomat (CB)",
+      "description": "Tự động chọn dòng định mức MCB/MCCB từ dòng tải và hệ số an toàn (theo định mức tiêu chuẩn KS).",
+      "available": true
+    },
+    "voltageDrop": {
+      "title": "Sụt Áp",
+      "description": "Tính độ sụt áp, điện áp đầu nhận và mức độ tuân thủ giới hạn khoảng cách theo Quy chuẩn Điện Hàn Quốc.",
+      "available": true
+    }
+  },
+  "breakerTool": {
+    "meta": {
+      "title": "Máy Tính Dung Lượng Aptomat | Workmate",
+      "description": "Tự động chọn dòng định mức MCB/MCCB từ dòng tải + hệ số an toàn, kèm cảnh báo kết hợp inverter+ELB."
+    },
+    "title": "Máy Tính Dung Lượng Aptomat",
+    "subtitle": "Dòng tải × hệ số an toàn → định mức tiêu chuẩn KS nhỏ nhất thỏa mãn yêu cầu. Kèm cảnh báo ngắt nhầm khi kết hợp inverter+ELB.",
+    "breadcrumb": {
+      "parent": "Máy Tính Điện",
+      "current": "Aptomat"
+    },
+    "sections": {
+      "load": "Thông Tin Tải"
+    },
+    "fields": {
+      "loadCurrent": "Dòng Tải (A)",
+      "loadType": "Loại Tải",
+      "customSafetyFactor": "Hệ Số An Toàn Tùy Chỉnh (tùy chọn)",
+      "useElb": "Sử Dụng ELB (Aptomat Chống Rò Điện)"
+    },
+    "hints": {
+      "loadType": "Mặc định: Thông thường 1,25 / Động cơ khởi động trực tiếp 1,5 / Y-Δ 2,0 / Inverter 1,25 / Máy hàn 3,0",
+      "customSafetyFactor": "Để trống để dùng giá trị mặc định theo loại tải",
+      "customSafetyFactorPlaceholder": "Dùng mặc định",
+      "useElb": "Nếu sử dụng ELB — kết hợp với tải inverter, dòng rò có thể gây ngắt nhầm"
+    },
+    "loadType": {
+      "general": "Chiếu sáng/ổ cắm thông thường",
+      "motorDirect": "Động cơ — khởi động trực tiếp",
+      "motorYDelta": "Động cơ — khởi động Y-Δ",
+      "inverter": "Tải inverter",
+      "welder": "Máy hàn (gián đoạn)"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết Quả",
+      "empty": "Nhập dòng tải và loại tải, sau đó nhấn Tính toán.",
+      "recommendedRating": "Aptomat Đề Xuất",
+      "appliedSafetyFactor": "Hệ Số An Toàn Áp Dụng",
+      "calculatedMinRating": "Định Mức Tối Thiểu Yêu Cầu",
+      "safetyMargin": "Biên Độ An Toàn",
+      "warnings": "Cảnh Báo",
+      "steps": "Các Bước Tính Toán",
+      "source": {
+        "line1": "Nguồn: KS C 8324 (MCCB) + KS C 8453 (ELB)",
+        "line2": "Lưu ý: Kết hợp inverter + ELB 30mA dễ gây ngắt nhầm do dòng rò. Khuyến nghị dùng MCB/MCCB."
+      }
+    },
+    "steps": {
+      "minRating": "Bước 1: Định mức tối thiểu — {loadCurrent}A × {safetyFactor} = {result}A",
+      "selectRating": "Bước 2: Tiêu chuẩn KS — định mức {breakerType} nhỏ nhất ≥ {minRating}A = {result}A",
+      "safetyMargin": "Bước 3: Biên độ an toàn — ({rating} - {loadCurrent}) / {rating} × 100 = {result}%"
+    },
+    "warnings": {
+      "inverterWithElb": "Kết hợp inverter + ELB thường gây ngắt nhầm do dòng rò từ tụ Y. Nên cân nhắc dùng MCB/MCCB thay thế.",
+      "marginLow": "Biên độ an toàn dưới {threshold}%. Nên nâng lên một cấp định mức.",
+      "highCurrentMcb": "Đang tiệm cận định mức tối đa của MCB (63A). Tải lớn hơn sẽ cần dùng MCCB."
+    },
+    "validation": {
+      "loadCurrentPositive": "Dòng tải phải lớn hơn 0",
+      "loadCurrentMax": "Dòng tải phải nhỏ hơn hoặc bằng 5000A"
+    },
+    "errors": {
+      "noStandardMatch": "Định mức yêu cầu vượt quá phạm vi tiêu chuẩn KS.",
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "voltageDropTool": {
+    "meta": {
+      "title": "Máy Tính Sụt Áp | Workmate",
+      "description": "Tính độ sụt áp và kiểm tra theo giới hạn khoảng cách của Quy chuẩn Điện Hàn Quốc (3-7%)."
+    },
+    "title": "Máy Tính Sụt Áp",
+    "subtitle": "Công thức Quy chuẩn Điện Hàn Quốc e = (k × L × I) / (1000 × A), tự động so sánh với giới hạn theo khoảng cách (3% / 5% / 6% / 7%).",
+    "breadcrumb": {
+      "parent": "Máy Tính Điện",
+      "current": "Sụt Áp"
+    },
+    "sections": {
+      "circuit": "Mạch Điện",
+      "cable": "Cáp Điện"
+    },
+    "fields": {
+      "voltage": "Điện Áp Nguồn (V)",
+      "current": "Dòng Tải (A)",
+      "distance": "Khoảng Cách Một Chiều (m)",
+      "phaseType": "Loại Pha",
+      "crossSection": "Tiết Diện (mm²)",
+      "material": "Vật Liệu Dây Dẫn"
+    },
+    "phase": {
+      "single-2wire": "1 pha 2 dây (k=35,6)",
+      "single-3wire": "1 pha 3 dây (k=17,8)",
+      "three-3wire": "3 pha 3 dây (k=30,8)",
+      "three-4wire": "3 pha 4 dây (k=17,8)"
+    },
+    "material": {
+      "copper": "Đồng",
+      "aluminum": "Nhôm (×1,6)"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "status": {
+      "pass": "ĐẠT",
+      "fail": "KHÔNG ĐẠT (NG)"
+    },
+    "result": {
+      "heading": "Kết Quả",
+      "empty": "Nhập thông tin mạch điện và nhấn Tính toán.",
+      "dropPercent": "% Sụt Áp",
+      "dropV": "Điện Áp Sụt",
+      "receivingVoltage": "Điện Áp Đầu Nhận",
+      "limitPercent": "Giới Hạn %",
+      "status": "Mức Độ Tuân Thủ",
+      "margin": "Biên Độ",
+      "steps": "Các Bước Tính Toán",
+      "source": {
+        "line1": "Nguồn: Quy chuẩn Điện Hàn Quốc (Nội tuyến) 1410-1 — công thức sụt áp và giới hạn theo khoảng cách",
+        "line2": "Lưu ý: ≤60m → 3% / ≤120m → 5% / ≤200m → 6% / >200m → 7%"
+      }
+    },
+    "steps": {
+      "coefficient": "Bước 1: Hệ số — cơ bản {base} ({material}) → áp dụng {result}",
+      "drop": "Bước 2: Điện áp sụt — ({coefficient} × {distance} × {current}) / (1000 × {crossSection}) = {result}V",
+      "dropPercent": "Bước 3: % sụt áp — {drop} / {voltage} × 100 = {result}%",
+      "receivingVoltage": "Bước 4: Điện áp đầu nhận — {voltage} - {drop} = {result}V",
+      "limitCheck": "Bước 5: Tuân thủ — giới hạn {limitPercent}% (≤{distance}m) so với thực tế {actualPercent}% → {status}"
+    },
+    "validation": {
+      "voltagePositive": "Điện áp phải lớn hơn 0",
+      "currentPositive": "Dòng điện phải lớn hơn 0",
+      "distancePositive": "Khoảng cách phải lớn hơn 0",
+      "distanceMax": "Khoảng cách phải nhỏ hơn hoặc bằng 2000m",
+      "crossSectionPositive": "Tiết diện phải lớn hơn 0",
+      "crossSectionStandard": "Không phải tiết diện tiêu chuẩn KS"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "wireSizeTool": {
+    "meta": {
+      "title": "Máy Tính Cỡ Dây Điện | Workmate",
+      "description": "Máy tính cỡ dây theo KS C IEC 60364-5-52 với hệ số hiệu chỉnh nhiệt độ môi trường, hệ số nhóm mạch và lựa chọn cách điện PVC/XLPE."
+    },
+    "title": "Máy Tính Cỡ Dây Điện",
+    "subtitle": "Chọn tiết diện tiêu chuẩn KS nhỏ nhất thỏa mãn sụt áp, dòng điện cho phép, hiệu chỉnh nhiệt độ môi trường (Ct), hệ số nhóm mạch (Cg) và loại cách điện (PVC/XLPE).",
+    "breadcrumb": {
+      "home": "Trang chủ",
+      "parent": "Máy Tính Điện",
+      "current": "Cỡ Dây Điện"
+    },
+    "sections": {
+      "load": "Điều Kiện Tải",
+      "cable": "Thông Số Cáp",
+      "environment": "Môi Trường Lắp Đặt"
+    },
+    "fields": {
+      "voltage": "Điện Áp (V)",
+      "current": "Dòng Tải (A)",
+      "distance": "Khoảng Cách Một Chiều (m)",
+      "phaseType": "Loại Pha",
+      "material": "Vật Liệu Dây Dẫn",
+      "insulation": "Loại Cách Điện",
+      "allowedDropPercent": "Sụt Áp Cho Phép (%)",
+      "ambientTemperature": "Nhiệt Độ Môi Trường (°C)",
+      "numberOfCircuits": "Số Mạch Mang Tải"
+    },
+    "hints": {
+      "insulation": "PVC = dây dẫn 70°C / XLPE·EPR = dây dẫn 90°C (XLPE cho dòng điện cho phép cao hơn PVC khoảng 1,25 lần)",
+      "ambientTemperature": "Mặc định 30°C. Với phòng lò hơi hoặc tủ điện ngoài trời, nhập giá trị đo thực tế. Tự động hiệu chỉnh theo Bảng B.52.14 tiêu chuẩn KS.",
+      "numberOfCircuits": "Số mạch mang tải dùng chung ống luồn/khay cáp (bao gồm cả mạch này). Tự động hiệu chỉnh theo Bảng B.52.17 tiêu chuẩn KS."
+    },
+    "phase": {
+      "single-2wire": "1 pha 2 dây",
+      "single-3wire": "1 pha 3 dây",
+      "three-3wire": "3 pha 3 dây",
+      "three-4wire": "3 pha 4 dây"
+    },
+    "material": {
+      "copper": "Đồng",
+      "aluminum": "Nhôm"
+    },
+    "insulation": {
+      "PVC": "PVC (70°C)",
+      "XLPE": "XLPE·EPR (90°C)"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết Quả",
+      "empty": "Nhập các giá trị và nhấn Tính toán.",
+      "recommended": "Tiết Diện Đề Xuất",
+      "baseAmpacity": "Dòng Điện Cho Phép Theo Bảng",
+      "effectiveAmpacity": "Dòng Điện Cho Phép Thực Tế (sau hiệu chỉnh)",
+      "deratingFactors": "Hệ Số Hiệu Chỉnh",
+      "actualDrop": "Sụt Áp Thực Tế",
+      "safetyMargin": "Biên Độ An Toàn",
+      "warnings": "Cảnh Báo",
+      "steps": "Các Bước Tính Toán",
+      "source": {
+        "line1": "Nguồn: Quy chuẩn Nội tuyến 1410-1 (Công thức sụt áp)",
+        "line2": "Nguồn: KS C IEC 60364-5-52 Phụ lục B (Dòng điện cho phép · Phương pháp A1)",
+        "line3": "Nguồn: KS C IEC 60364-5-52 Bảng B.52.14 (Nhiệt độ), Bảng B.52.17 (Nhóm mạch)"
+      }
+    },
+    "steps": {
+      "allowedDrop": "Bước 1: Sụt áp cho phép — {voltage}V × {percent}% = {drop}V",
+      "minSection": "Bước 2: Tiết diện tối thiểu theo sụt áp — A_min = ({coefficient} × {distance} × {current}) / (1000 × {drop}) = {result}mm²",
+      "derating": "Bước 3: Hệ số hiệu chỉnh — cách điện {insulation}, môi trường {ambient}°C → Ct={ct}, {circuits} mạch → Cg={cg} (tổng {total})",
+      "requiredAmpacity": "Bước 4: Dòng điện cho phép cơ bản yêu cầu — I_req = {current}A / {total} = {result}A",
+      "selected": "Bước 5: Tiết diện tiêu chuẩn KS — thỏa mãn cả sụt áp (≥{minSection}mm²) và dòng điện cho phép (cơ bản ≥{requiredAmpacity}A) → {chosen}mm² ({material} {insulation}, bảng {baseAmpacity}A)",
+      "effectiveAmpacity": "Bước 6: Dòng điện cho phép thực tế — {baseAmpacity}A × {total} = {effective}A (biên độ {margin}% so với tải {current}A)",
+      "verify": "Bước 7: Sụt áp thực tế — e = ({coefficient} × {distance} × {current}) / (1000 × {chosen}) = {drop}V ({percent}%)"
+    },
+    "warnings": {
+      "aluminumMinSize": "Dây dẫn nhôm thường không được sử dụng dưới {min}mm² (KEC). Nên cân nhắc chuyển sang dây đồng.",
+      "safetyMarginLow": "Biên độ an toàn dưới {threshold}%. Nên nâng lên một cấp tiết diện để dự phòng tải tăng trong tương lai.",
+      "parallelRecommended": "Tiết diện {chosen}mm² không thực tế nếu dùng một cáp đơn. Nên cân nhắc đi dây song song (2 dây trở lên)."
+    },
+    "errors": {
+      "noStandardMatch": "Không có tiết diện tiêu chuẩn KS nào thỏa mãn đồng thời dòng điện cho phép và sụt áp. Hãy kiểm tra lại các giá trị nhập (môi trường/số mạch/dây dẫn) hoặc cân nhắc đi dây song song.",
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    },
+    "validation": {
+      "voltage": "Điện áp phải lớn hơn 0",
+      "current": "Dòng điện phải lớn hơn 0",
+      "distance": "Khoảng cách phải lớn hơn 0",
+      "allowedDropMin": "Sụt áp cho phép phải tối thiểu 0,5%",
+      "allowedDropMax": "Sụt áp cho phép phải tối đa 10%",
+      "ambientMin": "Nhiệt độ môi trường phải tối thiểu -10°C",
+      "ambientMax": "Nhiệt độ môi trường phải tối đa 80°C",
+      "circuitsInt": "Số mạch phải là số nguyên",
+      "circuitsMin": "Số mạch phải tối thiểu 1",
+      "circuitsMax": "Số mạch phải tối đa 20"
+    }
+  },
+  "lumberTool": {
+    "meta": {
+      "title": "Quy đổi Gỗ Xẻ | Workmate",
+      "description": "Quy đổi kích thước và số lượng gỗ xẻ thành thể tích (m³), board feet (BF), sai (才), và trọng lượng ước tính."
+    },
+    "title": "Quy đổi Gỗ Xẻ",
+    "subtitle": "Tiết diện (Rộng×Dày) × chiều dài × số lượng × loại gỗ → thể tích tính bằng m³, sai (才), board feet (BF), và trọng lượng ước tính, tất cả trong một lần.",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Số lượng Gỗ xẻ"
+    },
+    "sections": {
+      "dimension": "Kích thước Thanh gỗ",
+      "type": "Loại gỗ"
+    },
+    "fields": {
+      "widthMM": "Chiều rộng (mm)",
+      "thicknessMM": "Độ dày (mm)",
+      "lengthMM": "Chiều dài (mm)",
+      "quantity": "Số lượng",
+      "species": "Loại gỗ"
+    },
+    "hints": {
+      "widthMM": "Ví dụ: chiều rộng gỗ SPF 2×4 là 89mm",
+      "thicknessMM": "Ví dụ: độ dày gỗ SPF 2×4 là 38mm",
+      "lengthMM": "Chiều dài tiêu chuẩn Hàn Quốc: 3600 / 4200mm"
+    },
+    "species": {
+      "pine": "Thông (500 kg/m³)",
+      "larch": "Thông rụng lá (Larch, 540 kg/m³)",
+      "cedar": "Tuyết tùng (Cedar, 380 kg/m³)",
+      "spf": "SPF (460 kg/m³)",
+      "douglasFir": "Linh sam Douglas (Douglas Fir, 530 kg/m³)",
+      "oak": "Gỗ sồi (Oak, 750 kg/m³)"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập kích thước thanh gỗ và số lượng.",
+      "totalVolume": "Tổng Thể tích",
+      "perPiece": "Thể tích mỗi thanh",
+      "boardFeet": "Board Feet (BF)",
+      "sai": "Sai (才)",
+      "weight": "Trọng lượng Ước tính",
+      "density": "Khối lượng riêng",
+      "stepsTitle": "Các bước Tính toán",
+      "source": {
+        "line1": "Nguồn: KS F 3020 (Kích thước gỗ xẻ)",
+        "line2": "Nguồn: 1 sai = 1 chi × 1 chi × 12 ja ≈ 0.003342 m³",
+        "line3": "Khối lượng riêng là giá trị trung bình ở độ ẩm 12% (giá trị thực tế có thể thay đổi)"
+      }
+    },
+    "steps": {
+      "perPieceVolume": "Bước 1: Thể tích mỗi thanh — ({width} × {thickness} × {length}) / 10⁹ = {result} m³",
+      "totalVolume": "Bước 2: Tổng thể tích — {perPiece} × {quantity} = {result} m³",
+      "boardFeet": "Bước 3: Board feet — {volumeM3} m³ ÷ 0.002360 = {result} BF",
+      "sai": "Bước 4: Sai (才) — {volumeM3} m³ ÷ 0.003342 = {result} sai",
+      "weight": "Bước 5: Trọng lượng — {volumeM3} m³ × {density}({species}) = {result} kg"
+    },
+    "validation": {
+      "widthMin": "Chiều rộng phải tối thiểu 10mm",
+      "widthMax": "Chiều rộng tối đa 1000mm",
+      "thicknessMin": "Độ dày phải tối thiểu 10mm",
+      "thicknessMax": "Độ dày tối đa 1000mm",
+      "lengthMin": "Chiều dài phải tối thiểu 100mm",
+      "lengthMax": "Chiều dài tối đa 20000mm",
+      "quantityInt": "Số lượng phải là số nguyên",
+      "quantityMin": "Số lượng phải tối thiểu 1",
+      "quantityMax": "Số lượng tối đa 10000"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "concreteTool": {
+    "meta": {
+      "title": "Máy tính Khối lượng Bê tông | Workmate",
+      "description": "Khối lượng bê tông móng băng hoặc móng bè + trọng lượng cốt thép + số xe bê tông tươi (remicon)."
+    },
+    "title": "Máy tính Khối lượng Bê tông",
+    "subtitle": "Loại móng × kích thước + hệ số hao hụt → khối lượng bê tông + trọng lượng cốt thép + số xe bê tông tươi (remicon).",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Bê tông"
+    },
+    "sections": {
+      "foundation": "Kích thước Móng",
+      "options": "Điều chỉnh"
+    },
+    "fields": {
+      "type": "Loại Móng",
+      "widthM": "Chiều rộng (m)",
+      "depth": "Chiều sâu (m)",
+      "thickness": "Độ dày (m)",
+      "lengthM": "Chiều dài (m)",
+      "rebarDensity": "Mật độ Cốt thép (kg/m³)",
+      "wasteFactorPercent": "Hệ số Hao hụt (%)"
+    },
+    "hints": {
+      "rebar": "Móng băng nhà ở 80–100 kg/m³, móng bè 60–80 kg/m³"
+    },
+    "type": {
+      "stripFooting": "Móng băng",
+      "matSlab": "Móng bè"
+    },
+    "unit": {
+      "trucks": "xe"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập kích thước móng.",
+      "adjustedVolume": "Khối lượng Bê tông Cần thiết",
+      "rawVolume": "Khối lượng Thô (trước hao hụt)",
+      "rebar": "Trọng lượng Cốt thép (ước tính)",
+      "remicon": "Số xe Bê tông tươi (6m³/xe)",
+      "steps": "Các bước Tính toán",
+      "source": {
+        "line1": "Nguồn: KDS 14 20 (Tiêu chuẩn Thiết kế Kết cấu Bê tông) + tiêu chuẩn xe bê tông tươi Hàn Quốc (6m³/xe)",
+        "line2": "Lưu ý: Ước tính cốt thép là mức trung bình cho nhà ở. Số lượng thực tế cần lấy từ bản vẽ kết cấu."
+      }
+    },
+    "steps": {
+      "rawVolume": "Bước 1: Khối lượng thô — {width}m × {depth}m × {length}m = {result}m³",
+      "wasteAdjusted": "Bước 2: Hao hụt — {raw}m³ × (1 + {waste}%) = {result}m³",
+      "rebar": "Bước 3: Cốt thép — {volume}m³ × {density}kg/m³ = {result}kg",
+      "remicon": "Bước 4: Số xe bê tông tươi — {volume}m³ ÷ 6m³ = {result}"
+    },
+    "validation": {
+      "widthMin": "Chiều rộng phải tối thiểu 0.1m",
+      "widthMax": "Chiều rộng tối đa 50m",
+      "depthMin": "Chiều sâu/độ dày phải tối thiểu 0.05m",
+      "depthMax": "Chiều sâu/độ dày tối đa 5m",
+      "lengthMin": "Chiều dài phải tối thiểu 0.1m",
+      "lengthMax": "Chiều dài tối đa 500m",
+      "rebarMin": "Mật độ cốt thép không được âm",
+      "rebarMax": "Mật độ cốt thép tối đa 300 kg/m³",
+      "wasteMin": "Hệ số hao hụt không được âm",
+      "wasteMax": "Hệ số hao hụt tối đa 30%"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "insulationTool": {
+    "meta": {
+      "title": "Máy tính Giá trị R/U Cách nhiệt | Workmate",
+      "description": "Giá trị R và giá trị U tổng hợp của tường nhiều lớp, tự động đánh giá đạt/không đạt theo Phụ lục 1 Quy chuẩn Thiết kế Tiết kiệm Năng lượng Hàn Quốc."
+    },
+    "title": "Máy tính Giá trị R/U Cách nhiệt",
+    "subtitle": "Vùng (Trung tâm-1·Trung tâm-2·Phía Nam·Jeju) × thành phần (tường/mái/sàn) × cấu tạo nhiều lớp → giá trị R và U tổng hợp kèm kiểm tra đạt quy chuẩn tự động.",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Cách nhiệt"
+    },
+    "sections": {
+      "environment": "Vùng & Thành phần",
+      "layers": "Cấu tạo Tường (trong → ngoài)"
+    },
+    "fields": {
+      "region": "Vùng Khí hậu",
+      "element": "Thành phần Công trình"
+    },
+    "region": {
+      "central1": "Trung tâm 1 (Gangwon·Bắc Gyeonggi)",
+      "central2": "Trung tâm 2 (Seoul·Incheon·phần lớn Gyeonggi)",
+      "south": "Phía Nam (Daejeon·Busan·Jeolla·Gyeongsang)",
+      "jeju": "Jeju"
+    },
+    "element": {
+      "exteriorWallDirect": "Tường ngoài — tiếp xúc trực tiếp, có người ở",
+      "exteriorWallIndirect": "Tường ngoài — tiếp xúc gián tiếp, không có người ở",
+      "roof": "Mái",
+      "floorDirect": "Sàn tầng dưới cùng — tiếp xúc trực tiếp với bên ngoài",
+      "floorIndirect": "Sàn tầng dưới cùng — tiếp xúc gián tiếp với bên ngoài"
+    },
+    "materials": {
+      "glasswool24": "Bông thủy tinh 24K (λ=0.038)",
+      "glasswool48": "Bông thủy tinh 48K (λ=0.034)",
+      "mineralwool": "Bông khoáng (λ=0.040)",
+      "eps1": "EPS Loại 1 (λ=0.040)",
+      "eps2": "EPS Loại 2 (λ=0.034)",
+      "xps": "XPS đùn ép (λ=0.029)",
+      "pirFoam": "Bọt PIR (λ=0.022)",
+      "puFoam": "Bọt phun PU (λ=0.024)",
+      "cellulose": "Cellulose (λ=0.040)",
+      "phenolic": "Bọt Phenolic (λ=0.020)",
+      "osb11": "Tấm OSB (λ=0.13)",
+      "osb18": "OSB kết cấu (λ=0.13)",
+      "plywood12": "Ván ép (λ=0.13)",
+      "gypsum9": "Thạch cao 9.5mm (λ=0.18)",
+      "gypsum12": "Thạch cao 12.5mm (λ=0.18)",
+      "fiberCement": "Tấm ốp xi măng sợi (λ=0.30)",
+      "brick": "Gạch (λ=0.81)",
+      "concrete": "Bê tông (λ=1.6)",
+      "airSpace": "Khoang không khí (R=0.18 cố định)"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại",
+      "addLayer": "Thêm Lớp"
+    },
+    "status": {
+      "pass": "ĐẠT",
+      "fail": "KHÔNG ĐẠT"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Chọn vùng, thành phần, và các lớp rồi nhấn Tính toán.",
+      "uValue": "Giá trị U",
+      "totalR": "Tổng Giá trị R",
+      "uLimit": "Giới hạn U theo Quy chuẩn",
+      "status": "Mức độ Đạt chuẩn",
+      "surplusOrDeficit": "Dư / Thiếu Giá trị R",
+      "layerBreakdown": "Giá trị R từng Lớp",
+      "steps": "Các bước Tính toán",
+      "source": {
+        "line1": "Nguồn: Phụ lục 1 Quy chuẩn Thiết kế Tiết kiệm Năng lượng Công trình (giới hạn U theo vùng)",
+        "line2": "Nguồn: KS L 9016 (độ dẫn nhiệt vật liệu cách nhiệt) / tài liệu tham khảo PHIKO",
+        "line3": "Lưu ý: Không mô phỏng cầu nhiệt. Hiệu suất thực tế phụ thuộc vào chất lượng thi công."
+      }
+    },
+    "steps": {
+      "layerSum": "Bước 1: Tổng giá trị R các lớp — {count} lớp, tổng cộng {sum} m²·K/W",
+      "surfaceR": "Bước 2: Khả năng chịu nhiệt bề mặt — trong {interior} + ngoài {exterior} = {total} m²·K/W",
+      "totalR": "Bước 3: Tổng giá trị R — các lớp {layers} + bề mặt {surface} = {result} m²·K/W",
+      "uValue": "Bước 4: Giá trị U — 1 / {totalR} = {result} W/m²·K",
+      "compare": "Bước 5: So sánh với quy chuẩn — U {uValue} ≤ giới hạn {limit} → {status}"
+    },
+    "validation": {
+      "thicknessMin": "Độ dày phải tối thiểu 1mm",
+      "thicknessMax": "Độ dày tối đa 1000mm",
+      "layersMin": "Cần ít nhất 1 lớp",
+      "layersMax": "Tối đa 15 lớp"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "materialQuantityTool": {
+    "meta": {
+      "title": "Máy tính Khối lượng Vật liệu | Workmate",
+      "description": "Từ diện tích thi công và hệ số hao hụt, tính số tấm OSB, ván ép, thạch cao, tấm ốp cùng ước tính đinh/vít."
+    },
+    "title": "Máy tính Khối lượng Vật liệu",
+    "subtitle": "Diện tích tường/mái/sàn × (1 + hệ số hao hụt) ÷ diện tích mỗi tấm → số lượng tấm + ước tính đinh/vít.",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Khối lượng Vật liệu"
+    },
+    "sections": {
+      "material": "Vật liệu & Diện tích"
+    },
+    "fields": {
+      "material": "Vật liệu",
+      "areaM2": "Diện tích Thi công (m²)",
+      "wasteFactorPercent": "Hệ số Hao hụt (%)",
+      "estimateFasteners": "Ước tính Vật liệu Cố định"
+    },
+    "hints": {
+      "area": "Diện tích thi công thực tế của tường/mái/sàn",
+      "waste": "Thường 5–15%. Công trình phức tạp cần tỷ lệ cao hơn.",
+      "estimateFasteners": "Ước tính đinh/vít mép và giữa tấm cho vật liệu dạng tấm"
+    },
+    "materials": {
+      "osb11": "OSB 11mm (1220×2440mm)",
+      "osb18": "OSB kết cấu 18mm (1220×2440mm)",
+      "plywood12": "Ván ép 12mm (1220×2440mm)",
+      "plywood18": "Ván ép 18mm (1220×2440mm)",
+      "gypsum9": "Thạch cao 9.5mm (900×1800mm)",
+      "gypsum12": "Thạch cao 12.5mm (900×1800mm)",
+      "cementBoard": "Tấm xi măng (900×1800mm)",
+      "fiberCementSiding": "Tấm ốp xi măng sợi (200×3600mm)",
+      "vinylSiding": "Tấm ốp vinyl (250×3700mm)",
+      "asphaltShingle": "Ngói bitum (1 bó ≈ 3.1m²)",
+      "battInsulationR19": "Tấm cách nhiệt Bông thủy tinh R-19 (600×2400mm)"
+    },
+    "unit": {
+      "sheet": "tấm",
+      "bundle": "bó",
+      "batt": "tấm"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập vật liệu và diện tích.",
+      "sheetsRequired": "Số Tấm Cần thiết",
+      "adjustedArea": "Diện tích Đã điều chỉnh",
+      "sheetArea": "Diện tích mỗi Tấm",
+      "totalWeight": "Tổng Trọng lượng",
+      "nails": "Đinh (ước tính)",
+      "screws": "Vít (ước tính)",
+      "steps": "Các bước Tính toán",
+      "source": {
+        "line1": "Nguồn: Kích thước tiêu chuẩn thị trường Hàn Quốc + bảng đóng đinh IRC R602.3",
+        "line2": "Lưu ý: Số lượng vật liệu cố định là ước tính giả định khoảng cách mép 150mm / giữa tấm 300mm."
+      }
+    },
+    "steps": {
+      "wasteAdjusted": "Bước 1: Điều chỉnh hao hụt — {area}m² × (1 + {waste}%) = {result}m²",
+      "sheetCount": "Bước 2: Số tấm — {adjustedArea}m² ÷ {sheetArea}m² (làm tròn lên) = {result} tấm",
+      "totalWeight": "Bước 3: Trọng lượng — {sheets} × {perSheet}kg = {result}kg",
+      "fasteners": "Bước 4: Vật liệu cố định — {sheets} × {perSheet}/tấm = {result}"
+    },
+    "validation": {
+      "areaMin": "Diện tích phải tối thiểu 0.1m²",
+      "areaMax": "Diện tích tối đa 10000m²",
+      "wasteMin": "Hệ số hao hụt phải tối thiểu 0%",
+      "wasteMax": "Hệ số hao hụt tối đa 30%"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "roofAreaTool": {
+    "meta": {
+      "title": "Máy tính Diện tích Mái | Workmate",
+      "description": "Từ diện tích mặt bằng và góc dốc, tính diện tích mái nghiêng thực tế cộng diện tích mái hiên."
+    },
+    "title": "Máy tính Diện tích Mái",
+    "subtitle": "Diện tích mặt bằng × sec(góc dốc) → diện tích mái thực tế. Thêm chu vi và độ vươn mái hiên để tính cả diện tích mái hiên.",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Diện tích Mái"
+    },
+    "sections": {
+      "geometry": "Hình học Mái",
+      "eave": "Mái hiên (tùy chọn)"
+    },
+    "fields": {
+      "planAreaM2": "Diện tích Mặt bằng (m²)",
+      "angleDegrees": "Góc Dốc (°)",
+      "perimeterM": "Chu vi Mái hiên (m)",
+      "eaveOverhangMM": "Độ vươn Mái hiên (mm)"
+    },
+    "hints": {
+      "planArea": "Diện tích mặt bằng một tầng được mái che phủ",
+      "perimeter": "Chiều dài chu vi mái hiên. 0 = bỏ qua diện tích mái hiên."
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập diện tích mặt bằng và góc dốc.",
+      "totalArea": "Tổng Diện tích Mái",
+      "slopeArea": "Diện tích Mái nghiêng",
+      "eaveArea": "Diện tích Mái hiên",
+      "secCorrection": "Hệ số Diện tích (sec θ)",
+      "steps": "Các bước Tính toán",
+      "source": {
+        "line1": "Nguồn: Hệ số hiệu chỉnh sec(θ) tam giác vuông (mặt bằng → diện tích mái nghiêng)"
+      }
+    },
+    "steps": {
+      "secCorrection": "Bước 1: sec(θ) — 1 / cos({angle}°) = {result}",
+      "slopeArea": "Bước 2: Diện tích mái nghiêng — {planArea}m² × sec(θ) {sec} = {result}m²",
+      "eaveArea": "Bước 3: Diện tích mái hiên — chu vi {perimeter}m × độ vươn {eaveOverhang}mm × sec(θ) {sec} = {result}m²",
+      "totalArea": "Bước 4: Tổng diện tích — {slope}m² + {eave}m² = {result}m²"
+    },
+    "validation": {
+      "planAreaMin": "Diện tích mặt bằng phải tối thiểu 1m²",
+      "planAreaMax": "Diện tích mặt bằng tối đa 10000m²",
+      "perimeterMin": "Chu vi không được âm",
+      "perimeterMax": "Chu vi tối đa 1000m",
+      "angleMin": "Góc không được âm",
+      "angleMax": "Góc phải nhỏ hơn 90°",
+      "eaveMin": "Độ vươn mái hiên không được âm",
+      "eaveMax": "Độ vươn mái hiên tối đa 2000mm"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "rafterTool": {
+    "meta": {
+      "title": "Máy tính chiều dài rui mè | Workmate",
+      "description": "Tính chiều dài cắt, góc, độ dốc và tỷ lệ pitch của rui mè từ run, rise và độ nhô mái hiên."
+    },
+    "title": "Máy tính chiều dài rui mè",
+    "subtitle": "Từ khoảng cách ngang (run) và độ cao đứng (rise), tính ngay chiều dài cắt rui mè, góc, độ dốc (%) và pitch (rise/12).",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Rui mè"
+    },
+    "sections": {
+      "geometry": "Hình học mái",
+      "eave": "Độ nhô mái hiên"
+    },
+    "fields": {
+      "run": "Run (mm) — khoảng cách ngang từ đỉnh mái đến tường",
+      "rise": "Rise (mm) — độ cao đứng từ đỉnh tường đến đỉnh mái",
+      "eaveOverhang": "Độ nhô mái hiên (mm)"
+    },
+    "hints": {
+      "run": "Bằng một nửa chiều rộng nhà mái dốc hai bên (gable). VD: nhà rộng 8000mm → run 4000",
+      "rise": "Chiều cao đỉnh mái − chiều cao đỉnh tường",
+      "eaveOverhang": "0–2000mm. Nhà ở Hàn Quốc thường dùng khoảng 600mm"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập run và rise, sau đó nhấn Tính toán.",
+      "totalLength": "Tổng chiều dài rui mè",
+      "baseLength": "Chiều dài cơ bản (tường đến đỉnh mái)",
+      "eaveDiagonal": "Đường chéo mái hiên",
+      "angle": "Góc dốc",
+      "slope": "Độ dốc %",
+      "pitch": "Pitch (rise/12)",
+      "secCorrection": "Hệ số hiệu chỉnh diện tích (sec θ)",
+      "steps": "Các bước tính toán",
+      "source": {
+        "line1": "Nguồn: Định lý Pythagoras (tam giác vuông)"
+      }
+    },
+    "steps": {
+      "baseLength": "Bước 1: Chiều dài cơ bản — √({run}² + {rise}²) = {result}mm",
+      "angle": "Bước 2: Góc — atan({rise} / {run}) = {result}°",
+      "slope": "Bước 3: Độ dốc — ({rise} / {run}) × 100 = {result}%",
+      "secCorrection": "Bước 4: Hệ số hiệu chỉnh diện tích sec(θ) — 1 / cos({angle}°) = {result}",
+      "eaveDiagonal": "Bước 5: Đường chéo mái hiên — {eave} × sec({angle}°) = {result}mm",
+      "totalLength": "Bước 6: Tổng chiều dài — {base} + {eaveDiagonal} = {result}mm"
+    },
+    "validation": {
+      "runPositive": "Run phải lớn hơn 0",
+      "risePositive": "Rise phải lớn hơn 0",
+      "eaveNonNegative": "Độ nhô mái hiên phải không âm",
+      "eaveMax": "Độ nhô mái hiên phải tối đa 2000mm"
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "roofPitchTool": {
+    "meta": {
+      "title": "Bộ chuyển đổi độ dốc mái | Workmate",
+      "description": "Chuyển đổi giữa góc, độ dốc % và pitch (rise/12) cùng hệ số hiệu chỉnh diện tích."
+    },
+    "title": "Bộ chuyển đổi độ dốc mái",
+    "subtitle": "Nhập góc (°), độ dốc (%) hoặc pitch (rise/12) — nhận ngay các cách biểu diễn còn lại và hệ số hiệu chỉnh diện tích.",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Độ dốc mái"
+    },
+    "fields": {
+      "mode": "Chế độ nhập",
+      "angle": "Góc (°)",
+      "slope": "Độ dốc (%)",
+      "rise": "Rise (rise/12)"
+    },
+    "modes": {
+      "angle": "Góc (°)",
+      "slope": "Độ dốc (%)",
+      "ratio": "Pitch (rise/12)"
+    },
+    "categories": {
+      "flat": "Mái bằng (≤10°) — nên dùng hoàn thiện chống thấm",
+      "lowSlope": "Độ dốc thấp (10–30°) — ngói bitum, tấm lợp kim loại",
+      "mediumSlope": "Độ dốc trung bình (30–45°) — ngói đất sét, tấm lợp, tấm lợp kim loại",
+      "steepSlope": "Độ dốc lớn (45–60°) — ngói đất sét, đá tự nhiên",
+      "extremeSlope": "Độ dốc cực lớn (>60°) — chỉ dùng cho hoàn thiện trang trí"
+    },
+    "actions": {
+      "calculate": "Chuyển đổi",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Chọn chế độ nhập và nhập giá trị.",
+      "angle": "Góc",
+      "slope": "Độ dốc",
+      "pitch": "Pitch",
+      "secCorrection": "Hệ số hiệu chỉnh diện tích (sec θ)",
+      "category": "Phân loại",
+      "source": {
+        "line1": "Nguồn: Thực tiễn xây dựng Hàn Quốc + Tiêu chuẩn Thiết kế Kết cấu Gỗ AIK"
+      }
+    },
+    "errors": {
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình chuyển đổi."
+    },
+    "validation": {
+      "modeMissingValue": "Nhập giá trị phù hợp với chế độ nhập đã chọn"
+    }
+  },
+  "spanTool": {
+    "meta": {
+      "title": "Máy tính khẩu độ | Workmate",
+      "description": "Khẩu độ tối đa cho xà gồ, rui mè và dầm đỡ qua kiểm tra uốn + độ võng, theo KDS 41 33 02 và NDS 2018."
+    },
+    "title": "Máy tính khẩu độ",
+    "subtitle": "Tiết diện (2x4–2x12) × khoảng cách (400/450/600mm) × loại gỗ + tải trọng tuyết Hàn Quốc → khẩu độ tối đa thỏa mãn cả kiểm tra uốn và độ võng.",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Khẩu độ"
+    },
+    "sections": {
+      "member": "Thông tin cấu kiện",
+      "snow": "Tải trọng tuyết (rui mè)"
+    },
+    "fields": {
+      "memberType": "Loại cấu kiện",
+      "lumberSize": "Kích thước gỗ xẻ",
+      "spacingMM": "Khoảng cách (mm)",
+      "grade": "Loại gỗ & Cấp độ",
+      "snowRegion": "Vùng tuyết"
+    },
+    "hints": {
+      "spacing": "Tiêu chuẩn: 400 / 450 / 600mm. Giá trị khác sẽ hiện cảnh báo.",
+      "snowRegion": "Theo KDS 41 10 15 Phụ lục B. Yeongdong & Ulleung là 3,0 kN/m² (rất cao)."
+    },
+    "memberType": {
+      "floorJoist": "Xà gồ sàn",
+      "ceilingJoist": "Xà gồ trần",
+      "rafter": "Rui mè",
+      "header": "Dầm đỡ / Dầm"
+    },
+    "grade": {
+      "larch2": "Larch #2 (Nội địa)"
+    },
+    "snowRegion": {
+      "seoulMetro": "Seoul·Gyeonggi·Incheon (0,5 kN/m²)",
+      "gangwonYeongdong": "Gangwon Yeongdong (3,0 kN/m²)",
+      "gangwonYeongseo": "Gangwon Yeongseo (0,5 kN/m²)",
+      "chungcheong": "Chungcheong (0,5 kN/m²)",
+      "jeolla": "Jeolla (0,5 kN/m²)",
+      "gyeongsang": "Gyeongsang (0,5 kN/m²)",
+      "jeju": "Jeju (0,5 kN/m²)",
+      "ulleung": "Ulleung (3,0 kN/m²)"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập thông tin cấu kiện rồi nhấn Tính toán.",
+      "maxSpan": "Khẩu độ tối đa cho phép",
+      "bendingSpan": "Khẩu độ giới hạn uốn",
+      "deflectionSpan": "Khẩu độ giới hạn độ võng",
+      "governing": "Yếu tố chi phối",
+      "totalLoad": "Tổng tải trọng",
+      "lineLoad": "Tải trọng đường",
+      "section": "Đặc trưng tiết diện",
+      "warnings": "Cảnh báo",
+      "steps": "Các bước tính toán",
+      "source": {
+        "line1": "Nguồn: KDS 41 33 02 (Tiêu chuẩn Thiết kế Kết cấu Gỗ)",
+        "line2": "Nguồn: KDS 41 10 15 (Tải trọng Thiết kế) + NDS 2018",
+        "line3": "Lưu ý: Công cụ lập kế hoạch cho nhà ở. Cần kỹ sư kết cấu xem xét trước khi thi công."
+      }
+    },
+    "governing": {
+      "bending": "Uốn",
+      "deflection": "Độ võng"
+    },
+    "steps": {
+      "loads": "Bước 1: Tải trọng — Sống {live} + Tĩnh {dead} + Tuyết {snow} = {total} kN/m²",
+      "lineLoad": "Bước 2: Tải trọng đường — {total} kN/m² × {spacing}mm = {result} N/mm",
+      "section": "Bước 3: Tiết diện — {b}×{d}mm → I = {I} mm⁴, S = {S} mm³",
+      "fbAdjusted": "Bước 4: Fb cho phép — {base} MPa × Cr {cr} = {result} MPa",
+      "bendingSpan": "Bước 5: Giới hạn uốn — L = √(8 × {fb} × {S} / {w}) = {result} mm",
+      "deflectionSpan": "Bước 6: Giới hạn độ võng — L = ∛(384 × {E} × {I} / (5 × {w} × {k})) = {result} mm",
+      "governing": "Bước 7: Yếu tố chi phối — uốn {bending}mm so với độ võng {deflection}mm → {result}mm (chi phối bởi {check})"
+    },
+    "warnings": {
+      "spacingUnusual": "Khoảng cách {actual}mm không theo tiêu chuẩn (400/450/600). Vui lòng kiểm tra khả năng áp dụng.",
+      "rafterNeedsSnow": "Đối với rui mè, tải trọng tuyết theo vùng rất quan trọng. Hãy xác nhận đã chọn đúng vùng.",
+      "lumberNotFound": "Không có dữ liệu cho kích thước gỗ xẻ {size}."
+    },
+    "validation": {
+      "spacingMin": "Khoảng cách phải tối thiểu 150mm",
+      "spacingMax": "Khoảng cách phải tối đa 1200mm"
+    },
+    "errors": {
+      "noLumberData": "Không tìm thấy dữ liệu cho kích thước gỗ xẻ đã chọn.",
+      "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."
+    }
+  },
+  "stairsTool": {
+    "meta": {
+      "title": "Máy tính cầu thang | Workmate",
+      "description": "Tính số bậc, riser, tread, chiều dài và góc nghiêng theo Điều 48 Quy chuẩn Xây dựng Hàn Quốc + công thức Blondel."
+    },
+    "title": "Máy tính cầu thang",
+    "subtitle": "Từ tổng độ cao và chiều cao riser mong muốn, tự động lập kích thước cầu thang an toàn theo Nghị định thi hành Luật Xây dựng Hàn Quốc Điều 48 và công thức Blondel.",
+    "breadcrumb": {
+      "parent": "Máy tính kết cấu gỗ",
+      "current": "Cầu thang"
+    },
+    "sections": {
+      "geometry": "Hình học",
+      "options": "Tùy chọn"
+    },
+    "fields": {
+      "totalRise": "Tổng độ cao (mm) — từ sàn hoàn thiện đến sàn hoàn thiện",
+      "totalRun": "Tổng chiều dài ngang (mm, tùy chọn)",
+      "preferredRiser": "Chiều cao riser mong muốn (mm)",
+      "useType": "Loại công trình"
+    },
+    "hints": {
+      "totalRun": "Để trống để tự động tính tread theo công thức Blondel",
+      "preferredRiser": "Nhà ở: thường 170–180mm / Công cộng: 150–170mm"
+    },
+    "useType": {
+      "residential": "Nhà ở (nhà riêng, trong căn hộ)",
+      "public": "Công cộng (khu vực chung của chung cư, công trình công cộng)"
+    },
+    "actions": {
+      "calculate": "Tính toán",
+      "reset": "Đặt lại"
+    },
+    "result": {
+      "heading": "Kết quả",
+      "empty": "Nhập tổng độ cao và chiều cao riser mong muốn.",
+      "numSteps": "Số bậc",
+      "actualRiser": "Riser thực tế",
+      "tread": "Chiều rộng bậc (Tread)",
+      "stairLength": "Chiều dài chéo cầu thang",
+      "angle": "Góc cầu thang",
+      "blondel": "Blondel (2R+T)",
+      "warningsTitle": "Cảnh báo",
+      "stepsTitle": "Các bước tính toán",
+      "source": {
+        "line1": "Nguồn: Nghị định thi hành Luật Xây dựng Hàn Quốc Điều 48 (Cầu thang)",
+        "line2": "Nguồn: Quy tắc Kết cấu Sơ tán/Phòng cháy Điều 15 (Giới hạn Riser/Tread)",
+        "line3": "Nguồn: Công thức Blondel (2R + T = 600~640mm) — bước chân công thái học"
+      }
+    },
+    "steps": {
+      "numSteps": "Bước 1: Số bậc — round({totalRise} / {preferred}) = {result}",
+      "actualRiser": "Bước 2: Riser thực tế — {totalRise} / {steps} = {result}mm",
+      "treadFromRun": "Bước 3: Tread — {totalRun} / ({stepsMinus1}) = {result}mm",
+      "treadFromBlondel": "Bước 3: Tread (Blondel) — {target} − 2 × {riser} = {result}mm",
+      "stairLength": "Bước 4: Chiều dài chéo — √({totalRise}² + {runDist}²) = {result}mm",
+      "angle": "Bước 5: Góc — atan({riser} / {tread}) = {result}°",
+      "blondel": "Bước 6: Kiểm tra Blondel — 2 × {riser} + {tread} = {result}mm (mục tiêu {min}–{max}mm)"
+    },
+    "warnings": {
+      "riserTooHigh": "Riser thực tế {actual}mm vượt quá giới hạn an toàn {max}mm. Hãy thêm bậc.",
+      "treadTooSmall": "Tread {actual}mm nhỏ hơn mức tối thiểu {min}mm. Hãy tăng tổng chiều dài ngang.",
+      "blondelOutOfRange": "Giá trị Blondel {value}mm nằm ngoài phạm vi mục tiêu {min}–{max}mm. Cảm giác đi lại sẽ kém thoải mái.",
+      "preferredRiserExceedsLimit": "Riser mong muốn {preferred}mm vượt quá giới hạn an toàn {max}mm."
+    },
+    "validation": {
+      "totalRiseMin": "Tổng độ cao phải tối thiểu 100mm",
+      "totalRiseMax": "Tổng độ cao phải tối đa 10000mm",
+      "totalRunNonNegative": "Tổng chiều dài ngang phải không âm",
+      "totalRunMax": "Tổng chiều dài ngang phải tối đa 20000mm",
+      "preferredRiserMin": "Riser mong muốn phải tối thiểu 80mm",
+      "preferredRiserMax": "Riser mong muốn phải tối đa 250mm"
     },
     "errors": {
       "unknown": "Đã xảy ra lỗi không xác định trong quá trình tính toán."

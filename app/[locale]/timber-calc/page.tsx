@@ -14,6 +14,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -26,23 +27,20 @@ export async function generateMetadata({
   const titles: Record<Locale, string> = {
     ko: "목조 주택 계산기 | Workmate",
     en: "Timber Construction Calculator | Workmate",
-    vi: "Timber Construction Calculator | Workmate",
+    vi: "Máy tính kết cấu gỗ | Workmate",
     zh: "木结构住宅计算器 | Workmate",
   };
   const descriptions: Record<Locale, string> = {
     ko: "부재 경간·단열 R/U값·자재 수량 등 KS 표준과 건축법에 준거한 목조 시공 계산기 모음.",
     en: "Span, R/U-value, material quantity, and more — timber construction calculators based on KS standards and Korean building code.",
-    vi: "Span, R/U-value, material quantity, and more — timber construction calculators based on KS standards and Korean building code.",
+    vi: "Khẩu độ kết cấu, giá trị cách nhiệt R/U, khối lượng vật liệu và nhiều hơn nữa — bộ máy tính thi công kết cấu gỗ theo tiêu chuẩn KS và luật xây dựng Hàn Quốc.",
     zh: "构件跨距·隔热R/U值·建材数量等 — 符合KS标准与建筑法的木结构施工计算器合集。",
   };
   return {
     title: titles[locale as Locale] ?? titles.ko,
     description: descriptions[locale as Locale] ?? descriptions.ko,
     alternates: {
-      languages: {
-        ko: "/ko/timber-calc",
-        en: "/en/timber-calc",
-      },
+      languages: buildLanguagesAlt("/timber-calc"),
     },
   };
 }

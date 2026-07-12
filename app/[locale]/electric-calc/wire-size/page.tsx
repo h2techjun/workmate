@@ -7,6 +7,7 @@ import { ToolGuide } from "@/components/tools/ToolGuide";
 import { CalculatorJsonLd } from "@/components/seo/StructuredData";
 import { SITE_URL } from "@/lib/siteConfig";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -23,16 +24,20 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/electric-calc/wire-size`,
-      languages: {
-        ko: "/ko/electric-calc/wire-size",
-        en: "/en/electric-calc/wire-size",
-      },
+      languages: buildLanguagesAlt("/electric-calc/wire-size"),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }
@@ -45,6 +50,8 @@ export default async function WireSizePage({
     locale: locale as Locale,
     namespace: "wireSizeTool",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -55,32 +62,60 @@ export default async function WireSizePage({
         applicationCategory="BusinessApplication"
         howToSteps={[
           {
-            name: locale === "ko" ? "전압·전류·거리 입력" : "Enter voltage, current, distance",
+            name:
+              locale === "ko"
+                ? "전압·전류·거리 입력"
+                : locale === "vi"
+                  ? "Nhập điện áp, dòng điện, khoảng cách"
+                  : "Enter voltage, current, distance",
             text:
               locale === "ko"
                 ? "송전단 전압, 부하 전류, 편도 거리, 상 종류를 입력합니다."
-                : "Enter source voltage, load current, one-way distance, and phase type.",
+                : locale === "vi"
+                  ? "Nhập điện áp nguồn, dòng điện tải, khoảng cách một chiều và loại pha."
+                  : "Enter source voltage, load current, one-way distance, and phase type.",
           },
           {
-            name: locale === "ko" ? "케이블 사양 선택" : "Pick cable spec",
+            name:
+              locale === "ko"
+                ? "케이블 사양 선택"
+                : locale === "vi"
+                  ? "Chọn thông số cáp"
+                  : "Pick cable spec",
             text:
               locale === "ko"
                 ? "도체 재질(동·알루미늄)과 절연 종류(PVC·XLPE)를 선택합니다."
-                : "Choose conductor material (Cu/Al) and insulation type (PVC/XLPE).",
+                : locale === "vi"
+                  ? "Chọn vật liệu dây dẫn (đồng/nhôm) và loại cách điện (PVC/XLPE)."
+                  : "Choose conductor material (Cu/Al) and insulation type (PVC/XLPE).",
           },
           {
-            name: locale === "ko" ? "환경 보정 입력" : "Apply derating",
+            name:
+              locale === "ko"
+                ? "환경 보정 입력"
+                : locale === "vi"
+                  ? "Nhập hiệu chỉnh môi trường"
+                  : "Apply derating",
             text:
               locale === "ko"
                 ? "주위 온도와 동시 사용 회로 수를 입력하면 KS 표 B.52.14·B.52.17 보정이 자동 적용됩니다."
-                : "Ambient temperature and circuit grouping auto-apply KS Tables B.52.14 and B.52.17.",
+                : locale === "vi"
+                  ? "Nhập nhiệt độ môi trường xung quanh và số mạch dùng đồng thời để tự động áp dụng hiệu chỉnh theo Bảng KS B.52.14 và B.52.17."
+                  : "Ambient temperature and circuit grouping auto-apply KS Tables B.52.14 and B.52.17.",
           },
           {
-            name: locale === "ko" ? "결과 확인" : "Review the result",
+            name:
+              locale === "ko"
+                ? "결과 확인"
+                : locale === "vi"
+                  ? "Xem kết quả"
+                  : "Review the result",
             text:
               locale === "ko"
                 ? "권장 단면적과 7단계 계산 과정, 출처가 함께 표시됩니다."
-                : "The recommended cross-section, 7-step calculation, and source citations are shown.",
+                : locale === "vi"
+                  ? "Tiết diện dây khuyến nghị, quy trình tính toán 7 bước và nguồn tham khảo sẽ được hiển thị."
+                  : "The recommended cross-section, 7-step calculation, and source citations are shown.",
           },
         ]}
       />
@@ -105,7 +140,7 @@ export default async function WireSizePage({
         </header>
 
         <WireSizeForm />
-        <ToolGuide toolKey="electric-wire-size" locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"} />
+        <ToolGuide toolKey="electric-wire-size" locale={localeKey} />
       </div>
     </main>
   );

@@ -89,6 +89,32 @@ export const VI_READY_PATHS: readonly string[] = [
   "/korean-typing",
   // 가로세로 낱말퀴즈 게임 랜딩 (4로케일 완역)
   "/korean-crossword",
+  // Phase 1 — 전기·목조·자재 25종 완역 (2026-07-12, 베트남 건설/제조 노동자 타깃)
+  "/electric-calc",
+  "/electric-calc/wire-size",
+  "/electric-calc/breaker",
+  "/electric-calc/voltage-drop",
+  "/timber-calc",
+  "/timber-calc/concrete",
+  "/timber-calc/drywall",
+  "/timber-calc/insulation",
+  "/timber-calc/insulation-batt",
+  "/timber-calc/lumber",
+  "/timber-calc/material-quantity",
+  "/timber-calc/osb",
+  "/timber-calc/plywood",
+  "/timber-calc/rafter",
+  "/timber-calc/roof-area",
+  "/timber-calc/roof-pitch",
+  "/timber-calc/siding",
+  "/timber-calc/span",
+  "/timber-calc/stairs",
+  "/timber-calc/studs",
+  "/timber-calc/tile",
+  "/paint-calc",
+  "/gravel-calc",
+  "/deck-calc",
+  "/size-convert",
 ];
 
 const SET = new Set(VI_READY_PATHS);

@@ -6,7 +6,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface PaintFormProps {
-  locale: "ko" | "en" | "zh";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const T = {
@@ -69,6 +69,26 @@ const T = {
     countUnit: "个",
     coatsUnit: "次",
     note: "标准扣除：门2㎡·窗1.5㎡。一般内墙水性涂料涂布率约10㎡/L/次，建议涂刷2次。可根据表面状态·涂料种类调整涂布率。",
+  },
+  vi: {
+    wallArea: "Tổng diện tích tường (㎡)",
+    doorCount: "Số cửa ra vào",
+    windowCount: "Số cửa sổ",
+    coats: "Số lớp sơn",
+    spreadRate: "Định mức phủ (㎡/L)",
+    waste: "Tỷ lệ hao hụt (%)",
+    result: "Lượng sơn cần dùng",
+    liters: "Lượng cần (gồm hao hụt)",
+    litersUnit: "L",
+    netArea: "Diện tích sơn thực",
+    openingArea: "Đã trừ cửa/cửa sổ",
+    totalArea: "Tổng diện tích sơn",
+    cans4: "Thùng 4L",
+    cans1: "Thùng 1L",
+    cansUnit: "thùng",
+    countUnit: "",
+    coatsUnit: "lớp",
+    note: "Trừ tiêu chuẩn: cửa ra vào 2㎡, cửa sổ 1.5㎡. Sơn nước nội thất thông thường có định mức phủ khoảng 10㎡/L mỗi lớp, khuyến nghị sơn 2 lớp. Điều chỉnh định mức phủ theo bề mặt và loại sơn.",
   },
 } as const;
 

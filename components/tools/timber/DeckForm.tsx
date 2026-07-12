@@ -9,7 +9,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface DeckFormProps {
-  locale: "ko" | "en" | "zh";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const T = {
@@ -91,6 +91,33 @@ const T = {
     result: "所需材料",
     deckNote: "木板有效宽度 = 板宽 + 间隔。含10%损耗。输入单边长度后自动计算搁栅数量。",
     fenceNote: "立柱数 = 区间数 + 1。横栏每区间上下各1道，共2道。竖栏条间距为0时不计算栏条。",
+  },
+  vi: {
+    mode: "Loại tính toán",
+    deck: "Ván sàn gỗ",
+    fence: "Hàng rào",
+    // deck
+    area: "Diện tích sàn gỗ (m²)",
+    boardWidth: "Chiều rộng ván (mm)",
+    boardLength: "Chiều dài ván (m)",
+    gap: "Khe hở giữa ván (mm)",
+    deckLength: "Chiều dài một cạnh sàn gỗ (m)",
+    joistSpacing: "Khoảng cách xà gồ (mm)",
+    boardCount: "Số ván cần dùng",
+    boardUnit: "ván",
+    totalLength: "Tổng chiều dài ván",
+    joistCount: "Số thanh xà gồ",
+    // fence
+    length: "Chiều dài hàng rào (m)",
+    postSpacing: "Khoảng cách cột (m)",
+    picketSpacing: "Khoảng cách nan dọc (mm)",
+    postCount: "Số cột",
+    railCount: "Thanh ngang",
+    picketCount: "Nan dọc",
+    count: "cái",
+    result: "Vật liệu cần dùng",
+    deckNote: "Chiều rộng hiệu dụng của ván = chiều rộng ván + khe hở. Đã gồm 10% hao hụt. Số xà gồ được tính khi nhập chiều dài một cạnh.",
+    fenceNote: "Số cột = số khoảng + 1. Thanh ngang gồm 2 thanh trên/dưới mỗi khoảng. Khoảng cách nan dọc bằng 0 thì không tính nan.",
   },
 } as const;
 

@@ -5,7 +5,7 @@ import { calculateGravel } from "@/lib/calculations/timber/gravel";
 import { NumberField } from "@/components/ui/NumberField";
 
 interface GravelFormProps {
-  locale: "ko" | "en" | "zh";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const T = {
@@ -59,6 +59,23 @@ const T = {
     count: "个",
     density: "密度",
     note: "面积 × 厚度 = 体积，× 密度 = 重量。压实后体积会减少，发注时应包含压实余量(通常20%)。密度会因材料·含水率而有所不同。",
+  },
+  vi: {
+    area: "Diện tích (m²)",
+    depth: "Độ dày rải (cm)",
+    material: "Loại vật liệu",
+    materials: { gravel: "Đá dăm", sand: "Cát", crushed: "Đá vụn", soil: "Đất", mixed: "Hỗn hợp" },
+    compaction: "Tỷ lệ hao hụt do lu lèn (%)",
+    result: "Lượng vật liệu cần dùng",
+    volume: "Thể tích đặt hàng",
+    volumeUnit: "m³",
+    weight: "Trọng lượng",
+    weightUnit: "tấn",
+    bags: "Bao 25kg",
+    tonBags: "Bao jumbo 1 tấn",
+    count: "bao",
+    density: "Mật độ",
+    note: "Diện tích × độ dày = thể tích, × mật độ = trọng lượng. Lu lèn làm giảm thể tích, nên khi đặt hàng cần cộng thêm tỷ lệ hao hụt (thường 20%). Mật độ có thể thay đổi theo vật liệu và độ ẩm.",
   },
 } as const;
 

@@ -17,16 +17,21 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isZh = locale === "zh";
+  const isVi = locale === "vi";
   const title = isKo
     ? "OSB 매수 계산기 — 외벽·지붕 합판 자재 자동 산출"
     : isZh
       ? "OSB板张数计算器 — 外墙·屋顶板材自动核算"
-      : "OSB Sheathing Calculator — wall and roof sheets";
+      : isVi
+        ? "Máy tính số tấm OSB — tự động tính vật liệu tường ngoài, mái"
+        : "OSB Sheathing Calculator — wall and roof sheets";
   const description = isKo
     ? "외벽·지붕 면적과 손실률만 입력하면 OSB 매수와 못 개수까지 즉시. 4×8자 18mm OSB 표준. 목조주택·창고·증축 시공 필수."
     : isZh
       ? "只需输入外墙·屋顶面积与损耗率，即可立即算出OSB张数与钉子数量。以4×8英尺18mm OSB为标准。木结构住宅·仓库·扩建施工必备。"
-      : "Calculate OSB sheets and nail count for walls and roofs. Standard 4×8ft 18mm OSB. Essential for timber framing.";
+      : isVi
+        ? "Chỉ cần nhập diện tích tường ngoài/mái và hệ số hao hụt là tính ngay số tấm OSB và số lượng đinh. Theo tiêu chuẩn OSB 18mm 4×8ft. Thiết yếu cho nhà khung gỗ, nhà kho, mở rộng công trình."
+        : "Calculate OSB sheets and nail count for walls and roofs. Standard 4×8ft 18mm OSB. Essential for timber framing.";
   const keywords = isKo
     ? [
         "OSB 계산",
@@ -51,7 +56,18 @@ export async function generateMetadata({
           "木结构住宅材料",
           "木结构外墙材料",
         ]
-      : ["OSB calculator", "OSB sheathing", "wall sheathing", "roof OSB", "timber framing"];
+      : isVi
+        ? [
+            "tính tấm OSB",
+            "số tấm OSB",
+            "máy tính OSB",
+            "OSB tường ngoài",
+            "OSB mái",
+            "OSB 11mm",
+            "OSB 18mm",
+            "vật liệu nhà gỗ",
+          ]
+        : ["OSB calculator", "OSB sheathing", "wall sheathing", "roof OSB", "timber framing"];
 
   return {
     title,
@@ -66,7 +82,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/timber-calc/osb`,
-      locale: locale === "ko" ? "ko_KR" : isZh ? "zh_CN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : isZh ? "zh_CN" : isVi ? "vi_VN" : "en_US",
     },
   };
 }
@@ -81,7 +97,8 @@ export default async function OsbPage({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isZh = locale === "zh";
-  const localeKey = (isKo ? "ko" : isZh ? "zh" : "en") as Locale;
+  const isVi = locale === "vi";
+  const localeKey: Locale = isKo ? "ko" : isZh ? "zh" : isVi ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -92,26 +109,25 @@ export default async function OsbPage({
             className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]"
           >
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "목조 계산기" : isZh ? "木结构住宅计算器" : "Timber Calculators"}
+            {isKo ? "목조 계산기" : isZh ? "木结构住宅计算器" : isVi ? "Máy tính kết cấu gỗ" : "Timber Calculators"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "OSB 매수 계산기" : isZh ? "OSB板张数计算器" : "OSB Sheathing Calculator"}
+            {isKo ? "OSB 매수 계산기" : isZh ? "OSB板张数计算器" : isVi ? "Máy tính số tấm OSB" : "OSB Sheathing Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "외벽·지붕 면적을 입력하면 OSB 매수와 못 개수까지. 4×8자 (1.2×2.4m) 18mm 표준 기준."
               : isZh
                 ? "输入外墙·屋顶面积，即可算出OSB张数与钉子数量。以4×8英尺(1.2×2.4m) 18mm标准为基准。"
-                : "Enter wall/roof area — get OSB sheet count and nails. Standard 4×8ft (1.2×2.4m) 18mm."}
+                : isVi
+                  ? "Nhập diện tích tường ngoài/mái — nhận ngay số tấm OSB và số lượng đinh. Dựa trên tiêu chuẩn 4×8ft (1.2×2.4m) 18mm."
+                  : "Enter wall/roof area — get OSB sheet count and nails. Standard 4×8ft (1.2×2.4m) 18mm."}
           </p>
         </header>
         <MaterialQuantityForm lockedMaterial="osb18" />
-        <ToolGuide
-          toolKey="timber-osb"
-          locale={isZh ? "zh" : locale !== "ko" ? "en" : "ko"}
-        />
+        <ToolGuide toolKey="timber-osb" locale={localeKey} />
       </div>
     </main>
   );

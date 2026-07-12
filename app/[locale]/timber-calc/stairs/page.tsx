@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
 import { StairsForm } from "@/components/tools/timber/StairsForm";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,17 +21,20 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/timber-calc/stairs`,
-      languages: {
-        ko: "/ko/timber-calc/stairs",
-        en: "/en/timber-calc/stairs",
-        zh: "/zh/timber-calc/stairs",
-      },
+      languages: buildLanguagesAlt("/timber-calc/stairs"),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }
@@ -43,6 +47,8 @@ export default async function StairsPage({
     locale: locale as Locale,
     namespace: "stairsTool",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -65,10 +71,7 @@ export default async function StairsPage({
           </p>
         </header>
         <StairsForm />
-        <ToolGuide
-          toolKey="timber-stairs"
-          locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"}
-        />
+        <ToolGuide toolKey="timber-stairs" locale={localeKey} />
       </div>
     </main>
   );

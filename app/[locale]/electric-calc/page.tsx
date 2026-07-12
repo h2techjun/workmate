@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight, Cable, ShieldCheck, Activity } from "lucide-react";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -15,23 +16,20 @@ export async function generateMetadata({
   const titles: Record<Locale, string> = {
     ko: "산업용 전기 계산기 | Workmate",
     en: "Industrial Electric Calculator | Workmate",
-    vi: "Industrial Electric Calculator | Workmate",
+    vi: "Máy tính điện công nghiệp | Workmate",
     zh: "工业电气计算器 | Workmate",
   };
   const descriptions: Record<Locale, string> = {
     ko: "KS C IEC 60364 기반 전선 굵기, 차단기 용량, 전압강하 계산기. 전기공사 실무에 바로 사용 가능.",
     en: "KS C IEC 60364 wire size, breaker capacity, and voltage drop calculators for electrical professionals.",
-    vi: "KS C IEC 60364 wire size, breaker capacity, and voltage drop calculators for electrical professionals.",
+    vi: "Máy tính dây điện, công suất aptomat (CB), sụt áp dựa trên tiêu chuẩn KS C IEC 60364. Dùng ngay cho công việc thi công điện thực tế.",
     zh: "基于KS C IEC 60364标准的电线线径、断路器容量、电压降计算器。电气工程实务可直接使用。",
   };
   return {
     title: titles[locale as Locale] ?? titles.ko,
     description: descriptions[locale as Locale] ?? descriptions.ko,
     alternates: {
-      languages: {
-        ko: "/ko/electric-calc",
-        en: "/en/electric-calc",
-      },
+      languages: buildLanguagesAlt("/electric-calc"),
     },
   };
 }

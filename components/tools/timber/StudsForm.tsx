@@ -28,7 +28,7 @@ import { NumberField } from "@/components/ui/NumberField";
 import { formatNumber } from "@/lib/utils/format";
 
 interface StudsFormProps {
-  locale: "ko" | "en" | "zh";
+  locale: "ko" | "en" | "zh" | "vi";
 }
 
 const TEXT = {
@@ -134,6 +134,40 @@ const TEXT = {
       "钉子估算 = 每根8颗(两端各4颗斜钉)。",
     ],
   },
+  vi: {
+    sectionWall: "Thông tin tường",
+    sectionLumber: "Khung gỗ & khác",
+    fieldWallLength: "Chiều dài tường (m)",
+    fieldWallLengthHint: "Tổng chiều dài một tường hoặc nhiều tường",
+    fieldCeiling: "Chiều cao trần (mm)",
+    fieldCeilingHint: "Thường 2400~3000mm",
+    fieldSpacing: "Khoảng cách thanh đứng",
+    fieldOpenings: "Số lượng lỗ mở (cửa sổ/cửa đi)",
+    fieldOpeningsHint: "Mỗi lỗ mở cộng thêm 4 thanh jack/king + 2 thanh đà đỡ",
+    fieldWaste: "Hệ số hao hụt (%)",
+    fieldWasteHint: "Hao hụt cắt · dự phòng, mặc định 10%",
+    calculate: "Tính toán",
+    reset: "Đặt lại",
+    resultHeading: "Kết quả",
+    resultEmpty: "Nhập chiều dài tường và tính toán.",
+    error: "Đã xảy ra lỗi khi tính toán.",
+    studCount: "Số lượng thanh đứng",
+    studCountUnit: "thanh",
+    studLength: "Chiều dài một thanh",
+    topPlate: "Tổng chiều dài tấm đế trên (đôi)",
+    solePlate: "Tổng chiều dài tấm đế dưới (đơn)",
+    headerCount: "Số lượng đà đỡ (trên lỗ mở)",
+    nailCount: "Số lượng đinh ước tính",
+    spacing16: "16 inch (406mm)",
+    spacing24: "24 inch (610mm)",
+    sourceTitle: "Nguồn · giả định",
+    sourceLines: [
+      "IRC 2018 Chương 6 (Kết cấu tường) — tiêu chuẩn Mỹ, thường được áp dụng trong thi công nhà gỗ tại Hàn Quốc.",
+      "Thanh đứng = 2×4 SPF (38×89mm). Tấm đế trên đôi + tấm đế dưới đơn = tổng 3 lớp dày 38mm.",
+      "Đà đỡ = 2×10 đôi (2 thanh) cho mỗi lỗ mở + 4 thanh jack/king.",
+      "Ước tính đinh = 8 đinh mỗi thanh (4 đinh xiên mỗi đầu × 2 đầu).",
+    ],
+  },
 } as const;
 
 export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
@@ -180,37 +214,49 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
           ? `벽 길이 ${formatNumber(s.wallLength)}m ÷ 간격 ${formatNumber(s.spacing)}mm = 기본 ${formatNumber(s.result)}본 (양 끝 포함)`
           : locale === "zh"
             ? `墙长 ${formatNumber(s.wallLength)}m ÷ 间距 ${formatNumber(s.spacing)}mm = 基本 ${formatNumber(s.result)}根 (含两端)`
-            : `${formatNumber(s.wallLength)}m ÷ ${formatNumber(s.spacing)}mm = ${formatNumber(s.result)} studs (incl. both ends)`;
+            : locale === "vi"
+              ? `Chiều dài tường ${formatNumber(s.wallLength)}m ÷ khoảng cách ${formatNumber(s.spacing)}mm = cơ bản ${formatNumber(s.result)} thanh (gồm cả hai đầu)`
+              : `${formatNumber(s.wallLength)}m ÷ ${formatNumber(s.spacing)}mm = ${formatNumber(s.result)} studs (incl. both ends)`;
       case "studLength":
         return locale === "ko"
           ? `층고 ${formatNumber(s.ceilingHeight)}mm − 플레이트 ${formatNumber(s.plates)}mm = 1본 길이 ${formatNumber(s.result)}mm`
           : locale === "zh"
             ? `层高 ${formatNumber(s.ceilingHeight)}mm − 梁板 ${formatNumber(s.plates)}mm = 单根长度 ${formatNumber(s.result)}mm`
-            : `Ceiling ${formatNumber(s.ceilingHeight)}mm − plates ${formatNumber(s.plates)}mm = stud length ${formatNumber(s.result)}mm`;
+            : locale === "vi"
+              ? `Chiều cao trần ${formatNumber(s.ceilingHeight)}mm − tấm đế ${formatNumber(s.plates)}mm = chiều dài một thanh ${formatNumber(s.result)}mm`
+              : `Ceiling ${formatNumber(s.ceilingHeight)}mm − plates ${formatNumber(s.plates)}mm = stud length ${formatNumber(s.result)}mm`;
       case "plateLength":
         return locale === "ko"
           ? `벽 길이 ${formatNumber(s.wallLength)}m × 3 (더블 탑 + 솔) = 총 ${formatNumber(s.result)}m`
           : locale === "zh"
             ? `墙长 ${formatNumber(s.wallLength)}m × 3 (双层顶梁板 + 底梁板) = 共 ${formatNumber(s.result)}m`
-            : `${formatNumber(s.wallLength)}m × 3 (double top + sole) = ${formatNumber(s.result)}m total`;
+            : locale === "vi"
+              ? `Chiều dài tường ${formatNumber(s.wallLength)}m × 3 (đôi trên + đơn dưới) = tổng ${formatNumber(s.result)}m`
+              : `${formatNumber(s.wallLength)}m × 3 (double top + sole) = ${formatNumber(s.result)}m total`;
       case "headerCount":
         return locale === "ko"
           ? `개구부 ${formatNumber(s.openings)}개 × 2 (더블 헤더) = 헤더 ${formatNumber(s.result)}본`
           : locale === "zh"
             ? `洞口 ${formatNumber(s.openings)}个 × 2 (双过梁) = 过梁 ${formatNumber(s.result)}根`
-            : `${formatNumber(s.openings)} openings × 2 (double header) = ${formatNumber(s.result)} headers`;
+            : locale === "vi"
+              ? `Lỗ mở ${formatNumber(s.openings)} × 2 (đà đỡ đôi) = đà đỡ ${formatNumber(s.result)} thanh`
+              : `${formatNumber(s.openings)} openings × 2 (double header) = ${formatNumber(s.result)} headers`;
       case "totalStuds":
         return locale === "ko"
           ? `기본 ${formatNumber(s.base)}본 × (1 + ${formatNumber(s.waste)}% 손실) = 총 ${formatNumber(s.result)}본`
           : locale === "zh"
             ? `基本 ${formatNumber(s.base)}根 × (1 + ${formatNumber(s.waste)}% 损耗) = 共 ${formatNumber(s.result)}根`
-            : `Base ${formatNumber(s.base)} × (1 + ${formatNumber(s.waste)}% waste) = ${formatNumber(s.result)} total`;
+            : locale === "vi"
+              ? `Cơ bản ${formatNumber(s.base)} thanh × (1 + ${formatNumber(s.waste)}% hao hụt) = tổng ${formatNumber(s.result)} thanh`
+              : `Base ${formatNumber(s.base)} × (1 + ${formatNumber(s.waste)}% waste) = ${formatNumber(s.result)} total`;
       case "nails":
         return locale === "ko"
           ? `스터드 ${formatNumber(s.studs)}본 × 본당 ${formatNumber(s.nailsPerStud)}못 = 총 ${formatNumber(s.result)}개`
           : locale === "zh"
             ? `墙骨柱 ${formatNumber(s.studs)}根 × 每根 ${formatNumber(s.nailsPerStud)}颗钉 = 共 ${formatNumber(s.result)}颗`
-            : `${formatNumber(s.studs)} studs × ${formatNumber(s.nailsPerStud)} nails/stud = ${formatNumber(s.result)} nails`;
+            : locale === "vi"
+              ? `Thanh đứng ${formatNumber(s.studs)} × ${formatNumber(s.nailsPerStud)} đinh/thanh = tổng ${formatNumber(s.result)} đinh`
+              : `${formatNumber(s.studs)} studs × ${formatNumber(s.nailsPerStud)} nails/stud = ${formatNumber(s.result)} nails`;
     }
   };
 
@@ -275,7 +321,7 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
                   thousands={false}
                   decimals={0}
                   min={0}
-                  suffix={locale === "ko" ? "개" : locale === "zh" ? "个" : "pcs"}
+                  suffix={locale === "ko" ? "개" : locale === "zh" ? "个" : locale === "vi" ? "cái" : "pcs"}
                   aria-label={T.fieldOpenings}
                 />
               )}
@@ -352,12 +398,12 @@ export function StudsForm({ locale }: StudsFormProps): React.ReactElement {
               />
               <Stat
                 label={T.nailCount}
-                value={`${formatNumber(result.nailCount)} ${locale === "ko" ? "개" : locale === "zh" ? "颗" : "pcs"}`}
+                value={`${formatNumber(result.nailCount)} ${locale === "ko" ? "개" : locale === "zh" ? "颗" : locale === "vi" ? "đinh" : "pcs"}`}
               />
             </dl>
             <StepsBox
               title={
-                locale === "ko" ? "계산 과정" : locale === "zh" ? "计算过程" : "Steps"
+                locale === "ko" ? "계산 과정" : locale === "zh" ? "计算过程" : locale === "vi" ? "Các bước tính toán" : "Steps"
               }
               items={result.steps.map((s) => renderStep(s))}
             />

@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { ChevronLeft } from "lucide-react";
 import { MaterialQuantityForm } from "@/components/tools/timber/MaterialQuantityForm";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -23,16 +24,20 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/timber-calc/material-quantity`,
-      languages: {
-        ko: "/ko/timber-calc/material-quantity",
-        en: "/en/timber-calc/material-quantity",
-      },
+      languages: buildLanguagesAlt("/timber-calc/material-quantity"),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }
@@ -45,6 +50,8 @@ export default async function MaterialQuantityPage({
     locale: locale as Locale,
     namespace: "materialQuantityTool",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -67,10 +74,7 @@ export default async function MaterialQuantityPage({
           </p>
         </header>
         <MaterialQuantityForm />
-        <ToolGuide
-          toolKey="timber-material-quantity"
-          locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"}
-        />
+        <ToolGuide toolKey="timber-material-quantity" locale={localeKey} />
       </div>
     </main>
   );

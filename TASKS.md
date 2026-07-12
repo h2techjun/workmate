@@ -14,6 +14,32 @@
   - 커뮤니티 게시: **[`docs/distribution-kit.md`](./docs/distribution-kit.md) 복붙 초안 준비 완료** (레딧 en 3종·페북 vi 2종·네이버 ko·HN)
   - 우선 URL: /en/blog/living-in-korea-foreigner-guide → 외국인 도구 9종
 
+## 🌏 외국인 유입 3-Phase 로드맵 (2026-07-12 — 새 집중 세션에서 Phase별 진행)
+
+> 마스터 지시: 인도·중국·베트남 등 한국 관심 외국인 유입 강화. 각 Phase가 세션급 대작업 → 새 채팅에서 "Phase N 시작"으로 집중 진행.
+
+### Phase 1 — 베트남(vi) 완역 (즉효)
+- [x] **완료 (2026-07-12)**: 25경로 vi 완역 색인 — electric-calc 허브+하위 3 · timber-calc 허브+하위 16 · paint/gravel/deck-calc 3 · size-convert 1. vi 색인 67 → 92.
+  - vi.json: 네임스페이스 14종(electric 4·timber 10, ~800키) + toolGuides 4종 신규(electric 3·size-convert) + **영어 placeholder 가이드 4종 실번역**(timber-lumber·paint·gravel·deck — "사전번역 병합" 기록과 달리 영어 원문이었음, vi==en 전수검사로 발견).
+  - 배선: 패턴A 14페이지(ToolGuide vi collapse 제거·buildLanguagesAlt·OG vi_VN) + 패턴B 10페이지 인라인 isVi 분기 + locale-prop 폼 5종(Studs·Tile·Paint·Gravel·Deck) vi TEXT + timber 허브 인라인 titles Record vi 실번역.
+  - 검증: 585 테스트·tsc 0·audit·build 611/611·브라우저 QA(콘솔 0·studs 계산 e2e·ko/en 회귀·모바일 375)·hreflang 4로케일+x-default·robots Allow 25.
+
+### Phase 2 — 인도 국가별 비자/제도 콘텐츠 (마스터 지침 핵심)
+- [ ] **마스터 지침**: 비자/제도를 **국가별로 분류·설명** — "인도인 → 어떤 비자·어떤 제도", "베트남인 → 어떤 제도" 식으로 명확히.
+- 소재: E-9 고용허가제(EPS-TOPIK 송출 16개국), 유학 D-2/D-4, 전문직 E-7, 재외동포 F-4.
+- 구조: 제도별 허브(예: /guide/eps-topik) + 국가별 섹션/필터. AdSense ToolGuide급 고유 본문 필수.
+- 로케일: 영어 중심(인도·동남아 영어권) + zh/vi.
+
+### Phase 3 — K-생태계 흐름 정합
+- [ ] **크로스링크 로케일 학습축 버그 수정** (2026-07-12 진단): `components/tools/CrossLinks.tsx:11` LEARN_COPY 가 전 로케일 "한국어 학습"인데 /ko/learn=영어학습(Loopla English) → 불일치. `app/[locale]/learn/page.tsx` GAMES_COPY ko "한국어 익혔으니"도 영어 문맥 아님.
+- 동선: 외국인(en/zh/vi)=한국어학습→한국어게임(kword/ktype), 한국인(ko)=영어학습→영어게임. 유입→체류→재방문 루프.
+
+### SEO 기술 — breadcrumb 구조화 데이터 전 페이지 일관화 (2026-07-12 발견)
+- [ ] **문제**: `BreadcrumbList` JSON-LD가 **5개 페이지만** 적용(vat-calc + labor-calc 하위 4). net-salary(최인기)·게임랜딩(korean-typing/crossword)·변환·전기·목조 계산기·허브(tools/games/tests/learn)·블로그9·가이드5 등 **~85페이지 누락** → 검색결과 breadcrumb rich result 못 받음(CTR·SEO 손해).
+- 컴포넌트: `components/seo/StructuredData.tsx` 의 `BreadcrumbJsonLd` 는 이미 Google 요구사항(itemListElement 2+·position·name·item) 충족 → **적용(배선)만 하면 됨**.
+- 방법: 공통 breadcrumb 컴포넌트(UI nav + BreadcrumbList JSON-LD 동시 방출) 신설 → 경로 기반 자동 계층(홈›카테고리›도구). `PageHeader`(UI만 있음)·게임 랜딩 네비 통합.
+- 근거: [Google breadcrumb 문서](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) — rich result는 데스크톱, 오류 0 유지, Search Console 리치결과 보고서 모니터링.
+
 ## 🟡 다음 주 (planned, D+1~7)
 
 - [ ] **GSC 색인 요청** (담당: 마스터) — 외국인 니치 우선:

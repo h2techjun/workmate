@@ -5,6 +5,7 @@ import { ChevronLeft } from "lucide-react";
 import { RoofAreaForm } from "@/components/tools/timber/RoofAreaForm";
 import { ToolGuide } from "@/components/tools/ToolGuide";
 import type { Locale } from "@/i18n";
+import { buildLanguagesAlt } from "@/lib/seo/alternates";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,17 +21,20 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: `/${locale}/timber-calc/roof-area`,
-      languages: {
-        ko: "/ko/timber-calc/roof-area",
-        en: "/en/timber-calc/roof-area",
-        zh: "/zh/timber-calc/roof-area",
-      },
+      languages: buildLanguagesAlt("/timber-calc/roof-area"),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale:
+        locale === "ko"
+          ? "ko_KR"
+          : locale === "zh"
+            ? "zh_CN"
+            : locale === "vi"
+              ? "vi_VN"
+              : "en_US",
     },
   };
 }
@@ -43,6 +47,8 @@ export default async function RoofAreaPage({
     locale: locale as Locale,
     namespace: "roofAreaTool",
   });
+  const localeKey: "ko" | "en" | "zh" | "vi" =
+    locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "vi" ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-12">
@@ -65,10 +71,7 @@ export default async function RoofAreaPage({
           </p>
         </header>
         <RoofAreaForm />
-        <ToolGuide
-          toolKey="timber-roof-area"
-          locale={locale === "zh" ? "zh" : locale !== "ko" ? "en" : "ko"}
-        />
+        <ToolGuide toolKey="timber-roof-area" locale={localeKey} />
       </div>
     </main>
   );

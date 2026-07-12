@@ -17,26 +17,33 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isZh = locale === "zh";
+  const isVi = locale === "vi";
   const title = isKo
     ? "자갈·골재 계산기 — 부피·무게·포대 수량"
     : isZh
       ? "砂石·骨料计算器 — 体积·重量·包数"
-      : "Gravel Calculator — volume, weight, bags";
+      : isVi
+        ? "Máy tính đá dăm·sỏi — thể tích·trọng lượng·số bao"
+        : "Gravel Calculator — volume, weight, bags";
   const description = isKo
     ? "면적과 두께로 자갈·모래·쇄석 부피(m³)와 무게(톤)를 즉시 계산. 다짐 여유 + 25kg 포대·1톤 톤백 개수까지. 조경·토목 발주에 바로."
     : isZh
       ? "根据面积与厚度即时计算砂石·沙子·碎石体积(m³)与重量(吨)。含压实余量 + 25kg包装·1吨吨袋数量换算。可直接用于景观·土建发注。"
-      : "Calculate gravel, sand, and crushed stone volume (m³) and weight (tons) from area and depth, with compaction allowance and bag counts.";
+      : isVi
+        ? "Tính ngay thể tích (m³) và trọng lượng (tấn) đá dăm, cát, đá vụn từ diện tích và độ dày. Gồm tỷ lệ hao hụt do lu lèn + quy đổi số bao 25kg·bao jumbo 1 tấn. Dùng ngay cho đặt hàng cảnh quan·xây dựng."
+        : "Calculate gravel, sand, and crushed stone volume (m³) and weight (tons) from area and depth, with compaction allowance and bag counts.";
   const keywords = isKo
     ? ["자갈 계산기", "골재 계산", "자갈 부피", "모래 무게", "쇄석 수량"]
     : isZh
       ? ["砂石计算器", "骨料计算", "砂石体积", "沙子重量", "碎石数量"]
-      : ["gravel calculator", "how much gravel do i need", "aggregate calculator", "gravel weight calculator"];
+      : isVi
+        ? ["máy tính đá dăm", "cần bao nhiêu sỏi", "tính thể tích đá dăm", "trọng lượng cát", "số lượng đá vụn"]
+        : ["gravel calculator", "how much gravel do i need", "aggregate calculator", "gravel weight calculator"];
 
   return {
     title, description, keywords,
     alternates: { canonical: `/${locale}/gravel-calc`, languages: buildLanguagesAlt("/gravel-calc") },
-    openGraph: { title, description, type: "website", url: `${SITE_URL}/${locale}/gravel-calc`, locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US" },
+    openGraph: { title, description, type: "website", url: `${SITE_URL}/${locale}/gravel-calc`, locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "vi" ? "vi_VN" : "en_US" },
   };
 }
 
@@ -50,7 +57,8 @@ export default async function GravelCalcPage({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isZh = locale === "zh";
-  const localeKey: "ko" | "en" | "zh" = isKo ? "ko" : isZh ? "zh" : "en";
+  const isVi = locale === "vi";
+  const localeKey: "ko" | "en" | "zh" | "vi" = isKo ? "ko" : isZh ? "zh" : isVi ? "vi" : "en";
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">
@@ -58,19 +66,21 @@ export default async function GravelCalcPage({
         <nav className="mb-5 flex items-center gap-2 text-sm text-[color:var(--color-text-tertiary)]">
           <Link href={`/${locale}/tools`} className="inline-flex items-center gap-1 transition-colors hover:text-[color:var(--color-text-primary)]">
             <ChevronLeft className="h-4 w-4" />
-            {isKo ? "툴 모음" : isZh ? "全部工具" : "All tools"}
+            {isKo ? "툴 모음" : isZh ? "全部工具" : isVi ? "Tất cả công cụ" : "All tools"}
           </Link>
         </nav>
         <header className="mb-8">
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
-            {isKo ? "자갈·골재 계산기" : isZh ? "砂石·骨料计算器" : "Gravel Calculator"}
+            {isKo ? "자갈·골재 계산기" : isZh ? "砂石·骨料计算器" : isVi ? "Máy tính đá dăm·sỏi" : "Gravel Calculator"}
           </h1>
           <p className="mt-2.5 max-w-3xl text-sm leading-relaxed text-[color:var(--color-text-secondary)] md:text-base">
             {isKo
               ? "면적과 두께만 넣으면 자갈·모래·쇄석 부피·무게·포대 수량을 즉시 산출. 다짐 여유까지 포함."
               : isZh
                 ? "只需输入面积和厚度，即可立即算出砂石·沙子·碎石的体积·重量·包装数量，含压实余量。"
-                : "Enter area and depth to get gravel, sand, or crushed stone volume, weight, and bag counts — with compaction allowance."}
+                : isVi
+                  ? "Chỉ cần nhập diện tích và độ dày để có ngay thể tích·trọng lượng·số bao đá dăm, cát, hoặc đá vụn — gồm cả tỷ lệ hao hụt do lu lèn."
+                  : "Enter area and depth to get gravel, sand, or crushed stone volume, weight, and bag counts — with compaction allowance."}
           </p>
         </header>
         <GravelForm locale={localeKey} />
