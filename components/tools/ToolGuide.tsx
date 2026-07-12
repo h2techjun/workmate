@@ -325,7 +325,7 @@ export async function ToolGuide({
         </div>
       )}
 
-      {/* K-생태계 크로스링크 — 한국어 학습(Loopla) + 생활 가이드·글 */}
+      {/* K-생태계 크로스링크 — 언어 학습(Loopla: ko=영어·그 외=한국어) + 생활 가이드·글 */}
       <CrossLinks toolKey={toolKey} locale={locale} />
 
       {/* Last reviewed (E-A-T 신뢰성 시그널) */}

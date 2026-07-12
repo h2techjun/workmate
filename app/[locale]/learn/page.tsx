@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { ArrowRight, Gamepad2, Spade, Swords } from "lucide-react";
+import {
+  ArrowRight,
+  Gamepad2,
+  Keyboard,
+  Puzzle,
+  Spade,
+  Swords,
+} from "lucide-react";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
@@ -101,29 +108,31 @@ const COPY = {
 } as const;
 
 /**
- * learn 하단 "게임으로 익히기" 유도 — K-생태계 마지막 고리(한국어 학습 → 한국 게임).
+ * learn 하단 "게임으로 익히기" 유도 — K-생태계 마지막 고리. 학습축과 동선을 맞춘다:
+ *  - ko 방문자 = 영어 학습 → 공부 쉬는 시간 무료 게임(화투·무협·타자·낱말퀴즈).
+ *  - en·zh·vi 방문자 = 한국어 학습 → 한국어 연습 게임(kword 십자말·ktype 타자 우선).
  * 게임 카피는 lib/projectsCatalog.ts(단일 진실원)의 i18n 필드를 그대로 재사용하고,
- * 여기서는 섹션 헤딩/CTA 문구만 관리한다.
+ * 여기서는 섹션 헤딩/CTA 문구와 노출 순서만 관리한다.
  */
 const GAMES_COPY = {
   ko: {
-    heading: "한국어 익혔으니, 이번엔 게임으로 한국 문화를",
-    body: "화투, 무협 세계관 — 한국 문화가 담긴 게임을 브라우저에서 바로 즐겨보세요. 회원가입도 설치도 필요 없습니다.",
+    heading: "영어 공부 쉬는 시간엔 게임 한 판",
+    body: "화투 로그라이크, 무협 디펜스, 한글 타자·낱말퀴즈 — 브라우저에서 바로 즐기는 무료 게임. 회원가입도 설치도 필요 없습니다.",
     cta: "무료 게임 전체 보기",
   },
   en: {
-    heading: "Now play with the culture you just learned",
-    body: "Hwatu card games, a martial-arts world — Korean culture, playable instantly in your browser. No signup, no install.",
+    heading: "Practice the Korean you just learned — in a game",
+    body: "A Korean crossword, Hangul typing practice, Hwatu cards, a martial-arts defense — Korean language and culture, playable instantly in your browser. No signup, no install.",
     cta: "See all free games",
   },
   zh: {
-    heading: "学完韩语，换个方式感受韩国文化",
-    body: "花斗纸牌、武侠世界观——韩国文化融入的游戏，浏览器里直接畅玩。无需注册，无需安装。",
+    heading: "学完韩语，用游戏练一练",
+    body: "韩语填字、韩文打字练习、花斗纸牌、武侠塔防——韩国语言与文化融入的游戏，浏览器里直接畅玩。无需注册，无需安装。",
     cta: "查看全部免费游戏",
   },
   vi: {
-    heading: "Học tiếng Hàn xong, khám phá văn hóa Hàn qua game",
-    body: "Bài hoa Hwatu, thế giới võ hiệp — văn hóa Hàn Quốc gói trong những tựa game chơi ngay trên trình duyệt. Không cần đăng ký, không cần cài đặt.",
+    heading: "Luyện lại tiếng Hàn vừa học qua game",
+    body: "Ô chữ tiếng Hàn, luyện gõ Hangul, bài hoa Hwatu, thủ thành võ hiệp — ngôn ngữ và văn hóa Hàn Quốc trong những tựa game chơi ngay trên trình duyệt. Không cần đăng ký, không cần cài đặt.",
     cta: "Xem tất cả game miễn phí",
   },
 } as const;
@@ -131,7 +140,12 @@ const GAMES_COPY = {
 const GAME_ICON: Record<string, typeof Gamepad2> = {
   "k-poker": Spade,
   defense: Swords,
+  ktype: Keyboard,
+  kword: Puzzle,
 };
+
+/** 한국어 연습 게임 — 외국인 로케일(en/zh/vi)에서 학습 동선상 맨 앞에 노출 */
+const KOREAN_PRACTICE_GAME_IDS = new Set(["kword", "ktype"]);
 
 function GamePreviewCard({
   project,
@@ -208,9 +222,17 @@ export default async function LearnHubPage({
   const localeKey = localeKeyOf(locale);
   const c = COPY[localeKey];
   const gamesCopy = GAMES_COPY[localeKey];
-  const gameProjects = PROJECTS_CATALOG.filter((p) => p.tab === "games").sort(
+  const byOrder = PROJECTS_CATALOG.filter((p) => p.tab === "games").sort(
     (a, b) => a.order - b.order,
   );
+  // 외국인(한국어 학습) 로케일은 한국어 연습 게임(십자말·타자)부터 노출
+  const gameProjects =
+    localeKey === "ko"
+      ? byOrder
+      : [
+          ...byOrder.filter((p) => KOREAN_PRACTICE_GAME_IDS.has(p.id)),
+          ...byOrder.filter((p) => !KOREAN_PRACTICE_GAME_IDS.has(p.id)),
+        ];
   const t = await getTranslations({
     locale: localeKey as Locale,
     namespace: "projects",

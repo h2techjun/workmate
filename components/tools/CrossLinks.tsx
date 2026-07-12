@@ -4,12 +4,13 @@ import { CROSS_LINKS } from "@/lib/crossLinks";
 
 /**
  * K-생태계 크로스링크 섹션 — 계산기 하단(ToolGuide 안).
- *  - learn: Loopla 한국어 학습(/learn) 유도 카드. 4로케일(ko/en/zh/vi) 라벨.
- *  - reads: 관련 생활 가이드·글. blog/guide 가 ko/en 콘텐츠라 ko/en 방문자에게만 노출.
- * zh/vi 방문자는 learn 카드만 보여 "한국어 학습" 으로 유도한다(K-생태계 핵심 동선).
+ *  - learn: Loopla 학습(/learn) 유도 카드. 학습축은 방문자 로케일에 따라 갈린다 —
+ *    ko 방문자 = 영어 학습(Loopla English) / en·zh·vi 방문자 = 한국어 학습(Loopla Korean).
+ *    /learn 페이지·projectsCatalog subpathByLocale 과 같은 축(어긋나면 카드↔랜딩 불일치).
+ *  - reads: 관련 생활 가이드·글. blog/guide 4로케일 콘텐츠, 방문자 로케일 그대로 노출.
  */
 const LEARN_COPY = {
-  ko: { heading: "이 주제, 한국어로도 익혀보세요", cta: "한국어 학습 시작" },
+  ko: { heading: "생활 영어, 잊을 만할 때 다시 익혀보세요", cta: "영어 학습 시작" },
   en: { heading: "Learn the Korean behind this", cta: "Start learning Korean" },
   zh: { heading: "顺便学一学相关韩语", cta: "开始学韩语" },
   vi: { heading: "Học luôn tiếng Hàn liên quan", cta: "Bắt đầu học tiếng Hàn" },

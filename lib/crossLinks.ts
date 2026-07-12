@@ -1,11 +1,13 @@
 /**
- * K-생태계 크로스링크 — 계산기(툴) → 한국어 학습(Loopla /learn) + 생활 가이드·글(blog/guide).
+ * K-생태계 크로스링크 — 계산기(툴) → 언어 학습(Loopla /learn) + 생활 가이드·글(blog/guide).
  *
  * 툴↔툴 관련은 messages toolGuides.<key>.related(ToolGuide 렌더)가 이미 담당한다.
- * 여기는 그 갭 — "한국 실무 툴 → 한국어 학습 → 생활상식"을 잇는 K-생태계 연결만 담는다.
+ * 여기는 그 갭 — "한국 실무 툴 → 언어 학습 → 생활상식"을 잇는 K-생태계 연결만 담는다.
  *
  * 키 = ToolGuide toolKey(messages toolGuides 키). 값:
- *   - learn: Loopla 한국어 학습(/learn) 유도. 한글·한국생활 툴처럼 학습 연결이 자연스러운 것만 true.
+ *   - learn: Loopla 학습(/learn) 유도. 학습축은 방문자 로케일 기준 —
+ *     ko=영어 학습(Loopla English) / en·zh·vi=한국어 학습(Loopla Korean).
+ *     한글·한국생활 툴처럼 학습 연결이 자연스러운 것만 true.
  *   - reads: 관련 심화 글/가이드(blog·guide). **실제 관련성만**(억지 링크 금지).
  *     blog/guide 는 ko/en/zh/vi 4로케일 콘텐츠 → 라벨도 4로케일, 컴포넌트가 방문자 로케일로 노출.
  */
