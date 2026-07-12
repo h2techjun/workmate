@@ -1,7 +1,7 @@
 # Workmate 프로젝트 상태판
 
 > **단일 진실원** — 매 세션 시작 시 이 파일을 먼저 읽으세요.
-> 마지막 갱신: 2026-07-12 (외국인 유입 3-Phase 완주 — P3 K-생태계 크로스링크 학습축 로케일 정합 `0bd7911`. P1 vi 완역 25경로 + P2 국가별 비자 가이드 4종 선행 완료. 이전: Loopla 정적 임베드 통합)
+> 마지막 갱신: 2026-07-12 (**Phase 4 breadcrumb 전 페이지 일관화 + 외국인 유입 P1~P4 프로덕션 배포** — `1dc58c6`. ~93페이지 BreadcrumbList JSON-LD+시각 nav 배선. workmate.tools 라이브 200·ads.txt apex/www 200·IndexNow. 이전: 외국인 유입 3-Phase 완주)
 
 ## 🌏 외국인 유입 3-Phase (2026-07-12 착수) — ✅ 3-Phase 완주
 - **P1 vi 완역 ✅ (2026-07-12, `4cd98f1`)**: electric-calc·timber-calc·paint/gravel/deck·size-convert 25경로 완역 색인. vi.json 네임스페이스 14종(~800키)+가이드 4종. **발견**: "사전번역 병합" 기록됐던 timber-lumber·paint·gravel·deck 가이드가 실제로는 영어 원문(vi==en 전수검사로 검출·실번역). IndexNow 25 URL 제출 완료. 남은 마스터 액션: GSC vi URL 색인 요청 + FB 베트남 커뮤니티 유통(distribution-kit).
@@ -257,6 +257,7 @@
 
 | 일자 | 작업 | 커밋 |
 |---|---|---|
+| 2026-07-12 | **Phase 4 — breadcrumb 전 페이지 일관화 + P1~P4 프로덕션 배포** — `BreadcrumbList` JSON-LD가 5페이지만 적용→**~93페이지 배선**(계산기 64·그룹허브 3·게임랜딩 2·허브 4·블로그 10·가이드 9). 인프라 `lib/seo/breadcrumbs.ts`(경로→계층 자동, toolsCatalog/blogPosts 단일진실원=드리프트0) + `components/seo/Breadcrumbs.tsx`(시각 nav+JSON-LD, 자동/currentName/trail). 병렬 에이전트 5기. JSON-LD는 기존 사이트 afterInteractive 패턴 유지(일관성+Google JS렌더). tsc0·585테스트·클린build·라이브 브라우저 QA(3케이스 nav+itemListElement·콘솔0). **배포**: vercel --prod + alias apex/www, 라이브 200·ads.txt 양쪽 200·IndexNow. P1(vi완역)·P2(비자가이드)·P3(학습축)도 이 배포로 라이브 반영 | `1dc58c6` |
 | 2026-07-12 | **외국인 유입 3-Phase 완주 (P3 학습축 정합)** — K-생태계 크로스링크 로케일 학습축 버그 수정: `CrossLinks.tsx` LEARN_COPY ko="한국어 학습"→영어 학습(Loopla English), en/zh/vi=한국어 학습 유지. `learn/page.tsx` GAMES_COPY 4로케일 학습·게임 동선 정합(ko=영어 공부 쉬는 시간 게임 / 외국인=배운 한국어 게임으로 연습) + 외국인 로케일 게임 노출 순서 한국어 연습게임(kword·ktype) 우선 재정렬 + 아이콘. 방문자 로케일 축이 projectsCatalog subpathByLocale·/learn 랜딩과 일치. tsc0·585 테스트·build·프로덕션 build+start 4로케일 라이브 QA(learn·korean-age ×4=200, 학습축 마커 정합) | `0bd7911` |
 | 2026-07-12 | **P2 국가별 비자 가이드 4종** — `/guide/foreign-work-visa-korea`(국가군 7개) · `/guide/eps-e9-work-visa`(EPS 송출 17국) · `/guide/e7-professional-visa`(2026 임금기준) · `/guide/korea-passport-visa-free`(한국여권 무비자국). 데이터주도 4로케일 + Breadcrumb·FAQPage JSON-LD | `1a50afe` |
 | 2026-07-12 | **P1 vi 완역 25경로** — electric·timber·자재 계산기 vi 색인 확대(67→92). 영어 placeholder 가이드 4종 실번역(vi==en 전수검사로 발견) | `4cd98f1` |
