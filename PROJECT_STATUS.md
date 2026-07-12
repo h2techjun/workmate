@@ -1,7 +1,12 @@
 # Workmate 프로젝트 상태판
 
 > **단일 진실원** — 매 세션 시작 시 이 파일을 먼저 읽으세요.
-> 마지막 갱신: 2026-07-06 (Loopla 학습앱 workmate.tools/loopla 정적 임베드 통합 — 트래픽·SEO·수익화 자사 도메인 통합. 이전: 라이트 모드+차트+RSS, ads.txt www 200 회귀 수정)
+> 마지막 갱신: 2026-07-12 (외국인 유입 Phase 1 — 베트남어 완역 25경로: 전기 4·목조 17·자재 3·size-convert. vi 색인 67→92, `4cd98f1`. 이전: Loopla 정적 임베드 통합)
+
+## 🌏 외국인 유입 3-Phase (2026-07-12 착수) — Phase 1 완료
+- **P1 vi 완역 ✅ (2026-07-12, `4cd98f1`)**: electric-calc·timber-calc·paint/gravel/deck·size-convert 25경로 완역 색인. vi.json 네임스페이스 14종(~800키)+가이드 4종. **발견**: "사전번역 병합" 기록됐던 timber-lumber·paint·gravel·deck 가이드가 실제로는 영어 원문(vi==en 전수검사로 검출·실번역). IndexNow 25 URL 제출 완료. 남은 마스터 액션: GSC vi URL 색인 요청 + FB 베트남 커뮤니티 유통(distribution-kit).
+- **P2 인도 국가별 비자/제도** (다음 세션): E-9 EPS 16개국·D-2/D-4·E-7 국가별 분류 허브.
+- **P3 K-생태계 흐름 정합**: 별도 세션에서 병행 진행 중(CrossLinks 학습축).
 
 ## 🧭 글로벌·AX 전략 재설계 (2026-07-03) ⭐ 최신 방향
 
