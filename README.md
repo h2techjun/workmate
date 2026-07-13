@@ -49,8 +49,16 @@ npm run build    # 프로덕션 빌드 (94+ 정적 페이지)
 ## 환경변수
 
 ```bash
+# 공개(브라우저 노출) — NEXT_PUBLIC_ 접두사
 NEXT_PUBLIC_SITE_URL=https://workmate.tools
+
+# 서버 전용 시크릿 — 접두사 없이. API route/스크립트에서만 읽음
+DATABASE_URL=postgres://...        # Neon Postgres (명소 댓글/반응). Vercel Neon Integration 시 자동 주입
+TOURAPI_SERVICE_KEY=...            # 한국관광공사 TourAPI (명소 데이터 파이프라인, 공공데이터포털 발급)
+IP_HASH_SALT=...                   # (선택) 댓글 IP 해시 솔트. 미설정 시 기본값 사용
 ```
+
+> 명소 댓글 DB 초기화: `DATABASE_URL` 설정 후 `node scripts/db/migrate.mjs` (idempotent).
 
 ## 디렉토리
 

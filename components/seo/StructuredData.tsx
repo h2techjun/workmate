@@ -144,6 +144,59 @@ export function FaqJsonLd({
   );
 }
 
+interface TouristAttractionJsonLdProps {
+  name: string;
+  description: string;
+  url: string;
+  image: string;
+  lat: number;
+  lng: number;
+  address: string;
+  id: string;
+}
+
+/**
+ * Schema.org TouristAttraction JSON-LD — 명소 상세용. 좌표(geo)·대표 이미지 포함.
+ */
+export function TouristAttractionJsonLd({
+  name,
+  description,
+  url,
+  image,
+  lat,
+  lng,
+  address,
+  id,
+}: TouristAttractionJsonLdProps): React.ReactElement {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    name,
+    description,
+    url,
+    image,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: lat,
+      longitude: lng,
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: address,
+      addressCountry: "KR",
+    },
+  };
+  return (
+    <Script
+      id={`ta-${id}`}
+      type="application/ld+json"
+      strategy="afterInteractive"
+    >
+      {JSON.stringify(data)}
+    </Script>
+  );
+}
+
 interface OrganizationJsonLdProps {
   url: string;
 }

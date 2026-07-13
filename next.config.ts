@@ -24,6 +24,16 @@ const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // 명소 사진 원격 호스트 — 상업이용 가능 소스만 허용(출처표시는 PhotoAttribution).
+  // wikimedia=MVP CC/PD, tong.visitkorea=TourAPI(Phase 2), unsplash/pexels=무료 스톡 폴백.
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "upload.wikimedia.org" },
+      { protocol: "https", hostname: "tong.visitkorea.or.kr" },
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "images.pexels.com" },
+    ],
+  },
   // 정적 임베드 SPA(public/loopla, public/play/*)는 trailingSlash:true 로 빌드된
   // 디렉토리/index.html 구조다. worktool 기본(trailingSlash:false)이 "/loopla/" 를
   // "/loopla" 로 308 정규화하면 디렉토리 인덱스 매핑이 깨져 404 가 된다.

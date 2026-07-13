@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/i18n";
 import { SITE_URL } from "@/lib/siteConfig";
 import { BLOG_POSTS } from "@/lib/blogPosts";
+import { ATTRACTIONS } from "@/lib/attractionsCatalog";
 import { isViReady } from "@/lib/viReady";
 import { isZhReady } from "@/lib/zhReady";
 
@@ -95,6 +96,7 @@ const TOOL_PATHS = [
   "/guide/span",
   "/guide/insulation",
   "/guide/biz-number",
+  "/attractions",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -135,6 +137,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: {
           languages: Object.fromEntries(
             postLocales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
+          ),
+        },
+      });
+    }
+  }
+  // 명소 상세 — zh/vi 는 완역 경로만 포함(viReady/zhReady 게이트)
+  for (const attraction of ATTRACTIONS) {
+    const path = `/attractions/${attraction.slug}`;
+    const attractionLocales = locales.filter(
+      (l) => (l !== "vi" || isViReady(path)) && (l !== "zh" || isZhReady(path)),
+    );
+    for (const locale of attractionLocales) {
+      entries.push({
+        url: `${SITE_URL}/${locale}${path}`,
+        lastModified: new Date(attraction.publishedAt),
+        changeFrequency: "monthly",
+        priority: 0.7,
+        alternates: {
+          languages: Object.fromEntries(
+            attractionLocales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
           ),
         },
       });
