@@ -5,6 +5,11 @@
 
 ## 🔴 진행 중 (in progress)
 
+### 🗺️ 한국 명소 소개 + 익명 댓글/반응 (2026-07-13 착수, `86c3e38`)
+- [x] **Phase 1 MVP 완료 (코드)**: `/attractions` 허브(오늘의명소 로테이션+목록+자체설명) · `/attractions/[slug]` 상세(사진·고유본문·팁·지도·breadcrumb·TouristAttraction JSON-LD·반응·댓글). 카탈로그 `lib/attractionsCatalog.ts`(장소별 고유본문 4로케일·출처표시, near-dup 방지) 샘플 2곳(경복궁·해운대, 실존 CC 이미지). **DB=Neon Postgres**(프로젝트 최초)·**API route 최초**(honeypot·zod·rate limit·ip해시). tsc0·lint0·612테스트·클린build·라이브 QA 통과.
+- [ ] **마스터 액션 (블로커)**: ① Neon 계정 생성→`DATABASE_URL`→`node scripts/db/migrate.mjs` (댓글 DB 활성) ② TourAPI 활용신청→`TOURAPI_SERVICE_KEY` (Phase 2 자동화) ③ 배포 승인 (현재 미배포, 커밋만).
+- [ ] **Phase 2 (Claude, 계정 후)**: `scripts/fetch-tourapi.mjs`+`draft-attraction-copy.mjs`+`quality-gate.mjs` 반자동 파이프라인, 명소 20~30곳 확장, zh/vi 후행 완역. 계획: `~/.claude/plans/zippy-frolicking-beacon.md`.
+
 - [ ] **AdSense 2차 재신청** (담당: 마스터) — 콘텐츠 보강 충분, 재신청 가능
   - 1차 거절("가치 없는 콘텐츠") 대비 강화: 외국인 도구 7종·상황별 체크리스트 10·필러 블로그·About E-A-T.
   - 위치: AdSense 대시보드 → 사이트 → workmate.tools → "검토 요청"
