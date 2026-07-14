@@ -9,6 +9,7 @@
 - [x] **Phase 1 MVP + DB 연결 완료** (`86c3e38`): `/attractions` 허브·상세(사진·고유본문·팁·지도·breadcrumb·TouristAttraction JSON-LD·반응·댓글). **DB=Neon Postgres**(마스터 workmate 프로젝트 생성→migrate→e2e: 댓글 POST/GET·honeypot·rate limit 429·반응 토글·한글 렌더 전부 검증). API route·next/image 최초. 500 사고=`.next` 손상(클린 재빌드).
 - [x] **Phase 2 명소 확장 완료** (`216d0b8`): `scripts/fetch-tourapi.mjs` 반자동 수집(PhotoGallery 사진+EngService2 좌표) → 명소 5곳 추가(남산타워·북촌·성산일출봉·전주한옥·감천문화마을, **총 7곳**). 각 4로케일 고유 본문 창작 + 공공누리 1유형 사진(출처표시). viReady/zhReady 색인. 계획: `~/.claude/plans/zippy-frolicking-beacon.md`.
 - [x] **프로덕션 배포 완료 (2026-07-13)**: Vercel `DATABASE_URL` 등록(파이프 개행 오염→node spawn input 재등록) → `vercel --prod`+alias. 라이브 검증: 명소 7곳 4로케일 200·**프로덕션 댓글/반응 DB 연결(GET 200)**·ads.txt apex/www 200·IndexNow 413 URL. **명소 기능 라이브!**
+- [x] **글 젊은 톤 재작성 + 예약발행 (2026-07-13, `80b20b1`)**: 7곳 본문을 여행친구 톤+실전 꿀팁으로 재작성(웹 리서치 사실 취합·100% 자체창작, 병렬 에이전트 3기 / 남산 오픈런·전주 초코파이·감천 어린왕자 등). overview 3→4문단·tips 구체화. **예약발행**: `isPublished`/`publishedAttractions`+허브·상세 ISR(revalidate 86400)·dynamicParams·notFound 가드·sitemap/오늘의명소 published 필터 → 미래 `publishedAt` 명소는 공개일에 자동 등장(매일 1곳). 배포·라이브 마커 확인.
 - [ ] **Phase 2 이어가기 (선택, 담당: Claude)**: 명소 20~30곳까지 확장(fetch-tourapi 재사용), `draft`/`quality-gate` 스크립트, 국문 TourAPI 추가 신청 검토.
 - [ ] **마스터 액션**: GSC에서 /attractions 색인 요청 + Search Console에서 명소 rich result 모니터링.
 
