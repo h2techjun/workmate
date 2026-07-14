@@ -123,10 +123,15 @@ export const ZH_READY_PATHS: readonly string[] = [
   "/korean-typing",
   // 가로세로 낱말퀴즈 게임 랜딩 (4로케일 완역)
   "/korean-crossword",
-  // 한국 명소 (attractions) — 샘플 2곳 4로케일 완역 (2026-07-13)
+  // 한국 명소 (attractions) — 4로케일 완역 (2026-07-13~)
   "/attractions",
   "/attractions/gyeongbokgung",
   "/attractions/haeundae-beach",
+  "/attractions/n-seoul-tower",
+  "/attractions/bukchon-hanok-village",
+  "/attractions/seongsan-ilchulbong",
+  "/attractions/jeonju-hanok-village",
+  "/attractions/gamcheon-culture-village",
 ];
 
 const SET = new Set(ZH_READY_PATHS);
