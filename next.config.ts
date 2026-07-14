@@ -76,12 +76,14 @@ const nextConfig: NextConfig = {
     const looplaRewrites = [
       { source: "/loopla", destination: "/loopla/index.html" },
       { source: "/loopla/", destination: "/loopla/index.html" },
-      // 확장자 있는 실제 정적 파일(.txt RSC flight payload·.js·.json·아이콘 등)은
-      // 그대로 서빙(self-rewrite passthrough). 이 rule 이 없으면 아래 디렉토리→index.html
-      // rewrite 가 클라이언트 RSC 네비게이션이 요청하는 `.../study/index.txt` 에
-      // `/index.html` 을 덧붙여 `.../index.txt/index.html`(404) 로 확장해버린다
-      // (rsc/next-router-state-tree 헤더 실린 요청이 정적파일 매칭을 건너뛰어 rewrite 로 떨어짐).
-      { source: "/loopla/:dir*/:file.:ext", destination: "/loopla/:dir*/:file.:ext" },
+      // ⚠️ 알려진 무해 노이즈(2026-07-15 조사·수용 결정, 재조사 불필요):
+      // RSC 클라이언트 네비게이션(rsc/next-router-state-tree 헤더)이 요청하는
+      // /loopla/**/index.txt(및 .js 청크)를 Vercel 엣지가 정적 서빙 건너뛰고 아래 rule 로
+      // 떨어뜨려 .../index.txt/index.html(404) 콘솔 노이즈를 낸다. 기능 무관 — Next 가
+      // 즉시 hard-nav 폴백해 화면·탭 전환 정상(라이브 QA 확인). 로컬 dev 는 200 정상이라
+      // Next 앱 로직이 아닌 Vercel 플랫폼 특성. afterFiles self-rewrite passthrough
+      // (:dir*/:file.:ext)를 2회 시도했으나 라이브에서 안 걸림(엣지가 RSC 를 동적 취급).
+      // 근본 제거는 inner 앱 hard-nav 전환뿐이라 비용 대비 수용. 건드리지 말 것.
       { source: "/loopla/:path+", destination: "/loopla/:path+/index.html" },
     ];
 
