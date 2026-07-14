@@ -76,6 +76,12 @@ const nextConfig: NextConfig = {
     const looplaRewrites = [
       { source: "/loopla", destination: "/loopla/index.html" },
       { source: "/loopla/", destination: "/loopla/index.html" },
+      // 확장자 있는 실제 정적 파일(.txt RSC flight payload·.js·.json·아이콘 등)은
+      // 그대로 서빙(self-rewrite passthrough). 이 rule 이 없으면 아래 디렉토리→index.html
+      // rewrite 가 클라이언트 RSC 네비게이션이 요청하는 `.../study/index.txt` 에
+      // `/index.html` 을 덧붙여 `.../index.txt/index.html`(404) 로 확장해버린다
+      // (rsc/next-router-state-tree 헤더 실린 요청이 정적파일 매칭을 건너뛰어 rewrite 로 떨어짐).
+      { source: "/loopla/:path*.:ext", destination: "/loopla/:path*.:ext" },
       { source: "/loopla/:path+", destination: "/loopla/:path+/index.html" },
     ];
 
