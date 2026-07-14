@@ -6,9 +6,10 @@
 ## 🔴 진행 중 (in progress)
 
 ### 🗺️ 한국 명소 소개 + 익명 댓글/반응 (2026-07-13 착수, `86c3e38`)
-- [x] **Phase 1 MVP 완료 (코드)**: `/attractions` 허브(오늘의명소 로테이션+목록+자체설명) · `/attractions/[slug]` 상세(사진·고유본문·팁·지도·breadcrumb·TouristAttraction JSON-LD·반응·댓글). 카탈로그 `lib/attractionsCatalog.ts`(장소별 고유본문 4로케일·출처표시, near-dup 방지) 샘플 2곳(경복궁·해운대, 실존 CC 이미지). **DB=Neon Postgres**(프로젝트 최초)·**API route 최초**(honeypot·zod·rate limit·ip해시). tsc0·lint0·612테스트·클린build·라이브 QA 통과.
-- [ ] **마스터 액션 (블로커)**: ① Neon 계정 생성→`DATABASE_URL`→`node scripts/db/migrate.mjs` (댓글 DB 활성) ② TourAPI 활용신청→`TOURAPI_SERVICE_KEY` (Phase 2 자동화) ③ 배포 승인 (현재 미배포, 커밋만).
-- [ ] **Phase 2 (Claude, 계정 후)**: `scripts/fetch-tourapi.mjs`+`draft-attraction-copy.mjs`+`quality-gate.mjs` 반자동 파이프라인, 명소 20~30곳 확장, zh/vi 후행 완역. 계획: `~/.claude/plans/zippy-frolicking-beacon.md`.
+- [x] **Phase 1 MVP + DB 연결 완료** (`86c3e38`): `/attractions` 허브·상세(사진·고유본문·팁·지도·breadcrumb·TouristAttraction JSON-LD·반응·댓글). **DB=Neon Postgres**(마스터 workmate 프로젝트 생성→migrate→e2e: 댓글 POST/GET·honeypot·rate limit 429·반응 토글·한글 렌더 전부 검증). API route·next/image 최초. 500 사고=`.next` 손상(클린 재빌드).
+- [x] **Phase 2 명소 확장 완료** (`216d0b8`): `scripts/fetch-tourapi.mjs` 반자동 수집(PhotoGallery 사진+EngService2 좌표) → 명소 5곳 추가(남산타워·북촌·성산일출봉·전주한옥·감천문화마을, **총 7곳**). 각 4로케일 고유 본문 창작 + 공공누리 1유형 사진(출처표시). viReady/zhReady 색인. 계획: `~/.claude/plans/zippy-frolicking-beacon.md`.
+- [ ] **마스터 액션 (배포 블로커)**: ① **Vercel에 `DATABASE_URL` 등록**(Neon-Vercel Integration or 대시보드 수동) ② 배포 승인 → `vercel --prod`+alias(제가 실행). 로컬 완전 동작, 프로덕션만 남음.
+- [ ] **Phase 2 이어가기 (선택)**: 명소 20~30곳까지 확장(fetch-tourapi 재사용), `draft`/`quality-gate` 스크립트, 국문 TourAPI 추가 신청 검토.
 
 - [ ] **AdSense 2차 재신청** (담당: 마스터) — 콘텐츠 보강 충분, 재신청 가능
   - 1차 거절("가치 없는 콘텐츠") 대비 강화: 외국인 도구 7종·상황별 체크리스트 10·필러 블로그·About E-A-T.

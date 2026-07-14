@@ -1,7 +1,7 @@
 # Workmate 프로젝트 상태판
 
 > **단일 진실원** — 매 세션 시작 시 이 파일을 먼저 읽으세요.
-> 마지막 갱신: 2026-07-13 (**한국 명소 소개 + 익명 댓글/반응 Phase 1 MVP** — `86c3e38`. 프로젝트 최초 DB(Neon)·API route·next/image 도입. /attractions 허브·상세·오늘의명소·TourAPI 반자동 파이프라인 설계. **미배포**(Neon 계정→migrate→배포 승인 마스터 대기). 이전: Phase 4 breadcrumb + P1~P4 배포)
+> 마지막 갱신: 2026-07-13 (**한국 명소 기능 — MVP+DB연결+Phase2 확장** `216d0b8`. Neon DB 연결·댓글 e2e 검증 완료(로컬), TourAPI 반자동 수집으로 명소 7곳(4로케일 고유본문·공공누리 사진). **미배포** — Vercel `DATABASE_URL` 등록+배포 승인 마스터 대기. 이전: Phase 4 breadcrumb + P1~P4 배포)
 
 ## 🌏 외국인 유입 3-Phase (2026-07-12 착수) — ✅ 3-Phase 완주
 - **P1 vi 완역 ✅ (2026-07-12, `4cd98f1`)**: electric-calc·timber-calc·paint/gravel/deck·size-convert 25경로 완역 색인. vi.json 네임스페이스 14종(~800키)+가이드 4종. **발견**: "사전번역 병합" 기록됐던 timber-lumber·paint·gravel·deck 가이드가 실제로는 영어 원문(vi==en 전수검사로 검출·실번역). IndexNow 25 URL 제출 완료. 남은 마스터 액션: GSC vi URL 색인 요청 + FB 베트남 커뮤니티 유통(distribution-kit).
