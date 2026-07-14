@@ -81,7 +81,7 @@ const nextConfig: NextConfig = {
       // rewrite 가 클라이언트 RSC 네비게이션이 요청하는 `.../study/index.txt` 에
       // `/index.html` 을 덧붙여 `.../index.txt/index.html`(404) 로 확장해버린다
       // (rsc/next-router-state-tree 헤더 실린 요청이 정적파일 매칭을 건너뛰어 rewrite 로 떨어짐).
-      { source: "/loopla/:path*.:ext", destination: "/loopla/:path*.:ext" },
+      { source: "/loopla/:dir*/:file.:ext", destination: "/loopla/:dir*/:file.:ext" },
       { source: "/loopla/:path+", destination: "/loopla/:path+/index.html" },
     ];
 
