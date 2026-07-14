@@ -6,6 +6,8 @@
  * (허브의 TodayAttraction 위젯이 클라이언트에서 이 함수를 호출한다.)
  */
 
+import type { AttractionEntry } from "./attractionsCatalog";
+
 /** Date → KST(UTC+9) "YYYY-MM-DD" */
 export function kstDateString(date: Date): string {
   const kst = new Date(date.getTime() + 9 * 60 * 60 * 1000);
@@ -35,4 +37,23 @@ export function pickTodayAttraction<T>(
   if (list.length === 0) return null;
   const idx = hashString(kstDateString(date)) % list.length;
   return list[idx] ?? null;
+}
+
+/**
+ * 예약발행 — publishedAt(YYYY-MM-DD KST)이 오늘 이하인 명소만 공개.
+ * 미래 날짜 명소는 그날 도달할 때까지 목록·색인·상세에서 숨겨진다(매일 1곳씩 등장).
+ */
+export function isPublished(publishedAt: string, now: Date): boolean {
+  return publishedAt <= kstDateString(now);
+}
+
+/** 공개된(publishedAt <= 오늘) 명소만, 발행일 내림차순 */
+export function publishedAttractions(
+  list: readonly AttractionEntry[],
+  now: Date,
+): AttractionEntry[] {
+  const today = kstDateString(now);
+  return list
+    .filter((a) => a.publishedAt <= today)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 }

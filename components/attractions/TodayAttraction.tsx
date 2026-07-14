@@ -2,7 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { AttractionCard } from "./AttractionCard";
-import { pickTodayAttraction } from "@/lib/attractionsFeature";
+import {
+  pickTodayAttraction,
+  publishedAttractions,
+} from "@/lib/attractionsFeature";
 import { ATTRACTIONS, type AttractionEntry } from "@/lib/attractionsCatalog";
 import type { Locale } from "@/i18n";
 
@@ -22,7 +25,8 @@ export function TodayAttraction({
   const [today, setToday] = useState<AttractionEntry | null>(null);
 
   useEffect(() => {
-    setToday(pickTodayAttraction(ATTRACTIONS, new Date()));
+    const now = new Date();
+    setToday(pickTodayAttraction(publishedAttractions(ATTRACTIONS, now), now));
   }, []);
 
   if (!today) {

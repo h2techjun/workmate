@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { locales, type Locale } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
-import { sortedAttractions } from "@/lib/attractionsCatalog";
+import { ATTRACTIONS } from "@/lib/attractionsCatalog";
+import { publishedAttractions } from "@/lib/attractionsFeature";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { TodayAttraction } from "@/components/attractions/TodayAttraction";
 import { AttractionCard } from "@/components/attractions/AttractionCard";
@@ -114,6 +115,9 @@ const COPY: Record<Locale, Copy> = {
   },
 };
 
+// ISR — 예약발행 명소가 공개일에 자동 등장하도록 하루 주기 재검증.
+export const revalidate = 86400;
+
 export function generateStaticParams(): Array<{ locale: string }> {
   return locales.map((locale) => ({ locale }));
 }
@@ -146,7 +150,7 @@ export default async function AttractionsHubPage({
   const { locale } = await params;
   const lk = localeKeyOf(locale);
   const c = COPY[lk];
-  const all = sortedAttractions();
+  const all = publishedAttractions(ATTRACTIONS, new Date());
 
   return (
     <main className="px-4 pb-16 pt-6 md:px-6 md:pt-10">

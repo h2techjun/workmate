@@ -7,8 +7,9 @@ import { SITE_URL, SITE_BRAND } from "@/lib/siteConfig";
 import {
   findAttraction,
   localizedAttraction,
-  ATTRACTION_SLUGS,
+  ATTRACTIONS,
 } from "@/lib/attractionsCatalog";
+import { publishedAttractions, isPublished } from "@/lib/attractionsFeature";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { TouristAttractionJsonLd } from "@/components/seo/StructuredData";
 import { PhotoAttribution } from "@/components/attractions/PhotoAttribution";
@@ -27,8 +28,14 @@ function localeKeyOf(locale: string): Locale {
   return "en";
 }
 
+// ISR + 예약발행 — 공개된 명소만 정적 생성, 미래 명소는 공개일에 자동 등장.
+export const revalidate = 86400;
+export const dynamicParams = true;
+
 export function generateStaticParams(): Array<{ slug: string }> {
-  return ATTRACTION_SLUGS.map((slug) => ({ slug }));
+  return publishedAttractions(ATTRACTIONS, new Date()).map((a) => ({
+    slug: a.slug,
+  }));
 }
 
 const TIPS_HEADING: Record<Locale, string> = {
@@ -72,7 +79,10 @@ export default async function AttractionDetailPage({
 }: PageProps): Promise<React.ReactElement> {
   const { locale, slug } = await params;
   const attraction = findAttraction(slug);
-  if (!attraction) notFound();
+  // 미공개(publishedAt 미래) 명소는 공개일 전까지 404 — 예약발행
+  if (!attraction || !isPublished(attraction.publishedAt, new Date())) {
+    notFound();
+  }
   const lk = localeKeyOf(locale);
   const t = localizedAttraction(attraction, lk);
   const url = `${SITE_URL}/${locale}/attractions/${slug}`;

@@ -3,6 +3,7 @@ import { locales } from "@/i18n";
 import { SITE_URL } from "@/lib/siteConfig";
 import { BLOG_POSTS } from "@/lib/blogPosts";
 import { ATTRACTIONS } from "@/lib/attractionsCatalog";
+import { isPublished } from "@/lib/attractionsFeature";
 import { isViReady } from "@/lib/viReady";
 import { isZhReady } from "@/lib/zhReady";
 
@@ -143,7 +144,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
   // 명소 상세 — zh/vi 는 완역 경로만 포함(viReady/zhReady 게이트)
-  for (const attraction of ATTRACTIONS) {
+  for (const attraction of ATTRACTIONS.filter((a) =>
+    isPublished(a.publishedAt, now),
+  )) {
     const path = `/attractions/${attraction.slug}`;
     const attractionLocales = locales.filter(
       (l) => (l !== "vi" || isViReady(path)) && (l !== "zh" || isZhReady(path)),
