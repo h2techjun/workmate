@@ -163,6 +163,8 @@ if (existsSync(messagesDir)) {
     // 게임 랜딩 — 자체 본문(가이드+FAQ ≥800자)+게임 임베드, 계산기 아님
     "korean-typing",
     "korean-crossword",
+    // 명소 허브 — 오늘의 명소+목록+자체 설명 본문, 계산기 아님(상세는 [slug] 동적으로 제외)
+    "attractions",
   ]);
   const thin = [];
   const walkPages = (dir, rel = "") => {

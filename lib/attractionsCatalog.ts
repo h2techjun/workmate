@@ -11,6 +11,11 @@
  * 🖼️ 저작권: 모든 이미지는 상업이용 가능 라이선스만(위키미디어 CC/PD·한국관광공사
  *   공공누리 1유형·Unsplash/Pexels). `license`/`credit`/`creditUrl` 을 반드시 채우고
  *   `PhotoAttribution` 컴포넌트가 이미지 하단에 출처를 표기한다.
+ *
+ * 📅 발행 규칙 (마스터 정책 2026-07-15): **신규 명소의 `publishedAt` 은 기존 마지막
+ *   발행일 + 2일**로 부여한다. 예약발행(publishedAt<=오늘 KST 만 공개, attractionsFeature)
+ *   과 결합돼 콘텐츠가 "2일에 한 곳씩" 순차 공개된다 → 한 번에 소진하지 않고 오래 끌기.
+ *   fetch-tourapi 로 여러 곳을 수집해도 병합 시 publishedAt 만 2일 간격 미래로 주면 됨.
  */
 
 export type AttractionRegion =
