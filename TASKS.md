@@ -10,8 +10,9 @@
 - [x] **Phase 2 명소 확장 완료** (`216d0b8`): `scripts/fetch-tourapi.mjs` 반자동 수집(PhotoGallery 사진+EngService2 좌표) → 명소 5곳 추가(남산타워·북촌·성산일출봉·전주한옥·감천문화마을, **총 7곳**). 각 4로케일 고유 본문 창작 + 공공누리 1유형 사진(출처표시). viReady/zhReady 색인. 계획: `~/.claude/plans/zippy-frolicking-beacon.md`.
 - [x] **프로덕션 배포 완료 (2026-07-13)**: Vercel `DATABASE_URL` 등록(파이프 개행 오염→node spawn input 재등록) → `vercel --prod`+alias. 라이브 검증: 명소 7곳 4로케일 200·**프로덕션 댓글/반응 DB 연결(GET 200)**·ads.txt apex/www 200·IndexNow 413 URL. **명소 기능 라이브!**
 - [x] **글 젊은 톤 재작성 + 예약발행 (2026-07-13, `80b20b1`)**: 7곳 본문을 여행친구 톤+실전 꿀팁으로 재작성(웹 리서치 사실 취합·100% 자체창작, 병렬 에이전트 3기 / 남산 오픈런·전주 초코파이·감천 어린왕자 등). overview 3→4문단·tips 구체화. **예약발행**: `isPublished`/`publishedAttractions`+허브·상세 ISR(revalidate 86400)·dynamicParams·notFound 가드·sitemap/오늘의명소 published 필터 → 미래 `publishedAt` 명소는 공개일에 자동 등장(매일 1곳). 배포·라이브 마커 확인.
-- [ ] **Phase 2 이어가기 (선택, 담당: Claude)**: 명소 20~30곳까지 확장(fetch-tourapi 재사용), `draft`/`quality-gate` 스크립트, 국문 TourAPI 추가 신청 검토.
-- [ ] **마스터 액션**: GSC에서 /attractions 색인 요청 + Search Console에서 명소 rich result 모니터링.
+- [x] **SEO/전환 최적화 1·2·4 (2026-07-13, `d5cf676`)**: ①명소 FAQ(FaqJsonLd rich result — 7곳×4로케일 3Q&A, 라이브 FAQPage 방출 확인)→검색결과 CTR ②크로스링크 양방향(명소→여행도구 4종 + visa-days·cost-of-living·remittance·korean-age→명소 허브)→내부링크·전환 ④audit tsconfig 오탐 수정(`@/*`의 /* 블록주석 오인)·attractions thin 예외. **명소 발행 2일 주기** 규칙(카탈로그 주석, publishedAt=마지막+2일). 배포·라이브 QA(JSON-LD 5종·아코디언·링크). ③메타=명소 summary 재작성으로 이미 CTR친화, 도구 메타는 GSC 페이지데이터 대기.
+- [ ] **Phase 2 이어가기 (선택, 담당: Claude)**: 명소 20~30곳까지 확장(fetch-tourapi 재사용, publishedAt 2일 간격), `draft`/`quality-gate` 스크립트, 국문 TourAPI 추가 신청.
+- [ ] **마스터 액션**: GSC에서 /attractions 색인 요청 + Search Console 명소 FAQ/breadcrumb rich result 모니터링. (선택) 노출 상위 도구 GSC 페이지데이터 주면 메타 최적화.
 
 - [ ] **AdSense 2차 재신청** (담당: 마스터) — 콘텐츠 보강 충분, 재신청 가능
   - 1차 거절("가치 없는 콘텐츠") 대비 강화: 외국인 도구 7종·상황별 체크리스트 10·필러 블로그·About E-A-T.
