@@ -94,7 +94,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     externalUrl: "https://junhuimine.github.io/k-poker/",
     githubUrl: "https://github.com/h2techjun/k-poker",
     status: "live",
-    order: 1,
+    order: 3,
     accent: "from-rose-500 to-orange-500",
     techStack: ["Flutter", "Riverpod", "Hive", "Roguelike"],
     i18n: {
@@ -131,7 +131,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     externalUrl: "https://h2techjun.github.io/defense/",
     githubUrl: "https://github.com/h2techjun/defense",
     status: "beta",
-    order: 2,
+    order: 4,
     accent: "from-amber-500 to-red-600",
     techStack: ["Flutter", "Flame", "Tower Defense", "RPG"],
     i18n: {
@@ -169,7 +169,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     subpath: "/ktype",
     landingPath: "/korean-typing",
     status: "beta",
-    order: 3,
+    order: 1,
     accent: "from-indigo-500 to-violet-500",
     techStack: ["Vite", "React 19", "TypeScript", "Hangul IME"],
     i18n: {
@@ -207,7 +207,7 @@ export const PROJECTS_CATALOG: ReadonlyArray<ProjectEntry> = [
     subpath: "/kword",
     landingPath: "/korean-crossword",
     status: "beta",
-    order: 4,
+    order: 2,
     accent: "from-lime-400 to-cyan-500",
     techStack: ["Vite", "React 19", "Zustand", "Crossword"],
     i18n: {
