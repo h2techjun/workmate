@@ -102,6 +102,14 @@ export interface AttractionEntry {
     zh: readonly string[];
     vi: readonly string[];
   };
+
+  /** 자주 묻는 질문 — FAQ rich result(FaqJsonLd) + 화면 렌더. 로케일별 3개 권장 */
+  faq?: {
+    ko: ReadonlyArray<{ q: string; a: string }>;
+    en: ReadonlyArray<{ q: string; a: string }>;
+    zh: ReadonlyArray<{ q: string; a: string }>;
+    vi: ReadonlyArray<{ q: string; a: string }>;
+  };
 }
 
 export const REGION_LABELS: Record<
@@ -219,6 +227,64 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
       zh: ["景福宫", "首尔宫殿", "韩服", "换岗仪式", "光化门"],
       vi: ["Gyeongbokgung", "cung điện Seoul", "Hanbok", "lễ đổi gác", "Gwanghwamun"],
     },
+    faq: {
+      ko: [
+        {
+          q: "경복궁 입장료와 휴궁일은?",
+          a: "성인 입장료는 3,000원이지만 한복(위아래 세트)을 입으면 무료입니다. 매주 화요일은 전체 휴궁이니 방문일을 잡을 때 꼭 확인하세요.",
+        },
+        {
+          q: "경복궁 가는 법은?",
+          a: "지하철 3호선 경복궁역 5번 출구가 서쪽 입구로 바로 연결됩니다. 바로 옆 국립고궁박물관은 무료라 함께 둘러보기 좋아요.",
+        },
+        {
+          q: "경복궁 사람 없는 사진 찍으려면 언제 가야 하나요?",
+          a: "평일 개장 직후인 오전 9~9:30분이 가장 한산합니다. 단체 관광객이 몰리기 전이라 거의 전세 낸 듯한 느낌으로 사진을 찍을 수 있어요. 봄·가을 야간개장을 노린다면 한복을 입고 가면 정원이 찼어도 입장할 수 있습니다.",
+        },
+      ],
+      en: [
+        {
+          q: "What's the admission fee and closing day for Gyeongbokgung?",
+          a: "Adult admission is ₩3,000, but it's free if you wear a full hanbok (top and bottom set). The palace is closed all day every Tuesday, so check the calendar before you plan your visit.",
+        },
+        {
+          q: "How do you get to Gyeongbokgung?",
+          a: "Exit 5 of Gyeongbokgung Station (Subway Line 3) connects directly to the west entrance. The National Palace Museum right next door is free, so it's worth pairing the two.",
+        },
+        {
+          q: "When's the best time to visit for an empty-courtyard photo?",
+          a: "Show up right at opening on a weekday, 9:00–9:30 AM, before the tour groups arrive — you'll practically have the place to yourself. If you're aiming for the spring/fall night opening, wearing hanbok gets you in even after the nightly ticket cap is reached.",
+        },
+      ],
+      zh: [
+        {
+          q: "景福宫门票多少钱？哪天闭馆？",
+          a: "成人门票3000韩元，但只要穿一套完整的韩服（上衣+下装）就能免费入场。每周二全天闭馆，安排行程前一定要确认。",
+        },
+        {
+          q: "景福宫怎么去？",
+          a: "地铁3号线景福宫站5号出口直接通向西侧入口。旁边的国立古宫博物馆免费，可以一起逛。",
+        },
+        {
+          q: "什么时候去能拍到没有人的照片？",
+          a: "平日刚开门的早上9:00~9:30去最好，旅行团还没到，基本能包场。如果想赶春秋季夜间开放，穿韩服的话即使名额已满也能入场。",
+        },
+      ],
+      vi: [
+        {
+          q: "Vé vào cổng Gyeongbokgung bao nhiêu và cung đóng cửa ngày nào?",
+          a: "Vé người lớn là 3.000 won, nhưng mặc trọn bộ Hanbok (áo và quần/váy) thì được miễn phí. Cung đóng cửa cả ngày thứ Ba hàng tuần, nên nhớ kiểm tra lịch trước khi lên kế hoạch.",
+        },
+        {
+          q: "Đi đến Gyeongbokgung bằng cách nào?",
+          a: "Lối ra số 5 ga Gyeongbokgung (tuyến 3) dẫn thẳng vào cổng phía tây. Bảo tàng Cung điện Quốc gia ngay bên cạnh miễn phí vào cửa, nên ghé thăm luôn cũng hợp lý.",
+        },
+        {
+          q: "Nên đi lúc nào để chụp được ảnh vắng người?",
+          a: "Hãy đến ngay lúc mở cửa vào ngày thường, khoảng 9:00–9:30 sáng, trước khi đoàn khách du lịch kéo đến — gần như được riêng cả khuôn viên. Nếu muốn xem đợt mở cửa đêm mùa xuân/thu, mặc Hanbok sẽ được vào dù đã đủ số lượng vé.",
+        },
+      ],
+    },
   },
   {
     slug: "haeundae-beach",
@@ -305,6 +371,64 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
       zh: ["海云台", "釜山海滩", "冬柏岛", "广安大桥", "釜山旅游"],
       vi: ["Haeundae", "biển Busan", "Dongbaekseom", "cầu Gwangan", "du lịch Busan"],
     },
+    faq: {
+      ko: [
+        {
+          q: "해운대 해수욕장 입장료와 개장 시기는?",
+          a: "백사장 자체는 무료로 개방되며 입장료가 없습니다. 공식 물놀이(해수욕) 시즌은 매년 6월 말부터 8월 말까지지만, 해변 산책과 야경은 사계절 언제 가도 좋습니다.",
+        },
+        {
+          q: "해운대 가는 법은?",
+          a: "부산 지하철 2호선 해운대역 3·5번 출구가 백사장과 가장 가깝고, 해운대시장·해리단길로 갈 땐 4번 출구가 편리합니다.",
+        },
+        {
+          q: "해운대 스카이캡슐은 예약해야 하나요?",
+          a: "네, 스카이캡슐과 해변열차는 인기가 많아 현장 구매만으로는 못 탈 수 있어 온라인 사전예매가 필수입니다. 사람이 덜 붐비는 시기를 원한다면 7~10월이 좋고, 야경은 해 진 뒤 마린시티·광안대교 조명이 물에 비칠 때가 가장 아름답습니다.",
+        },
+      ],
+      en: [
+        {
+          q: "Is there an admission fee for Haeundae Beach, and when's the swimming season?",
+          a: "The beach itself is free to enter — no admission fee. The official swimming season runs late June through late August, but the beach and its night views are worth visiting year-round.",
+        },
+        {
+          q: "How do you get to Haeundae Beach?",
+          a: "Haeundae Station (Busan Metro Line 2) Exits 3 and 5 drop you closest to the sand, while Exit 4 is better if you're headed to Haeundae Market or Haeridan-gil.",
+        },
+        {
+          q: "Do I need to book the Sky Capsule in advance?",
+          a: "Yes — the Sky Capsule and Beach Train are popular enough to sell out same-day, so book online ahead of time. For fewer crowds aim for July through October, and the beach is at its best after dark when the lights of Marine City and Gwangan Bridge reflect off the water.",
+        },
+      ],
+      zh: [
+        {
+          q: "海云台海水浴场要门票吗？游泳季是什么时候？",
+          a: "沙滩本身免费开放，不收门票。正式游泳季是每年6月底到8月底，不过海滩散步和夜景四季都值得来看。",
+        },
+        {
+          q: "海云台怎么去？",
+          a: "釜山地铁2号线海云台站3、5号出口离沙滩最近，去海云台市场或海里丹街的话4号出口更方便。",
+        },
+        {
+          q: "天空胶囊需要提前订票吗？",
+          a: "需要，天空胶囊和海边小火车很受欢迎，现场买票经常卖光，建议提前网上订票。想避开人潮就选7~10月去，夜晚Marine City和广安大桥的灯光倒映在海面时最美。",
+        },
+      ],
+      vi: [
+        {
+          q: "Bãi biển Haeundae có mất phí vào cửa không? Mùa tắm biển là khi nào?",
+          a: "Bãi biển mở cửa miễn phí, không thu vé vào cửa. Mùa tắm biển chính thức là từ cuối tháng 6 đến cuối tháng 8, nhưng dạo biển và ngắm cảnh đêm thì đáng ghé quanh năm.",
+        },
+        {
+          q: "Đi đến bãi biển Haeundae bằng cách nào?",
+          a: "Lối ra số 3 và 5 ga Haeundae (tuyến 2 tàu điện Busan) gần bãi cát nhất, còn muốn đến chợ Haeundae hay Haeridan-gil thì ra lối số 4 tiện hơn.",
+        },
+        {
+          q: "Có cần đặt vé Sky Capsule trước không?",
+          a: "Có, Sky Capsule và tàu biển rất hot nên vé mua tại chỗ hay hết, tốt nhất nên đặt online trước. Muốn tránh đông thì chọn tháng 7–10, và cảnh đẹp nhất là về đêm khi ánh đèn Marine City và cầu Gwangan phản chiếu xuống mặt biển.",
+        },
+      ],
+    },
   },
   {
     slug: "n-seoul-tower",
@@ -389,6 +513,64 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
       en: ["N Seoul Tower", "Namsan", "Seoul night view", "cable car", "love padlock"],
       zh: ["南山首尔塔", "N首尔塔", "首尔夜景", "南山缆车", "爱情锁"],
       vi: ["Tháp N Seoul", "Namsan", "cảnh đêm Seoul", "cáp treo", "khóa tình yêu"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "남산서울타워 입장료는 얼마인가요?",
+          a: "케이블카 왕복 약 15,000원과 전망대 입장료 약 29,000원(성인)은 별도로 결제해야 합니다. 타워 아래 광장·팔각정·사랑의 자물쇠 존은 모두 무료로 즐길 수 있어요.",
+        },
+        {
+          q: "남산서울타워 가는 법은?",
+          a: "명동역 3번 출구에서 10분 걸어가면 남산 케이블카 승강장이 나옵니다. 순환버스(01A·01B, 1,400원)도 있지만 현금은 받지 않으니 T-money 교통카드를 미리 준비하세요.",
+        },
+        {
+          q: "남산서울타워 야경은 언제 보러 가야 하나요?",
+          a: "일몰 정각이 아니라 60~90분 전에 올라가는 게 꿀팁입니다. 정각에 맞춰 가면 케이블카와 전망대 줄이 동시에 최악이 되거든요. 미리 올라가면 노을부터 야경까지 한 번에 볼 수 있고, 정상은 바람이 세니 얇은 겉옷을 챙기는 게 좋아요.",
+        },
+      ],
+      en: [
+        {
+          q: "How much does N Seoul Tower cost to visit?",
+          a: "The cable car round-trip runs about ₩15,000 and the 360° observatory is a separate ticket at about ₩29,000 for adults. The plaza, pavilion, and Locks of Love zone at the base are all free to enjoy.",
+        },
+        {
+          q: "How do you get to N Seoul Tower?",
+          a: "It's a 10-minute walk from Myeongdong Station Exit 3 to the Namsan cable car station. The circulation bus (01A/01B, ₩1,400) is another option, but it takes no cash — bring a T-money transit card.",
+        },
+        {
+          q: "When's the best time to catch the night view?",
+          a: "Arrive 60–90 minutes before sunset rather than right at golden hour — hitting it dead-on means the worst lines at both the cable car and the observatory. Getting there early lets you catch daylight, dusk, and city lights in one visit, and it's windy at the summit, so bring a light layer.",
+        },
+      ],
+      zh: [
+        {
+          q: "南山首尔塔门票多少钱？",
+          a: "缆车往返约15,000韩元，360度观景台门票另算，成人约29,000韩元。塔下广场、八角亭和爱情锁区域全部免费。",
+        },
+        {
+          q: "南山首尔塔怎么去？",
+          a: "从明洞站3号出口步行10分钟即可到达南山缆车站。也可以乘循环巴士（01A/01B，1,400韩元），但不收现金，记得带T-money交通卡。",
+        },
+        {
+          q: "什么时候去看夜景最好？",
+          a: "别卡着日落正点去，提前60~90分钟登顶最好——正点抵达会同时撞上缆车和观景台最长的队伍。提前上去能一次收获晚霞和万家灯火，山顶风大记得带件外套。",
+        },
+      ],
+      vi: [
+        {
+          q: "Lên Tháp N Seoul tốn bao nhiêu tiền?",
+          a: "Cáp treo khứ hồi khoảng 15.000 won, còn vé đài quan sát 360° tính riêng, khoảng 29.000 won cho người lớn. Quảng trường, lầu bát giác và khu Khóa tình yêu dưới chân tháp đều miễn phí.",
+        },
+        {
+          q: "Đi đến Tháp N Seoul bằng cách nào?",
+          a: "Đi bộ 10 phút từ lối ra 3 ga Myeongdong là tới trạm cáp treo Namsan. Cũng có thể đi xe buýt vòng (01A/01B, 1.400 won), nhưng không nhận tiền mặt nên nhớ mang theo thẻ T-money.",
+        },
+        {
+          q: "Nên lên ngắm cảnh đêm vào lúc nào?",
+          a: "Đừng canh đúng khoảnh khắc hoàng hôn — hãy lên trước 60–90 phút, vì đến đúng lúc đó là dính hàng dài nhất ở cả cáp treo lẫn đài quan sát. Lên sớm bạn sẽ bắt trọn ánh chiều, hoàng hôn và đèn thành phố, và nhớ mang áo khoác mỏng vì đỉnh núi gió mạnh.",
+        },
+      ],
     },
   },
   {
@@ -475,6 +657,64 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
       zh: ["北村韩屋村", "韩屋", "嘉会洞", "北村八景", "首尔传统村"],
       vi: ["Bukchon", "hanok", "Gahoe-dong", "làng truyền thống", "Seoul"],
     },
+    faq: {
+      ko: [
+        {
+          q: "북촌한옥마을 입장료와 운영시간은 어떻게 되나요?",
+          a: "북촌은 실제 주민이 사는 동네라 별도 입장료나 정해진 운영시간이 없어요. 다만 가회동 11번지 일대는 오후 5시 이후 촬영 자제를 요청하는 레드존이니 이 시간대는 피하는 게 좋아요.",
+        },
+        {
+          q: "북촌한옥마을은 어떻게 가나요?",
+          a: "지하철 3호선 안국역 2번 출구에서 도보로 들어가면 돼요. 언덕길이 계속 이어지니 편한 신발을 신고 가는 걸 추천해요.",
+        },
+        {
+          q: "언제 가야 사람이 덜 붐비고 사진이 잘 나오나요?",
+          a: "오전 9~11시나 해질 무렵이 가장 한산해요. 낮 12시~2시는 단체관광 피크타임이라 붐비니 피하세요. 가회동 11번지 언덕길에서 뒤돌아보면 기와지붕 너머로 남산타워가 보이는 게 대표 포토존이에요.",
+        },
+      ],
+      en: [
+        {
+          q: "What are the entrance fee and hours for Bukchon Hanok Village?",
+          a: "Bukchon is a real residential neighborhood, so there's no entrance fee or fixed hours. That said, the Gahoe-dong 11 area is a 'red zone' asking visitors to stop photographing after 5pm, so it's best to avoid that window.",
+        },
+        {
+          q: "How do I get to Bukchon Hanok Village?",
+          a: "Walk up from Anguk Station Exit 2 (Line 3). It's a steady uphill climb, so wear comfortable shoes.",
+        },
+        {
+          q: "When's the best time to visit for fewer crowds and good photos?",
+          a: "Aim for 9-11am or just before sunset — noon to 2pm is peak tour-group hour. The classic photo spot is the sloped alley around Gahoe-dong 11, where tiled roofs frame N Seoul Tower when you look back.",
+        },
+      ],
+      zh: [
+        {
+          q: "北村韩屋村的门票和开放时间是怎样的？",
+          a: "北村是真实的居民生活区，没有门票也没有固定开放时间。不过嘉会洞11号地一带是「红区」，下午5点后请勿拍摄，最好避开这个时段前往。",
+        },
+        {
+          q: "北村韩屋村怎么去？",
+          a: "从地铁3号线安国站2号出口步行进入即可，一路都是上坡路，建议穿舒适的鞋子。",
+        },
+        {
+          q: "什么时候去人少、好拍照？",
+          a: "上午9点到11点或傍晚时分人最少，中午12点到2点是旅行团高峰要避开。代表性拍照点是嘉会洞11号地一带的坡道，回头一看瓦顶层叠间正好衬出南山塔。",
+        },
+      ],
+      vi: [
+        {
+          q: "Làng Hanok Bukchon có mất phí vào cửa và giờ mở cửa thế nào?",
+          a: "Bukchon là khu dân cư thật sự có người sinh sống nên không thu phí vào cửa hay có giờ mở cửa cố định. Tuy nhiên khu vực Gahoe-dong số 11 là 'vùng đỏ' yêu cầu ngừng chụp ảnh sau 17h, nên tránh khung giờ đó.",
+        },
+        {
+          q: "Đi đến Làng Hanok Bukchon bằng cách nào?",
+          a: "Đi bộ lên từ lối ra số 2, ga Anguk (tuyến 3). Đường dốc lên liên tục nên hãy đi giày thoải mái.",
+        },
+        {
+          q: "Nên đi lúc nào để đỡ đông người và chụp ảnh đẹp?",
+          a: "Tốt nhất là 9-11h sáng hoặc gần lúc chiều tà — khung 12h-14h là giờ cao điểm đoàn khách nên tránh. Góc chụp kinh điển là con dốc quanh Gahoe-dong số 11, ngoảnh lại sẽ thấy mái ngói xếp lớp lộ ra tháp Namsan phía sau.",
+        },
+      ],
+    },
   },
   {
     slug: "seongsan-ilchulbong",
@@ -559,6 +799,64 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
       en: ["Seongsan Ilchulbong", "Jeju", "UNESCO", "sunrise", "crater"],
       zh: ["城山日出峰", "济州旅游", "世界自然遗产", "日出", "火山口"],
       vi: ["Seongsan Ilchulbong", "Jeju", "UNESCO", "bình minh", "miệng núi lửa"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "성산일출봉 입장료와 운영시간이 어떻게 되나요?",
+          a: "매표는 오전 7시부터 시작되고 정상 요금은 성인 5,000원이에요. 7시 전에는 무료로 입장할 수 있어서 일출 보러 가는 사람들은 이 타이밍을 노려요.",
+        },
+        {
+          q: "성산일출봉은 어떻게 가나요?",
+          a: "주소는 서귀포시 성산읍 일출로 284-12로 제주 동쪽 끝에 있어요. 바로 옆에 성산항이 있어서 우도行 배편(15분)과 묶어 하루 코스로 짜기 좋아요.",
+        },
+        {
+          q: "방문하기 가장 좋은 타이밍이나 놓치면 아쉬운 팁이 있을까요?",
+          a: "일출 보러 갈 거면 매표 시작 전인 새벽이 핵심이에요. 계단은 300~500개, 편도 20~30분이면 정상에 닿고, 정상 근처는 바람이 세니 바람막이를 챙기세요. 하산 후엔 광치기해변에서 썰물 때 이끼바위 위로 담기는 일출봉 실루엣도 놓치지 마세요.",
+        },
+      ],
+      en: [
+        {
+          q: "What are the entrance fee and hours for Seongsan Ilchulbong?",
+          a: "Ticketing starts at 7am and full price is 5,000 won for adults. Entry is free before 7am, which is exactly the window sunrise-chasers aim for.",
+        },
+        {
+          q: "How do I get to Seongsan Ilchulbong?",
+          a: "It's located at 284-12 Ilchul-ro, Seongsan-eup, Seogwipo-si — on Jeju's east coast. Seongsan Port sits right next to it, so it pairs easily with the 15-minute ferry to Udo island for a full day trip.",
+        },
+        {
+          q: "When's the best time to visit, or any must-know tips?",
+          a: "If you're chasing sunrise, get there before the 7am ticket window opens. It's 300-500 steps and 20-30 minutes one way to the summit, and the wind up top is strong, so bring a windbreaker. After descending, don't skip Gwangchigi Beach — at low tide, the peak's silhouette reflects over mossy black rocks.",
+        },
+      ],
+      zh: [
+        {
+          q: "城山日出峰的门票和开放时间是怎样的？",
+          a: "售票从早上7点开始，正常票价成人5,000韩元。7点之前可以免费入场，看日出的人都会专门赶这个时段。",
+        },
+        {
+          q: "城山日出峰怎么去？",
+          a: "地址是西归浦市城山邑日出路284-12，位于济州岛最东边。旁边就是城山港，可以和15分钟的牛岛渡轮串成一天的行程。",
+        },
+        {
+          q: "什么时候去最好，有什么不能错过的小贴士？",
+          a: "想看日出的话，一定要赶在早上7点售票前到。台阶约300到500级，单程20到30分钟就能登顶，山顶风很大记得带防风外套。下山后别错过光致其海边——退潮时苔藓岩石上映出的日出峰剪影非常出片。",
+        },
+      ],
+      vi: [
+        {
+          q: "Đỉnh Seongsan Ilchulbong có mất phí và giờ mở cửa thế nào?",
+          a: "Quầy vé mở từ 7h sáng, giá vé đầy đủ là 5.000 won cho người lớn. Trước 7h có thể vào miễn phí, đây chính là khung giờ dân săn bình minh luôn nhắm tới.",
+        },
+        {
+          q: "Đi đến Seongsan Ilchulbong bằng cách nào?",
+          a: "Địa chỉ là 284-12 Ilchul-ro, Seongsan-eup, Seogwipo-si, nằm ở cực đông đảo Jeju. Ngay sát đó là cảng Seongsan, nên có thể kết hợp với chuyến phà 15 phút sang đảo Udo thành một hành trình trọn ngày.",
+        },
+        {
+          q: "Thời điểm nào đẹp nhất để ghé thăm, hay có mẹo nào không nên bỏ lỡ?",
+          a: "Nếu muốn săn bình minh, hãy đến trước khi quầy vé mở lúc 7h sáng. Khoảng 300-500 bậc thang, 20-30 phút một chiều là lên tới đỉnh, gió trên đỉnh khá mạnh nên mang theo áo gió. Sau khi xuống núi, đừng bỏ lỡ bãi biển Gwangchigi — lúc triều xuống, bóng ngọn núi in trên đá rêu tạo nên khung hình rất đẹp.",
+        },
+      ],
     },
   },
   {
@@ -645,6 +943,64 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
       zh: ["全州韩屋村", "庆基殿", "殿洞圣堂", "全州拌饭", "韩服"],
       vi: ["Làng Hanok Jeonju", "Gyeonggijeon", "Nhà thờ Jeondong", "bibimbap", "hanbok"],
     },
+    faq: {
+      ko: [
+        {
+          q: "경기전 입장료와 한옥마을 운영시간이 궁금해요.",
+          a: "경기전 입장료는 성인 3,000원인데, 한복을 입고 가면 무료예요. 바로 앞 전동성당은 원래 무료로 열려 있고, 한옥마을 골목 자체는 상시 자유롭게 걸어 다닐 수 있어요.",
+        },
+        {
+          q: "전주한옥마을은 어떻게 돌아보는 게 좋나요?",
+          a: "완산구 향교길 일대에 볼거리가 모여 있어서 도보로 충분히 둘러볼 수 있어요. 동선은 경기전을 기준점으로 잡고, 맞은편 전동성당까지 함께 돌면 1시간 반 정도면 여유 있게 구경할 수 있어요.",
+        },
+        {
+          q: "한복은 언제 빌리는 게 제일 좋아요?",
+          a: "평일 오전 11시 전에 대여하면 옷 고를 폭도 넓고 탈의실 줄도 없어요. 노을 질 때 전동성당 돔이 붉게 물드는 순간이 사진 찍기 제일 좋은 타이밍이에요.",
+        },
+      ],
+      en: [
+        {
+          q: "How much does Gyeonggijeon cost, and what are the village hours?",
+          a: "Gyeonggijeon admission is ₩3,000 for adults, but it's free if you're wearing hanbok. Jeondong Cathedral right across the street is free to enter, and the hanok village's alleys themselves are always open to walk through.",
+        },
+        {
+          q: "What's the best way to get around Jeonju Hanok Village?",
+          a: "Everything worth seeing clusters around Hyanggyo-gil in Wansan-gu, so it's easy to cover on foot. Use Gyeonggijeon as your anchor point — pairing it with Jeondong Cathedral across the street takes about 90 unhurried minutes.",
+        },
+        {
+          q: "When's the best time to rent hanbok?",
+          a: "Rent before 11am on a weekday for the widest outfit choices and no fitting-room line. For photos, aim for sunset, when the light turns Jeondong Cathedral's dome red.",
+        },
+      ],
+      zh: [
+        {
+          q: "庆基殿门票多少钱？韩屋村的开放时间呢？",
+          a: "庆基殿成人门票3,000韩元，但穿韩服进去免费。正对面的殿洞圣堂本身就免费开放，韩屋村的巷弄则全天都能自由走动。",
+        },
+        {
+          q: "全州韩屋村怎么逛比较好？",
+          a: "看点大多集中在完山区乡校街一带，步行就能逛完。可以把庆基殿当作起点，再走到对面的殿洞圣堂，不赶时间的话大约90分钟就能逛完两处。",
+        },
+        {
+          q: "韩服什么时候租最好？",
+          a: "平日上午11点前去租，衣服选择多、也不用排试衣间。拍照的话建议挑日落时分，那时殿洞圣堂的穹顶会被染成红色，是最佳时机。",
+        },
+      ],
+      vi: [
+        {
+          q: "Vé vào Gyeonggijeon bao nhiêu, và làng mở cửa giờ nào?",
+          a: "Vé vào Gyeonggijeon là 3.000 won cho người lớn, nhưng miễn phí nếu bạn mặc hanbok. Nhà thờ Jeondong ngay đối diện thì vào cửa miễn phí, còn các con hẻm trong làng hanok thì lúc nào cũng mở để dạo bộ.",
+        },
+        {
+          q: "Nên đi lại trong Làng Hanok Jeonju thế nào?",
+          a: "Các điểm tham quan tập trung quanh khu Hyanggyo-gil, Wansan-gu nên đi bộ là đủ. Lấy Gyeonggijeon làm điểm mốc, rồi ghé Nhà thờ Jeondong đối diện — dạo cả hai không vội mất khoảng 90 phút.",
+        },
+        {
+          q: "Thuê hanbok vào lúc nào là tốt nhất?",
+          a: "Thuê trước 11 giờ sáng ngày thường để có nhiều lựa chọn trang phục và không phải xếp hàng phòng thay đồ. Muốn chụp ảnh đẹp thì canh lúc hoàng hôn, khi mái vòm Nhà thờ Jeondong nhuộm sắc đỏ.",
+        },
+      ],
+    },
   },
   {
     slug: "gamcheon-culture-village",
@@ -730,6 +1086,64 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
       zh: ["甘川文化村", "釜山旅游", "壁画村", "韩国马丘比丘", "小王子"],
       vi: ["Gamcheon", "Busan", "làng tranh tường", "Machu Picchu Hàn Quốc", "Hoàng tử Bé"],
     },
+    faq: {
+      ko: [
+        {
+          q: "감천문화마을 입장료랑 개방 시간이 어떻게 되나요?",
+          a: "마을 자체는 입장료 없이 자유롭게 둘러볼 수 있어요. 다만 실제 주민이 사는 동네라 개방 시간이 정해져 있는데, 동절기는 9시~17시, 하절기는 9시~18시예요. 정보센터에서 2,000원짜리 지도를 사면 스탬프 투어도 돌 수 있어요.",
+        },
+        {
+          q: "감천문화마을은 어떻게 가나요?",
+          a: "지하철 1호선 토성역 6번 출구에서 마을버스(사하1-1·서구2·서구2-2)로 갈아타는 게 정석이에요. 요즘 관광객이 몰려 만원버스가 흔하니, 체력이 되면 아침 일찍 도보로 올라가는 것도 방법이에요.",
+        },
+        {
+          q: "어린왕자 포토존 줄이 너무 길면 어떻게 해요?",
+          a: "주말·휴가철엔 대기 줄이 1시간 넘게 이어지는 게 기본이에요. 사람 적은 사진을 원한다면 마을 위쪽 체육시설 근처의 한산한 어린왕자 포토존을 노려보세요.",
+        },
+      ],
+      en: [
+        {
+          q: "Is there an admission fee, and what are Gamcheon's opening hours?",
+          a: "There's no separate admission fee — the village is open to walk through freely. Since real residents still live there, it does keep set hours: 9am–5pm in winter and 9am–6pm the rest of the year. The information center sells a ₩2,000 map for a stamp-trail walk.",
+        },
+        {
+          q: "How do you get to Gamcheon Culture Village?",
+          a: "The standard route is Toseong Station (Line 1), Exit 6, then a transfer to a village bus (Saha 1-1, Seogu 2, or Seogu 2-2). Buses fill up fast these days with tourists, so an early-morning walk up is worth considering if you're up for it.",
+        },
+        {
+          q: "What if the line for the Little Prince photo spot is too long?",
+          a: "Weekend and holiday queues routinely run over an hour. If you'd rather skip the crowd, head to the quieter Little Prince spot near the sports facility in the upper village.",
+        },
+      ],
+      zh: [
+        {
+          q: "甘川文化村门票多少钱？开放时间是几点？",
+          a: "村子本身不收门票，可以自由参观。不过这里仍是真实住宅区，所以有固定开放时间：冬季9点到17点，其余季节9点到18点。游客中心有2,000韩元的地图，可以顺便走一趟集章路线。",
+        },
+        {
+          q: "甘川文化村怎么去？",
+          a: "标准路线是地铁1号线土城站6号出口，转乘社区巴士（沙下1-1、西区2、西区2-2）上山。最近游客多，巴士常常爆满，体力允许的话清晨徒步上山也是个办法。",
+        },
+        {
+          q: "小王子拍照点排队太长怎么办？",
+          a: "周末或假期排队常常超过一小时。如果想要人少一点的照片，可以去村子上方体育设施附近那个比较冷清的小王子拍照点。",
+        },
+      ],
+      vi: [
+        {
+          q: "Vé vào Làng Gamcheon bao nhiêu, giờ mở cửa thế nào?",
+          a: "Làng không thu vé vào cửa, bạn có thể tự do dạo quanh. Nhưng vì vẫn có cư dân thực sự sinh sống ở đây nên có giờ mở cửa cố định: 9h–17h vào mùa đông, 9h–18h các mùa còn lại. Trung tâm thông tin bán bản đồ giá 2.000 won cho hành trình đóng dấu.",
+        },
+        {
+          q: "Đi đến Làng Văn hóa Gamcheon bằng cách nào?",
+          a: "Cách chuẩn nhất là ga Toseong (tuyến 1), lối ra số 6, rồi đổi sang xe buýt làng (Saha 1-1, Seogu 2, hoặc Seogu 2-2). Dạo này khách du lịch đông nên xe hay chật cứng, nếu còn sức thì đi bộ lên vào sáng sớm cũng là cách hay.",
+        },
+        {
+          q: "Nếu xếp hàng ở điểm chụp Hoàng tử Bé quá dài thì sao?",
+          a: "Cuối tuần hay mùa lễ, xếp hàng thường kéo dài hơn một tiếng. Nếu muốn ảnh vắng người hơn, hãy tới điểm chụp Hoàng tử Bé ít đông hơn gần khu thể thao ở phần trên làng.",
+        },
+      ],
+    },
   },
 ];
 
@@ -771,6 +1185,7 @@ export function localizedAttraction(
   overview: readonly string[];
   tips: readonly string[];
   tags: readonly string[];
+  faq: ReadonlyArray<{ q: string; a: string }>;
   regionLabel: string;
   categoryLabel: string;
 } {
@@ -789,6 +1204,7 @@ export function localizedAttraction(
             : a.overviewEn,
     tips: a.tips[locale] ?? a.tips.en,
     tags: a.tags[locale] ?? a.tags.en,
+    faq: a.faq?.[locale] ?? a.faq?.en ?? [],
     regionLabel: REGION_LABELS[a.region][locale],
     categoryLabel: CATEGORY_LABELS[a.category][locale],
   };

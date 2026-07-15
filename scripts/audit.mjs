@@ -82,15 +82,13 @@ report.add("D.보안", "클라이언트 코드에 비공개 env 누출 없음",
 );
 
 // E. TS strict
+// JSONC + glob 경로("@/*" 의 /* 를 블록주석으로 오인) 때문에 JSON.parse 는 취약.
+// strict:false 명시 여부만 정규식으로 검사(기본 true).
 const tsCfg = join(ROOT, "tsconfig.json");
 if (existsSync(tsCfg)) {
-  try {
-    const cfg = JSON.parse(readFileSync(tsCfg, "utf-8").replace(/\/\/.*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, ""));
-    const strict = cfg.compilerOptions?.strict !== false;
-    report.add("E.TS", "tsconfig strict", strict);
-  } catch (e) {
-    report.add("E.TS", "tsconfig parse", false, e.message, "warn");
-  }
+  const raw = readFileSync(tsCfg, "utf-8");
+  const strict = !/"strict"\s*:\s*false/.test(raw);
+  report.add("E.TS", "tsconfig strict", strict);
 }
 
 // F. 메이커 허브 카탈로그 (Hakrew 2026-05-04 제외 — SaaS 책임 분리)

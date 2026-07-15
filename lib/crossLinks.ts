@@ -129,6 +129,15 @@ const GUIDE = {
   },
 } as const;
 
+/** 명소 허브 — 여행/외국인 계산기에서 명소로 유도(내부링크·전환 동선) */
+const ATTRACTIONS_HUB = {
+  href: "/attractions",
+  ko: "한국 명소 — 하루 한 곳",
+  en: "Korea attractions — one a day",
+  zh: "韩国景点 — 每日一处",
+  vi: "Điểm đến Hàn Quốc — mỗi ngày một nơi",
+} as const;
+
 export const CROSS_LINKS: Record<string, CrossLinkEntry> = {
   // ── 노무·급여: 4대보험 가이드 ──
   "net-salary": { reads: [GUIDE.fourIns] },
@@ -150,7 +159,7 @@ export const CROSS_LINKS: Record<string, CrossLinkEntry> = {
   "area-convert": { reads: [BLOG.pyeong, BLOG.units] },
   "distance-convert": { reads: [BLOG.units] },
   "temp-convert": { reads: [BLOG.units] },
-  "korean-age": { learn: true, reads: [BLOG.units] },
+  "korean-age": { learn: true, reads: [BLOG.units, ATTRACTIONS_HUB] },
   "korean-number": { learn: true, reads: [BLOG.units] },
   "hangul-decompose": { learn: true, reads: [BLOG.units] },
   "name-romanize": { learn: true, reads: [BLOG.units] },
@@ -159,13 +168,13 @@ export const CROSS_LINKS: Record<string, CrossLinkEntry> = {
   "school-grade": { learn: true, reads: [BLOG.units] },
   "voltage-guide": { learn: true, reads: [BLOG.living] },
   // ── 외국인 비자·생활 ──
-  "visa-days": { learn: true, reads: [BLOG.living] },
+  "visa-days": { learn: true, reads: [BLOG.living, ATTRACTIONS_HUB] },
   "f2-residence-visa": { reads: [BLOG.living] },
   "d8-startup-visa": { reads: [BLOG.living] },
   "foreign-health-insurance": { reads: [BLOG.living] },
   "pension-refund": { reads: [BLOG.living] },
-  "cost-of-living": { reads: [BLOG.living, BLOG.apps] },
-  "remittance": { reads: [BLOG.living] },
+  "cost-of-living": { reads: [BLOG.living, BLOG.apps, ATTRACTIONS_HUB] },
+  "remittance": { reads: [BLOG.living, ATTRACTIONS_HUB] },
   // ── 전기·건축: 심화 가이드 ──
   "electric-wire-size": { reads: [GUIDE.wireSize] },
   "electric-breaker": { reads: [GUIDE.wireSize] },
