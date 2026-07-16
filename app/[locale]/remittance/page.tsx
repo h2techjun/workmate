@@ -27,7 +27,7 @@ export async function generateMetadata({
   const description = isKo
     ? "해외송금의 진짜 비용은 수수료 + 숨은 환율 마진입니다. 송금액과 마진·수수료를 넣으면 총비용과 실질 비용률, 실수령 상당액을 계산합니다. 연간 한도·신고 의무·증빙 등 외국환거래 규정 안내 포함."
     : isZh
-      ? "海外汇款的真实成本 = 手续费 + 隐藏的汇率差价。输入汇款金额及差价率、手续费，即可算出总成本、实际成本率与实际到账价值，并附韩国外汇交易相关规定说明（年度限额、申报义务、证明文件等）。"
+      ? "海外汇款的真实成本 = 手续费 + 隐藏的汇率差价，仅看手续费很容易被误导。输入汇款金额、实际差价率与手续费，即可算出总成本、实际成本率与到账金额，并对照韩国外汇交易规定（年度限额、申报义务、证明文件等）提前规划汇款方式。"
       : isVi
         ? "Chi phí thực sự khi chuyển tiền ra nước ngoài từ Hàn Quốc là phí giao dịch CỘNG với chênh lệch tỷ giá ẩn. Nhập số tiền, mức chênh lệch và phí để xem tổng chi phí, tỷ lệ chi phí thực tế và số tiền thực nhận. Bao gồm quy định chuyển tiền của Hàn Quốc — hạn mức hàng năm, nghĩa vụ khai báo và chứng từ."
         : "The real cost of sending money from Korea is the fee PLUS the hidden FX margin. Enter your amount, margin, and fee to see total cost, effective rate, and what's delivered. Includes Korea's remittance rules — annual limits, reporting, and proof.";

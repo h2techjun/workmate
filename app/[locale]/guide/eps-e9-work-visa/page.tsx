@@ -60,7 +60,7 @@ export async function generateMetadata({
   if (locale === "zh") {
     title = "韩国雇佣许可制(E-9)工作签证完全指南(2026) | Workmate";
     description =
-      "E-9是韩国制造·农业·渔业·建筑现场的合法外国劳动力签证。17个派遣国、EPS-TOPIK选拔、4年10个月居留、2026年8万人配额,以及印度为何不属EPS——一次讲清。";
+      "E-9是韩国制造·农业·渔业·建筑现场的合法外国劳动力签证。详解17个派遣国、EPS-TOPIK选拔流程、4年10个月居留期(最长可延至9年8个月)、2026年8万人配额，以及印度为何不属EPS、如何转向E-7-4长期定居路径。";
   } else if (locale === "vi") {
     title =
       "Visa lao động EPS (E-9) Hàn Quốc: Hướng dẫn đầy đủ 2026 | Workmate";

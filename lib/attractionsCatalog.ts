@@ -587,7 +587,7 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
     summaryEn:
       "A hillside hanok neighborhood between Gyeongbokgung and Changdeokgung where people actually live. Climb the alley stairs, glance back, and tiled roofs frame N Seoul Tower like magic — the classic must-shoot. Just remember it's someone's front yard, not a film set.",
     summaryZh:
-      "位于景福宫与昌德宫之间山坡上、真的有人居住的韩屋村。沿巷弄石阶爬上去回头一看，瓦顶层层叠叠间南山塔悄然入镜——这就是必拍的经典一张。但别忘了，这里是别人家的院子。",
+      "位于景福宫与昌德宫之间的山坡上，是一个至今仍有600多户居民真实生活的韩屋村。沿着窄窄的巷弄石阶往上爬，途中喘口气回头一看，层层叠叠的瓦顶后方悄悄探出一座南山塔——这就是必拍的经典一张。但别忘了，这里是别人的家，游览时请放轻脚步、压低音量。",
     summaryVi:
       "Khu hanok trên đồi giữa Gyeongbokgung và Changdeokgung, nơi người dân vẫn sinh sống thật sự. Leo hết dốc hẻm rồi ngoảnh lại, mái ngói xếp lớp bỗng lộ ra tháp Namsan phía sau — góc ảnh 'phải chụp' kinh điển. Nhưng đừng quên đây là sân nhà của ai đó, không phải phim trường.",
     overviewKo: [

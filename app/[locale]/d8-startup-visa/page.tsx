@@ -27,7 +27,7 @@ export async function generateMetadata({
   const description = isKo
     ? "외국인이 한국에서 창업/투자해 D-8 비자(D-8-1 기업투자 · D-8-3 개인투자 · D-8-4 기술창업)를 받을 수 있는지 기본 자격을 체크. 최소 투자금 1억원·지분 10%, 학력·특허·OASIS 점수제까지 정확히 안내."
     : isZh
-      ? "核对外国人在韩国创业/投资获得D-8签证(D-8-1企业投资·D-8-3个人投资·D-8-4技术创业)的基本资格。精准指南最低投资额1亿韩元·持股10%，以及学历·专利·OASIS积分制。"
+      ? "核对外国人在韩国创业或投资获得D-8签证(D-8-1企业投资·D-8-3个人投资·D-8-4技术创业)的基本资格，逐项检查是否达标。精准说明最低投资额1亿韩元与持股10%的规定，以及学历、专利、OASIS积分制等技术创业评分标准。"
       : isVi
         ? "Kiểm tra xem bạn có đủ điều kiện xin visa D-8 khi khởi nghiệp/đầu tư tại Hàn Quốc hay không — D-8-1 đầu tư doanh nghiệp, D-8-3 đầu tư cá nhân, D-8-4 khởi nghiệp công nghệ. Hướng dẫn chính xác về quy định đầu tư tối thiểu 100 triệu won/10% cổ phần, trình độ học vấn, bằng sáng chế và chế độ tính điểm OASIS."
         : "Check whether you qualify for Korea's D-8 visa as a foreign founder/investor — D-8-1 corporate investment, D-8-3 individual investment, D-8-4 technology startup. Covers the ₩100M / 10% rule, degree & patent requirements, and the OASIS points system.";

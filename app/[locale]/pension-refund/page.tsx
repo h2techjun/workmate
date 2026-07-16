@@ -27,7 +27,7 @@ export async function generateMetadata({
   const description = isKo
     ? "한국에서 일한 외국인이 출국 시 돌려받는 국민연금 반환일시금을 추정. 기준소득월액·납부 개월로 원금(사용자 부담분 포함)+이자를 계산하고, 국적·E-9/H-2 비자별 수령 가능 여부와 세금까지 안내."
     : isZh
-      ? "估算在韩工作的外国人出境时可领回的国民年金退还一次性补偿金。根据基准收入月额与缴纳月数计算本金（含雇主承担部分）+利息，并说明按国籍·E-9/H-2签证划分的领取资格与相关税务。"
+      ? "估算在韩国工作的外国人永久出境时可领回的国民年金退还一次性补偿金。根据基准收入月额与缴纳月数计算本金（含雇主承担部分）加利息，并按国籍与E-9/H-2签证类型说明领取资格、所需材料与相关税务，帮助你提前规划出境退款流程。"
       : isVi
         ? "Ước tính khoản hoàn trả lương hưu một lần (National Pension) mà người nước ngoài có thể nhận lại khi xuất cảnh khỏi Hàn Quốc vĩnh viễn. Tính gốc (bao gồm phần công ty đóng) + lãi dựa trên mức thu nhập chuẩn tháng và số tháng đã đóng, đồng thời hướng dẫn điều kiện nhận theo quốc tịch / visa E-9·H-2 và thuế."
         : "Estimate the National Pension lump-sum refund foreigners can reclaim when leaving Korea. Calculates principal (employer's share included) + interest from your income base and months, and explains eligibility by nationality / E-9·H-2 visa, plus tax.";

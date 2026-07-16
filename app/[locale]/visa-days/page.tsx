@@ -25,7 +25,7 @@ export async function generateMetadata({
         ? "Máy tính số ngày lưu trú tại Hàn Quốc — miễn visa 90 ngày, ngày hết hạn lưu trú"
         : "Korea Stay Days Calculator — visa expiry & 90-day tracker";
   const description = isKo
-    ? "입국일과 허용 체류일수로 현재 체류 일수·만료일·남은 일수를 즉시 계산. 90일 무비자, 30/60/180일 비자 추적. 초과체류 경고 포함."
+    ? "입국일과 허용 체류일수만 입력하면 현재 체류 일수·비자 만료일·남은 일수를 한국시간(KST) 기준으로 즉시 계산합니다. 90일 무비자 관광, 30/60/180일 단기비자를 모두 추적하고, 초과체류 위험을 미리 알려주는 경고까지 포함합니다."
     : isZh
       ? "输入入境日期与允许滞留天数，即可按韩国时间立即算出当前已滞留天数、签证到期日与剩余天数，帮助你提前规划行程。支持90天免签及30·60·180天短期签证追踪，并提前发出超期滞留风险警告，避免罚款或黑名单。"
       : isVi

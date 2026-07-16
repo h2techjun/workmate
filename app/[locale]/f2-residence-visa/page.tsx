@@ -27,7 +27,7 @@ export async function generateMetadata({
   const description = isKo
     ? "F-2-7 점수제 거주비자의 5개 신청 유형과 필수요건(3년 체류 또는 연소득 4천만 원)·품행 요건을 항목별로 확인합니다. 80점 점수제 계산과 영주권(F-5)으로 이어지는 경로까지 안내하며, 최종 확인은 hikorea 공식 정보로 하세요."
     : isZh
-      ? "核对F-2-7积分制居留签证的5种申请类型·核心要求(连续居留3年或年收入4000万韩元以上)·品行要求，并指南80分积分制及永久居留(F-5)路径。请以hikorea官方信息为准。"
+      ? "核对F-2-7积分制居留签证的5种申请类型、核心要求(连续居留3年或年收入4000万韩元以上)与品行要求，逐项检查是否符合条件。同时指南80分积分制评分方式及通往永久居留(F-5)的后续路径，最终确认请以hikorea官方信息为准。"
       : isVi
         ? "Kiểm tra 5 nhóm đối tượng xin visa cư trú theo chế độ tính điểm F-2-7, yêu cầu cốt lõi (cư trú liên tục 3 năm hoặc thu nhập hàng năm từ 40 triệu won), và yêu cầu về hạnh kiểm. Hướng dẫn chế độ tính điểm 80/170 và lộ trình sang thường trú (F-5). Hãy xác minh chính thức tại hikorea."
         : "Check your F-2-7 residence visa eligibility — 5 applicant categories, core requirements (3-yr stay or ₩40M income), conduct. Guide to the 80-point test and F-5 path. Verify at hikorea.";
