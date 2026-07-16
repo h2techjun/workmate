@@ -7648,7 +7648,7 @@
   "breakerTool": {
     "meta": {
       "title": "Máy Tính Dung Lượng Aptomat | Workmate",
-      "description": "Tự động chọn dòng định mức MCB/MCCB từ dòng tải + hệ số an toàn, kèm cảnh báo kết hợp inverter+ELB."
+      "description": "Tự động chọn dòng định mức MCB/MCCB từ dòng tải + hệ số an toàn, kèm cảnh báo kết hợp inverter+ELB, miễn phí sử dụng ngay không cần đăng ký."
     },
     "title": "Máy Tính Dung Lượng Aptomat",
     "subtitle": "Dòng tải × hệ số an toàn → định mức tiêu chuẩn KS nhỏ nhất thỏa mãn yêu cầu. Kèm cảnh báo ngắt nhầm khi kết hợp inverter+ELB.",
@@ -7718,7 +7718,7 @@
   "voltageDropTool": {
     "meta": {
       "title": "Máy Tính Sụt Áp | Workmate",
-      "description": "Tính độ sụt áp và kiểm tra theo giới hạn khoảng cách của Quy chuẩn Điện Hàn Quốc (3-7%)."
+      "description": "Tính độ sụt áp và kiểm tra theo giới hạn khoảng cách của Quy chuẩn Điện Hàn Quốc (3-7%). Miễn phí, sử dụng ngay không cần đăng ký."
     },
     "title": "Máy Tính Sụt Áp",
     "subtitle": "Công thức Quy chuẩn Điện Hàn Quốc e = (k × L × I) / (1000 × A), tự động so sánh với giới hạn theo khoảng cách (3% / 5% / 6% / 7%).",
@@ -7969,7 +7969,7 @@
   "concreteTool": {
     "meta": {
       "title": "Máy tính Khối lượng Bê tông | Workmate",
-      "description": "Khối lượng bê tông móng băng hoặc móng bè + trọng lượng cốt thép + số xe bê tông tươi (remicon)."
+      "description": "Khối lượng bê tông móng băng hoặc móng bè + trọng lượng cốt thép + số xe bê tông tươi (remicon), miễn phí sử dụng ngay không cần đăng ký."
     },
     "title": "Máy tính Khối lượng Bê tông",
     "subtitle": "Loại móng × kích thước + hệ số hao hụt → khối lượng bê tông + trọng lượng cốt thép + số xe bê tông tươi (remicon).",
@@ -8215,7 +8215,7 @@
   "roofAreaTool": {
     "meta": {
       "title": "Máy tính Diện tích Mái | Workmate",
-      "description": "Từ diện tích mặt bằng và góc dốc, tính diện tích mái nghiêng thực tế cộng diện tích mái hiên."
+      "description": "Từ diện tích mặt bằng và góc dốc, tính diện tích mái nghiêng thực tế cộng diện tích mái hiên, miễn phí và sử dụng ngay không cần đăng ký."
     },
     "title": "Máy tính Diện tích Mái",
     "subtitle": "Diện tích mặt bằng × sec(góc dốc) → diện tích mái thực tế. Thêm chu vi và độ vươn mái hiên để tính cả diện tích mái hiên.",
@@ -8276,7 +8276,7 @@
   "rafterTool": {
     "meta": {
       "title": "Máy tính chiều dài rui mè | Workmate",
-      "description": "Tính chiều dài cắt, góc, độ dốc và tỷ lệ pitch của rui mè từ run, rise và độ nhô mái hiên."
+      "description": "Tính chiều dài cắt, góc, độ dốc và tỷ lệ pitch của rui mè từ run, rise và độ nhô mái hiên, miễn phí sử dụng ngay không cần đăng ký."
     },
     "title": "Máy tính chiều dài rui mè",
     "subtitle": "Từ khoảng cách ngang (run) và độ cao đứng (rise), tính ngay chiều dài cắt rui mè, góc, độ dốc (%) và pitch (rise/12).",
@@ -8338,7 +8338,7 @@
   "roofPitchTool": {
     "meta": {
       "title": "Bộ chuyển đổi độ dốc mái | Workmate",
-      "description": "Chuyển đổi giữa góc, độ dốc % và pitch (rise/12) cùng hệ số hiệu chỉnh diện tích."
+      "description": "Chuyển đổi giữa góc, độ dốc % và pitch (rise/12) cùng hệ số hiệu chỉnh diện tích, miễn phí sử dụng ngay không cần đăng ký."
     },
     "title": "Bộ chuyển đổi độ dốc mái",
     "subtitle": "Nhập góc (°), độ dốc (%) hoặc pitch (rise/12) — nhận ngay các cách biểu diễn còn lại và hệ số hiệu chỉnh diện tích.",

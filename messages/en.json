@@ -1295,7 +1295,7 @@
   "roofPitchTool": {
     "meta": {
       "title": "Roof Pitch Converter | Workmate",
-      "description": "Convert between angle, slope %, and pitch (rise/12) with the area correction factor."
+      "description": "Enter angle, slope %, or pitch (rise/12) to instantly convert between all three, plus the roof area correction factor (sec θ)."
     },
     "title": "Roof Pitch Converter",
     "subtitle": "Enter angle (°), slope (%), or pitch (rise/12) — get the other representations and the area correction factor instantly.",
@@ -1691,7 +1691,7 @@
   "roofAreaTool": {
     "meta": {
       "title": "Roof Area Calculator | Workmate",
-      "description": "From plan area and slope angle, compute the actual sloped roof area plus eave area."
+      "description": "Enter plan area and roof slope angle to get the actual sloped roof area via sec(θ), plus eave perimeter and overhang for eave area."
     },
     "title": "Roof Area Calculator",
     "subtitle": "Plan area × sec(slope) → actual roof area. Add eave perimeter and overhang to include eave area.",
@@ -1752,7 +1752,7 @@
   "concreteTool": {
     "meta": {
       "title": "Concrete Volume Calculator | Workmate",
-      "description": "Strip footing or mat slab concrete volume + rebar weight + remicon truck count."
+      "description": "Enter strip footing or mat slab dimensions and waste factor to get concrete volume (KDS 14 20), rebar weight, and 6m³ remicon truck count."
     },
     "title": "Concrete Volume Calculator",
     "subtitle": "Foundation type × dimensions + waste factor → concrete volume + rebar weight + remicon truck count.",
