@@ -4168,6 +4168,243 @@
       ],
       "lastReviewed": "2026-07-16"
     },
+    "rebar-calc": {
+      "overview": "Máy tính khối lượng·số lượng thép chỉ cần nhập quy cách thép (D10~D32), chiều dài mỗi thanh và số thanh là tính ngay tổng chiều dài, khối lượng thực (tịnh), khối lượng đặt hàng đã cộng hao hụt và quy đổi ra tấn (t). Trong công trình bê tông cốt thép, cùng một chiều dài nhưng quy cách (độ dày) khác nhau thì khối lượng chênh lệch rất lớn — tiêu chuẩn KS D 3504 (thép thanh dùng cho bê tông cốt thép) của Hàn Quốc quy định khối lượng đơn vị thép gân tăng dần từ 0,560kg/m ở D10 đến 6,230kg/m ở D32, quy cách càng lớn khối lượng càng tăng theo tỷ lệ. Công cụ này nhân chiều dài mỗi thanh với số thanh để ra tổng chiều dài, rồi nhân với khối lượng đơn vị của quy cách để ra khối lượng thực (tịnh), sau đó cộng thêm hệ số hao hụt (mặc định 3%) để bù cho nối buộc, cắt và vận chuyển, cho ra khối lượng thực tế cần đặt hàng. Kết quả hiển thị cả đơn vị kg lẫn tấn (t) — đơn vị thường dùng khi giao dịch thép số lượng lớn — nên có thể dùng ngay khi hỏi giá tại cửa hàng thép hoặc nhà thầu bê tông tươi, hay khi lập bảng khối lượng vật tư. Với công trình có móng, cột, dầm dùng nhiều quy cách thép khác nhau, chỉ cần tính riêng từng quy cách rồi cộng lại là nắm được tổng khối lượng thép chính xác.",
+      "useCases": [
+        "Ước tính khối lượng·số lượng theo quy cách trước khi bố trí thép móng·cột·dầm",
+        "Tính tổng khối lượng·số tấn khi lập bảng đặt hàng thép",
+        "Tính trước khi hỏi giá tại cửa hàng thép hoặc nhà thầu bê tông tươi",
+        "Kiểm tra khối lượng dự phòng cho nối buộc·hao hụt cắt",
+        "So sánh khối lượng thép theo quy cách (D10~D32)"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Chọn quy cách thép (D10~D32) — theo ký hiệu thép gân KS D 3504.",
+          "Nhập chiều dài mỗi thanh (m) và số thanh cần dùng (thanh).",
+          "Kiểm tra hệ số hao hụt (mặc định 3%) để xem ngay tổng chiều dài, khối lượng thực, khối lượng đặt hàng và quy đổi tấn (t)."
+        ]
+      },
+      "formula": {
+        "title": "Công thức khối lượng & quy đổi tấn",
+        "body": "Tổng chiều dài (m) = chiều dài mỗi thanh (m) × số thanh\nKhối lượng thực (kg) = tổng chiều dài × khối lượng đơn vị (kg/m)\nKhối lượng đặt hàng (kg) = khối lượng thực × (1 + hệ số hao hụt)\nTấn (t) = khối lượng đặt hàng / 1000\n\nKhối lượng đơn vị (kg/m, quy cách danh nghĩa thép gân KS D 3504):\n  D10 0,560, D13 0,995, D16 1,560, D19 2,250,\n  D22 3,040, D25 3,980, D29 5,040, D32 6,230"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Thép D13, 6m × 100 thanh",
+            "body": "Tổng chiều dài 600m, khối lượng thực 597kg. +3% hao hụt → khối lượng đặt hàng 614,9kg (0,615t)."
+          },
+          {
+            "title": "Ví dụ 2: Thép D25, 8m × 50 thanh",
+            "body": "Tổng chiều dài 400m, khối lượng thực 1.592kg. +3% hao hụt → khối lượng đặt hàng 1.639,8kg (1,64t)."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Các số như D10, D13 nghĩa là gì?",
+          "answer": "Số sau chữ D là đường kính danh nghĩa (mm) của thép gân. D13 có đường kính khoảng 13mm — số càng lớn thanh thép càng to và nặng. KS D 3504 quy định quy cách chuẩn và khối lượng đơn vị từ D10 đến D32."
+        },
+        {
+          "question": "Vì sao cần cộng hệ số hao hụt 3%?",
+          "answer": "Thép bị hao hụt một phần khi nối chồng, cắt và gia công. Nếu chỉ đặt đúng khối lượng thực sẽ dễ thiếu tại công trường, nên thực tế thường cộng thêm mặc định 3% (kết cấu nối nhiều nên tăng cao hơn)."
+        },
+        {
+          "question": "Khối lượng thực và khối lượng đặt hàng khác nhau thế nào?",
+          "answer": "Khối lượng thực là khối lượng thép thuần túy đưa vào kết cấu, còn khối lượng đặt hàng đã cộng thêm hao hụt, là khối lượng thực tế cần đặt mua. Báo giá·đơn đặt hàng nên dựa trên khối lượng đặt hàng để tránh thiếu hụt tại công trường."
+        },
+        {
+          "question": "Vì sao kết quả cũng hiển thị theo tấn (t)?",
+          "answer": "Thép thường được định giá theo tấn khi mua bán. Công cụ chia kết quả kg cho 1.000 để cho ra số tấn, dùng trực tiếp khi so sánh báo giá và lập đơn đặt hàng."
+        },
+        {
+          "question": "Chiều dài nối chồng hay chiều dài neo có được tính vào không?",
+          "answer": "Không. Đây là công cụ tính số lượng đơn giản dựa trên chiều dài mỗi thanh bạn nhập vào — các giá trị thiết kế kết cấu như chiều dài nối chồng, chiều dài neo cần được cộng thêm riêng vào chiều dài mỗi thanh trước khi nhập."
+        }
+      ],
+      "cautions": [
+        "Khối lượng đơn vị là giá trị chuẩn theo quy cách danh nghĩa KS D 3504 — khối lượng sản phẩm thực tế có thể chênh lệch nhẹ theo nhà sản xuất·dung sai cán thép.",
+        "Hệ số hao hụt 3% là mặc định; tăng lên 5%+ với kết cấu nối nhiều hoặc hao hụt cắt lớn.",
+        "Chiều dài mỗi thanh chưa gồm chiều dài nối chồng·chiều dài neo — hãy cộng thêm theo bản vẽ kết cấu trước khi nhập.",
+        "Khi đặt hàng theo đơn giá tấn, hãy hỏi giá dựa trên khối lượng đặt hàng (đã gồm hao hụt) để tránh thiếu.",
+        "Nên xác nhận quy cách chính xác với bản vẽ kết cấu·giám sát công trình trước khi đặt hàng."
+      ],
+      "related": [
+        {
+          "label": "Thể tích bê tông",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Số lượng gạch·block",
+          "href": "/brick-calc"
+        },
+        {
+          "label": "Vữa trát",
+          "href": "/plaster-calc"
+        }
+      ],
+      "lastReviewed": "2026-07-16"
+    },
+    "wallpaper-calc": {
+      "overview": "Máy tính số lượng giấy dán tường chỉ cần nhập diện tích tường là tính ngay số cuộn cần dùng — cho giấy hợp chỉ, lụa hoặc nhập khẩu — cùng lượng keo dán cần thiết. Giấy dán tường khổ rộng nội địa Hàn Quốc (hợp chỉ, lụa) có kích thước rộng 106cm × dài 15,6m, phủ khoảng 16,5m² mỗi cuộn, trong khi giấy nhập khẩu chỉ rộng 53cm × dài 10m, phủ khoảng 5,3m² mỗi cuộn — nên cùng một diện tích tường nhưng số cuộn cần dùng chênh lệch rất lớn tùy loại giấy chọn. Ngoài ra công cụ còn áp dụng tỷ lệ hao hụt do cắt và ghép mí: giấy trơn không hoa văn là 10%, còn thi công khớp hoa văn (lặp) tăng lên 20% vì phải cắt bỏ nhiều hơn theo chu kỳ lặp của hoa văn để các mí nối khớp nhau. Bạn có thể nhập trực tiếp diện tích tường, hoặc tính từ chu vi phòng × chiều cao trần, nên vẫn dễ dàng ra kết quả ngay cả khi khó đo từng bức tường bằng thước dây. Keo dán được ước tính khoảng 1kg mỗi cuộn theo cách thi công phổ biến gồm cả lớp lót và lớp giấy hoàn thiện, giúp bạn có bức tranh vật liệu đầy đủ khi đặt hàng tại cửa hàng giấy dán tường hoặc chuẩn bị tự thi công mà không mua thiếu hay thừa.",
+      "useCases": [
+        "Ước tính số cuộn giấy dán trước khi chuyển nhà·cải tạo phòng·phòng khách",
+        "So sánh số lượng cần dùng giữa giấy hợp chỉ, lụa và nhập khẩu",
+        "Đặt hàng đúng tỷ lệ hao hụt khi thi công khớp hoa văn (lặp)",
+        "Kiểm tra lượng keo dán cần dùng khi tự chuẩn bị thi công",
+        "Tính trước số lượng để đối chiếu báo giá của thợ dán giấy"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Chọn cách nhập diện tích — 'Nhập trực tiếp diện tích tường' nếu đã biết, hoặc 'Chu vi × chiều cao' nếu chưa biết.",
+          "Chọn loại giấy dán tường (hợp chỉ, lụa, nhập khẩu) và có thi công khớp hoa văn (lặp) hay không.",
+          "Số cuộn cần dùng, diện tích phủ mỗi cuộn, tỷ lệ hao hụt và lượng keo dán sẽ hiển thị ngay."
+        ]
+      },
+      "formula": {
+        "title": "Công thức số cuộn & keo dán",
+        "body": "Diện tích gồm hao hụt (m²) = diện tích tường × (1 + tỷ lệ hao hụt)\nSố cuộn cần = làm tròn lên(diện tích gồm hao hụt / diện tích phủ mỗi cuộn)\nKeo dán (kg) = số cuộn cần × 1kg\n\nQuy cách cuộn & diện tích phủ:\n  Khổ rộng nội địa Hàn Quốc (hợp chỉ·lụa) — 106cm×15,6m, khoảng 16,5m²/cuộn\n  Nhập khẩu — 53cm×10m, khoảng 5,3m²/cuộn\n\nTỷ lệ hao hụt: không hoa văn 10%, khớp hoa văn (lặp) 20%"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Giấy lụa 16,5m², không hoa văn",
+            "body": "Gồm 10% hao hụt là 18,15m². Theo 16,5m²/cuộn, cần 2 cuộn. Keo dán 2kg."
+          },
+          {
+            "title": "Ví dụ 2: Giấy nhập khẩu 16,5m², không hoa văn",
+            "body": "Gồm 10% hao hụt là 18,15m². Theo 5,3m²/cuộn, cần 4 cuộn. Keo dán 4kg."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Vì sao giấy nội địa và giấy nhập khẩu phủ diện tích khác nhau mỗi cuộn?",
+          "answer": "Giấy khổ rộng nội địa Hàn Quốc (hợp chỉ·lụa) rộng 106cm × dài 15,6m nên phủ diện tích lớn mỗi cuộn, trong khi giấy nhập khẩu chỉ rộng 53cm × dài 10m — diện tích phủ chỉ bằng khoảng một phần ba. Cùng diện tích tường nhưng dùng giấy nhập khẩu cần nhiều cuộn hơn hẳn."
+        },
+        {
+          "question": "Vì sao thi công khớp hoa văn (lặp) có tỷ lệ hao hụt cao hơn?",
+          "answer": "Giấy có hoa văn khi ghép mí phải cắt theo chu kỳ nhất định để hoa văn khớp giữa các mảnh liền kề, nên hao hụt nhiều hơn giấy trơn. Công cụ này áp dụng 10% cho giấy trơn và 20% cho thi công khớp hoa văn."
+        },
+        {
+          "question": "Nên đo diện tích tường như thế nào?",
+          "answer": "Lấy tổng chu vi các bức tường cần dán nhân với chiều cao trần sẽ ra diện tích gần đúng; diện tích cửa đi, cửa sổ thường đã được bù trong tỷ lệ hao hụt nên không cần trừ riêng. Để chính xác hơn, hãy đo từng bức tường rồi cộng lại."
+        },
+        {
+          "question": "Mức keo dán 1kg/cuộn tính theo cách thi công nào?",
+          "answer": "Đây là ước tính theo cách thi công phổ biến gồm cả lớp lót (giấy nền) và lớp giấy hoàn thiện. Nếu không dán lớp lót hoặc dùng loại keo khác, lượng thực tế sẽ khác."
+        },
+        {
+          "question": "Dán cả phòng thì có tính luôn trần nhà không?",
+          "answer": "Công cụ này chỉ tính theo tường, không gồm trần nhà. Nếu dán cả trần, hãy đo riêng diện tích trần rồi cộng vào diện tích tường trước khi tính."
+        }
+      ],
+      "cautions": [
+        "Diện tích phủ mỗi cuộn đã gồm dư lượng ghép mí·cắt tiêu chuẩn — hao hụt thực tế có thể khác tùy tay nghề thợ thi công.",
+        "Thi công khớp hoa văn (lặp) có thể cần tỷ lệ hao hụt cao hơn 20% tùy chu kỳ lặp của hoa văn.",
+        "Mức keo dán 1kg/cuộn là ước tính cho lớp lót+hoàn thiện; loại keo·cách thi công khác sẽ cho kết quả khác.",
+        "Chưa gồm diện tích trần nhà — hãy đo riêng và cộng thêm nếu cần.",
+        "Nên xác nhận quy cách cuộn giấy thực tế với nhà cung cấp trước khi đặt hàng."
+      ],
+      "related": [
+        {
+          "label": "Số lượng gạch·block",
+          "href": "/brick-calc"
+        },
+        {
+          "label": "Vữa trát",
+          "href": "/plaster-calc"
+        },
+        {
+          "label": "Lượng sơn",
+          "href": "/paint-calc"
+        }
+      ],
+      "lastReviewed": "2026-07-16"
+    },
+    "plaster-calc": {
+      "overview": "Máy tính pha trộn vữa trát chỉ cần nhập diện tích và độ dày trát là tính ngay thể tích vữa cùng lượng xi măng·cát cần dùng theo từng tỷ lệ pha (1:2/1:3/1:4). Trát thường được thi công qua ba lớp — lớp lót, lớp giữa và lớp hoàn thiện — để làm phẳng tường·sàn, và định mức xây dựng tiêu chuẩn Hàn Quốc mặc định tổng độ dày ba lớp này là 24mm. Tỷ lệ pha là tỷ lệ thể tích xi măng:cát — tỷ lệ 1:2 dùng cho lớp hoàn thiện tinh cần chống thấm·cường độ cao, mỗi mét khối cần 680kg xi măng và 0,98m³ cát; tỷ lệ 1:3 phổ biến nhất cần 510kg xi măng và 1,10m³ cát; tỷ lệ 1:4 dùng cho lớp lót cần cường độ thấp cần 385kg xi măng và 1,10m³ cát. Tỷ lệ càng đậm (tỷ lệ xi măng càng cao) thì cường độ và khả năng chống thấm càng tốt nhưng chi phí vật liệu cũng tăng theo. Công cụ này lấy diện tích nhân độ dày để ra thể tích vữa, cộng thêm hệ số hao hụt (mặc định 5%) bù cho hao hụt thi công, rồi tính lượng vật liệu và số bao xi măng 40kg theo tỷ lệ pha đã chọn, giúp giảm sai sót khi báo giá và đặt vật liệu cho công trình trát.",
+      "useCases": [
+        "Ước tính lượng xi măng·cát cần đặt trước khi trát tường·sàn",
+        "So sánh thể tích vữa theo độ dày·tỷ lệ pha",
+        "Cân nhắc lựa chọn giữa tỷ lệ cường độ cao (1:2)·tiêu chuẩn (1:3)·cường độ thấp (1:4)",
+        "Kiểm tra trước số bao xi măng 40kg cần dùng",
+        "Tính lượng vật liệu cần mua khi tự chuẩn bị thi công trát"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập diện tích cần trát (m²).",
+          "Nhập độ dày trát (mm). Trát 3 lớp (lót+giữa+hoàn thiện) thường mặc định 24mm.",
+          "Chọn tỷ lệ pha (1:2/1:3/1:4) và hệ số hao hụt (mặc định 5%) để xem ngay thể tích vữa, lượng xi măng·cát và số bao."
+        ]
+      },
+      "formula": {
+        "title": "Công thức vữa & vật liệu",
+        "body": "Thể tích vữa (m³) = diện tích (m²) × (độ dày (mm)/1000) × (1 + hệ số hao hụt)\nXi măng (kg) = thể tích vữa × định mức xi măng\nCát (m³) = thể tích vữa × định mức cát\nSố bao xi măng = làm tròn lên(xi măng kg / 40)\n\nVật liệu mỗi 1m³ theo tỷ lệ pha (định mức xây dựng tiêu chuẩn):\n  1:2 — xi măng 680kg + cát 0,98m³\n  1:3 — xi măng 510kg + cát 1,10m³\n  1:4 — xi măng 385kg + cát 1,10m³"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: 10m², độ dày 24mm, tỷ lệ 1:3",
+            "body": "Vữa 0,252m³ (gồm 5% hao hụt). Xi măng 129kg (4 bao), cát 0,28m³."
+          },
+          {
+            "title": "Ví dụ 2: 20m², độ dày 24mm, tỷ lệ 1:2",
+            "body": "Vữa 0,504m³ (gồm 5% hao hụt). Xi măng 343kg (9 bao), cát 0,49m³."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Độ dày mặc định 24mm được xác định thế nào?",
+          "answer": "Trát thường thi công qua ba giai đoạn — lớp lót làm phẳng nền, lớp giữa tạo độ dày, lớp hoàn thiện — và định mức xây dựng tiêu chuẩn Hàn Quốc mặc định tổng độ dày ba lớp là 24mm. Nếu chỉ trát một lớp mỏng, hãy nhập độ dày thấp hơn."
+        },
+        {
+          "question": "Khi nào nên dùng tỷ lệ 1:2, 1:3, 1:4?",
+          "answer": "Tỷ lệ 1:2 phù hợp cho phòng tắm·hoàn thiện ngoại thất cần chống thấm·cường độ cao; tỷ lệ 1:3 được dùng phổ biến nhất cho trát tường·sàn thông thường; tỷ lệ 1:4 phù hợp cho lớp lót cần cường độ thấp. Tỷ lệ xi măng càng cao cường độ càng tốt nhưng chi phí vật liệu cũng tăng."
+        },
+        {
+          "question": "Vì sao cần cộng hệ số hao hụt 5%?",
+          "answer": "Trong quá trình trộn, vận chuyển, thi công, một phần vữa luôn bị đông cứng sớm hoặc rơi vãi. Nếu chỉ chuẩn bị đúng lượng cần thiết sẽ dễ thiếu tại công trường, nên định mức tiêu chuẩn thường cộng thêm mặc định 5% (công trình lớn nên tăng cao hơn)."
+        },
+        {
+          "question": "Số bao xi măng được tính thế nào?",
+          "answer": "Khối lượng xi măng cần dùng (kg) được làm tròn lên theo bao 40kg. Ví dụ cần 129kg thì phải mua 4 bao (160kg) để không bị thiếu."
+        },
+        {
+          "question": "Lượng cát tính theo trạng thái nào?",
+          "answer": "Công cụ dùng định mức pha cát tiêu chuẩn thông thường của Hàn Quốc. Lượng thực tế có thể khác tùy cấp phối hạt·độ ẩm của cát, công trình lớn nên làm thử nghiệm pha trộn riêng."
+        }
+      ],
+      "cautions": [
+        "Lượng vật liệu là giá trị định mức tiêu chuẩn — lượng thực tế có thể khác tùy độ dày thi công·tay nghề.",
+        "Độ dày mặc định 24mm giả định trát 3 lớp; hãy điều chỉnh theo cách thi công thực tế.",
+        "Hệ số hao hụt 5% là mặc định; tăng lên 10%+ với công trình lớn hoặc phức tạp.",
+        "Lượng cát là định mức pha chuẩn — thực tế có thể khác tùy cấp phối·độ ẩm.",
+        "Nên xác nhận giá xi măng·cát thực tế với nhà cung cấp trước khi đặt hàng."
+      ],
+      "related": [
+        {
+          "label": "Số lượng gạch·block",
+          "href": "/brick-calc"
+        },
+        {
+          "label": "Thể tích bê tông",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Đá dăm · Cốt liệu",
+          "href": "/gravel-calc"
+        }
+      ],
+      "lastReviewed": "2026-07-16"
+    },
     "gravel-calc": {
       "overview": "Máy tính đá sỏi tính thể tích (m³) và trọng lượng (tấn) của sỏi, cát, hoặc đá dăm dựa trên diện tích và độ dày lớp rải. Công cụ áp dụng tỷ trọng riêng theo từng loại vật liệu, cộng thêm hệ số lún khi đầm nén, và cho biết cần đặt bao nhiêu bao 25kg và bao jumbo 1 tấn. Dùng cho lối vào xe, bãi đỗ xe, lớp thoát nước, và cảnh quan sân vườn.",
       "useCases": [

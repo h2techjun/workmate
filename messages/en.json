@@ -6174,6 +6174,243 @@
       ],
       "lastReviewed": "2026-07-16"
     },
+    "rebar-calc": {
+      "overview": "The rebar weight calculator instantly computes total length, net weight, order weight (with waste margin), and the ton (t) conversion from just the rebar size (D10-D32), length per bar, and bar count. In reinforced concrete work, bars of the same length can weigh very differently depending on their size — the KS D 3504 (steel bars for concrete reinforcement) standard defines deformed rebar unit weights that scale from 0.560kg/m at D10 up to 6.230kg/m at D32. This calculator multiplies length per bar by bar count to get total length, multiplies that by the size's unit weight to get the net material weight, then adds a waste margin (default 3%) to cover splicing, cutting, and handling losses to arrive at the actual weight you should order. Results are shown in both kilograms and tons, since rebar is commonly priced and traded by the ton, so you can use the figures directly when requesting quotes from rebar suppliers or ready-mix contractors or preparing a material take-off. On sites where footings, columns, and beams each use different bar sizes, running the calculation once per size and summing the results quickly gives an accurate total rebar quantity.",
+      "useCases": [
+        "Estimate weight/quantity by size before placing rebar in footings, columns, and beams",
+        "Calculate total weight and tonnage for a rebar order sheet",
+        "Pre-calculate before requesting quotes from rebar suppliers or ready-mix contractors",
+        "Check the waste-margin quantity to cover splicing and cutting loss",
+        "Compare rebar weight across sizes (D10-D32)"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Select the rebar size (D10-D32) — based on KS D 3504 deformed rebar designations.",
+          "Enter the length per bar (m) and the number of bars needed (EA).",
+          "Check the waste margin (default 3%) to instantly see total length, net weight, order weight, and the ton conversion."
+        ]
+      },
+      "formula": {
+        "title": "Weight & ton conversion formula",
+        "body": "Total length (m) = length per bar (m) × bar count\nNet weight (kg) = total length × unit weight (kg/m)\nOrder weight (kg) = net weight × (1 + waste rate)\nTons (t) = order weight / 1000\n\nUnit weight (kg/m, KS D 3504 deformed rebar nominal size):\n  D10 0.560, D13 0.995, D16 1.560, D19 2.250,\n  D22 3.040, D25 3.980, D29 5.040, D32 6.230"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: D13 rebar, 6m × 100 bars",
+            "body": "Total length 600m, net weight 597kg. +3% waste → order weight 614.9kg (0.615t)."
+          },
+          {
+            "title": "Example 2: D25 rebar, 8m × 50 bars",
+            "body": "Total length 400m, net weight 1,592kg. +3% waste → order weight 1,639.8kg (1.64t)."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What do the numbers in D10, D13, etc. mean?",
+          "answer": "The number after the D indicates the nominal diameter (mm) of the deformed bar. D13 is roughly 13mm in diameter — larger numbers mean thicker, heavier bars. KS D 3504 defines standard sizes and unit weights from D10 through D32."
+        },
+        {
+          "question": "Why apply a 3% waste margin?",
+          "answer": "Rebar loses some material to lap splicing, cutting, and handling. Ordering only the net weight can leave you short on site, so it's standard practice to add a default 3% (more for structures with heavy splicing)."
+        },
+        {
+          "question": "What's the difference between net weight and order weight?",
+          "answer": "Net weight is the pure rebar weight that actually goes into the structure; order weight adds the waste margin on top so it reflects what you actually need to order. Quotes and order sheets should be based on order weight to avoid shortfalls."
+        },
+        {
+          "question": "Why is the result shown in tons too?",
+          "answer": "Rebar is typically priced by the ton in the supply chain. The tool divides the kilogram result by 1,000 to give a ton figure you can use directly for quote comparisons and order sheets."
+        },
+        {
+          "question": "Does this include splice length or embedment (development) length?",
+          "answer": "No. This is a simple quantity tool based on the bar length you enter — structural values like lap splice length or embedment length should be added to the length per bar separately before entering it."
+        }
+      ],
+      "cautions": [
+        "Unit weights are KS D 3504 nominal-size baseline values — actual product weight can vary slightly by manufacturer and rolling tolerance.",
+        "The 3% waste rate is a default; raise it to 5%+ for structures with heavy splicing or cutting loss.",
+        "Length per bar does not include splice or embedment length — add those per your structural drawings before entering.",
+        "When ordering at a per-ton price, quote against the order weight (with waste included) to avoid coming up short.",
+        "Confirm final sizing against structural drawings and your site supervisor before ordering."
+      ],
+      "related": [
+        {
+          "label": "Concrete Volume",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Brick & Block",
+          "href": "/brick-calc"
+        },
+        {
+          "label": "Plaster Mortar",
+          "href": "/plaster-calc"
+        }
+      ],
+      "lastReviewed": "2026-07-16"
+    },
+    "wallpaper-calc": {
+      "overview": "The wallpaper calculator instantly computes the number of rolls needed — for paper, silk, or imported wallpaper — plus the glue required, from wall area alone. Korean wide-format rolls (paper and silk) measure 106cm wide by 15.6m long, covering about 16.5m² per roll, while imported rolls measure 53cm by 10m, covering only about 5.3m² per roll — so the same wall area can need very different roll counts depending on the type you choose. On top of that, the tool applies a loss rate for trimming and seam waste: 10% for plain wallpaper with no pattern, rising to 20% for pattern-match (repeat) installs, since matching the pattern across seams means cutting away more material at set intervals. You can enter wall area directly or derive it from room perimeter × ceiling height, so it's easy to get a number even without measuring every wall with a tape. Glue is estimated at about 1kg per roll based on a typical base-layer-plus-finish install, so the tool gives you a complete materials picture for ordering from a wallpaper supplier or planning a DIY job without over- or under-buying.",
+      "useCases": [
+        "Estimate roll count for a room or living room before moving or remodeling",
+        "Compare required quantity across paper, silk, and imported wallpaper types",
+        "Order with the correct loss rate applied for pattern-match (repeat) installs",
+        "Check glue quantity needed when preparing a DIY wallpapering job",
+        "Pre-calculate quantity before verifying a wallpaper contractor's quote"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Choose an area input method — 'Enter wall area directly' if you know it, or 'Perimeter × height' if you don't.",
+          "Select the wallpaper type (paper, silk, or imported) and whether it's a pattern-match (repeat) install.",
+          "The roll count, coverage per roll, loss rate, and glue quantity appear instantly."
+        ]
+      },
+      "formula": {
+        "title": "Roll count & glue formula",
+        "body": "Area incl. loss (m²) = wall area × (1 + loss rate)\nRolls needed = ceil(area incl. loss / coverage per roll)\nGlue (kg) = rolls needed × 1kg\n\nRoll size & coverage:\n  Korean wide-format (paper/silk) — 106cm×15.6m, ~16.5m²/roll\n  Imported — 53cm×10m, ~5.3m²/roll\n\nLoss rate: no pattern 10%, pattern-match (repeat) 20%"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Silk wallpaper, 16.5m², no pattern",
+            "body": "18.15m² incl. 10% loss. At 16.5m²/roll, 2 rolls needed. Glue: 2kg."
+          },
+          {
+            "title": "Example 2: Imported wallpaper, 16.5m², no pattern",
+            "body": "18.15m² incl. 10% loss. At 5.3m²/roll, 4 rolls needed. Glue: 4kg."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Why do Korean and imported rolls cover such different areas?",
+          "answer": "Korean wide-format paper/silk rolls are 106cm wide by 15.6m long, giving broad coverage per roll, while imported rolls are only 53cm wide by 10m long — about a third of the coverage. The same wall area needs far more rolls if you choose imported wallpaper."
+        },
+        {
+          "question": "Why is the loss rate higher for pattern-match (repeat) installs?",
+          "answer": "Patterned wallpaper has to be cut at set intervals so the design lines up across seams, which wastes more material than plain wallpaper. This tool applies 10% for plain and 20% for pattern-match installs."
+        },
+        {
+          "question": "How should I measure the wall area?",
+          "answer": "Multiply the total wall perimeter you're papering by the ceiling height for an approximate area. Door and window openings are generally absorbed within the loss margin, so you usually don't need to subtract them separately. For more precision, measure and sum each wall individually."
+        },
+        {
+          "question": "What installation does the 1kg-per-roll glue estimate assume?",
+          "answer": "It assumes a typical install with both a base lining layer and the finish wallpaper. If you skip the base layer or use a different adhesive, actual usage will differ."
+        },
+        {
+          "question": "Should I include the ceiling if I'm wallpapering the whole room?",
+          "answer": "This calculator covers walls only, not ceilings. If you're also papering the ceiling, measure that area separately and add it to the wall area before calculating."
+        }
+      ],
+      "cautions": [
+        "Roll coverage figures include a standard seam/trim allowance — actual material loss can vary with installer skill.",
+        "Pattern-match (repeat) installs can need a loss rate above 20% depending on the pattern's repeat length.",
+        "The 1kg-per-roll glue estimate assumes a base-plus-finish install; adhesive type and method will change actual usage.",
+        "Ceiling area is not included — measure and add it separately if needed.",
+        "Confirm actual roll dimensions with your supplier before ordering."
+      ],
+      "related": [
+        {
+          "label": "Brick & Block",
+          "href": "/brick-calc"
+        },
+        {
+          "label": "Plaster Mortar",
+          "href": "/plaster-calc"
+        },
+        {
+          "label": "Paint",
+          "href": "/paint-calc"
+        }
+      ],
+      "lastReviewed": "2026-07-16"
+    },
+    "plaster-calc": {
+      "overview": "The plaster mortar mix calculator instantly computes mortar volume and the cement/sand needed for mix ratios of 1:2, 1:3, or 1:4, from just the plaster area and thickness. Plastering is typically applied in three coats — a base (scratch) coat, a middle (brown) coat, and a finish coat — and Korea's standard estimation guide treats the combined thickness of all three as 24mm by default. The mix ratio is cement-to-sand by volume: 1:2 is used for high-strength, waterproof finishes and needs 680kg of cement plus 0.98m³ of sand per cubic meter; the most common 1:3 needs 510kg of cement plus 1.10m³ of sand; and the leaner 1:4, used for low-strength base coats, needs 385kg of cement plus 1.10m³ of sand. Richer mixes (more cement) give higher strength and better waterproofing, but cost more in materials. The tool multiplies area by thickness to get mortar volume, adds a waste margin (default 5%) for handling loss, then calculates the material quantities and the number of 40kg cement bags for the selected ratio — helping avoid costly misorders on plastering jobs.",
+      "useCases": [
+        "Estimate cement and sand order quantity before plastering walls or floors",
+        "Compare mortar volume across plaster thickness and mix ratio",
+        "Decide between high-strength (1:2), standard (1:3), and low-strength (1:4) mixes",
+        "Check the number of 40kg cement bags needed in advance",
+        "Calculate material purchase quantity when preparing a DIY plastering job"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter the area to be plastered (m²).",
+          "Enter the plaster thickness (mm) — 24mm is the typical default for a 3-coat (base + middle + finish) job.",
+          "Select the mix ratio (1:2, 1:3, or 1:4) and waste margin (default 5%) to instantly see mortar volume, cement/sand needed, and bag count."
+        ]
+      },
+      "formula": {
+        "title": "Mortar & material formula",
+        "body": "Mortar volume (m³) = area (m²) × (thickness (mm)/1000) × (1 + waste rate)\nCement (kg) = mortar volume × mix cement rate\nSand (m³) = mortar volume × mix sand rate\nCement bags = ceil(cement kg / 40)\n\nMaterials per 1m³ by mix ratio (Korean standard estimation):\n  1:2 — 680kg cement + 0.98m³ sand\n  1:3 — 510kg cement + 1.10m³ sand\n  1:4 — 385kg cement + 1.10m³ sand"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: 10m², 24mm thick, 1:3 mix",
+            "body": "Mortar 0.252m³ (incl. 5% waste). Cement 129kg (4 bags), sand 0.28m³."
+          },
+          {
+            "title": "Example 2: 20m², 24mm thick, 1:2 mix",
+            "body": "Mortar 0.504m³ (incl. 5% waste). Cement 343kg (9 bags), sand 0.49m³."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "How is the 24mm default thickness determined?",
+          "answer": "Plastering typically has three stages — a base coat to level the substrate, a middle coat to build up thickness, and a finish coat — and Korea's standard estimation guide treats the combined thickness as 24mm. Enter a lower value if you're applying a single thin coat."
+        },
+        {
+          "question": "When should I use a 1:2, 1:3, or 1:4 mix?",
+          "answer": "1:2 suits bathrooms and exterior finishes needing waterproofing and high strength; the widely used 1:3 suits general wall and floor plastering; and 1:4 suits low-strength base layers like scratch coats. More cement means more strength but higher material cost."
+        },
+        {
+          "question": "Why add a 5% waste margin?",
+          "answer": "Some mortar always sets prematurely or falls away during mixing, transport, and application. Preparing only the exact required amount risks running short on site, so it's standard estimation practice to add a default 5% (more for larger jobs)."
+        },
+        {
+          "question": "How is the cement bag count calculated?",
+          "answer": "The required cement weight (kg) is rounded up to the nearest 40kg bag. For example, if 129kg is needed, you'd buy 4 bags (160kg) to avoid coming up short."
+        },
+        {
+          "question": "What sand condition does the calculation assume?",
+          "answer": "It uses the general sand-mix baseline from Korea's standard estimation guide. Actual requirements can vary with sand grading and moisture content, so larger jobs should run a separate mix trial."
+        }
+      ],
+      "cautions": [
+        "Material quantities are standard-estimation baseline values — actual usage varies with applied thickness and technique.",
+        "The 24mm default assumes a 3-coat job; adjust it to match your actual method.",
+        "The 5% waste rate is a default; raise it to 10%+ for large or complex jobs.",
+        "Sand quantity is a standard-mix baseline — actual needs can differ with grading and moisture.",
+        "Confirm current cement/sand pricing with your supplier before ordering."
+      ],
+      "related": [
+        {
+          "label": "Brick & Block",
+          "href": "/brick-calc"
+        },
+        {
+          "label": "Concrete Volume",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Gravel & Aggregate",
+          "href": "/gravel-calc"
+        }
+      ],
+      "lastReviewed": "2026-07-16"
+    },
     "gravel-calc": {
       "overview": "The gravel calculator computes the volume (m³) and weight (tons) of gravel, sand, or crushed stone from area and depth. It applies per-material unit weights, includes a compaction allowance, and tells you the number of 25kg bags and 1-ton bulk bags to order. Use it for driveways, parking, drainage layers, and landscaping.",
       "useCases": [
