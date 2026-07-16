@@ -132,6 +132,13 @@ export const ZH_READY_PATHS: readonly string[] = [
   "/attractions/seongsan-ilchulbong",
   "/attractions/jeonju-hanok-village",
   "/attractions/gamcheon-culture-village",
+  // 허브·진입점 — 4로케일 완역 완료(page 인라인 COPY/UI + messages), 색인 등록
+  "/labor-calc",
+  "/data",
+  "/tools",
+  "/games",
+  "/tests",
+  "/learn",
 ];
 
 const SET = new Set(ZH_READY_PATHS);

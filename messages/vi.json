@@ -126,6 +126,15 @@
       }
     }
   },
+  "projects": {
+    "eyebrow": "Game · Truyện · Trắc nghiệm miễn phí",
+    "heading": "Game · Truyện tương tác · Trắc nghiệm tính cách",
+    "intro": "Nội dung trình duyệt miễn phí — không đăng ký, không thanh toán, không cài đặt. Hwatu roguelike kiểu Hàn, tháp phòng thủ võ hiệp, phiêu lưu chữ chính trị 6 giờ, trắc nghiệm văn hóa công sở bằng AI. Chỉ một cú nhấp là vào ngay.",
+    "cardOpen": "Mở",
+    "cardCurrent": "Trang hiện tại",
+    "cardExternal": "Liên kết ngoài",
+    "cardComingSoon": "Sắp ra mắt"
+  },
   "home": {
     "badge": "{tools} công cụ · hoàn toàn miễn phí · không cần cài đặt",
     "heroLine1": "Những con số Hàn Quốc rắc rối,",
