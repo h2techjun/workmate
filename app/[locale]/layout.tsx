@@ -42,10 +42,10 @@ export async function generateMetadata({
   };
 
   const descriptions: Record<Locale, string> = {
-    ko: "한국 실무자를 위한 무료 계산기 모음. 전기 KEC, 4대보험 2026, 사업자번호 검증, 목조 NDS, 연봉 실수령액.",
+    ko: "한국 실무자를 위한 무료 계산기 허브. 전기 KEC, 4대보험 2026, 사업자번호 검증, 목조 NDS 구조, 연봉 실수령액까지 근로기준법·KS표준·세법 출처를 명시한 계산기를 회원가입 없이 바로 씁니다.",
     en: "Korean calculators: wire (KEC), 4 insurances, biz number, timber NDS, salary.",
     vi: "Máy tính Hàn Quốc: dây điện (KEC), 4 loại bảo hiểm, mã số doanh nghiệp, nhà gỗ (NDS), lương thực nhận.",
-    zh: "面向韩国职场人的免费计算器合集。电气KEC、四大保险2026、事业者登记号验证、木结构NDS、年薪实领金额。",
+    zh: "面向韩国职场人打造的免费计算器合集。电气布线KEC计算、四大保险2026年费率、事业者登记号验证、木结构NDS设计、年薪实领金额等，每个计算器都标明劳动基准法、KS标准与税法出处，无需注册即可直接使用查询。",
   };
 
   const localeKey = (locales.includes(locale as Locale) ? locale : "ko") as Locale;

@@ -22,7 +22,7 @@ function lkOf(locale: string): LK {
 const META: Record<LK, { title: string; desc: string; og: string }> = {
   ko: {
     title: "현장 노트 — Workmate 블로그",
-    desc: "한국 실무자의 시선에서 풀어본 대출·세금·임대차·근로 이슈. 도구만으로 풀리지 않는 디테일을 글로 정리합니다.",
+    desc: "한국에서 일하고 생활하며 마주치는 대출·세금·임대차·근로 이슈를 현장 실무자의 시선으로 풀어 쓴 글 모음입니다. 계산기 도구만으로는 담기 어려운 배경 지식과 실제 사례, 자주 놓치는 함정까지 꼼꼼히 정리합니다.",
     og: "ko_KR",
   },
   en: {
@@ -32,7 +32,7 @@ const META: Record<LK, { title: string; desc: string; og: string }> = {
   },
   zh: {
     title: "实地笔记 — Workmate 博客",
-    desc: "从韩国实务者视角解读贷款·税务·租赁·劳动问题。整理仅靠工具无法涵盖的细节。",
+    desc: "从在韩国生活工作的实务者视角出发，深入解读贷款、税务、租赁合同、劳动权益等日常会遇到的实际问题。汇总仅靠计算器工具难以完全涵盖的背景知识、真实案例与容易被忽略的细节，并随时间持续更新扩充，帮助你少走弯路。",
     og: "zh_CN",
   },
   vi: {

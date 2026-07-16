@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Bộ phân tách âm tiết tiếng Hàn — phụ âm đầu, nguyên âm, phụ âm cuối"
         : "Hangul Syllable Decomposer — initial, medial, final jamo";
   const description = isKo
-    ? "한글을 음절별로 초성·중성·종성 자모로 분해. 받침(종성) 유무와 자모 로마자 음가를 표시. 한국어 학습·조사 선택·타이핑 분석에 유용."
+    ? "한글 음절을 초성·중성·종성 자모 단위로 분해해서 받침(종성) 유무와 각 자모의 로마자 음가를 한눈에 보여줍니다. 한국어를 배우는 외국인의 발음 학습, 조사(을/를, 이/가 등) 선택 규칙 이해, 한글 타이핑 자모 분석에 유용하게 쓸 수 있습니다."
     : isZh
-      ? "将韩文按音节分解为初声·中声·终声字母。显示收音(终声)有无及各字母的罗马字读音。适合韩语学习·助词选择·输入法分析。"
+      ? "将韩文音节分解为初声、中声、终声字母单位，一目了然地显示是否带收音（终声）以及各字母对应的罗马字读音。适合学习韩语发音的外国人使用，也有助于理解助词（을/를、이/가等）的选用规则，以及分析韩文输入法中的字母组合结构。"
       : isVi
         ? "Phân tách từng âm tiết tiếng Hàn thành phụ âm đầu, nguyên âm và phụ âm cuối. Hiển thị âm tiết có patchim (phụ âm cuối) hay không cùng cách đọc La-tinh hóa. Hữu ích khi học tiếng Hàn, chọn trợ từ và phân tích cách gõ."
         : "Break Korean syllables into initial, medial, and final jamo. See whether each syllable has a final consonant (batchim) and its roman sounds.";

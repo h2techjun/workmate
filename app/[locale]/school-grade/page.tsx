@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính lớp học Hàn Quốc — Sinh năm nào thì học lớp mấy? (Tiểu học·THCS·THPT)"
         : "Korean School Grade Calculator — What Grade Am I in Korea? (by birth year)";
   const description = isKo
-    ? "출생연도를 입력하면 올해 기준 한국 학년(초·중·고)과 입학 나이를 즉시 계산. 한국 학년 컷오프(초등 입학 기준) 해설 포함."
+    ? "출생연도를 입력하면 올해 기준 한국 학년(초등·중학교·고등학교)과 입학 나이를 즉시 계산합니다. 한국은 같은 해 태어난 아이들이 함께 입학하는 학제라 생일과 무관하게 학년이 정해지며, 초등학교 입학 기준이 되는 학년 컷오프 규칙도 함께 해설합니다."
     : isZh
-      ? "输入出生年份，即时算出今年对应的韩国学年(小·初·高)与入学年龄。附韩国学年分界(小学入学基准)说明。"
+      ? "输入出生年份，即时算出今年对应的韩国学年（小学、初中、高中）与入学年龄。韩国实行同一年出生的孩子一起入学的学制，学年与生日无关，只按出生年份划分，本页还附带小学入学基准的学年分界规则说明，帮助家长和学生快速掌握韩国学制的运作方式。"
       : isVi
         ? "Nhập năm sinh để tính ngay lớp học hiện tại ở Hàn Quốc (Tiểu học·THCS·THPT) và tuổi nhập học theo năm nay. Bao gồm giải thích về mốc cắt tuổi nhập học tiểu học của Hàn Quốc."
         : "If you were born in a given year, what grade are you in Korea? Enter your birth year to get your Korean school grade (elementary/middle/high), entry age, and how the Korean school-year cutoff works.";

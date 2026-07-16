@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Công cụ phiên âm La-tinh tiếng Hàn — chuyển câu, từ Hangul sang chữ La-tinh"
         : "Korean Romanizer — Hangul to roman letters";
   const description = isKo
-    ? "한글 문장·단어를 국립국어원 로마자 표기법으로 음역. 간판·메뉴·지명 읽기에 적합. 공백·구두점 보존, 음절 단위 변환."
+    ? "한글 문장과 단어를 국립국어원이 고시한 로마자 표기법 규칙에 따라 정확하게 음역합니다. 간판·메뉴·지명·인명을 영문으로 옮기거나 여권 서류 작성 시 활용하기 좋고, 공백과 구두점을 보존해 음절 단위로 변환하며 무료로 즉시 확인할 수 있습니다."
     : isZh
-      ? "按韩国国立国语院罗马字标记法音译韩文句子·单词。适合阅读招牌·菜单·地名，保留空格与标点，按音节转换。"
+      ? "按照韩国国立国语院制定的罗马字标记法规则，将韩文句子和单词准确音译为罗马字。适合把招牌、菜单、地名和人名转写成英文字母，或用于护照文件、外国人指南的撰写，保留原有空格与标点符号，并按音节逐一转换。免注册，打开页面即可免费即时查看结果。"
       : isVi
         ? "Phiên âm câu và từ tiếng Hàn sang chữ La-tinh theo quy tắc phiên âm chính thức của Viện Ngôn ngữ Quốc gia Hàn Quốc. Phù hợp để đọc biển hiệu, thực đơn, địa danh. Giữ nguyên khoảng trắng và dấu câu, chuyển đổi theo từng âm tiết."
         : "Romanize Korean sentences and words with the Revised Romanization. Great for signs, menus, and place names — preserves spacing and punctuation.";

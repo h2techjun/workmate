@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Chuyển đổi nhiệt độ — độ C ↔ độ F ↔ Kelvin"
         : "Temperature Converter — °C ↔ °F ↔ K";
   const description = isKo
-    ? "섭씨·화씨·켈빈 온도를 즉시 변환. °F = °C × 9/5 + 32. 체온·끓는점 프리셋 + 체감 안내. 한국 섭씨 ↔ 미국 화씨."
+    ? "섭씨(°C)·화씨(°F)·켈빈(K) 온도를 입력 즉시 서로 변환합니다. 공식은 °F = °C × 9/5 + 32이며, 체온·어는점·끓는점 프리셋과 체감 온도 안내를 제공합니다. 한국은 섭씨, 미국은 화씨를 쓰므로 여행·유학 시 유용합니다."
     : isZh
-      ? "摄氏度·华氏度·开尔文温度即时换算。°F = °C × 9/5 + 32。提供体温·沸点预设 + 体感提示。韩国用摄氏 ↔ 美国用华氏。"
+      ? "摄氏度（°C）、华氏度（°F）、开尔文（K）温度输入后即时互相换算，换算公式为 °F = °C × 9/5 + 32。页面提供体温、水的冰点与沸点等常用预设数值，并附带体感温度说明。韩国日常使用摄氏度，美国则使用华氏度，出国旅行、留学或与海外沟通时非常实用。"
       : isVi
         ? "Chuyển đổi nhiệt độ độ C, độ F và Kelvin tức thì. °F = °C × 9/5 + 32. Có mẫu thân nhiệt·điểm sôi kèm hướng dẫn cảm nhận. Hàn Quốc dùng độ C, Mỹ dùng độ F."
         : "Convert Celsius, Fahrenheit, and Kelvin instantly. F equals C times 9/5 plus 32, with body/boiling presets and a feel guide.";

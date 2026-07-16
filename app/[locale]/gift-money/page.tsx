@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính tiền mừng cưới·tiền phúng viếng — gợi ý số tiền phù hợp theo mối quan hệ"
         : "Korean Gift Money Calculator (축의금/부의금)";
   const description = isKo
-    ? "결혼식 축의금·장례식 부의금 적정액을 관계와 참석 여부로 추천. 지인·동료·친구·절친·친척별 통상 범위 + 홀수 관습 안내."
+    ? "결혼식 축의금과 장례식 부의금, 얼마를 내야 할지 관계와 참석 여부를 입력하면 적정 금액을 바로 추천합니다. 지인·동료·친구·절친·친척 등 관계별 통상 범위를 반영했고, 금액을 홀수로 맞추는 한국 경조사 관습과 봉투 작성 요령도 안내합니다."
     : isZh
-      ? "根据关系与是否出席，推荐婚礼礼金与丧礼奠仪的合适金额。涵盖普通朋友·同事·好友·挚友·亲戚等各类关系的常见范围 + 数额取奇数的习俗说明。"
+      ? "结婚礼金和丧礼奠仪该包多少？只需输入你和对方的关系以及是否出席，就能立即得到合适的推荐金额。涵盖普通朋友、同事、好友、挚友、亲戚等各类关系的常见范围，并说明韩国婚丧礼金取奇数金额的习俗，以及包礼金信封时需要注意的礼仪细节。"
       : isVi
         ? "Gợi ý số tiền mừng cưới (축의금) và tiền phúng viếng đám tang (부의금) phù hợp theo mối quan hệ và việc có tham dự hay không. Mức thông thường theo từng nhóm quan hệ (người quen·đồng nghiệp·bạn bè·bạn thân·người thân) + hướng dẫn tập quán chọn số lẻ."
         : "Recommended Korean wedding (축의금) and funeral (부의금) gift money amounts by relationship and attendance, with the odd-number custom.";

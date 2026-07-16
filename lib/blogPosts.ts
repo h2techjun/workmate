@@ -202,11 +202,11 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     titleZh: "综合所得税累进税制最容易搞混的5件事",
     titleVi: "5 hiểu lầm phổ biến nhất về thuế thu nhập lũy tiến ở Hàn Quốc",
     summaryKo:
-      "구간을 한 번 넘으면 더 많이 번 게 손해가 된다, 누진공제는 환급이다 — 이런 오해 5개를 실제 사례로 풀어봅니다.",
+      "종합소득세 구간을 넘으면 손해라는 말, 누진공제가 환급이라는 오해까지 — 실무에서 자주 틀리는 5가지를, 실제 세액 계산 사례를 통해 하나씩 짚어봅니다. 한계세율과 실효세율의 차이, 연봉과 과세표준의 차이까지 함께 정리했습니다.",
     summaryEn:
       "“Crossing a bracket means you earned less in the end” and other myths — debunked with actual numbers.",
     summaryZh:
-      "跨过税率区间就等于多赚反而更吃亏、累进扣除额就是退税——这5个常见误解，用实际数字拆解验证。",
+      "跨过税率区间就要多缴税、累进扣除额等于额外退税——这类常见误解让不少人对综合所得税望而生畏。本文结合实际税额计算过程，逐一拆解5个最容易搞混的高频误区，并说明边际税率、有效税率与课税标准三者之间的真实关系。",
     summaryVi:
       "Hiểu lầm rằng vượt qua một bậc thuế sẽ khiến thu nhập thực nhận giảm đi, hay khoản khấu trừ lũy tiến chính là tiền hoàn thuế — 5 ngộ nhận phổ biến được giải thích bằng số liệu thực tế.",
     category: "tax",
@@ -226,11 +226,11 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     titleZh: "写给外国人的坪数指南——84㎡为什么叫25坪",
     titleVi: "Giải thích đơn vị Pyeong của Hàn Quốc — Vì sao 84㎡ được gọi là 25 pyeong",
     summaryKo:
-      "한국 부동산 매물 표기의 평수가 어떻게 ㎡와 매핑되는지, 전용·공급·계약 면적의 차이까지.",
+      "한국 부동산 매물에 적힌 평수 표기가 ㎡와 정확히 어떻게 매핑되는지, 84㎡가 왜 25평으로 불리는지부터 전용면적·공급면적·계약면적의 차이, 매물을 볼 때 꼭 확인해야 할 체크리스트까지 자세히 정리했습니다.",
     summaryEn:
       "Why Korean real estate uses pyeong alongside m², how 84㎡ maps to 25-pyeong, and what exclusive vs supply vs contract area really mean.",
     summaryZh:
-      "韩国房产标示的坪数是如何对应㎡的，以及专用面积、供给面积、合同面积之间的区别。",
+      "详细说明韩国房产广告中标示的坪数如何精确换算为平方米，解释为何84㎡常被称作25坪型公寓，并系统梳理专用面积、供给面积与合同面积三者之间的区别，附带实地看房时务必确认的实用清单，帮你避免被中介说法误导。",
     summaryVi:
       "Cách diện tích pyeong trong bất động sản Hàn Quốc quy đổi sang m², và sự khác biệt giữa diện tích sử dụng riêng, diện tích cung cấp và diện tích hợp đồng.",
     category: "realestate",
@@ -250,11 +250,12 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     titleZh: "营业执照号校验码——交易前1秒验证法",
     titleVi:
       "Số kiểm tra mã số doanh nghiệp Hàn Quốc — Cách xác minh trong 1 giây trước giao dịch",
-    summaryKo: "10자리 사업자번호의 1-3-7 가중치 검산법. 가짜 번호·오타를 거래 전에 잡는 방법.",
+    summaryKo:
+      "10자리 한국 사업자등록번호에 숨어 있는 1-3-7 가중치 체크섬 검산법을 예시와 함께 설명합니다. 계좌 송금이나 계약서 서명 전, 가짜 번호와 오타를 1초 만에 걸러내는 실전 확인 절차까지 정리했습니다.",
     summaryEn:
       "The 1-3-7 weighted checksum that catches fake or mistyped Korean business numbers before you sign or wire money.",
     summaryZh:
-      "10位营业执照号的1-3-7加权校验法。在签约或转账前，识破假号码和打错的数字。",
+      "详细讲解韩国10位营业执照号码中隐藏的1-3-7加权校验算法，并配有具体数字的实际计算示例逐步演示。汇款转账或签署合同前，教你如何在几秒钟内识破虚假号码与手误录入错误，附带一套实用的核对流程，交易更放心。",
     summaryVi:
       "Phương pháp kiểm tra tổng trọng số 1-3-7 của mã số doanh nghiệp Hàn Quốc gồm 10 chữ số — phát hiện số giả hoặc gõ sai trước khi ký hợp đồng hay chuyển tiền.",
     category: "tax",
@@ -274,11 +275,11 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     titleZh: "收到超过5%涨租通知时，必须马上做的7件事",
     titleVi: "Nhận thông báo tăng tiền thuê nhà vượt 5% ở Hàn Quốc? 7 việc cần làm ngay",
     summaryKo:
-      "임대인이 갱신 시점에 6% 인상을 통보했다면. 임차인이 손해 보지 않기 위해 순서대로 해야 할 7가지를 정리했습니다.",
+      "임대인이 갱신 시점에 보증금·월세 6% 인상을 통보했다면 곧바로 수용하지 마세요. 환산보증금으로 5% 상한을 계산하는 법부터 내용증명 발송, 분쟁조정위원회 신청까지 임차인이 순서대로 챙겨야 할 7가지를 정리했습니다.",
     summaryEn:
       "If your Korean landlord proposes a 6% renewal increase, here are the 7 steps a tenant should take, in order.",
     summaryZh:
-      "如果房东在续约时通知涨租6%，作为承租人为了不吃亏，应该按顺序做的7件事。",
+      "如果房东在续约时通知保证金或月租上涨6%，先别急着答应对方提出的条件。从按换算保证金核算5%上限，到寄送内容证明邮件、向纠纷调解委员会申请调解，本文按照实际操作顺序，详细整理了承租人必须完成的7件事。",
     summaryVi:
       "Nếu chủ nhà thông báo tăng tiền thuê 6% khi gia hạn hợp đồng, đây là 7 bước người thuê nhà cần thực hiện theo thứ tự để không chịu thiệt.",
     category: "realestate",
