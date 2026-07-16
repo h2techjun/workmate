@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -11,6 +12,27 @@ const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
   en: "Sizing wires under KEC 232.5 — a field guide",
   zh: "电线粗细，这样选才不会后悔",
   vi: "Cách chọn tiết diện dây dẫn để không phải hối hận",
+};
+
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: ["전선 굵기", "KEC 232.5", "허용전류", "전압강하", "차단기", "인버터 ELB"],
+  en: [
+    "wire size",
+    "KEC 232.5",
+    "ampacity",
+    "voltage drop",
+    "breaker",
+    "inverter ELB",
+  ],
+  zh: ["电线粗细", "KEC 232.5", "载流量", "电压降", "断路器", "变频器 ELB"],
+  vi: [
+    "tiết diện dây dẫn",
+    "KEC 232.5",
+    "dòng cho phép",
+    "sụt áp",
+    "aptomat",
+    "biến tần ELB",
+  ],
 };
 
 export async function generateMetadata({
@@ -71,6 +93,8 @@ export default async function WireSizeGuidePage({
         ) : (
           <ContentEn />
         )}
+
+        <PostTags tags={TAGS[localeKey]} locale={localeKey} />
       </div>
     </main>
   );

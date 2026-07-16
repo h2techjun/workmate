@@ -4,19 +4,30 @@
  */
 
 interface PostTagsProps {
-  tags: string[];
-  /** 라벨 언어 (true: 한국어, false: 영어). 기본 true */
+  tags: readonly string[];
+  /** 라벨 언어 (true: 한국어, false: 영어). 기본 true. locale 지정 시 무시 */
   isKo?: boolean;
+  /** 4로케일 라벨 (지정 시 isKo 대신 사용) */
+  locale?: "ko" | "en" | "zh" | "vi";
 }
+
+const TAG_LABEL: Record<"ko" | "en" | "zh" | "vi", string> = {
+  ko: "태그",
+  en: "Tags",
+  zh: "标签",
+  vi: "Thẻ",
+};
 
 export default function PostTags({
   tags,
   isKo = true,
+  locale,
 }: PostTagsProps): React.ReactElement {
+  const label = locale ? TAG_LABEL[locale] : isKo ? "태그" : "Tags";
   return (
     <div className="mt-10 border-t border-[color:var(--color-border-subtle)] pt-6">
       <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
-        {isKo ? "태그" : "Tags"}
+        {label}
       </p>
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (

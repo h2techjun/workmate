@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -11,6 +12,27 @@ const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
   en: "What the middle digits in a Korean business number mean",
   zh: "事业者登记号中间两位数字，是什么意思？",
   vi: "Hai chữ số ở giữa mã số đăng ký kinh doanh có ý nghĩa gì?",
+};
+
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: ["사업자등록번호", "체크섬 검증", "사업자 종류 코드", "홈택스", "가짜 사업자번호", "세금계산서"],
+  en: [
+    "business registration number",
+    "checksum validation",
+    "entity type code",
+    "Hometax",
+    "fake business number",
+    "tax invoice",
+  ],
+  zh: ["事业者登记号", "校验位验证", "事业者种类代码", "Hometax", "虚假事业者号", "税务发票"],
+  vi: [
+    "mã số đăng ký kinh doanh",
+    "kiểm tra checksum",
+    "mã loại hình doanh nghiệp",
+    "Hometax",
+    "mã số kinh doanh giả",
+    "hóa đơn thuế",
+  ],
 };
 
 export async function generateMetadata({
@@ -69,6 +91,8 @@ export default async function BizNumberGuidePage({
         ) : (
           <ContentEn />
         )}
+
+        <PostTags tags={TAGS[localeKey]} locale={localeKey} />
       </div>
     </main>
   );

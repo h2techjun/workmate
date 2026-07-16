@@ -6,6 +6,7 @@ import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { FaqJsonLd } from "@/components/seo/StructuredData";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -505,6 +506,27 @@ const RELATED: ReadonlyArray<{ href: string; label: Record<Locale, string> }> = 
   },
 ];
 
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: ["무비자 국가", "여권 파워", "미국 ESTA", "유럽 ETIAS", "인도 e비자", "해외여행 준비"],
+  en: [
+    "visa-free countries",
+    "passport power",
+    "US ESTA",
+    "Europe ETIAS",
+    "India e-Visa",
+    "travel prep",
+  ],
+  zh: ["免签国家", "护照实力", "美国ESTA", "欧洲ETIAS", "印度e签证", "出行准备"],
+  vi: [
+    "nước miễn visa",
+    "sức mạnh hộ chiếu",
+    "ESTA Mỹ",
+    "ETIAS châu Âu",
+    "e-Visa Ấn Độ",
+    "chuẩn bị du lịch",
+  ],
+};
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -711,6 +733,8 @@ export default async function KoreaPassportVisaFreePage({
             <p>{c.closing}</p>
           </section>
         </article>
+
+        <PostTags tags={TAGS[localeKey]} locale={localeKey} />
       </div>
     </main>
   );

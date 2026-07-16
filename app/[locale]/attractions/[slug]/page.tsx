@@ -20,6 +20,7 @@ import { PhotoAttribution } from "@/components/attractions/PhotoAttribution";
 import { AttractionMap } from "@/components/attractions/AttractionMap";
 import { ReactionBar } from "@/components/attractions/ReactionBar";
 import { CommentsSection } from "@/components/attractions/CommentsSection";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -262,6 +263,8 @@ export default async function AttractionDetailPage({
               ))}
             </div>
           </section>
+
+          <PostTags tags={t.tags} locale={lk} />
 
           <CommentsSection slug={slug} locale={lk} />
         </div>

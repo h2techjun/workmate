@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -11,6 +12,27 @@ const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
   en: "Korean insulation code in plain English",
   zh: "隔热，让中部2外墙通过0.17的现实组合",
   vi: "Cách nhiệt, tổ hợp thực tế để tường ngoài Trung tâm-2 đạt chuẩn 0.17",
+};
+
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: ["단열", "중부2", "U값", "R값", "열교", "에너지절약 설계기준"],
+  en: [
+    "insulation",
+    "Central2 zone",
+    "U-value",
+    "R-value",
+    "thermal bridging",
+    "energy code",
+  ],
+  zh: ["隔热", "中部2", "U值", "R值", "热桥", "节能设计标准"],
+  vi: [
+    "cách nhiệt",
+    "Trung tâm-2",
+    "giá trị U",
+    "giá trị R",
+    "cầu nhiệt",
+    "tiêu chuẩn tiết kiệm năng lượng",
+  ],
 };
 
 export async function generateMetadata({
@@ -70,6 +92,8 @@ export default async function InsulationGuidePage({
         ) : (
           <ContentEn />
         )}
+
+        <PostTags tags={TAGS[localeKey]} locale={localeKey} />
       </div>
     </main>
   );

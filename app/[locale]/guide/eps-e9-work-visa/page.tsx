@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { locales } from "@/i18n";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,6 +21,27 @@ const OG_LOCALE: Record<string, string> = {
   en: "en_US",
   zh: "zh_CN",
   vi: "vi_VN",
+};
+
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: ["E-9 비자", "고용허가제", "EPS", "외국인 취업", "비전문취업", "EPS-TOPIK"],
+  en: [
+    "E-9 visa",
+    "EPS",
+    "work visa Korea",
+    "foreign worker",
+    "EPS-TOPIK",
+    "employment permit system",
+  ],
+  zh: ["E-9签证", "雇佣许可制", "EPS", "外国人就业", "非专业就业", "EPS-TOPIK"],
+  vi: [
+    "Visa E-9",
+    "EPS",
+    "visa lao động Hàn Quốc",
+    "lao động nước ngoài",
+    "EPS-TOPIK",
+    "chế độ cấp phép lao động",
+  ],
 };
 
 export function generateStaticParams(): { locale: string }[] {
@@ -376,6 +398,8 @@ function ContentKo(): React.ReactElement {
           </Link>
         </p>
       </section>
+
+      <PostTags tags={TAGS.ko} locale="ko" />
     </article>
   );
 }
@@ -615,6 +639,8 @@ function ContentZh(): React.ReactElement {
           </Link>
         </p>
       </section>
+
+      <PostTags tags={TAGS.zh} locale="zh" />
     </article>
   );
 }
@@ -926,6 +952,8 @@ function ContentVi(): React.ReactElement {
           </Link>
         </p>
       </section>
+
+      <PostTags tags={TAGS.vi} locale="vi" />
     </article>
   );
 }
@@ -1229,6 +1257,8 @@ function ContentEn(): React.ReactElement {
           </Link>
         </p>
       </section>
+
+      <PostTags tags={TAGS.en} locale="en" />
     </article>
   );
 }

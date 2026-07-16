@@ -6,6 +6,7 @@ import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { FaqJsonLd } from "@/components/seo/StructuredData";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -408,6 +409,41 @@ const FAQS: ReadonlyArray<Faq> = [
     },
   },
 ];
+
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: [
+    "한국 취업비자",
+    "국적별 비자",
+    "E-9 고용허가제",
+    "E-7 전문비자",
+    "재외동포 F-4",
+    "EPS 송출국",
+  ],
+  en: [
+    "Korea work visa",
+    "visa by nationality",
+    "E-9 EPS",
+    "E-7 professional visa",
+    "F-4 overseas Korean",
+    "EPS sending countries",
+  ],
+  zh: [
+    "韩国工作签证",
+    "按国籍看签证",
+    "E-9雇佣许可制",
+    "E-7专业签证",
+    "在外同胞F-4",
+    "EPS派遣国",
+  ],
+  vi: [
+    "Visa lao động Hàn Quốc",
+    "Visa theo quốc tịch",
+    "E-9 EPS",
+    "Visa chuyên môn E-7",
+    "Kiều bào F-4",
+    "Nước phái cử EPS",
+  ],
+};
 
 const COPY = {
   ko: {
@@ -823,6 +859,8 @@ export default async function ForeignWorkVisaKoreaPage({
             </h2>
             <p>{c.closing}</p>
           </section>
+
+          <PostTags tags={TAGS[localeKey]} locale={localeKey} />
         </article>
       </div>
     </main>

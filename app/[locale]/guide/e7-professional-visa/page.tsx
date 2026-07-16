@@ -4,6 +4,7 @@ import { locales } from "@/i18n";
 import { buildLanguagesAlt } from "@/lib/seo/alternates";
 import { SITE_URL } from "@/lib/siteConfig";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -16,6 +17,34 @@ const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
   en: "Korea E-7 Professional Work Visa: 2026 Guide (Salary, Types, Points)",
   zh: "韩国E-7专业工作签证完全指南2026(薪资标准·类型·积分制)",
   vi: "Visa lao động chuyên môn E-7 Hàn Quốc: Hướng dẫn 2026 (Lương, Loại, Điểm)",
+};
+
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: [
+    "E-7 비자",
+    "전문직 취업비자",
+    "숙련기능인력",
+    "고용주 스폰서",
+    "임금기준",
+    "Top-Tier 비자",
+  ],
+  en: [
+    "E-7 visa",
+    "professional work visa",
+    "skilled worker visa Korea",
+    "employer sponsorship",
+    "salary standard",
+    "Top-Tier visa",
+  ],
+  zh: ["E-7签证", "专业工作签证", "熟练技能人力", "雇主担保", "薪资标准", "Top-Tier签证"],
+  vi: [
+    "Visa E-7",
+    "visa lao động chuyên môn",
+    "lao động lành nghề",
+    "bảo lãnh của chủ",
+    "chuẩn lương",
+    "visa Top-Tier",
+  ],
 };
 
 export async function generateMetadata({
@@ -412,6 +441,8 @@ function ContentKo({ locale }: { locale: string }): React.ReactElement {
           일반 정보이며 법률 자문이 아닙니다.
         </p>
       </section>
+
+      <PostTags tags={TAGS.ko} locale="ko" />
     </article>
   );
 }
@@ -759,6 +790,8 @@ function ContentEn({ locale }: { locale: string }): React.ReactElement {
           information, not legal advice.
         </p>
       </section>
+
+      <PostTags tags={TAGS.en} locale="en" />
     </article>
   );
 }
@@ -1023,6 +1056,8 @@ function ContentZh({ locale }: { locale: string }): React.ReactElement {
           来源：法务部HiKorea(hikorea.go.kr)、法务部。薪资标准·职种·配额每年更新，申请前请务必通过官方渠道确认。本文为一般信息，非法律咨询。
         </p>
       </section>
+
+      <PostTags tags={TAGS.zh} locale="zh" />
     </article>
   );
 }
@@ -1371,6 +1406,8 @@ function ContentVi({ locale }: { locale: string }): React.ReactElement {
           không phải tư vấn pháp lý.
         </p>
       </section>
+
+      <PostTags tags={TAGS.vi} locale="vi" />
     </article>
   );
 }

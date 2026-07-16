@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -11,6 +12,27 @@ const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
   en: "How far can a 2x10 SPF span?",
   zh: "2x10 SPF 搁栅(joist)能跨多远？",
   vi: "Dầm sàn (joist) 2x10 SPF vượt được nhịp bao xa?",
+};
+
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: ["부재 경간", "2x10 SPF", "장선", "적설하중", "NDS 보정계수", "목조주택"],
+  en: [
+    "span table",
+    "2x10 SPF",
+    "joist sizing",
+    "snow load",
+    "NDS factors",
+    "wood frame",
+  ],
+  zh: ["构件跨度", "2x10 SPF", "搁栅", "积雪荷载", "NDS修正系数", "轻型木结构"],
+  vi: [
+    "nhịp cấu kiện",
+    "2x10 SPF",
+    "dầm sàn",
+    "tải trọng tuyết",
+    "hệ số NDS",
+    "nhà khung gỗ",
+  ],
 };
 
 export async function generateMetadata({
@@ -70,6 +92,8 @@ export default async function SpanGuidePage({
         ) : (
           <ContentEn />
         )}
+
+        <PostTags tags={TAGS[localeKey]} locale={localeKey} />
       </div>
     </main>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import PostTags from "@/components/ui/PostTags";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -11,6 +12,27 @@ const TITLE: Record<"ko" | "en" | "zh" | "vi", string> = {
   en: "Korean 4-major insurance demystified (2026)",
   zh: "月薪300万韩元实领多少？四大保险完全拆解",
   vi: "Lương 3 triệu won thực nhận bao nhiêu? Giải mã đầy đủ 4 bảo hiểm bắt buộc",
+};
+
+const TAGS: Record<"ko" | "en" | "zh" | "vi", string[]> = {
+  ko: ["4대보험", "국민연금", "건강보험", "고용보험", "산재보험", "실수령액"],
+  en: [
+    "4 major insurances",
+    "national pension",
+    "health insurance",
+    "employment insurance",
+    "industrial accident insurance",
+    "take-home pay",
+  ],
+  zh: ["四大保险", "国民年金", "健康保险", "雇佣保险", "工伤保险", "实领工资"],
+  vi: [
+    "4 bảo hiểm bắt buộc",
+    "lương hưu quốc gia",
+    "bảo hiểm y tế",
+    "bảo hiểm việc làm",
+    "bảo hiểm tai nạn lao động",
+    "lương thực nhận",
+  ],
 };
 
 export async function generateMetadata({
@@ -69,6 +91,8 @@ export default async function FourInsuranceGuidePage({
         ) : (
           <ContentEn />
         )}
+
+        <PostTags tags={TAGS[localeKey]} locale={localeKey} />
       </div>
     </main>
   );
