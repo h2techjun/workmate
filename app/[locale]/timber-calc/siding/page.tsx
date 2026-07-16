@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính số tấm ốp ngoại thất — diện tích tường ngoài → số tấm siding"
         : "Siding Calculator — exterior wall area to board count";
   const description = isKo
-    ? "외벽 면적과 손실률을 입력하면 시멘트 사이딩 보드 매수를 즉시. 처마·창문 공제 손실률 10% 기본. 무료, 회원가입 없음."
+    ? "외벽 면적과 손실률을 입력하면 시멘트 사이딩 보드 매수를 즉시 계산합니다. 처마·창문 공제 손실률 10% 기본 적용, 파이버 시멘트 보드 규격 기준으로 외벽 마감 시공 견적과 발주 물량까지 무료로, 회원가입 없이 확인합니다."
     : isZh
-      ? "输入外墙面积与损耗率，即可立即算出水泥护墙板张数。屋檐·门窗扣减默认损耗率10%。免费，无需注册。"
+      ? "输入外墙面积与损耗率，即可立即算出水泥护墙板张数。默认损耗率10%，用于扣减屋檐·门窗面积，以纤维水泥护墙板标准规格为基准，方便外墙装修工程施工报价、材料采购与预算规划参考，完全免费在线使用，无需注册。"
       : isVi
         ? "Nhập diện tích tường ngoài và hệ số hao hụt là tính ngay số tấm ốp xi măng sợi. Hệ số hao hụt mặc định 10% bù trừ mái đua/cửa sổ. Miễn phí, không cần đăng ký."
         : "Calculate fiber-cement siding board count from exterior wall area with 10% default waste. Free, no signup.";

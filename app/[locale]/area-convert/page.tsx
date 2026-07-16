@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Chuyển đổi Pyeong ↔ m² — Đổi mét vuông sang pyeong tức thì (1 pyeong = 3,3058 m²)"
         : "Square Meters to Pyeong Converter — What Is a Pyeong? (1 pyeong = 3.3058 m²)";
   const description = isKo
-    ? "평·㎡·제곱자(자²) 양방향 즉시 변환. 1평 = 3.30578㎡ = 36자², 84㎡ ≈ 25평. 0.5평 단위 부동산 반올림 + 59·84·114㎡ 프리셋 제공."
+    ? "평·㎡·제곱자(자²)를 양방향으로 즉시 변환합니다. 1평 = 3.30578㎡ = 36자² 기준이며 84㎡ ≈ 25평처럼 국민주택규모도 바로 확인 가능. 0.5평 단위 부동산 반올림과 59·84·114㎡ 프리셋까지 제공합니다."
     : isZh
-      ? "坪·㎡·平方尺(尺²) 双向即时换算。1坪 = 3.30578㎡ = 36尺², 84㎡ ≈ 25坪。提供0.5坪单位房产四舍五入 + 59·84·114㎡ 常用预设。"
+      ? "坪·㎡·平方尺(尺²)双向即时换算。以1坪 = 3.30578㎡ = 36尺²为基准，84㎡ ≈ 25坪等国民住宅标准面积也能马上查到。同时提供0.5坪单位的房产四舍五入规则和59·84·114㎡常用预设。"
       : isVi
         ? "Chuyển đổi hai chiều giữa pyeong, m² và ja² (thước vuông) tức thì. 1 pyeong = 3,30578 m² = 36 ja², 84 m² ≈ 25 pyeong. Tự động làm tròn 0,5 pyeong theo kiểu bất động sản + mẫu có sẵn 59·84·114 m²."
         : "Convert square meters to pyeong and back instantly — 1 pyeong = 3.3058 m² (so 84 m² ≈ 25 pyeong). What a pyeong is, how big one is, plus square-ja. The Korean area units every foreigner needs.";

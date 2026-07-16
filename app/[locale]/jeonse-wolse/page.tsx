@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Chuyển đổi Jeonse ↔ Wolse + Danh sách phòng chống lừa đảo tiền đặt cọc (hướng dẫn cho người nước ngoài)"
         : "Korea Jeonse ↔ Wolse Converter + Deposit Scam Checklist";
   const description = isKo
-    ? "전월세전환율(법정 상한 4.5%)로 전세↔월세를 양방향 환산. 2022~2023 전세사기 사태와 외국인이 보증금을 지키는 단계별 방지 체크리스트(등기부·확정일자·전입신고·보증보험)까지."
+    ? "법정 상한 4.5%인 전월세전환율로 전세 보증금과 월세를 양방향으로 환산합니다. 2022~2023년 전세사기 사태의 배경을 짚고, 외국인이 보증금을 지키기 위해 확인해야 할 등기부등본·확정일자·전입신고·전세보증보험까지 단계별 체크리스트로 안내합니다."
     : isZh
-      ? "按全租转月租折算率（法定上限4.5%）双向换算全租↔月租。涵盖2022~2023年全租诈骗事件，以及外国人保护保证金的分步防范清单（房产登记簿·确定日期·迁入申报·保证保险）。"
+      ? "按法定上限4.5%的全租转月租折算率，对全租保证金与月租进行双向换算。同时讲解2022~2023年全租诈骗事件的背景，并为外国人提供保护保证金的分步防范清单，涵盖房产登记簿、确定日期、迁入申报、全租保证保险等核心确认事项。"
       : isVi
         ? "Chuyển đổi hai chiều giữa jeonse (tiền đặt cọc) và wolse (tiền thuê hàng tháng) theo tỷ lệ chuyển đổi của Hàn Quốc (mức trần pháp lý 4,5%). Kèm bối cảnh làn sóng lừa đảo tiền đặt cọc 2022–2023 và danh sách từng bước để bảo vệ tiền đặt cọc của bạn với tư cách người nước ngoài."
         : "Convert jeonse ↔ monthly rent with Korea's conversion rate (legal cap 4.5%). Plus the 2022–2023 deposit-scam context and a step-by-step checklist to protect your deposit as a foreigner.";

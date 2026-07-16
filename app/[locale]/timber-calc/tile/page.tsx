@@ -26,9 +26,9 @@ export async function generateMetadata({
         ? "Máy tính số viên gạch — diện tích + kích thước gạch → số viên + vữa chít mạch + keo dán"
         : "Tile Calculator — area × tile size → count + grout + adhesive";
   const description = isKo
-    ? "면적과 타일 크기(300/600/800mm 등 표준 프리셋)를 선택하면 타일 매수, 접착제(본드) kg, 줄눈 충전재 kg까지 즉시. 손실률 자동 반영."
+    ? "면적과 타일 크기(300/600/800mm 등 표준 프리셋)를 선택하면 타일 매수, 접착제(본드) kg, 줄눈 충전재 kg까지 즉시 계산합니다. 손실률 자동 반영으로 욕실·주방·바닥 시공 견적을 무료로, 회원가입 없이 확인할 수 있습니다."
     : isZh
-      ? "选择面积与瓷砖尺寸(300/600/800mm等标准预设)，即可立即算出瓷砖张数、瓷砖胶(kg)、填缝剂(kg)。自动反映损耗率。"
+      ? "选择面积与瓷砖尺寸(300/600/800mm等标准预设)，即可立即算出瓷砖张数、瓷砖胶(kg)、填缝剂(kg)用量。自动反映损耗率，适用于浴室·厨房·地面·墙面装修的施工备料估算，完全免费，无需注册即可使用。"
       : isVi
         ? "Chọn diện tích và kích thước gạch (mẫu tiêu chuẩn 300/600/800mm) là tính ngay số viên gạch, keo dán (kg), và vữa chít mạch (kg). Tự động áp dụng hệ số hao hụt."
         : "Pick tile size (300/600/800mm presets) and area — get tile count, adhesive kg, and grout kg instantly. Auto waste factor.";

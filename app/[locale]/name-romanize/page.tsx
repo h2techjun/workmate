@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Công cụ phiên âm La-tinh tên tiếng Hàn — Quy tắc chính thức & cách viết hộ chiếu"
         : "Korean Name Romanizer — Revised Romanization & passport spelling";
   const description = isKo
-    ? "한글 이름을 국립국어원 로마자 표기법으로 변환. 정식 표기 + 여권 관습 표기(Kim·Lee·Park) + 하이픈 방식까지 한 번에. 가입 없이 브라우저에서."
+    ? "한글 이름을 국립국어원 로마자 표기법 기준으로 변환합니다. 정식 표기와 여권에서 흔히 쓰는 관습 표기(Kim·Lee·Park), 하이픈으로 이어 쓰는 방식까지 한 번에 비교할 수 있고 가입 없이 브라우저에서 바로 사용합니다."
     : isZh
-      ? "按韩国国立国语院罗马字标记法将韩文姓名转换为罗马字。同时提供正式拼写 + 护照惯用拼写(Kim·Lee·Park) + 连字符拼写。无需注册，浏览器内直接完成。"
+      ? "按韩国国立国语院罗马字标记法规则转换韩文姓名。同时给出正式拼写、护照上常见的惯用拼写(Kim·Lee·Park)以及连字符拼写三种版本，方便一次对比选择最合适的写法，无需注册即可在浏览器内直接完成转换。"
       : isVi
         ? "Chuyển đổi tên tiếng Hàn sang chữ La-tinh theo quy tắc La-tinh hóa chính thức. Bao gồm cách viết chính thức + cách viết thông dụng trên hộ chiếu (Kim, Lee, Park) + dạng có gạch nối."
         : "Convert Korean names to romanized spelling. Official Revised Romanization + conventional passport spellings (Kim, Lee, Park) + hyphenated form.";

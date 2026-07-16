@@ -25,11 +25,11 @@ export async function generateMetadata({
         ? "外国人单一税率(19%) vs 累进税比较计算器 — 哪种更有利？"
         : "Korea Foreign Flat Tax (19%) vs Progressive — Which Saves More?";
   const description = isKo
-    ? "한국 거주 외국인 근로자의 19% 단일세율(지방세 포함 20.9%)과 일반 누진세를 연봉 기준으로 즉시 비교. 손익분기·실효세율·근로소득공제 반영. 2026 귀속 기준."
+    ? "한국 근무 외국인 근로자가 선택 가능한 19% 단일세율(지방소득세 포함 20.9%)과 일반 누진세를 연봉 기준으로 즉시 비교합니다. 손익분기점·실효세율·근로소득공제까지 반영해 어느 쪽이 유리한지 2026년 귀속 기준으로 확인할 수 있습니다."
     : isVi
       ? "So sánh ngay thuế suất đơn nhất 19% (bao gồm thuế địa phương là 20.9%) và thuế lũy tiến thông thường dành cho người lao động nước ngoài tại Hàn Quốc, dựa trên mức lương năm. Phản ánh điểm hòa vốn, thuế suất thực tế, khấu trừ thu nhập từ lao động. Áp dụng năm thuế 2026."
       : isZh
-        ? "根据年薪即时比较居住在韩国的外国劳动者的19%单一税率(含地方税共20.9%)与一般累进税。反映损益平衡点、实际税率、劳动所得扣除。适用2026纳税年度。"
+        ? "输入年薪，即可立即比较在韩国工作的外国劳动者可选择的19%单一税率(含地方所得税共20.9%)与一般累进税率。同时反映两种方式的损益平衡点、实际税率和劳动所得扣除额，按2026纳税年度标准帮你判断哪种更划算。"
         : "Compare Korea's 19% flat tax (20.9% incl. local) vs progressive income tax for foreign workers by salary. Breakeven, effective rate, deductions — 2026 basis.";
   const keywords = isKo
     ? [

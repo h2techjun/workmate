@@ -26,9 +26,9 @@ export async function generateMetadata({
         ? "Máy tính số thanh đứng (khung gỗ) — chiều dài tường × chiều cao trần × khoảng cách"
         : "Stud Framing Calculator — wall length × ceiling × spacing";
   const description = isKo
-    ? "벽 길이·층고·스터드 간격(16\"/24\")·개구부 개수만 입력하면 2×4 SPF 각목 본수, 1본 길이, 탑·솔 플레이트 길이, 헤더 본수, 못 개수까지 즉시. 손실률 자동 반영."
+    ? "벽 길이·층고·스터드 간격(16\"/24\")·개구부 개수만 입력하면 2×4 SPF 각목 본수, 1본 길이, 탑·솔 플레이트 길이, 헤더 본수, 못 개수까지 즉시 계산합니다. 손실률 자동 반영으로 목조주택 골조 자재 물량을 무료로 확인합니다."
     : isZh
-      ? "只需输入墙长·层高·墙骨柱间距(16\"/24\")·洞口数量，即可立即算出2×4 SPF方木根数、单根长度、顶·底梁板长度、过梁根数、钉子数量。自动反映损耗率。"
+      ? "只需输入墙长·层高·墙骨柱间距(16\"/24\")·洞口数量，即可立即算出2×4 SPF方木根数、单根长度、顶·底梁板长度、过梁根数、钉子数量。自动反映损耗率，适用于木结构住宅骨架施工的备料估算，完全免费。"
       : isVi
         ? "Chỉ cần nhập chiều dài tường, chiều cao trần, khoảng cách thanh đứng (16\"/24\") và số lượng lỗ mở là tính ngay số thanh đứng 2×4 SPF, chiều dài một thanh, chiều dài tấm đế trên/dưới, số đà đỡ, và số lượng đinh. Tự động áp dụng hệ số hao hụt."
         : "Calculate 2×4 SPF stud count, stud length, top/sole plate length, header count, and nails from wall length, ceiling height, and spacing. Auto waste factor.";

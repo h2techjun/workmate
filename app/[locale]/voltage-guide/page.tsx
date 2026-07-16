@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Hướng dẫn điện áp·phích cắm Hàn Quốc — có cần biến áp·đầu chuyển không?"
         : "Korea Voltage & Plug Guide — do you need a converter?";
   const description = isKo
-    ? "한국 220V·60Hz·C/F 플러그. 기기 전압과 출신국 플러그로 변압기·어댑터(돼지코) 필요 여부를 즉시 판정. 여행·이주 전 필수 점검."
+    ? "한국은 220V·60Hz에 C/F 타입 플러그를 사용합니다. 기기 전압과 출신국 플러그 모양만 고르면 변압기나 어댑터(돼지코)가 필요한지 즉시 판정해주며, 여행이나 이주를 앞두고 반드시 점검할 항목입니다."
     : isZh
-      ? "韩国使用220V·60Hz电压，插头类型为C/F。根据设备电压与你所在国家的插头类型，即时判定是否需要变压器·转换插头(돼지코)。旅行·移居韩国前必查项目。"
+      ? "韩国使用220V·60Hz电压，插头为C/F类型。只需选择设备电压和你所在国家常用的插头形状，就能立即判断是否需要变压器或转换插头(俗称猪鼻子)，是赴韩旅行、留学或移居韩国前必须提前确认的一项准备事项。"
       : isVi
         ? "Hàn Quốc dùng điện áp 220V·60Hz, phích cắm loại C/F. Nhập điện áp thiết bị và phích cắm nước bạn để xác định ngay có cần biến áp·đầu chuyển phích cắm (phích cắm tròn) hay không. Kiểm tra bắt buộc trước khi du lịch·định cư."
         : "Korea uses 220V/60Hz, plug type C/F. Check whether your device needs a transformer or plug adapter from its voltage and your plug type.";

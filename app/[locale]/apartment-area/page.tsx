@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính diện tích riêng·cung cấp / giá theo pyeong — Căn hộ 84㎡ thực tế ở được bao nhiêu pyeong?"
         : "Korean Apartment Area & Price per Pyeong — Exclusive vs Supply Area";
   const description = isKo
-    ? "공급·전용면적(㎡)으로 전용률·평 환산·평당가(공급/전용 기준)를 즉시 계산. 외국인이 가장 헷갈리는 전용/공급면적 함정 해설. 국민평형 84㎡의 실거주 면적까지."
+    ? "공급면적과 전용면적(㎡)을 입력하면 전용률·평 환산·공급/전용 기준 평당가를 즉시 계산합니다. 외국인이 가장 헷갈리는 전용면적과 공급면적의 차이를 쉽게 설명하며, '국민평형' 84㎡ 아파트의 실제 거주 면적이 몇 평인지 확인할 수 있습니다."
     : isZh
-      ? "输入供给·专有面积(㎡)，立即计算专有率·坪换算·每坪价格（按供给/专有面积）。解析外国人最容易混淆的专有/供给面积陷阱，直至国民标准户型84㎡的实际居住面积。"
+      ? "输入供给面积与专有面积(㎡)，即可立即计算专有率、坪换算，以及按供给面积或专有面积计价的每坪价格。详细解析外国人最容易混淆的专有面积与供给面积区别，还能直接查看国民标准户型84㎡公寓的实际居住面积是多少坪。"
       : isVi
         ? "Nhập diện tích cung cấp và diện tích riêng (㎡) để tính ngay tỷ lệ diện tích riêng, quy đổi pyeong và giá theo pyeong (theo diện tích cung cấp/diện tích riêng). Giải thích bẫy diện tích riêng và diện tích cung cấp mà người nước ngoài hay nhầm lẫn nhất — kể cả diện tích thực ở của căn hộ 'diện tích tiêu chuẩn quốc dân' 84㎡."
         : "Enter supply and exclusive area (㎡) to get the exclusive ratio, pyeong, and price per pyeong. Decodes the exclusive-vs-supply trap behind Korean apartment listings — why an \"84㎡\" flat isn't 84㎡ of living space.";

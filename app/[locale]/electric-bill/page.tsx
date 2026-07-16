@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính tiền điện Hàn Quốc — biểu giá lũy tiến"
         : "Korean Electricity Bill Calculator — progressive tariff";
   const description = isKo
-    ? "월 사용량(kWh)으로 전기요금을 즉시 계산. 주택용 저압·고압 누진제 3단계 + 여름철 완화 + 기후환경요금 + 연료비조정 + 부가세 + 전력기금까지 한전 2024 기준."
+    ? "월 사용량(kWh)으로 전기요금을 즉시 계산합니다. 주택용 저압·고압 누진제 3단계, 여름철 완화 구간, 기후환경요금, 연료비조정액, 부가세, 전력산업기반기금까지 한전 2024년 요금 기준으로 정확히 반영합니다."
     : isZh
-      ? "根据月用电量(kWh)即时计算电费。涵盖住宅用低压·高压累进电价3档 + 夏季缓和区间 + 气候环境费 + 燃料费调整 + 增值税 + 电力基金，以韩国电力公社(KEPCO)2024年标准为准。"
+      ? "根据月用电量(kWh)即时计算电费金额。涵盖住宅用低压·高压累进电价3档、夏季缓和区间、气候环境费、燃料费调整额、增值税与电力产业基础基金，均以韩国电力公社(KEPCO)2024年标准精确核算，结果即时可见。"
       : isVi
         ? "Nhập lượng điện tiêu thụ hàng tháng (kWh) để tính ngay tiền điện. Biểu giá điện lũy tiến 3 bậc (áp thấp/áp cao) + giảm nhẹ mùa hè + phí khí hậu-môi trường + điều chỉnh nhiên liệu + VAT + quỹ điện lực, theo biểu giá KEPCO 2024."
         : "Calculate your Korean residential electricity bill from monthly kWh. KEPCO progressive tariff (3 tiers), summer relaxation, climate/fuel charges, VAT.";

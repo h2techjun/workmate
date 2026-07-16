@@ -25,11 +25,11 @@ export async function generateMetadata({
         ? "房地产转让所得税计算器 — 长期持有扣除 + 累进税"
         : "Korean Real Estate Capital Gains Tax Calculator";
   const description = isKo
-    ? "부동산 양도차익으로 양도소득세를 즉시 계산. 장기보유특별공제(최대 80%) + 1세대1주택 우대 + 기본공제 250만 + 8구간 누진세 + 지방세. 단기 양도 중과까지."
+    ? "부동산의 양도가액과 취득가액, 보유기간을 입력하면 양도소득세를 즉시 계산합니다. 장기보유특별공제(최대 80%), 1세대1주택 비과세·우대, 기본공제 250만원, 8구간 누진세율과 지방소득세는 물론 단기 양도 시 적용되는 중과세율까지 반영합니다."
     : isVi
       ? "Tính ngay thuế chuyển nhượng từ lãi chuyển nhượng bất động sản Hàn Quốc. Khấu trừ đặc biệt sở hữu dài hạn (tối đa 80%) + ưu đãi hộ 1 nhà 1 căn + khấu trừ cơ bản 2,5 triệu won + thuế suất lũy tiến 8 bậc + thuế địa phương. Bao gồm cả mức thuế nặng cho chuyển nhượng ngắn hạn."
       : isZh
-        ? "根据房地产转让差价即时计算转让所得税。长期持有特别扣除(最高80%) + 一世帯一住宅优惠 + 基本扣除250万韩元 + 8级累进税 + 地方税。涵盖短期转让重课税率。"
+        ? "输入房地产的转让价格、取得价格与持有期限，即可立即计算转让所得税。综合反映长期持有特别扣除(最高80%)、一世帯一住宅免税优惠、基本扣除250万韩元、8级累进税率及地方所得税，并涵盖短期转让适用的重课税率。"
         : "Calculate Korean real estate capital gains tax. Long-term holding deduction (up to 80%), single-house benefit, KRW 2.5M basic deduction, 8-bracket progressive tax.";
   const keywords = isKo
     ? [

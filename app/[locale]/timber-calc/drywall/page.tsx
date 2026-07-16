@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính số tấm thạch cao — diện tích tường/trần → số tấm + vít + hệ số hao hụt"
         : "Drywall Sheet Calculator — area to sheets, fasteners, waste factor";
   const description = isKo
-    ? "벽·천장 면적과 손실률만 입력하면 석고보드 매수와 피스(스크류) 개수까지 즉시 산출. KS F 3504 표준 9.5/12.5mm 두께 지원. 무료, 회원가입 없음."
+    ? "벽·천장 면적과 손실률만 입력하면 석고보드 매수와 피스(스크류) 개수, 총 무게까지 즉시 산출합니다. KS F 3504 표준 9.5/12.5mm 두께를 지원하며 인테리어·경량철골 시공 자재 발주에 바로 활용할 수 있습니다. 무료, 회원가입 없음."
     : isZh
-      ? "只需输入墙面·天花板面积与损耗率，即可立即算出石膏板张数与螺丝数量。支持KS F 3504标准9.5/12.5mm厚度。免费，无需注册。"
+      ? "只需输入墙面·天花板面积与损耗率，即可立即算出石膏板张数、螺丝数量与总重量。支持KS F 3504标准9.5/12.5mm厚度，适用于室内装修·轻钢龙骨隔墙施工的材料备料估算，免费，无需注册即可使用。"
       : isVi
         ? "Chỉ cần nhập diện tích tường/trần và hệ số hao hụt là tính ngay số tấm thạch cao và số lượng vít cố định. Hỗ trợ độ dày tiêu chuẩn KS F 3504 9.5/12.5mm. Miễn phí, không cần đăng ký."
         : "Calculate drywall sheets and fastener count from wall/ceiling area with waste factor. Supports KS F 3504 9.5/12.5mm thickness. Free, no signup.";

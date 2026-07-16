@@ -25,7 +25,7 @@ export async function generateMetadata({
         ? "Danh sách kiểm tra điều kiện visa cư trú F-2-7 — Hướng dẫn chế độ tính điểm & yêu cầu xin visa"
         : "Korea F-2-7 Residence Visa — Eligibility Checklist & Points Guide";
   const description = isKo
-    ? "F-2-7 점수제 거주비자 신청 5유형·필수요건(3년 체류 또는 연소득 4천만)·품행 요건을 체크. 80점 점수제와 영주(F-5) 경로 안내. 공식 확인 hikorea."
+    ? "F-2-7 점수제 거주비자의 5개 신청 유형과 필수요건(3년 체류 또는 연소득 4천만 원)·품행 요건을 항목별로 확인합니다. 80점 점수제 계산과 영주권(F-5)으로 이어지는 경로까지 안내하며, 최종 확인은 hikorea 공식 정보로 하세요."
     : isZh
       ? "核对F-2-7积分制居留签证的5种申请类型·核心要求(连续居留3年或年收入4000万韩元以上)·品行要求，并指南80分积分制及永久居留(F-5)路径。请以hikorea官方信息为准。"
       : isVi

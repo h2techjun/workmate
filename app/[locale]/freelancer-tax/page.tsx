@@ -25,11 +25,11 @@ export async function generateMetadata({
         ? "自由职业者3.3%计算器 — 税前·税后代扣代缴"
         : "Korean Freelancer 3.3% Tax Calculator";
   const description = isKo
-    ? "프리랜서 사업소득 3.3%(소득세 3% + 지방세 0.3%) 원천징수를 즉시 계산. 세전→세후, 실수령→세전 역산, 연 환산까지. 5월 종합소득세 신고 정산 안내."
+    ? "프리랜서 사업소득에서 원천징수되는 3.3%(소득세 3% + 지방소득세 0.3%)를 즉시 계산합니다. 세전 금액을 세후로, 실수령액을 세전으로 역산하는 양방향 계산과 연 환산 금액을 제공하며 5월 종합소득세 신고 정산 방법도 안내합니다."
     : isVi
       ? "Tính ngay khoản khấu trừ tại nguồn 3,3% (thuế thu nhập 3% + thuế địa phương 0,3%) trên thu nhập kinh doanh của freelancer. Từ trước thuế sang sau thuế, tính ngược từ thực nhận sang trước thuế, và quy đổi theo năm. Kèm hướng dẫn quyết toán thuế thu nhập tổng hợp vào tháng 5."
       : isZh
-        ? "即时计算自由职业者营业所得3.3%(所得税3% + 地方税0.3%)代扣代缴。税前→税后、实领→税前反算、按年换算。附5月综合所得税申报指南。"
+        ? "自由职业者的营业所得会被代扣代缴3.3%(所得税3% + 地方所得税0.3%)，本工具可即时计算该税额。支持税前推算税后、实领金额反算税前两种方向，并提供按年换算金额，同时说明5月综合所得税申报时如何进行最终结算。"
         : "Calculate Korean freelancer 3.3% withholding (3% income + 0.3% local). Gross to net and net to gross, with annual figures and filing notes.";
   const keywords = isKo
     ? [

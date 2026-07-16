@@ -27,7 +27,7 @@ export async function generateMetadata({
   const description = isKo
     ? "한국 거주 외국인의 NHIS 건강보험료를 직장가입자(보수월액)·지역가입자(평균보험료)별로 즉시 추정. 유학생 50% 경감, 장기요양보험 포함, 의무가입 6개월 안내. 2026 기준."
     : isZh
-      ? "立即估算在韩外国人的NHIS健康保险费——分职场加入者（按月薪计算）与地区加入者（按平均保险费计算）两种情况。含留学生50%减免、长期疗养保险，并说明6个月强制加入规定。按2026年标准。"
+      ? "按职场加入者(月薪基准)与地区加入者(外国人平均保险费基准)两种情况,立即估算在韩外国人的NHIS健康保险费。涵盖留学生50%减免、长期疗养保险费,并说明6个月强制加入规定,方便签证与预算规划。基于2026年标准整理。"
       : isVi
         ? "Ước tính ngay phí bảo hiểm y tế NHIS cho người nước ngoài sống tại Hàn Quốc — theo lương (lao động) hoặc phí bình quân (tự do). Giảm 50% cho du học sinh, bao gồm bảo hiểm chăm sóc dài hạn, quy định bắt buộc tham gia sau 6 tháng. Cơ sở 2026."
         : "Estimate your Korean NHIS health insurance premium as a foreigner — employee (salary-based) or self-employed (average premium). Student 50% reduction, long-term care, 6-month mandatory enrollment. 2026 basis.";

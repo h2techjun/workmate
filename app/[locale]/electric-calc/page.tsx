@@ -21,10 +21,10 @@ export async function generateMetadata({
     zh: "工业电气计算器 | Workmate",
   };
   const descriptions: Record<Locale, string> = {
-    ko: "KS C IEC 60364 기반 전선 굵기, 차단기 용량, 전압강하 계산기. 전기공사 실무에 바로 사용 가능.",
+    ko: "KS C IEC 60364·한국전기설비규정(KEC)·내선규정 1410-1에 근거해 전선 굵기·차단기 용량·전압강하를 계산하는 산업용 전기 계산기 모음. 온도·회로 보정과 KS C 8324/8453 차단기 표준까지 반영해 실무에 바로 활용 가능합니다.",
     en: "KS C IEC 60364 wire size, breaker capacity, and voltage drop calculators for electrical professionals.",
     vi: "Máy tính dây điện, công suất aptomat (CB), sụt áp dựa trên tiêu chuẩn KS C IEC 60364. Dùng ngay cho công việc thi công điện thực tế.",
-    zh: "基于KS C IEC 60364标准的电线线径、断路器容量、电压降计算器。电气工程实务可直接使用。",
+    zh: "依据KS C IEC 60364、韩国电气设备规定(KEC)与内线规定1410-1公式，计算电线线径、断路器容量与电压降的工业用电气计算器合集。同时反映温度与回路数修正及KS C 8324/8453断路器标准，可直接用于电气工程实务。",
   };
   return {
     title: titles[locale as Locale] ?? titles.ko,

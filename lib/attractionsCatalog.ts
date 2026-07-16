@@ -152,11 +152,11 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
     nameZh: "景福宫",
     nameVi: "Cung Gyeongbokgung",
     summaryKo:
-      "서울 궁궐 중 급은 여기가 최고예요. 광화문 넘어서자마자 근정전 스케일에 압도되고, 한복만 입으면 입장료 3천 원이 통째로 공짜! 운 좋으면 봄가을 야간개장까지 잡을 수 있어요.",
+      "서울 궁궐 중 급은 여기가 최고예요. 광화문 넘어서자마자 근정전 스케일에 압도되고, 연못 위 경회루는 반영샷 원탑 포토존이에요. 한복만 입으면 입장료 3천 원이 통째로 공짜에, 수문장 교대의식도 볼거리. 운 좋으면 봄가을 야간개장까지 잡을 수 있어요.",
     summaryEn:
       "Seoul's #1 palace, no contest. Walk through Gwanghwamun and Geunjeongjeon hits you with pure scale — and if you're in hanbok, the ₩3,000 entry fee just disappears. Catch it during the spring/fall night opening and it's next-level.",
     summaryZh:
-      "首尔宫殿天花板就是它。走过光化门，勤政殿的气场直接把你镇住——穿韩服的话，3000韩元门票直接免单！运气好还能赶上春秋季夜间开放。",
+      "首尔宫殿天花板就是它。走过光化门，勤政殿的气场直接把你镇住，池塘上的庆会楼倒影更是首尔头号出片机位。穿一套完整韩服，3000韩元门票直接免单，还能顺路看上午下午两场守门将换岗仪式。运气好赶上春秋季夜间开放，体验直接拉满。",
     summaryVi:
       "Cung điện đỉnh nhất Seoul chính là đây. Qua khỏi cổng Gwanghwamun là điện Geunjeongjeon choáng ngợp luôn — mặc Hanbok thì vé 3.000 won cũng miễn luôn! May mắn thì còn bắt được đợt mở cửa đêm mùa xuân/thu.",
     overviewKo: [
@@ -296,11 +296,11 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
     nameZh: "海云台海水浴场",
     nameVi: "Bãi biển Haeundae",
     summaryKo:
-      "부산 왔으면 여기부터 찍고 시작해야죠. 1.5km 백사장에 광안대교 야경까지, 여름엔 물놀이 겨울엔 북극곰 수영대회 — 사계절 안 심심한 부산 원탑 해변이에요.",
+      "부산 왔으면 여기부터 찍고 시작해야죠. 1.5km 백사장 서쪽엔 동백섬 산책로, 동쪽엔 미포~청사포 스카이캡슐이 있고 밤엔 광안대교·마린시티 불빛이 물 위에 비쳐요. 여름 물놀이부터 겨울 북극곰 수영대회까지, 사계절 안 심심한 부산 원탑 해변입니다.",
     summaryEn:
       "If you're in Busan, this is where you start. A 1.5km stretch of sand with Gwangan Bridge glowing at night, summer swimming, even a Polar Bear Swim in winter — Busan's #1 beach never gets boring.",
     summaryZh:
-      "来釜山第一站就是这。1.5公里白沙滩配上广安大桥夜景，夏天游泳、冬天还能看北极熊冬泳赛——釜山头号海滩四季都不无聊。",
+      "来釜山第一站就是这。1.5公里白沙滩西边有冬柏岛步道和Nurimaru APEC世妍馆，东边是尾浦到青沙浦的天空胶囊列车与海边小火车，入夜后广安大桥与Marine City灯光倒映海面。夏天游泳、冬天看北极熊冬泳赛——釜山头号海滩四季都不无聊。",
     summaryVi:
       "Đến Busan là phải ghé đây đầu tiên. Bãi cát dài 1,5km cùng ánh đèn cầu Gwangan lung linh về đêm, mùa hè tắm biển, mùa đông có cả thi bơi Gấu Bắc Cực — bãi biển số 1 Busan chưa bao giờ nhàm chán.",
     overviewKo: [
@@ -440,11 +440,11 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
     nameZh: "南山首尔塔 (N首尔塔)",
     nameVi: "Tháp N Seoul",
     summaryKo:
-      "서울 왔으면 여기 인증샷은 국룰이죠. 남산 꼭대기에서 도시가 발 아래로 쫙 펼쳐지고, 해 지면 서울 전체가 보석함처럼 반짝여요. 케이블카·사랑의 자물쇠·인생 야경까지 한 방에.",
+      "서울 왔으면 여기 인증샷은 국룰이죠. 236.7m 남산 정상에 서면 도시가 발 아래로 펼쳐지고, 해 지면 서울 전체가 보석함처럼 반짝여요. 케이블카·남산오르미로 오르는 길이 나뉘고, 전망대 아래 사랑의 자물쇠 존은 무료로 즐길 수 있어요.",
     summaryEn:
       "If you're in Seoul, this shot is basically mandatory. From the top of Namsan the whole city spreads out below you, and after dark Seoul glitters like a jewelry box. Cable car, love locks, and a killer night view — all in one.",
     summaryZh:
-      "来首尔不来这打卡说不过去。站在南山之巅，整座城市在脚下铺展开来，入夜后首尔像打开的珠宝盒般闪耀。缆车、爱情锁、绝美夜景，一次全包。",
+      "来首尔不来这打卡说不过去。高236.7米的南山之巅，整座城市360度在脚下完整铺展开来，入夜后首尔像打开的珠宝盒般闪耀迷人。缆车、南山Ormi斜行电梯、循环巴士各有玩法，塔下的爱情锁区免费开放，绝美夜景、浪漫合影一次全包。",
     summaryVi:
       "Đến Seoul mà chưa check-in ở đây thì hơi phí. Từ đỉnh Namsan, cả thành phố trải ra dưới chân bạn, và khi trời tối Seoul lấp lánh như một hộp trang sức. Cáp treo, khóa tình yêu và cảnh đêm cực đỉnh — tất cả trong một.",
     overviewKo: [
@@ -726,11 +726,11 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
     nameZh: "城山日出峰",
     nameVi: "Đỉnh Seongsan Ilchulbong",
     summaryKo:
-      "5천 년 전 바닷속에서 '펑' 터진 화산이 만든 왕관 모양 분화구. 계단 20분이면 정상 찍고 우도까지 시원하게 눈에 담기는 제주 동쪽 최고 스팟인데, 일출 보러 가려면 새벽 기상은 국룰이에요.",
+      "5천 년 전 바닷속에서 '펑' 터진 화산이 만든 왕관 모양 분화구, 2007년 유네스코 세계자연유산이에요. 계단 20분이면 정상 찍고 우도까지 눈에 담기는 제주 동쪽 최고 스팟인데, 일출 보러 가려면 새벽 기상은 국룰이에요.",
     summaryEn:
       "A crown-shaped crater born from an undersea eruption 5,000 years ago. Just 20 minutes of stairs gets you to the top with Udo island laid out below — Jeju's east-coast showstopper, though catching sunrise means setting an alarm you'll regret.",
     summaryZh:
-      "5000年前海底火山一声「轰」隆炸出的王冠形火山口。爬20分钟阶梯登顶，牛岛就在眼前铺开——济州东部最强打卡地，只是想看日出，凌晨爬起来是躲不掉的仪式。",
+      "5000年前海底火山一声「轰」隆炸出的王冠形火山口，99座尖峭岩峰环绕如冠，2007年还入选联合国教科文组织世界自然遗产。爬20分钟阶梯登顶，牛岛就在眼前铺开——济州东部最强打卡地，只是想看日出，凌晨爬起来是躲不掉的仪式。",
     summaryVi:
       "Miệng núi lửa hình vương miện ra đời từ một vụ nổ dưới đáy biển cách đây 5.000 năm. Chỉ 20 phút leo bậc thang là lên đến đỉnh, đảo Udo trải dài trước mắt — điểm đến đỉnh nhất bờ đông Jeju, chỉ có điều muốn ngắm bình minh thì phải chấp nhận dậy sớm.",
     overviewKo: [
@@ -869,11 +869,11 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
     nameZh: "全州韩屋村",
     nameVi: "Làng Hanok Jeonju",
     summaryKo:
-      "전주 오면 한복 안 입고 못 배겨요. 800채 가까운 기와지붕이 다닥다닥 이어진 골목에 경기전·전동성당이 마주보고, 한 발짝만 나가면 전주비빔밥에 남부시장 야시장까지 — 하루가 순삭입니다.",
+      "전주 오면 한복 안 입고 못 배겨요. 800채 가까운 기와지붕이 다닥다닥 이어진 골목에 경기전·전동성당이 마주보고, 한복 입으면 경기전 입장료도 무료예요. 한 발짝만 나가면 전주비빔밥에 남부시장 야시장, 오목대 전망까지 — 하루가 순삭입니다.",
     summaryEn:
       "Come to Jeonju and you will end up in hanbok, guaranteed. Nearly 800 tile-roofed hanok pack the alleys, Gyeonggijeon and Jeondong Cathedral face off across the street, and one block over waits Jeonju bibimbap plus the Nambu Market night market — the day disappears fast.",
     summaryZh:
-      "来全州，不租件韩服都说不过去。近800栋瓦顶韩屋挤满巷弄，庆基殿与殿洞圣堂隔街相望，再走一步就是全州拌饭和南部市场夜市——一天眨眼就没了。",
+      "来全州，不租件韩服都说不过去。近800栋瓦顶韩屋挤满巷弄，庆基殿与殿洞圣堂隔街相望，穿一套完整韩服逛庆基殿还能省下门票钱，殿洞圣堂的红砖罗马式穹顶也很出片。再走一步就是全州拌饭、南部市场夜市与梧木台观景台——一天眨眼就没了。",
     summaryVi:
       "Đến Jeonju mà không mặc hanbok thì coi như chưa đến. Gần 800 ngôi hanok mái ngói san sát trong hẻm, đền Gyeonggijeon và Nhà thờ Jeondong đối diện nhau qua con phố, đi thêm một đoạn là có bibimbap Jeonju và chợ đêm Nambu — một ngày trôi vèo qua.",
     overviewKo: [
@@ -1012,11 +1012,11 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
     nameZh: "甘川文化村",
     nameVi: "Làng Văn hóa Gamcheon",
     summaryKo:
-      "부산 산비탈에 파스텔빛 집들이 계단처럼 쌓인 동네, '한국의 마추픽추'라 불리는 데는 다 이유가 있어요. 골목마다 벽화·조형물이 숨어 있고, 그 유명한 어린왕자 포토존은 줄 설 각오 필수예요.",
+      "부산 산비탈에 파스텔빛 집들이 계단처럼 쌓인 동네, '한국의 마추픽추'라 불리는 데는 이유가 있어요. 6·25 피란민이 일군 마을이 예술 재생 프로젝트로 알록달록 물들었죠. 골목마다 벽화·조형물이 숨어 있고, 어린왕자 포토존은 줄 설 각오 필수예요.",
     summaryEn:
       "Pastel houses stack up a Busan hillside like a staircase, and 'Korea's Machu Picchu' isn't just a cute nickname — it's earned. Murals and sculptures hide around every corner, and the famous Little Prince photo spot comes with a queue you should plan for.",
     summaryZh:
-      "釜山山坡上，粉彩房屋像阶梯一样层层叠起，「韩国马丘比丘」这称号可不是白叫的。巷弄间藏着壁画与雕塑，那个著名的小王子拍照点，请做好排队的心理准备。",
+      "釜山山坡上，粉彩房屋像阶梯一样层层叠起，「韩国马丘比丘」这称号可不是白叫的。这里曾是朝鲜战争难民与太极道信徒的聚居地，靠艺术再生计划染上了满山缤纷色彩。巷弄间藏着壁画与雕塑，那个著名的小王子拍照点，请做好排队的心理准备。",
     summaryVi:
       "Những ngôi nhà pastel xếp chồng như bậc thang trên sườn đồi Busan, và biệt danh 'Machu Picchu của Hàn Quốc' không phải chỉ để cho vui. Tranh tường và tượng nghệ thuật ẩn khắp các góc hẻm, còn điểm chụp Hoàng tử Bé nổi tiếng thì hãy chuẩn bị tinh thần xếp hàng.",
     overviewKo: [

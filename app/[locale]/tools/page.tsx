@@ -28,9 +28,9 @@ export async function generateMetadata({
         ? `Bộ công cụ tính toán miễn phí cho người làm việc tại Hàn Quốc — ${SITE_BRAND}`
         : `Free Calculators for Korean Professionals — ${SITE_BRAND}`;
   const description = isKo
-    ? "연봉 실수령액·연차·주휴수당·퇴직금·부가세·해외주식 양도세·전기 KEC·목조 NDS·사업자번호 검증·JSON CSV 변환. 한국 표준 기반 무료 계산기 20여 가지를 카테고리별로."
+    ? "연봉 실수령액·연차·주휴수당·퇴직금부터 부가세·해외주식 양도세, 전기 KEC·목조 NDS 구조 계산, 사업자번호 검증·JSON CSV 변환까지. 한국 표준을 기반으로 만든 무료 계산기 20여 가지를 카테고리별로 정리해 회원가입 없이 바로 씁니다."
     : isZh
-      ? "年薪实领金额·年假·周休津贴·离职金·增值税·海外股票转让税·电气KEC·木结构NDS·事业者登记号验证·JSON CSV转换。基于韩国标准的20余款免费计算器，按分类整理。"
+      ? "从年薪实领金额、年假、周休津贴、离职金,到增值税、海外股票转让税、电气KEC与木结构NDS结构计算、事业者登记号验证、JSON CSV转换。基于韩国标准打造的20余款免费计算器按分类整理,无需注册即可直接使用。"
       : isVi
         ? "Lương thực nhận, phép năm, phụ cấp nghỉ hàng tuần, trợ cấp thôi việc, thuế VAT, thuế chuyển nhượng cổ phiếu nước ngoài, điện KEC, nhà gỗ NDS, xác thực mã số kinh doanh, quy đổi JSON/CSV. Hơn 20 công cụ miễn phí theo tiêu chuẩn Hàn Quốc, phân theo danh mục."
         : "Korean payroll, tax, electric KEC, timber NDS, business number validation, and JSON/CSV converter. 20+ free calculators grouped by category.";

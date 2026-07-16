@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ? "Chuyển đổi đơn vị khoảng cách — ri·ja ↔ km·dặm"
         : "Korean Distance Converter — ri/ja ↔ km/mile";
   const description = isKo
-    ? "한국 전통 거리 단위(리·자·보)를 km·미터·마일로 즉시 변환. 1리 ≈ 392.7m, 십리 ≈ 3.93km. 사극·고문헌·국토 표현 이해에."
+    ? "한국 전통 거리 단위인 리·자·보를 km·미터·마일로 즉시 환산합니다. 1리 ≈ 392.7m, 십리 ≈ 3.93km 기준으로 계산하며, 사극이나 고문헌·지명에 등장하는 거리 표현을 이해하는 데 도움을 줍니다."
     : isZh
-      ? "韩国传统距离单位(里·尺·步)即时换算为km·米·英里。1里 ≈ 392.7m，十里 ≈ 3.93km。有助于理解古装剧·古文献·国土距离表达。"
+      ? "即时将韩国传统距离单位里·尺·步换算为km·米·英里。按1里 ≈ 392.7m、十里 ≈ 3.93km的换算基准计算，帮助你更好地理解古装剧台词、古文献记载以及韩国地名中经常出现的传统距离表达方式与含义。"
       : isVi
         ? "Chuyển đổi đơn vị khoảng cách truyền thống Hàn Quốc (ri, ja, bo) sang km, mét và dặm tức thì. 1 ri ≈ 392,7 m, mười ri ≈ 3,93 km. Hữu ích khi đọc phim cổ trang, cổ văn hay các cách diễn đạt khoảng cách của Hàn Quốc."
         : "Convert Korean traditional distance units (ri, ja, bo) to km, meters, and miles. 1 ri ≈ 392.7 m, 10 ri ≈ 3.93 km.";

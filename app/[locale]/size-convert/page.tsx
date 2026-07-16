@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Bảng quy đổi size quần áo·giày Hàn Quốc — US/EU/UK/JP"
         : "Korean Clothing & Shoe Size Converter — US/EU/UK/JP";
   const description = isKo
-    ? "한국 의류·신발 사이즈를 US·EU·UK·일본 사이즈로 변환. 남녀 신발(mm)·의류(가슴둘레) 대조표. K-패션 직구·해외 쇼핑에 바로."
+    ? "한국 의류·신발 사이즈를 US·EU·UK·일본 사이즈로 즉시 변환합니다. 남녀 신발(mm 기준)·의류(가슴둘레 기준) 대조표를 한 화면에서 확인하고, 브랜드별 편차까지 참고해 K-패션 직구·해외 쇼핑 시 사이즈 실수를 줄여줍니다."
     : isZh
-      ? "将韩国服装·鞋码换算为US·EU·UK·日本尺码。男女鞋码(mm)·服装(胸围)对照表一目了然，海淘K-fashion必备。"
+      ? "即时将韩国服装·鞋码换算为US·EU·UK·日本尺码。男女鞋码(以mm为准)·服装(以胸围为准)对照表一屏显示，还能参考品牌之间常见的尺码误差，海淘K-fashion、跨境网购下单前先查一次，减少选错码退换货的麻烦。"
       : isVi
         ? "Quy đổi size quần áo, giày Hàn Quốc sang size US·EU·UK·Nhật Bản. Bảng đối chiếu giày nam nữ (mm)·quần áo (vòng ngực). Dùng ngay khi mua hàng xách tay K-fashion."
         : "Convert Korean clothing and shoe sizes to US, EU, UK, and Japanese sizes. Men's & women's shoe (mm) and clothing charts for K-fashion shopping.";

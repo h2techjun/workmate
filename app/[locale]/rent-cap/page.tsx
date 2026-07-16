@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Kiểm tra trần tăng tiền thuê 5% Hàn Quốc — quy đổi tiền đặt cọc/tiền thuê khi gia hạn"
         : "Korean Rent Cap Calculator — 5% renewal limit verification";
   const description = isKo
-    ? "주택임대차보호법 시행령 8조 5% 인상 한도 즉시 검증. 보증금↔월세 환산보증금 + 갱신요구권 행사 시 한도 초과 여부 + 보증금만/월세만 인상 추천."
+    ? "주택임대차보호법 시행령 8조가 정한 5% 인상 한도를 즉시 검증합니다. 보증금과 월세를 환산보증금으로 합산해 갱신요구권 행사 시 한도 초과 여부를 판정하고, 보증금만 또는 월세만 올릴 때 각각 얼마까지 가능한지 추천해 드립니다."
     : isZh
-      ? "立即验证《住宅租赁保护法》施行令第8条规定的5%涨幅上限。保证金↔月租换算保证金 + 行使续约请求权时是否超过上限 + 仅上调保证金或仅上调月租的推荐额度。"
+      ? "立即验证《住宅租赁保护法》施行令第8条规定的5%涨幅上限。保证金与月租先换算为统一保证金后再比较，判断行使续约请求权时是否超过上限，并给出仅上调保证金或仅上调月租时各自能涨到多少的推荐额度，帮助租客提前确认涨幅是否合法。"
       : isVi
         ? "Kiểm tra ngay trần tăng 5% theo Điều 8 Nghị định thi hành Luật Bảo vệ Thuê nhà. Quy đổi tiền đặt cọc ↔ tiền thuê hàng tháng + xác định có vượt trần khi thực hiện quyền yêu cầu gia hạn hợp đồng hay không + gợi ý mức tăng chỉ tiền đặt cọc hoặc chỉ tiền thuê."
         : "Verify Korean Housing Lease Act 5% renewal cap. Deposit-to-monthly conversion + breakdown of how much rent or deposit can increase.";

@@ -27,7 +27,7 @@ export async function generateMetadata({
   const description = isKo
     ? "입국일과 허용 체류일수로 현재 체류 일수·만료일·남은 일수를 즉시 계산. 90일 무비자, 30/60/180일 비자 추적. 초과체류 경고 포함."
     : isZh
-      ? "输入入境日期与允许滞留天数，立即算出当前已滞留天数、到期日与剩余天数。可追踪90天免签、30/60/180天签证，并附超期滞留警告。"
+      ? "输入入境日期与允许滞留天数，即可按韩国时间立即算出当前已滞留天数、签证到期日与剩余天数，帮助你提前规划行程。支持90天免签及30·60·180天短期签证追踪，并提前发出超期滞留风险警告，避免罚款或黑名单。"
       : isVi
         ? "Tính ngay số ngày đã lưu trú, ngày hết hạn và số ngày còn lại từ ngày nhập cảnh và số ngày được phép lưu trú. Theo dõi miễn visa 90 ngày, visa 30/60/180 ngày. Bao gồm cảnh báo cư trú quá hạn."
         : "Track your stay in Korea: days stayed, expiry date, and days remaining from entry date and allowed days. 90-day visa-free, 30/60/180-day visas, overstay warning.";

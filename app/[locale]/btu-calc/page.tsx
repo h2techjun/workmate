@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính công suất điều hòa (BTU) theo diện tích phòng"
         : "BTU Calculator — AC sizing by room area";
   const description = isKo
-    ? "방 면적으로 필요한 냉방 용량(BTU)과 한국 에어컨 평형을 즉시 계산. 천장 높이·일조·인원·주방 보정 + kW 환산. 에어컨 구매 전 적정 용량 확인."
+    ? "방 면적으로 필요한 냉방 용량(BTU)과 한국 에어컨 평형을 즉시 계산합니다. 천장 높이·일조·인원·주방 보정을 반영하고 kW로도 환산해 에어컨 구매 전 적정 용량을 무료로, 회원가입 없이 확인할 수 있습니다."
     : isZh
-      ? "根据房间面积即时计算所需制冷量(BTU)与韩国空调坪数。含天花板高度·日照·人数·厨房修正 + kW换算。购买空调前先确认合适容量。"
+      ? "根据房间面积即时计算所需制冷量(BTU)与韩国空调坪数标准，可用于选购适合坪数与容量的空调机型，避免买大或买小。反映天花板高度·日照条件·居住人数·厨房修正因素，并换算为kW，完全免费使用，无需注册。"
       : isVi
         ? "Tính ngay công suất làm lạnh cần thiết (BTU) và loại điều hòa theo pyeong của Hàn Quốc từ diện tích phòng. Có điều chỉnh theo chiều cao trần, ánh nắng, số người, nhà bếp + quy đổi sang kW. Xác nhận công suất phù hợp trước khi mua điều hòa."
         : "Calculate the cooling capacity (BTU) and Korean AC 'pyeong type' from room area, with ceiling, sun, occupant, and kitchen adjustments plus kW conversion.";

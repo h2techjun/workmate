@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính vật liệu sàn gỗ·hàng rào — số ván·cột·nan"
         : "Deck & Fence Calculator — boards, posts, pickets";
   const description = isKo
-    ? "데크 면적으로 필요한 보드 장수·장선 개수를, 울타리 길이로 기둥·레일·세로살 수량을 즉시 계산. 손실 할증 포함. 목공·조경 DIY에 바로."
+    ? "데크 면적으로 필요한 보드 장수·장선 개수를, 울타리 길이로 기둥·레일·세로살 수량을 즉시 계산합니다. 손실 할증까지 포함해 목공·조경 DIY 프로젝트 자재 물량을 무료로 바로 확인할 수 있습니다."
     : isZh
-      ? "根据露台面积即时计算所需木板张数·搁栅数量，根据围栏长度计算立柱·横栏·竖栏条数量。含损耗加成。适合木工·园艺DIY直接使用。"
+      ? "根据露台面积即时计算所需木板张数与搁栅根数，根据围栏长度计算立柱·横栏·竖栏条数量。含损耗加成，适合木工·园艺DIY项目及专业施工现场的材料备料、采购清单与预算估算参考，完全免费使用，无需注册即可查看结果。"
       : isVi
         ? "Tính ngay số ván và số thanh xà gồ cần dùng từ diện tích sàn gỗ, và số cột·thanh ngang·nan dọc từ chiều dài hàng rào. Gồm tỷ lệ hao hụt. Dùng ngay cho mộc·làm vườn DIY."
         : "Calculate deck board count and joists from area, and fence posts, rails, and pickets from length. With waste allowance. For woodworking and landscaping DIY.";

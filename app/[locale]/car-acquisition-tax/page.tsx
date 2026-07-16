@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính thuế trước bạ ô tô — xe con·xe hạng nhẹ·xe thân thiện môi trường 7%·4%"
         : "Korean Car Acquisition Tax Calculator";
   const description = isKo
-    ? "차량 취득가액으로 취득세를 즉시 계산. 승용 7%·경차 4%·승합화물 5% + 친환경차 최대 140만 감면. 신차·중고차 등록 전 세금 확인."
+    ? "자동차 취득가액을 입력하면 취득세를 즉시 계산합니다. 승용차 7%, 경차 4%, 승합·화물차 5% 세율에 전기차·하이브리드 등 친환경차 최대 140만원 감면까지 반영해 신차·중고차 등록 전에 예상 세금을 정확히 확인할 수 있습니다."
     : isZh
-      ? "根据车辆购置金额即时计算购置税。乘用车7%·小型车4%·客货车5% + 新能源车最高减免140万韩元。新车、二手车登记前先确认税额。"
+      ? "输入车辆购置金额，即可立即计算购置税。乘用车税率7%、小型车4%、客货车5%，电动车、混合动力等新能源车还可享最高140万韩元减免。无论新车还是二手车过户登记，都能提前准确确认应缴购置税金额，避免临时预算不足。"
       : isVi
         ? "Tính ngay thuế trước bạ (취득세) từ giá trị mua xe. Xe con 7%·xe hạng nhẹ 4%·xe khách/tải 5% + giảm tối đa 1,4 triệu won cho xe thân thiện môi trường. Kiểm tra thuế trước khi đăng ký xe mới hoặc xe cũ."
         : "Calculate Korean car acquisition tax: passenger 7%, light 4%, van/cargo 5%, with eco-car discount up to KRW 1.4M.";

@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính số tấm ván ép — diện tích → số tấm + số lượng đinh"
         : "Plywood Sheet Calculator — area to sheets and nails";
   const description = isKo
-    ? "벽·바닥·지붕 면적과 손실률만 입력하면 합판 매수와 못 개수까지 즉시. 4×8자(1.2×2.4m) 표준 18mm 합판 기준. 무료."
+    ? "벽·바닥·지붕 면적과 손실률만 입력하면 합판 매수와 못 개수까지 즉시 계산합니다. 4×8자(1.2×2.4m) 표준 18mm 합판 기준으로 목조주택·리모델링 현장의 자재 발주 물량을 무료로, 회원가입 없이 바로 확인할 수 있습니다."
     : isZh
-      ? "只需输入墙面·地面·屋顶面积与损耗率，即可立即算出合板张数与钉子数量。以4×8英尺(1.2×2.4m)标准18mm合板为基准。免费。"
+      ? "只需输入墙面·地面·屋顶面积与损耗率，即可立即算出合板张数与钉子数量。以4×8英尺(1.2×2.4m)标准18mm合板为基准，适用于木结构住宅·翻新工地的材料备料与施工估算，完全免费，无需注册即可使用。"
       : isVi
         ? "Chỉ cần nhập diện tích tường/sàn/mái và hệ số hao hụt là tính ngay số tấm ván ép và số lượng đinh. Dựa trên ván ép tiêu chuẩn 4×8ft (1.2×2.4m) 18mm. Miễn phí."
         : "Calculate plywood sheets and nail count from area with waste factor. Standard 4×8ft (1.2×2.4m) 18mm plywood. Free.";

@@ -59,7 +59,7 @@ export async function generateMetadata({
   if (locale === "zh") {
     title = "韩国E-7专业工作签证完全指南2026(薪资标准·类型·积分制) | Workmate";
     description =
-      "E-7分为专业·准专业·一般技能·熟练技能四类。2026年薪资标准、雇主担保、CSR、20%规则、Top-Tier快速通道到F-5,以及印度IT人才为何主要走E-7。";
+      "E-7专业工作签证分为专业·准专业·一般技能·熟练技能四类。整理2026年薪资标准、雇主担保、签证发放认定书CSR、20%规则,以及通往F-5永住的Top-Tier快速通道,还有印度IT人才为何主要走E-7这条路径。";
     ogLocale = "zh_CN";
   } else if (locale === "vi") {
     title =
@@ -76,7 +76,7 @@ export async function generateMetadata({
   } else {
     title = "E-7 전문직 비자 완전 가이드 2026 (임금기준·유형·점수제) | Workmate";
     description =
-      "E-7은 전문·준전문·일반기능·숙련기능 4개 유형. 2026 임금기준, 고용주 스폰서, 사증발급인정서(CSR), 20% 룰, F-5로 가는 Top-Tier 패스트트랙까지 정리했습니다.";
+      "E-7은 전문·준전문·일반기능·숙련기능 4개 유형으로 나뉩니다. 2026년 임금기준, 고용주 스폰서, 사증발급인정서(CSR), 20% 룰부터 F-5 영주권으로 가는 Top-Tier 패스트트랙, 인도 IT 인재의 주요 경로까지 정리했습니다.";
     ogLocale = "ko_KR";
   }
 

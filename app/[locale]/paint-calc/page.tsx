@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính lượng sơn — diện tích tường × số lớp sơn"
         : "Paint Calculator — coverage, coats & liters needed";
   const description = isKo
-    ? "벽 면적과 도장 횟수로 필요한 페인트 양(L)을 즉시 계산. 문·창 면적 자동 차감 + 도포율 + 손실 여유 + 4L/1L 통 개수 환산."
+    ? "벽 면적과 도장 횟수로 필요한 페인트 양(L)을 즉시 계산합니다. 문·창 면적 자동 차감, 도포율과 손실 여유 반영, 4L/1L 통 개수까지 환산해 인테리어·외벽 도장 견적에 바로 활용할 수 있습니다."
     : isZh
-      ? "根据墙面面积和涂刷次数即时计算所需油漆量(L)。自动扣除门窗面积 + 涂布率 + 损耗余量 + 换算4L/1L桶数。"
+      ? "根据墙面面积和涂刷次数即时计算所需油漆量(L)。自动扣除门窗面积，反映涂布率与损耗余量，并换算成4L/1L装油漆桶数与预估费用，方便室内装修·外墙涂装施工现场的备料估算、采购清单与预算规划参考，完全免费使用。"
       : isVi
         ? "Tính ngay lượng sơn cần dùng (L) từ diện tích tường và số lớp sơn. Tự động trừ diện tích cửa ra vào/cửa sổ + định mức phủ + tỷ lệ hao hụt + quy đổi số thùng 4L/1L."
         : "Calculate paint needed (liters) from wall area and number of coats. Auto-deducts doors/windows, applies spread rate, waste, and converts to cans.";

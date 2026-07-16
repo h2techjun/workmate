@@ -103,11 +103,11 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     titleVi:
       "Hướng dẫn thuê nhà ở Hàn Quốc cho người nước ngoài: Jeonse, Wolse và cách bảo vệ tiền cọc",
     summaryKo:
-      "전세와 월세의 차이, 전월세전환율, 2022~2023 전세사기에서 보증금을 지키는 법, 그리고 외국인이 꼭 알아야 할 '체류지 변경신고' 함정까지. 계약 전 단계별 체크리스트와 함께.",
+      "전세와 월세의 차이부터 전월세전환율 계산법, 2022~2023년 전세사기 사태에서 보증금을 지키는 법, 외국인이 꼭 알아야 할 '체류지 변경신고' 함정까지 정리했습니다. 계약 전 단계별 체크리스트와 5% 인상 상한 확인법도 함께 담았습니다.",
     summaryEn:
       "Jeonse vs wolse, the conversion rate, how to protect your deposit after the 2022–2023 fraud wave, and the change-of-residence-report trap every foreign tenant must know — with a step-by-step pre-signing checklist.",
     summaryZh:
-      "全租房(Jeonse)和月租(Wolse)的区别、转换利率怎么算、如何在2022-2023年全租房诈骗高发之后保护押金，以及外国人必须知道的居留地变更申报陷阱——附签约前分步核查清单。",
+      "全租房(Jeonse)与月租(Wolse)的区别、转换利率的计算方法、如何在2022-2023年全租房诈骗高发后保护押金,以及外国人必须知道的居留地变更申报陷阱,一并整理。附签约前分步核查清单与租金5%涨幅上限确认方法。",
     summaryVi:
       "Sự khác biệt giữa Jeonse (đặt cọc trọn gói) và Wolse (tiền thuê hàng tháng), tỷ lệ quy đổi tiền thuê, cách bảo vệ tiền cọc sau làn sóng lừa đảo Jeonse 2022-2023, và cạm bẫy khai báo thay đổi nơi cư trú mà mọi người nước ngoài thuê nhà cần biết — kèm danh sách kiểm tra từng bước trước khi ký hợp đồng.",
     category: "realestate",
@@ -153,11 +153,11 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     titleVi:
       "Ứng dụng thiết yếu cho người nước ngoài sống tại Hàn Quốc: Từ rào cản xác thực danh tính đến mẹo đăng ký (2026)",
     summaryKo:
-      "카카오톡·네이버지도·토스·배민… 어떤 앱이 외국 번호·외국 카드·외국인등록증 없이 되는지, 한국식 본인인증(PASS) 장벽을 넘는 법까지 카테고리별로 정리했습니다.",
+      "카카오톡·네이버지도·토스·배민 등 어떤 앱이 외국 번호·외국 카드·외국인등록증(ARC) 없이도 되는지, 한국식 본인인증(PASS) 장벽을 넘는 구체적인 방법까지 카테고리별로 정리했습니다. 도착 첫날 깔아야 할 앱 순위도 담았습니다.",
     summaryEn:
       "Which Korean apps work without a Korean number, a foreign card, or an ARC — and how to clear the PASS identity-verification wall. Category by category, with sign-up tips.",
     summaryZh:
-      "KakaoTalk、Naver地图、Toss、Baemin……哪些App不需要韩国手机号、外国卡或外国人登录证也能用，以及如何跨过韩国式实名认证(PASS)这道门槛——按类别整理，附注册技巧。",
+      "KakaoTalk、Naver地图、Toss、Baemin等App中,哪些不需要韩国手机号、外国卡或外国人登录证(ARC)也能用,以及如何跨过韩国式实名认证(PASS)这道门槛,按类别详细整理。附抵达第一天就该安装的App排行与注册技巧。",
     summaryVi:
       "KakaoTalk, Naver Map, Toss, Baemin... ứng dụng nào dùng được mà không cần số điện thoại Hàn, thẻ nước ngoài hay thẻ ARC, và cách vượt qua rào cản xác thực danh tính kiểu Hàn Quốc (PASS). Tổng hợp theo từng nhóm, kèm mẹo đăng ký.",
     category: "living",
@@ -178,11 +178,11 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
     titleVi:
       "Vay thế chấp Hàn Quốc: 30 năm hay 15 năm — Chọn kỳ hạn dài hơn có thực sự thiệt hơn?",
     summaryKo:
-      "총 이자만 보면 15년이 한참 적습니다. 그런데 30년을 선택하는 사람이 훨씬 많죠. 현금흐름·인플레이션·재투자 기회까지 같이 보면 정답이 달라집니다.",
+      "총 이자만 보면 15년이 한참 적습니다. 그런데 실제로는 30년을 선택하는 사람이 훨씬 많습니다. 매월 현금흐름, 인플레이션이 빚을 갉아먹는 효과, 차액을 재투자할 기회까지 함께 따져보면 정답이 달라집니다. 실제 상환표 예시로 확인하세요.",
     summaryEn:
       "Total interest is much lower for 15-year. Yet most people choose 30-year. Once you factor cash flow, inflation, and reinvestment, the math changes.",
     summaryZh:
-      "只看总利息，15年期明显更少。但选择30年期的人反而更多。把现金流、通货膨胀、再投资机会都算进去，答案就不一样了。",
+      "只看总利息,15年期明显更少。但实际选择30年期的人反而更多。把每月现金流压力、通货膨胀侵蚀债务的效果，以及差额再投资的机会都算进去，答案就会完全不一样。文中附有实际还款表对比案例和复利计算示例，一看就懂。",
     summaryVi:
       "Nếu chỉ nhìn tổng lãi suất, kỳ hạn 15 năm rẻ hơn rất nhiều. Nhưng phần lớn người vay lại chọn 30 năm. Khi tính thêm dòng tiền, lạm phát và cơ hội tái đầu tư, đáp án sẽ khác đi.",
     category: "loan",

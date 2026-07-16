@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính ngày dự sinh — tuần thai, tam cá nguyệt, D-day"
         : "Due Date Calculator — pregnancy weeks & trimester";
   const description = isKo
-    ? "마지막 생리일(LMP)로 출산예정일을 즉시 계산. 네겔레 법칙(+280일) + 현재 임신 주수·삼분기·진행률·출산까지 남은 일수. 생리주기 보정 지원."
+    ? "마지막 생리일(LMP)을 입력하면 출산예정일을 네겔레 법칙(+280일)에 따라 즉시 계산합니다. 현재 임신 주수·삼분기·진행률과 출산까지 남은 일수를 함께 보여주고, 생리주기가 다른 경우 보정도 지원합니다."
     : isZh
-      ? "根据末次月经日期(LMP)即时计算预产期。采用内格勒法则(+280天)，同时显示当前孕周·孕期阶段·进度·距预产期剩余天数。支持月经周期修正。"
+      ? "输入末次月经日期(LMP)，即可按国际通用的内格勒法则(+280天)立即算出预产期是哪一天。同时显示当前孕周、孕期所处阶段、进度百分比和距预产期剩余天数，月经周期与标准28天不同时也支持自动修正计算结果。"
       : isVi
         ? "Tính ngày dự sinh ngay từ ngày đầu kỳ kinh cuối (LMP). Áp dụng quy tắc Naegele (+280 ngày) cùng tuần thai hiện tại, tam cá nguyệt, tiến độ thai kỳ và số ngày còn lại đến khi sinh. Hỗ trợ hiệu chỉnh theo chu kỳ kinh nguyệt."
         : "Calculate your due date from the last menstrual period (Naegele's rule, +280 days) with current pregnancy weeks, trimester, and days to go.";

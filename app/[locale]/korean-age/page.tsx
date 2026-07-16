@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính tuổi Hàn Quốc — tuổi quốc tế · tuổi đếm · tuổi theo năm"
         : "Korean Age Calculator — international, counting & year age";
   const description = isKo
-    ? "생년월일로 만나이·세는나이·연나이를 한 번에 계산. 2023년 만나이 통일 이후 기준 + 전통 세는나이 차이까지 설명. 다음 생일까지 남은 일수 표시."
+    ? "생년월일 하나만 입력하면 만나이·세는나이·연나이 세 가지를 한 번에 계산합니다. 2023년 만나이 통일 이후 공식 기준과 전통 세는나이의 차이를 알기 쉽게 설명하고, 다음 생일까지 남은 일수도 함께 보여줍니다."
     : isZh
-      ? "输入生日即可一次算出国际年龄、虚岁、年度年龄三种韩国年龄。基于2023年统一使用国际年龄的标准，并说明与传统虚岁的差异，同时显示距下次生日的天数。"
+      ? "只需输入一次生日信息，即可一次性算出国际年龄、虚岁、年度年龄这三种韩国年龄。基于2023年起统一使用国际年龄的最新法律标准，说明它与韩国传统虚岁计算方式之间的差异原因，并显示距离下一次生日还剩多少天。"
       : isVi
         ? "Tính cùng lúc tuổi quốc tế, tuổi đếm truyền thống và tuổi theo năm từ ngày sinh của bạn. Giải thích theo tiêu chuẩn thống nhất tuổi quốc tế từ 2023 và sự khác biệt với tuổi đếm truyền thống. Hiển thị số ngày còn lại đến sinh nhật tiếp theo."
         : "Calculate your Korean age from your birth date: international age, Korean counting age, and year age. Understand why Koreans may say you're 1-2 years older.";

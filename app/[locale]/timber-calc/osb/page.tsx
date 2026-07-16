@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính số tấm OSB — tự động tính vật liệu tường ngoài, mái"
         : "OSB Sheathing Calculator — wall and roof sheets";
   const description = isKo
-    ? "외벽·지붕 면적과 손실률만 입력하면 OSB 매수와 못 개수까지 즉시. 4×8자 18mm OSB 표준. 목조주택·창고·증축 시공 필수."
+    ? "외벽·지붕 면적과 손실률만 입력하면 OSB 매수와 못 개수까지 즉시 계산합니다. 4×8자 18mm OSB 표준 규격 기준으로 목조주택·창고·증축 시공에 필수인 외장재 발주 물량을 무료로 바로 확인합니다."
     : isZh
-      ? "只需输入外墙·屋顶面积与损耗率，即可立即算出OSB张数与钉子数量。以4×8英尺18mm OSB为标准。木结构住宅·仓库·扩建施工必备。"
+      ? "只需输入外墙·屋顶面积与损耗率，即可立即算出OSB张数与钉子数量。以4×8英尺18mm OSB标准规格为基准，是木结构住宅·仓库·扩建增建施工中外墙板材备料估算的必备工具，完全免费，无需注册即可在线使用。"
       : isVi
         ? "Chỉ cần nhập diện tích tường ngoài/mái và hệ số hao hụt là tính ngay số tấm OSB và số lượng đinh. Theo tiêu chuẩn OSB 18mm 4×8ft. Thiết yếu cho nhà khung gỗ, nhà kho, mở rộng công trình."
         : "Calculate OSB sheets and nail count for walls and roofs. Standard 4×8ft 18mm OSB. Essential for timber framing.";

@@ -25,11 +25,11 @@ export async function generateMetadata({
         ? "综合所得税计算器 — 8级累进税率 + 累进扣除 + 地方税"
         : "Korean Income Tax Calculator — 8 progressive brackets";
   const description = isKo
-    ? "2026 종합소득세 8구간 누진세율 즉시 계산. 과세표준 → 산출세액 → 결정세액 → 지방소득세 + 근로소득세액공제. 6%·15%·24%·35%·38%·40%·42%·45% 구간별 시각화."
+    ? "2026년 귀속 종합소득세를 8구간 누진세율로 즉시 계산합니다. 과세표준에서 산출세액, 결정세액, 지방소득세까지 단계별로 산출하고 근로소득세액공제도 반영합니다. 6%부터 45%까지 8개 구간별 세율을 그래프로 시각화해 한눈에 보여줍니다."
     : isVi
       ? "Tính ngay thuế thu nhập tổng hợp Hàn Quốc theo thuế suất lũy tiến 8 bậc năm 2026. Cơ sở tính thuế → thuế tính toán → thuế quyết định → thuế thu nhập địa phương + khấu trừ thuế cho người lao động. Trực quan hóa từng bậc 6%·15%·24%·35%·38%·40%·42%·45%."
       : isZh
-        ? "即时计算2026年韩国综合所得税8级累进税率。计税基数 → 应纳税额 → 决定税额 → 地方所得税 + 工资所得税额抵免。可视化6%·15%·24%·35%·38%·40%·42%·45%各级税率。"
+        ? "即时计算2026纳税年度韩国综合所得税的8级累进税率。从计税基数到应纳税额、决定税额、地方所得税逐层计算，并反映工资所得税额抵免。以图表可视化呈现6%、15%、24%、35%、38%、40%、42%、45%各级税率区间，一目了然。"
         : "Korean comprehensive income tax with 2026 8-bracket progressive rates (6% to 45%), wage earner credit, local income tax breakdown.";
   const keywords = isKo
     ? [

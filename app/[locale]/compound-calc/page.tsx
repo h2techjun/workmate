@@ -16,16 +16,21 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isVi = locale === "vi";
+  const isZh = locale === "zh";
   const title = isKo
     ? "복리 계산기 — 기본·적립식 + 회차별·연차별 상세표"
     : isVi
       ? "Máy tính lãi kép — một lần & tích lũy, kèm bảng chi tiết theo kỳ"
-      : "Compound Interest Calculator — lump-sum & recurring, with schedule";
+      : isZh
+        ? "复利计算器 — 整存整取·定投 + 分期·分年明细表"
+        : "Compound Interest Calculator — lump-sum & recurring, with schedule";
   const description = isKo
-    ? "기본(목돈 복리)과 적립식(매월 적립)을 한 화면에서. 회차별·연차별 상세표로 매 기간 수익·총액·수익률까지. 연복리/월복리·년/개월·년/월 이율 선택. 예금·적금·장기 투자 비교용."
+    ? "목돈을 한 번에 굴리는 기본 복리와 매월 적립하는 적립식 복리를 한 화면에서 계산합니다. 회차별·연차별 상세표로 매 기간의 수익과 총액, 수익률을 확인하고 연복리·월복리, 연/개월 단위 이율을 선택할 수 있어 예금·적금·장기 투자 비교에 유용합니다."
     : isVi
       ? "Lãi kép một lần (số tiền gốc) và tích lũy (gửi hàng tháng) trong cùng một màn hình. Bảng chi tiết theo kỳ và theo năm hiển thị lợi nhuận, tổng số dư, tỷ suất sinh lời ở mỗi giai đoạn. Chọn lãi kép theo năm/tháng, đơn vị năm/tháng. Dùng để so sánh tiền gửi, tiết kiệm tích lũy và đầu tư dài hạn."
-      : "Lump-sum and recurring compound interest in one place, with a period-by-period and year-by-year schedule. Annual/monthly compounding, year/month units. For deposits, savings, and long-term investing.";
+      : isZh
+        ? "整存整取的基本复利与每月定投的复利模式可在同一页面计算。分期、分年明细表清晰呈现每期收益、总额与收益率，可选择按年复利或按月复利，以及按年、按月的期限与利率单位，适合比较存款、定期存款与长期投资的预期收益。"
+        : "Lump-sum and recurring compound interest in one place, with a period-by-period and year-by-year schedule. Annual/monthly compounding, year/month units. For deposits, savings, and long-term investing.";
   const keywords = isKo
     ? [
         "복리 계산기",
@@ -56,7 +61,22 @@ export async function generateMetadata({
           "tính tiết kiệm định kỳ",
           "máy tính tài chính",
         ]
-      : [
+      : isZh
+        ? [
+            "复利计算器",
+            "复利计算",
+            "复利公式",
+            "存款利息计算",
+            "定投计算器",
+            "投资收益率",
+            "CAGR计算",
+            "有效年利率EAR",
+            "按月复利",
+            "按年复利",
+            "定期定投计算",
+            "理财计算器",
+          ]
+        : [
         "compound interest calculator",
         "compound calculator",
         "future value FV",
@@ -78,7 +98,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/compound-calc`,
-      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }

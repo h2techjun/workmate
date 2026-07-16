@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính số tấm cách nhiệt — diện tích tường/trần → tấm cách nhiệt (batt)"
         : "Insulation Batt Calculator — wall and ceiling rolls";
   const description = isKo
-    ? "벽·천장 면적을 입력하면 R-19 글라스울 두루마리 매수를 즉시. 손실률 10% 기본. 그라스울·미네랄울 호환."
+    ? "벽·천장 면적을 입력하면 R-19 글라스울 단열재 두루마리 매수를 즉시 계산합니다. 손실률 10% 기본 적용, 그라스울·미네랄울 소재 모두 호환되며 에너지절약설계기준 R값 참고로 겨울철 난방비 절감 시공 물량까지 무료로 바로 확인합니다."
     : isZh
-      ? "输入墙面·天花板面积，即可立即算出R-19玻璃棉卷材张数。默认损耗率10%。兼容玻璃棉·矿棉。"
+      ? "输入墙面·天花板面积，即可立即算出R-19玻璃棉隔热卷材张数。默认损耗率10%，兼容玻璃棉·矿棉材质，可参考韩国节能设计标准附表1的R值，用于冬季采暖费节省施工的物料估算，完全免费，无需注册即可使用。"
       : isVi
         ? "Nhập diện tích tường/trần là tính ngay số tấm cách nhiệt sợi thủy tinh R-19. Hệ số hao hụt mặc định 10%. Tương thích sợi thủy tinh·bông khoáng."
         : "Calculate R-19 fiberglass batt rolls from wall/ceiling area. Default 10% waste. Glasswool/mineral wool compatible.";

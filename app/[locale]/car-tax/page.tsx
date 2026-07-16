@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính thuế ô tô — thuế ô tô hàng năm theo dung tích xi-lanh·tuổi xe"
         : "Korean Annual Car Tax Calculator";
   const description = isKo
-    ? "배기량과 차령으로 연간 자동차세를 즉시 계산. cc당 단가 + 지방교육세 30% + 차령 경감(최대 50%) + 전기차 정액. 6·12월 반기 납부액도 표시."
+    ? "배기량과 차량 등록 연차를 입력하면 연간 자동차세를 즉시 계산합니다. cc당 단가에 지방교육세 30%, 차령별 최대 50% 경감, 전기차 정액 과세까지 반영하며 6월·12월 반기 납부 시 각각 낼 금액도 함께 보여줍니다."
     : isZh
-      ? "根据排量与车龄即时计算年度汽车税。按cc单价 + 地方教育税30% + 车龄减免(最高50%) + 电动车定额。同时显示6月·12月的半年缴纳额。"
+      ? "输入排量与车辆登记年数，即可立即计算年度汽车税。按每cc单价计税，叠加地方教育税30%、按车龄最高50%的减免，以及电动车定额税率，并同时显示6月、12月两次半年缴纳的具体金额，方便规划全年用车预算。"
       : isVi
         ? "Tính ngay thuế ô tô hàng năm theo dung tích xi-lanh và tuổi xe. Đơn giá theo cc + thuế giáo dục địa phương 30% + giảm trừ theo tuổi xe (tối đa 50%) + mức cố định cho xe điện. Hiển thị cả số tiền nộp theo nửa năm (tháng 6·12)."
         : "Calculate Korean annual car tax from engine displacement and vehicle age, with 30% education tax and age reduction up to 50%.";

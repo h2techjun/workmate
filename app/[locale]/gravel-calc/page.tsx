@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính đá dăm·sỏi — thể tích·trọng lượng·số bao"
         : "Gravel Calculator — volume, weight, bags";
   const description = isKo
-    ? "면적과 두께로 자갈·모래·쇄석 부피(m³)와 무게(톤)를 즉시 계산. 다짐 여유 + 25kg 포대·1톤 톤백 개수까지. 조경·토목 발주에 바로."
+    ? "면적과 두께로 자갈·모래·쇄석 부피(m³)와 무게(톤)를 즉시 계산합니다. 다짐 여유를 반영하고 25kg 포대·1톤 톤백 개수까지 환산해 조경·토목 현장 발주에 바로 활용하며, 무료로 회원가입 없이 이용 가능합니다."
     : isZh
-      ? "根据面积与厚度即时计算砂石·沙子·碎石体积(m³)与重量(吨)。含压实余量 + 25kg包装·1吨吨袋数量换算。可直接用于景观·土建发注。"
+      ? "根据面积与厚度即时计算砂石·沙子·碎石所需的体积(m³)与重量(吨)。反映压实余量，并换算成25kg包装袋·1吨吨袋数量，方便景观工程·土建施工现场发注备料、采购清单与预算估算参考，完全免费在线使用。"
       : isVi
         ? "Tính ngay thể tích (m³) và trọng lượng (tấn) đá dăm, cát, đá vụn từ diện tích và độ dày. Gồm tỷ lệ hao hụt do lu lèn + quy đổi số bao 25kg·bao jumbo 1 tấn. Dùng ngay cho đặt hàng cảnh quan·xây dựng."
         : "Calculate gravel, sand, and crushed stone volume (m³) and weight (tons) from area and depth, with compaction allowance and bag counts.";

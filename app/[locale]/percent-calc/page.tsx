@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính phần trăm — 5 chế độ (tăng, giảm giá, thay đổi, tính ngược)"
         : "Percent Calculator — 5 modes (increase, sale, change, reverse)";
   const description = isKo
-    ? "X의 Y%, 인상/할인 후 가격, 변화율(%), 역산(인상 후가 Z면 원본은?) — 5가지 모드 통합. VAT 10%·세일 30% 같은 자주 쓰는 퍼센트 프리셋 제공."
+    ? "X의 Y%, 인상·할인 후 가격, 변화율(%), 역산(인상 후가 Z라면 원본 값은?)까지 5가지 계산 모드를 한 화면에 통합했습니다. VAT 10%·세일 30%처럼 자주 쓰는 퍼센트 프리셋도 함께 제공합니다."
     : isZh
-      ? "X的Y%、涨价/折扣后价格、变化率(%)、反推(涨价后为Z，求原值) — 5种模式一体化。提供增值税10%·折扣30%等常用百分比预设。"
+      ? "把X的Y%、涨价/折扣后价格、变化率(%)、反推(已知涨价后为Z求原值)等5种常用模式整合到同一个页面。还提供增值税10%、折扣30%等日常最常用的百分比预设，输入数字即可立即看到计算结果和变化幅度。"
       : isVi
         ? "Máy tính phần trăm tất cả trong một: Y% của X, tăng/giảm giá, tỷ lệ thay đổi, tính ngược. Có sẵn các mẫu thường dùng (VAT 10%, giảm giá 30%)."
         : "All-in-one percent calc: Y% of X, increase/decrease, change rate, reverse. Common presets (VAT 10%, sale 30%).";

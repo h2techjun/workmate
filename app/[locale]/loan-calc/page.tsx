@@ -16,16 +16,21 @@ export async function generateMetadata({
   const { locale } = await params;
   const isKo = locale === "ko";
   const isVi = locale === "vi";
+  const isZh = locale === "zh";
   const title = isKo
     ? "대출 이자 계산기 — 원리금균등·원금균등·만기일시 + 상환표"
     : isVi
       ? "Máy tính lãi vay Hàn Quốc — trả góp đều gốc+lãi · trả đều gốc · trả cuối kỳ + bảng trả nợ"
-      : "Loan Calculator — equal payment/principal/balloon + schedule";
+      : isZh
+        ? "韩国贷款利息计算器 — 等额本息·等额本金·到期还本付息 + 还款表"
+        : "Loan Calculator — equal payment/principal/balloon + schedule";
   const description = isKo
-    ? "주택담보·신용·전세자금 대출 3가지 상환 방식 통합 계산. 원리금균등 매월 같은 금액, 원금균등 초반 ↑ 후반 ↓, 만기일시 이자만 매월 + 회차별 상환표."
+    ? "주택담보대출·신용대출·전세자금대출의 원리금균등·원금균등·만기일시 3가지 상환 방식을 한 화면에서 비교합니다. 원리금균등은 매월 같은 금액, 원금균등은 초반 많고 후반 적으며, 만기일시는 이자만 내다 만기에 원금을 갚습니다. 회차별 상환표도 제공합니다."
     : isVi
       ? "Tính gộp 3 phương thức trả nợ cho vay thế chấp nhà, vay tín chấp, vay đặt cọc jeonse. Trả góp đều gốc+lãi: số tiền cố định hàng tháng; trả đều gốc: cao đầu kỳ ↓ thấp cuối kỳ; trả cuối kỳ: chỉ trả lãi hàng tháng + bảng trả nợ theo từng kỳ."
-      : "Korean loan calculator with 3 repayment types: equal payment, equal principal, balloon. Monthly schedule included.";
+      : isZh
+        ? "输入贷款金额、期限与利率，即可整合计算住房抵押贷款、信用贷款、传贳保证金贷款的三种还款方式。等额本息每月还款额固定，等额本金前期多后期少，到期还本付息期间只还利息，并提供各期本金、利息与余额的详细还款明细表。"
+        : "Korean loan calculator with 3 repayment types: equal payment, equal principal, balloon. Monthly schedule included.";
   const keywords = isKo
     ? [
         "대출 이자 계산",
@@ -56,7 +61,22 @@ export async function generateMetadata({
           "số tiền trả hàng tháng",
           "tổng lãi vay",
         ]
-      : [
+      : isZh
+        ? [
+            "贷款利息计算",
+            "韩国贷款计算器",
+            "住房抵押贷款计算",
+            "等额本息计算",
+            "等额本金计算",
+            "到期还本付息贷款",
+            "信用贷款利息",
+            "传贳保证金贷款",
+            "贷款还款计划",
+            "月利息计算",
+            "月还款额",
+            "利息总额",
+          ]
+        : [
         "loan calculator",
         "Korean mortgage calculator",
         "equal payment loan",
@@ -78,7 +98,7 @@ export async function generateMetadata({
       description,
       type: "website",
       url: `${SITE_URL}/${locale}/loan-calc`,
-      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "vi" ? "vi_VN" : locale === "zh" ? "zh_CN" : "en_US",
     },
   };
 }

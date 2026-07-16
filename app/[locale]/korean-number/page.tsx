@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Bộ chuyển đổi số tiếng Hàn — Cách đọc số Hán-Hàn và số thuần Hàn"
         : "Korean Number Reader — Sino & Native Korean numbers";
   const description = isKo
-    ? "숫자를 한자어 수사(일·이·삼)와 고유어 수사(하나·둘·셋)로 동시 변환. 관형사형(한·두·스무)과 용법(날짜·나이·시간)까지 안내. 한국어 학습 필수."
+    ? "숫자 하나를 한자어 수사(일·이·삼)와 고유어 수사(하나·둘·셋)로 동시에 변환합니다. 한·두·스무 같은 관형사형과 날짜·나이·시간 등 상황별 쓰임까지 함께 안내해 한국어 학습자에게 꼭 필요한 도구입니다."
     : isZh
-      ? "将数字同时转换为汉字词数词(일·이·삼)与固有词数词(하나·둘·셋)。并提供冠形词形(한·두·스무)及用法(日期·年龄·时间)说明，韩语学习必备。"
+      ? "把任意数字同时转换为汉字词数词(일·이·삼)和固有词数词(하나·둘·셋)两种读法，方便对照学习。还提供한·두·스무等冠形词形式，以及日期、年龄、时间等具体场景下该用哪种数词的用法说明，是学习韩语数字的必备工具。"
       : isVi
         ? "Chuyển đổi số sang cả số Hán-Hàn (일·이·삼) và số thuần Hàn (하나·둘·셋) cùng lúc. Hướng dẫn cả dạng định ngữ (한·두·스무) và cách dùng (ngày tháng·tuổi·giờ). Kiến thức bắt buộc khi học tiếng Hàn."
         : "Convert numbers into both Sino-Korean (il, i, sam) and Native Korean (hana, dul, set), with attributive forms and when to use each.";

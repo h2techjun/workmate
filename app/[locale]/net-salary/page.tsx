@@ -25,9 +25,9 @@ export async function generateMetadata({
         ? "Máy tính lương thực nhận Hàn Quốc — sau khi trừ 4 loại bảo hiểm xã hội·thuế thu nhập"
         : "Korean Salary Take-Home Calculator — net pay after tax";
   const description = isKo
-    ? "연봉을 넣으면 4대보험·소득세·지방세를 공제한 월 실수령액을 즉시 계산. 부양가족·자녀·비과세 반영. 2026 요율 기준 세전→세후 한눈에."
+    ? "연봉을 입력하면 국민연금·건강보험·고용보험 등 4대보험과 소득세·지방소득세를 공제한 월 실수령액을 즉시 계산합니다. 부양가족 수·자녀 수·비과세액까지 반영해 2026년 요율 기준으로 세전 연봉에서 세후 월급까지 한눈에 확인할 수 있습니다."
     : isZh
-      ? "输入年薪即可立即算出扣除四大保险、所得税、地方所得税后的月实领工资。反映受抚养人数、子女、免税额。按2026年费率一目了然税前→税后。"
+      ? "输入年薪，即可立即算出扣除国民年金、健康保险、雇佣保险、工伤保险等四大保险以及所得税、地方所得税后的月实领工资。同时反映受抚养人数、子女数量和免税额，按2026年费率清晰呈现从税前年薪到税后月薪的全过程。"
       : isVi
         ? "Nhập mức lương năm để tính ngay lương thực nhận hàng tháng sau khi trừ 4 loại bảo hiểm xã hội, thuế thu nhập và thuế địa phương. Có tính đến người phụ thuộc, con cái và khoản miễn thuế. Theo tỷ lệ 2026."
         : "Enter your annual salary to get monthly take-home pay after the 4 insurances, income tax, and local tax. Reflects dependents and non-taxable amounts. 2026 rates.";
