@@ -68,6 +68,7 @@ const TOOL_PATHS = [
   "/capital-gains-tax",
   "/paint-calc",
   "/gravel-calc",
+  "/brick-calc",
   "/deck-calc",
   "/percent-calc",
   "/loan-calc",

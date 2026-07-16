@@ -184,6 +184,7 @@ export const TOOL_GROUPS: ReadonlyArray<ToolGroup> = [
       { labelKo: "콘크리트 부피", labelEn: "Concrete", labelZh: "混凝土体积", labelVi: "Thể tích bê tông", href: "/timber-calc/concrete", keywordsKo: "콘크리트 줄기초 매트기초 레미콘 철근" },
       { labelKo: "페인트 양", labelEn: "Paint", labelZh: "油漆用量", labelVi: "Lượng sơn", href: "/paint-calc", keywordsKo: "페인트 양 소요량 도장 면적 벽 페인트" },
       { labelKo: "자갈·골재", labelEn: "Gravel", labelZh: "砂石·骨料", labelVi: "Đá dăm · Cốt liệu", href: "/gravel-calc", keywordsKo: "자갈 골재 부피 무게 모래 쇄석 수량" },
+      { labelKo: "벽돌·블록 수량", labelEn: "Brick & Block", labelZh: "砖块·砌块数量", labelVi: "Số lượng gạch·block", href: "/brick-calc", keywordsKo: "벽돌 수량 계산 시멘트벽돌 장수 블록 조적 모르타르 표준품셈" },
       { labelKo: "데크·울타리", labelEn: "Deck & Fence", labelZh: "露台·围栏", labelVi: "Sàn gỗ · Hàng rào", href: "/deck-calc", keywordsKo: "데크 보드 울타리 장선 기둥 자재 수량" },
       { labelKo: "목재 환산", labelEn: "Lumber Conversion", labelZh: "木材换算", labelVi: "Quy đổi gỗ xẻ", href: "/timber-calc/lumber", keywordsKo: "목재 才 재 board feet BF" },
     ],

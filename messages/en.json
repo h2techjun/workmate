@@ -6095,6 +6095,85 @@
       ],
       "lastReviewed": "2026-05-23"
     },
+    "brick-calc": {
+      "overview": "The brick and block calculator instantly computes order quantities for standard clay bricks, cement bricks, or concrete blocks — plus joint mortar (cement and sand) — from wall area alone. Masonry wall thickness is classified by bond: 0.5B (header bond, ~90mm), 1.0B (stretcher bond, ~190mm), 1.5B, and 2.0B, with thicker bonds requiring proportionally more bricks and mortar per square meter. A standard brick (190×90×57mm) with a 10mm joint needs 149 net pieces per m² at 1.0B, while a concrete block (390×190×190mm) needs only 12.5 per m² thanks to its larger size. Real orders should add a 5% waste margin on top of the net count to cover breakage during transport and cutting losses around openings. Joint mortar mixed at a 1:3 cement-sand ratio uses 510kg of cement (about 13 bags of 40kg) and 1.1m³ of sand per cubic meter. Calculations follow Korea's Standard Estimation for Construction Works and KS L 4201 (clay brick) / KS F 4002 (concrete block), helping avoid costly misorders on masonry jobs.",
+      "useCases": [
+        "Estimate brick/block order quantity before masonry wall construction",
+        "Calculate material for garden walls and fence brickwork",
+        "Check quantity for interior exposed-brick (facing) walls",
+        "Estimate concrete block count for sheds and light structures",
+        "Pre-calculate joint mortar (cement, sand) mix quantity"
+      ],
+      "howTo": {
+        "title": "How to use",
+        "steps": [
+          "Enter the wall area (m²) to be built. Exclude openings such as doors and windows — use net wall area only.",
+          "Choose the brick type (standard, cement brick, or concrete block) and bond thickness (0.5B-2.0B). Blocks have no bond selection.",
+          "Check the waste margin (default 5%) to instantly see the order quantity and mortar (cement, sand) requirement."
+        ]
+      },
+      "formula": {
+        "title": "Quantity & mortar formula",
+        "body": "Net quantity (pcs) = wall area (m²) × unit quantity (pcs/m²)\nOrder quantity (pcs) = net quantity × (1 + waste rate)\nMortar (m³) = wall area × net mortar rate (m³/m²)\n\nUnit quantity (pcs/m², 10mm joint):\n  Standard/cement brick (190×90×57) — 0.5B 75, 1.0B 149, 1.5B 224, 2.0B 298\n  Concrete block (390×190×190) — 12.5\n\nNet mortar rate (m³/m²):\n  0.5B 0.019, 1.0B 0.049, 1.5B 0.078, 2.0B 0.104 / block 0.010\n\n1:3 cement mortar per 1m³ = 510kg cement + 1.1m³ sand\nCement bags = ceil(cement kg / 40)"
+      },
+      "examples": {
+        "title": "Real examples",
+        "items": [
+          {
+            "title": "Example 1: Standard brick 1.0B wall, 20m²",
+            "body": "Net 2,980 pcs (20 × 149), +5% waste → order 3,129 pcs. Mortar 0.98m³ → cement 500kg (13 bags), sand 1.08m³."
+          },
+          {
+            "title": "Example 2: Cement brick 0.5B garden wall, 10m²",
+            "body": "Net 750 pcs (10 × 75), +5% waste → order 788 pcs. Mortar 0.19m³ → cement 97kg (3 bags), sand 0.21m³."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "What do 0.5B, 1.0B, and 2.0B mean?",
+          "answer": "B stands for brick-thickness units based on the brick's length (190mm). 0.5B lays bricks on their side so the short face (90mm) becomes the wall thickness (header bond); 1.0B stacks the full 190mm length (stretcher bond); 1.5B and 2.0B are thicker multiples. Thicker bonds add load capacity and sound/thermal insulation but cost more material."
+        },
+        {
+          "question": "When should I use standard brick versus concrete block?",
+          "answer": "Standard/cement bricks suit facing walls, garden fences, and load-bearing walls where finish quality matters, while concrete blocks suit sheds, retaining structures, and light buildings where speed and cost matter more. Blocks are much larger (390×190×190mm), so far fewer pieces are needed per square meter."
+        },
+        {
+          "question": "Why add a 5% waste margin?",
+          "answer": "Real jobs always lose some material to breakage during transport/handling and cutting around corners and openings. Ordering only the net quantity leaves you short on site, so Korea's standard estimation practice adds a default 5% (more for jobs with frequent breakage)."
+        },
+        {
+          "question": "What does a 1:3 mortar mix ratio mean?",
+          "answer": "It's a general masonry mortar mixed at a 1-part-cement to 3-part-sand volume ratio, used for joint filling and brick bonding. This calculator computes cement (kg) and sand (m³) based on that ratio — a different ratio (e.g. 1:2) would change the result."
+        },
+        {
+          "question": "How do I handle door and window openings?",
+          "answer": "Subtract the area of doors, windows, and any other openings from the wall area before entering it. Including openings in the input overstates the quantity, leading to leftover material and an inflated budget."
+        }
+      ],
+      "cautions": [
+        "Net quantities are standard-estimation baseline values — actual usage varies with technique and skill.",
+        "Always exclude door/window opening area from the input.",
+        "The 5% waste rate is a default; raise it to 10%+ for jobs with frequent breakage.",
+        "The 1:3 mortar ratio is a general masonry standard — structural or specialty uses may differ.",
+        "Confirm exact brick/block dimensions with your supplier before ordering."
+      ],
+      "related": [
+        {
+          "label": "Concrete Volume",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Gravel & Aggregate",
+          "href": "/gravel-calc"
+        },
+        {
+          "label": "Insulation R/U",
+          "href": "/timber-calc/insulation"
+        }
+      ],
+      "lastReviewed": "2026-07-16"
+    },
     "gravel-calc": {
       "overview": "The gravel calculator computes the volume (m³) and weight (tons) of gravel, sand, or crushed stone from area and depth. It applies per-material unit weights, includes a compaction allowance, and tells you the number of 25kg bags and 1-ton bulk bags to order. Use it for driveways, parking, drainage layers, and landscaping.",
       "useCases": [

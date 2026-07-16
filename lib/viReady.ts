@@ -119,6 +119,7 @@ export const VI_READY_PATHS: readonly string[] = [
   "/timber-calc/tile",
   "/paint-calc",
   "/gravel-calc",
+  "/brick-calc",
   "/deck-calc",
   "/size-convert",
   // 한국 명소 (attractions) — 4로케일 완역 (2026-07-13~)

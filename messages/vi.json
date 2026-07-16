@@ -4089,6 +4089,85 @@
       ],
       "lastReviewed": "2026-05-30"
     },
+    "brick-calc": {
+      "overview": "Máy tính số lượng gạch·block chỉ cần nhập diện tích tường là tính ngay số lượng đặt hàng gạch tiêu chuẩn, gạch xi măng hoặc block bê tông, cùng lượng vữa mạch (xi măng·cát). Độ dày tường xây được phân loại theo kiểu xây: 0,5B (xây ngang, khoảng 90mm), 1,0B (xây dọc, khoảng 190mm), 1,5B và 2,0B — kiểu xây càng dày thì số gạch và lượng vữa cần trên mỗi mét vuông càng tăng theo tỷ lệ. Gạch tiêu chuẩn (190×90×57mm) với mạch vữa 10mm cần 149 viên tịnh mỗi m² ở kiểu 1,0B, trong khi block bê tông (390×190×190mm) chỉ cần 12,5 viên mỗi m² nhờ kích thước lớn hơn. Khi đặt hàng thực tế, cần cộng thêm hao hụt mặc định 5% trên số lượng tịnh để bù cho vỡ hỏng khi vận chuyển và hao hụt khi cắt quanh các lỗ mở. Vữa mạch pha theo tỷ lệ xi măng:cát = 1:3 cần 510kg xi măng (khoảng 13 bao 40kg) và 1,1m³ cát cho mỗi mét khối. Công cụ này áp dụng định mức xây dựng tiêu chuẩn Hàn Quốc cùng KS L 4201 (gạch đất sét) và KS F 4002 (block bê tông), giúp giảm sai sót khi báo giá và đặt vật liệu xây.",
+      "useCases": [
+        "Ước tính số lượng gạch·block cần đặt trước khi xây tường",
+        "Tính vật liệu cho tường rào·bồn hoa bằng gạch",
+        "Kiểm tra số lượng cho tường gạch trần trang trí nội thất",
+        "Ước tính số lượng block bê tông cho kho·công trình nhẹ",
+        "Tính trước lượng vữa mạch (xi măng·cát) cần pha"
+      ],
+      "howTo": {
+        "title": "Cách sử dụng",
+        "steps": [
+          "Nhập diện tích tường cần xây (m²). Trừ đi diện tích cửa đi, cửa sổ — chỉ nhập diện tích tường tịnh.",
+          "Chọn loại gạch (tiêu chuẩn, gạch xi măng, hoặc block bê tông) và độ dày kiểu xây (0,5B~2,0B). Block không cần chọn độ dày.",
+          "Kiểm tra hệ số hao hụt (mặc định 5%) để xem ngay số lượng cần đặt và lượng vữa (xi măng, cát) cần dùng."
+        ]
+      },
+      "formula": {
+        "title": "Công thức số lượng & vữa",
+        "body": "Số lượng tịnh (viên) = diện tích tường (m²) × số lượng đơn vị (viên/m²)\nSố lượng đặt hàng (viên) = số lượng tịnh × (1 + hệ số hao hụt)\nVữa (m³) = diện tích tường × định mức vữa tịnh (m³/m²)\n\nSố lượng đơn vị (viên/m², mạch vữa 10mm):\n  Gạch tiêu chuẩn·xi măng (190×90×57) — 0,5B 75, 1,0B 149, 1,5B 224, 2,0B 298\n  Block bê tông (390×190×190) — 12,5\n\nĐịnh mức vữa tịnh (m³/m²):\n  0,5B 0,019, 1,0B 0,049, 1,5B 0,078, 2,0B 0,104 / block 0,010\n\nVữa xi măng 1:3, mỗi 1m³ = xi măng 510kg + cát 1,1m³\nSố bao xi măng = làm tròn lên(xi măng kg / 40)"
+      },
+      "examples": {
+        "title": "Ví dụ thực tế",
+        "items": [
+          {
+            "title": "Ví dụ 1: Tường gạch tiêu chuẩn 1,0B, 20m²",
+            "body": "Tịnh 2.980 viên (20×149), +5% hao hụt → đặt 3.129 viên. Vữa 0,98m³ → xi măng 500kg (13 bao), cát 1,08m³."
+          },
+          {
+            "title": "Ví dụ 2: Tường rào gạch xi măng 0,5B, 10m²",
+            "body": "Tịnh 750 viên (10×75), +5% hao hụt → đặt 788 viên. Vữa 0,19m³ → xi măng 97kg (3 bao), cát 0,21m³."
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "0,5B, 1,0B, 2,0B nghĩa là gì?",
+          "answer": "B là đơn vị độ dày kiểu xây dựa trên chiều dài viên gạch (190mm). 0,5B là xây gạch nằm ngang, mặt ngắn (90mm) trở thành độ dày tường; 1,0B là xây theo chiều dài đầy đủ (190mm); 1,5B và 2,0B là bội số dày hơn. Kiểu xây càng dày thì khả năng chịu lực và cách âm·cách nhiệt càng tốt nhưng chi phí vật liệu cũng tăng."
+        },
+        {
+          "question": "Khi nào nên dùng gạch tiêu chuẩn thay vì block bê tông?",
+          "answer": "Gạch tiêu chuẩn·xi măng phù hợp cho tường trang trí, tường rào sân vườn, tường chịu lực cần hoàn thiện đẹp; block bê tông phù hợp cho kho, tường chắn, công trình nhẹ cần thi công nhanh và tiết kiệm. Block có kích thước lớn hơn nhiều (390×190×190mm) nên số lượng cần trên mỗi m² ít hơn hẳn."
+        },
+        {
+          "question": "Vì sao cần cộng thêm 5% hao hụt?",
+          "answer": "Công trình thực tế luôn có vỡ hỏng khi vận chuyển·bốc dỡ và hao hụt khi cắt quanh góc, lỗ mở. Nếu chỉ đặt đúng số lượng tịnh sẽ thiếu vật liệu tại công trường, nên định mức tiêu chuẩn Hàn Quốc cộng thêm mặc định 5% (công trình dễ vỡ hỏng nên tăng cao hơn)."
+        },
+        {
+          "question": "Tỷ lệ pha vữa 1:3 nghĩa là gì?",
+          "answer": "Đây là tỷ lệ thể tích xi măng 1 phần : cát 3 phần, loại vữa xây thông dụng dùng để trám mạch và liên kết gạch. Công cụ này tính xi măng (kg)·cát (m³) theo tỷ lệ này — tỷ lệ khác (ví dụ 1:2) sẽ cho kết quả khác."
+        },
+        {
+          "question": "Diện tích cửa đi, cửa sổ xử lý thế nào?",
+          "answer": "Hãy trừ diện tích cửa đi, cửa sổ và các lỗ mở khác khỏi diện tích tường trước khi nhập. Nếu tính cả phần lỗ mở, kết quả sẽ bị tính thừa, gây dư vật liệu và đội ngân sách."
+        }
+      ],
+      "cautions": [
+        "Số lượng tịnh là giá trị định mức tiêu chuẩn — lượng thực tế có thể khác tùy kỹ thuật·tay nghề thi công.",
+        "Luôn trừ diện tích cửa đi, cửa sổ khỏi diện tích nhập vào.",
+        "Hệ số hao hụt 5% là mặc định; tăng lên 10%+ nếu công trình dễ vỡ hỏng.",
+        "Tỷ lệ vữa 1:3 là chuẩn xây thông thường — kết cấu chịu lực hoặc mục đích đặc biệt có thể khác.",
+        "Nên xác nhận kích thước chính xác của gạch·block với nhà cung cấp trước khi đặt hàng."
+      ],
+      "related": [
+        {
+          "label": "Thể tích bê tông",
+          "href": "/timber-calc/concrete"
+        },
+        {
+          "label": "Đá sỏi · Cốt liệu",
+          "href": "/gravel-calc"
+        },
+        {
+          "label": "Trị số cách nhiệt R/U",
+          "href": "/timber-calc/insulation"
+        }
+      ],
+      "lastReviewed": "2026-07-16"
+    },
     "gravel-calc": {
       "overview": "Máy tính đá sỏi tính thể tích (m³) và trọng lượng (tấn) của sỏi, cát, hoặc đá dăm dựa trên diện tích và độ dày lớp rải. Công cụ áp dụng tỷ trọng riêng theo từng loại vật liệu, cộng thêm hệ số lún khi đầm nén, và cho biết cần đặt bao nhiêu bao 25kg và bao jumbo 1 tấn. Dùng cho lối vào xe, bãi đỗ xe, lớp thoát nước, và cảnh quan sân vườn.",
       "useCases": [

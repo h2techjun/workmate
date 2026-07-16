@@ -96,6 +96,7 @@ export const ZH_READY_PATHS: readonly string[] = [
   "/timber-calc/concrete",
   "/paint-calc",
   "/gravel-calc",
+  "/brick-calc",
   "/deck-calc",
   "/timber-calc/lumber",
   // blog/guide zh 4로케일 완성 (2026-07-10) — 허브 + blog 9 + guide 3 (wire-size·four-insurance 기등록)
