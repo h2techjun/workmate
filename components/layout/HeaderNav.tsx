@@ -17,19 +17,24 @@ interface NavItem {
 interface HeaderNavProps {
   items: ReadonlyArray<NavItem>;
   locale: Locale;
-  /** 우측 추가 영역 (LanguageSwitcher 등) */
-  children?: ReactNode;
+  /** 테마 토글 — 데스크탑 인라인 + 모바일 헤더에 항상 노출 */
+  themeToggle: ReactNode;
+  /** 언어 전환 — 데스크탑 인라인 + 모바일은 드로어 안으로(헤더 혼잡 방지) */
+  langSwitcher: ReactNode;
 }
 
 /**
  * 헤더 네비 — 데스크탑은 인라인, 모바일은 햄버거 드로어.
  *
+ * 모바일 헤더는 로고 + 테마 + 햄버거만 노출하고,
+ * 네비 링크와 언어 전환은 드로어 안에 배치해 좁은 화면 혼잡을 없앤다.
  * 활성 메뉴는 현재 경로가 pathMatch 로 시작하면 highlight.
  */
 export function HeaderNav({
   items,
   locale,
-  children,
+  themeToggle,
+  langSwitcher,
 }: HeaderNavProps): React.ReactElement {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -67,7 +72,7 @@ export function HeaderNav({
 
   return (
     <>
-      {/* 데스크탑: 인라인 */}
+      {/* 데스크탑: 인라인 (네비 + 테마 + 언어) */}
       <nav className="hidden items-center gap-1 sm:flex md:gap-2">
         {items.map((item) => (
           <Link
@@ -78,12 +83,13 @@ export function HeaderNav({
             {item.label}
           </Link>
         ))}
-        {children}
+        {themeToggle}
+        {langSwitcher}
       </nav>
 
-      {/* 모바일: 햄버거 + 드로어 */}
+      {/* 모바일: 테마 + 햄버거만 (언어는 드로어로) */}
       <div className="flex items-center gap-2 sm:hidden">
-        {children}
+        {themeToggle}
         <button
           type="button"
           aria-label={
@@ -98,9 +104,9 @@ export function HeaderNav({
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((prev) => !prev)}
-          className="grid h-9 w-9 place-items-center rounded-lg border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
+          className="grid h-11 w-11 place-items-center rounded-lg border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-card-hover)] hover:text-[color:var(--color-text-primary)]"
         >
-          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
@@ -119,7 +125,7 @@ export function HeaderNav({
                 href={item.href}
                 ref={index === 0 ? firstLinkRef : undefined}
                 className={cn(
-                  "rounded-lg px-3 py-2.5 text-base font-medium transition-colors",
+                  "rounded-lg px-3 py-3 text-base font-medium transition-colors",
                   isActive(item.pathMatch)
                     ? "bg-[color:var(--color-bg-card)] text-[color:var(--color-text-primary)]"
                     : "text-[color:var(--color-text-secondary)] hover:bg-[color:var(--color-bg-card)] hover:text-[color:var(--color-text-primary)]",
@@ -128,6 +134,19 @@ export function HeaderNav({
                 {item.label}
               </Link>
             ))}
+            {/* 언어 전환 — 드로어 하단 */}
+            <div className="mt-2 flex items-center justify-between gap-2 border-t border-[color:var(--color-border-subtle)] px-3 pt-3">
+              <span className="text-xs font-medium uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
+                {locale === "ko"
+                  ? "언어"
+                  : locale === "zh"
+                    ? "语言"
+                    : locale === "vi"
+                      ? "Ngôn ngữ"
+                      : "Language"}
+              </span>
+              {langSwitcher}
+            </div>
           </nav>
         </div>
       )}

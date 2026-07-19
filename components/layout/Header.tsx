@@ -36,10 +36,12 @@ export async function Header({
           <span className="text-base md:text-lg">Workmate</span>
         </Link>
 
-        <HeaderNav items={navItems} locale={locale}>
-          <ThemeToggle label={t("themeToggle")} />
-          <LanguageSwitcher currentLocale={locale} />
-        </HeaderNav>
+        <HeaderNav
+          items={navItems}
+          locale={locale}
+          themeToggle={<ThemeToggle label={t("themeToggle")} />}
+          langSwitcher={<LanguageSwitcher currentLocale={locale} />}
+        />
       </div>
     </header>
   );
