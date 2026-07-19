@@ -256,7 +256,7 @@ export default async function AttractionDetailPage({
                 <Link
                   key={tool.href}
                   href={`/${locale}${tool.href}`}
-                  className="inline-flex items-center rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] px-3.5 py-1.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:border-rose-400/40 hover:text-rose-300"
+                  className="inline-flex min-h-11 items-center rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] px-4 py-2.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:border-rose-400/40 hover:text-rose-300"
                 >
                   {tool.label[lk]}
                 </Link>

@@ -193,7 +193,7 @@ function HeroSection({
                   <Link
                     key={item.href}
                     href={`/${locale}${item.href}`}
-                    className="rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)]/70 px-3 py-1.5 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-400/50 hover:text-[color:var(--color-text-primary)]"
+                    className="rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)]/70 px-3.5 py-2.5 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-400/50 hover:text-[color:var(--color-text-primary)]"
                   >
                     {toolLabel(tool, locale)}
                   </Link>
@@ -510,7 +510,7 @@ function CategoriesSection({
                     <Link
                       key={tool.href}
                       href={`/${locale}${tool.href}`}
-                      className="rounded-md border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-2.5 py-1 text-xs text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-400/50 hover:text-[color:var(--color-text-primary)]"
+                      className="rounded-md border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-3 py-2 text-xs text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-400/50 hover:text-[color:var(--color-text-primary)]"
                     >
                       {toolLabel(tool, locale)}
                     </Link>
@@ -518,7 +518,7 @@ function CategoriesSection({
                   {restCount > 0 && (
                     <Link
                       href={hubTarget}
-                      className="rounded-md border border-dashed border-[color:var(--color-border-default)] px-2.5 py-1 text-xs font-semibold text-[color:var(--color-text-tertiary)] transition-colors hover:border-indigo-400/50 hover:text-[color:var(--color-text-primary)]"
+                      className="rounded-md border border-dashed border-[color:var(--color-border-default)] px-3 py-2 text-xs font-semibold text-[color:var(--color-text-tertiary)] transition-colors hover:border-indigo-400/50 hover:text-[color:var(--color-text-primary)]"
                     >
                       {t("moreTools", { count: restCount })}
                     </Link>

@@ -142,7 +142,7 @@ export function AreaConverter({ locale }: AreaConverterProps): React.ReactElemen
                 key={u}
                 type="button"
                 onClick={() => setUnit(u)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
                   unit === u
                     ? "bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-500/30"
                     : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-indigo-400 hover:text-[color:var(--color-text-primary)]"

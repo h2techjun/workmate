@@ -90,7 +90,7 @@ export function ReactionBar({
             onClick={() => toggle(r.key)}
             disabled={busy}
             aria-pressed={active.has(r.key)}
-            className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-semibold transition-colors disabled:opacity-60 ${
+            className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors disabled:opacity-60 ${
               active.has(r.key)
                 ? "border-rose-400/60 bg-rose-500/15 text-rose-200"
                 : "border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] text-[color:var(--color-text-secondary)] hover:border-rose-400/40"

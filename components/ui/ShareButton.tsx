@@ -59,7 +59,7 @@ export function ShareButton({
       type="button"
       onClick={handleShare}
       aria-label={label}
-      className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-3.5 py-2 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-text-primary)]"
+      className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-3.5 py-2 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-text-primary)]"
     >
       {copied ? (
         <Check className="h-3.5 w-3.5 text-emerald-400" />

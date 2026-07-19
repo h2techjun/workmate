@@ -118,7 +118,7 @@ export function BtuForm({ locale }: BtuFormProps): React.ReactElement {
           <div className="grid grid-cols-3 gap-2">
             {(["low", "normal", "high"] as const).map((s) => (
               <button key={s} type="button" onClick={() => setSun(s)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${sun === s ? "bg-gradient-to-br from-amber-500 to-yellow-500 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-400"}`}>
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${sun === s ? "bg-gradient-to-br from-amber-500 to-yellow-500 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-400"}`}>
                 {t.suns[s]}
               </button>
             ))}

@@ -130,7 +130,7 @@ export function WallpaperForm({ locale }: WallpaperFormProps): React.ReactElemen
                 key={m}
                 type="button"
                 onClick={() => setAreaMode(m)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${areaMode === m ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${areaMode === m ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
               >
                 {m === "area" ? t.modeArea : t.modeRoom}
               </button>
@@ -177,7 +177,7 @@ export function WallpaperForm({ locale }: WallpaperFormProps): React.ReactElemen
                 key={wt}
                 type="button"
                 onClick={() => setWallpaperType(wt)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${wallpaperType === wt ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${wallpaperType === wt ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
               >
                 {t.types[wt]}
               </button>
@@ -195,7 +195,7 @@ export function WallpaperForm({ locale }: WallpaperFormProps): React.ReactElemen
                 key={String(pm)}
                 type="button"
                 onClick={() => setPatternMatch(pm)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${patternMatch === pm ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${patternMatch === pm ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
               >
                 {pm ? t.patternOptions.on : t.patternOptions.off}
               </button>

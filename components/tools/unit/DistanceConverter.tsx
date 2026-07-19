@@ -102,7 +102,7 @@ export function DistanceConverter({
           <div className="grid grid-cols-3 gap-2">
             {(Object.keys(t.units) as DistanceUnit[]).map((u) => (
               <button key={u} type="button" onClick={() => setUnit(u)}
-                className={`rounded-lg px-2 py-2 text-xs font-medium transition-colors ${unit === u ? "bg-gradient-to-br from-indigo-500 to-purple-600 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-indigo-400"}`}>
+                className={`rounded-lg px-2 py-3 text-xs font-medium transition-colors ${unit === u ? "bg-gradient-to-br from-indigo-500 to-purple-600 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-indigo-400"}`}>
                 {t.units[u]}
               </button>
             ))}

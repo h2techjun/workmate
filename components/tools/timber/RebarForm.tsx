@@ -96,7 +96,7 @@ export function RebarForm({ locale }: RebarFormProps): React.ReactElement {
                 key={s}
                 type="button"
                 onClick={() => setSize(s)}
-                className={`rounded-lg px-2 py-2 text-sm font-medium transition-colors ${size === s ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
+                className={`rounded-lg px-2 py-3 text-sm font-medium transition-colors ${size === s ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
               >
                 {s}
               </button>

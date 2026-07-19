@@ -181,7 +181,7 @@ export default async function ToolsHubPage({
                   <li key={tool.href}>
                     <Link
                       href={`/${locale}${tool.href}`}
-                      className="flex items-center justify-between gap-3 rounded-md px-2 py-1.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-elevated)] hover:text-[color:var(--color-text-primary)]"
+                      className="flex min-h-11 items-center justify-between gap-3 rounded-md px-2 py-2.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:bg-[color:var(--color-bg-elevated)] hover:text-[color:var(--color-text-primary)]"
                     >
                       <span className="truncate">
                         {localeKey === "ko"
@@ -200,7 +200,7 @@ export default async function ToolsHubPage({
 
               <Link
                 href={target}
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--color-text-primary)] transition-colors hover:text-indigo-400"
+                className="mt-5 inline-flex min-h-11 items-center gap-1.5 py-2.5 text-sm font-semibold text-[color:var(--color-text-primary)] transition-colors hover:text-indigo-400"
               >
                 <span>
                   {isKo

@@ -69,12 +69,12 @@ export async function Footer({
               <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-text-tertiary)]">
                 {group.heading}
               </h3>
-              <ul className="space-y-2 text-sm">
+              <ul className="text-sm">
                 {group.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[color:var(--color-text-secondary)] transition-colors hover:text-[color:var(--color-text-primary)]"
+                      className="inline-block py-1.5 text-[color:var(--color-text-secondary)] transition-colors hover:text-[color:var(--color-text-primary)]"
                     >
                       {link.label}
                     </Link>

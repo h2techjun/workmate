@@ -88,7 +88,7 @@ export function SizeConvertForm({
               key={c}
               type="button"
               onClick={() => setCat(c)}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
                 cat === c
                   ? "bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-500/30"
                   : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-indigo-400"

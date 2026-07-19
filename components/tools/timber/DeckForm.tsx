@@ -166,7 +166,7 @@ export function DeckForm({ locale }: DeckFormProps): React.ReactElement {
         <div className="grid grid-cols-2 gap-2">
           {(["deck", "fence"] as const).map((mo) => (
             <button key={mo} type="button" onClick={() => setMode(mo)}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${mode === mo ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}>
+              className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${mode === mo ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}>
               {mo === "deck" ? t.deck : t.fence}
             </button>
           ))}

@@ -83,7 +83,7 @@ export function Breadcrumbs({
                 ) : (
                   <Link
                     href={relHref}
-                    className="transition-colors hover:text-indigo-300"
+                    className="inline-block py-1.5 transition-colors hover:text-indigo-300"
                   >
                     {item.name}
                   </Link>

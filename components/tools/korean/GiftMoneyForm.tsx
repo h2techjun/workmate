@@ -121,7 +121,7 @@ export function GiftMoneyForm({
                 key={e}
                 type="button"
                 onClick={() => setEvent(e)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
                   event === e
                     ? "bg-gradient-to-br from-rose-500 to-pink-600 text-white"
                     : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-rose-400"
@@ -142,7 +142,7 @@ export function GiftMoneyForm({
                 key={rel}
                 type="button"
                 onClick={() => setRelation(rel)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
                   relation === rel
                     ? "bg-gradient-to-br from-indigo-500 to-purple-600 text-white"
                     : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-indigo-400"

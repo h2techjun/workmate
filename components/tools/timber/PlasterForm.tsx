@@ -108,7 +108,7 @@ export function PlasterForm({ locale }: PlasterFormProps): React.ReactElement {
                 key={mr}
                 type="button"
                 onClick={() => setMixRatio(mr)}
-                className={`rounded-lg px-2 py-2 text-xs font-medium transition-colors ${mixRatio === mr ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
+                className={`rounded-lg px-2 py-3 text-xs font-medium transition-colors ${mixRatio === mr ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
               >
                 {t.mixRatios[mr]}
               </button>

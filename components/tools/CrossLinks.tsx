@@ -72,7 +72,7 @@ export function CrossLinks({
               <Link
                 key={r.href}
                 href={`/${locale}${r.href}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] px-3.5 py-1.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-500/40 hover:text-indigo-300"
+                className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-card)] px-4 py-2.5 text-sm text-[color:var(--color-text-secondary)] transition-colors hover:border-indigo-500/40 hover:text-indigo-300"
               >
                 <BookOpen className="h-3.5 w-3.5 shrink-0 text-indigo-400" />
                 {r[readsLang]}

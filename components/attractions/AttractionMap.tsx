@@ -50,7 +50,7 @@ export function AttractionMap({
             href={l.href}
             target="_blank"
             rel="noreferrer noopener"
-            className="rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-3 py-1 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:border-rose-400/40 hover:text-rose-300"
+            className="inline-flex min-h-11 items-center rounded-full border border-[color:var(--color-border-subtle)] bg-[color:var(--color-bg-elevated)] px-3.5 py-2.5 text-xs font-medium text-[color:var(--color-text-secondary)] transition-colors hover:border-rose-400/40 hover:text-rose-300"
           >
             {l.label}
           </a>

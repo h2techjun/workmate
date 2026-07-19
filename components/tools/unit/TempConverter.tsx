@@ -83,7 +83,7 @@ export function TempConverter({ locale }: TempConverterProps): React.ReactElemen
           <div className="grid grid-cols-3 gap-2">
             {(["c", "f", "k"] as TempUnit[]).map((u) => (
               <button key={u} type="button" onClick={() => setUnit(u)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${unit === u ? "bg-gradient-to-br from-orange-500 to-rose-500 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-orange-400"}`}>
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${unit === u ? "bg-gradient-to-br from-orange-500 to-rose-500 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-orange-400"}`}>
                 {t.units[u]}
               </button>
             ))}

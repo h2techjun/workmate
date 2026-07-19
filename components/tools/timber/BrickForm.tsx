@@ -116,7 +116,7 @@ export function BrickForm({ locale }: BrickFormProps): React.ReactElement {
                 key={bt}
                 type="button"
                 onClick={() => setBrickType(bt)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${brickType === bt ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
+                className={`rounded-lg px-3 py-3 text-sm font-medium transition-colors ${brickType === bt ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
               >
                 {t.types[bt]}
               </button>
@@ -134,7 +134,7 @@ export function BrickForm({ locale }: BrickFormProps): React.ReactElement {
                   key={b}
                   type="button"
                   onClick={() => setBond(b)}
-                  className={`rounded-lg px-2 py-2 text-xs font-medium transition-colors ${bond === b ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
+                  className={`rounded-lg px-2 py-3 text-xs font-medium transition-colors ${bond === b ? "bg-gradient-to-br from-amber-600 to-orange-700 text-white" : "border border-[color:var(--color-border-default)] bg-[color:var(--color-bg-elevated)] text-[color:var(--color-text-secondary)] hover:border-amber-500"}`}
                 >
                   {t.bonds[b]}
                 </button>
