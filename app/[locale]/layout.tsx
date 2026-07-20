@@ -151,6 +151,11 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  // toolGuides(messages 의 83%, 71도구×본문×4로케일)는 서버 컴포넌트
+  // ToolGuide.tsx 에서만 getTranslations 로 사용한다. 클라이언트 provider 에서
+  // 제외해 모든 페이지의 HTML/RSC payload 크기를 대폭 축소한다(홈 841KB → ~150KB).
+  const clientMessages: typeof messages = { ...messages };
+  delete (clientMessages as Record<string, unknown>).toolGuides;
 
   return (
     // suppressHydrationWarning: theme-init.js 가 페인트 전에 html 에
@@ -169,7 +174,7 @@ export default async function LocaleLayout({
           siteUrl={SITE_URL}
           locale={locale !== "ko" ? "en" : "ko"}
         />
-        <NextIntlClientProvider messages={messages} locale={locale}>
+        <NextIntlClientProvider messages={clientMessages} locale={locale}>
           <div className="flex min-h-screen flex-col">
             <Header locale={locale as Locale} />
             <div className="flex-1">{children}</div>
