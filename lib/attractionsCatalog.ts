@@ -1145,6 +1145,1220 @@ export const ATTRACTIONS: ReadonlyArray<AttractionEntry> = [
       ],
     },
   },
+  {
+    slug: "changdeokgung",
+    publishedAt: "2026-07-23",
+    region: "seoul",
+    category: "palace",
+    nameKo: "창덕궁",
+    nameEn: "Changdeokgung Palace",
+    nameZh: "昌德宫",
+    nameVi: "Cung Changdeokgung",
+    summaryKo:
+      "경복궁보다 왕들이 더 오래 산 궁궐, 이유는 후원(비원)에 있어요. 산자락 지형 그대로 살린 정원이 유네스코 등재 이유고, 낙선재는 1989년까지 실제 왕실이 살았던 공간. 후원은 사전예약 필수, 한복 입으면 궁 입장은 무료예요.",
+    summaryEn:
+      "The palace Joseon's kings actually preferred to live in. A hillside garden left untouched by human hands earned it UNESCO status, and Nakseonjae was a real royal home until 1989. Hanbok gets you in free — but the Secret Garden costs extra either way.",
+    summaryZh:
+      "比起景福宫，历代国王实际住得更久的宫殿就是这里，秘密就在后苑。顺应山势不强行铲平的园林，正是入选世界遗产的关键，乐善斋更是末代皇室一直住到1989年的地方。穿韩服可免票入宫，但后苑门票另计。",
+    summaryVi:
+      "Cung điện mà các vua Joseon thực sự thích ở hơn cả Gyeongbokgung, bí quyết nằm ở khu vườn sau. Cảnh quan thuận theo địa hình đồi núi là lý do được UNESCO công nhận, còn Nakseonjae là nơi hoàng tộc cuối cùng sống thật đến tận 1989. Mặc Hanbok được miễn vé vào cung, nhưng Vườn Bí Mật vẫn tính phí riêng.",
+    overviewKo: [
+      "창덕궁은 1405년 태종이 세운 궁궐로, 이름은 '덕을 밝게 비추어 번창한다'는 뜻이에요. 경복궁이 조선의 공식 법궁이었지만, 정작 왕들이 가장 오래 머문 곳은 이곳 창덕궁이었어요. 임진왜란 때 서울의 모든 궁궐이 불탔는데, 전쟁 후 나라 살림이 어려워 법궁인 경복궁은 한동안 재건되지 못했고, 대신 창덕궁이 먼저 다시 지어지면서 300년 가까이 조선의 실질적인 정궁 역할을 했어요. 이런 독특한 역사성과 산자락 지형을 거스르지 않고 자연스럽게 앉힌 건축 배치가 인정받아 1997년 유네스코 세계문화유산에 등재됐습니다.",
+      "정문 돈화문부터가 남다른데, 현재 남아있는 서울 궁궐 정문 중 가장 오래된 목조 건축물이에요. 문을 지나 두 번째 문 진선문을 넘으면 금천교가 나오는데, 1411년에 놓인 이 다리는 서울 4대궁 다리 중 가장 오래됐고, 다리 밑을 지키는 상상의 동물 조각(해치·현무 등)이 촘촘히 새겨져 있어요. 왕의 즉위식과 국가 행사가 열리던 정전 인정전은 경복궁 근정전보다 아담하지만, 품계석과 잘 다듬어진 마당이 주는 위엄은 결코 뒤지지 않아요. 인정전 지붕 위로 대한제국 시절 자리한 오얏꽃(이화) 문양도 눈여겨볼 포인트입니다.",
+      "창덕궁 최대 매력은 뒤편의 후원, 흔히 '비원(秘苑)'이라 불리는 공간이에요. 다른 궁궐 정원과 달리 산과 계곡의 원래 지형을 인공적으로 깎아내지 않고 그대로 살려서 연못·정자를 배치했는데, 이게 바로 유네스코가 '자연과 완벽히 조화된 극동 궁궐 정원의 걸작'이라 평가한 핵심 이유예요. 부용지 연못가의 주합루, 애련지의 애련정 같은 정자들이 계절마다 다른 표정을 보여주고, 300년 넘은 나무만 70그루가 넘습니다. 다만 후원은 자유관람이 안 되고 문화재해설사와 함께하는 정해진 회차(약 90분)로만 들어갈 수 있어서, 관람 희망일 6일 전 오전 10시부터 온라인 사전예약이 사실상 필수예요.",
+      "후원 옆쪽엔 낙선재 영역도 있는데, 여기가 은근 특별한 곳이에요. 조선이 망하고 대한제국이 무너진 뒤에도 영친왕 부부, 덕혜옹주 같은 마지막 황실 가족들이 실제로 살았던 공간으로, 1989년까지 사람이 거주했어요. 화려한 단청을 일부러 입히지 않은 소박한 건축이라 다른 전각들과는 분위기가 확 다르고, 그만큼 '살아있던 궁궐'의 마지막 흔적을 가장 가까이서 느낄 수 있는 곳입니다.",
+      "실전 정보 — 성인 입장료는 3,000원인데 경복궁처럼 한복(저고리+치마 또는 바지 세트)을 갖춰 입으면 무료예요. 단, 후원 관람료(약 5,000원)는 한복을 입어도 별도로 내야 하니 헷갈리지 마세요. 후원은 시간당 100명 한정(온라인 50명 + 현장 50명)이라 성수기 주말엔 현장표가 금방 마감되니 온라인 예매를 추천합니다. 매주 월요일은 휴궁이에요.",
+      "가는 법은 지하철 3호선 안국역 3번 출구에서 도보 5분, 바로 옆 종묘·운현궁과 묶어서 하루 코스로 돌기도 좋아요. 경복궁보다 관광객이 상대적으로 적어서 한적하게 궁궐 산책을 즐기고 싶다면 창덕궁 쪽을 더 추천하는 사람도 많고요. 가을 단풍철엔 후원 전체가 그림처럼 물들어서 이 시기 예약 경쟁이 가장 치열하니, 단풍 시즌 방문을 노린다면 최소 몇 주 전부터 예약 사이트를 체크하세요.",
+    ],
+    overviewEn: [
+      "Changdeokgung was built in 1405 by King Taejong, and its name roughly means 'palace that radiates virtue and prosperity.' Gyeongbokgung was Joseon's official main palace on paper, but the kings who actually lived there the longest called Changdeokgung home. When the 1592 Japanese invasions burned every palace in Seoul to the ground, the war-drained treasury couldn't afford to rebuild the official Gyeongbokgung right away — so Changdeokgung was restored first instead, and ended up functioning as Joseon's de facto main palace for nearly 300 years. That unusual history, plus a layout that works with the natural hillside terrain rather than flattening it, earned Changdeokgung a spot on the UNESCO World Heritage List in 1997.",
+      "Even the main gate stands out — Donhwamun is the oldest surviving wooden palace gate in Seoul. Pass through the second gate, Jinseonmun, and you'll cross Geumcheongyo, a stone bridge built in 1411 that's the oldest of its kind among Seoul's four palaces, carved densely with mythical guardian creatures underneath. Injeongjeon, the throne hall where kings were crowned and state ceremonies held, is more compact than Gyeongbokgung's Geunjeongjeon, but the rank stones and manicured courtyard give it plenty of gravitas on their own. Look up at the roofline for the plum blossom (i-hwa) emblem added during the Korean Empire era — an easy detail to miss.",
+      "Changdeokgung's real showstopper is the rear garden out back, popularly known as the Secret Garden (Biwon). Unlike palace gardens elsewhere, the ponds and pavilions here were built around the existing hills and valleys instead of flattening the land — and that's exactly why UNESCO called it a masterpiece of Far Eastern garden design 'harmonized with the natural setting.' Pavilions like Juhamnu by Buyongji pond and Aeryeonjeong by Aeryeonji change character with every season, and more than 70 trees on the grounds are over 300 years old. One catch: you can't wander the Secret Garden freely — entry is only via scheduled, guided tours (roughly 90 minutes) with a cultural heritage docent, so booking online starting 10 AM, six days before your visit date, is basically mandatory.",
+      "Next to the garden is the Nakseonjae area, which carries a quietly heavy history. This is where the last members of Korea's royal family — including Crown Prince Uimin and his wife, and Princess Deokhye — actually lived after the fall of Joseon and the Korean Empire, right up until 1989. It's deliberately built without the vivid dancheong paintwork seen elsewhere in the palace, giving it a plainer, more lived-in feel — and it's the closest you can get to touching the palace's last days as an actual home rather than a monument.",
+      "Practical info: adult admission is ₩3,000, waived if you're wearing full hanbok (top and bottom set), same as Gyeongbokgung. But note the Secret Garden fee (around ₩5,000) is separate and applies even if you're in hanbok — easy to get mixed up. Secret Garden capacity is capped at 100 people per hour (50 online, 50 on-site), so same-day tickets vanish fast on peak weekends — book online if you can. The palace is closed every Monday.",
+      "Get there via Anguk Station (Line 3) Exit 3, a five-minute walk — easy to combine with nearby Jongmyo Shrine or Unhyeongung for a full day out. Changdeokgung tends to draw fewer crowds than Gyeongbokgung, so plenty of people actually prefer it for a calmer palace stroll. Come autumn, the entire Secret Garden turns into a wall of red and gold, which also means booking competition peaks hardest that season — if you're chasing fall colors, start checking the reservation site weeks ahead.",
+    ],
+    overviewZh: [
+      "昌德宫由太宗于1405年下令兴建，宫名寓意「彰显德行、走向兴盛」。虽然景福宫才是朝鲜官方正宫，但历代国王实际居住时间最长的其实是昌德宫。壬辰倭乱把首尔所有宫殿烧成灰烬后，国库因战争空虚，正宫景福宫迟迟无法重建，反倒是昌德宫先被修复，结果昌德宫足足当了近300年朝鲜事实上的正宫。这段独特的历史，加上顺应山势地形、不强行铲平自然地貌的建筑布局，让昌德宫在1997年被列入联合国教科文组织世界文化遗产。",
+      "光是正门敦化门就很有来头——它是首尔现存宫殿正门中年代最久的木造建筑。穿过第二道门进善门，就会看到锦川桥，这座建于1411年的石桥是首尔四大宫殿桥梁中最古老的一座，桥下密密麻麻雕刻着守护神兽。国王即位、举行国家大典的正殿仁政殿，规模比景福宫勤政殿小一些，但殿前品阶石和修剪整齐的庭院一样气场十足。抬头留意仁政殿屋檐上的李花纹章，那是大韩帝国时期添上去的小细节。",
+      "昌德宫真正的杀手锏是后方的后苑，也就是俗称的「秘苑」。和其他宫殿花园不同，这里的池塘亭台是顺着原有山谷地形安置的，没有人工铲平——这正是联合国教科文组织盛赞它是「与自然完美融合的远东宫苑设计杰作」的关键原因。芙蓉池畔的宙合楼、爱莲池畔的爱莲亭，四季各有风情，园内树龄超过300年的古树就有70多棵。不过后苑不能自由参观，只能跟着文化解说员分批入场（约90分钟一场），想去的话务必在参观日前6天上午10点开放线上预约时抢票，基本算刚需。",
+      "花园旁边还有乐善斋区域，这里的分量其实不轻。朝鲜灭亡、大韩帝国倒台之后，末代皇室成员——英亲王夫妇、德惠翁主等人——真真切切地在这里生活到1989年才彻底结束。这里刻意没有涂上鲜艳的丹青彩绘，风格朴素得和其他殿阁完全不同，也正因如此，这里是离「曾经真实住人的宫殿」最后余温最近的地方。",
+      "实用信息——成人票3000韩元，和景福宫一样，穿完整韩服（上衣+下装成套）可免票。但要注意后苑门票（约5000韩元）是单独收费，就算穿韩服也要另外买，别搞混了。后苑每小时限流100人（线上50人+现场50人），旺季周末现场票很快售罄，建议提前网上订票。每周一全天休宫。",
+      "交通方面，地铁3号线安国站3号出口步行5分钟即到，附近还有宗庙、云岘宫，可以串成一日行程。比起景福宫，昌德宫游客相对少一些，不少人反而更喜欢来这里悠闲逛宫。秋天枫叶季，整座后苑美得像一幅画，也是全年预约竞争最激烈的时候——想赶枫叶季来，建议提前几周就开始盯预约网站。",
+    ],
+    overviewVi: [
+      "Changdeokgung được vua Taejong cho xây dựng năm 1405, tên cung mang nghĩa 'tỏa sáng đức hạnh, hưng thịnh dài lâu'. Dù Gyeongbokgung mới là chính cung chính thức của Joseon, nhưng cung điện mà các vị vua thực sự ở lâu nhất lại chính là Changdeokgung. Khi cuộc xâm lược của Nhật năm 1592 thiêu rụi toàn bộ cung điện ở Seoul, ngân khố cạn kiệt vì chiến tranh khiến Gyeongbokgung không thể phục dựng ngay, nên Changdeokgung được sửa lại trước — và từ đó gần như đóng vai trò chính cung thực tế của Joseon suốt gần 300 năm. Lịch sử đặc biệt này, cộng với cách bố trí kiến trúc thuận theo địa hình đồi núi tự nhiên thay vì san phẳng, đã giúp Changdeokgung được UNESCO công nhận Di sản Thế giới năm 1997.",
+      "Ngay cổng chính Donhwamun cũng đã có gì đó khác biệt — đây là cổng cung điện bằng gỗ cổ nhất còn tồn tại ở Seoul. Qua cổng thứ hai Jinseonmun là đến cầu đá Geumcheongyo, xây năm 1411, cây cầu đá cổ nhất trong bốn cung điện lớn của Seoul, với những bức chạm khắc linh thú trấn giữ dày đặc bên dưới. Điện Injeongjeon, nơi vua đăng cơ và tổ chức đại lễ quốc gia, nhỏ gọn hơn điện Geunjeongjeon của Gyeongbokgung, nhưng hàng bia phẩm cấp và sân điện được chăm chút kỹ lưỡng vẫn toát lên vẻ uy nghi không kém. Ngước nhìn lên mái điện sẽ thấy họa tiết hoa mận (i-hwa) từ thời Đế quốc Đại Hàn — một chi tiết nhỏ dễ bị bỏ qua.",
+      "Điểm hút hồn thực sự của Changdeokgung nằm ở khu vườn sau, thường được gọi là Vườn Bí Mật (Biwon). Khác với các khu vườn cung điện khác, ao hồ và đình tạ ở đây được xây dựng thuận theo địa hình đồi núi có sẵn thay vì san phẳng — đây chính là lý do UNESCO ca ngợi nơi này là kiệt tác thiết kế vườn cung điện Viễn Đông 'hòa hợp hoàn hảo với thiên nhiên'. Các đình như Juhamnu bên hồ Buyongji, Aeryeonjeong bên hồ Aeryeonji mang vẻ đẹp khác nhau theo từng mùa, và có hơn 70 cây cổ thụ trên 300 năm tuổi trong khuôn viên. Có một điều cần lưu ý: không thể tự do dạo chơi trong Vườn Bí Mật — chỉ được vào theo đoàn có hướng dẫn viên di sản văn hóa dẫn đoàn (khoảng 90 phút mỗi lượt), nên gần như bắt buộc phải đặt vé online lúc 10 giờ sáng, 6 ngày trước ngày muốn tham quan.",
+      "Bên cạnh khu vườn là khu Nakseonjae, nơi mang một tầng lịch sử khá nặng nề. Đây là nơi những thành viên cuối cùng của hoàng tộc — Thái tử Uimin cùng vợ, Công chúa Deokhye — thực sự sinh sống sau khi Joseon và Đế quốc Đại Hàn sụp đổ, cho đến tận năm 1989. Nơi này cố tình không sơn dancheong sặc sỡ như các điện khác, mang vẻ giản dị, gần gũi hơn — và là nơi gần nhất để cảm nhận những ngày cuối cùng của cung điện như một mái nhà thực sự, chứ không chỉ là một di tích.",
+      "Thông tin thực tế: vé người lớn 3.000 won, được miễn nếu mặc trọn bộ Hanbok (áo và quần/váy), giống như ở Gyeongbokgung. Nhưng lưu ý vé Vườn Bí Mật (khoảng 5.000 won) là riêng biệt và vẫn phải trả dù đang mặc Hanbok — dễ nhầm lẫn. Vườn Bí Mật giới hạn 100 người mỗi giờ (50 vé online, 50 vé tại chỗ), nên vé tại chỗ hết rất nhanh vào cuối tuần cao điểm — nên đặt online nếu có thể. Cung đóng cửa vào thứ Hai hàng tuần.",
+      "Đi đến đây qua lối ra số 3 ga Anguk (tuyến 3), đi bộ 5 phút — dễ dàng kết hợp với đền Jongmyo hay Unhyeongung gần đó cho một ngày trọn vẹn. Changdeokgung thường ít đông khách hơn Gyeongbokgung, nên nhiều người thực ra thích đến đây hơn để dạo cung điện thong thả. Vào mùa thu, cả Vườn Bí Mật nhuộm đỏ vàng đẹp như tranh vẽ, cũng là lúc cuộc đua đặt vé căng thẳng nhất trong năm — nếu muốn ngắm lá thu, hãy bắt đầu theo dõi trang đặt vé từ vài tuần trước.",
+    ],
+    tips: {
+      ko: [
+        "성인 입장료 3,000원, 한복(상하의 세트) 입으면 무료 — 단 후원 관람료는 한복 입어도 별도.",
+        "후원은 자유관람 불가, 문화재해설사 동행 회차제(약 90분) — 관람일 6일 전 오전 10시 온라인 예약 필수급.",
+        "매주 월요일 휴궁, 방문일 잡기 전 꼭 확인.",
+        "지하철 3호선 안국역 3번 출구 도보 5분, 종묘·운현궁과 묶어 하루 코스로 좋음.",
+        "가을 단풍철엔 후원 예약 경쟁 최고조 — 최소 몇 주 전부터 예약 사이트 체크.",
+      ],
+      en: [
+        "Adult admission ₩3,000, free if you're in full hanbok — but the Secret Garden fee applies separately even then.",
+        "Secret Garden is guided-tour only (about 90 min) — book online at 10 AM, six days before your visit.",
+        "Closed every Monday — check before you plan the trip.",
+        "Anguk Station (Line 3) Exit 3, a 5-minute walk — easy to pair with Jongmyo Shrine or Unhyeongung.",
+        "Fall foliage season means the toughest reservation competition of the year — start checking weeks ahead.",
+      ],
+      zh: [
+        "成人票3000韩元，穿完整韩服可免票——但后苑门票即使穿韩服也要另付。",
+        "后苑只能跟解说员分批参观（约90分钟）——参观日前6天上午10点开放线上预约，务必提前抢。",
+        "每周一全天休宫，安排行程前务必确认。",
+        "地铁3号线安国站3号出口步行5分钟，可与宗庙、云岘宫串成一日游。",
+        "秋季枫叶季预约竞争全年最激烈，建议提前几周开始盯预约网站。",
+      ],
+      vi: [
+        "Vé người lớn 3.000 won, mặc trọn bộ Hanbok được miễn — nhưng vé Vườn Bí Mật vẫn tính riêng dù có mặc Hanbok.",
+        "Vườn Bí Mật chỉ tham quan theo đoàn có hướng dẫn viên (khoảng 90 phút) — đặt vé online lúc 10 giờ sáng, 6 ngày trước ngày muốn đến.",
+        "Đóng cửa vào thứ Hai hàng tuần — kiểm tra lịch trước khi lên kế hoạch.",
+        "Lối ra số 3 ga Anguk (tuyến 3), đi bộ 5 phút — dễ kết hợp với đền Jongmyo hoặc Unhyeongung.",
+        "Mùa lá thu là lúc cạnh tranh đặt vé căng thẳng nhất năm — nên theo dõi trang đặt vé từ vài tuần trước.",
+      ],
+    },
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Injeongjeon_Hall_01.jpg/1280px-Injeongjeon_Hall_01.jpg",
+      alt: "창덕궁 인정전 — Injeongjeon throne hall at Changdeokgung Palace, Seoul",
+      license: "CC0",
+      credit: "Wikimedia Commons / Bernard Gagnon",
+      creditUrl: "https://commons.wikimedia.org/wiki/File:Injeongjeon_Hall_01.jpg",
+    },
+    lat: 37.579444,
+    lng: 126.992778,
+    addressKo: "서울특별시 종로구 율곡로 99",
+    addressEn: "99 Yulgok-ro, Jongno-gu, Seoul",
+    tags: {
+      ko: ["창덕궁", "후원", "비원", "서울 궁궐", "낙선재"],
+      en: ["Changdeokgung", "Secret Garden", "Biwon", "Seoul palace", "Nakseonjae"],
+      zh: ["昌德宫", "后苑", "秘苑", "首尔宫殿", "乐善斋"],
+      vi: ["Changdeokgung", "Vườn Bí Mật", "Biwon", "cung điện Seoul", "Nakseonjae"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "창덕궁 입장료와 한복 무료입장 기준은?",
+          a: "성인 입장료는 3,000원이며, 저고리와 치마(또는 바지)를 갖춘 한복을 입으면 무료입니다. 다만 후원(비원) 관람료 약 5,000원은 한복을 입어도 별도로 내야 합니다.",
+        },
+        {
+          q: "창덕궁 후원은 어떻게 관람하나요?",
+          a: "후원은 자유관람이 불가능하고 문화재해설사와 함께하는 정해진 회차(약 90분)로만 입장할 수 있습니다. 관람 희망일 6일 전 오전 10시부터 온라인 사전예약이 가능하며, 시간당 100명(온라인 50명·현장 50명)으로 제한됩니다.",
+        },
+        {
+          q: "창덕궁 가는 법과 휴궁일은?",
+          a: "지하철 3호선 안국역 3번 출구에서 도보 5분 거리입니다. 매주 월요일은 전체 휴궁이니 방문일을 잡을 때 꼭 확인하세요.",
+        },
+      ],
+      en: [
+        {
+          q: "What's the admission fee for Changdeokgung, and what counts for free hanbok entry?",
+          a: "Adult admission is ₩3,000, waived if you're wearing a full hanbok (top and bottom/skirt set). Note the Secret Garden fee (about ₩5,000) is separate and still applies even in hanbok.",
+        },
+        {
+          q: "How do you visit the Secret Garden (Huwon)?",
+          a: "You can't wander it freely — entry is only via scheduled, guided tours (about 90 minutes) with a cultural heritage docent. Online booking opens at 10 AM, six days before your visit date, and each hourly session is capped at 100 people (50 online, 50 on-site).",
+        },
+        {
+          q: "How do you get to Changdeokgung, and when is it closed?",
+          a: "Anguk Station (Subway Line 3) Exit 3 is a 5-minute walk away. The palace is closed all day every Monday, so check the calendar before you plan your visit.",
+        },
+      ],
+      zh: [
+        {
+          q: "昌德宫门票多少钱？穿韩服免票的标准是什么？",
+          a: "成人票3000韩元，穿着上衣+下装（裙子或裤子）成套的完整韩服可免票入场。但后苑门票（约5000韩元）即使穿韩服也需另外购买。",
+        },
+        {
+          q: "昌德宫后苑怎么参观？",
+          a: "后苑不能自由参观，只能跟随文化解说员分批入场（约90分钟一场）。参观日前6天上午10点开放线上预约，每小时限流100人（线上50人+现场50人）。",
+        },
+        {
+          q: "昌德宫怎么去？哪天休宫？",
+          a: "地铁3号线安国站3号出口步行5分钟即到。每周一全天休宫，安排行程前请务必确认。",
+        },
+      ],
+      vi: [
+        {
+          q: "Vé vào cổng Changdeokgung bao nhiêu, và mặc Hanbok thế nào thì được miễn phí?",
+          a: "Vé người lớn là 3.000 won, được miễn nếu mặc trọn bộ Hanbok (áo và quần/váy). Lưu ý vé Vườn Bí Mật (khoảng 5.000 won) là riêng biệt và vẫn phải trả dù đang mặc Hanbok.",
+        },
+        {
+          q: "Tham quan Vườn Bí Mật (Huwon) như thế nào?",
+          a: "Không thể tự do dạo chơi — chỉ được vào theo đoàn có hướng dẫn viên di sản văn hóa (khoảng 90 phút mỗi lượt). Đặt vé online mở lúc 10 giờ sáng, 6 ngày trước ngày tham quan, mỗi lượt giới hạn 100 người (50 vé online, 50 vé tại chỗ).",
+        },
+        {
+          q: "Đi đến Changdeokgung bằng cách nào, và cung đóng cửa ngày nào?",
+          a: "Lối ra số 3 ga Anguk (tuyến 3) cách đó 5 phút đi bộ. Cung đóng cửa cả ngày thứ Hai hàng tuần, nên kiểm tra lịch trước khi lên kế hoạch.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "bulguksa",
+    publishedAt: "2026-07-27",
+    region: "gyeongsang",
+    category: "palace",
+    nameKo: "불국사",
+    nameEn: "Bulguksa Temple",
+    nameZh: "佛国寺",
+    nameVi: "Chùa Bulguksa",
+    summaryKo:
+      "경주 토함산 자락의 신라 불교 예술 끝판왕. 다보탑·석가탑 국보 두 점이 나란히 서 있고, 절 전체에 국보만 6점. 4km 거리 석굴암과 묶어서 1995년 유네스코 세계유산으로 함께 등재됐어요.",
+    summaryEn:
+      "Silla Buddhist art at its absolute peak, tucked into the slopes of Mount Tohamsan in Gyeongju. Twin National Treasure pagodas Dabotap and Seokgatap headline six National Treasures on site, and it's paired with Seokguram Grotto 4km away as a joint 1995 UNESCO listing.",
+    summaryZh:
+      "庆州吐含山下的新罗佛教艺术巅峰之作。国宝级双塔多宝塔、释迦塔并肩而立，全寺共集中6件国宝，1995年与4公里外的石窟庵一同列入联合国教科文组织世界遗产。",
+    summaryVi:
+      "Đỉnh cao nghệ thuật Phật giáo Silla nằm trên sườn núi Tohamsan, Gyeongju. Cặp tháp Bảo vật Quốc gia Dabotap và Seokgatap sừng sững, cả chùa có tới 6 Bảo vật Quốc gia, được UNESCO công nhận cùng hang đá Seokguram cách 4km vào năm 1995.",
+    overviewKo: [
+      "불국사는 경주 토함산 자락에 자리한 절로, '부처님의 나라'라는 뜻의 이름 그대로 신라 불교 예술의 정수를 보여주는 곳이에요. 절 기록에 따르면 528년 법흥왕 때 작은 절로 시작했고, 지금 규모의 본격적인 불국사는 751년 재상 김대성이 전생의 부모를 기리며 짓기 시작해 774년 신라 왕실이 완성했다고 전해져요. 임진왜란 때 목조 건물이 전부 불탔지만 다행히 석조물은 그대로 남았고, 1969~1973년 대대적인 복원을 거쳐 지금의 모습을 갖췄습니다. 1995년에는 4km 떨어진 석굴암과 함께 유네스코 세계문화유산에 나란히 등재됐어요.",
+      "불국사 하면 가장 먼저 떠오르는 게 대웅전 앞마당의 두 석탑, 다보탑과 석가탑이에요. 두 탑은 나란히 서 있지만 성격이 완전히 달라서 비교하는 재미가 있어요 — 석가탑(8.2m)은 군더더기 없는 단정한 선이 매력인 전형적인 통일신라 석탑이고, 다보탑(10.4m)은 화려한 계단·난간 조각이 층층이 얹힌 파격적인 구조라 '어떻게 돌을 이렇게 깎았지' 싶을 정도예요. 다보탑은 익숙할 수도 있는데, 한국 10원짜리 동전 뒷면에 새겨진 그 탑이 바로 이거예요. 두 탑 모두 국보로 지정돼 있고, 불국사 전체에는 국보만 6점이 몰려 있는 밀도 높은 문화재 보고입니다.",
+      "절 입구의 청운교·백운교(위로 오르는 다리 겸 계단)도 놓치면 아쉬운 볼거리예요. 34개 계단이 깨달음에 이르는 34단계를 상징한다는 이야기가 전해지고, 반원형 무지개 모양 아치는 한국에 남아있는 이런 형태 중 가장 오래된 걸로 꼽혀요. 지금은 문화재 보호를 위해 실제로 걸어서 오를 수는 없지만, 계단 아래에서 올려다보는 각도가 사진 포인트로 꽤 유명합니다. 극락전 쪽의 연화교·칠보교도 비슷한 구조인데 연꽃무늬 조각이 남아있어요.",
+      "불국사는 단순한 절이 아니라 '부처가 사는 이상세계를 지상에 구현한 공간'이라는 콘셉트로 설계됐어요. 석가모니불의 세계는 대웅전을 중심으로, 아미타불의 극락세계는 극락전을 중심으로 나뉘어 배치돼 있는 식이에요. 대웅전 뒤편 무설전(無說殿)은 '말이 없는 집'이라는 이름처럼, 부처의 가르침은 말로 다 담을 수 없다는 의미를 담고 있고요. 가장 높은 곳의 관음전까지 올라가면 경내 전체가 한눈에 내려다보이니 시간 여유가 있다면 꼭 올라가 보세요.",
+      "불국사에서 4km 떨어진 석굴암도 반드시 함께 묶어서 보길 추천해요. 화강암을 정교하게 쌓아 만든 인공 석굴 안에 본존불이 모셔져 있는데, 석굴암 입장은 2023년부터 무료로 바뀌었어요(주차료는 별도). 두 곳을 잇는 12번 버스가 불국사 주차장 건너편에서 매시 40분경 출발하는데(운행 시간은 현장 표지판으로 꼭 재확인하세요), 걸어서 가려면 산길로 약 1시간~1시간 반 걸리는 3km 코스라 체력에 자신 있는 분만 추천합니다.",
+      "가는 법은 경주 시내에서 10·11번 버스를 타면 불국사 주차장 앞까지 바로 연결돼요. 봄에는 절 주변 벚꽃, 초여름엔 대웅전 앞 연등이 절경을 더해주고, 관람은 이른 아침이나 늦은 오후에 가야 단체 관광객을 피할 수 있어요. 경주역·신경주역에서도 버스로 이동 가능하니 첨성대·동궁과 월지 같은 경주 시내 다른 유적과 하루 코스로 묶기 좋습니다.",
+    ],
+    overviewEn: [
+      "Bulguksa sits on the slopes of Mount Tohamsan in Gyeongju, and the name — 'Temple of the Buddha Land' — says it all: this place is basically the highlight reel of Silla Buddhist art. Temple records say a small shrine first went up here in 528 under King Beopheung, but the version you see today started in 751, when chief minister Kim Dae-seong began construction to honor his parents from a past life; the Silla royal court finished the job in 774. The wooden buildings all burned down during the 1592 Japanese invasions, but the stone structures survived intact, and a major restoration between 1969 and 1973 (ordered by President Park Chung-hee) brought the temple back to its current form. In 1995, Bulguksa was added to the UNESCO World Heritage List together with Seokguram Grotto, 4km up the mountain.",
+      "The first thing everyone remembers about Bulguksa is the pair of stone pagodas standing in front of Daeungjeon hall — Dabotap and Seokgatap. They're planted right next to each other but couldn't be more different, which is half the fun of comparing them: Seokgatap (8.2m) is the clean, no-frills classic Unified Silla pagoda, while Dabotap (10.4m) is an over-the-top structure of stacked stairs and carved railings that makes you wonder how anyone chiseled stone that precisely. You've probably already seen Dabotap without realizing it — it's the pagoda engraved on the back of the Korean 10-won coin. Both are designated National Treasures, and the temple as a whole packs in six National Treasures total — an absurdly high concentration for one site.",
+      "Don't skip the Cheongungyo and Baegungyo bridges at the entrance either — a combined staircase-and-bridge structure. Legend has it the 34 steps represent the 34 stages toward enlightenment, and the semicircular rainbow arch underneath is considered the oldest of its kind still standing in Korea. You can't actually walk up it anymore (it's roped off for preservation), but the view looking up from the bottom is a famous photo spot. Over on the Geungnakjeon side, the similarly-built Yeonhwagyo and Chilbogyo bridges still show traces of carved lotus flower patterns.",
+      "Bulguksa isn't just a temple — it was designed as an earthly stand-in for the Buddhist paradise itself. Shakyamuni Buddha's world centers on Daeungjeon hall, while Amitabha Buddha's Pure Land is centered on Geungnakjeon, and the whole layout splits accordingly. Behind Daeungjeon sits Museoljeon, the 'Hall of No Words' — a name that captures the idea that the Buddha's teachings can't be fully expressed in language. Climb all the way up to Gwaneumjeon at the highest point of the complex and you get a full view over the entire temple grounds — worth the extra legwork if you've got the time.",
+      "Pair the visit with Seokguram Grotto, just 4km away. It's a hand-built granite cave shrine housing the seated main Buddha statue, and admission has been free since 2023 (parking still costs extra). Bus 12 connects the two sites, leaving from across Bulguksa's parking lot roughly around :40 past each hour — double-check the posted schedule on-site since times shift. Walking is an option too, but it's a roughly 3km, 1–1.5 hour mountain trail, so only attempt it if you're up for a proper hike.",
+      "To get there, city buses 10 and 11 from downtown Gyeongju run straight to the Bulguksa parking lot. Spring brings cherry blossoms around the temple, while early summer adds rows of lotus lanterns in front of Daeungjeon — either makes for a stunning backdrop. Go early morning or late afternoon to dodge the tour bus crowds, and since Gyeongju Station and Singyeongju Station both connect by bus, it's easy to pair Bulguksa with Cheomseongdae Observatory or Donggung Palace and Wolji Pond for a full day of Gyeongju sightseeing.",
+    ],
+    overviewZh: [
+      "佛国寺坐落在庆州吐含山山腰，「佛国寺」这个名字——「佛的国度之寺」——就已经说明了一切：这里堪称新罗佛教艺术的精华集大成之地。寺内记载显示，528年法兴王时期这里先建了一座小寺庙，如今看到的规模则始于751年，宰相金大城为祭奠前世父母而动工兴建，774年由新罗王室最终完工。壬辰倭乱时木造建筑全部被烧毁，所幸石造结构完好保存了下来，1969至1973年经过一次大规模修复（由朴正熙总统下令），才有了今天的样貌。1995年，佛国寺与4公里外的石窟庵一同被列入联合国教科文组织世界文化遗产名录。",
+      "提到佛国寺，大家第一时间想到的就是大雄殿前的两座石塔——多宝塔和释迦塔。两塔并肩而立，风格却截然不同，对比起来特别有意思：释迦塔（高8.2米）线条简洁利落，是典型的统一新罗风格石塔；多宝塔（高10.4米）则阶梯栏杆层层叠叠、雕工华丽到令人惊叹「石头怎么能刻成这样」。多宝塔说不定你早就见过——它就是韩国10元硬币背面印的那座塔。两座塔均被列为国宝，整个佛国寺境内共集中了6件国宝，文物密度高得惊人。",
+      "寺庙入口处的青云桥、白云桥（兼具桥梁与阶梯功能）也不容错过。传说34级台阶象征通往顿悟的34个阶段，桥下半圆形彩虹状石拱更是韩国现存同类结构中年代最久远的。如今出于文物保护已不能实际踏阶而上，但从台阶下方仰望的角度是著名的拍照机位。极乐殿一侧的莲花桥、七宝桥结构类似，桥面上仍留有莲花纹雕刻的痕迹。",
+      "佛国寺并非单纯的寺庙，它的设计理念是把佛国净土「搬到」人间。释迦牟尼佛的世界以大雄殿为中心，阿弥陀佛的极乐世界则以极乐殿为中心分区布局。大雄殿后方的无说殿，顾名思义「无言之殿」，寓意佛的教诲无法用言语完全道尽。若时间充裕，不妨爬到境内地势最高的观音殿，从那里可以将整个寺院尽收眼底。",
+      "强烈建议把4公里外的石窟庵一并纳入行程。石窟庵是用花岗岩精心堆砌而成的人工石窟，内供本尊佛像，2023年起门票已改为免费（停车费仍需另付）。往返两地的12路公交车从佛国寺停车场对面发车，大约每小时40分左右一班（具体以现场站牌为准），步行则需走约3公里山路，耗时1~1.5小时，建议体力充足者再挑战。",
+      "交通方面，从庆州市区乘10、11路公交车可直达佛国寺停车场。春天寺庙周边樱花盛开，初夏大雄殿前挂满莲花灯，各有各的绝美。建议清晨或傍晚前往，能避开旅行团人潮。庆州站、新庆州站也有公交连接，很适合和瞻星台、东宫与月池等庆州市区其他古迹串成一日游。",
+    ],
+    overviewVi: [
+      "Bulguksa tọa lạc trên sườn núi Tohamsan ở Gyeongju, và cái tên 'Ngôi chùa của Cõi Phật' đã nói lên tất cả: đây gần như là tinh hoa nghệ thuật Phật giáo thời Silla. Ghi chép của chùa cho biết một ngôi chùa nhỏ đã được dựng lên từ năm 528 dưới thời vua Beopheung, nhưng phiên bản mà bạn thấy ngày nay bắt đầu từ năm 751, khi tể tướng Kim Dae-seong khởi công xây dựng để tưởng nhớ cha mẹ kiếp trước của mình; triều đình Silla hoàn thành công trình vào năm 774. Các công trình gỗ đều bị thiêu rụi trong cuộc xâm lược của Nhật năm 1592, nhưng may mắn các kết cấu đá vẫn còn nguyên vẹn, và một đợt trùng tu lớn từ 1969 đến 1973 (theo lệnh Tổng thống Park Chung-hee) đã đưa ngôi chùa về hình dáng như hiện tại. Năm 1995, Bulguksa được UNESCO công nhận Di sản Thế giới cùng với hang đá Seokguram cách đó 4km.",
+      "Điều đầu tiên ai cũng nhớ về Bulguksa là cặp tháp đá đứng trước điện Daeungjeon — Dabotap và Seokgatap. Hai tháp đứng sát nhau nhưng phong cách hoàn toàn khác biệt, khiến việc so sánh chúng trở nên thú vị: Seokgatap (cao 8,2m) mang đường nét đơn giản, thanh thoát, đúng chuẩn tháp đá Silla Thống nhất cổ điển; còn Dabotap (cao 10,4m) là một kết cấu cầu kỳ với bậc thang, lan can chạm khắc xếp tầng khiến người ta phải tự hỏi làm sao có thể đẽo đá tinh xảo đến vậy. Có thể bạn đã từng thấy Dabotap mà không để ý — đó chính là hình tháp được khắc trên mặt sau đồng xu 10 won của Hàn Quốc. Cả hai đều được công nhận Bảo vật Quốc gia, và toàn bộ khuôn viên chùa tập trung tới 6 Bảo vật Quốc gia — mật độ di sản dày đặc đến khó tin.",
+      "Đừng bỏ qua cầu Cheongungyo và Baegungyo ở lối vào — một kết cấu vừa là cầu thang vừa là cầu. Tương truyền 34 bậc thang tượng trưng cho 34 giai đoạn để đạt giác ngộ, và vòm cầu vồng bán nguyệt bên dưới được xem là kiểu kiến trúc cổ nhất còn tồn tại ở Hàn Quốc. Giờ đây không thể bước lên thực sự (đã được rào lại để bảo tồn), nhưng góc nhìn từ dưới lên là điểm chụp ảnh nổi tiếng. Ở phía điện Geungnakjeon, cặp cầu Yeonhwagyo và Chilbogyo có kết cấu tương tự, vẫn còn dấu vết hoa văn hoa sen được chạm khắc.",
+      "Bulguksa không chỉ đơn thuần là một ngôi chùa — nó được thiết kế như một hình ảnh thu nhỏ của cõi Phật ngay trên mặt đất. Thế giới của Phật Thích Ca lấy điện Daeungjeon làm trung tâm, còn cõi Tịnh Độ của Phật A Di Đà lấy điện Geungnakjeon làm trung tâm, và toàn bộ bố cục được chia theo đó. Phía sau Daeungjeon là điện Museoljeon, 'Điện Không Lời' — cái tên phản ánh ý niệm rằng giáo lý của Đức Phật không thể diễn đạt trọn vẹn bằng ngôn từ. Nếu còn thời gian, hãy leo lên tận điện Gwaneumjeon ở điểm cao nhất khuôn viên, từ đó có thể nhìn bao quát toàn bộ khu chùa.",
+      "Nên kết hợp ghé thăm hang đá Seokguram cách đó chỉ 4km. Đây là một hang đá granite được xây dựng thủ công tinh xảo, bên trong thờ tượng Phật chính, và vé vào cửa đã miễn phí từ năm 2023 (phí gửi xe vẫn tính riêng). Xe buýt số 12 nối hai điểm này, xuất phát từ phía đối diện bãi đỗ xe Bulguksa khoảng phút 40 mỗi giờ (nên kiểm tra lại giờ chạy thực tế tại bảng thông báo). Đi bộ cũng là một lựa chọn, nhưng là đường núi dài khoảng 3km, mất 1–1,5 tiếng, nên chỉ thử nếu bạn sẵn sàng cho một chuyến leo núi thực sự.",
+      "Về di chuyển, xe buýt thành phố số 10 và 11 từ trung tâm Gyeongju chạy thẳng đến bãi đỗ xe Bulguksa. Mùa xuân có hoa anh đào quanh chùa, đầu mùa hè có hàng đèn lồng hoa sen trước điện Daeungjeon, mùa nào cũng đẹp theo cách riêng. Nên đi vào sáng sớm hoặc chiều muộn để tránh đoàn khách du lịch, và vì ga Gyeongju lẫn ga Singyeongju đều có xe buýt kết nối, rất dễ kết hợp Bulguksa với đài quan sát Cheomseongdae hay Cung điện Donggung và hồ Wolji cho một ngày khám phá trọn vẹn Gyeongju.",
+    ],
+    tips: {
+      ko: [
+        "불국사 입장료는 시기별로 변동 있으니 방문 전 공식 확인 권장, 석굴암은 2023년부터 무료(주차료 별도).",
+        "불국사~석굴암 12번 버스는 매시 40분경 출발 — 정확한 시간은 현장 정류장 표지판 재확인 필수.",
+        "걸어서 가려면 산길 약 3km, 1~1.5시간 — 체력에 자신 있을 때만.",
+        "경주 시내에서 10·11번 버스 타면 불국사 주차장 앞 바로 연결.",
+        "단체 관광객 피하려면 이른 아침이나 늦은 오후 방문 추천.",
+      ],
+      en: [
+        "Admission fees shift seasonally, so double-check before you go — Seokguram Grotto itself has been free since 2023 (parking still costs extra).",
+        "The Bulguksa–Seokguram bus (Route 12) leaves roughly around :40 past the hour — verify the exact time at the on-site stop, it shifts.",
+        "Walking is about 3km of mountain trail, 1–1.5 hours — only if you're up for a real hike.",
+        "City buses 10 and 11 from downtown Gyeongju run straight to the Bulguksa parking lot.",
+        "Go early morning or late afternoon to dodge the tour bus crowds.",
+      ],
+      zh: [
+        "门票价格随季节浮动，出发前建议官方渠道再确认；石窟庵本身2023年起已免门票（停车费另算）。",
+        "佛国寺往石窟庵的12路公交大约每小时40分发车——具体时间以现场站牌为准，会有变动。",
+        "步行约3公里山路，需1~1.5小时，建议体力充沛时再挑战。",
+        "庆州市区乘10、11路公交可直达佛国寺停车场。",
+        "清晨或傍晚前往可避开旅行团人潮。",
+      ],
+      vi: [
+        "Giá vé có thể thay đổi theo mùa, nên kiểm tra trước khi đi — riêng hang đá Seokguram đã miễn phí vé từ 2023 (phí gửi xe vẫn tính riêng).",
+        "Xe buýt tuyến 12 nối Bulguksa–Seokguram chạy khoảng phút 40 mỗi giờ — nên kiểm tra lại giờ chính xác tại bảng thông báo tại chỗ.",
+        "Đi bộ là đường núi khoảng 3km, mất 1–1,5 tiếng — chỉ nên thử khi đủ thể lực.",
+        "Xe buýt số 10 và 11 từ trung tâm Gyeongju chạy thẳng đến bãi đỗ xe Bulguksa.",
+        "Nên đi sáng sớm hoặc chiều muộn để tránh đoàn khách du lịch.",
+      ],
+    },
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Dabotap_Pagoda_01.jpg/1280px-Dabotap_Pagoda_01.jpg",
+      alt: "불국사 다보탑 — Dabotap Pagoda at Bulguksa Temple, Gyeongju",
+      license: "CC0",
+      credit: "Wikimedia Commons / Bernard Gagnon",
+      creditUrl: "https://commons.wikimedia.org/wiki/File:Dabotap_Pagoda_01.jpg",
+    },
+    lat: 35.79,
+    lng: 129.332222,
+    addressKo: "경상북도 경주시 불국로 385",
+    addressEn: "385 Bulguk-ro, Gyeongju, Gyeongsangbuk-do",
+    tags: {
+      ko: ["불국사", "경주", "다보탑", "석가탑", "석굴암"],
+      en: ["Bulguksa", "Gyeongju", "Dabotap", "Seokgatap", "Seokguram Grotto"],
+      zh: ["佛国寺", "庆州", "多宝塔", "释迦塔", "石窟庵"],
+      vi: ["Bulguksa", "Gyeongju", "Dabotap", "Seokgatap", "hang đá Seokguram"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "불국사 입장료와 석굴암 입장료는?",
+          a: "불국사 입장료는 시기에 따라 달라질 수 있어 방문 전 공식 확인이 필요하며, 석굴암은 2023년 5월부터 무료 입장으로 전환됐습니다(주차료는 별도).",
+        },
+        {
+          q: "불국사에서 석굴암까지 가는 법은?",
+          a: "불국사 주차장 건너편에서 12번 버스가 매시 40분경 출발하며 정확한 시간은 현장 표지판으로 재확인하세요. 걸어서는 산길 약 3km, 1~1.5시간이 걸립니다.",
+        },
+        {
+          q: "불국사 가는 법은?",
+          a: "경주 시내에서 10·11번 버스를 타면 불국사 주차장 앞까지 바로 연결됩니다. 경주역·신경주역에서도 버스로 이동 가능합니다.",
+        },
+      ],
+      en: [
+        {
+          q: "What's the admission fee for Bulguksa and Seokguram Grotto?",
+          a: "Bulguksa's fee shifts seasonally, so check the official site before you go. Seokguram Grotto itself has been free to enter since May 2023 (parking still costs extra).",
+        },
+        {
+          q: "How do you get from Bulguksa to Seokguram Grotto?",
+          a: "Bus Route 12 leaves from across the Bulguksa parking lot roughly around :40 past the hour — verify the exact time at the on-site stop. On foot, it's about a 3km mountain trail taking 1–1.5 hours.",
+        },
+        {
+          q: "How do you get to Bulguksa?",
+          a: "City buses 10 and 11 from downtown Gyeongju run straight to the Bulguksa parking lot. Gyeongju Station and Singyeongju Station both connect by bus as well.",
+        },
+      ],
+      zh: [
+        {
+          q: "佛国寺和石窟庵门票多少钱？",
+          a: "佛国寺门票会随季节调整，出发前建议查询官方渠道确认；石窟庵本身自2023年5月起已改为免费入场（停车费另计）。",
+        },
+        {
+          q: "从佛国寺到石窟庵怎么去？",
+          a: "佛国寺停车场对面乘12路公交车，大约每小时40分发车，具体时间请以现场站牌为准。步行约3公里山路，需1~1.5小时。",
+        },
+        {
+          q: "佛国寺怎么去？",
+          a: "从庆州市区乘10、11路公交车可直达佛国寺停车场。庆州站、新庆州站也有公交车可以换乘前往。",
+        },
+      ],
+      vi: [
+        {
+          q: "Vé vào cổng Bulguksa và hang đá Seokguram bao nhiêu?",
+          a: "Giá vé Bulguksa thay đổi theo mùa nên hãy kiểm tra trang chính thức trước khi đi. Riêng hang đá Seokguram đã miễn phí vé vào cửa từ tháng 5/2023 (phí gửi xe vẫn tính riêng).",
+        },
+        {
+          q: "Đi từ Bulguksa đến hang đá Seokguram bằng cách nào?",
+          a: "Xe buýt tuyến 12 xuất phát từ phía đối diện bãi đỗ xe Bulguksa, khoảng phút 40 mỗi giờ — nên kiểm tra giờ chính xác tại bảng thông báo tại chỗ. Đi bộ thì mất khoảng 3km đường núi, 1–1,5 tiếng.",
+        },
+        {
+          q: "Đi đến Bulguksa bằng cách nào?",
+          a: "Xe buýt số 10 và 11 từ trung tâm Gyeongju chạy thẳng đến bãi đỗ xe Bulguksa. Ga Gyeongju và ga Singyeongju cũng có xe buýt kết nối.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "myeongdong",
+    publishedAt: "2026-07-25",
+    region: "seoul",
+    category: "market",
+    nameKo: "명동",
+    nameEn: "Myeongdong",
+    nameZh: "明洞",
+    nameVi: "Myeongdong",
+    summaryKo:
+      "서울 쇼핑 1번지는 두말없이 명동이에요. 로드샵 K뷰티부터 회오리감자·호떡 같은 길거리 간식, 100년 넘은 명동성당까지 한 골목에 다 몰려있어서 반나절이면 서울 축소판을 다 보는 느낌이에요. 명동역 6번 출구만 나오면 바로 시작이라 접근성도 갑.",
+    summaryEn:
+      "Seoul's #1 shopping street, no debate. K-beauty shops, tornado potatoes and hotteok, and a 120+ year-old cathedral all packed into a few blocks — half a day here feels like Seoul in miniature. Exit Myeongdong Station and you're already in it.",
+    summaryZh:
+      "首尔购物一号地非明洞莫属。从K美妆路边店到旋风土豆、糖饼这些街头小吃，再到120多年历史的明洞主教座堂，全挤在几条巷子里，逛半天就像把首尔浓缩了一遍。地铁明洞站一出站就是购物街，交通超方便。",
+    summaryVi:
+      "Phố mua sắm số 1 Seoul chính là Myeongdong, khỏi bàn cãi. Từ các cửa hàng K-beauty, khoai tây lốc xoáy, bánh hotteok cho đến nhà thờ hơn 120 năm tuổi, tất cả gói gọn trong vài con hẻm — dạo nửa ngày là thấy cả Seoul thu nhỏ. Ra khỏi ga Myeongdong là vào thẳng khu phố luôn.",
+    overviewKo: [
+      "명동은 조선시대엔 '명례방'이라 불리던 곳인데, 이름 자체가 '밝은 동네'라는 뜻이에요. 일제강점기엔 일본인 상업지구 '메이지초'로 개발되며 지금의 격자형 골목 구조가 자리 잡았고, 광복 이후엔 다방·화랑·소극장이 밀집한 '한국의 예술인 거리'로 불렸어요. 1970~80년대엔 가수들이 활동한 음악다방부터 화가들의 개인전이 열리던 화랑까지, 서울 문화의 중심이었던 셈이죠. 지금은 그 흔적은 많이 사라졌지만, 대신 K뷰티·K패션의 최전선으로 자리를 옮겨 한국관광공사 조사에서 외국인 관광객이 꼽는 서울 방문지 1위 자리를 여러 해째 지키고 있어요.",
+      "명동은 지하철 4호선 명동역 6·7·8번 출구부터 2호선 을지로입구역 5·6번 출구 사이, 대략 1km 남짓한 구역이에요. 메인 도로인 명동길과 명동8나길을 축으로 좁은 골목들이 바둑판처럼 얽혀 있어서 길 잃기 딱 좋은데, 오히려 그게 명동의 매력이기도 해요. 눈스퀘어·명동밀레오레 같은 쇼핑몰과 롯데백화점 본점, 신세계백화점 본점이 도보 5분 거리에 다 모여 있어서 하루 코스로 짜기 편합니다.",
+      "명동 하면 역시 길거리 음식이죠. 회오리감자(스파이럴 감자칩), 계란빵, 갓 구운 호떡, 닭꼬치, 만두가 스테디셀러고 요즘은 탕후루·마라 간식류도 골목마다 등장했어요. 노점은 보통 오후 4~5시부터 본격적으로 열려서 밤 10시 넘어서까지 이어지니, 낮보다는 해 질 무렵부터가 진짜 명동 타임이에요. ⚠️ 노점 가격표를 미리 확인하는 습관을 들이세요 — 정찰제가 대부분이지만 일부는 사진 촬영 후 가격을 부르는 경우도 있어서 시식·구매 전 가격 확인이 안전합니다.",
+      "명동 남쪽 언덕엔 1898년 완공된 명동성당이 있어요. 한국 최초의 서양식 고딕 성당으로, 붉은 벽돌과 뾰족한 첨탑이 주변 쇼핑가와 대비되면서 오히려 더 눈에 띄어요. 단순한 종교 건축물이 아니라 1987년 6월 민주항쟁 당시 시위대가 이곳에서 농성하며 한국 민주화의 상징적 장소로 자리매김했죠. 입장은 무료고 미사 시간이 아니면 내부 관람도 가능하니, 쇼핑하다 잠깐 들러 조용한 시간을 가져보는 것도 추천해요.",
+      "명동 주변엔 롯데면세점 본점, 신세계면세점 명동점이 걸어서 갈 수 있는 거리라 큰 쇼핑을 계획한다면 동선 짜기 좋아요. 저녁엔 비언어극 '난타' 전용극장인 명동난타극장에서 공연을 볼 수 있는데, 대사가 없어 외국인 관광객도 부담 없이 즐기는 서울 대표 공연 중 하나예요. 환전소도 골목마다 있어서 급하게 현금이 필요할 때 유용합니다.",
+      "카드 결제는 대부분 잘 되지만 일부 노점은 현금만 받으니 소액권을 챙기는 게 편해요. 로드샵 화장품은 정찰제가 기본이라 흥정은 안 통하고, 대신 매장 직원에게 물어보면 종종 즉석 할인 쿠폰을 주기도 해요. 주말 오후엔 인파가 최고조라 느긋하게 보고 싶으면 평일 오전이 낫고, 명동교자 같은 칼국수·만두 노포는 점심시간 웨이팅이 상당하니 시간 여유를 두는 게 좋습니다. 명동역 지하상가와 바로 연결돼 있어 비 오는 날에도 이동이 편해요.",
+    ],
+    overviewEn: [
+      "Myeongdong was called 'Myeongnye-bang' in the Joseon era — the name literally means 'bright neighborhood.' Under Japanese colonial rule it was developed as a Japanese commercial district called 'Meiji-cho,' which is where today's grid of narrow alleys comes from. After liberation it became known as Korea's 'artists' street,' packed with music cafes, galleries, and small theaters — singers and painters built careers here through the 1970s and '80s. Most of that scene has faded now, but Myeongdong simply shifted lanes into K-beauty and K-fashion, and it's topped Korea Tourism Organization surveys as foreign visitors' #1 Seoul destination for years running.",
+      "Myeongdong runs roughly 1km between Exits 6-8 of Myeongdong Station (Line 4) and Exits 5-6 of Euljiro 1(il)-ga Station (Line 2). The main streets, Myeongdong-gil and Myeongdong 8na-gil, branch into a maze of narrow alleys that's genuinely easy to get lost in — which is honestly part of the charm. Shopping malls like Nune Square and Migliore, plus the flagship Lotte and Shinsegae department stores, are all within a five-minute walk, so it's easy to build a full-day plan around it.",
+      "Street food is the headline act. Tornado potatoes (spiral-cut fried potato on a skewer), egg bread, fresh hotteok, chicken skewers, and mandu are the classics, and lately tanghulu (candied fruit) and mala snacks have started popping up on every corner. Stalls really kick into gear around 4-5 PM and run past 10 PM, so evening is prime Myeongdong time, not midday. ⚠️ Get in the habit of checking the price sign before you order — most stalls are fixed-price, but a few have been known to quote higher after seeing a visitor's camera out, so confirm the price before you buy.",
+      "On the hill at Myeongdong's south end stands Myeongdong Cathedral, completed in 1898. It's Korea's first Western-style Gothic cathedral, and its red brick and spire stand out even more for contrasting with the shopping district around it. It's more than a religious building, too — protesters occupied it during the June 1987 Democracy Movement, cementing its place as a landmark of Korea's democratization. Admission is free, and you can step inside outside of Mass hours for a quiet break from the shopping crowds.",
+      "The flagship Lotte Duty Free and Shinsegae Duty Free stores are both a short walk away, which makes route-planning easy if you're doing serious duty-free shopping. In the evening, the dedicated Nanta Theatre stages the non-verbal comedy show 'Nanta' — no dialogue means it's an easy watch for international visitors, and it's one of Seoul's signature shows. Currency exchange booths are scattered through the alleys too, handy if you suddenly need cash.",
+      "Card payment works almost everywhere, but a few street stalls are cash-only, so keep some small bills handy. Cosmetics shops run fixed pricing — haggling won't work — but asking staff directly sometimes gets you an on-the-spot discount coupon. Crowds peak on weekend afternoons, so weekday mornings are better if you want a relaxed pace, and old-school noodle-and-dumpling spots like Myeongdong Kyoja can have serious lunchtime lines, so build in extra time. It connects directly to the Myeongdong Station underground mall, which is handy for rainy days.",
+    ],
+    overviewZh: [
+      "明洞在朝鲜王朝时期名叫「明礼坊」，名字本身就是「明亮的街区」之意。日据时期这里被开发成日本人商业区「明治町」，如今棋盘式的窄巷格局正是那时定下的。光复后这里成了汇聚音乐茶室、画廊、小剧场的「韩国艺术家街」，1970~80年代不少歌手、画家都在此活跃过，堪称首尔文化中心。如今那段痕迹大多已消失，取而代之的是K美妆、K时尚的最前线——在韩国观光公社的调查中，明洞连续多年蝉联外国游客首尔到访地第一名。",
+      "明洞大致是地铁4号线明洞站6~8号出口到2号线乙支路入口站5~6号出口之间约1公里的区域。主干道明洞街和明洞8娜街之间，窄巷像棋盘一样交错，很容易迷路——但这恰恰也是明洞的魅力所在。眼睛广场（Nune Square）、明洞美利来这类购物中心，以及乐天百货本店、新世界百货本店都在步行5分钟范围内，很方便安排一整天的行程。",
+      "说到明洞，街头小吃当然是主角。旋风土豆（螺旋薯片串）、鸡蛋面包、现烤糖饼、鸡肉串、饺子是常年热卖款，最近糖葫芦、麻辣类小吃也在各个巷口冒头。摊位一般下午4~5点才正式开张，一直营业到晚上10点后，所以比起白天，傍晚才是真正的明洞时间。⚠️ 建议养成先看价格牌的习惯——大部分摊位是明码标价，但也有个别摊位在游客拍完照后临时抬价，购买前确认价格更保险。",
+      "明洞南侧的小山丘上矗立着1898年竣工的明洞主教座堂，是韩国第一座西式哥特式教堂，红砖外墙与尖塔在周围购物街的映衬下格外显眼。它不只是宗教建筑——1987年六月民主抗争期间，示威者曾在此静坐抗议，使其成为韩国民主化历史的象征性场所。入场免费，非弥撒时段也能进入内部参观，逛累了进去安静一会儿也不错。",
+      "乐天免税店本店、新世界免税店明洞店都在步行范围内，如果打算大采购，动线安排会很方便。晚上还能去专属剧场明洞乱打剧场观看非语言喜剧「乱打」，没有台词，外国游客看起来毫无压力，是首尔代表性演出之一。巷子里换汇店也不少，急需现金时很方便。",
+      "刷卡在大部分地方都没问题，但部分路边摊只收现金，建议随身带点零钱。化妆品店基本是明码标价，砍价行不通，不过主动问店员，有时能拿到现场折扣券。周末下午人潮最多，想悠闲逛的话平日上午更合适；明洞饺子这类老字号刀削面、饺子店午餐时段排队相当久，最好留出充足时间。这里和明洞站地下商店街直接相连，下雨天移动也很方便。",
+    ],
+    overviewVi: [
+      "Myeongdong thời Joseon được gọi là 'Myeongnye-bang' — cái tên có nghĩa là 'khu phố sáng sủa'. Dưới thời thuộc địa Nhật, nơi này được phát triển thành khu thương mại của người Nhật mang tên 'Meiji-cho', và chính từ đó hình thành mạng lưới hẻm nhỏ ô bàn cờ như ngày nay. Sau giải phóng, nơi đây trở thành 'phố nghệ sĩ' của Hàn Quốc với đầy quán cà phê nhạc, phòng tranh, nhà hát nhỏ — ca sĩ, họa sĩ thập niên 1970-80 đều gây dựng sự nghiệp tại đây. Ngày nay dấu vết đó phần lớn đã phai nhạt, thay vào đó Myeongdong chuyển mình thành tuyến đầu của K-beauty và K-fashion, nhiều năm liền đứng đầu khảo sát của Tổng cục Du lịch Hàn Quốc về điểm đến được du khách nước ngoài chọn nhiều nhất ở Seoul.",
+      "Myeongdong trải dài khoảng 1km, từ lối ra 6-8 ga Myeongdong (tuyến 4) đến lối ra 5-6 ga Euljiro 1(il)-ga (tuyến 2). Hai trục chính là Myeongdong-gil và Myeongdong 8na-gil, xung quanh là mê cung hẻm nhỏ chồng chéo rất dễ lạc đường — nhưng đó cũng chính là nét hấp dẫn riêng. Các trung tâm mua sắm như Nune Square, Migliore cùng cửa hàng chính của Lotte và Shinsegae Department Store đều nằm trong bán kính 5 phút đi bộ, nên dễ dàng lên kế hoạch cho cả ngày.",
+      "Nhắc đến Myeongdong là phải nhắc đồ ăn đường phố. Khoai tây lốc xoáy, bánh trứng, hotteok mới nướng, xiên gà, mandu là những món kinh điển, gần đây tanghulu (trái cây bọc đường) và món cay mala cũng xuất hiện ở khắp các góc phố. Các quầy hàng thường mở chính thức từ 4-5 giờ chiều và bán tới hơn 10 giờ tối, nên buổi tối mới thật sự là giờ vàng của Myeongdong chứ không phải ban ngày. ⚠️ Hãy tập thói quen xem giá niêm yết trước khi mua — hầu hết quầy hàng bán giá cố định, nhưng một số nơi từng bị phản ánh hét giá cao hơn sau khi thấy khách chụp ảnh, nên xác nhận giá trước khi mua là an toàn nhất.",
+      "Trên ngọn đồi phía nam Myeongdong là Nhà thờ chính tòa Myeongdong, hoàn thành năm 1898. Đây là nhà thờ Gothic kiểu phương Tây đầu tiên của Hàn Quốc, tường gạch đỏ và tháp nhọn nổi bật hẳn lên giữa khu phố mua sắm xung quanh. Đây không chỉ là công trình tôn giáo — trong phong trào Dân chủ hóa tháng 6 năm 1987, người biểu tình từng cố thủ tại đây, khiến nơi này trở thành biểu tượng của lịch sử dân chủ hóa Hàn Quốc. Vào cửa miễn phí, ngoài giờ lễ vẫn có thể vào tham quan bên trong, ghé qua nghỉ ngơi yên tĩnh giữa lúc mua sắm cũng rất đáng.",
+      "Cửa hàng chính của Lotte Duty Free và Shinsegae Duty Free Myeongdong đều trong tầm đi bộ, nên nếu định mua sắm miễn thuế lớn thì sắp xếp lộ trình khá dễ. Buổi tối có thể xem vở kịch không lời 'Nanta' tại nhà hát riêng Nanta Myeongdong — không có thoại nên khách nước ngoài xem rất thoải mái, là một trong những show diễn tiêu biểu của Seoul. Các quầy đổi tiền cũng rải khắp các hẻm, tiện khi cần tiền mặt gấp.",
+      "Thanh toán thẻ hầu như dùng được ở mọi nơi, nhưng một số quầy hàng rong chỉ nhận tiền mặt nên nên mang theo ít tiền lẻ. Các cửa hàng mỹ phẩm bán giá niêm yết, mặc cả không có tác dụng, nhưng hỏi trực tiếp nhân viên đôi khi được tặng phiếu giảm giá tại chỗ. Đông nhất là chiều cuối tuần, nên muốn dạo thong thả thì đi sáng ngày thường sẽ tốt hơn; các quán mì, mandu lâu đời như Myeongdong Kyoja giờ trưa xếp hàng khá lâu, nên chừa thêm thời gian. Khu này nối thẳng vào trung tâm mua sắm ngầm ga Myeongdong nên ngày mưa di chuyển cũng tiện.",
+    ],
+    tips: {
+      ko: [
+        "노점 길거리 음식은 오후 4~5시부터 본격 오픈 — 낮보다 해 질 무렵이 진짜 명동 타임.",
+        "명동성당은 무료입장, 미사 시간만 피하면 내부도 관람 가능.",
+        "화장품 로드샵은 정찰제라 흥정 대신 직원에게 할인 쿠폰을 물어보세요.",
+        "주말 오후는 인파 최고조 — 느긋하게 보려면 평일 오전 추천.",
+        "일부 노점은 카드 결제가 안 되니 소액 현금을 챙겨두면 편해요.",
+      ],
+      en: [
+        "Street stalls really get going around 4-5 PM — evening, not midday, is prime Myeongdong time.",
+        "Myeongdong Cathedral is free to enter; step inside outside of Mass hours.",
+        "Cosmetics shops run fixed prices — ask staff directly for a discount coupon instead of haggling.",
+        "Weekend afternoons are peak crowds — weekday mornings are far more relaxed.",
+        "Some street stalls are cash-only, so carry a few small bills just in case.",
+      ],
+      zh: [
+        "路边摊大多下午4~5点才正式开张——傍晚才是真正的明洞时间，不是白天。",
+        "明洞主教座堂免费入场，避开弥撒时段也能进内部参观。",
+        "化妆品店是明码标价，砍价没用，不如直接问店员要折扣券。",
+        "周末下午人最多——想悠闲逛街选平日上午更好。",
+        "部分路边摊不能刷卡，建议随身带点零钱现金。",
+      ],
+      vi: [
+        "Quầy hàng rong thường mở chính thức từ 4-5 giờ chiều — buổi tối mới là giờ vàng của Myeongdong.",
+        "Nhà thờ Myeongdong vào cửa miễn phí, tránh giờ lễ vẫn có thể vào tham quan bên trong.",
+        "Cửa hàng mỹ phẩm bán giá cố định — thay vì mặc cả, hãy hỏi nhân viên xin phiếu giảm giá.",
+        "Chiều cuối tuần đông nhất — muốn dạo thong thả thì chọn sáng ngày thường.",
+        "Một số quầy hàng rong không nhận thẻ, nên mang theo ít tiền mặt lẻ.",
+      ],
+    },
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Myeongdong_night_market_seoul_1.jpg/1280px-Myeongdong_night_market_seoul_1.jpg",
+      alt: "명동 밤거리 노점 야시장 — Myeongdong night street food stalls, Seoul",
+      license: "CC BY-SA 4.0",
+      credit: "Wikimedia Commons / Sgroey",
+      creditUrl: "https://commons.wikimedia.org/wiki/File:Myeongdong_night_market_seoul_1.jpg",
+    },
+    lat: 37.5633,
+    lng: 126.9873,
+    addressKo: "서울특별시 중구 명동길 74",
+    addressEn: "74 Myeongdong-gil, Jung-gu, Seoul",
+    tags: {
+      ko: ["명동", "명동 쇼핑", "K뷰티", "길거리 음식", "명동성당"],
+      en: ["Myeongdong", "Myeongdong shopping", "K-beauty", "street food", "Myeongdong Cathedral"],
+      zh: ["明洞", "明洞购物", "K美妆", "路边小吃", "明洞主教座堂"],
+      vi: ["Myeongdong", "mua sắm Myeongdong", "K-beauty", "ẩm thực đường phố", "Nhà thờ Myeongdong"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "명동 가는 법은?",
+          a: "지하철 4호선 명동역 6·7·8번 출구 또는 2호선 을지로입구역 5·6번 출구로 나오면 바로 쇼핑거리가 시작됩니다.",
+        },
+        {
+          q: "명동 길거리 음식은 언제부터 파나요?",
+          a: "노점은 보통 오후 4~5시부터 본격적으로 열려 밤 10시 넘어서까지 이어집니다. 낮보다는 해 질 무렵부터가 진짜 명동 타임이에요.",
+        },
+        {
+          q: "명동성당은 입장료가 있나요?",
+          a: "무료입니다. 미사 시간이 아니면 내부도 자유롭게 관람할 수 있고, 1987년 6월 민주항쟁의 상징적 장소이기도 합니다.",
+        },
+      ],
+      en: [
+        {
+          q: "How do you get to Myeongdong?",
+          a: "Take Exits 6, 7, or 8 of Myeongdong Station (Subway Line 4), or Exits 5-6 of Euljiro 1(il)-ga Station (Line 2) — both drop you right into the shopping street.",
+        },
+        {
+          q: "When does Myeongdong street food start?",
+          a: "Stalls really kick into gear around 4-5 PM and run past 10 PM. Evening, not midday, is prime Myeongdong time.",
+        },
+        {
+          q: "Is there an admission fee for Myeongdong Cathedral?",
+          a: "No, it's free. You can step inside outside of Mass hours, and it's also a landmark of Korea's June 1987 Democracy Movement.",
+        },
+      ],
+      zh: [
+        {
+          q: "明洞怎么去？",
+          a: "从地铁4号线明洞站6、7、8号出口，或2号线乙支路入口站5、6号出口出站即是购物街入口。",
+        },
+        {
+          q: "明洞街头小吃几点开始卖？",
+          a: "摊位一般下午4~5点才正式开张，一直营业到晚上10点后。比起白天，傍晚才是真正的明洞时间。",
+        },
+        {
+          q: "明洞主教座堂要门票吗？",
+          a: "免费入场。非弥撒时段可自由参观内部，这里也是1987年六月民主抗争的象征性场所。",
+        },
+      ],
+      vi: [
+        {
+          q: "Đi đến Myeongdong bằng cách nào?",
+          a: "Ra lối 6, 7 hoặc 8 ga Myeongdong (tuyến 4), hoặc lối ra 5-6 ga Euljiro 1(il)-ga (tuyến 2) là vào ngay phố mua sắm.",
+        },
+        {
+          q: "Đồ ăn đường phố Myeongdong bán từ mấy giờ?",
+          a: "Quầy hàng thường mở chính thức từ 4-5 giờ chiều và bán tới hơn 10 giờ tối. Buổi tối, không phải ban ngày, mới là giờ vàng của Myeongdong.",
+        },
+        {
+          q: "Nhà thờ Myeongdong có mất phí vào cửa không?",
+          a: "Miễn phí. Ngoài giờ lễ vẫn có thể vào tham quan bên trong, và đây cũng là địa điểm biểu tượng của phong trào Dân chủ hóa tháng 6 năm 1987.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "gwangjang-market",
+    publishedAt: "2026-07-29",
+    region: "seoul",
+    category: "market",
+    nameKo: "광장시장",
+    nameEn: "Gwangjang Market",
+    nameZh: "广藏市场",
+    nameVi: "Chợ Gwangjang",
+    summaryKo:
+      "종로5가 골목에 자리한 광장시장은 1905년 문을 연 한국 최초의 상설시장, 그러니까 100년 훌쩍 넘은 원조 전통시장이에요. 노릇하게 부친 빈대떡, 한입 사이즈 마약김밥, 서슴없이 파는 육회까지 한 그릇씩 돌면 이미 배가 빵빵. 앤서니 부르댕도 다녀간 서울 미식 성지답게 외국인 관광객 줄이 늘 길어요.",
+    summaryEn:
+      "Tucked into the alleys near Jongno 5-ga, Gwangjang Market opened in 1905 as Korea's first permanent market — over 120 years and still going strong. One round of crispy bindaetteok, bite-size mayak gimbap, and raw beef yukhoe and you're already stuffed. Anthony Bourdain ate here too, and the line of foreign visitors shows it.",
+    summaryZh:
+      "藏身于钟路5街巷子里的广藏市场，1905年开业，是韩国第一座常设市场，至今已有120多年历史，是名副其实的元老级传统市场。煎得焦香的绿豆煎饼、一口一个的麻药紫菜包饭，再来一份生拌牛肉，随便吃一圈就已经吃撑。安东尼·波登也曾到访这里，外国游客排队的长度就是最好的证明。",
+    summaryVi:
+      "Nằm trong các con hẻm gần ga Jongno 5-ga, chợ Gwangjang mở cửa từ năm 1905, là chợ thường trực đầu tiên của Hàn Quốc — hơn 120 năm tuổi mà vẫn sầm uất. Một vòng bindaetteok giòn tan, vài cuộn mayak gimbap nhỏ xinh, thêm đĩa thịt bò sống yukhoe là đã no căng bụng. Anthony Bourdain cũng từng ghé đây, và hàng dài du khách nước ngoài xếp hàng là minh chứng rõ nhất.",
+    overviewKo: [
+      "광장시장은 1905년 문을 연 한국 최초의 상설시장이에요. 그전까지 한국의 장은 5일장처럼 며칠에 한 번 열리는 임시 장터가 전부였는데, 광장시장이 매일 문을 여는 최초의 사설 상설시장으로 등장하며 유통 문화 자체를 바꿔놨죠. 이름의 유래도 재미있는데, 원래는 청계천의 광교(廣橋)·장교(長橋) 두 다리 이름을 따 '광장(廣長)'이라 지으려 했지만 실제 부지가 배오개(지금의 종로 4~5가)로 옮겨가면서 한자가 '널리 모아 간직한다'는 뜻의 광장(廣藏)으로 바뀌었어요. 한때는 동대문시장이라 불리기도 했지만, 주변 시장들과 구분하려고 1960년대부터 '광장시장'이라는 이름이 굳어졌습니다.",
+      "지금은 4만2천㎡ 부지에 상점 5천여 개, 종사자 2만 명이 일하는 서울 최대급 전통시장이에요. 하루 방문객만 6만5천 명 안팎, 주말엔 이보다 더 몰려요. 크게 두 구역으로 나뉘는데, 원단·한복·혼수용품을 파는 포목 구역이 시장의 뿌리이자 여전히 핵심 상권이고, 그 옆 먹자골목이 요즘 외국인 관광객이 몰리는 구역이에요. 1층 실내 통로가 미로처럼 이어져 있어서 지도 앱보다는 그냥 냄새 따라 걷는 게 빠를 때도 많아요.",
+      "먹자골목 스테디셀러는 단연 빈대떡(녹두전)이에요. 불려 간 녹두를 즉석에서 갈아 두툼하게 부치는데, 큰 철판 위에서 노릇하게 지글대는 모습 자체가 구경거리죠. 그리고 꼭 먹어봐야 할 게 마약김밥 — 손가락만 한 크기로 만 김밥을 겨자 간장에 찍어 먹는데, 너무 맛있어서 '마약'이란 이름이 붙었다는 얘기가 있어요. 최근엔 어린이·청소년에게 부적절한 이미지를 줄 수 있다는 지적에 '꼬마김밥'이라는 이름으로도 병행 표기되고 있으니 메뉴판에 둘 다 있어도 놀라지 마세요.",
+      "고기 좋아한다면 육회 골목도 필수 코스예요. 신선한 생고기를 그 자리에서 채 썰어 참기름·배·달걀노른자와 버무려 내는데, 여러 집이 다닥다닥 붙어 있어서 골목 전체가 육회 전문 구역처럼 느껴져요. 순대·족발 같은 다른 야식 메뉴도 풍부하고, 상인들끼리 좌판이 붙어 있어서 이 집 저 집 옮겨가며 조금씩 맛보는 '시장 투어'가 광장시장의 진짜 재미입니다.",
+      "2014년 앤서니 부르댕이 CNN '팔츠 언노운' 촬영차 방문한 뒤로 서울을 대표하는 미식 명소로 국제적 인지도가 확 올라갔어요. 하지만 원래 정체성은 포목 시장이라는 걸 잊으면 안 돼요 — 맞춤 한복부터 이불감, 수의까지 파는 원단 가게들이 시장 뒤편에 여전히 촘촘히 남아 있어서, 먹거리 골목만 보고 나오면 광장시장의 절반만 본 셈이에요.",
+      "가는 법은 지하철 1호선 종로5가역 8번 출구가 가장 가깝고, 2·5호선 을지로4가역에서도 도보 이동이 가능해요. 먹자골목은 보통 오전 9시부터 밤 9~10시까지 영업하지만 ⚠️ 포목 구역은 일요일에 대부분 문을 닫으니 원단·한복 쇼핑이 목적이면 평일이나 토요일에 가야 해요. 현금을 선호하는 좌판이 아직 많은 편이라 소액 현금을 넉넉히 챙기고, 주말 점심·저녁 시간대는 통로가 사람으로 꽉 차니 여유 있게 다녀야 합니다.",
+    ],
+    overviewEn: [
+      "Gwangjang Market opened in 1905 as Korea's first permanent market. Before that, Korean markets were mostly periodic — five-day markets that popped up only once every few days — so Gwangjang, opening every single day, changed the whole culture of retail. The name has a fun backstory too: it was originally meant to be named after two Cheonggyecheon bridges, Gwanggyo and Janggyo, written as 'Gwangjang (廣長)' — but when the site moved to Baeogae (today's Jongno 4-5-ga), the hanja shifted to 'Gwangjang (廣藏)', meaning 'widely gathered and stored.' It was once called Dongdaemun Market too, but by the 1960s the name 'Gwangjang Market' had stuck, to distinguish it from neighboring markets.",
+      "Today it's one of Seoul's largest traditional markets, spanning 42,000 square meters with roughly 5,000 shops and 20,000 workers. Around 65,000 people visit on a typical day, and even more on weekends. It splits roughly into two zones: the fabric section — selling textiles, hanbok, and wedding trousseau goods — is the market's original core and still its backbone, while the food alley next door is where foreign tourists cluster these days. The indoor ground-floor passages form a genuine maze, and sometimes following the smell of food gets you there faster than a map app.",
+      "The undisputed star of the food alley is bindaetteok, a thick mung bean pancake fried fresh on a huge griddle — the sizzling, golden-brown spectacle alone is worth watching. And you have to try mayak gimbap, tiny finger-sized rolls dipped in mustard soy sauce — 'mayak' literally means 'drug,' supposedly because they're addictively good. Lately, out of concern the name sends the wrong message to kids, it's also being labeled 'kkoma gimbap' ('little gimbap') on some menus, so don't be surprised to see both names side by side.",
+      "If you're into meat, the yukhoe alley is a must. Fresh raw beef is julienned on the spot and tossed with sesame oil, pear, and egg yolk, and enough stalls sit shoulder-to-shoulder that the whole lane practically becomes a yukhoe district. Sundae (blood sausage) and jokbal (pig's trotters) round out the late-night menu, and hopping stall to stall for small bites — the real market-tour experience — is honestly the best part of Gwangjang.",
+      "Anthony Bourdain's 2014 visit for CNN's Parts Unknown put Gwangjang firmly on the international foodie map. But don't forget its original identity — it's still, at heart, a textile market. Fabric shops selling custom hanbok, bedding material, and even burial shrouds are still tightly packed into the back of the market, so if you only hit the food alley, you've really only seen half of Gwangjang.",
+      "Exit 8 of Jongno 5-ga Station (Line 1) is the closest stop, and Euljiro 4-ga Station (Lines 2 and 5) is also within walking distance. The food alley generally runs 9 AM to 9-10 PM, but ⚠️ most of the fabric section is closed on Sundays, so plan for a weekday or Saturday if fabric or hanbok shopping is the goal. Plenty of stalls still prefer cash, so carry extra small bills, and the aisles get packed solid during weekend lunch and dinner hours, so give yourself extra time.",
+    ],
+    overviewZh: [
+      "广藏市场1905年开业，是韩国第一座常设市场。在此之前，韩国的集市大多是「五日场」这类每隔几天才开一次的临时市集，广藏市场每天营业，直接改写了整个流通文化。名字的由来也很有意思：原本打算取清溪川上广桥、长桥两座桥名合称「广长（廣長）」，但由于场址后来迁到了培오개（今钟路4~5街），汉字也改成了寓意「广泛聚藏」的「广藏（廣藏）」。这里一度也被称为东大门市场，直到1960年代才为了和周边市场区分而固定叫「广藏市场」。",
+      "如今这里占地4.2万平方米，拥有约5000家店铺、2万名从业人员，是首尔规模数一数二的传统市场。日均访客约6.5万人，周末更是人山人海。市场大致分两个区域：卖布料、韩服、嫁妆用品的布庄区是市场的根基，至今仍是核心商圈；旁边的美食巷则是近年外国游客扎堆的地方。一楼室内通道错综复杂如迷宫，有时候跟着香味走反而比看地图App更快找到路。",
+      "美食巷的绝对主角是绿豆煎饼——现磨的绿豆糊在大铁板上煎得又厚又焦香，光看那滋滋作响的样子就很有看头。还有一定要尝的麻药紫菜包饭——手指粗细的小卷蘸芥末酱油吃，据说因为太好吃而被冠上「麻药」之名。近来考虑到这个称呼可能给青少年带来不良观感，部分菜单上也并列标注「小不点紫菜包饭」这个名字，看到两种叫法别惊讶。",
+      "喜欢吃肉的话，生拌牛肉巷绝对不能错过。新鲜生牛肉现场切丝，拌上香油、梨丝和蛋黄，好几家店紧挨在一起，整条巷子几乎就是生拌牛肉专区。血肠、猪脚等夜宵菜色也很丰富，商户摊位彼此紧挨，一家家串着尝一点，这种「市场巡游」式的吃法才是广藏市场真正的乐趣所在。",
+      "2014年安东尼·波登为CNN《未知之旅》来此取景后，广藏市场作为首尔美食地标的国际知名度大涨。但别忘了它本来的身份是布料市场——从定制韩服面料到被褥用料、甚至寿衣，各类布庄至今仍密密麻麻地藏在市场后侧，只逛美食巷等于只看了广藏市场的一半。",
+      "交通方面，地铁1号线钟路5街站8号出口最近，2、5号线乙支路4街站也在步行范围内。美食巷一般早上9点营业到晚上9~10点，但⚠️布庄区周日大多歇业，想买布料或韩服要挑平日或周六去。不少摊位仍偏好收现金，建议多备些零钱，周末午餐、晚餐时段通道会挤得水泄不通，最好留足时间慢慢逛。",
+    ],
+    overviewVi: [
+      "Chợ Gwangjang mở cửa năm 1905, là chợ thường trực đầu tiên của Hàn Quốc. Trước đó, các chợ ở Hàn Quốc chủ yếu là chợ phiên — họp vài ngày một lần kiểu 'chợ 5 ngày' — nên việc Gwangjang mở cửa mỗi ngày đã thay đổi hẳn văn hóa buôn bán. Tên gọi cũng có câu chuyện thú vị: ban đầu định đặt theo tên hai cây cầu Gwanggyo và Janggyo trên suối Cheonggyecheon, viết là 'Gwangjang (廣長)', nhưng khi địa điểm dời sang Baeogae (nay là Jongno 4-5-ga), phần chữ Hán đổi thành 'Gwangjang (廣藏)' nghĩa là 'gom góp và cất giữ rộng rãi'. Có thời chợ còn được gọi là chợ Dongdaemun, nhưng từ thập niên 1960 cái tên 'chợ Gwangjang' đã trở thành tên chính thức để phân biệt với các chợ lân cận.",
+      "Ngày nay đây là một trong những chợ truyền thống lớn nhất Seoul, rộng 42.000m² với khoảng 5.000 gian hàng và 20.000 người lao động. Mỗi ngày có khoảng 65.000 lượt khách ghé thăm, cuối tuần còn đông hơn. Chợ chia làm hai khu chính: khu vải vóc — bán vải, Hanbok, đồ sính lễ — là gốc rễ và vẫn là trục kinh doanh chính của chợ, còn khu ẩm thực bên cạnh mới là nơi du khách nước ngoài đổ về gần đây. Các lối đi trong nhà tầng một chằng chịt như mê cung, đôi khi cứ đi theo mùi thơm còn nhanh tìm được chỗ hơn là dùng bản đồ.",
+      "Ngôi sao không thể tranh cãi của khu ẩm thực là bindaetteok — bánh xèo đậu xanh chiên dày trên chảo lớn, cảnh chiên xèo xèo vàng ruộm đã đủ cuốn hút. Và món nhất định phải thử là mayak gimbap — cuộn gimbap nhỏ cỡ ngón tay chấm nước tương mù tạt, tên gọi 'mayak' nghĩa đen là 'ma túy' vì tương truyền ngon đến mức gây nghiện. Gần đây, do lo ngại cái tên tạo ấn tượng không hay với trẻ em, một số thực đơn còn ghi kèm tên 'kkoma gimbap' (gimbap tí hon), nên đừng ngạc nhiên nếu thấy cả hai tên cùng xuất hiện.",
+      "Nếu thích thịt, hẻm yukhoe (thịt bò sống trộn) là điểm không thể bỏ qua. Thịt bò tươi được thái sợi ngay tại chỗ, trộn cùng dầu mè, lê và lòng đỏ trứng, nhiều quán san sát nhau khiến cả con hẻm gần như thành khu chuyên yukhoe. Sundae (dồi huyết) và jokbal (chân giò heo) cũng là những món ăn đêm phong phú khác, và việc la cà từng quán nếm mỗi nơi một chút — kiểu 'tour chợ' đúng nghĩa — mới chính là cái thú vị nhất của Gwangjang.",
+      "Chuyến ghé thăm năm 2014 của Anthony Bourdain cho chương trình Parts Unknown của CNN đã đưa Gwangjang lên bản đồ ẩm thực quốc tế. Nhưng đừng quên bản chất ban đầu của chợ vẫn là chợ vải — các cửa hàng bán vải may Hanbok theo yêu cầu, vải chăn ga, thậm chí cả vải liệm vẫn san sát ở phía sau chợ, nên nếu chỉ ghé khu ẩm thực thì coi như mới thấy được một nửa Gwangjang.",
+      "Về di chuyển, lối ra số 8 ga Jongno 5-ga (tuyến 1) là gần nhất, ga Euljiro 4-ga (tuyến 2 và 5) cũng trong tầm đi bộ. Khu ẩm thực thường mở cửa từ 9 giờ sáng đến 9-10 giờ tối, nhưng ⚠️ khu vải phần lớn đóng cửa vào Chủ nhật, nên nếu muốn mua vải hay Hanbok thì đi vào ngày thường hoặc thứ Bảy. Nhiều quầy hàng vẫn ưu tiên tiền mặt nên hãy mang theo nhiều tiền lẻ, và giờ trưa, tối cuối tuần lối đi rất đông đúc nên hãy dành thêm thời gian.",
+    ],
+    tips: {
+      ko: [
+        "포목 구역은 일요일 대부분 휴무 — 한복·원단 쇼핑은 평일이나 토요일에.",
+        "마약김밥은 최근 '꼬마김밥'으로도 표기 — 메뉴판에 두 이름이 같이 있어도 정상이에요.",
+        "현금 선호 좌판이 많으니 소액권을 넉넉히 챙기세요.",
+        "지하철 1호선 종로5가역 8번 출구가 최단 코스, 2·5호선 을지로4가역도 도보권.",
+      ],
+      en: [
+        "The fabric section is mostly closed on Sundays — go weekday or Saturday for hanbok/textile shopping.",
+        "Mayak gimbap is increasingly labeled 'kkoma gimbap' too — seeing both names on a menu is normal.",
+        "Many stalls still prefer cash, so carry plenty of small bills.",
+        "Exit 8 of Jongno 5-ga Station (Line 1) is the shortest route; Euljiro 4-ga Station (Lines 2/5) also works.",
+      ],
+      zh: [
+        "布庄区周日大多歇业——买韩服、布料请选平日或周六。",
+        "麻药紫菜包饭现在也常标为「小不点紫菜包饭」——菜单上两个名字并列很正常。",
+        "不少摊位偏好收现金，建议多备零钱。",
+        "地铁1号线钟路5街站8号出口最近，2、5号线乙支路4街站也在步行范围。",
+      ],
+      vi: [
+        "Khu vải phần lớn đóng cửa Chủ nhật — muốn mua Hanbok/vải thì đi ngày thường hoặc thứ Bảy.",
+        "Mayak gimbap giờ cũng hay được ghi là 'kkoma gimbap' — thấy cả hai tên trên thực đơn là chuyện bình thường.",
+        "Nhiều quầy hàng vẫn ưu tiên tiền mặt, nên mang theo nhiều tiền lẻ.",
+        "Lối ra số 8 ga Jongno 5-ga (tuyến 1) là gần nhất, ga Euljiro 4-ga (tuyến 2/5) cũng trong tầm đi bộ.",
+      ],
+    },
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Gwangjang_Market%2C_Seoul_01.jpg/1280px-Gwangjang_Market%2C_Seoul_01.jpg",
+      alt: "광장시장 전통시장 골목 — Gwangjang Market alley, Seoul",
+      license: "CC0",
+      credit: "Wikimedia Commons / Bgag",
+      creditUrl: "https://commons.wikimedia.org/wiki/File:Gwangjang_Market,_Seoul_01.jpg",
+    },
+    lat: 37.5701,
+    lng: 126.9996,
+    addressKo: "서울특별시 종로구 창경궁로 88",
+    addressEn: "88 Changgyeonggung-ro, Jongno-gu, Seoul",
+    tags: {
+      ko: ["광장시장", "빈대떡", "마약김밥", "육회", "종로 전통시장"],
+      en: ["Gwangjang Market", "bindaetteok", "mayak gimbap", "yukhoe", "Jongno traditional market"],
+      zh: ["广藏市场", "绿豆煎饼", "麻药紫菜包饭", "生拌牛肉", "钟路传统市场"],
+      vi: ["chợ Gwangjang", "bindaetteok", "mayak gimbap", "yukhoe", "chợ truyền thống Jongno"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "광장시장은 언제 문을 열었나요?",
+          a: "1905년 문을 연 한국 최초의 상설시장으로, 100년 넘는 역사를 자랑합니다. 원래는 원단·한복을 파는 포목시장으로 시작해 지금은 먹자골목으로 더 유명해졌어요.",
+        },
+        {
+          q: "광장시장 가는 법은?",
+          a: "지하철 1호선 종로5가역 8번 출구가 가장 가깝고, 2·5호선 을지로4가역에서도 도보로 이동할 수 있습니다.",
+        },
+        {
+          q: "광장시장에서 꼭 먹어야 할 음식은?",
+          a: "빈대떡(녹두전), 마약김밥, 육회가 3대장이에요. 마약김밥은 최근 '꼬마김밥'으로도 표기되니 메뉴판에 두 이름이 함께 있어도 놀라지 마세요.",
+        },
+      ],
+      en: [
+        {
+          q: "When did Gwangjang Market open?",
+          a: "It opened in 1905 as Korea's first permanent market and has over 120 years of history. It started as a textile and hanbok market and is now equally famous for its food alley.",
+        },
+        {
+          q: "How do you get to Gwangjang Market?",
+          a: "Exit 8 of Jongno 5-ga Station (Subway Line 1) is closest, and Euljiro 4-ga Station (Lines 2 and 5) is also within walking distance.",
+        },
+        {
+          q: "What should you eat at Gwangjang Market?",
+          a: "Bindaetteok (mung bean pancake), mayak gimbap, and yukhoe (raw beef) are the big three. Mayak gimbap is increasingly labeled 'kkoma gimbap' too, so don't be surprised to see both names on a menu.",
+        },
+      ],
+      zh: [
+        {
+          q: "广藏市场是什么时候开业的？",
+          a: "1905年开业，是韩国第一座常设市场，至今已有120多年历史。最初是卖布料、韩服的布庄市场，如今美食巷同样出名。",
+        },
+        {
+          q: "广藏市场怎么去？",
+          a: "地铁1号线钟路5街站8号出口最近，2、5号线乙支路4街站也在步行范围内。",
+        },
+        {
+          q: "广藏市场必吃什么？",
+          a: "绿豆煎饼、麻药紫菜包饭、生拌牛肉是三大招牌。麻药紫菜包饭现在也常标注为「小不点紫菜包饭」，菜单上两个名字并列别惊讶。",
+        },
+      ],
+      vi: [
+        {
+          q: "Chợ Gwangjang mở cửa từ khi nào?",
+          a: "Chợ mở cửa năm 1905, là chợ thường trực đầu tiên của Hàn Quốc, với hơn 120 năm lịch sử. Ban đầu là chợ vải, Hanbok, nay nổi tiếng không kém với khu ẩm thực.",
+        },
+        {
+          q: "Đi đến chợ Gwangjang bằng cách nào?",
+          a: "Lối ra số 8 ga Jongno 5-ga (tuyến 1) là gần nhất, ga Euljiro 4-ga (tuyến 2 và 5) cũng trong tầm đi bộ.",
+        },
+        {
+          q: "Ở chợ Gwangjang nên ăn gì?",
+          a: "Bindaetteok (bánh xèo đậu xanh), mayak gimbap và yukhoe (thịt bò sống) là ba món chủ lực. Mayak gimbap giờ cũng hay được ghi là 'kkoma gimbap', nên thấy cả hai tên trên thực đơn đừng ngạc nhiên.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "bukhansan",
+    publishedAt: "2026-07-31",
+    region: "seoul",
+    category: "nature",
+    nameKo: "북한산",
+    nameEn: "Bukhansan",
+    nameZh: "北汉山",
+    nameVi: "Núi Bukhansan",
+    summaryKo:
+      "서울 한복판에 우뚝 선 836.5m 국립공원, 지하철 타고 30분이면 백운대 등산로 초입이에요. 기네스 세계기록에 오른 '면적 대비 최다 방문 국립공원'답게 주말엔 사람이 몰리지만, 인수봉 클라이밍부터 11.6km 북한산성 성곽길까지 도심 속 산이 줄 수 있는 재미는 다 있어요.",
+    summaryEn:
+      "An 836.5m national park in the middle of Seoul — hop on the subway and you're at the trailhead in 30 minutes. It's a Guinness World Record holder for most visitors per unit area, with everything from Insubong rock climbing to the 11.6km Bukhansanseong fortress wall packed into one city mountain.",
+    summaryZh:
+      "耸立在首尔市中心的836.5米国立公园，坐地铁30分钟就能到登山口。这里是吉尼斯世界纪录认证的「单位面积访客最多国立公园」，从仁寿峰攀岩到11.6公里的北汉山城城墙，一座城市山峰能给的乐趣这里全都有。",
+    summaryVi:
+      "Công viên quốc gia cao 836,5m ngay giữa lòng Seoul — chỉ cần 30 phút tàu điện là tới chân núi. Đây là chủ nhân Kỷ lục Guinness 'công viên quốc gia đông khách nhất trên mỗi đơn vị diện tích', từ leo vách đá Insubong đến bức tường thành Bukhansanseong dài 11,6km, ngọn núi giữa thành phố này có đủ mọi thú vui.",
+    overviewKo: [
+      "북한산은 서울 강북구·도봉구·은평구·성북구·종로구와 경기도 고양시·양주시·의정부시에 걸쳐 있는 836.5m 산이에요. 원래 이름은 봉우리 세 개가 뿔처럼 솟았다고 해서 '삼각산(三角山)'이었는데, 1983년 4월 2일 우리나라 15번째 국립공원으로 지정되면서 지금 이름으로 자리 잡았어요. 서울시와 경기도에 걸친 면적이 79.92㎢밖에 안 되는데 연간 방문객은 약 500만 명 — 기네스 세계기록에 '단위 면적당 가장 많은 방문객이 찾는 국립공원'으로 등재될 정도로 압도적인 인기예요. 지하철로 30분이면 정상 코스 들머리까지 닿는 '도심 속 산'이라는 점이 이 기록의 비결이죠.",
+      "정상엔 세 봉우리가 나란히 솟아 있어요. 최고봉인 백운대(836.5m), 클라이머들의 성지인 인수봉(810.5m), 그리고 만경대(799.5m) — 이 세 봉우리가 뿔처럼 보인다고 해서 옛날엔 삼각산이라 불렀던 거예요. 인수봉은 화강암 절벽이 깎아지른 듯 서 있어서 국내외 클라이머들이 로프 하나 메고 도전하는 곳으로 유명하고, 백운대는 등산객이라면 누구나 한 번은 밟아보고 싶어 하는 서울 등산의 정점이에요.",
+      "백운대 오르는 코스 중 초보자에게 제일 무난한 건 우이동 코스예요. 우이신설선 북한산우이역에서 걸어 들어가 도선사를 지나 하루재, 백운산장을 거쳐 백운대 암문까지 오르면 정상까지 300m 남짓 — 총 거리 3.8km, 2~3시간이면 왕복 가능해요. ⚠️ 도선사를 지나면서부터는 경사가 확 가팔라지고 마지막 구간은 쇠줄(로프)을 붙잡고 올라야 하는 암벽 구간이라 장갑 하나 챙기면 훨씬 수월해요. 백운탐방지원센터(운영 09:00~17:00)에서 등산화·스틱·아이젠·무릎보호대까지 무료로 빌려주니 장비 없이 즉흥적으로 가도 괜찮아요.",
+      "북한산성도 꼭 챙겨봐야 할 포인트예요. 1711년(숙종 37년) 완공된 이 산성은 봉우리와 능선을 따라 약 11.6km나 이어지는 조선시대 방어시설로, 유사시 왕이 피신할 임시 궁궐(행궁)까지 갖춘 진짜 요새였어요. 대남문·대성문·대동문 같은 성문들이 곳곳에 남아 있고, 1968년 국가 사적으로 지정됐어요. 성곽 능선을 따라 걷는 코스는 백운대 직등 코스보다 완만해서 역사 산책하듯 즐기기 좋습니다.",
+      "가는 법은 목적지에 따라 갈려요. 우이동·백운대 코스는 우이신설선 북한산우이역에서 도보, 북한산성 코스는 지하철 3호선 구파발역에서 북한산성입구행 버스를 타면 돼요. 주말·공휴일엔 특히 백운대 정상이 인산인해라 사람 없는 사진을 원한다면 평일 새벽 출발이 답이고, 봄 진달래·가을 단풍철엔 등산로 자체가 몸살을 앓을 정도로 붐비니 각오하세요. 도선사·화계사 같은 천년 고찰도 코스 중간에 있어서 등산과 사찰 탐방을 같이 즐길 수 있는 것도 매력이에요.",
+    ],
+    overviewEn: [
+      "Bukhansan is an 836.5m mountain straddling five Seoul districts (Gangbuk, Dobong, Eunpyeong, Seongbuk, Jongno) and three Gyeonggi cities (Goyang, Yangju, Uijeongbu). It used to go by 'Samgaksan' — 'three-horned mountain' — for its trio of jagged peaks, until it became Korea's 15th national park on April 2, 1983, and the name Bukhansan stuck. The park covers just 79.92 km² across Seoul and Gyeonggi, yet pulls in roughly 5 million visitors a year — enough to land it in the Guinness World Records as the most-visited national park per unit area on the planet. The secret? A subway ride puts you at a trailhead in about 30 minutes, making this a genuine mountain in the middle of a megacity.",
+      "Three peaks crown the summit. Baegundae (836.5m) is the highest, Insubong (810.5m) is a rock-climbing mecca, and Mangyeongdae (799.5m) rounds out the trio — together they're the 'three horns' that gave the mountain its old name. Insubong's sheer granite face draws climbers from Korea and abroad who rope up and go vertical, while Baegundae is the bucket-list summit every Seoul hiker eventually checks off.",
+      "For beginners, the easiest way up Baegundae is the Ui-dong route. Walk in from Bukhansan Ui Station (Ui LRT line), pass Doseonsa Temple, cross Harujae ridge and Baegunsanjang shelter, and you'll reach Baegundae Amdun (the fortress gate) with just 300m left to the top — 3.8km total, doable round-trip in 2–3 hours. ⚠️ Past Doseonsa the slope kicks up hard, and the final stretch is a rock scramble where you'll be gripping steel ropes — bring gloves if you can. The Baegun Visitor Support Center (open 9am–5pm) even rents out hiking boots, poles, crampons, and knee pads for free, so you can show up gear-free and still make it work.",
+      "Don't skip Bukhansanseong Fortress. Completed in 1711 under King Sukjong, this Joseon-era defense structure runs about 11.6km along the ridgelines, complete with a temporary royal palace for the king to flee to in a crisis — a real fortress, not just a wall. Gates like Daenammun, Daeseongmun, and Daedongmun still stand, and the whole site was designated a national historic site in 1968. The ridge-following fortress trail is gentler than the direct Baegundae push, so it's a great option if you want a history walk over a summit grind.",
+      "How you get there depends on where you're headed. For the Ui-dong/Baegundae route, walk in from Bukhansan Ui Station; for the fortress route, take Subway Line 3 to Gupabal Station and catch a bus bound for Bukhansanseong Entrance. Weekends and holidays get packed solid at the Baegundae summit, so aim for a weekday dawn start if you want empty-trail photos, and brace for serious crowds during spring azalea season and fall foliage. Century-old temples like Doseonsa and Hwagyesa sit right along the routes too, so you can pair hiking with temple-hopping in a single trip.",
+    ],
+    overviewZh: [
+      "北汉山是一座海拔836.5米的山峰，横跨首尔的江北区、道峰区、恩平区、城北区、钟路区，以及京畿道高阳市、杨州市、议政府市。它原名「三角山」，因三座山峰如犄角般耸立而得名，直到1983年4月2日被指定为韩国第15座国立公园后，「北汉山」这个名字才固定下来。公园横跨首尔与京畿道，面积仅79.92平方公里，年访客量却高达约500万人次——因此被吉尼斯世界纪录认证为「单位面积访客量最多的国立公园」。秘诀就在于坐地铁大约30分钟就能到登山口，这是一座名副其实「藏在大都市里的山」。",
+      "山顶并立三座山峰。最高峰白云台（836.5米）、攀岩者的圣地仁寿峰（810.5米），再加上万景台（799.5米）——三峰如角，正是「三角山」这个旧名的由来。仁寿峰花岗岩峭壁近乎垂直，是国内外攀岩爱好者系上绳索挑战的知名地点，而白云台则是几乎每个首尔登山客都想踩点一次的终极目标。",
+      "初学者登白云台最轻松的路线是牛耳洞路线。从牛耳新设线北汉山牛耳站步行进入，经过道诜寺、Harujae山脊、白云山庄，到达白云台暗门后离山顶只剩约300米——全程3.8公里，2~3小时即可往返。⚠️ 过了道诜寺坡度骤然变陡，最后一段要拉着钢索攀岩，建议带副手套会轻松不少。白云探访支援中心（营业时间9:00~17:00）还免费出借登山鞋、登山杖、冰爪、护膝，所以就算没装备说走就走也没问题。",
+      "北汉山城也绝对值得一逛。这座建于1711年（朝鲜肃宗三十七年）的朝鲜时代防御工事，沿山脊蜿蜒约11.6公里，甚至还配有供国王危急时避难的行宫——是货真价实的要塞而非单纯城墙。大南门、大成门、大东门等城门至今犹存，1968年被指定为国家史迹。沿城墙山脊走的路线比直攻白云台平缓许多，很适合把它当成一场历史漫步。",
+      "交通方式因目的地而异。走牛耳洞·白云台路线，从北汉山牛耳站步行进入；走北汉山城路线，则搭地铁3号线到旧把拨站，转乘开往北汉山城入口的巴士。周末节假日白云台顶几乎人挤人，想拍空景就选平日凌晨出发；春天杜鹃花季、秋天红叶季登山道更是热闹到爆，请做好心理准备。道诜寺、华溪寺这类千年古刹就在沿途，登山顺路逛古寺也是这里的一大魅力。",
+    ],
+    overviewVi: [
+      "Bukhansan là ngọn núi cao 836,5m trải dài qua 5 quận của Seoul (Gangbuk, Dobong, Eunpyeong, Seongbuk, Jongno) và 3 thành phố của tỉnh Gyeonggi (Goyang, Yangju, Uijeongbu). Trước đây núi có tên 'Samgaksan' — nghĩa là 'núi ba sừng' — vì ba đỉnh núi nhọn hoắt như sừng, cho đến khi trở thành công viên quốc gia thứ 15 của Hàn Quốc vào ngày 2/4/1983 thì cái tên Bukhansan mới chính thức gắn liền. Công viên chỉ rộng 79,92 km² trải qua Seoul và Gyeonggi, nhưng đón khoảng 5 triệu lượt khách mỗi năm — đủ để được Kỷ lục Guinness Thế giới công nhận là 'công viên quốc gia có lượng khách ghé thăm trên mỗi đơn vị diện tích nhiều nhất'. Bí quyết nằm ở chỗ chỉ cần đi tàu điện ngầm khoảng 30 phút là tới chân núi — một ngọn núi thực thụ nằm ngay giữa lòng siêu đô thị.",
+      "Trên đỉnh có ba ngọn núi sừng sững cạnh nhau. Cao nhất là Baegundae (836,5m), thánh địa leo núi đá Insubong (810,5m), và Mangyeongdae (799,5m) khép lại bộ ba — chính ba 'chiếc sừng' này đã đặt tên cho ngọn núi thời xưa. Vách đá granite dựng đứng của Insubong là nơi dân leo núi trong và ngoài nước buộc dây thừng chinh phục, còn Baegundae là đỉnh núi mà hầu như người leo núi nào ở Seoul cũng muốn chinh phục một lần.",
+      "Với người mới bắt đầu, cung đường dễ nhất để lên Baegundae là cung Ui-dong. Đi bộ từ ga Bukhansan Ui (tuyến LRT Ui), qua chùa Doseonsa, băng qua đỉnh Harujae, trạm nghỉ Baegunsanjang, đến cổng đá Baegundae Amdun là chỉ còn khoảng 300m lên đỉnh — tổng quãng đường 3,8km, đi khứ hồi trong 2–3 tiếng là vừa. ⚠️ Qua khỏi chùa Doseonsa độ dốc tăng vọt, đoạn cuối phải bám dây cáp thép leo qua đá, nên mang theo găng tay sẽ dễ chịu hơn nhiều. Trung tâm hỗ trợ tham quan Baegun (mở cửa 9h–17h) còn cho thuê miễn phí giày leo núi, gậy, đế chống trượt và bảo vệ đầu gối, nên dù không có đồ nghề vẫn có thể đi ngẫu hứng.",
+      "Đừng bỏ qua Pháo đài Bukhansanseong. Hoàn thành năm 1711 dưới thời vua Sukjong, công trình phòng thủ thời Joseon này chạy dọc theo các đỉnh núi dài khoảng 11,6km, thậm chí còn có cả cung tạm để vua lánh nạn khi có biến — một pháo đài đúng nghĩa chứ không chỉ là bức tường. Các cổng như Daenammun, Daeseongmun, Daedongmun vẫn còn tồn tại, và toàn bộ khu vực được công nhận Di tích Lịch sử Quốc gia năm 1968. Cung đường đi theo pháo đài men theo sườn núi thoải hơn nhiều so với cung leo thẳng lên Baegundae, rất hợp nếu bạn muốn một chuyến đi dạo lịch sử hơn là một cuộc chinh phục đỉnh núi.",
+      "Cách di chuyển tùy thuộc điểm đến. Với cung Ui-dong/Baegundae, đi bộ từ ga Bukhansan Ui; với cung pháo đài, đi tàu điện tuyến 3 đến ga Gupabal rồi bắt xe buýt hướng cổng vào Bukhansanseong. Cuối tuần và ngày lễ đỉnh Baegundae đông nghẹt người, nên muốn chụp ảnh vắng người thì xuất phát lúc rạng sáng ngày thường, và hãy chuẩn bị tinh thần đông đúc vào mùa hoa đỗ quyên mùa xuân hay mùa lá đỏ mùa thu. Những ngôi chùa cổ hàng nghìn năm như Doseonsa, Hwagyesa nằm ngay trên các cung đường, nên vừa leo núi vừa ghé thăm chùa cũng là một điểm cộng lớn.",
+    ],
+    tips: {
+      ko: [
+        "초보자는 우이동 코스(북한산우이역 → 도선사 → 백운대, 3.8km·2~3시간)가 제일 무난해요.",
+        "백운탐방지원센터에서 등산화·스틱·아이젠까지 무료 대여(09:00~17:00) — 장비 없이도 오케이.",
+        "도선사 지나면 급경사 로프 구간 시작 — 장갑 하나면 훨씬 수월해요.",
+        "주말·공휴일 백운대는 인산인해 — 사람 없는 사진 원하면 평일 새벽 출발.",
+        "북한산성 코스 갈 땐 3호선 구파발역에서 북한산성입구행 버스 이용.",
+      ],
+      en: [
+        "Beginners should take the Ui-dong route (Bukhansan Ui Station → Doseonsa → Baegundae, 3.8km, 2–3 hrs).",
+        "The Baegun Visitor Support Center rents boots, poles, and crampons free (9am–5pm) — no gear, no problem.",
+        "Past Doseonsa the trail turns into a steep rope-scramble — bring gloves if you've got them.",
+        "Baegundae summit is packed on weekends and holidays — go at weekday dawn for empty-trail shots.",
+        "Heading for the fortress route? Take Line 3 to Gupabal Station and catch a bus to Bukhansanseong Entrance.",
+      ],
+      zh: [
+        "新手推荐牛耳洞路线（北汉山牛耳站→道诜寺→白云台，3.8公里，2~3小时）。",
+        "白云探访支援中心免费出借登山鞋、登山杖、冰爪（9:00~17:00）——没装备也能说走就走。",
+        "过了道诜寺就是陡坡拉绳路段——带副手套会轻松不少。",
+        "周末节假日白云台人挤人——想拍空景就选平日凌晨出发。",
+        "走北汉山城路线可搭地铁3号线到旧把拨站，转乘开往北汉山城入口的巴士。",
+      ],
+      vi: [
+        "Người mới nên đi cung Ui-dong (ga Bukhansan Ui → chùa Doseonsa → Baegundae, 3,8km, 2–3 tiếng).",
+        "Trung tâm hỗ trợ Baegun cho thuê miễn phí giày, gậy, đế chống trượt (9h–17h) — không có đồ vẫn đi được.",
+        "Qua chùa Doseonsa là đoạn dốc phải bám dây cáp — mang găng tay sẽ dễ hơn nhiều.",
+        "Đỉnh Baegundae đông nghẹt cuối tuần và ngày lễ — muốn ảnh vắng người thì xuất phát rạng sáng ngày thường.",
+        "Đi cung pháo đài thì bắt tàu tuyến 3 đến ga Gupabal rồi đổi xe buýt hướng cổng Bukhansanseong.",
+      ],
+    },
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Baegundae_Terrace_of_Bukhansan_in_Spring_in_Korea.jpg/1280px-Baegundae_Terrace_of_Bukhansan_in_Spring_in_Korea.jpg",
+      alt: "북한산 백운대 — Baegundae peak of Bukhansan National Park in spring",
+      license: "CC0 1.0",
+      credit: "Wikimedia Commons / Jo Hanshin",
+      creditUrl:
+        "https://commons.wikimedia.org/wiki/File:Baegundae_Terrace_of_Bukhansan_in_Spring_in_Korea.jpg",
+    },
+    lat: 37.6633,
+    lng: 127.0124,
+    addressKo: "서울특별시 강북구 우이동",
+    addressEn: "Ui-dong, Gangbuk-gu, Seoul",
+    tags: {
+      ko: ["북한산", "백운대", "북한산성", "서울 등산", "인수봉"],
+      en: ["Bukhansan", "Baegundae", "Bukhansanseong", "Seoul hiking", "Insubong"],
+      zh: ["北汉山", "白云台", "北汉山城", "首尔登山", "仁寿峰"],
+      vi: ["Bukhansan", "Baegundae", "Bukhansanseong", "leo núi Seoul", "Insubong"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "북한산 백운대 등산 코스와 소요시간은 어떻게 되나요?",
+          a: "초보자에게 가장 무난한 코스는 우이동 코스예요. 북한산우이역에서 출발해 도선사~하루재~백운산장을 지나 백운대 암문까지 오르면 정상까지 300m 정도 남는데, 총 거리 3.8km로 왕복 2~3시간이면 충분합니다.",
+        },
+        {
+          q: "등산 장비가 없어도 갈 수 있나요?",
+          a: "네, 백운탐방지원센터(09:00~17:00)에서 등산화·스틱·아이젠·무릎보호대를 무료로 빌려줍니다. 다만 도선사를 지나면서부터는 로프를 잡고 오르는 급경사 구간이 시작되니 장갑 정도는 챙기는 게 좋아요.",
+        },
+        {
+          q: "북한산성은 어떻게 가나요?",
+          a: "지하철 3호선 구파발역에서 북한산성입구행 버스를 타면 됩니다. 1711년 완공된 성곽이 약 11.6km 이어지며 1968년 국가 사적으로 지정됐어요. 백운대 직등 코스보다 완만해서 역사 산책하듯 즐기기 좋습니다.",
+        },
+      ],
+      en: [
+        {
+          q: "What's the Baegundae hiking route and how long does it take?",
+          a: "The easiest route for beginners is the Ui-dong course. Starting from Bukhansan Ui Station, you pass Doseonsa Temple, Harujae ridge, and Baegunsanjang shelter before reaching Baegundae Amdun gate, just 300m from the summit — 3.8km total, doable round-trip in 2–3 hours.",
+        },
+        {
+          q: "Can I hike without my own gear?",
+          a: "Yes — the Baegun Visitor Support Center (open 9am–5pm) rents hiking boots, poles, crampons, and knee pads for free. Just note that past Doseonsa the trail gets steep and rope-assisted, so gloves are a good idea.",
+        },
+        {
+          q: "How do I get to Bukhansanseong Fortress?",
+          a: "Take Subway Line 3 to Gupabal Station and catch a bus bound for Bukhansanseong Entrance. Completed in 1711, the fortress wall runs about 11.6km and was designated a national historic site in 1968. It's a gentler walk than the direct Baegundae push, great for a history-focused visit.",
+        },
+      ],
+      zh: [
+        {
+          q: "北汉山白云台登山路线和所需时间是？",
+          a: "新手最推荐牛耳洞路线。从北汉山牛耳站出发，经过道诜寺、Harujae山脊、白云山庄，到达白云台暗门后离山顶约300米——全程3.8公里，往返2~3小时足够。",
+        },
+        {
+          q: "没有登山装备也能去吗？",
+          a: "可以，白云探访支援中心（9:00~17:00）免费出借登山鞋、登山杖、冰爪、护膝。不过过了道诜寺开始是需要拉绳攀爬的陡坡路段，建议带副手套。",
+        },
+        {
+          q: "北汉山城怎么去？",
+          a: "搭地铁3号线到旧把拨站，转乘开往北汉山城入口的巴士即可。这座1711年完工的城墙约长11.6公里，1968年被指定为国家史迹，比直攻白云台的路线平缓，很适合当作历史漫步路线。",
+        },
+      ],
+      vi: [
+        {
+          q: "Cung đường leo Baegundae và thời gian di chuyển thế nào?",
+          a: "Cung dễ nhất cho người mới là cung Ui-dong. Xuất phát từ ga Bukhansan Ui, qua chùa Doseonsa, đỉnh Harujae, trạm nghỉ Baegunsanjang rồi đến cổng đá Baegundae Amdun chỉ còn cách đỉnh khoảng 300m — tổng 3,8km, đi khứ hồi trong 2–3 tiếng là đủ.",
+        },
+        {
+          q: "Không có đồ leo núi thì có đi được không?",
+          a: "Được, Trung tâm hỗ trợ tham quan Baegun (mở cửa 9h–17h) cho thuê miễn phí giày leo núi, gậy, đế chống trượt và bảo vệ đầu gối. Chỉ cần lưu ý qua khỏi chùa Doseonsa là đoạn dốc phải bám dây cáp, nên mang theo găng tay.",
+        },
+        {
+          q: "Đi đến Pháo đài Bukhansanseong bằng cách nào?",
+          a: "Đi tàu điện tuyến 3 đến ga Gupabal rồi bắt xe buýt hướng cổng vào Bukhansanseong. Bức tường thành hoàn thành năm 1711 dài khoảng 11,6km và được công nhận Di tích Lịch sử Quốc gia năm 1968. Đây là cung đường thoải hơn nhiều so với leo thẳng lên Baegundae, rất hợp để đi dạo tìm hiểu lịch sử.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "lotte-world-tower",
+    publishedAt: "2026-08-02",
+    region: "seoul",
+    category: "landmark",
+    nameKo: "롯데월드타워",
+    nameEn: "Lotte World Tower",
+    nameZh: "乐天世界大厦",
+    nameVi: "Tháp Lotte World",
+    summaryKo:
+      "555m, 대한민국에서 제일 높은 건물이 여기예요. 117~123층 서울스카이 전망대에 서면 서울이 발밑에 통째로 깔리고, 118층 유리바닥은 기네스 인증까지 받은 스릴 포인트. 잠실 한복판이라 롯데월드몰·아쿠아리움까지 한 번에 도장 깨기 가능해요.",
+    summaryEn:
+      "At 555m, this is Korea's tallest building, full stop. Ride up to the Seoul Sky observatory (117F-123F) and the whole city spreads out below you — the 118F glass floor is Guinness-certified for a reason. Bonus: Lotte World Mall and the aquarium are right downstairs in Jamsil.",
+    summaryZh:
+      "555米高，韩国第一高楼就是它。117到123层的首尔天空观景台一站上去，整座首尔就铺在脚下，118层的透明玻璃地板还拿到了吉尼斯认证，刺激感拉满。就在蚕室正中心，乐天世界购物中心和水族馆顺路全部打卡。",
+    summaryVi:
+      "Cao 555m, đây là tòa nhà cao nhất Hàn Quốc, khỏi bàn cãi. Lên đài quan sát Seoul Sky (tầng 117-123) là cả thành phố trải ra dưới chân, sàn kính tầng 118 còn được Guinness công nhận. Ngay giữa Jamsil nên tiện ghé luôn Lotte World Mall và thủy cung.",
+    overviewKo: [
+      "롯데월드타워는 서울 송파구 잠실에 선 지상 123층, 높이 555m 초고층 빌딩이에요. 2016년 골조가 완공되고 2017년 4월 정식 개장했는데, 오픈 당시부터 지금까지 대한민국에서 가장 높은 건물 타이틀을 굳건히 지키고 있어요. 설계는 미국 건축사무소 KPF(콘 페더슨 폭스)가 맡았고, 붓·도자기처럼 위로 갈수록 살짝 좁아지는 실루엣은 한국 전통 도자기와 서예 붓 곡선에서 영감을 받았다고 해요. 잠실 어디서든 고개만 들면 보이는 통에 사실상 서울 동남권의 새 랜드마크로 자리 잡았죠.",
+      "전망대는 '서울스카이'라는 이름으로 117층부터 123층까지 이어져요. 지하 2층·지하 1층에서 전망대까지는 오티스가 만든 더블데크 엘리베이터 '스카이셔틀'을 타는데, 분속 600m(초속 10m)로 딱 1분 만에 117층까지 쏘아 올려줘요. 이 1분이 은근 볼거리인 게, 문이 닫히면 사방 벽이 올레드 화면으로 바뀌면서 경복궁·국회의사당·잠실야구장 같은 서울 명소를 스쳐 지나가는 가상 여행 영상이 나와요 — 귀 먹먹해질 틈도 없이 도착하는 셈이죠.",
+      "118층의 하이라이트는 스카이데크라는 통유리 바닥이에요. 45mm 두께 강화 접합유리로 만들어져서 ㎡당 1톤까지 견디고, 동시에 222명이 올라가도 끄떡없대요. 이게 '세계에서 가장 높은 유리바닥 전망대'로 기네스 세계기록에 등재됐을 정도니, 발밑으로 478m 아래가 훤히 보이는 그 아찔함은 직접 서봐야 알 수 있어요. 남산·한강 방향과 올림픽공원 방향 두 군데에 유리바닥이 있으니 두 쪽 다 밟아보는 걸 추천. 120층엔 야외로 나가는 스카이테라스가 있고, 최상층인 123층엔 서울에서 제일 높은 라운지 바 '123라운지'가 있어서 야경 보며 한잔하기도 좋아요.",
+      "⚠️ 입장료는 은근 헷갈리는 부분인데, 2026년 4월 기준 서울스카이 전망대 입장료는 성인 약 33,000원이에요. 대기 없이 바로 올라가고 싶으면 전 연령 동일 요금 약 50,000원짜리 패스트패스가 있는데, 이건 온라인 예매가 안 되고 방문 당일 현장 매표소에서만 살 수 있어요. 일반 티켓은 공식 홈페이지나 인터파크 같은 예매처에서 미리 사면 현장 줄을 덜 수 있고요. 노을부터 야경까지 다 보고 싶으면 일몰 1시간 전쯤 도착하는 게 가장 만족도 높은 타이밍입니다.",
+      "타워 하나로 끝나는 게 아니라 아래층 전체가 놀거리예요. 저층부엔 롯데월드몰(쇼핑·시네마)과 세계 최대급 실내 아쿠아리움인 롯데월드 아쿠아리움이 있고, 타워 상층부엔 6성급 호텔 시그니엘 서울과 롯데콘서트홀도 들어서 있어요. 가는 법은 지하철 2·8호선 잠실역 1·2번 출구 또는 9호선·2호선 종합운동장역이 가까운데, 롯데월드몰과 지하로 바로 연결돼 있어서 비 오는 날도 걱정 없어요.",
+    ],
+    overviewEn: [
+      "Lotte World Tower is a 123-story, 555m skyscraper standing in Jamsil, Songpa-gu, Seoul. The structure topped out in 2016 and fully opened in April 2017, and it's held onto the title of Korea's tallest building ever since. The design came from the American firm KPF (Kohn Pedersen Fox), and the silhouette — tapering gently as it rises, like a brush stroke — was inspired by traditional Korean ceramics and calligraphy. You can spot it from almost anywhere in Jamsil, and it's essentially become the new landmark for southeastern Seoul.",
+      "The observatory, branded 'Seoul Sky,' spans floors 117 to 123. From B2/B1 you ride Otis's double-deck 'Sky Shuttle' elevator, which covers 600m per minute (10m/s) and gets you to the 117th floor in roughly a minute flat. That minute is a mini-attraction on its own — once the doors close, the walls turn into OLED screens playing a virtual tour past Seoul landmarks like Gyeongbokgung, the National Assembly, and Jamsil Stadium, so you barely notice the ride.",
+      "The 118th floor's headline act is the Sky Deck, a glass floor made of 45mm laminated tempered glass rated to hold a ton per square meter — up to 222 people at once. It's Guinness-certified as the world's highest glass-floor observatory, and standing on it with 478m of open air below is a rush you really need to feel in person. There are glass panels facing both the Namsan/Han River side and the Olympic Park side, so it's worth stepping on both. Floor 120 has the open-air Sky Terrace, and the top floor, 123, holds '123 Lounge,' Seoul's highest bar — great for a drink with the night skyline.",
+      "⚠️ Admission pricing trips people up: as of April 2026, adult entry to the Seoul Sky observatory runs about ₩33,000. If you'd rather skip the line entirely, there's a flat-rate ₩50,000 Fast Pass for any age — but it can't be booked online, only bought same-day at the on-site ticket counter. Regular tickets bought in advance through the official site or platforms like Interpark cut down your wait at the gate. If you want both dusk and night lights in one visit, arriving about an hour before sunset is the sweet spot.",
+      "The tower is just the centerpiece — the whole complex is a destination. The lower floors hold Lotte World Mall (shopping, cinema) and Lotte World Aquarium, one of the world's largest indoor aquariums, while the upper floors house the 6-star Signiel Seoul hotel and Lotte Concert Hall. To get there, take Subway Lines 2/8 to Jamsil Station Exits 1/2, or Lines 2/9 to Sports Complex Station — both connect underground straight into Lotte World Mall, so rain isn't a problem.",
+    ],
+    overviewZh: [
+      "乐天世界大厦是坐落于首尔松坡区蚕室、地上123层、高555米的摩天大楼。主体结构2016年封顶，2017年4月正式开幕，自开业以来一直稳坐韩国第一高楼的宝座。设计出自美国建筑事务所KPF（Kohn Pedersen Fox）之手，塔身向上逐渐收窄的曲线，据说灵感来自韩国传统陶瓷与书法毛笔的线条。在蚕室一带几乎抬头就能看到它，如今已成为首尔东南部的新地标。",
+      "观景台名为「首尔天空」，横跨117层到123层。从地下2层、地下1层出发，乘坐奥的斯打造的双层轿厢电梯「Sky Shuttle」，以分速600米（秒速10米）的速度，约1分钟就能直达117层。这1分钟本身就是个小节目——电梯门一关，四周墙壁瞬间变成OLED屏幕，播放掠过景福宫、国会议事堂、蚕室棒球场等首尔地标的虚拟旅程，几乎感觉不到耳压变化就已经到站。",
+      "118层的重头戏是名为Sky Deck的透明玻璃地板，由45毫米厚的强化夹层玻璃制成，每平方米可承重1吨，同时222人站上去也没问题。它被吉尼斯世界纪录认证为「全球最高的玻璃地板观景台」，站在上面俯瞰478米下方的那种眩晕感，只有亲身体验才懂。玻璃地板分为朝南山・汉江方向和朝奥林匹克公园方向两处，建议两边都踩一踩。120层是可以走到室外的Sky Terrace，最高的123层则是首尔海拔最高的酒吧「123 Lounge」，边看夜景边喝一杯很不错。",
+      "⚠️ 门票价格容易搞混：截至2026年4月，首尔天空观景台成人票约33,000韩元。想免排队直接上楼，可以选不分年龄统一价约50,000韩元的Fast Pass，不过这个不能网上预订，只能当天到现场售票处购买。普通票提前在官网或Interpark等平台买好，能省掉不少现场排队时间。想把晚霞和夜景一次看全，日落前大约1小时抵达是体验最好的时间点。",
+      "大厦本身只是核心，整个建筑群才是完整的游玩目的地。低层有乐天世界购物中心（购物、影院）和世界数一数二的室内水族馆——乐天世界水族馆，高层则入驻六星级酒店乐天世界大厦Signiel首尔和乐天音乐厅。交通方面，地铁2、8号线蚕室站1、2号出口，或2、9号线综合运动场站都很近，且都能直接地下通往乐天世界购物中心，下雨天也不用担心。",
+    ],
+    overviewVi: [
+      "Tháp Lotte World là tòa nhà chọc trời cao 555m, 123 tầng, tọa lạc tại Jamsil, quận Songpa, Seoul. Phần kết cấu hoàn thành năm 2016 và chính thức khai trương vào tháng 4/2017, giữ vững danh hiệu tòa nhà cao nhất Hàn Quốc từ đó đến nay. Thiết kế do công ty kiến trúc Mỹ KPF (Kohn Pedersen Fox) thực hiện, đường nét thon dần lên trên như nét bút được lấy cảm hứng từ đồ gốm truyền thống và thư pháp Hàn Quốc. Đứng ở đâu trong khu Jamsil ngẩng đầu lên cũng thấy, và giờ đây nó gần như trở thành biểu tượng mới của khu vực đông nam Seoul.",
+      "Đài quan sát mang tên 'Seoul Sky' trải dài từ tầng 117 đến 123. Từ tầng hầm B2/B1, bạn đi thang máy hai tầng 'Sky Shuttle' do Otis chế tạo, với tốc độ 600m/phút (10m/giây), đưa bạn lên tầng 117 chỉ trong khoảng 1 phút. Một phút đó tự nó đã là một trải nghiệm nhỏ — cửa vừa đóng lại, các bức tường biến thành màn hình OLED chiếu hành trình ảo lướt qua các địa danh Seoul như Gyeongbokgung, Tòa nhà Quốc hội, sân vận động Jamsil, gần như chưa kịp cảm nhận độ cao đã tới nơi.",
+      "Điểm nhấn của tầng 118 là Sky Deck, sàn kính làm từ kính cường lực dán nhiều lớp dày 45mm, chịu được tải trọng 1 tấn/m², cùng lúc chứa được tới 222 người. Nó được Guinness công nhận là 'đài quan sát sàn kính cao nhất thế giới', và đứng trên đó nhìn xuống khoảng không 478m bên dưới là cảm giác chỉ có tự trải nghiệm mới hiểu được. Có hai mảng sàn kính, một hướng về phía Namsan/sông Hàn và một hướng về Công viên Olympic, nên đứng thử cả hai bên. Tầng 120 có Sky Terrace ngoài trời, còn tầng cao nhất 123 là quầy bar cao nhất Seoul '123 Lounge' — rất hợp để nhâm nhi đồ uống ngắm cảnh đêm.",
+      "⚠️ Giá vé là điểm hay gây nhầm lẫn: tính đến tháng 4/2026, vé người lớn vào đài quan sát Seoul Sky khoảng 33.000 won. Muốn lên thẳng không xếp hàng thì có vé Fast Pass đồng giá mọi lứa tuổi khoảng 50.000 won, nhưng vé này không đặt online được, chỉ mua tại quầy vé tại chỗ đúng ngày đến. Vé thường nên mua trước qua trang chính thức hoặc các nền tảng như Interpark để đỡ xếp hàng tại cổng. Muốn xem trọn cả hoàng hôn lẫn cảnh đêm thì đến trước khi mặt trời lặn khoảng 1 tiếng là hợp lý nhất.",
+      "Tòa tháp chỉ là điểm nhấn — cả khu phức hợp mới là điểm đến trọn vẹn. Các tầng thấp có Lotte World Mall (mua sắm, rạp chiếu phim) và Thủy cung Lotte World, một trong những thủy cung trong nhà lớn nhất thế giới, còn các tầng cao là khách sạn 6 sao Signiel Seoul và Nhà hát Hòa nhạc Lotte. Để đến đây, đi tuyến tàu điện 2/8 tới ga Jamsil lối ra 1/2, hoặc tuyến 2/9 tới ga Sports Complex — cả hai đều nối thẳng ngầm vào Lotte World Mall nên trời mưa cũng không lo.",
+    ],
+    tips: {
+      ko: [
+        "입장료는 성인 약 33,000원(2026년 4월 기준) — 온라인 사전예매하면 현장 줄을 줄일 수 있어요.",
+        "줄 서기 싫으면 패스트패스(약 50,000원, 전 연령 동일가) — 단 현장 당일 구매만 가능.",
+        "118층 유리바닥 스카이데크는 남산·한강 방향과 올림픽공원 방향 두 곳 다 밟아보세요.",
+        "노을+야경 다 보려면 일몰 1시간 전 도착이 베스트 타이밍.",
+      ],
+      en: [
+        "Adult admission is about ₩33,000 (as of April 2026) — book online ahead to skip part of the line.",
+        "Hate lines? Get the Fast Pass (~₩50,000 flat) — but it's same-day, on-site purchase only.",
+        "The 118F glass Sky Deck has two panels — Namsan/Han River side and Olympic Park side — walk both.",
+        "Arrive about an hour before sunset to catch both dusk and the night skyline.",
+      ],
+      zh: [
+        "成人票约33,000韩元（截至2026年4月）——提前网上订票能省掉部分现场排队时间。",
+        "不想排队就买Fast Pass（约50,000韩元，不分年龄统一价）——但只能当天现场购买。",
+        "118层玻璃地板Sky Deck有南山·汉江方向和奥林匹克公园方向两处，建议都踩一踩。",
+        "想同时看到晚霞和夜景，日落前1小时抵达最佳。",
+      ],
+      vi: [
+        "Vé người lớn khoảng 33.000 won (tính đến 4/2026) — đặt online trước để đỡ xếp hàng tại cổng.",
+        "Ngại xếp hàng thì mua Fast Pass (khoảng 50.000 won, đồng giá mọi lứa tuổi) — nhưng chỉ mua tại chỗ đúng ngày.",
+        "Sàn kính Sky Deck tầng 118 có hai mảng — hướng Namsan/sông Hàn và hướng Công viên Olympic — nên đứng thử cả hai.",
+        "Đến trước khi mặt trời lặn khoảng 1 tiếng để xem trọn cả hoàng hôn và cảnh đêm.",
+      ],
+    },
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lotte_World_Tower_near_Cheongdam_Bridge.jpg/1280px-Lotte_World_Tower_near_Cheongdam_Bridge.jpg",
+      alt: "롯데월드타워 전경 — Lotte World Tower skyline view near Cheongdam Bridge, Seoul",
+      license: "CC BY 3.0",
+      credit: "Wikimedia Commons / Ox1997cow",
+      creditUrl:
+        "https://commons.wikimedia.org/wiki/File:Lotte_World_Tower_near_Cheongdam_Bridge.jpg",
+    },
+    lat: 37.5125,
+    lng: 127.1025,
+    addressKo: "서울특별시 송파구 올림픽로 300",
+    addressEn: "300 Olympic-ro, Songpa-gu, Seoul",
+    tags: {
+      ko: ["롯데월드타워", "서울스카이", "잠실", "전망대", "송파"],
+      en: ["Lotte World Tower", "Seoul Sky", "Jamsil", "observation deck", "Songpa"],
+      zh: ["乐天世界大厦", "首尔天空", "蚕室", "观景台", "松坡"],
+      vi: ["Tháp Lotte World", "Seoul Sky", "Jamsil", "đài quan sát", "Songpa"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "롯데월드타워 서울스카이 입장료는 얼마인가요?",
+          a: "2026년 4월 기준 서울스카이 전망대 성인 입장료는 약 33,000원입니다. 줄 서지 않고 바로 올라가고 싶다면 전 연령 동일가 약 50,000원의 패스트패스도 있는데, 이건 온라인 예매가 안 되고 방문 당일 현장에서만 구매할 수 있어요.",
+        },
+        {
+          q: "롯데월드타워 가는 법은?",
+          a: "지하철 2·8호선 잠실역 1·2번 출구 또는 2·9호선 종합운동장역이 가깝고, 두 역 모두 지하로 롯데월드몰과 바로 연결돼 있어 비가 와도 걱정 없어요.",
+        },
+        {
+          q: "118층 유리바닥은 정말 안전한가요?",
+          a: "네, 118층 스카이데크는 45mm 두께 강화 접합유리로 만들어져 ㎡당 1톤 하중을 견디고 동시에 222명이 올라가도 안전하도록 설계됐어요. 세계에서 가장 높은 유리바닥 전망대로 기네스 세계기록에도 등재됐습니다.",
+        },
+      ],
+      en: [
+        {
+          q: "How much does it cost to visit Seoul Sky at Lotte World Tower?",
+          a: "As of April 2026, adult admission to the Seoul Sky observatory runs about ₩33,000. If you want to skip the line entirely, there's a flat-rate Fast Pass at about ₩50,000 for any age, but it can only be bought same-day at the on-site counter, not booked online.",
+        },
+        {
+          q: "How do you get to Lotte World Tower?",
+          a: "Subway Lines 2/8 to Jamsil Station Exits 1/2, or Lines 2/9 to Sports Complex Station, both work — either station connects straight underground into Lotte World Mall, so rain isn't an issue.",
+        },
+        {
+          q: "Is the 118th-floor glass floor actually safe?",
+          a: "Yes — the Sky Deck on floor 118 is built from 45mm laminated tempered glass rated for a ton per square meter, safely holding up to 222 people at once. It's even Guinness-certified as the world's highest glass-floor observatory.",
+        },
+      ],
+      zh: [
+        {
+          q: "乐天世界大厦首尔天空的门票多少钱？",
+          a: "截至2026年4月，首尔天空观景台成人票约33,000韩元。想免排队直接上楼，可以选不分年龄统一价约50,000韩元的Fast Pass，不过这个不能网上预订，只能当天到现场购买。",
+        },
+        {
+          q: "乐天世界大厦怎么去？",
+          a: "地铁2、8号线蚕室站1、2号出口，或2、9号线综合运动场站都很近，两个站都能直接地下通往乐天世界购物中心，下雨天也不用担心。",
+        },
+        {
+          q: "118层的玻璃地板真的安全吗？",
+          a: "安全，118层的Sky Deck由45毫米厚的强化夹层玻璃制成，每平方米可承重1吨，同时222人站上去也没问题。它还被吉尼斯世界纪录认证为全球最高的玻璃地板观景台。",
+        },
+      ],
+      vi: [
+        {
+          q: "Lên Seoul Sky ở Tháp Lotte World tốn bao nhiêu tiền?",
+          a: "Tính đến tháng 4/2026, vé người lớn vào đài quan sát Seoul Sky khoảng 33.000 won. Muốn lên thẳng không xếp hàng thì có vé Fast Pass đồng giá mọi lứa tuổi khoảng 50.000 won, nhưng vé này chỉ mua tại quầy đúng ngày đến, không đặt online được.",
+        },
+        {
+          q: "Đi đến Tháp Lotte World bằng cách nào?",
+          a: "Đi tuyến tàu điện 2/8 tới ga Jamsil lối ra 1/2, hoặc tuyến 2/9 tới ga Sports Complex đều gần, cả hai ga đều nối thẳng ngầm vào Lotte World Mall nên trời mưa cũng không lo.",
+        },
+        {
+          q: "Sàn kính tầng 118 có thực sự an toàn không?",
+          a: "Có, Sky Deck ở tầng 118 làm từ kính cường lực dán nhiều lớp dày 45mm, chịu tải 1 tấn/m², an toàn cho tối đa 222 người cùng lúc. Nó còn được Guinness công nhận là đài quan sát sàn kính cao nhất thế giới.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "hahoe-village",
+    publishedAt: "2026-08-04",
+    region: "gyeongsang",
+    category: "culture",
+    nameKo: "안동 하회마을",
+    nameEn: "Andong Hahoe Village",
+    nameZh: "安东河回村",
+    nameVi: "Làng Hahoe, Andong",
+    summaryKo:
+      "낙동강이 마을을 S자로 휘감아 도는 '물돌이동' 지형에 조선시대 그대로 앉은 씨족마을이에요. 2010년 유네스코 세계유산에 오른 진짜 배경이고, 기와집과 초가집이 나란히 서 있는 골목을 걷다 보면 시간 여행하는 기분. 주말엔 하회탈춤도 무료로 볼 수 있어요.",
+    summaryEn:
+      "A clan village where the Nakdong River loops around in a perfect S-curve, still sitting exactly as it did in the Joseon era. It's a genuine UNESCO World Heritage site (since 2010), and walking past tile-roofed and thatched houses side by side feels like real time travel. Catch the free Hahoe mask dance on weekends if the timing works out.",
+    summaryZh:
+      "洛东江在村子四周绕出一个完美的S形，这座氏族村落至今仍保留着朝鲜时代原貌。2010年正式列入联合国教科文组织世界遗产，走在瓦房与草屋并排而立的巷弄里，仿佛穿越回了古代。周末还能免费看一场河回假面舞。",
+    summaryVi:
+      "Ngôi làng dòng tộc nơi sông Nakdong uốn quanh thành hình chữ S hoàn hảo, vẫn giữ nguyên dáng vẻ từ thời Joseon. Đây là Di sản Thế giới UNESCO thực thụ (từ năm 2010), đi dọc những con hẻm có nhà ngói và nhà tranh nằm cạnh nhau như được xuyên không về quá khứ. Cuối tuần còn xem miễn phí múa mặt nạ Hahoe.",
+    overviewKo: [
+      "하회마을은 경북 안동시 풍천면, 낙동강이 마을을 'S'자로 휘감아 도는 자리에 들어선 씨족마을이에요. 이름 자체가 '물이 돌아 흐른다'는 뜻의 하회(河回)에서 왔고요. 고려 중기엔 김해 허씨·광주 안씨가 먼저 자리 잡았다가, 14세기 후반 풍산 류씨가 들어오면서 지금의 모습으로 자리 잡았어요. 이 집안에서 태어난 류운룡·류성룡 형제 대에 마을이 크게 번성했는데, 특히 류성룡은 임진왜란 때 영의정을 지내며 전쟁 회고록 '징비록'을 남긴 인물이에요.",
+      "2010년 7월 31일, 브라질 브라질리아에서 열린 제34차 유네스코 세계유산위원회에서 하회마을은 경주 양동마을과 함께 '한국의 역사마을'이라는 이름으로 세계유산에 등재됐어요. 우리나라 통산 10번째 세계유산이었죠. 유네스코가 높이 산 건 조선시대 유교적 양반문화가 주택·서원·정자 배치에 그대로 남아있고, 그게 오랜 세월 훼손 없이 보존됐다는 점이었어요.",
+      "마을을 걸어보면 제일 눈에 띄는 게 기와집과 초가집이 나란히 서 있는 풍경이에요. 양반이 살던 큰 기와집(양진당·충효당이 대표적)과 그 살림을 돕던 하인·소작농이 살던 초가집이 원래 배치 그대로 남아있어서, 조선시대 신분 구조가 마을 전체에 새겨져 있는 셈이죠. 마을 한가운데엔 수백 년 된 느티나무 '삼신당 신목'이 서 있는데, 지금도 마을 사람들이 소원을 빌러 찾아오는 신성한 나무예요.",
+      "하회마을 하면 빼놓을 수 없는 게 하회탈이에요. 오리나무로 깎아 만든 이 탈은 국보로 지정될 만큼 예술적 가치를 인정받았고, 양반·중·백정 같은 신분을 풍자하는 '하회별신굿탈놀이'에 쓰였어요. 지금도 3월~12월엔 매주 화~일요일 오후 2시~3시(1~2월은 토·일요일만), 마을 입구 관리사무소 맞은편 전수회관에서 이 공연을 무료로 볼 수 있는데, 6개 마당 공연 뒤엔 관람객이 함께 어울리는 뒤풀이까지 이어져요.",
+      "⚠️ 입장료는 성인 5,000원·청소년 2,500원·어린이 1,500원이고, 6세 이하·65세 이상은 무료예요. 관람시간은 4~9월 9시~18시, 10~3월 9시~17시로 휴장일 없이 운영됩니다. 주차장·셔틀버스는 모두 무료고요. 체력이 남으면 마을 건너편 절벽 부용대까지 나룻배로 건너가 보세요 — 강 건너에서 마을 전경을 한눈에 담을 수 있는 최고의 뷰포인트예요. 근처 병산서원도 유네스코 서원 유산이라 시간 여유가 있다면 함께 둘러볼 만해요.",
+    ],
+    overviewEn: [
+      "Hahoe Village sits in Pungcheon-myeon, Andong, at a spot where the Nakdong River loops around the settlement in a perfect S-curve — hence the name Hahoe (河回), literally 'the water turns and flows.' The Gimhae Heo and Gwangju An clans settled here first in the mid-Goryeo period, and the village took its current shape once the Pungsan Ryu clan moved in during the late 14th century. It really flourished under brothers Ryu Un-ryong and Ryu Seong-ryong, born into that clan — Ryu Seong-ryong in particular served as Chief State Councillor during the Imjin War and later wrote the Jingbirok, his war memoir.",
+      "On July 31, 2010, at the 34th session of the UNESCO World Heritage Committee in Brasilia, Hahoe Village was inscribed as a World Heritage Site together with Yangdong Village in Gyeongju, under the collective title 'Historic Villages of Korea' — Korea's tenth World Heritage listing. UNESCO singled out how the layout of homes, Confucian academies, and pavilions still preserves the class structure and yangban culture of Joseon-era Korea, intact and undisturbed for centuries.",
+      "Walking through the village, the first thing you notice is tile-roofed and thatched houses standing right next to each other. The large tile-roofed homes where yangban nobility lived (Yangjindang and Chunghyodang are the standouts) sit in their original position alongside the thatched cottages of the servants and tenant farmers who worked for them — so the class structure of Joseon society is basically written into the village layout. At the heart of the village stands a centuries-old zelkova tree, the 'Samsindang guardian tree,' where locals still come to make wishes.",
+      "No visit to Hahoe is complete without the Hahoe masks. Carved from alder wood, they're recognized as national treasures for their artistry, and they're worn in the Hahoe Byeolsingut Talnori mask dance, which satirizes social classes like the yangban nobility, monks, and butchers. You can still catch this performance for free, March through December, Tuesday to Sunday from 2 to 3pm (Saturdays and Sundays only in January and February), at the mask dance hall across from the management office near the village entrance — six acts followed by an audience-joined finale.",
+      "⚠️ Admission is ₩5,000 for adults, ₩2,500 for teens, and ₩1,500 for children, with free entry for kids 6 and under and seniors 65 and up. Visiting hours run 9am-6pm April through September and 9am-5pm October through March, with no closed days. Parking and the shuttle bus are both free. If you've got energy left, take the traditional wooden ferry across to Buyongdae, the cliff facing the village — it's the best viewpoint for a full panorama of Hahoe from across the river. Nearby Byeongsan Seowon is also a UNESCO-listed Confucian academy, worth pairing with your visit if you have time.",
+    ],
+    overviewZh: [
+      "河回村位于庆尚北道安东市丰川面，坐落在洛东江以完美S形环绕而过的地方——村名「河回」本身就是「江水绕流而过」的意思。高丽中期，金海许氏与广州安氏最先在此定居，到14世纪后半叶丰山柳氏迁入后，才形成了如今的村落格局。村子真正兴盛起来是在柳云龙、柳成龙兄弟一代，两人皆出自丰山柳氏——其中柳成龙在壬辰倭乱期间官至领议政（首相），后来写下了记录那场战争的回忆录《惩毖录》。",
+      "2010年7月31日，在巴西利亚举行的第34届联合国教科文组织世界遗产委员会会议上，河回村与庆州良洞村一起以「韩国历史村落」之名列入世界遗产名录，是韩国第10处世界遗产。教科文组织特别赞赏的一点是，这里的住宅、书院、亭台布局完整保留了朝鲜时代的儒家两班文化与身份等级结构，且历经数百年而未遭破坏。",
+      "走进村子，最先映入眼帘的就是瓦房和草屋并排而立的景象。两班贵族居住的大型瓦房（以养真堂、忠孝堂最具代表性）与为其劳作的仆人、佃农所住的草屋，至今仍保持着原有的布局，等于把朝鲜时代的身份结构直接刻进了整个村庄。村子正中央矗立着一棵数百年树龄的老槐树「三神堂神木」，至今仍是村民前来祈愿的圣树。",
+      "提到河回村就绕不开河回假面。这些用桤木雕刻而成的面具因其艺术价值被指定为国宝，用于讽刺两班贵族、僧侣、屠夫等身份阶层的「河回别神巫假面舞」表演中。如今每年3月到12月的周二至周日下午2点到3点（1、2月只在周六周日），在村口管理事务所对面的传承会馆仍可免费观看这场表演——六幕演出结束后，还有观众一起加入的谢幕环节。",
+      "⚠️ 门票成人5,000韩元、青少年2,500韩元、儿童1,500韩元，6岁以下及65岁以上免费。开放时间为4至9月9:00~18:00，10至3月9:00~17:00，全年无休。停车场和摆渡车全部免费。体力允许的话，不妨乘传统木船渡江去对岸的悬崖夫容台——那是隔江眺望河回村全景的最佳观景点。附近的病山书院同样是联合国教科文组织认定的书院遗产，时间充裕的话很值得一并游览。",
+    ],
+    overviewVi: [
+      "Làng Hahoe nằm ở Pungcheon-myeon, Andong, tại nơi sông Nakdong uốn quanh khu định cư thành một chữ S hoàn hảo — đó cũng là lý do tên làng Hahoe (河回) nghĩa đen là 'nước quay vòng chảy qua'. Dòng họ Gimhae Heo và Gwangju An là những người đầu tiên định cư ở đây vào giữa thời Goryeo, rồi đến cuối thế kỷ 14, dòng họ Pungsan Ryu chuyển đến và làng mang hình hài như ngày nay. Làng thực sự phát triển rực rỡ dưới thời hai anh em Ryu Un-ryong và Ryu Seong-ryong, sinh ra trong dòng họ này — đặc biệt Ryu Seong-ryong từng giữ chức Tể tướng (Yeonguijeong) trong cuộc chiến Imjin, sau đó viết hồi ký chiến tranh Jingbirok.",
+      "Ngày 31/7/2010, tại phiên họp thứ 34 của Ủy ban Di sản Thế giới UNESCO ở Brasilia, làng Hahoe được công nhận Di sản Thế giới cùng với làng Yangdong ở Gyeongju, dưới tên gọi chung 'Các làng lịch sử của Hàn Quốc' — di sản thế giới thứ 10 của Hàn Quốc. Điều UNESCO đánh giá cao là cách bố trí nhà ở, thư viện Nho giáo và các đình các vẫn giữ nguyên cấu trúc giai cấp và văn hóa quý tộc yangban thời Joseon, được bảo tồn nguyên vẹn qua nhiều thế kỷ.",
+      "Đi dạo trong làng, điều đầu tiên đập vào mắt là những ngôi nhà mái ngói và mái tranh đứng cạnh nhau. Những ngôi nhà ngói lớn nơi tầng lớp quý tộc yangban từng sống (tiêu biểu là Yangjindang và Chunghyodang) vẫn nằm đúng vị trí ban đầu, cạnh những ngôi nhà tranh của người hầu, tá điền từng làm việc cho họ — nên cấu trúc giai cấp thời Joseon gần như được khắc thẳng vào bố cục cả ngôi làng. Giữa làng có một cây du cổ thụ hàng trăm năm tuổi, 'cây thần Samsindang', nơi người dân vẫn đến cầu nguyện cho đến ngày nay.",
+      "Nhắc đến Hahoe không thể bỏ qua mặt nạ Hahoe. Được chạm khắc từ gỗ cây trăn (alder), những chiếc mặt nạ này được công nhận là bảo vật quốc gia nhờ giá trị nghệ thuật, và được dùng trong múa mặt nạ Hahoe Byeolsingut Talnori — điệu múa châm biếm các tầng lớp như quý tộc yangban, nhà sư, người mổ thịt. Bạn vẫn có thể xem miễn phí buổi biểu diễn này từ tháng 3 đến tháng 12, thứ Ba đến Chủ nhật, 14h-15h (tháng 1-2 chỉ có thứ Bảy, Chủ nhật), tại hội quán truyền nghề đối diện văn phòng quản lý gần cổng làng — sáu màn biểu diễn rồi kết thúc bằng phần giao lưu cùng khán giả.",
+      "⚠️ Vé vào cửa 5.000 won cho người lớn, 2.500 won cho thanh thiếu niên, 1.500 won cho trẻ em, miễn phí cho trẻ từ 6 tuổi trở xuống và người từ 65 tuổi trở lên. Giờ tham quan là 9h-18h từ tháng 4 đến tháng 9, và 9h-17h từ tháng 10 đến tháng 3, mở cửa quanh năm không nghỉ. Bãi đỗ xe và xe buýt đưa đón đều miễn phí. Nếu còn sức, hãy đi thuyền gỗ truyền thống qua vách đá Buyongdae đối diện làng — đó là điểm ngắm toàn cảnh Hahoe đẹp nhất từ bên kia sông. Byeongsan Seowon gần đó cũng là di sản thư viện Nho giáo được UNESCO công nhận, đáng ghé thăm nếu còn thời gian.",
+    ],
+    tips: {
+      ko: [
+        "입장료 성인 5,000원·청소년 2,500원·어린이 1,500원, 6세 이하·65세 이상은 무료.",
+        "하회탈춤(하회별신굿탈놀이)은 3~12월 화~일 14~15시 무료 관람(1~2월은 토·일만).",
+        "관람시간 4~9월 9~18시, 10~3월 9~17시 — 휴장일 없음, 주차·셔틀버스 무료.",
+        "부용대까지 나룻배로 건너가면 강 건너에서 마을 전경을 한눈에 담을 수 있어요.",
+      ],
+      en: [
+        "Admission: ₩5,000 adults, ₩2,500 teens, ₩1,500 children; free for age 6 and under, 65 and up.",
+        "The Hahoe mask dance (Byeolsingut Talnori) runs free March-December, Tue-Sun 2-3pm (Sat/Sun only Jan-Feb).",
+        "Open 9am-6pm April-September, 9am-5pm October-March — no closed days; parking and shuttle are free.",
+        "Take the ferry across to Buyongdae cliff for the best panoramic view of the whole village.",
+      ],
+      zh: [
+        "门票成人5,000韩元、青少年2,500韩元、儿童1,500韩元，6岁以下及65岁以上免费。",
+        "河回假面舞（别神巫假面舞）3~12月周二至周日下午2~3点免费上演（1、2月仅周六周日）。",
+        "开放时间4~9月9:00~18:00，10~3月9:00~17:00——全年无休，停车场和摆渡车免费。",
+        "乘船渡江到夫容台，可以从对岸一览整个村子的全景。",
+      ],
+      vi: [
+        "Vé vào cửa 5.000 won người lớn, 2.500 won thanh thiếu niên, 1.500 won trẻ em; miễn phí từ 6 tuổi trở xuống và 65 tuổi trở lên.",
+        "Múa mặt nạ Hahoe (Byeolsingut Talnori) miễn phí từ tháng 3-12, thứ Ba-Chủ nhật 14h-15h (tháng 1-2 chỉ thứ Bảy, Chủ nhật).",
+        "Mở cửa 9h-18h tháng 4-9, 9h-17h tháng 10-3 — không nghỉ ngày nào; bãi đỗ xe và xe buýt miễn phí.",
+        "Đi thuyền qua vách đá Buyongdae để ngắm toàn cảnh làng đẹp nhất từ bên kia sông.",
+      ],
+    },
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Hahoe_Folk_Village_01.jpg/1280px-Hahoe_Folk_Village_01.jpg",
+      alt: "하회마을 전경 — Hahoe Folk Village, Andong",
+      license: "CC0 1.0 (Public Domain)",
+      credit: "Wikimedia Commons / Bernard Gagnon",
+      creditUrl: "https://commons.wikimedia.org/wiki/File:Hahoe_Folk_Village_01.jpg",
+    },
+    lat: 36.5391,
+    lng: 128.5164,
+    addressKo: "경상북도 안동시 풍천면 하회남촌길 63",
+    addressEn: "63 Hahoenamchon-gil, Pungcheon-myeon, Andong-si, Gyeongsangbuk-do",
+    tags: {
+      ko: ["하회마을", "안동", "유네스코", "하회탈", "탈춤"],
+      en: ["Hahoe Village", "Andong", "UNESCO", "Hahoe mask", "mask dance"],
+      zh: ["河回村", "安东", "联合国教科文组织", "河回面具", "假面舞"],
+      vi: ["Làng Hahoe", "Andong", "UNESCO", "mặt nạ Hahoe", "múa mặt nạ"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "하회마을 입장료와 관람시간은 어떻게 되나요?",
+          a: "성인 5,000원, 청소년 2,500원, 어린이 1,500원이며 6세 이하와 65세 이상은 무료입니다. 관람시간은 4~9월 9시~18시, 10~3월 9시~17시로 휴장일 없이 운영돼요.",
+        },
+        {
+          q: "하회탈춤은 언제 볼 수 있나요?",
+          a: "하회별신굿탈놀이는 3~12월 매주 화~일요일 오후 2시~3시(1~2월은 토·일요일만)에 마을 입구 전수회관에서 무료로 공연됩니다. 6개 마당 공연 후엔 관람객과 함께하는 뒤풀이도 이어져요.",
+        },
+        {
+          q: "하회마을은 어떻게 가나요?",
+          a: "안동 시내에서 시내버스나 차량으로 이동할 수 있고, 마을 입구 매표소에서 주차장·셔틀버스가 모두 무료로 운영돼요. 체력이 되면 나룻배를 타고 강 건너 부용대까지 가보면 마을 전경을 한눈에 담을 수 있습니다.",
+        },
+      ],
+      en: [
+        {
+          q: "What's the admission fee and visiting hours for Hahoe Village?",
+          a: "Admission is ₩5,000 for adults, ₩2,500 for teens, and ₩1,500 for children, with free entry for those 6 and under or 65 and up. Visiting hours run 9am-6pm from April to September and 9am-5pm from October to March, with no closed days.",
+        },
+        {
+          q: "When can I watch the Hahoe mask dance?",
+          a: "The Hahoe Byeolsingut Talnori mask dance runs free at the mask dance hall near the village entrance, Tuesday through Sunday from 2 to 3pm, March through December (Saturdays and Sundays only in January and February). Six acts are followed by an audience-joined finale.",
+        },
+        {
+          q: "How do you get to Hahoe Village?",
+          a: "You can reach it by local bus or car from downtown Andong, and parking plus the shuttle bus at the entrance ticket office are both free. If you've got the energy, take the traditional ferry across to Buyongdae cliff for a full panoramic view of the village.",
+        },
+      ],
+      zh: [
+        {
+          q: "河回村的门票和开放时间是怎样的？",
+          a: "成人票5,000韩元、青少年2,500韩元、儿童1,500韩元，6岁以下及65岁以上免费。开放时间为4~9月9:00~18:00，10~3月9:00~17:00，全年无休。",
+        },
+        {
+          q: "什么时候能看到河回假面舞？",
+          a: "河回别神巫假面舞在3~12月每周二至周日下午2点到3点（1、2月仅周六周日），于村口传承会馆免费上演。六幕演出结束后还有观众一起参与的谢幕环节。",
+        },
+        {
+          q: "河回村怎么去？",
+          a: "从安东市区可以乘市内巴士或开车前往，村口售票处的停车场和摆渡车都是免费的。体力允许的话，可以乘船渡江到对岸的夫容台，一览整个村子的全景。",
+        },
+      ],
+      vi: [
+        {
+          q: "Vé vào cửa và giờ tham quan làng Hahoe thế nào?",
+          a: "Vé 5.000 won cho người lớn, 2.500 won cho thanh thiếu niên, 1.500 won cho trẻ em, miễn phí cho người từ 6 tuổi trở xuống hoặc 65 tuổi trở lên. Giờ tham quan là 9h-18h từ tháng 4 đến tháng 9, và 9h-17h từ tháng 10 đến tháng 3, không nghỉ ngày nào.",
+        },
+        {
+          q: "Khi nào có thể xem múa mặt nạ Hahoe?",
+          a: "Múa mặt nạ Hahoe Byeolsingut Talnori biểu diễn miễn phí tại hội quán gần cổng làng, từ thứ Ba đến Chủ nhật, 14h-15h, từ tháng 3 đến tháng 12 (tháng 1-2 chỉ thứ Bảy, Chủ nhật). Sáu màn biểu diễn kết thúc bằng phần giao lưu cùng khán giả.",
+        },
+        {
+          q: "Đi đến làng Hahoe bằng cách nào?",
+          a: "Bạn có thể đi xe buýt nội thành hoặc ô tô từ trung tâm Andong, bãi đỗ xe và xe buýt đưa đón tại cổng vào đều miễn phí. Nếu còn sức, hãy đi thuyền gỗ truyền thống qua vách đá Buyongdae để ngắm toàn cảnh làng.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "hyeopjae-beach",
+    publishedAt: "2026-08-06",
+    region: "jeju",
+    category: "nature",
+    nameKo: "협재해변",
+    nameEn: "Hyeopjae Beach",
+    nameZh: "协才海水浴场",
+    nameVi: "Bãi biển Hyeopjae",
+    summaryKo:
+      "제주 서쪽 한림읍, 에메랄드빛 바다 위로 화산섬 비양도가 떠 있는 협재해수욕장이에요. 수심 얕고 경사 완만해 아이 동반 가족 여행에 딱이고, 걸어서 5분이면 한림공원까지 이어져요.",
+    summaryEn:
+      "Emerald water, gentle slopes, and the volcanic island of Biyangdo floating just offshore — Hyeopjae Beach on Jeju's west coast is built for family swims and sunset photos, with Hallim Park a 5-minute walk away.",
+    summaryZh:
+      "济州岛西部翰林邑的协才海水浴场，翡翠色海面上漂浮着火山岛飞扬岛。水浅坡缓非常适合亲子戏水，步行5分钟就能到韩林公园。",
+    summaryVi:
+      "Nước biển xanh ngọc lục bảo, dốc thoải, và đảo núi lửa Biyangdo trôi nổi ngoài khơi — bãi biển Hyeopjae ở bờ tây Jeju sinh ra để dành cho gia đình tắm biển và chụp ảnh hoàng hôn, cách Công viên Hallim chỉ 5 phút đi bộ.",
+    overviewKo: [
+      "협재해수욕장은 제주 서쪽 한림읍에 있는 백사장으로, 제주 사람들도 '서부 해변 원탑'으로 꼽는 곳이에요. 조개껍질 가루가 잔뜩 섞인 하얀 모래와 에메랄드빛 코발트 바다, 그 위로 떠 있는 화산섬 비양도가 한 프레임에 딱 들어오는 풍경이 이 해변의 시그니처예요. 수심이 얕고 경사가 완만해서 아이 동반 가족 여행객들이 몰리는 이유이기도 하고요.",
+      "해변 정면에 보이는 비양도는 협재의 상징 그 자체예요. 조선시대 지리서 《신증동국여지승람》에는 고려 목종 때(1002년 혹은 1007년) 바다 한가운데서 갑자기 산이 솟아올라 생긴 섬이라는 극적인 기록이 남아 있는데, 실제 지질 조사로는 약 2만 7천 년 전 빙하기 화산활동으로 만들어진 걸로 밝혀졌어요. 어느 쪽이든 신비로운 섬인 건 확실하고, 한림항에서 배로 15분이면 닿을 수 있어요 — 등대와 등산로, 화산 지형이 있어서 협재까지 왔다면 한 번쯤 건너가 볼 만합니다.",
+      "협재의 매력은 낮과 밤이 달라요. 낮엔 스노클링하기 좋을 만큼 물이 맑고 얕아서 아이들 물놀이 천국이고, 해 질 무렵엔 비양도 실루엣 뒤로 지는 노을이 유명해서 일몰 사진 명소로 불려요. 해변 자체가 제주올레 14코스에 걸쳐 있어서 산책 삼아 걷다 보면 자연스럽게 노을까지 챙기는 코스가 나옵니다.",
+      "편의시설도 꽤 잘 갖춰져 있어요. 탈의실·샤워실·식수대·화장실이 다 있고, 여름 성수기엔 밤 7시부터 10시까지 야간개장까지 하니 낮 더위를 피해 저녁에 놀러 가는 것도 방법이에요. 해변 뒤편은 울창한 송림이라 야영이나 산림욕 하기도 좋고, 근처 바다에서 전복·소라가 많이 잡혀서 싱싱한 해산물 맛집도 여럿이에요. 남서쪽으로는 금능해수욕장과 이어져 있어서 주민들은 두 해변을 통틀어 협재해수욕장이라 부르기도 해요.",
+      "가는 법은 렌터카가 제일 편하고, 대중교통이면 제주공항이나 제주시외버스터미널에서 서부 방면 노선버스(202번 등)를 타고 한림·협재리 방면으로 이동하면 됩니다. 주차장은 백사장 남쪽의 2주차장이 제일 넓고 장애인 주차 공간도 있어요. 걸어서 5분 거리에 한림공원이 있어서 야자수·동굴·수선화 정원을 함께 둘러보기 좋고, 협재굴·명월대 같은 소소한 명소도 근처에 있어요. 개장 기간은 6월 말~9월 초지만, 여름 성수기엔 사람과 차가 많이 몰리니 아침 일찍 가는 게 여유롭게 즐기는 팁이에요.",
+    ],
+    overviewEn: [
+      "Hyeopjae Beach sits on Jeju's west coast in Hallim-eup, and locals themselves call it the island's best west-side beach. Its signature look: white sand thick with crushed shell, cobalt-emerald water, and the volcanic island of Biyangdo floating right in the frame. The water is shallow with a gentle slope, which is exactly why families with kids flock here.",
+      "Biyangdo, the island facing the beach, is basically Hyeopjae's mascot. A Joseon-era geography text, the Sinjeung Dongguk Yeoji Seungnam, records a dramatic legend: during the reign of Goryeo's King Mokjong (either 1002 or 1007), a mountain suddenly rose out of the sea to form the island. Modern geological surveys tell a different story — the island actually formed from volcanic activity roughly 27,000 years ago, during an ice age. Either way, it's a genuinely mysterious little island, and a 15-minute ferry from Hallim Port gets you there — worth the crossing once for the lighthouse, hiking trail, and volcanic terrain.",
+      "Hyeopjae has two completely different personalities by time of day. In daylight, the water's clear and shallow enough for snorkeling, making it a kids' paradise; toward evening, it's famous for sunsets that silhouette Biyangdo — a genuine photo destination. The beach itself sits on Jeju Olle Trail Course 14, so a casual stroll naturally lines up with sunset timing.",
+      "The amenities are solid too — changing rooms, showers, drinking water stations, and restrooms are all on site, and during peak summer the beach even opens at night from 7 to 10pm, so you can dodge the daytime heat and swim after dark. Behind the beach is a dense pine forest good for camping or a bit of forest bathing, and the nearby waters are rich in abalone and conch, so fresh seafood restaurants are easy to find. To the southwest it connects to Geumneung Beach, and locals sometimes lump the two together under the Hyeopjae name.",
+      "A rental car is the easiest way to get here; by public transit, catch a west-bound route bus (like the 202) from Jeju Airport or the Jeju Intercity Bus Terminal toward Hallim/Hyeopjae-ri. Parking Lot 2, south of the sand, is the biggest and has designated disabled parking. Hallim Park is a 5-minute walk away with palm trees, caves, and a daffodil garden if you want to extend the trip, and smaller sights like Hyeopjaegul Cave and Myeongwoldae are nearby too. The official swimming season runs late June through early September, but summer peak season brings heavy crowds and traffic — an early morning visit is your best bet for breathing room.",
+    ],
+    overviewZh: [
+      "协才海水浴场位于济州岛西部翰林邑，本地人自己都称它为岛上西侧最强海滩。招牌画面是：混着碎贝壳粉的白沙滩、钴蓝到翠绿的海水，加上正前方漂浮的火山岛飞扬岛，三者同框构成一幅经典风景。水浅坡缓，正是携带小孩的家庭游客扎堆于此的原因。",
+      "正对海滩的飞扬岛几乎就是协才的象征。朝鲜时代地理志《新增东国舆地胜览》记载了一段戏剧性传说：高丽穆宗在位期间（1002年或1007年），一座山突然从海中升起形成了这座岛。但现代地质调查显示，这座岛实际是约2.7万年前冰河时期火山活动的产物。不管哪种说法，这都是一座真正神秘的小岛，从翰林港坐船15分钟就能到——那里有灯塔、登山道和火山地貌，来协才一趟不妨渡海一次。",
+      "协才白天和夜晚是两种完全不同的气质。白天海水清澈又浅，适合浮潜，是孩子们的天堂；傍晚则以飞扬岛剪影映衬的落日闻名，是名副其实的日落打卡地。海滩本身正好在济州偶来14号步道上，随意散步走着走着就能顺路等到日落。",
+      "配套设施也很齐全——更衣室、淋浴间、饮水台、洗手间一应俱全，夏季旺季晚上7点到10点还会开放夜场，白天太热的话晚上下水也是个办法。海滩后方是茂密的松树林，很适合露营或森林浴，附近海域盛产鲍鱼和海螺，新鲜海鲜餐厅也不少。西南方向和金陵海水浴场相连，当地人有时会把两片海滩统称为协才海水浴场。",
+      "自驾最方便，坐公交的话可以从济州机场或济州市外巴士客运站搭乘开往西部方向的路线巴士（如202路）前往翰林、协才里方向。停车场以沙滩南侧的第2停车场最大，还设有残疾人专用车位。步行5分钟就是韩林公园，可以顺路逛棕榈树、洞穴和水仙花园，协才窟、明月台这类小众景点也在附近。开放期是6月底到9月初，不过夏季旺季人车都很拥挤，一大早去才能玩得从容。",
+    ],
+    overviewVi: [
+      "Bãi biển Hyeopjae nằm ở bờ tây đảo Jeju, thuộc Hallim-eup, và chính người dân địa phương cũng gọi đây là bãi biển đẹp nhất phía tây đảo. Hình ảnh đặc trưng của nơi này là: cát trắng lẫn nhiều vụn vỏ sò, làn nước xanh coban pha ngọc lục bảo, và hòn đảo núi lửa Biyangdo trôi nổi ngay trước mắt. Nước nông và dốc thoải chính là lý do các gia đình có trẻ nhỏ đổ về đây.",
+      "Đảo Biyangdo nằm đối diện bãi biển gần như là biểu tượng của Hyeopjae. Sách địa lý thời Joseon Sinjeung Dongguk Yeoji Seungnam ghi lại một truyền thuyết đầy kịch tính: dưới thời vua Mokjong triều Goryeo (năm 1002 hoặc 1007), một ngọn núi đột nhiên trồi lên từ biển tạo thành hòn đảo này. Nhưng khảo sát địa chất hiện đại lại cho thấy hòn đảo thực chất hình thành từ hoạt động núi lửa cách đây khoảng 27.000 năm, trong thời kỳ băng hà. Dù theo cách nào thì đây vẫn là một hòn đảo bí ẩn thực sự, và chỉ cần đi phà 15 phút từ cảng Hallim là tới nơi — có hải đăng, đường mòn leo núi và địa hình núi lửa, đáng để ghé qua một lần khi đã đến Hyeopjae.",
+      "Hyeopjae mang hai vẻ hoàn toàn khác nhau giữa ngày và đêm. Ban ngày nước trong và nông, đủ để lặn ngắm san hô, là thiên đường cho trẻ nhỏ; về chiều tối thì nổi tiếng với cảnh hoàng hôn in bóng đảo Biyangdo — một điểm chụp ảnh hoàng hôn đích thực. Bãi biển nằm ngay trên cung đường Olle số 14 của Jeju, nên chỉ cần dạo bộ thong thả là tự nhiên canh được giờ hoàng hôn.",
+      "Tiện ích ở đây cũng khá đầy đủ — phòng thay đồ, vòi sen, trạm nước uống, nhà vệ sinh đều có sẵn, và vào mùa hè cao điểm bãi biển còn mở cửa đêm từ 19h đến 22h, nên có thể tránh nắng ban ngày và xuống tắm vào buổi tối. Phía sau bãi biển là rừng thông rậm rạp, thích hợp cắm trại hay tắm rừng, còn vùng biển gần đó nhiều bào ngư và ốc nên các quán hải sản tươi cũng dễ tìm. Về phía tây nam, bãi biển nối liền với bãi Geumneung, nên người dân đôi khi gọi chung cả hai là Hyeopjae.",
+      "Thuê xe tự lái là cách tiện nhất, còn nếu đi phương tiện công cộng thì bắt xe buýt tuyến phía tây (như tuyến 202) từ sân bay Jeju hoặc Bến xe liên tỉnh Jeju hướng về Hallim/Hyeopjae-ri. Bãi đỗ xe số 2 ở phía nam bãi cát là lớn nhất và có chỗ đậu dành cho người khuyết tật. Đi bộ 5 phút là tới Công viên Hallim với cây cọ, hang động và vườn hoa thủy tiên nếu muốn kéo dài chuyến đi, còn những điểm nhỏ hơn như hang Hyeopjaegul, đài Myeongwoldae cũng ở gần đó. Mùa tắm biển chính thức từ cuối tháng 6 đến đầu tháng 9, nhưng cao điểm mùa hè rất đông người và xe, nên đi từ sáng sớm sẽ thoải mái hơn.",
+    ],
+    tips: {
+      ko: [
+        "수심 얕고 경사 완만해서 아이 동반 가족 여행객에게 특히 좋아요.",
+        "일몰 명소로 유명 — 비양도 실루엣 뒤로 지는 해를 노려보세요.",
+        "여름 성수기엔 밤 7~10시 야간개장도 하니 낮 더위 피해 저녁 물놀이도 방법.",
+        "비양도 가려면 한림항에서 배로 15분, 협재 백사장에서 직접 갈 수는 없어요.",
+        "2주차장(백사장 남쪽)이 가장 넓고 장애인 주차 구역도 있어요.",
+      ],
+      en: [
+        "Shallow water and a gentle slope make this a top pick for families with young kids.",
+        "Famous sunset spot — watch the sun drop behind Biyangdo's silhouette.",
+        "Summer peak season adds a night opening (7–10pm), a good way to dodge the daytime heat.",
+        "To reach Biyangdo, take the 15-minute ferry from Hallim Port — you can't walk there from the sand.",
+        "Parking Lot 2 (south of the beach) is the largest, with designated disabled parking.",
+      ],
+      zh: [
+        "水浅坡缓，特别适合带小孩的家庭出游。",
+        "著名日落景点——记得等飞扬岛剪影后方的落日。",
+        "夏季旺季晚上7点到10点有夜场开放，可以避开白天酷热改在傍晚戏水。",
+        "去飞扬岛要从翰林港坐船15分钟，协才沙滩没法直接走过去。",
+        "第2停车场（沙滩南侧）最大，还设有残疾人专用车位。",
+      ],
+      vi: [
+        "Nước nông, dốc thoải, cực kỳ phù hợp cho gia đình có trẻ nhỏ.",
+        "Điểm ngắm hoàng hôn nổi tiếng — đón mặt trời lặn sau bóng đảo Biyangdo.",
+        "Mùa hè cao điểm có mở cửa đêm (19h–22h), cách hay để tránh nắng ban ngày và tắm biển buổi tối.",
+        "Muốn ra đảo Biyangdo phải đi phà 15 phút từ cảng Hallim, không thể đi bộ từ bãi cát.",
+        "Bãi đỗ xe số 2 (phía nam bãi biển) lớn nhất và có khu vực dành cho người khuyết tật.",
+      ],
+    },
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Hyeopjae_Beach_Scenery.jpg/1280px-Hyeopjae_Beach_Scenery.jpg",
+      alt: "협재해수욕장과 비양도 — Hyeopjae Beach with Biyangdo island, Jeju",
+      license: "CC BY-SA 4.0",
+      credit: "Wikimedia Commons / Lcarrion88",
+      creditUrl: "https://commons.wikimedia.org/wiki/File:Hyeopjae_Beach_Scenery.jpg",
+    },
+    lat: 33.393845,
+    lng: 126.239716,
+    addressKo: "제주특별자치도 제주시 한림읍 한림로 329-10",
+    addressEn: "329-10 Hallim-ro, Hallim-eup, Jeju-si, Jeju-do",
+    tags: {
+      ko: ["협재해수욕장", "제주 해변", "비양도", "한림공원", "제주 여행"],
+      en: ["Hyeopjae Beach", "Jeju beach", "Biyangdo", "Hallim Park", "Jeju travel"],
+      zh: ["协才海水浴场", "济州海滩", "飞扬岛", "韩林公园", "济州旅游"],
+      vi: ["bãi biển Hyeopjae", "biển Jeju", "đảo Biyangdo", "Công viên Hallim", "du lịch Jeju"],
+    },
+    faq: {
+      ko: [
+        {
+          q: "협재해수욕장 개장 시기와 입장료는?",
+          a: "공식 개장 기간은 6월 말부터 9월 초까지이며 입장료는 없습니다. 여름 성수기엔 밤 7시부터 10시까지 야간개장도 운영해요.",
+        },
+        {
+          q: "비양도는 어떻게 가나요?",
+          a: "협재 백사장에서 직접 걸어갈 수는 없고, 근처 한림항에서 배를 타면 약 15분 만에 닿습니다. 등대와 등산로, 화산 지형이 있어 협재까지 온 김에 건너가 볼 만해요.",
+        },
+        {
+          q: "협재해수욕장은 아이와 함께 가기 좋은가요?",
+          a: "네, 다른 제주 해변보다 수심이 얕고 경사가 완만해 가족 단위 여행객에게 특히 인기예요. 탈의실·샤워실·식수대·화장실 같은 편의시설도 잘 갖춰져 있고, 걸어서 5분 거리에 한림공원도 있습니다.",
+        },
+      ],
+      en: [
+        {
+          q: "When's the swimming season at Hyeopjae Beach, and is there an entrance fee?",
+          a: "The official season runs from late June through early September, and there's no entrance fee. During peak summer, the beach also opens at night from 7 to 10pm.",
+        },
+        {
+          q: "How do you get to Biyangdo island?",
+          a: "You can't walk there from Hyeopjae's sand — take the roughly 15-minute ferry from nearby Hallim Port instead. With a lighthouse, hiking trail, and volcanic terrain, it's worth the crossing while you're in the area.",
+        },
+        {
+          q: "Is Hyeopjae Beach good for a family trip with kids?",
+          a: "Yes — the water here is shallower and the slope gentler than most Jeju beaches, making it a favorite with families. Amenities like changing rooms, showers, drinking water, and restrooms are all on site, and Hallim Park is just a 5-minute walk away.",
+        },
+      ],
+      zh: [
+        {
+          q: "协才海水浴场的开放期和门票是？",
+          a: "官方开放期是6月底到9月初，不收门票。夏季旺季晚上7点到10点还有夜场开放。",
+        },
+        {
+          q: "怎么去飞扬岛？",
+          a: "从协才沙滩没法直接走过去，需要从附近的翰林港坐船，大约15分钟就能到。岛上有灯塔、登山道和火山地貌，来协才顺路渡海一次很值得。",
+        },
+        {
+          q: "协才海水浴场适合带孩子去吗？",
+          a: "适合，这里比济州其他海滩水更浅、坡度更缓，特别受家庭游客欢迎。更衣室、淋浴间、饮水台、洗手间等设施也很齐全，步行5分钟就到韩林公园。",
+        },
+      ],
+      vi: [
+        {
+          q: "Mùa tắm biển ở Hyeopjae là khi nào, có mất phí vào cửa không?",
+          a: "Mùa chính thức từ cuối tháng 6 đến đầu tháng 9, và không mất phí vào cửa. Vào cao điểm mùa hè, bãi biển còn mở cửa đêm từ 19h đến 22h.",
+        },
+        {
+          q: "Đi đến đảo Biyangdo bằng cách nào?",
+          a: "Không thể đi bộ từ bãi cát Hyeopjae, bạn cần đi phà khoảng 15 phút từ cảng Hallim gần đó. Đảo có hải đăng, đường mòn leo núi và địa hình núi lửa, rất đáng ghé qua khi đã tới Hyeopjae.",
+        },
+        {
+          q: "Bãi biển Hyeopjae có phù hợp đi cùng trẻ nhỏ không?",
+          a: "Có, nước ở đây nông hơn và dốc thoải hơn nhiều bãi biển khác ở Jeju, nên rất được các gia đình yêu thích. Tiện ích như phòng thay đồ, vòi sen, trạm nước uống, nhà vệ sinh đều đầy đủ, và Công viên Hallim chỉ cách 5 phút đi bộ.",
+        },
+      ],
+    },
+  },
 ];
 
 /** slug → 명소 조회 */
